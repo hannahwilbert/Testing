@@ -1,0 +1,98 @@
+<article class="hidden px-6 md:block py-36 md:px-0 lg:px-10 bg-slate-300">
+  <div class="container mx-auto">
+    <h2 class="pb-8 text-4xl font-bold text-center">Our Customer's Mission, is our Mission</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+
+      {% for cust in custSuccess.items %} 
+      {% if cust.buttonUrl == "#" %}
+      <a href="#" class="relative block group h-72">
+        <span class="absolute inset-0 transition-opacity bg-gray-300 opacity-0 blur group-hover:opacity-100 "></span>
+        <div
+          class="relative flex items-end h-full transition-transform transform group-hover:-translate-x-2 group-hover:-translate-y-2">
+          <!-- front side -->
+          <div role="img" aria-label="{{ cust.imgAlt }}" style="background-image: url('{{ cust.img }}') ;"
+            class="w-full h-full px-8 pb-8 transition-opacity bg-center bg-no-repeat bg-cover group-hover:opacity-0 group-hover:absolute">
+
+          </div>
+          <!-- back side -->
+          <div
+            class="absolute w-full h-full p-8 transition-opacity bg-white opacity-0 group-hover:opacity-100 group-hover:relative">
+            <div class="relative h-full">
+              <div class="flex flex-col text-center">
+                <p class="mb-5 text-2xl font-bold">{{ cust.category }}</p>
+                <p class="font-bold text-gray-600 text-md">{{ cust.title }}</p>
+                <p class="text-sm text-gray-500">{{ cust.summary }}</p>
+
+              </div>
+              <!-- <div class="absolute bottom-0 flex flex-wrap justify-center w-full gap-1">
+                <p class="text-lg font-bold text-teal-500 cursor-pointer hover:underline">Learn More</p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </a>
+      {% else %}
+      <a href="/public/{{ cust.buttonUrl }}" class="relative block group h-72">
+        <span class="absolute inset-0 transition-opacity bg-gray-300 opacity-0 blur group-hover:opacity-100 "></span>
+        <div
+          class="relative flex items-end h-full transition-transform transform group-hover:-translate-x-2 group-hover:-translate-y-2">
+          <!-- front side -->
+          <div role="img" aria-label="{{ cust.imgAlt }}" style="background-image: url('{{ cust.img }}') ;"
+            class="w-full h-full px-8 pb-8 transition-opacity bg-center bg-no-repeat bg-cover group-hover:opacity-0 group-hover:absolute">
+
+          </div>
+          <!-- back side -->
+          <div
+            class="absolute w-full h-full p-8 transition-opacity bg-white opacity-0 group-hover:opacity-100 group-hover:relative">
+            <div class="relative h-full">
+              <div class="flex flex-col text-center">
+                <p class="mb-5 text-2xl font-bold">{{ cust.category }}</p>
+                <p class="font-bold text-gray-600 text-md">{{ cust.title }}</p>
+                <p class="text-sm text-gray-500">{{ cust.summary }}</p>
+
+              </div>
+              <div class="absolute bottom-0 flex flex-wrap justify-center w-full gap-1">
+                <p class="text-lg font-bold text-teal-500 cursor-pointer hover:underline">Learn More</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      {% endif %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+</article>
+
+<article class="px-6 md:hidden py-36 md:px-0 lg:px-10">
+  <div class="container mx-auto">
+    <h2 class="pb-8 text-3xl font-bold text-center">Our Customer's Mission is L3's Mission</h2>
+
+    <div class="grid grid-cols-1">
+      {% for cust in custSuccess.items %}
+      <div class="flex flex-col mb-4 rounded shadow-md ">
+
+        <div style="background-image: url('{{ cust.img }}') ;"
+          class="w-full bg-center bg-no-repeat bg-cover rounded-t h-36 ">
+        </div>
+        <!-- back side -->
+        <div class="p-8 bg-white">
+     
+            <div class="flex flex-col text-center">
+              <p class="mb-3 text-2xl font-bold">{{ cust.category }}</p>
+              <p class="font-bold text-gray-600 text-md">{{ cust.title }}</p>
+              <p class="text-sm text-gray-500">{{ cust.summary }}</p>
+
+            </div>
+      
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+
+  </div>
+</article>

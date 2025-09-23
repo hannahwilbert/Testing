@@ -1,0 +1,64 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section style="background-image: url('/images/ms/ztna/hero.webp') ;" class="relative w-full px-10 pt-16 text-white bg-center bg-no-repeat bg-cover font-open" aria-label="Diagram of an exmaple ZTNA setup">
+  <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-teal-900/50 to-black/10">&nbsp;</div>
+  <div class="container relative px-0 pb-16 text-center md:px-0 md:mx-auto md:py-32 ">
+    <h1 class="mb-5 text-5xl font-bold md:text-7xl">Fortinet <br><span class="text-[#31e3cb] uppercase md:text-8xl font-black tracking-tighter">Zero Trust <br>Network Access</span><br>(ZTNA)</h1>
+  </div>
+</section>
+
+<article class="block">
+
+
+<div class="py-24 md:pb-48 bg-slate-100 md:pt-28 font-open">
+  <div class="p-8 mx-auto md:p-0 md:w-3/5">
+    <h2 class="mb-8 text-4xl font-bold tracking-tighter text-center md:text-5xl">What is Fortinet ZTNA?</h2>
+    <p class="text-lg tracking-wide text-center text-slate-700">
+      Fortinet Zero Trust Network Access (ZTNA) is a cutting-edge cybersecurity solution designed to secure your network by eliminating implicit trust and enforcing stringent access controls.
+      In an era where cyber threats are becoming increasingly sophisticated, traditional security models are no longer sufficient. Fortinet ZTNA offers a modern, robust approach to network security that adapts to the evolving threat landscape.
+    </p>
+  </div>
+</div>
+
+<div class="relative p-8 mx-auto text-lg text-center text-white md:p-16 md:w-3/5 md:rounded-2xl bg-slate-900 md:-top-32 font-open">
+  <h3 class="text-[#31e3cb] font-black text-3xl">Want to learn more?</h3>
+  <p class="pt-3 pb-6 tracking-wide">See Fortinet ZTNA in action and understand its benefits for your organization.</p>
+  <button @click="showModal = true" class="px-5 py-3 text-lg font-bold text-white transition-all duration-200 bg-transparent border-2 border-white rounded-lg md:text-xl md:px-10 md:py-4 hover:bg-teal-500">Request a Demo</button>
+</div>
+
+
+<div class="p-8 py-24 bg-white md:px-36 md:pb-28 font-open">
+
+  <h2 class="mx-6 mb-10 text-4xl font-bold tracking-tighter text-center md:text-5xl">Key Features of Fortinet ZTNA</h2>
+
+
+  {% for item in items %}
+    <div class="mx-auto mb-12 text-center md:w-3/5">
+      <img class="block mx-auto mb-2 h-28" src="{{item.svg}}" alt="{{item.title}}">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight">{{item.title}}</h3>
+      <p class="text-lg tracking-wide text-slate-700">{{item.content}}</p>
+    </div>
+  {% endfor %}
+
+
+<div class="relative p-8 mx-auto text-lg text-center text-white md:w-3/5 md:p-16 rounded-2xl bg-slate-900 mt-14 font-open">
+  <h3 class="text-[#31e3cb] font-black text-3xl">Have questions?</h3>
+  <p class="pt-3 pb-6 tracking-wide">Discover how Fortinet ZTNA can revolutionize your network security.</p>
+  <button @click="showModal = true" class="px-5 py-3 text-lg font-bold text-white transition-all duration-200 bg-transparent border-2 border-white rounded-lg md:text-xl md:px-10 md:py-4 hover:bg-teal-500">Learn More</button>
+</div>
+
+
+</div>
+
+</article>
+
+
+
+
+
+
+{% include "partials/footer-ms.html" %}
+
+{% endblock %}

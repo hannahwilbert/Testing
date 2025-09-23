@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NQWMRR7JG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8NQWMRR7JG');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  {% include "partials/meta-info.html" %}
+
+  <!-- Swiper CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Your compiled Tailwind -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  {% include "partials/happierleads.html" %}
+</head>
+
+<body class="relative font-inter bg-black" x-data="{ showModal: false }" @keydown.escape="showModal = false">
+  {% include "partials/site-headB.html" %}
+  {% include "partials/site-head-mobile.html" %}
+  <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>
+
+  <!-- JS LIBS (CDN) -->
+  <!-- Alpine plugin THEN Alpine core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Anime.js -->
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Typed.js (you already had this from CDN) -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- If you actually have a local custom script, include it AFTER libs.
+       Otherwise keep it commented to avoid 404/MIME errors. -->
+  <!-- <script src="/js/animate.js"></script> -->
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const heroswiper = new Swiper('#hero', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        autoplay: { delay: 8000 },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { el: ".swiper-pagination" }
+      });
+
+      const swiper = new Swiper('#swiper', {
+        loop: true,
+        loopFillGroupWithBlank: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loopedSlides: 10,
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          1024:{ slidesPerView: 4 },
+          1280:{ slidesPerView: 5 },
+        },
+        navigation: { nextEl: '.next-swipe', prevEl: '.prev-swipe' },
+      });
+
+      const homeswiper = new Swiper('#homeswiper', {
+        loop: true,
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      });
+    });
+  </script>
+</body>
+</html>

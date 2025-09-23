@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+@config './tailwind.config.js';
+
+@utility text-outline-white {
+  text-shadow:
+    1px 1px 0 #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.benefit {
+  @apply hover:text-white transition-all duration-500
+}
+
+.solution {
+  @apply hover:text-white transition-all duration-500
+}
+
+.list-check {
+  list-style-type: '✓ ';
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-white
+}
+
+.swiper-button-next, .swiper-button-prev {
+  @apply text-white
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+.prodTable {
+  @apply w-full md:text-sm text-xs
+}
+
+.prodTable th, .prodTable td {
+  @apply border-y border-slate-800 py-3 px-3
+}
+
+.prodTable th {
+  @apply font-semibold
+}
+
+.prodTable tr td:first-child, .prodTable tr th:first-child {
+  @apply text-left font-semibold
+}
+
+.prodTable tr {
+  @apply text-center
+}
+
+.prodTable td {
+  @apply font-light
+}
+
+.prodTable thead tr {
+  @apply bg-slate-900/80 text-white
+}
+
+.prodTable tbody tr td:first-child {
+  @apply bg-slate-900/50
+}
+
+.prodList {
+  @apply mt-3 ml-3 space-y-3 font-light list-disc list-inside text-sm md:text-base
+}
+
+.l3-card {
+  @apply transition-all duration-300 border rounded-lg md:flex-row bg-slate-900/50 border-slate-800 hover:border-slate-700
+}

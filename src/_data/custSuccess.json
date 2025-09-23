@@ -1,0 +1,112 @@
+
+{
+  "items": [
+    {
+      "category": "Manufacturing",
+      "title": "Roland Corporation",
+      "summary": "Roland Corporation has been a driver of innovation for over 50 years as a manufacturer of electronic musical instruments.",
+      "buttonUrl": "#",
+      "img": "/images/home/music.webp",
+      "imgAlt": "DJ adjusting knobs on a colorful mixing console",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-yellow-400 \">Cloud & Systems</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400 \">Managed Networks</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-blue-400 \">Cyber Security</span>"
+      ]
+    },
+    {
+      "category": "Entertainment",
+      "title": "Fremantle",
+      "summary": "A world leader in creating, producing and distributing content. We are an independent group of talents, studios and producers, content makers, creative incubators, culture shapers and game changers, operating in 27 territories across the world.",
+      "buttonUrl": "#",
+      "img": "/images/home/studio.webp",
+      "imgAlt": "Person holding a clapperboard on a film set",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-yellow-400\">Cloud & Systems</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400\">Managed Networks</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-blue-400\">Cyber Security</span>"
+      ]
+    },
+    {
+      "category": "Logistics",
+      "title": "MNX",
+      "summary": "Routinely solving the world’s most complex logistics challenges",
+      "buttonUrl": "#",
+      "img": "/images/home/plane.webp",
+      "imgAlt": "Airplane on tarmac at sunset",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-yellow-400\">Cloud & Systems</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400\">Managed Networks</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-blue-400\">Cyber Security</span>"
+      ]
+    },
+    {
+      "category": "Finance",
+      "title": "AAG",
+      "summary": "Helping Americans navigate their way into and through retirement with ease and peace of mind by providing them with personalized service and a suite of home equity solutions designed to give them the best financial outcome for a better retirement.",
+      "buttonUrl": "#",
+      "img": "/images/home/finance.webp",
+      "imgAlt": "Two people reviewing graphs and data in a bright office setting",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400\">Managed Networks</span>"
+      ]
+    },
+    {
+      "category": "Services",
+      "title": "Republic Masterchefs",
+      "summary": "Proudly serving Restaurant Linen & Uniform needs in the Los Angeles Greater Area since 1932. To safely and sustainably provide our customers industry leading services through a combination of extraordinary customer service and high-quality, innovative products.",
+      "buttonUrl": "Customer Success - ATM - JAN 23.pdf",
+      "img": "/images/home/services.webp",
+      "imgAlt": "Chef cooking with a flaming pan in a professional kitchen",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-yellow-400\">Cloud & Systems</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-slate-400\">User & Device Management</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400\">Managed Networks</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-blue-400\">Cyber Security</span>"
+      ]
+    },
+    {
+      "category": "Design, Build",
+      "title": "DGA",
+      "summary": "DGA is one of California's leading advanced firms specializing in the design of technical facilities for the advancement of the life sciences, technology, mission critical, healthcare and education.",
+      "buttonUrl": "Customer Success - DGA - JAN 23.pdf",
+      "img": "/images/home/designbuild.webp",
+      "imgAlt": "Person using a computer to design a complex structure, focus on the screen",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-yellow-400\">Cloud & Systems</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-slate-400\">User & Device Management</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400\">Managed Networks</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-blue-400\">Cyber Security</span>"
+      ]
+    },
+    {
+      "category": "Healthcare",
+      "title": "Exodus Recovery",
+      "summary": "Providing quality psychiatric and chemical dependency treatment services to Southern California communities. Our concept of total health care incorporates the physical, emotional, and spiritual needs of each client.",
+      "buttonUrl": "Customer Success - Exodus - JAN 23.pdf",
+      "img": "/images/home/community.webp",
+      "imgAlt": "Hands joined together, symbolizing unity and friendship",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-yellow-400\">Cloud & Systems</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-slate-400\">User & Device Management</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400\">Managed Networks</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-blue-400\">Cyber Security</span>"
+      ]
+    },
+    {
+      "category": "Manufacturing",
+      "title": "Razor",
+      "summary": "Razor has been the worldwide leader in scooters since 2000, when we made the kick scooter a global phenomenon.",
+      "buttonUrl": "#",
+      "img": "/images/home/manufacturing.webp",
+      "imgAlt": "Person using a grinder on metal in a workshop setting",
+      "tags": [
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-yellow-400\">Cloud & Systems</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-slate-400\">User & Device Management</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-teal-400\">Managed Networks</span>",
+        "<span class=\"rounded-full py-1 px-3 text-[10px] bg-blue-400\">Cyber Security</span>"
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,273 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+{# Hero Section #}
+<style>
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 20px rgba(94, 234, 212, 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 40px rgba(94, 234, 212, 0.6);
+    }
+
+    100% {
+      box-shadow: 0 0 20px rgba(94, 234, 212, 0.3);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+    border-radius: 0.5rem;
+    /* optional: to match iframe rounding */
+  }
+</style>
+
+<section style="background-image: url('/images/products/alldeskai.png');" class="relative w-full px-6 pt-32 text-white bg-center bg-no-repeat bg-cover md:px-10 md:pt-16">
+  <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+  <div class="container relative max-w-screen-xl px-0 pb-20 text-left md:pb-32 md:px-0 md:mx-auto md:py-48">
+    
+     <img src="/images/products/alldeskailogo.svg" class="block h-32 mx-auto mb-10" alt="alldeskailogo">
+    
+    <div class="relative w-full max-w-5xl mx-auto mb-10 aspect-video">
+      <!-- Teal Glow -->
+      <div class="absolute inset-0 z-0 pointer-events-none pulse-glow"></div>
+      <!-- Vimeo Embed -->
+      <iframe 
+        class="relative z-10 object-cover w-full h-full rounded-lg"
+        src="https://player.vimeo.com/video/1084081200?h=2d829428a1&autoplay=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479"
+        frameborder="0" 
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        allowfullscreen
+        muted
+        title="059A_Helpdesk_AIEnhancedTeaser_LandingPage">
+      </iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+   
+    <button class="block mx-auto">
+      <a href="https://l3networks.timezest.com/sales/meeting-15"
+        class="block w-auto px-6 py-2.5 mx-auto text-lg font-semibold text-white transition-all ease-in-out bg-teal-500 rounded-full hover:bg-teal-600 mt-8">
+        <div class="flex items-center gap-2">Book An Appointment <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment"></div>
+      </a>
+    </button>
+
+  </div>
+</section>
+
+
+{# Main Content #}
+<main class="px-3 py-24 text-white bg-black md:px-8 2xl:px-0">
+
+<article class="container max-w-screen-xl mx-auto">
+  
+{# Product Overview #}
+<hr class="mt-4 mb-10 border-slate-700">
+<h2 class="mt-4 mb-3 text-3xl font-semibold font-mont md:mx-0">{{ prodtitle }}</h2>
+<h3 class="mb-12 text-base font-light md:w-4/5 md:mx-0 text-slate-300">{{ prodbody | safe }}</h3>
+
+<section class="grid grid-cols-1 gap-4 md:grid-cols-4">
+  {% for prop in valueProps %}
+  <div class="flex flex-row items-center gap-2 mb-4 rounded-lg md:gap-6 md:flex-col md:items-start md:mb-0">
+    {{ prop.icon | safe }}
+    {# <img class="block w-16 h-16 text-teal-400" src="" alt="{{prop.title}}"> #}
+    <div class="text-left">
+      <h3 class="mb-2 text-lg font-semibold leading-6 font-inter">{{ prop.title }}</h3>
+      <p class="text-sm font-light text-slate-400">{{ prop.description }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<div class="pt-32">&nbsp;</div>
+<hr class="mb-10 border-slate-700">
+
+<h2 class="mx-4 mt-4 mb-3 text-3xl font-semibold text-white font-mont md:mx-0">{{ keyprodsTitle }}</h2>
+<h3 class="mx-4 mb-12 text-base font-light md:mx-0 text-slate-200">{{ keyprodsBody }}</h3>
+
+<!-- Group: Insights & Analysis -->
+<div class="mb-10">
+  <div class="flex items-center w-full gap-6 mb-4">
+    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-mont text-slate-100">Insights & Analysis</h4>
+    <hr class="w-full border-teal-700">
+  </div>
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 [grid-auto-rows:1fr]">
+    {% for item in keyprods %}
+      {% if item.title == "Sentiment Analysis" or item.title == "Resolution Suggestion" %}
+      <div class="flex flex-col gap-2 p-4 text-white rounded-lg shadow-sm break-inside-avoid bg-slate-900/60">
+        {% if item.title == "Sentiment Analysis" %}
+          <i data-lucide="smile" class="w-10 h-10 text-teal-300"></i>
+        {% elif item.title == "Resolution Suggestion" %}
+          <i data-lucide="file-text" class="w-10 h-10 text-teal-300"></i>
+        {% endif %}
+        <div class="flex flex-col gap-2">
+          <p class="text-xl font-bold tracking-tight text-white">{{ item.title }}</p>
+          <p class="text-sm font-medium text-slate-200">{{ item.info }}</p>
+          <p class="text-sm font-light leading-relaxed text-slate-400">{{ item.paragraph }}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+</div>
+
+<!-- Group: Automation & Efficiency -->
+<div class="mb-10">
+  <div class="flex items-center w-full gap-6 mb-4">
+    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-mont text-slate-100">Automation & Efficiency</h4>
+    <hr class="w-full border-teal-700">
+  </div>
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 [grid-auto-rows:1fr]">
+    {% for item in keyprods %}
+      {% if item.title == "Recurring Issue Detection" or item.title == "Ai-Powered Notes" or item.title == "Ai-Chat Bot" %}
+      <div class="flex flex-col gap-2 p-4 text-white rounded-lg shadow-sm break-inside-avoid bg-slate-900/60">
+        {% if item.title == "Recurring Issue Detection" %}
+          <i data-lucide="refresh-cw" class="w-10 h-10 text-teal-300"></i>
+        {% elif item.title == "Ai-Powered Notes" %}
+          <i data-lucide="edit-3" class="w-10 h-10 text-teal-300"></i>
+        {% elif item.title == "Ai-Chat Bot" %}
+          <i data-lucide="message-circle" class="w-10 h-10 text-teal-300"></i>
+        {% endif %}
+        <div class="flex flex-col gap-2">
+          <p class="text-xl font-bold tracking-tight text-white">{{ item.title }}</p>
+          <p class="text-sm font-medium text-slate-200">{{ item.info }}</p>
+          <p class="text-sm font-light leading-relaxed text-slate-400">{{ item.paragraph }}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+</div>
+
+<!-- Group: Quality & Control -->
+<div class="mb-10">
+  <div class="flex items-center w-full gap-6 mb-4">
+    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-mont text-slate-100">Quality & Control</h4>
+    <hr class="w-full border-teal-700">
+  </div>
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 [grid-auto-rows:1fr]">
+    {% for item in keyprods %}
+      {% if item.title == "Ticket Quality Assurance" %}
+      <div class="flex flex-col gap-2 p-4 text-white rounded-lg shadow-sm break-inside-avoid bg-slate-900/60">
+        <i data-lucide="check-circle" class="w-10 h-10 text-teal-300"></i>
+        <div class="flex flex-col gap-2">
+          <p class="text-xl font-bold tracking-tight text-white">{{ item.title }}</p>
+          <p class="text-sm font-medium text-slate-200">{{ item.info }}</p>
+          <p class="text-sm font-light leading-relaxed text-slate-400">{{ item.paragraph }}</p>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+</div>
+
+
+
+
+    <div class="pt-32">&nbsp;</div>
+    <hr class="mb-10 border-slate-700">
+
+    <section class="w-full text-white">
+  <h2 class="mt-4 mb-12 text-3xl font-semibold text-white font-mont md:mx-0">
+    How All Desk Ai Stacks Up
+  </h2>
+ {% set rows = [
+        ["AI Features", "<i data-lucide='brain-circuit' class='inline w-5 h-5 text-teal-300'></i> Sentiment, Triage, Notes, QA, Issue Detection (Exclusive)", "<i data-lucide='alert-triangle' class='inline w-5 h-5 text-yellow-300'></i> Basic AI tools like summarization, intent or tone detection"],
+        ["24/7 Human Support", "<i data-lucide='users' class='inline w-5 h-5 text-teal-300'></i> Included with full coverage", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> or <i data-lucide='alert-triangle' class='inline w-5 h-5 text-yellow-300'></i> Business hours only / Limited"],
+        ["Setup & Onboarding", "<i data-lucide='user-check' class='inline w-5 h-5 text-teal-300'></i> White-Glove, Hands-on", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> or <i data-lucide='alert-triangle' class='inline w-5 h-5 text-yellow-300'></i> Paid or partial onboarding"],
+        ["Ticket Volume", "<i data-lucide='infinity' class='inline w-5 h-5 text-teal-300'></i> Unlimited (Fair Use)", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> or <i data-lucide='alert-triangle' class='inline w-5 h-5 text-yellow-300'></i> Capped or user-based limits"],
+        ["Integration (PSA, RMM)", "<i data-lucide='plug' class='inline w-5 h-5 text-teal-300'></i> Native (Autotask, Teams)", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> or <i data-lucide='alert-triangle' class='inline w-5 h-5 text-yellow-300'></i> Limited or manual"],
+        ["Chronic Issue Detection", "<i data-lucide='bug' class='inline w-5 h-5 text-teal-300'></i> Yes (Exclusive)", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> Not included"],
+        ["Internal IT Co-Management", "<i data-lucide='globe-lock' class='inline w-5 h-5 text-teal-300'></i> Yes (Exclusive)", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> Not supported"],
+        ["Support Type", "<i data-lucide='shield-check' class='inline w-5 h-5 text-teal-300'></i> Full-service ops + automation", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> Tool only or helpdesk-only"],
+        ["AI Insights & QA", "<i data-lucide='brain' class='inline w-5 h-5 text-teal-300'></i> Weekly QA + sentiment tracking (Exclusive)", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> or <i data-lucide='alert-triangle' class='inline w-5 h-5 text-yellow-300'></i> Limited or manual QA"],
+        ["Customer Impact", "<i data-lucide='chart-no-axes-combined' class='inline w-5 h-5 text-teal-300'></i> Proactive, low-friction, high CSAT", "<i data-lucide='x' class='inline w-5 h-5 text-red-400'></i> or <i data-lucide='alert-triangle' class='inline w-5 h-5 text-yellow-300'></i> Reactive or traditional workflows"]
+      ] %}
+
+<!-- Desktop Table -->
+  <div class="hidden md:block">
+    <table class="min-w-full text-sm text-left border-collapse">
+      <thead>
+        <tr>
+          <th scope="col" class="sticky left-0 z-20 p-4 bg-black">Category</th>
+          <th scope="col" class="p-4 text-base font-bold text-white rounded-t-xl bg-slate-900">All Desk Ai</th>
+          <th scope="col" class="p-4 text-white bg-slate-900/30 rounded-t-xl">The Other Guys</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr class="transition-colors duration-200 border-t border-slate-900 group hover:bg-slate-700/20">
+          <td class="sticky left-0 z-10 p-4 font-medium">{{ row[0] | safe }}</td>
+          <td class="p-4 text-base text-white bg-slate-800 group-hover:bg-slate-800/80">{{ row[1] | safe }}</td>
+          <td class="p-4 text-zinc-300 bg-slate-800/30">{{ row[2] | safe }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mobile Stack -->
+  <div class="block space-y-2 md:hidden">
+    {% for row in rows %}
+    <div class="p-4 rounded-lg break-inside-avoid bg-slate-900/60">
+      <h3 class="mb-2 text-base font-bold text-white">{{ row[0] | safe }}</h3>
+      <div class="grid grid-cols-2 gap-4 divide-x divide-slate-600">
+        <div class="col-span-1">
+          <p class="mb-1 text-xs font-semibold uppercase text-zinc-200">All Desk Ai</p>
+          <div class="text-sm font-light text-zinc-200">{{ row[1] | safe }}</div>
+        </div>
+        <div class="col-span-1">
+          <p class="mb-1 text-xs font-semibold uppercase text-zinc-400">The Other Guys</p>
+          <div class="text-sm font-light text-zinc-400">{{ row[2] | safe }}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+</section>
+
+    <div class="pt-32">&nbsp;</div>
+    <hr class="mb-10 border-slate-700">
+
+<section id="faq" class="py-12">
+  <h2 class="mt-4 mb-12 text-3xl font-semibold text-white font-mont md:mx-0">
+    Frequently Asked Questions
+  </h2>
+  <div class="space-y-10">
+    {% for category in faqCategories %}
+    <div>
+      <h3 class="mt-10 mb-4 text-xl font-semibold text-slate-600 font-mont md:mx-0">{{ category.name }}</h3>
+      <div class="space-y-4">
+        {% for faq in category.items %}
+        <div x-data="{ open: false }" class="pb-2 border-b border-b-slate-700">
+          <button @click="open = !open" :class="{'text-teal-400': open}"
+            class="flex items-center justify-between w-full text-base font-light text-left text-slate-200 hover:text-teal-400 focus:outline-none">
+            {{ faq.question }}
+            <svg :class="{'rotate-180': open}" class="w-5 h-5 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div x-show="open" x-transition.duration.300ms class="py-3 mt-2 text-sm text-gray-300" x-cloak>
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+
+  </article>
+</main>
+
+{# <div class="h-24 bg-black"></div> #}
+
+{% include "partials/footer.html" %}
+{% endblock %}

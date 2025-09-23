@@ -1,0 +1,159 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="text-white bg-black">
+  
+  <section style="background-image: url('{{imgflip}}')" class="relative flex flex-col justify-center pt-32 text-white md:h-100 min-h-[600px]">
+    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+    <div class="container relative max-w-screen-xl px-3 pb-20 text-left md:pb-32 md:px-8 2xl:px-0 md:mx-auto md:py-48">
+      <h1 class="mb-4 text-3xl font-semibold tracking-tight md:text-6xl font-mont">{{ mainTitle | safe }}</h1>
+      <p class="text-xl font-light md:text-2xl">{{ subtitle }}</p>
+      <div class="relative mx-auto mt-8 pb-44">{% include "partials/cta/main-button.html" %}</div>
+    </div>
+  </section>  
+  
+  <article class="container grid max-w-screen-xl px-3 md:grid-cols-12 md:gap-12 md:mx-auto md:mt-32 md:px-8 2xl:px-0">
+
+  <section class="order-last md:col-span-4 md:order-first">
+    <hr class="mb-10 border-slate-700">
+    <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-mont">Solutions In Use</h2>
+    {% for item in ties %}
+    <a href="{{ item.url }}">
+      <div class="flex items-center gap-4 p-4 my-5 l3-card group hover:cursor-pointer">
+        {# <img class="h-12" src="{{ item.img }}" alt=""> #}
+        <div>
+          <p class="text-sm font-bold group-hover:underline">{{ item.title }}</p>
+          <p class="text-sm font-light">{{ item.body | safe }}</p>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+    <div class="hidden md:block">
+      <hr class="mt-20 mb-10 border-slate-700">
+      <h2 class="mb-5 text-lg font-extrabold tracking-tight font-mont">Stats</h2>
+      {% for item in stats %}
+        <div class="my-3 text-slate-400">
+          <p class="text-sm font-light">{{ item.body | safe }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  
+  
+  <section class="xl:grid xl:col-start-5 xl:col-end-12 md:col-span-8">
+      <hr class="mt-10 mb-10 md:mt-0 border-slate-700">
+      <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-mont">{{ mainTitle | safe }}</h2>
+  
+      <div class="space-y-5 text-slate-400">
+        {% for challenge in challenge %}
+        <h2 class="text-2xl font-extrabold text-white font-mont">Challenge</h2>
+        <p class="text-lg font-bold">{{ challenge.title }}</p>
+        <p class="text-sm font-light">{{ challenge.body | safe }}</p>
+        <p class="text-sm font-light">{{ challenge.body2 | safe }}</p>
+        <p class="text-sm font-light">{{ challenge.body3 | safe }}</p>
+        <p class="text-sm font-light">{{ challenge.body4 | safe }}</p>
+        {% endfor %}
+        {% for solution in solution %}
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Solution</h2>
+        <p class="text-lg font-bold">{{ solution.title }}</p>
+        <p class="text-sm font-light">{{ solution.body | safe }}</p>
+        <p class="text-sm font-light">{{ solution.body2 | safe }}</p>
+        <p class="text-sm font-light">{{ solution.body3 | safe }}</p>
+        <p class="text-sm font-light">{{ solution.body4 | safe }}</p>
+        {% endfor %}
+  
+        {% for result in result %}
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Result</h2>
+        <p class="text-lg font-bold">{{ result.title }}</p>
+        <p class="text-sm font-light">{{ result.body | safe }}</p>
+        <p class="text-sm font-light">{{ result.body2 | safe }}</p>
+        <p class="text-sm font-light">{{ result.body3 | safe }}</p>
+        <p class="text-sm font-light">{{ result.body4 | safe }}</p>
+        {% endfor %}
+      </div>
+      
+
+      <div class="block md:hidden">
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Stats</h2>
+        {% for item in stats %}
+          <div class="my-3 text-slate-400">
+            <p class="text-sm font-light">{{ item.body | safe }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    
+      <hr class="my-10 border-slate-700">
+
+      <p class="font-mono text-xs text-slate-500">Share</p>
+      <div class="flex gap-2 mb-20">
+        <a href="https://www.linkedin.com/company/l3-networks" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/LinkedIn.svg" alt="LinkedIn Logo"></a>
+        <a href="https://www.facebook.com/people/L3-Networks-Inc/61562904941740/" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/Facebook.svg" alt="Facebook Logo"></a>
+        <a href="https://www.youtube.com/@L3Networks" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/YouTube.svg" alt="YouTube Logo"></a>
+      </div>
+  
+  </section>
+   
+  </article>
+
+
+
+<section class="container max-w-screen-xl px-3 py-24 mx-auto text-white bg-black md:px-8 2xl:px-0">
+ 
+  <h2 class="py-8 mb-10 text-3xl font-semibold tracking-tight md:text-5xl font-mont text-slate-white">
+    Discover how leveraging <br><span class="text-teal-400">L3 Networks </span>can solve your challenges.
+  </h2>
+
+  <section class="grid gap-4 mb-32 md:grid-cols-3"
+  x-data="{ currentPath: window.location.pathname }">
+
+
+    {% set cards = [
+      {
+        image: '/images/yc/yc-cybersecurity-threats.jpg',
+        title: 'Cybersecurity Threats',
+        description: 'We protect your business from hackers and data breaches, so you can focus on what matters most—growing your company.',
+        link: '/your-challenges/cybersecurity/'
+      },
+      {
+        image: '/images/yc/yc-controlling-costs-flip.jpg',
+        title: 'Controlling IT Costs',
+        description: 'We provide predictable, cost-effective IT solutions that save you money without sacrificing quality or performance.',
+        link: '/your-challenges/controlling-it-costs/'
+      },
+      {
+        image: '/images/yc/yc-scalability.jpg',
+        title: 'Scalability & Future-Proofing',
+        description: 'Our scalable IT solutions grow with your business, so you’re always ready for what’s next—no matter how big you get.',
+        link: '/your-challenges/scalability/'
+      },
+      {
+        image: '/images/yc/yc-controlling-costs.jpg',
+        title: 'Minimizing Downtime',
+        description: 'With 24/7 monitoring and support, we prevent downtime before it happens, so your operations never miss a beat.',
+        link: '/your-challenges/minimizing-downtime/'
+      }
+    ] %}
+    
+    {% for card in cards %}
+      <div class="overflow-hidden bg-teal-800 rounded-3xl" x-show="currentPath !== '{{ card.link }}'">
+        <div style="background-image: url('{{ card.image }}')" class="bg-center h-72"></div>
+        <div class="p-6">
+          <h3 class="pb-4 text-2xl font-[600] font-mont tracking-tight">{{ card.title }}</h3>
+          <p class="relative pb-4 text-sm font-light">{{ card.description }}</p>
+          <a href="{{ card.link }}" class="relative text-sm font-semibold text-teal-500 hover:text-white">Read More</a>
+        </div>
+      </div>
+    {% endfor %}
+
+  </section>
+  
+</section>
+
+  
+  
+</div>
+
+
+{% include "partials/footer.html" %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layouts/marketing/base.html" %}
+{% block content %}
+
+<style>
+  * {
+    xborder: 1px solid red;
+  }
+</style>
+
+<article class="min-h-screen text-white bg-gradient-to-b from-black via-black to-blue-800">
+  <nav class="container max-w-[1080px] pt-16 mx-auto flex justify-center">
+    <a class="block mx-auto" href="/" aria-label="{{ site.name }} - home">
+      <img class="block shadow-xl" src="/images/logo/logo-header.svg" alt="L3 Networks, Inc.">
+    </a>
+  </nav>
+
+  <section class="container max-w-[1080px] pb-48 mx-auto">
+
+      
+
+      <div class="w-full px-6 py-12 md:px-16 rounded-xl">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight text-center font-mont">Thank You for Taking the First Step Toward <br><span class="text-blue-600">Zero Trust Security</span>!</h1>
+        <h2 class="mb-20 text-xl font-light text-center md:px-20">Your <em>Definitive Guide to Zero Trust Security</em> is on its way to your inbox – it’s packed with everything you need to start implementing smarter, more secure strategies.</h2>
+
+        <div class="p-4 text-center border-2 border-blue-700 md:p-8 bg-black/30 rounded-xl md:text-left">
+          <p class="mb-4 text-3xl font-extrabold tracking-tight font-mont">What's Next?</p>
+          
+          <ul class="pb-8 space-y-3 text-xl font-light md:list-disc md:list-inside marker:text-blue-600">
+            <li>
+              <strong class="font-bold">Check your email</strong> for the guide and start exploring actionable insights right away.
+            </li>
+            <li>
+              <strong class="font-bold">Have questions? Need help?</strong> Consider booking an appointment with our <a class="underline hover:text-blue-600" href="https://l3networks.timezest.com/sales/meeting-15">team</a>.
+          </ul>
+
+          <div class="flex flex-col items-center gap-5 px-4 py-4 text-white bg-blue-800 md:py-2 md:flex-row rounded-xl ">
+            <img class="block shadow-xl" src="/images/home/icons/ShieldCheck.svg" alt="L3 Networks, Inc.">
+            <p class="text-base font-light tracking-wide">Security starts with taking action, and you’ve just made a great first move. We’re here to support you every step of the way.</p>
+          </div>
+        </div>
+        
+        <p class="pt-3 text-sm text-center text-slate-400">Go back to the <a href="/" class="underline hover:text-blue-600">Main Site</a></p>
+
+      </div>
+
+ 
+  </section>
+
+</article>
+<script>
+  window.onload = function() {
+   // Run confetti when the page loads
+   setTimeout(function() {
+      confetti({
+         particleCount: 100,
+         spread: 170,
+         origin: { y: 0.6 },
+         colors: ['#2563eb', '#ffffff']
+      });
+   }, 500); 
+};
+</script>
+
+{% include "layouts/marketing/footer.html" %}
+{% endblock %}

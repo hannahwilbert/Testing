@@ -1,0 +1,69 @@
+{# {% include "partials/modal.html" %} #}
+
+<footer class="px-3 pt-24 pb-8 text-white bg-black md:px-8 2xl:px-0">
+
+  <section class="container grid max-w-screen-xl mx-auto">
+    
+    <div class="flex flex-col col-span-8 gap-12 p-6 transition-all duration-300 border rounded-lg md:p-12 md:flex-row bg-slate-900/50 border-slate-800 hover:border-slate-700">
+      <div class="flex flex-col gap-4 font-light">
+    
+        <img class="block mb-6" src="/images/logo/logo-header.svg" alt="">
+        <p class="text-base">
+          11205 Knott Avenue, <br class="2xl:hidden"> Suite B <br>
+          Cypress, CA 90630
+        </p>
+        <p class="text-base">+1 (888) 282-5353</p>
+        <p class="text-base">sales@L3Networks.com</p>
+        <div class="mb-8 text-base font-light md:mb-0">
+    
+    
+          <div class="flex gap-2">
+            <a href="https://www.linkedin.com/company/l3-networks" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/LinkedIn.svg" alt="LinkedIn Logo"></a>
+            <a href="https://www.facebook.com/people/L3-Networks-Inc/61562904941740/" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/Facebook.svg"
+                alt="Facebook Logo"></a>
+            <a href="https://www.youtube.com/@L3Networks" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/YouTube.svg" alt="YouTube Logo"></a>
+          </div>
+          <div class="flex gap-4 mt-6">
+            <p class="">{{ helpers.currentYear() }} &copy;</p>
+            <a class="text-teal-400" href="/privacy-policy/">Privacy Policy</a>
+          </div>
+          {#<a class="" href="https://l3networks.com/msa">Master Service Agreement (MSA)</a>#}
+          {#<a class="" href="https://l3networks.com/sg">Service Guide (SG)</a>#}
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 md:ml-auto md:mr-8">
+        {% for main in navSolutions.items %}
+        <a href="{{main.url}}" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">{{ main.text }}</a>
+        {% endfor %}
+    
+      </div>
+      <div class="flex flex-col gap-1 md:mr-8">
+        <a href="/why-l3/" class="block py-1 hover:underline">Why L3?</a>
+        <a href="/aboutus/" class="block py-1 hover:underline">About Us</a>
+        <a href="https://support.l3networks.com/" class="block py-1 hover:underline">Support</a>
+        <a href="https://l3networks.timezest.com/sales/meeting-15" class="block py-1 hover:underline">Contact Us</a>
+    
+      </div>
+    </div>
+
+
+      <!-- <div class="col-span-4 overflow-hidden relative flex flex-col items-center bg-black border border-slate-800 rounded-2xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
+        <div class="absolute w-full h-full bg-linear-to-r from-black to-black/10"></div>
+        <div class="relative p-8 text-center md:text-left">
+          <p class="text-2xl font-semibold tracking-tight text-white font-mont md:text-3xl">Eliminate Threats Before They Happen with <span class="text-blue-500">Zero Trust Security</span></p>
+          <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
+        </div>
+        <button class="block px-6 py-2.5 text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700 relative mb-9 md:mb-0 md:mr-8">
+          <a href="/marketing/" class="flex items-center gap-2">
+            <span>Get Your Guide</span>
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
+          </a>
+        </button>
+      </div> -->
+
+  </section>
+
+ 
+
+</footer>
+

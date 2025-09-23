@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  {% include "partials/meta-info.html" %}
+
+  <!-- Swiper CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Your compiled Tailwind output -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  {% include "partials/happierleads.html" %}
+
+  <!-- If you don't have a manifest file locally, keep this commented to avoid 404s -->
+  <!-- <link rel="manifest" href="/images/favicon/manifest.webmanifest"> -->
+</head>
+
+<body class="relative bg-black font-inter"
+      x-data="{ showModal: false, showComingSoon: false }"
+      @keydown.escape="showModal = false; showComingSoon = false">
+
+  {% include "partials/site-headB.html" %}
+  {% include "partials/site-head-mobile.html" %}
+  <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>
+
+  <!-- JS LIBS (CDN) -->
+  <!-- Alpine plugin must load before Alpine core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Anime.js -->
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script> lucide.createIcons(); </script>
+
+  <!-- If you actually have a local custom script, include it AFTER libs.
+       Otherwise leave this commented to avoid MIME/404 errors. -->
+  <!-- <script src="/js/animate.js"></script> -->
+</body>
+</html>

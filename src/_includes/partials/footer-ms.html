@@ -1,0 +1,84 @@
+{% include "partials/modal-ms.html" %}
+
+{% if footer %}
+<article class="px-6 py-12 bg-slate-200 md:px-0 lg:px-10">
+  <div class="container mx-auto">
+    <div class="flex items-center">
+      <img class="mr-4" src="/images/home/tip-icon.svg" alt="">
+      <p class="text-2xl font-bold md:text-3xl">Did you know?</p>
+    </div>
+    <p class="mt-4 text-xl font-light md:text-2xl">{{ footer }}</p>
+  </div>
+</article>
+{% endif %}
+
+<article class="px-6 py-6 bg-teal-900 lg:px-10">
+  <div class="container flex flex-col items-center mx-auto md:flex-row">
+    <p class="pb-6 text-2xl font-bold text-center text-white md:text-left md:pb-0">Ready to give your business an
+      advantage?</p>
+      <div class="mx-auto md:ml-auto md:mr-0">
+        <button type="button" @click="showModal = true"
+              class="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden text-xl font-bold text-white transition duration-300 ease-out bg-teal-500 border-2 border-teal-500 rounded-md shadow-md hover:bg-teal-600 hover:text-white group">
+          <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-teal-500 group-hover:translate-x-0 ease">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </span>
+          <span class="absolute flex items-center justify-center w-full h-full text-xl font-bold text-white transition-all duration-300 transform group-hover:translate-x-full ease">Get connected with our team</span>
+          <span class="relative invisible text-xl font-bold">Get connected with our team</span>
+        </button>
+      </div>
+  </div>
+</article>
+
+
+<footer class="px-6 pt-24 pb-8 text-white bg-black divide-y divide-gray-700 md:px-0 lg:px-10">
+  <div class="container flex flex-col mx-auto md:flex-row ">
+
+    <div class="flex flex-col md:mr-8">
+      <img class="block mb-8 md:h-10 h-14" src="/images/logo/logo-header.svg" alt="">
+      <p class="pb-4 text-sm">
+        11205 Knott Avenue, Suite B <br>
+        Cypress, CA 90630
+      </p>
+      <p class="pb-4 text-sm">
+        Office: 1 (888) 282-5353 <br>
+        Fax: 1 (888) 282-5350
+      </p>
+      <p class="pb-12 text-sm">sales@l3networks.com</p>
+    </div>
+
+    <div class="grid items-baseline grid-flow-row gap-8 lg:grid-flow-col md:grid-cols-3 lg:grid-cols-5 md:justify-end md:ml-auto">
+
+      {% for main in navSolutions.items %}
+      {% if main.text == "Professional Services" %}
+      {% else %}
+      <div>
+        <a href="{{main.url}}"
+          class="block py-1 text-sm font-bold transition-all duration-300 hover:underline ">{{ main.text }}</a>
+        {% for item in main.prod %}
+        <a href="{{main.url}}/#{{item.text | slug}}"
+          class="block py-1 text-sm text-gray-500 transition-all duration-200 hover:text-white ">{{ item.text }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% endfor %}
+
+      <div class="mb-8 text-sm md:mb-0">
+        <a href="/blog/" class="block py-1 font-bold hover:underline">Your Challenges</a>
+        <a href="/why-l3/" class="block py-1 font-bold hover:underline">Why L3?</a>
+        <a href="/professional-services/" class="block py-1 font-bold hover:underline">Professional Services</a>
+        <a href="https://support.l3networks.com/" class="block py-1 font-bold hover:underline">Support</a>
+        <button @click="showModal = true" class="block py-1 font-bold hover:underline">Contact Us</button>
+        <a href="https://www.linkedin.com/company/l3-networks" class="block py-1 font-bold hover:underline">LinkedIn</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="container flex flex-row mx-auto text-xs text-white">
+    <span class="mt-6 mr-3">{{ helpers.currentYear() }}&copy;</span>
+    <a class="mt-6 mr-3 text-teal-400" href="https://l3networks.com/privacy-policy">Privacy Policy</a>
+    {#<a class="mt-6 mr-3" href="https://l3networks.com/msa">Master Service Agreement (MSA)</a>#}
+    {#<a class="mt-6" href="https://l3networks.com/sg">Service Guide (SG)</a>#}
+  </div>
+</footer>
+

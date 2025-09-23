@@ -1,0 +1,349 @@
+{% extends "layouts/base.html" %} {% block content %}
+
+{# <section style="background-image: url('/images/home/designbuild.webp')" class="relative flex items-center justify-center text-white bg-cover">
+
+  <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-slate-900/90 to-black/40">&nbsp;</div>
+
+  <div class="relative mx-6 md:py-24 lg:px-20 md:mx-auto md:pb-24 md:pt-48">
+    <div class="flex py-8 text-center lg:px-12 max-w-[1080px]">
+      <span class="block w-full p-3 rounded-lg ">
+        <h1 class="mb-4 text-3xl font-bold tracking-tight md:text-5xl">Overcome Your IT Challenges with <br>Our Expert Solutions</h1>
+        <p class="text-xl font-light md:text-2xl">Whether it’s security, scalability, or day-to-day IT headaches, we understand the problems businesses face—and we’ve got the solutions.</p>
+        <div class="mt-8">{% include "partials/cta/main-button.html" %}</div>
+      </span>
+    </div>
+  </div>
+ 
+</section> #}
+
+<header class="relative z-0 flex items-center justify-center min-h-[600px] overflow-hidden text-white md:h-screen">
+
+  <div class="container absolute z-30 mx-auto md:py-24 lg:px-20 md:pb-24 md:pt-48 ">
+    <div class="flex py-8 text-center lg:px-12">
+      <span class="block w-full p-3 rounded-lg">
+        <h1 class="mb-4 text-3xl font-extrabold md:tracking-tight font-mont md:text-4xl lg:text-6xl">Overcome Your IT Challenges <br>with Our Expert Solutions</h1>
+        <p class="text-lg font-light md:text-2xl lg:text-3xl">Whether it’s security, scalability, or day-to-day IT headaches, we understand the problems businesses face—and we’ve got the solutions.</p>
+        <div class="relative mt-6 sm:mt-8">{% include "partials/cta/main-button.html" %}</div>
+      </span>
+    </div>
+  </div>
+
+  <video autoplay loop muted class="absolute w-auto min-w-full min-h-full max-w-none">
+    <source src="/videos/yc-vid.mp4" type="video/mp4" /> Your browser does not support the video tag.
+  </video>
+  
+  <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-black to-black/40">&nbsp;</div>
+  
+</header>
+
+<div class="py-32 bg-black">
+  
+  <article class="xmax-w-[1080px] container mx-auto">
+    <h2 class="px-4 py-8 mb-16 text-3xl font-extrabold tracking-tight text-center text-white md:text-5xl font-mont md:px-0">Discover how leveraging <br><span class="text-teal-400">L3 Networks </span>can solve your challenges.</h2>
+
+
+    <section class="gap-12 mx-auto space-y-12 md:space-y-0 md:grid-cols-2 md:grid">
+  
+      <div style="background-image: url('/images/yc/yc-cybersecurity-threats.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-r from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Cybersecurity Threats</h3>
+          <p class="relative pb-4 text-base font-light">
+            Cyberattacks and data breaches threaten your business, but with our advanced security solutions, we proactively block threats to ensure your operations stay protected and compliant.
+          </p>
+          <a href="/your-challenges/cybersecurity" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+        
+      </div>
+  
+      <div style="background-image: url('/images/yc/yc-controlling-costs-flip.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-l from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+        
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Controlling IT Costs</h3>
+          <p class="pb-4 text-base font-light">
+            Unpredictable IT expenses can strain your budget, but our cost-efficient managed services provide transparent pricing that helps you save money while maintaining quality.
+          </p>
+          <a href="/your-challenges/controlling-it-costs" class="inline-block text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+
+      </div>
+      
+      <div style="background-image: url('/images/yc/yc-minimizing-downtime.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-r from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Minimizing Downtime</h3>
+          <p class="relative pb-4 text-base font-light">
+          Unexpected downtime disrupts productivity, but our proactive monitoring and 24/7 support keep your systems running smoothly, ensuring your business operates without interruptions.
+          </p>
+          <a href="/your-challenges/minimizing-downtime" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+
+
+      </div>
+  
+      
+      <div style="background-image: url('/images/yc/yc-scalability.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-l from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Scalability & Future-Proofing</h3>
+          <p class="pb-4 text-base font-light">
+            Outdated systems can’t keep up with growth, but our scalable solutions evolve with your business, empowering you to stay competitive and ready for the future.
+          </p>
+          <a href="/your-challenges/scalability" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+        
+      </div>
+  
+    </section>
+     
+  
+  </article>
+</div>
+
+
+{# <div class="py-64 bg-black">
+  
+  <article class="xmax-w-[1080px] container mx-auto">
+    <h2 class="py-8 mb-16 text-5xl font-extrabold tracking-tight text-center text-white font-mont">Discover how leveraging <br><span class="text-teal-400">L3 Networks </span>can solve your challenges.</h2>
+
+
+    <section class="grid grid-cols-4 gap-4 mx-auto mb-32">
+  
+      <div style="background-image: url('/images/yc/yc-cybersecurity-threats.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border border-black rounded-2xl group hover:border-teal-400">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-b from-black to-black/50 group-hover:opacity-70">&nbsp;</div>
+        <div class="relative flex flex-row items-center gap-4 pb-4">
+          <!-- <img class="block w-12 h-12" src="/images/home/icons/teal/LockLaminated.svg" alt="LockLaminated"> -->
+          <h3 class="text-2xl font-bold md:text-3xl">Cybersecurity Threats</h3>
+        </div>
+        <p class="relative pb-4 text-base font-light">
+          Cyberattacks and data breaches threaten your business, but with our advanced security solutions, we proactively block threats to ensure your operations stay protected and compliant.
+        </p>
+        <a href="/your-challenges/cybersecurity" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+      </div>
+  
+      <div style="background-image: url('/images/yc/yc-controlling-costs-flip.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border border-black rounded-2xl group hover:border-teal-400">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-b from-black to-black/50 group-hover:opacity-70">&nbsp;</div>
+        <div class="relative flex flex-row items-center gap-4 pb-4">
+          <!-- <img class="block w-12 h-12" src="/images/home/icons/teal/LockLaminated.svg" alt="LockLaminated"> -->
+          <h3 class="text-2xl font-bold md:text-3xl">Controlling <br>IT Costs</h3>
+        </div>
+        <p class="relative pb-4 text-base font-light">
+          Unpredictable IT expenses can strain your budget, but our cost-efficient managed services provide transparent pricing that helps you save money while maintaining quality.
+        </p>
+        <a href="/your-challenges/controlling-it-costs" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+      </div>
+      
+      <div style="background-image: url('/images/yc/yc-minimizing-downtime.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border border-black rounded-2xl group hover:border-teal-400">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-b from-black to-black/50 group-hover:opacity-70">&nbsp;</div>
+        <div class="relative flex flex-row items-center gap-4 pb-4">
+          <!-- <img class="block w-12 h-12" src="/images/home/icons/teal/LockLaminated.svg" alt="LockLaminated"> -->
+          <h3 class="text-2xl font-bold md:text-3xl">Minimizing Downtime</h3>
+        </div>
+        <p class="relative pb-4 text-base font-light">
+          Unexpected downtime disrupts productivity, but our proactive monitoring and 24/7 support keep your systems running smoothly, ensuring your business operates without interruptions.
+        </p>
+        <a href="/your-challenges/minimizing-downtime" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+      </div>
+  
+      
+      <div style="background-image: url('/images/yc/yc-scalability.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border border-black rounded-2xl group hover:border-teal-400">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-b from-black to-black/50 group-hover:opacity-70">&nbsp;</div>
+        <div class="relative flex flex-row items-center gap-4 pb-4">
+          <!-- <img class="block w-12 h-12" src="/images/home/icons/teal/LockLaminated.svg" alt="LockLaminated"> -->
+          <h3 class="text-2xl font-bold md:text-3xl">Scalability & Future-Proofing</h3>
+        </div>
+        <p class="relative pb-4 text-base font-light">
+          Outdated systems can’t keep up with growth, but our scalable solutions evolve with your business, empowering you to stay competitive and ready for the future.
+        </p>
+        <a href="/your-challenges/scalability" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+      </div>
+  
+    </section>
+     
+  
+  </article>
+</div> #}
+
+
+{# 
+<article class="relative text-white bg-gradient-to-t from-black to-slate-900">
+  <div class="absolute w-full h-full">
+    <img src="/images/home/bgs/solutionbg.svg" class="w-full" alt="">
+  </div>
+
+ 
+  <section class="max-w-[1080px] mx-auto container relative pt-32">
+    <h2 class="relative mb-8 text-2xl font-black tracking-tight text-center md:text-5xl">Customer FAQs</h2>
+    <div x-data="faqSearch()" class="space-y-4">
+      <!-- Search Input -->
+      <div class="px-6 py-4">
+        <input type="text" placeholder="Search FAQs..." x-model="searchQuery" class="w-full px-4 py-2 border rounded-md bg-slate-800/30 border-slate-800 focus:outline-none focus:ring focus:ring-teal-300" />
+      </div>
+  
+      <!-- FAQ Loop -->
+      <div>
+          <template x-for="faq in filteredFaqs" :key="faq.question">
+              <main x-data="{ isExpanded: false }" class="border-b divide-y border-slate-800 divide-slate-800">
+                  <button
+                      id="controls{{ faq.question | slug }}"
+                      type="button"
+                      class="flex items-center justify-between w-full gap-4 px-6 py-6 text-left underline-offset-2 hover:bg-slate-800/30 focus-visible:bg-slate-800/30 focus-visible:underline focus-visible:outline-none"
+                      @click="isExpanded = ! isExpanded"
+                      :class="isExpanded ? 'text-onSurfaceStrong font-bold'  : 'text-onSurface font-medium'"
+                      :aria-expanded="isExpanded ? 'true' : 'false'">
+                      <span x-text="faq.question"></span>
+                      <span class="w-5 h-5">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="transition size-5 shrink-0" aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                          </svg>
+                      </span>
+                  </button>
+                  <div x-cloak x-show="isExpanded" role="region" x-collapse>
+                      <div class="px-6 py-6 text-sm sm:text-base text-pretty bg-slate-800" x-html="faq.answer"></div>
+                  </div>
+              </main>
+          </template>
+  
+          <!-- No Results Message -->
+          <div x-show="filteredFaqs.length === 0" class="px-6 py-4 text-center text-slate-500">
+              No FAQs match your search.
+          </div>
+      </div>
+    </div>
+  </section>
+</article> #}
+
+<script>
+  function faqSearch() {
+      return {
+          searchQuery: '',
+          faqs: [
+    {
+      "question": "Who should I contact for help?",
+      "answer": "For immediate support, call our 24/7 Service Desk at [Your Hotline Number]. You can also email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> — emails sent after business hours will be addressed the next business day."
+    },
+    {
+      "question": "How can I submit a service request?",
+      "answer": "For urgent requests, call our Service Desk at [Your Hotline Number]. For non-urgent needs, email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> to automatically create a service ticket."
+    },
+    {
+      "question": "What are your support hours?",
+      "answer": "We’re available 24/7. Regular weekday support runs from 6 AM to 10 PM (Mon-Fri), and weekend and after-hours support is available round the clock."
+    },
+    {
+      "question": "Do you offer onsite support?",
+      "answer": "Yes, onsite support is included in our Managed IT Services Plans when remote solutions are not sufficient."
+    },
+    {
+      "question": "Can you support businesses with multiple locations?",
+      "answer": "Absolutely. We specialize in supporting businesses with multiple offices and work seamlessly across all locations."
+    },
+    {
+      "question": "How do I log a ticket?",
+      "answer": "Simply email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> to generate a ticket automatically. You can also call our Service Desk for immediate assistance."
+    },
+    {
+      "question": "What are your response times?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li><strong>High Priority (e.g., network/server down):</strong> Response within 30 minutes.</li><li><strong>Medium Priority (e.g., impaired functionality):</strong> Response within 4 hours.</li><li><strong>Low Priority (e.g., minor issues):</strong> Response within 24 hours.</li></ul>"
+    },
+    {
+      "question": "What are the priority levels for support requests?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li><strong>High Priority:</strong> Network/server outages or major disruptions.</li><li><strong>Medium Priority:</strong> Impaired functionality or issues affecting some users.</li><li><strong>Low Priority:</strong> Minor issues that can be addressed by the next business day.</li></ul>"
+    },
+    {
+      "question": "How can I track my ticket?",
+      "answer": "Log in to our Customer Support Portal to check the status of your service requests. Contact us if you need portal access or credentials."
+    },
+    {
+      "question": "What is the escalation process?",
+      "answer": "We offer a streamlined escalation process with 24/7 access to senior management to ensure timely resolution of critical issues."
+    },
+    {
+      "question": "Are there any charges for using the Service Desk?",
+      "answer": "Our Confidence Plus Plan includes unlimited Service Desk access. Non-plan users can use it on a time-and-material basis."
+    },
+    {
+      "question": "What information should I provide when asking for assistance?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li>Your name</li><li>Company name</li><li>Location</li><li>Contact number</li><li>A brief description of the issue</li></ul>"
+    },
+    {
+      "question": "What is your onboarding process like?",
+      "answer": "Our onboarding process ensures a seamless transition to our services, with regular Quarterly Business Reviews (QBRs) to align with your goals."
+    },
+    {
+      "question": "Do you offer training services?",
+      "answer": "Yes, we provide training during onboarding and ongoing, including:<ul class='mt-4 space-y-2 list-disc list-inside'><li>Security tips</li><li>Monthly webinars</li><li>Phishing and security awareness training</li></ul>"
+    },
+    {
+      "question": "What are Quarterly Business Reviews (QBRs)?",
+      "answer": "QBRs are strategic planning meetings to align our services with your goals, review past performance, and plan for future success."
+    },
+    {
+      "question": "Can you work with our internal IT staff?",
+      "answer": "Yes, we collaborate with internal IT teams, using clearly defined processes for seamless integration."
+    },
+    {
+      "question": "Where is your support center located?",
+      "answer": "Our Network Operations Center (NOC) is based in Columbia, Maryland."
+    },
+    {
+      "question": "Do you follow industry standard practices?",
+      "answer": "Yes, we use ITIL-based best practices for IT services and systems management to ensure reliability and efficiency."
+    },
+    {
+      "question": "How do you notify clients about maintenance?",
+      "answer": "We communicate maintenance windows and outages in advance and coordinate with your team to minimize disruption."
+    },
+    {
+      "question": "Do you support third-party vendors?",
+      "answer": "Yes, we manage vendor coordination, ensuring smooth resolution for systems like phones, cameras, and more."
+    },
+    {
+      "question": "Do you conduct disaster recovery (DR) testing?",
+      "answer": "Yes, we recommend and perform annual or bi-annual DR tests based on your business needs."
+    },
+    {
+      "question": "Do you have liability and cybersecurity insurance?",
+      "answer": "Yes, we carry liability and cybersecurity insurance. We can also recommend partners for additional coverage if needed."
+    },
+    {
+      "question": "Do you support Mac systems?",
+      "answer": "Yes, we provide full support for Mac systems alongside other major platforms, ensuring compatibility and smooth performance."
+    }
+  ],
+          get filteredFaqs() {
+              if (!this.searchQuery) {
+                  return this.faqs;
+              }
+              const query = this.searchQuery.toLowerCase();
+              return this.faqs.filter(faq => faq.question.toLowerCase().includes(query));
+          }
+      };
+  }
+</script>
+
+
+<article class="relative bg-black">
+  <section class="container px-4 py-24 md:px-0 md:mx-auto">
+    <div class="flex lg:flex-row flex-col items-center px-12 py-8 bg-black border border-blue-600 rounded-2xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
+      <div>
+        <p class="text-3xl font-black tracking-tight text-white md:text-4xl">Eliminate Threats Before They Happen <br> with Zero Trust Security</p>
+        <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
+      </div>
+      <button class="block px-6 py-2.5 lg:ml-auto text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700">
+        <a href="/marketing/" class="flex items-center gap-2">Get Your Guide to Zero Trust Security
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
+        </a>
+      </button>
+    </div>
+  </section>
+</article>
+
+
+{% include "partials/footer.html" %}
+{% endblock %}
+

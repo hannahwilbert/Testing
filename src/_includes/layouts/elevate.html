@@ -1,0 +1,575 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+{# Hero Section #}
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  // Initialize Lucide after the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/motion@latest/dist/motion.js"></script>
+<script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+
+
+
+<section style="background-image: url('/images/elevate/hero.png');" class="relative w-full px-4 pt-20 text-white bg-center bg-no-repeat bg-cover sm:px-6 md:px-10 md:pt-16">
+  <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+  <div class="container relative max-w-screen-xl px-0 pb-12 text-left md:pb-0 md:px-0 md:mx-auto md:pt-48">
+    <img src="/images/products/elevatelogo.svg" class="block h-20 sm:h-24 md:h-32" alt="elevatelogo">
+    <div class="pl-0 xsm:pl-8 xmd:pl-[100px]">
+      <p class="mt-4 text-xl sm:text-2xl md:text-3xl font-light">Enterprise-grade IT. Human-centric execution.</p>
+      <button class="block">
+        <a href="https://l3networks.timezest.com/sales/meeting-15"
+          class="block w-auto px-4 py-2 sm:px-6 sm:py-2.5 mx-auto text-sm sm:text-base text-teal-500 transition-all ease-in-out border border-teal-500 rounded-full hover:bg-teal-500 hover:text-white mt-6 sm:mt-8">
+          <div class="flex items-center gap-2">Book An Appointment <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment" class="w-4 h-4 sm:w-5 sm:h-5"></div>
+        </a>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+{# Main Content #}
+<main class="px-3 pb-24 text-white bg-black md:px-8 2xl:px-0 font-inter">
+
+<article class="container max-w-screen-xl mx-auto">
+  
+{# Product Overview #}
+{# 
+<!-- Challenge Section -->
+<section class="relative p-6 sm:p-8 md:p-12 border border-neutral-800 rounded-2xl sm:rounded-3xl md:rounded-4xl">
+  <div>
+    <!-- Header -->
+    <div class="mb-8 sm:mb-10 md:mb-12">
+      <p class="text-sm sm:text-base tracking-wide text-neutral-500 mb-2">Modern Business Demands More from Technology</p>
+      <hr class="w-full mx-auto border-neutral-700">
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 md:gap-12 items-start">
+      <!-- Left Column - Heading and CTA -->
+      <div class="space-y-6 sm:space-y-8 col-span-5">
+        <h2 class="text-3xl sm:text-4xl md:text-[44px] font-semibold tracking-tight text-white leading-tight sm:leading-none">
+          We Understand the Demands You Face
+        </h2>
+        
+        <button class="group">
+          <a href="https://l3networks.timezest.com/sales/meeting-15"
+            class="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-2 text-sm sm:text-base text-teal-400 border border-teal-500 rounded-full transition-all duration-300 hover:bg-teal-500 hover:text-black">
+            Schedule a Consultation
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </a>
+        </button>
+      </div>
+
+      <!-- Right Column - Description and Benefits -->
+      <div class="space-y-4 sm:space-y-6 font-extralight col-span-7">
+        <p class="text-sm sm:text-base text-white leading-tight">
+          You don't have to settle for IT that feels unpredictable or unsustainable. We want you to know that your technology can be stable, secure, and aligned with your business goals.
+        </p>
+        
+        <div class="space-y-3 sm:space-y-4">
+          <p class="text-sm sm:text-base text-white font-bold">Elevate by L3 Networks helps you:</p>
+          <ul class="space-y-2 sm:space-y-3">
+            <li class="flex gap-2 sm:gap-3 text-white items-center">
+              <div class="w-1 h-1 bg-teal-500 rounded-full flex-shrink-0"></div>
+              <span class="text-sm sm:text-base">Gain control over complex systems</span>
+            </li>
+            <li class="flex gap-2 sm:gap-3 text-white items-center">
+              <div class="w-1 h-1 bg-teal-500 rounded-full flex-shrink-0"></div>
+              <span class="text-sm sm:text-base">Stay ahead of compliance and security risks</span>
+            </li>
+            <li class="flex gap-2 sm:gap-3 text-white items-center">
+              <div class="w-1 h-1 bg-teal-500 rounded-full flex-shrink-0"></div>
+              <span class="text-sm sm:text-base">Free your team from constant day-to-day strain</span>
+            </li>
+            <li class="flex gap-2 sm:gap-3 text-white items-center">
+              <div class="w-1 h-1 bg-teal-500 rounded-full flex-shrink-0"></div>
+              <span class="text-sm sm:text-base">Create IT outcomes you can count on</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section with Abstract Background and Tagline -->
+    <div class="relative mt-12 sm:mt-16 md:mt-20 rounded-xl sm:rounded-2xl overflow-hidden">
+      <!-- Abstract Background Image -->
+      <div class="relative h-40 sm:h-48 md:h-56">
+        <!-- Abstract swirling pattern overlay -->
+        <div class="absolute inset-0">
+          <img src="/images/elevate/challenge.png" alt="Abstract" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Overlay Text -->
+        <div class="relative z-10 flex items-center justify-center h-full px-4 sm:px-6">
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center leading-tight sm:leading-[1.1] font-mont tracking-tight">
+            Technology should drive your business<br class="hidden sm:block">
+            forward - not hold you back.
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pt-32">&nbsp;</div>
+
+
+<section class="py-12 sm:py-16 md:py-20 bg-black">
+  <div class="container max-w-screen-[90em]">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+      
+      <!-- Left Panel - Image -->
+      <div class="relative rounded-xl sm:rounded-2xl overflow-hidden col-span-5 flex h-48 sm:h-64 md:h-auto hidden lg:block">
+        <img
+          src="/images/elevate/guide.png"
+          alt="Abstract wireframe grid pattern"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Right Panel - Content -->
+      <div class="border border-neutral-800 rounded-2xl sm:rounded-3xl md:rounded-4xl p-6 sm:p-8 md:p-12 col-span-7 flex flex-col justify-between">
+        <div>
+          <h2 class="text-3xl sm:text-4xl md:text-[44px] font-semibold tracking-tight text-white leading-tight sm:leading-none mb-6 sm:mb-8">
+          Why L3 Networks?
+        </h2>
+        
+          <div class="space-y-4 sm:space-y-6 text-white font-extralight mb-8 sm:mb-16 md:mb-32">
+            <p class="text-sm sm:text-base leading-tight">
+            For more than 20 years, we've helped mid-market organizations manage enterprise-level IT demands without enterprise-level resources. From stabilizing complex infrastructures to guiding leaders through compliance, mergers, and digital transformation, our team has been in the trenches with companies like yours.
+          </p>
+            <p class="text-sm sm:text-base leading-tight">
+            We've supported organizations in healthcare, finance, legal, construction, and entertainment. These are industries where uptime, security, and compliance are non-negotiable. Along the way, we've built a reputation for making IT not just reliable, but strategic.
+          </p>
+          </div>
+        </div>
+        
+        <div class="mt-6 sm:mt-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          <p class="text-base sm:text-lg text-white font-medium">
+            You deserve IT that works. We make it happen.
+          </p>
+          
+          <a href="/why-l3" class="inline-flex items-center gap-2 text-white hover:text-teal-400 transition-colors duration-300 group self-start sm:self-auto">
+            <span class="text-base sm:text-lg font-medium">Learn More</span>
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-teal-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+#}
+
+
+<div class="pt-32">&nbsp;</div>
+
+{# ================================
+   Elevate DATA
+   ================================ #}
+{% set elevate = [
+  {
+    idx: 1,
+    phase: 'Stage 1',
+    title: 'Stabilize',
+    sub: 'Shift from Reactive to Proactive Operations',
+    copy: 'Move from reactive to proactive. Reduce risk, eliminate recurring issues, and build confidence in your IT foundation.',
+    bgImage: '/images/elevate/stabilize.png'
+  },
+  {
+    idx: 2,
+    phase: 'Stage 2',
+    title: 'Optimize',
+    sub: 'Gain Visibility and Achieve Peak Performance',
+    copy: 'Achieve peak performance. Strengthen compliance, improve user experience, and unlock measurable efficiency gains.',
+    bgImage: '/images/elevate/optimize.png'
+  },
+  {
+    idx: 3,
+    phase: 'Stage 3',
+    title: 'Transform',
+    sub: 'Enable Strategic Growth and Business Resilience',
+    copy: 'Align IT with long-term strategy. Enable growth, resilience, and innovation through vCIO guidance, hybrid cloud, and M&A readiness.',
+    bgImage: '/images/elevate/transform.png'
+  }
+] %}
+
+<section>
+  <!-- Header -->
+  <div class="mb-12">
+    <p class="text-base tracking-wide text-neutral-500 mb-2">The Elevate Journey: A Framework for IT Maturity</p>
+    <hr class="w-full mx-auto border-neutral-700">
+  </div>
+
+  <h2 class="text-3xl sm:text-4xl md:text-[60px] font-extralight tracking-tight text-white leading-tight sm:leading-none mb-8 sm:mb-10 md:mb-12">
+    We make IT transformation simple <br class="hidden sm:block"> with a clear, three-stage journey:
+  </h2>
+
+  <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {% for c in elevate %}
+    <!-- Card -->
+    <article
+      x-data="{ open:false }"
+      class="overflow-hidden rounded-4xl flex flex-col"
+    >
+      <!-- Content area with background -->
+      <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+        <!-- Header with badges and arrow -->
+        <div class="p-6 pb-4">
+          <div class="flex items-center justify-between">
+            <div class="flex gap-3">
+              <div class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">{{ c.phase }}</div>
+            </div>
+            <img
+              src="/images/icons/elevateArrorwRound.svg"
+              alt=""
+              class="w-8 h-8"
+              x-show="!open"
+            />
+            <img
+              src="/images/icons/elevateArrorwRoundBlack.svg"
+              alt=""
+              class="w-8 h-8"
+              x-show="open"
+            />
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12">
+          <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter mb-3 sm:mb-4">{{ c.title }}</h3>
+          <p class="text-base sm:text-lg font-extralight">{{ c.sub }}</p>
+        </div>
+      </div>
+
+      <!-- Media + overlay -->
+      <div class="relative">
+        <button
+          type="button"
+          class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer"
+          :aria-expanded="open.toString()"
+          :aria-controls="'overlay-{{ loop.index }}'"
+          :aria-label="(open ? 'Hide' : 'Show') + ' details for {{ c.title }}'"
+          @click="open = !open"
+          @keydown.enter.prevent="open = !open"
+          @keydown.space.prevent="open = !open"
+          @keydown.escape.prevent="open = false"
+        >
+          <img
+            src="{{ c.bgImage }}"
+            alt="{{ c.title }} image"
+            class="w-full h-full object-cover"
+          />
+        </button>
+
+        <!-- Slide-up overlay -->
+        <div
+          class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out pointer-events-none"
+          :class="open ? 'translate-y-0' : 'translate-y-full'"
+          :aria-hidden="(!open).toString()"
+          :id="'overlay-{{ loop.index }}'"
+        >
+          <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
+            <p class="text-sm sm:text-lg font-light text-neutral-400 leading-snug">{{ c.copy }}</p>
+          </div>
+        </div>
+
+        <!-- Half-circle toggle indicator (bottom-center) -->
+        <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
+          <div
+            class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg"
+            :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'"
+          >
+            <!-- Chevron icon rotates when open -->
+            <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+
+
+<div class="pt-32">&nbsp;</div>
+<p class="text-base tracking-wide text-neutral-500 mb-2">Why teams choose Elevate</p>
+<hr class="w-full border-neutral-700">
+
+<!-- Elevate Features -->
+<section class="mt-12">
+  <div class="">
+    <!-- Header -->
+    <div class="mb-12">
+      
+      <h2 class="text-[60px] font-extralight tracking-tighter text-white leading-none">
+        The Old IT Playbook Is Over.
+      </h2>
+      <div class="flex items-center gap-3 ">
+        <span class="text-[60px] font-extralight tracking-tighter text-white leading-none">Meet</span>
+
+        <div class="flex items-center gap-2">
+          <span class="text-[60px] font-bold tracking-tight text-white leading-none">Elevate</span>
+          <svg width="32" height="32" viewBox="0 0 43 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M43 39.1904H33.8271V15.8086L6.4873 43.2178L0 36.7148L27.3447 9.30176H4.0127V0.105469H43V39.1904Z" fill="#00D5BE"/>
+          </svg>
+        </div>
+          
+      </div>
+      
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4 sm:gap-6">
+      
+      <!-- Card 1: Optimized Returns -->
+      <div class="bg-neutral-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 col-span-1 sm:col-span-2">
+        <div class="size-32 sm:size-40 mb-4 sm:mb-6 flex items-center justify-center">
+          <i data-lucide="handshake" class="h-full w-full" stroke-width="1"></i>
+        </div>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 sm:mb-4">Optimized <br>Returns</h3>
+        <p class="text-white font-extralight text-base sm:text-lg leading-snug">Squeeze more value from every IT dollar with data-backed decisions.</p>
+      </div>
+
+      <!-- Card 2: Resilience by Design -->
+      <div class="border border-neutral-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 col-span-1 sm:col-span-2">
+        <div class="size-32 sm:size-40 mb-4 sm:mb-6 flex items-center justify-center">
+          <i data-lucide="cloudy" class="h-full w-full" stroke-width="1"></i>
+        </div>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 sm:mb-4">Resilience <br>by Design</h3>
+        <p class="text-white font-extralight text-base sm:text-lg leading-snug">Zero-Trust controls and compliance readiness embedded end-to-end.</p>
+      </div>
+
+      <!-- Card 3: Operational Advancement -->
+      <div class="bg-black rounded-xl sm:rounded-2xl p-6 sm:p-8 relative overflow-hidden col-span-1 sm:col-span-2 lg:col-span-3">
+        <div class="size-32 sm:size-40 mb-4 sm:mb-6 flex items-center justify-center">
+          &nbsp;
+        </div>
+        <div class="absolute inset-0 opacity-90">
+          <img src="/images/elevate/operationaladvancement.png" alt="Abstract pattern" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10">
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 sm:mb-4">Operational <br>Advancement</h3>
+          <p class="text-white font-extralight text-base sm:text-lg leading-snug">Accelerate modern capabilities—without overextending your team.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Enterprise-Caliber at Any Stage -->
+      <div class="bg-black rounded-xl sm:rounded-2xl p-6 sm:p-8 relative overflow-hidden col-span-1 sm:col-span-2 lg:col-span-3">
+        <div class="size-32 sm:size-40 mb-4 sm:mb-6 flex items-center justify-center">
+          &nbsp;
+        </div>
+        <div class="absolute inset-0 opacity-90">
+          <img src="/images/elevate/enterprisecailber.png" alt="Swirling pattern" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10">
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 sm:mb-4">Enterprise-Caliber <br>at Any Stage</h3>
+          <p class="text-white font-extralight text-base sm:text-lg leading-snug">Bring top-tier rigor and innovation to mid-market realities.</p>
+        </div>
+      </div>
+
+      <!-- Card 5: Integrated Execution -->
+      <div class="border border-neutral-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 col-span-1 sm:col-span-2">
+        <div class="size-32 sm:size-40 mb-4 sm:mb-6 flex items-center justify-center">
+          <i data-lucide="file-terminal" class="h-full w-full" stroke-width="1"></i>
+        </div>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 sm:mb-4">Integrated <br>Execution</h3>
+        <p class="text-white font-extralight text-base sm:text-lg leading-snug">Security signals auto-feed reporting, tickets, and automation workflows.</p>
+      </div>
+
+      <!-- Card 6: Predictable Progression -->
+      <div class="bg-neutral-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 col-span-1 sm:col-span-2">
+        <div class="size-32 sm:size-40 mb-4 sm:mb-6 flex items-center justify-center">
+          <i data-lucide="radar" class="h-full w-full" stroke-width="1"></i>
+        </div>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-3 sm:mb-4">Predictable <br>Progression</h3>
+        <p class="text-white font-extralight text-base sm:text-lg leading-snug">Standardized, high-impact services that ladder up to measurable growth.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="pt-32">&nbsp;</div>
+
+<!-- Core Commitments -->
+<section class="py-12 sm:py-16 md:py-20">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 md:gap-12 items-start">
+    
+    <!-- Left Column - Title and Description -->
+    <div class="col-span-5 space-y-6 sm:space-y-8">
+      <h2 class="text-4xl sm:text-5xl md:text-[60px] font-extralight tracking-tighter text-white leading-tight sm:leading-none">
+        Our <span class="font-bold">Core</span> <span class="font-bold">Commitments</span>
+      </h2>
+     
+      <p class="text-white font-extralight text-lg sm:text-xl md:text-2xl leading-tight sm:leading-none">
+        We don't just manage IT—we <span class="text-teal-400 font-normal">advance your business</span> with measurable progress, predictable cadence, and enterprise rigor.
+      </p>
+    </div>
+
+    <!-- Right Column - Accordion -->
+    <div class="col-span-7">
+      <div class="relative" x-data="{ activeCard: 4 }">
+        
+        <!-- Accordion Item 1: Measurable & Predictable Technology Outcomes -->
+        <div class="relative z-40 mb-4">
+          <button 
+            @click="activeCard = activeCard === 1 ? null : 1"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg"
+            :class="activeCard === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 transform' : 'bg-black border-1 border-neutral-600 text-neutral-600 transform hover:scale-101'"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between px-4 sm:px-6 pt-4 sm:pt-6" :class="activeCard === 1 ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Measurable & Predictable Technology Outcomes</h3>
+              <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#000000' : '#525252'"/>
+                <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#000000' : '#525252'"/>
+                <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <p x-show="activeCard === 1" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" class="text-lg sm:text-xl font-light px-4 sm:px-6 pb-4 sm:pb-6">Turn IT spend into visible wins.</p>
+            
+            <!-- Expanded Content -->
+            <div x-show="activeCard === 1" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
+              <p class="text-lg sm:text-xl font-light">Using our ‘tried and tested’ improvement framework to empower your IT and business decisions</p>
+              {#<div class="bg-black rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-white">WHAT YOU GET</span>
+              </div>
+              <p class="text-black font-medium mb-8">A 90-day plan, KPI dashboard, and QBR scorecards.</p>
+              
+              <div class="bg-white rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-black">WHY IT MATTERS</span>
+              </div>
+              <p class="text-black font-medium">Fewer incidents, less downtime, clearer ROI.</p>#}
+            </div>
+          </button>
+        </div>
+
+        <!-- Accordion Item 2: Truly Integrated Partner Relationship -->
+        <div class="relative z-30 mb-4 -mt-2">
+          <button 
+            @click="activeCard = activeCard === 2 ? null : 2"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg"
+            :class="activeCard === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 transform' : 'bg-black border-1 border-neutral-600 text-neutral-600 transform hover:scale-101'"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between px-4 sm:px-6 pt-4 sm:pt-6" :class="activeCard === 2 ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Truly Integrated Partner Relationship</h3>
+              <svg class="flex-shrink-0" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 19.8095C40 22.436 39.4827 25.0367 38.4776 27.4632C37.4725 29.8897 35.9993 32.0945 34.1421 33.9517C32.285 35.8088 30.0802 37.282 27.6537 38.2871C25.2272 39.2922 22.6264 39.8095 20 39.8095C17.3736 39.8095 14.7728 39.2922 12.3463 38.2871C9.91982 37.282 7.71503 35.8088 5.85786 33.9517C4.00069 32.0945 2.5275 29.8897 1.52241 27.4632C0.517315 25.0367 -2.2961e-07 22.436 0 19.8095L40 19.8095Z" :fill="activeCard === 2 ? '#000000' : '#525252'"/>
+                <path d="M40 1.74846e-06C40 2.62644 39.4827 5.22716 38.4776 7.65367C37.4725 10.0802 35.9993 12.285 34.1421 14.1421C32.285 15.9993 30.0802 17.4725 27.6537 18.4776C25.2272 19.4827 22.6264 20 20 20C17.3736 20 14.7728 19.4827 12.3463 18.4776C9.91982 17.4725 7.71503 15.9993 5.85786 14.1421C4.00069 12.285 2.5275 10.0802 1.52241 7.65367C0.517315 5.22716 -2.2961e-07 2.62644 0 0L40 1.74846e-06Z" :fill="activeCard === 2 ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <p x-show="activeCard === 2" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" class="text-lg sm:text-xl font-light px-4 sm:px-6 pb-4 sm:pb-6">One accountable partner, operating like part of your team.</p>
+            
+            <!-- Expanded Content -->
+            <div x-show="activeCard === 2" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
+              <p class="text-lg sm:text-xl font-light">Our people, processes and technologies, aligned to your strategic and operational ethos</p>
+              {#
+              <div class="bg-black rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-white">WHAT YOU GET</span>
+              </div>
+              <p class="text-black font-medium mb-8">Shared runbooks, proactive comms, executive-ready updates.</p>
+              
+              <div class="bg-white rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-black">WHY IT MATTERS</span>
+              </div>
+              <p class="text-black font-medium">Faster decisions, fewer handoffs, no surprises.</p>
+              #}
+            </div>
+          </button>
+        </div>
+
+        <!-- Accordion Item 3: Flexible and Adaptable Services -->
+        <div class="relative z-20 mb-4 -mt-2">
+          <button 
+            @click="activeCard = activeCard === 3 ? null : 3"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg"
+            :class="activeCard === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 transform' : 'bg-black border-1 border-neutral-600 text-neutral-600 transform hover:scale-101'"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between px-4 sm:px-6 pt-4 sm:pt-6" :class="activeCard === 3 ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Flexible & Adaptable Services</h3>
+              <svg class="flex-shrink-0" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20Z" :fill="activeCard === 3 ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <p x-show="activeCard === 3" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" class="text-lg sm:text-xl font-light px-4 sm:px-6 pb-4 sm:pb-6">Start where you are, scale when you're ready.</p>
+            
+            <!-- Expanded Content -->
+            <div x-show="activeCard === 3" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
+              <p class="text-lg sm:text-xl font-light">Comprehensive modular suite of services that meet ‘you’ where you are,  always addressing business risk & maximizing ROI benefits</p>
+              {#
+              <div class="bg-black rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-white">WHAT YOU GET</span>
+              </div>
+              <p class="text-black font-medium mb-8">Modular services that expand without disruption.</p>
+              
+              <div class="bg-white rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-black">WHY IT MATTERS</span>
+              </div>
+              <p class="text-black font-medium">Quick wins now, predictable budgets later.</p>
+              #}
+            </div>
+          </button>
+        </div>
+
+        <!-- Accordion Item 4: Enterprise Rigor & Maturity (Active/Expanded) -->
+        <div class="relative z-10 -mt-2">
+          <button 
+            @click="activeCard = activeCard === 4 ? null : 4"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg"
+            :class="activeCard === 4 ? 'bg-teal-500 text-black border-1 border-teal-500 transform' : 'bg-black border-1 border-neutral-600 text-neutral-600 transform hover:scale-101'"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between px-4 sm:px-6 pt-4 sm:pt-6" :class="activeCard === 4 ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Enterprise Rigor & Maturity</h3>
+              <svg class="flex-shrink-0" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6.73267" width="33.2673" height="8.71287" rx="4.35644" :fill="activeCard === 4 ? '#000000' : '#525252'"/>
+                <rect x="31.2871" y="33.2671" width="33.2673" height="8.71287" rx="4.35644" transform="rotate(-90 31.2871 33.2671)" :fill="activeCard === 4 ? '#000000' : '#525252'"/>
+                <rect y="33.7607" width="41.5842" height="8.71287" rx="4.35644" transform="rotate(-45 0 33.7607)" :fill="activeCard === 4 ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <p x-show="activeCard === 4" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" class="text-lg sm:text-xl font-light px-4 sm:px-6 pb-4 sm:pb-6">Security, governance, and SLAs built in from day one.</p>
+            
+            <!-- Expanded Content -->
+            <div x-show="activeCard === 4" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
+              <p class="text-lg sm:text-xl font-light">Our end-to-end expertise combined with a service model structured to meet the highest level of client satisfaction</p>
+              {#
+              <div class="bg-black rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-white">WHAT YOU GET</span>
+              </div>
+              <p class="text-black font-medium mb-8">Zero-Trust controls, compliance-ready evidence, documented process.</p>
+              
+              <div class="bg-white rounded-full px-2 py-0.5 mb-2 inline-block">
+                <span class="text-xs font-semibold text-black">WHY IT MATTERS</span>
+              </div>
+              <p class="text-black font-medium">Audit confidence, reliable uptime, lower risk.</p>
+              #}
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</article>
+{# <div class="h-24 bg-black"></div> #}
+
+{% include "partials/footer.html" %}
+{% endblock %}

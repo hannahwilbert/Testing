@@ -1,0 +1,30 @@
+<div class="container mx-auto my-16">
+  <hr class=>
+</div>
+
+<div class="container md:mx-auto my-16" id="post-list">
+
+  {% if postListHeadline %}
+  <h2 class="text-sm text-slate-400 mb-8" data-highlight="primary">
+    {{ postListHeadline }}
+  </h2>
+  {% endif %}
+  <div>
+    <div class="grid gap-2 grid-flow-row grid-cols-3">
+      {% for item in postListItems %}
+      <div class="block rounded-xl border border-gray-700 bg-gray-800 p-8 shadow-xl">
+        <a href="{{ item.url }}" class="text-slate-100 text-lg font-bold hover:underline">{{ item.data.title }}</a>
+        <p class="text-xs text-slate-400">{{ item.data.date }}</p>
+        <div class="flex mt-2">
+          {% for tag in item.data.tags %}
+          <a class="text-teal-400 mr-2 rounded-full text-xs py-1 hover:underline"
+             href="/tag/{{ tag | slug }}/">#{{ tag | replace(' ', '') }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

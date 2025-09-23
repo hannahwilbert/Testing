@@ -1,0 +1,26 @@
+<div class="container md:mx-auto" id="post-list">
+
+  {% if postListHeadline %}
+  <h2 class="[ headline ] [ measure-micro ]" data-highlight="primary">
+    {{ postListHeadline }}
+  </h2>
+  {% endif %}
+  <div>
+    <div class="grid gap-2 grid-flow-col grid-cols-3 grid-rows-3">
+      {% for item in postListItems %}
+      <div class="p-4 ">
+        <a href="{{ item.url }}" class="text-xl font-bold">{{ item.data.title }}</a>
+        <p class="text-xs text-slate-600">{{ item.data.date }}</p>
+        <div class="flex mt-2">
+          {% for tag in item.data.tags %}
+          <a class="text-teal-400 mr-2 rounded-full text-xs py-1 hover:underline"
+             href="/tag/{{ tag | slug }}/">#{{ tag | replace(' ', '') }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

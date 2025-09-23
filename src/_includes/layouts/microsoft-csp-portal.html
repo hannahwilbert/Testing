@@ -1,0 +1,238 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<style>
+  /* * {
+  outline: 1px solid red;
+} */
+</style>
+
+<section style="background-image: url('/images/products/{{title|slug}}.webp') ;"
+  class="w-full bg-cover bg-center bg-no-repeat text-white px-4 md:px-10 pt-16">
+
+  <div class="grid grid-cols-1 md:grid-cols-3 md:pt-24 pb-10">
+
+    <div class="text-center md:text-left container py-16 px-0 md:px-0 md:mx-auto col-span-2">
+      <h1 class="text-center md:text-left text-4xl md:text-6xl font-black my-6 md:mr-20">{{ mainTitle | safe }}</h1>
+      <h1 class="text-center md:text-left text-3xl font-light mb-6">{{ subtitle }}</h1>
+      <button @click="showModal = true"
+        class="font-bold text-lg md:text-xl rounded-lg py-3 px-5 md:px-10 md:py-4 bg-yellow-400 transition-all duration-300 hover:bg-yellow-600 text-black mb-7">{{ button }}</button>
+    </div>
+
+    <div class="text-center p-8 rounded-xl shadow-xl col-span-1 bg-black/70">
+      <img class="p-8 block mx-auto w-[300px]" src="/images/icons/csp.svg" alt="">
+      <h2 class="text-center text-xl md:text-4xl font-bold mx-6 md:mx-0 mb-10">Microsoft CSP <br> Self-Service</h2>
+      <a href="https://csp.l3networks.com/#/login"
+        class="block font-bold text-lg rounded-lg py-3 px-5 bg-yellow-300 transition-all duration-300 hover:bg-yellow-200 text-black mb-2">
+        Login to CSP Self-Service Portal</a>
+      <p class="text-md px-4 block mb-10">Access Microsoft self-service options to view licensing assignments, add licensing and review Azure consuption</p>
+      <p @click="showModal = true"
+        class="block font-bold text-lg rounded-lg py-3 px-5 bg-yellow-300 transition-all duration-300 hover:bg-yellow-200 text-black mb-2 cursor-pointer">
+        Get a Microsoft CSP Orientation</p>
+      <p class="text-md px-4 block mb-8">Gain complementary access by scheduling an orientation appointment, offered by L3 Networks to clients, and those interested in learning more</p>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="container mx-auto py-16 px-4 md:py-24 lg:px-10">
+  <!-- <h2 class="text-center text-xl md:text-4xl mb-10 font-bold">Learn More</h2> -->
+  <div class="grid gap-8 grid-cols-1">
+
+    <div class="col-span-1" data-item="item-1" id="item-1">
+      <div class="content-block p-5 border border-slate-200 rounded-lg hover:shadow-md duration-300">
+        <h2 class="text-2xl font-bold mb-4">Featured L3 Networks Microsoft Services</h2>
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://appsource.microsoft.com/en-us/marketplace/consulting-services/oneneckitsolutionsllc1658330452491.on-powerplatwks-advise-01?page=1&amp;search=Oneneck&amp;exp=ubp8">Microsoft
+              AppSource &#8211; Power Platform 4 Hour Workshop</a></li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oneneckitsolutionsllc1658330452491.on-prosvc-datamodwks-advise-01?exp=ubp8">Microsoft
+              Azure Marketplace: Data Modernization 4 Hour Workshop</a></li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://content.oneneck.com/csp-invoicing-and-reporting/p/1">Customized billing options</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-span-1" data-item="item-2" id="item-2">
+      <div class="content-block p-5 border border-slate-200 rounded-lg hover:shadow-md duration-300">
+        <h2 class="text-2xl font-bold mb-4">Helpful Microsoft Azure Links</h2>
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline" href="https://azure.microsoft.com/en-us/status/">Azure
+              Status</a> &#8211; for an up to date view of the
+            health of Microsoft Azure services across the globe</li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://azure.microsoft.com/en-us/support/community/">Azure community support</a> &#8211; The Azure
+            community has helpful <a href="https://azure.microsoft.com/en-us/blog/">blogs</a>, useful content, and
+            knowledgeable experts to answer your questions.</li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://learn.microsoft.com/en-us/azure/advisor/">Azure Advisor</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-span-1" data-item="item-4" id="item-4">
+      <div class="content-block p-5 border border-slate-200 rounded-lg hover:shadow-md duration-300">
+        <h2 class="text-2xl font-bold mb-4">Helpful Overall Microsoft Links</h2>
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline" href="https://servicetrust.microsoft.com/">Microsoft
+              Service Trust Portal</a></li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://docs.microsoft.com/en-us/compliance/regulatory/offering-home?view=o365-worldwide">Microsoft
+              Compliance Offerings</a></li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://www.microsoft.com/licensing/terms/welcome/welcomepage">Microsoft Product Terms Site</a>
+          </li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline" href="https://docs.microsoft.com/en-us/learn/">Microsoft
+              Learn</a></li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline" href="https://docs.microsoft.com/en-us/">Microsoft
+              Docs</a></li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://www.microsoft.com/licensing/docs/customeragreement">Microsoft Customer Agreement</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-span-1" data-item="item-3" id="item-3">
+      <div class="content-block p-5 border border-slate-200 rounded-lg hover:shadow-md duration-300">
+        <h2 class="text-2xl font-bold mb-4">Helpful Microsoft 365 Links</h2>
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline" href="https://status.office365.com/">Office 365
+              Status</a> – for an up to date view of the health of the
+            Microsoft Office 365 services.</li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://support.office.com/en-us/article/about-the-office-365-admin-center-758befc4-0888-4009-9f14-0d147402fd23">All
+              about Office 365 Admin Center</a> – Your introduction as your company’s Office 365 Administrator into the
+            Office 365 portal where you manage your Office 365 services, users and licenses.</li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://support.office.com/en-us/office365admin">Office 365 Admin help center</a> – Help and
+            guidance for everything about Office 365 with help on how to get started, how to setup and managed your
+            Office
+            365 services, to help on how to train your users with lots of online videos. Just remember to call OneNeck
+            for
+            your billing and support escalation.</li>
+          <li class="list-item pb-2">Office 365 Community support &#8211; The Office 365 community has helpful <a
+              class="text-yellow-500 text-base hover:underline"
+              href="https://www.microsoft.com/en-us/microsoft-365/blog/">blogs</a>, useful content, and knowledgeable
+            experts in the <a class="text-yellow-500 text-base hover:underline"
+              href="https://answers.microsoft.com/en-us#msoffice">community forums</a> to answer your
+            questions.</li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline" href="https://support.office.com/en-us/">Office Help and
+              Training</a> – All of you Office 365 self-help
+            and training.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-span-1" data-item="item-5" id="item-5">
+      <div class="content-block p-5 border border-slate-200 rounded-lg hover:shadow-md duration-300">
+        <h2 class="text-2xl font-bold mb-4">Microsoft 365 Productivity</h2>
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://learn.microsoft.com/en-us/microsoft-365/admin/adoption/adoption-score?view=o365-worldwide">Microsoft
+              Adoption Score (how to enable)</a> (tips on improving productivity with what you have)</li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://learn.microsoft.com/en-us/microsoftteams/set-up-audio-conferencing-in-teams">Setup Audio
+              Conferencing for Microsoft Teams</a> (free with Office licensing – must be added)</li>
+          <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+              href="https://learn.microsoft.com/en-us/microsoft-365/bookings/turn-bookings-on-or-off?view=o365-worldwide">MS
+              Bookings (turn on)</a> (Make scheduling meetings easier on everybody)
+            <ul class="list-disc list-inside pl-4 pt-2">
+              <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                  href="https://outlook.office.com/bookings/homepage">MS Bookings – 1. Main
+                  set up page</a></li>
+              <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                  href="https://support.microsoft.com/en-us/office/create-a-bookings-calendar-921cfd26-a24d-4aca-9004-561594112148">MS
+                  Bookings – 2. Create a Calendar</a></li>
+              <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                  href="https://learn.microsoft.com/en-us/microsoft-365/bookings/define-service-offerings?source=recommendations&amp;view=o365-worldwide">MS
+                  Bookings – 3. Define a service offering in Bookings | Microsoft Learn </a></li>
+              <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                    href="https://learn.microsoft.com/en-us/microsoft-365/bookings/customize-booking-page?source=recommendations&amp;view=o365-worldwide">MS
+                    Bookings – 4. Customize and publish your booking page | Microsoft Learn</a></li>
+            </ul>
+          </li>
+          <li class="list-item pb-2">Assigning Licenses by Groups
+            <ul class="list-disc list-inside pl-4 pt-2">
+              <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                  href="about:blanka.%09https:/learn.microsoft.com/en-us/training/paths/implement-manage-identity-access/">MS-500
+                  part 1 &#8211; Implement and manage identity and access</a>
+                <ul class="list-disc list-inside pl-4 pt-2">
+                  <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                      href="https://learn.microsoft.com/en-us/training/modules/create-configure-manage-identities/8-manage-licenses?ns-enrollment-type=learningpath&amp;ns-enrollment-id=learn.wwl.implement-manage-identity-access">Manage
+                      Licenses</a></li>
+                </ul>
+              </li>
+              <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                  href="https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups">Assign
+                  or remove licenses in the Azure Active Directory portal</a>
+                <ul class="list-disc list-inside pl-4 pt-2">
+                  <li class="list-item pb-2"><a class="text-yellow-500 text-base hover:underline"
+                      href="https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups#to-assign-a-license-to-a-group">To
+                      assign a license to a group</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-span-1" data-item="item-6" id="item-6">
+      <div class="content-block p-5 border border-slate-200 rounded-lg hover:shadow-md duration-300">
+        <h2 class="text-2xl font-bold mb-4">Microsoft Security</h2>
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2">Link to MFA / Conditional Access Policies Standards
+            <ul class="list-disc list-inside pl-4">
+              <li class="list-item pb-2"><strong>What is Conditional Access in Azure Active Directory? &#8211;
+                  Microsoft Entra | Microsoft Learn</strong><br />
+                <a class="text-yellow-500 text-base hover:underline pl-4"
+                  href="https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview#commonly-applied-policies">https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview#commonly-applied-policies</a>
+              </li>
+              <li class="list-item pb-2"><strong>Conditions in Conditional Access policy &#8211; Azure Active Directory
+                  &#8211; Microsoft Entra | Microsoft Learn</strong><br />
+                <a class="text-yellow-500 text-base hover:underline pl-4"
+                  href="https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-conditions">https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-conditions</a>
+              </li>
+              <li class="list-item pb-2"><strong>Plan an Azure Active Directory Conditional Access deployment &#8211;
+                Microsoft Entra | Microsoft Learn</strong><br />
+              <a class="text-yellow-500 text-base hover:underline pl-4"
+                href="https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access">https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access</a>
+            </li>
+            </ul>
+          </li>
+        </ul>
+       
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2">Azure “Break The Glass” Account
+            <ul class="list-disc list-inside pl-4">
+              <li class="list-item pb-2"><strong>Manage emergency access admin accounts &#8211; Azure AD &#8211;
+                  Microsoft Entra | Microsoft Learn</strong><br />
+                <a class="text-yellow-500 text-base hover:underline pl-4"
+                  href="https://learn.microsoft.com/en-us/azure/active-directory/roles/security-emergency-access">https://learn.microsoft.com/en-us/azure/active-directory/roles/security-emergency-access</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="list-disc list-inside">
+          <li class="list-item pb-2">MFA Number Matching
+            <ul class="list-disc list-inside pl-4">
+              <li class="list-item pb-2"><strong>Use number matching in multifactor authentication (MFA) notifications
+                  &#8211; Azure Active Directory &#8211; Microsoft Entra | Microsoft Learn</strong><br />
+                <a class="text-yellow-500 text-base hover:underline pl-4"
+                  href="https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-mfa-number-match">https://learn.microsoft.com/en-us/azure/active-directory/authentication/how-to-mfa-number-match</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% include "partials/footer.html" %}
+
+{% endblock %}

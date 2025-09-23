@@ -1,0 +1,103 @@
+<section class="w-full px-10">
+  <div class="container px-10 pt-8 text-center md:text-left md:mx-auto md:pt-32 text-slate-800">
+
+    <h2 class="inline-block text-3xl font-bold text-center md:text-3xl md:pr-4 md:border-r-2 md:border-teal-500">Conquering IT Challenges: Frontline Insights and Strategies</h2>
+    <h1 class="inline-block text-2xl font-light text-center md:text-3xl md:pl-4">{{ subtitle }}</h1>
+
+  </div>
+</section>
+
+{% set recommendedPosts = helpers.getSiblingContent(collections.frontLine, page) %}
+
+<div class="container px-4 mt-4 mb-16 md:mx-auto lg:px-10">
+  <div class="gap-8 md:grid md:grid-cols-3">
+
+    <div class="col-span-2 relavtive">
+      
+      {% for post in recommendedPosts.slice(0,1) %}
+      
+      <!-- <img class="object-cover w-full h-96" alt="{{ post.data.alt }}" src="{{ post.data.img }}"> -->
+
+      <div
+      style="background-image: url('{{ post.data.img }}') ;"
+      class="w-full bg-cover bg-center bg-no-repeat text-white h-[500px] relative p-8 border-slate-700 border-b-8">
+      
+      <div class="absolute inset-0 object-cover w-full h-full bg-gradient-to-t from-black to-transparent" ></div>
+
+      <div class="absolute bottom-0 left-0 p-2 text-center md:text-left md:p-8">
+        <a href="{{ post.url }}" class="block text-3xl font-bold hover:text-teal-400">{{ post.data.title }}</a>
+        <p class="py-2 text-lg font-light">{{ post.data.exerpt }}</p>
+      </div>
+
+      </div>
+     
+      {% endfor %}
+    </div>
+
+    <div class="col-span-1 mt-8 md:mt-0">
+      <h2 class="pb-3 mb-3 font-bold border-b-2 text-md border-b-teal-500 text-slate-800">Featured Posts</h2>
+
+      {% for post in recommendedPosts.slice(5,9) %}
+      <div class="pb-4 my-4 border-b border-b-slate-300 text-slate-800">
+        <a href="{{ post.url }}" class="text-lg font-semibold hover:text-teal-500">{{ post.data.title }}</a>
+        <div class="flex text-sm text-slate-600">
+          <p class="">{{ post.data.exerpt }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="pb-4 my-4">
+        <a href="/tag/all/" class="px-3 py-1 font-bold text-white bg-teal-500 rounded-md cursor-pointer text-md hover:bg-teal-600">See All Articles</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container px-4 my-16 md:mx-auto md:px-10" id="post-list">
+  <div class="gap-6 md:grid md:grid-cols-4">
+
+    {% for post in recommendedPosts.slice(1,5) %}
+    <div class="pb-4 my-4 border-b border-b-slate-300">
+      <img class="object-cover w-full h-40" alt="{{ post.data.alt }}" src="{{ post.data.img }}">
+      <a href="{{ post.url }}" class="block pt-4 mb-2 text-lg font-bold leading-6 hh-16 hover:text-teal-500 hover:underline">{{ post.data.title }}</a>
+      <p class="font-light text-md hh-32 text-slate-600">{{ post.data.exerpt }}</p>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+<div class="container px-4 mb-32 md:mx-auto -scroll-mt-12 md:px-10" id="post-list">
+
+  <div class="items-baseline mb-12 md:flex">
+    <h2 class="text-4xl md:w-[600px] block font-bold font-open text-slate-800">The Executive View</h2>
+    <div class="hidden w-full border-b-2 md:block border-slate-600"></div>
+
+    <div class="block">
+      <a href="/tag/executiveview/" class="block text-sm font-semibold cursor-pointer md:text-center hover:text-slate-700 text-slate-800 md:w-56">See all Executive View Posts</a>
+    </div>
+
+  </div>
+
+  <div class="grid grid-cols-2 gap-6">
+
+    {% for post in collections.executiveView %}
+    <div class="gap-6 md:grid md:grid-cols-4 group hover:bg-slate-100">
+      <a href="{{ post.url }}"><img class="object-cover w-full h-32 col-span-1 group" alt="{{ post.data.alt }}" src="{{ post.data.img }}"></a>
+      <div class="col-span-3">
+        <a href="{{ post.url }}" class="block pt-2 mb-2 text-lg font-bold text-slate-800 group-hover:text-slate-700 group-hover:underline">{{ post.data.title }}</a>
+        <p class="text-base font-light text-slate-600 group-hover:text-slate-700">{{ post.data.exerpt }}</p>
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+
+

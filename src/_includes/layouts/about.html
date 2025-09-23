@@ -1,0 +1,82 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+<div class="relative overflow-hidden text-white md:bg-gradient-to-b bg-gradient-to-t from-black to-slate-900">
+  <div class="absolute inset-0 hidden w-full h-full md:block">
+    <img src="/images/about/icons/aboutbg1.svg" class="w-full" alt="">
+  </div>
+  <!-- <div class="absolute inset-0 hidden w-full h-full overflow-hidden md:block">
+    <img src="/images/about/icons/aboutbg1.svg" class="max-w-[800px] filter brightness-200" alt="">
+  </div> -->
+  <img class="absolute bottom-0 hidden w-full rotate-180 opacity-70 md:block" src="/images/about/icons/aboutbg1.svg" alt="">
+
+
+  <div class="relative flex flex-col justify-center pt-12 text-white md:pt-32 h-100">
+    <h1 class="relative mb-4 text-3xl font-semibold tracking-tight text-center font-mont pt-44 md:text-5xl">Why Choose L3 Networks?</h1>
+    <div class="relative pb-32 mx-auto mt-8">{% include "partials/cta/main-button.html" %}</div>
+  </div>
+  
+
+  <section class="container relative max-w-screen-xl px-3 mx-auto md:px-8 2xl:px-0">
+
+    <hr class="mt-4 mb-10 border-slate-700">
+    <h2 class="mt-4 mb-3 text-3xl font-semibold font-mont md:mx-0">Why Partner With L3 Networks?</h2>
+    <h3 class="w-4/5 mb-12 text-base font-light md:mx-0 text-slate-300">By choosing L3 Networks, you gain more than just an IT partner. You gain a collaborator dedicated to your success. With our combination of support and operational expertise, we deliver.</h3>
+
+  <section class="grid grid-cols-1 gap-4 md:grid-cols-4 ">
+    {% for prop in valueProps %}
+      <div class="flex flex-row items-center gap-2 mb-4 rounded-lg md:gap-6 md:flex-col md:items-start md:mb-0">
+        <img class="block w-16 h-16 text-teal-400" src="{{ prop.icon }}" alt="{{prop.title}}">
+        <div class="text-left">
+          <h3 class="mb-2 text-lg font-semibold leading-4 font-inter">{{ prop.title }}</h3>
+          <p class="text-sm font-light text-slate-400">{{ prop.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+  </section>
+  <div class="pt-32">&nbsp;</div>
+
+  <hr class="mb-10 border-slate-700">
+  <h2 class="mt-4 mb-3 text-3xl font-semibold font-mont md:mx-0">A Strategic Partner</h2>
+  <p class="mb-12 text-base font-light md:w-4/5 md:mx-0 text-slate-300">
+    Your IT strategy should drive business success, not hold it back. We take a proactive approach to aligning technology with your goals, ensuring seamless operations and a competitive edge.
+  </p>
+  
+  {% include "partials/about-partner.njk"  %}
+  
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <section>
+      <hr class="mt-32 mb-10 border-slate-700">
+      <h2 class="mt-4 mb-3 text-3xl font-semibold font-mont md:mx-0">Dedicated to Service</h2>
+      <p class="mb-12 text-base font-light md:mx-0 text-slate-300">
+        Downtime is not an option. With 24/7 monitoring, rapid response, and a relentless focus on performance, we provide IT support that keeps your business moving forward—without disruptions.
+      </p>
+      {% include "partials/about-service.njk"  %}
+    </section>
+    <section>
+      <hr class="mt-32 mb-10 border-slate-700">
+      <h2 class="mt-4 mb-3 text-3xl font-semibold font-mont md:mx-0">Expert Capability</h2>
+      <p class="mb-12 text-base font-light md:mx-0 text-slate-300">
+        IT complexity shouldn’t slow you down. Our certified experts deliver enterprise-grade solutions, cutting-edge security, and seamless integration—so your technology works for you, not against you.
+      </p>
+      {% include "partials/about-expert.njk"  %}
+    </section>
+  </div>
+  
+    <hr class="my-10 border-slate-700">
+      <p class="font-mono text-xs text-slate-500">Share</p>
+      <div class="flex gap-2 mb-32">
+        <a href="https://www.linkedin.com/company/l3-networks" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/LinkedIn.svg" alt="LinkedIn Logo"></a>
+        <a href="https://www.facebook.com/people/L3-Networks-Inc/61562904941740/" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/Facebook.svg" alt="Facebook Logo"></a>
+        <a href="https://www.youtube.com/@L3Networks" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/YouTube.svg" alt="YouTube Logo"></a>
+      </div>
+
+  </section>
+
+</div>
+
+
+
+{% include "partials/footer.html" %}
+
+{% endblock %}

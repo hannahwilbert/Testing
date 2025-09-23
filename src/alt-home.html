@@ -1,0 +1,797 @@
+{% extends "layouts/base-home.html" %}
+{% block content %}
+
+<!-- Inline-styled wrapper with design tokens -->
+<div style="
+  --max:1200px; --pad:16px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
+  --bg:#000; --ink:#ffffff; --muted:rgba(255,255,255,.78);
+  --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+  --brand:#14b8a6; --brand-ink:#061216;
+  color:var(--ink); background:var(--bg); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+">
+
+<!-- =========================
+     HERO — Video BG + Marquee + Robust Typers
+========================= -->
+<header class="hero"
+  style="position:relative; display:flex; align-items:center; justify-content:center;
+         height:100svh; min-height:100vh; overflow:hidden; isolation:isolate;">
+
+  <!-- Background video -->
+  <video
+    src="/videos/herovid.mp4"
+    autoplay
+    muted
+    playsinline
+    loop
+    preload="auto"
+    style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+  </video>
+
+  <!-- Readability overlay -->
+  <div aria-hidden="true"
+       style="position:absolute; inset:0; z-index:1; pointer-events:none;
+              background:
+                radial-gradient(120% 80% at 50% 60%, rgba(0,0,0,.48) 0%, rgba(0,0,0,.72) 58%, rgba(0,0,0,.90) 100%),
+                linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.10));">
+  </div>
+
+  <!-- Foreground copy (centered) -->
+  <div class="heroCopy"
+       style="position:relative; z-index:3; width:100%; max-width:var(--max); margin:0 auto; padding:32px var(--pad); text-align:center;">
+    <div style="max-width:980px; margin-inline:auto;">
+      <p style="margin:0 0 14px; color:rgba(255,255,255,.72); font-weight:800; letter-spacing:.14em; text-transform:uppercase; font-size:12px;">
+        Secure • Simple • Scalable
+      </p>
+
+      <!-- Typing headline -->
+      <h1 style="margin:0 0 16px; font-weight:900; letter-spacing:-.02em; line-height:1.03; font-size:clamp(36px,6.5vw,84px);">
+        <span id="t1a"></span><span id="t1b" style="color:var(--brand);"></span><span id="t1c"></span><br>
+        <span id="t2a"></span><span id="t2b" style="color:var(--brand);"></span><span id="t2c"></span>
+      </h1>
+
+      <p style="margin:12px auto 28px; font-weight:300; font-size:clamp(16px,2.6vw,22px); color:var(--muted); max-width:64ch;">
+        Partner with L3 Networks for secure, reliable IT services—24/7.
+      </p>
+
+      <!-- CTAs -->
+      <div class="ctaRow" style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+        <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary"
+           style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:800; font-size:clamp(14px,2.4vw,18px); text-decoration:none; color:#fff; background:var(--brand); border-radius:999px; box-shadow:0 10px 28px rgba(20,184,166,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
+          Book a Consultation
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="" style="height:18px; filter:invert(1) brightness(1.6);">
+        </a>
+
+        <a href="/why-l3/" data-cta="secondary"
+           style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:800; font-size:clamp(14px,2.4vw,18px); text-decoration:none; color:var(--ink); background:transparent; border:1.5px solid var(--border); border-radius:999px; transition:transform .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;">
+          Learn More
+        </a>
+      </div>
+
+      <!-- Meta line with typing/deleting loop -->
+      <p class="metaTyperWrap" style="margin:16px 0 0; color:rgba(255,255,255,.72); font-size:.95rem; display:inline-flex; align-items:center; gap:.25ch;">
+        <span id="metaTyper" aria-live="polite"></span><span class="metaCaret" aria-hidden="true">|</span>
+        <noscript>20+ years • 100+ clients • 24/7 service</noscript>
+      </p>
+    </div>
+  </div>
+
+  <!-- Partners Marquee -->
+  <div class="heroBottom"
+       style="position:absolute; left:50%; bottom:clamp(12px,3vh,22px); transform:translateX(-50%);
+              width:min(1200px,94%); z-index:4;">
+    {% set partners =
+         trusted_brands if trusted_brands is defined
+         else (carousel_brands if carousel_brands is defined
+         else ['Cisco','Microsoft','AWS','Fortinet','SentinelOne','CrowdStrike','Veeam','Aruba','Palo Alto']) %}
+    <div class="heroMarquee"
+         style="position:relative; width:100%;
+                background:linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.12));
+                border:none; padding:10px 0; border-radius:12px;
+                overflow:hidden;
+                mask-image:linear-gradient(90deg,transparent 0%, #000 8%, #000 92%, transparent 100%);
+                -webkit-mask-image:linear-gradient(90deg,transparent 0%, #000 8%, #000 92%, transparent 100%);">
+      <div class="marq-track"
+           style="display:flex; width:max-content; will-change:transform; backface-visibility:hidden; animation:marq 28s linear infinite;">
+        <div style="display:inline-flex; white-space:nowrap;">
+          {% for p in partners %}
+            <span style="padding:8px 14px; border:1px solid rgba(255,255,255,.12); border-radius:999px;
+                         background:rgba(255,255,255,.06); color:#e2e8f0; font-weight:700; font-size:.95rem;
+                         white-space:nowrap; margin-right:14px;">
+              {{ p }}
+            </span>
+          {% endfor %}
+        </div>
+        <div aria-hidden="true" style="display:inline-flex; white-space:nowrap;">
+          {% for p in partners %}
+            <span style="padding:8px 14px; border:1px solid rgba(255,255,255,.12); border-radius:999px;
+                         background:rgba(255,255,255,.06); color:#e2e8f0; font-weight:700; font-size:.95rem;
+                         white-space:nowrap; margin-right:14px;">
+              {{ p }}
+            </span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Helpers / Styles -->
+  <style>
+    /* marquee */
+    @keyframes marq { 0% { transform:translate3d(0,0,0); } 100% { transform:translate3d(-50%,0,0); } }
+    @media (prefers-reduced-motion: reduce) { .marq-track { animation: none !important; } }
+
+    /* caret blink */
+    .metaCaret { display:inline-block; opacity:1; animation:blink 1s steps(2,end) infinite; }
+    @keyframes blink { 0%, 49% { opacity:1; } 50%, 100% { opacity:0; } }
+
+    @media (max-width: 980px){
+      .hero .heroCopy{ padding:24px var(--pad); }
+    }
+
+    /* CTA hovers */
+    .hero a[data-cta="primary"]:is(:hover,:focus-visible){
+      transform:translateY(-1px) scale(1.02);
+      box-shadow:0 14px 34px rgba(20,184,166,.45);
+      filter:brightness(1.03);
+    }
+    .hero a[data-cta="secondary"]:is(:hover,:focus-visible){
+      transform:translateY(-1px);
+      border-color:var(--brand);
+      background:rgba(20,184,166,.08);
+      color:#fff;
+    }
+
+    /* Reduced motion: show all bullets statically */
+    @media (prefers-reduced-motion: reduce) {
+      .metaCaret { display:none !important; }
+    }
+  </style>
+
+  <!-- One robust init script for both typers (scoped & defensive) -->
+  <script>
+    (function () {
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ---- Headline typer ----
+      try {
+        var ids = ["t1a","t1b","t1c","t2a","t2b","t2c"];
+        var haveAll = ids.every(function(id){ return document.getElementById(id); });
+        if (haveAll && !reduceMotion) {
+          var lines = [
+            { els: [ "t1a","t1b","t1c" ].map(function(id){ return document.getElementById(id); }),
+              txt: [ "Trust Your ", "IT", "." ] },
+            { els: [ "t2a","t2b","t2c" ].map(function(id){ return document.getElementById(id); }),
+              txt: [ "Empower Your ", "Business", "." ] }
+          ];
+          var speed = 80;
+          lines.forEach(function(line){ line.els.forEach(function(el){ el.textContent = ""; }); });
+          (function typeLine(li, si, ci){
+            var line = lines[li]; if (!line) return;
+            var segment = line.txt[si]; var el = line.els[si];
+            if (ci < segment.length) { el.textContent += segment.charAt(ci); return setTimeout(function(){ typeLine(li, si, ci+1); }, speed); }
+            if (si + 1 < line.txt.length) return setTimeout(function(){ typeLine(li, si+1, 0); }, speed);
+            if (li + 1 < lines.length)   return setTimeout(function(){ typeLine(li+1, 0, 0); }, 350);
+          })(0,0,0);
+        } else if (haveAll) {
+          // Reduced motion: just print static headline
+          document.getElementById("t1a").textContent = "Trust Your ";
+          document.getElementById("t1b").textContent = "IT";
+          document.getElementById("t1c").textContent = ".";
+          document.getElementById("t2a").textContent = "Empower Your ";
+          document.getElementById("t2b").textContent = "Business";
+          document.getElementById("t2c").textContent = ".";
+        }
+      } catch(e){ /* swallow */ }
+
+      // ---- Meta typer ----
+      try {
+        var metaEl = document.getElementById('metaTyper');
+        if (metaEl) {
+          var phrases = ['20+ years', '100+ clients', '24/7 service'];
+          if (reduceMotion) { metaEl.textContent = phrases.join(' • '); return; }
+
+          var i = 0, j = 0, deleting = false;
+          var typeSpeed = 60, deleteSpeed = 38, holdAfterType = 900, holdAfterDelete = 300;
+
+          function metaTick() {
+            var current = phrases[i];
+            if (!deleting) {
+              metaEl.textContent = current.slice(0, j + 1);
+              j++;
+              if (j === current.length) return setTimeout(function(){ deleting = true; metaTick(); }, holdAfterType);
+              return setTimeout(metaTick, typeSpeed);
+            } else {
+              metaEl.textContent = current.slice(0, j - 1);
+              j--;
+              if (j === 0) {
+                i = (i + 1) % phrases.length; deleting = false;
+                return setTimeout(metaTick, holdAfterDelete);
+              }
+              return setTimeout(metaTick, deleteSpeed);
+            }
+          }
+          metaEl.textContent = '';
+          metaTick();
+        }
+      } catch(e){ /* swallow */ }
+
+      // ---- CTA hover bindings (scoped & safe) ----
+      try {
+        var hero = document.currentScript && document.currentScript.closest('header.hero') || document.querySelector('header.hero');
+        if (hero) {
+          var primary = hero.querySelector('a[data-cta="primary"]');
+          var secondary = hero.querySelector('a[data-cta="secondary"]');
+          function bindHover(el, enter, leave) {
+            if (!el) return;
+            el.addEventListener('pointerenter', enter, { passive: true });
+            el.addEventListener('pointerleave', leave,  { passive: true });
+            el.addEventListener('focus',        enter,  { passive: true });
+            el.addEventListener('blur',         leave,  { passive: true });
+          }
+          bindHover(primary,
+            function () { primary.style.transform='translateY(-1px) scale(1.02)'; primary.style.boxShadow='0 14px 34px rgba(20,184,166,.45)'; primary.style.filter='brightness(1.03)'; },
+            function () { primary.style.transform='translateY(0) scale(1)';       primary.style.boxShadow='0 10px 28px rgba(20,184,166,.35)'; primary.style.filter='none'; }
+          );
+          bindHover(secondary,
+            function () { secondary.style.transform='translateY(-1px)'; secondary.style.borderColor='var(--brand)'; secondary.style.background='rgba(20,184,166,.08)'; secondary.style.color='#fff'; },
+            function () { secondary.style.transform='translateY(0)';    secondary.style.borderColor='var(--border)'; secondary.style.background='transparent';        secondary.style.color='var(--ink)'; }
+          );
+        }
+      } catch(e){ /* swallow */ }
+    })();
+  </script>
+</header>
+
+
+<div class="bg-slate-900/95 md:pt-0">
+  <section class="relative z-10 grid grid-cols-1 gap-4 py-6 mx-2 text-lg font-semibold text-center text-white md:container md:max-w-screen-xl md:mx-auto md:gap-12 font-inter md:text-3xl md:grid-cols-3 md:px-8 2xl:px-0">
+    <div class="flex flex-row items-center justify-start gap-4 py-2 pl-4 md:py-6 md:justify-center rounded-xl top-feature-ani md:pl-0">
+      <img src="/images/home/icons/ShieldCheck.svg" alt="ShieldCheck">
+      <div class="text-left">
+        <p>Tailored Solutions</p>
+        <p class="text-sm font-light tracking-normal font-open">We build and manage solutions for your exact business needs to deliver on your vision</p>
+      </div>
+    </div>
+    <div class="flex flex-row items-center justify-start gap-4 py-2 pl-4 md:py-6 md:justify-center rounded-xl top-feature-ani md:pl-0">
+      <img src="/images/home/icons/Trophy.svg" alt="Trophy">
+      <div class="text-left">
+        <p>Expert Team</p>
+        <p class="text-sm font-light tracking-normal font-open">Our culture is to foster a client relationship built on strong relationships, expertise and trust</p>
+      </div>
+    </div>
+    <div class="flex flex-row items-center justify-start gap-4 py-2 pl-4 md:py-6 md:justify-center rounded-xl top-feature-ani md:pl-0">
+      <img src="/images/home/icons/Stars.svg" alt="Stars">
+      <div class="text-left">
+        <p>Dedicated to Service</p>
+        <p class="text-sm font-light tracking-normal font-open">Your vision is our success - and our 20+ years of long-term client relationships is proof</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<article class="flex flex-col justify-center pt-24 text-white bg-center bg-linear-to-b from-black to-slate-900 pb-44">
+  <div class="mx-2 md:container md:max-w-screen-xl md:mx-auto md:p-8">    
+    <h2 class="mb-20 text-2xl font-semibold tracking-tighter md:text-6xl font-mont">Are Gaps in Your IT Costing You <br> Time, Money, &amp; Reputation?</h2>
+
+   
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:mx-auto">
+          <div class="flex items-center justify-start gap-3 text-lg font-semibold leading-7 tracking-tight md:text-2xl">
+            <img src="/images/home/WarningDiamond.svg" alt="WarningDiamond" class="warn-ani">
+            <div>
+              <p class="font-bold tracking-tight">Lacking Specific Expertise</p>
+              <p class="text-sm font-normal tracking-normal text-light text-slate-300 md:text-lg md:font-light">Do you have the right skillsets when you need them to support your technology needs?</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-start gap-3 text-lg font-semibold tracking-tight md:text-2xl">
+            <img src="/images/home/WarningDiamond.svg" alt="WarningDiamond" class="warn-ani">
+            <div>
+              <p class="font-bold tracking-tight">Behind with New Initiatives</p>
+              <p class="text-sm font-normal tracking-normal text-light text-slate-300 md:text-lg md:font-light">Are you confident with how Technologies are planned and implemented in your business?</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-start gap-3 text-lg font-semibold tracking-tight md:text-2xl">
+            <img src="/images/home/WarningDiamond.svg" alt="WarningDiamond" class="warn-ani">
+            <div>
+              <p class="font-bold tracking-tight">Missing ROI Expectations</p>
+              <p class="text-sm font-normal tracking-normal text-light text-slate-300 md:text-lg md:font-light">When was the last time you checked to make sure you are not overpaying for IT services?</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-start gap-3 text-lg font-semibold tracking-tight md:text-2xl">
+            <img src="/images/home/WarningDiamond.svg" alt="WarningDiamond" class="warn-ani">
+            <div>
+              <p class="font-bold tracking-tight">Unpredictable IT Experience</p>
+              <p class="text-sm font-normal tracking-normal text-light text-slate-300 md:text-lg md:font-light">Are performance, security and ease of use challenges impacting your business?</p>
+            </div>
+          </div>
+        </div>
+
+
+
+  </div>
+
+</article>
+
+{% set keyFeatures = {
+  title: "Unlock the Benefits of Smarter IT Solutions",
+  features: [
+    {
+      icon: "/images/home/icons/teal/simplify-operations.svg",
+      alt: "simplify-operations",
+      heading: "Simplify Your Operations",
+      description: "Say goodbye to IT chaos. Our tailored solutions ensure your business runs smoothly, so you can focus on what matters most."
+    },
+    {
+      icon: "/images/home/icons/teal/protect-your-business.svg",
+      alt: "protect-your-business",
+      heading: "Protect Your Business",
+      description: "Stay one step ahead of cyber threats. Our expert team provides rock-solid security and reliability, so you can operate with confidence."
+    },
+    {
+      icon: "/images/home/icons/teal/scale-without-limits.svg",
+      alt: "scale-without-limits",
+      heading: "Scale Without Limits",
+      description: "Grow your business with technology that grows with you. Our scalable solutions and 24/7 support ensure you’re always ready for what’s next."
+    },
+    {
+      icon: "/images/home/icons/teal/proactive-support.svg",
+      alt: "proactive-support",
+      heading: "Proactive Support, Always",
+      description: "Don’t wait for problems to happen. Our team monitors your systems 24/7, so issues are solved before they impact your business."
+    }
+  ]
+} %}
+
+<section class="py-24 bg-black">
+  <div class="mx-2 text-white md:container md:max-w-screen-xl md:mx-auto rounded-xl md:px-8 2xl:px-0">
+    <h2 class="relative mb-20 text-2xl font-semibold tracking-tighter md:text-6xl font-mont">
+      {{ keyFeatures.title }}
+    </h2>
+    <div class="grid grid-cols-1 gap-16 mb-16 md:grid-cols-4">
+      {% for feature in keyFeatures.features %}
+      <div class="flex flex-col items-start col-span-1 gap-3 md:mb-0">
+        <img class="relative block w-16 opacity-0 md:mb-8 md:w-20 feature-ani" src="{{ feature.icon }}" alt="{{ feature.alt }}">
+        <div class="text-left">
+          <h3 class="relative text-lg font-bold tracking-tight md:pb-2 md:text-xl">{{ feature.heading }}</h3>
+          <p class="relative text-sm font-light text-slate-100 md:text-base md:font-light md:text-slate-200 ">{{ feature.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="flex justify-center">
+      {% include "partials/cta/main-button.html" %}
+    </div>
+  </div>
+</section>
+
+
+
+<article class="px-2 pt-24 pb-32 text-white bg-linear-to-t from-black to-slate-900 lg:px-8">
+  
+  <div class="container max-w-screen-xl mx-auto">
+  
+    <div class="grid grid-cols-1 gap-8">
+      <section class="col-span-1">
+        <h2 class="relative pb-5 text-4xl font-semibold tracking-tighter font-mont">Proven Results</h2>
+        <p class="pb-8 text-xl font-light">
+          Technology challenges can be frustrating we know how important it is to have reliable IT that supports your goals. At L3 Networks, we deliver tailored solutions and round-the-clock support to reduce downtime and secure your systems.
+        </p>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+
+          <div class="p-8 transition-all duration-300 ease-in-out border rounded-lg shadow-none hover:bg-slate-800/30 border-slate-800">
+            <svg class="mb-4 fill-teal-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg>
+            <p class="pb-4 text-sm italic font-light">
+              Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance which adds value to our organization in a competitive market with growing cybersecurity demands. They are an experienced strategic partner that goes the extra mile without being asked!
+            </p>
+            <div class="flex gap-4 pb-4">
+              <div class="text-sm font-light text-slate-400">
+                <p>LeeAnn S, C Level – Exodus Recovery</p>
+              </div>
+            </div>
+            <img class="h-16 pb-6" src="/images/home/clients/exodus.svg" alt="">
+          </div>
+
+          <div class="p-8 transition-all duration-300 ease-in-out border rounded-lg shadow-none hover:bg-slate-800/30 border-slate-800">
+            <svg class="mb-4 fill-teal-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg>
+            <p class="pb-4 text-sm italic font-light">
+              L3 has proven to be an invaluable security MSP partner in helping us plan and evolve our IT security. Their support teams are truly available 24/7 and are highly experienced. I would recommend L3 to any business that needs security help.
+            </p>
+            <div class="flex gap-4 pb-4">
+              <div class="text-sm font-light text-slate-400">
+                <p>Royce N, IT Director - DG Architects</p>
+              </div>
+            </div>
+            <img class="h-16 pb-6" src="/images/home/clients/dga.svg" alt="">
+          </div>
+      
+          <div class="p-8 transition-all duration-300 ease-in-out border rounded-lg shadow-none hover:bg-slate-800/30 border-slate-800">
+            <svg class="mb-4 fill-teal-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/></svg>
+            <p class="pb-4 text-sm italic font-light">
+              Our business continues to grow, and our IT needs are always changing. L3 Networks keeps us structured and ensures that our systems are secure, our data remains protected, and our network efficiently configured. With their expertise and guidance, we greatly decrease our risk of security breaches.  L3 is a great partner with competitive costs and focused service.            </p>
+            <div class="flex gap-4 pb-4">
+              <div class="text-sm font-light text-slate-400">
+                <p>Bruce M, C Level – American Textile Maintenance</p>
+              </div>
+            </div>
+            <img class="h-16 pb-6" src="/images/home/clients/atm.svg" alt="">
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="container max-w-screen-xl mx-auto">
+    <h2 class="relative pt-20 text-4xl font-semibold tracking-tighter text-center font-mont">Trusted by Leading Brands</h2>
+    {% include "partials/home-carousel.html" %}
+    <p class="text-lg italic font-light text-center text-slate-400">We help companies become industry leaders by turning IT strategy into action, delivering results that drive transformation and growth.</p>
+  </div>
+</article>
+
+
+<article class="relative text-white bg-linear-to-t from-black to-slate-900">
+  <div class="absolute w-full h-full">
+    <img src="/images/home/bgs/solutionbg.svg" class="w-full" alt="">
+  </div>
+
+  {% set services = [
+    {
+      icon: '/images/home/icons/teal/ShieldCheckered.svg',
+      title: 'Cyber Security',
+      description: 'Safeguard your business with proactive threat detection, robust firewalls, and compliance strategies that protect your most valuable assets.',
+      link: '/products/cyber-security',
+      linkText: 'Secure Your Business'
+    },
+    {
+      icon: '/images/home/icons/teal/CloudCheck.svg',
+      title: 'Cloud Solutions',
+      description: 'Achieve flexibility and scalability with tailored cloud solutions that optimize performance and reduce downtime.',
+      link: '/products/cloud-and-systems-services',
+      linkText: 'Elevate with the Cloud'
+    },
+    {
+      icon: '/images/home/icons/teal/Network.svg',
+      title: 'Networks & Connectivity',
+      description: 'Ensure smooth and reliable communication between your systems with our managed network solutions.',
+      link: '/products/managed-networks',
+      linkText: 'Streamline Your Connections'
+    },
+    {
+      icon: '/images/home/icons/teal/Devices.svg',
+      title: 'Users & Devices',
+      description: 'Streamline your IT environment with comprehensive support for devices, users, and access controls.',
+      link: '/products/user-and-device-management',
+      linkText: 'Simplify Your Management'
+    }
+  ] %}
+  
+  <section class="pt-32 mx-2 md:px-8 2xl:px-0 md:container md:relative md:max-w-screen-xl md:mx-auto pb-44">
+    <h4 class="relative pb-4 text-xs font-medium tracking-wide text-teal-500 uppercase font-mont">Efficient, Scalable, and Secure IT Solutions</h4>
+    <h2 class="relative mb-10 text-3xl font-semibold tracking-tighter md:text-6xl font-mont">Technology That Works for You</h2>
+    <div class="flex flex-col gap-4 mx-auto md:grid md:grid-cols-4">
+      {% for service in services %}
+        <div class="p-8 ease-in-out border md:transition-all md:duration-500 md:col-span-2 border-slate-800 hover:border-teal-400 bg-black/20 hover:bg-black/50 rounded-2xl">
+          <div class="flex items-center gap-4 pb-4">
+            <img class="block w-16 h-16" src="{{ service.icon }}" alt="{{ service.title }}">
+            <h3 class="text-2xl font-semibold tracking-tight font-mont md:text-4xl">{{ service.title }}</h3>
+          </div>
+          <p class="pb-4 text-sm font-normal text-slate-500 md:text-lg md:font-light md:text-slate-200">{{ service.description }}</p>
+          <a href="{{ service.link }}" class="text-base font-semibold hover:text-teal-400">{{ service.linkText }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+
+
+<section class="relative w-full h-auto py-24 text-center text-white md:px-8 2xl:px-0">
+
+  <h2 class="relative mb-10 text-2xl font-semibold tracking-tighter md:text-6xl font-mont">Here's How it Works</h2>
+  <div class="container grid max-w-screen-xl grid-cols-1 gap-4 mx-auto text-center md:grid-cols-3">
+    <div class="col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-12 group hover:border-teal-400">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M73.125 12.6562H63.2812V8.4375C63.2812 8.06454 63.1331 7.70685 62.8694 7.44313C62.6056 7.17941 62.248 7.03125 61.875 7.03125C61.502 7.03125 61.1444 7.17941 60.8806 7.44313C60.6169 7.70685 60.4688
+                                                        8.06454 60.4688 8.4375V12.6562H29.5312V8.4375C29.5312 8.06454 29.3831 7.70685 29.1194 7.44313C28.8556 7.17941 28.498 7.03125 28.125 7.03125C27.752 7.03125 27.3944 7.17941 27.1306 7.44313C26.8669
+                                                        7.70685 26.7188 8.06454 26.7188 8.4375V12.6562H16.875C15.7561 12.6562 14.6831 13.1007 13.8919 13.8919C13.1007 14.6831 12.6562 15.7561 12.6562 16.875V73.125C12.6562 74.2439 13.1007 75.3169 13.8919
+                                                        76.1081C14.6831 76.8993 15.7561 77.3438 16.875 77.3438H73.125C74.2439 77.3438 75.3169 76.8993 76.1081 76.1081C76.8993 75.3169 77.3438 74.2439 77.3438 73.125V16.875C77.3438 15.7561 76.8993 14.6831
+                                                        76.1081 13.8919C75.3169 13.1007 74.2439 12.6562 73.125 12.6562ZM16.875 15.4688H26.7188V19.6875C26.7188 20.0605 26.8669 20.4181 27.1306 20.6819C27.3944 20.9456 27.752 21.0938 28.125 21.0938C28.498
+                                                        21.0938 28.8556 20.9456 29.1194 20.6819C29.3831 20.4181 29.5312 20.0605 29.5312 19.6875V15.4688H60.4688V19.6875C60.4688 20.0605 60.6169 20.4181 60.8806 20.6819C61.1444 20.9456 61.502 21.0938 61.875
+                                                        21.0938C62.248 21.0938 62.6056 20.9456 62.8694 20.6819C63.1331 20.4181 63.2812 20.0605 63.2812 19.6875V15.4688H73.125C73.498 15.4688 73.8556 15.6169 74.1194 15.8806C74.3831 16.1444 74.5312 16.502
+                                                        74.5312 16.875V29.5312H15.4688V16.875C15.4688 16.502 15.6169 16.1444 15.8806 15.8806C16.1444 15.6169 16.502 15.4688 16.875 15.4688ZM73.125 74.5312H16.875C16.502 74.5312 16.1444 74.3831 15.8806
+                                                        74.1194C15.6169 73.8556 15.4688 73.498 15.4688 73.125V32.3438H74.5312V73.125C74.5312 73.498 74.3831 73.8556 74.1194 74.1194C73.8556 74.3831 73.498 74.5312 73.125 74.5312ZM58.6512 44.0051C58.7819
+                                                        44.1357 58.8856 44.2908 58.9564 44.4615C59.0272 44.6322 59.0636 44.8152 59.0636 45C59.0636 45.1848 59.0272 45.3678 58.9564 45.5385C58.8856 45.7092 58.7819 45.8643 58.6512 45.9949L41.7762
+                                                        62.8699C41.6456 63.0007 41.4905 63.1044 41.3198 63.1752C41.149 63.2459 40.9661 63.2824 40.7812 63.2824C40.5964 63.2824 40.4135 63.2459 40.2427 63.1752C40.072 63.1044 39.9169 63.0007 39.7863
+                                                        62.8699L31.3488 54.4324C31.085 54.1686 30.9367 53.8107 30.9367 53.4375C30.9367 53.0643 31.085 52.7064 31.3488 52.4426C31.6127 52.1787 31.9706 52.0305 32.3438 52.0305C32.7169 52.0305 33.0748 52.1787
+                                                        33.3387 52.4426L40.7812 59.8852L56.6613 44.0051C56.7919 43.8743 56.947 43.7706 57.1177 43.6998C57.2885 43.6291 57.4714 43.5926 57.6562 43.5926C57.8411 43.5926 58.024 43.6291 58.1948 43.6998C58.3655
+                                                        43.7706 58.5206 43.8743 58.6512 44.0051Z" fill="#1E293B" />
+        </svg>
+        <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill=""/>
+          <path d="M40.9188 96V84.096H56.6628V46.656H40.9188V37.824C43.4788 37.632 46.2308 37.12 49.1748 36.288C52.1828 35.456 55.1588 34.432 58.1028 33.216C61.1108 31.936 63.8948 30.592 66.4548
+                                                        29.184H71.6388V84.096H86.9988V96H40.9188Z" fill="white" />
+        </svg>
+        <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M52.0805 16.5234C52.174 16.1635 52.4063 15.8553 52.7265 15.6662C53.0467 15.4771 53.4288 15.4225 53.7891 15.5144C58.7677 16.8112 63.3102 19.4128 66.9477 23.051C70.5853 26.6892 73.1862 31.2321 74.4821
+                                                        36.2109C74.5776 36.5708 74.5265 36.9539 74.34 37.2762C74.1535 37.5985 73.8468 37.8336 73.4871 37.9301C73.3728 37.9627 73.2545 37.9792 73.1356 37.9793C72.8246 37.9783 72.5227 37.8742 72.2772
+                                                        37.6834C72.0317 37.4925 71.8563 37.2257 71.7786 36.9246C70.6054 32.4286 68.2551 28.3266 64.9695 25.0411C61.6839 21.7555 57.5819 19.4051 53.086 18.232C52.7267 18.1377 52.4193 17.9052 52.2309
+                                                        17.585C52.0426 17.2649 51.9885 16.8833 52.0805 16.5234ZM50.2735 29.482C55.5469 30.8988 59.1012 34.4531 60.518 39.7266C60.5957 40.0277 60.7711 40.2945 61.0167 40.4853C61.2622 40.6762 61.5641 40.7802
+                                                        61.875 40.7812C61.9939 40.7812 62.1123 40.7646 62.2266 40.732C62.5863 40.6356 62.893 40.4004 63.0795 40.0781C63.266 39.7559 63.3171 39.3728 63.2215 39.0129C61.534 32.6848 57.2977 28.466 50.9766
+                                                        26.7644C50.6253 26.6965 50.2613 26.7651 49.9587 26.9561C49.6562 27.1472 49.4378 27.4465 49.3482 27.7929C49.2586 28.1393 49.3044 28.5069 49.4763 28.8207C49.6482 29.1345 49.9333 29.371 50.2735
+                                                        29.482ZM77.3227 64.1883C76.7392 68.6142 74.5638 72.6762 71.2032 75.615C67.8426 78.5537 63.5268 80.1681 59.0625 80.1562C31.9219 80.1562 9.84379 58.0781 9.84379 30.9375C9.83454 26.475 11.45 22.1618
+                                                        14.3885 18.8034C17.327 15.4451 21.3876 13.2712 25.8118 12.6879C26.7181 12.5777 27.6358 12.7645 28.4269 13.2203C29.218 13.6761 29.84 14.3762 30.1993 15.2156L37.6172 31.7883C37.8945 32.4309 38.0075
+                                                        33.1324 37.9462 33.8296C37.8848 34.5268 37.6509 35.1977 37.2657 35.782C37.234 35.8277 37.2024 35.8734 37.1672 35.9156L29.7141 44.7785C29.5971 44.9727 29.5302 45.1928 29.5191 45.4192C29.5081 45.6456
+                                                        29.5533 45.8712 29.6508 46.0758C32.4071 51.7183 38.3168 57.5824 44.0262 60.3387C44.2324 60.4343 44.459 60.4776 44.6859 60.4647C44.9128 60.4518 45.133 60.3832 45.327 60.2648L54.0704 52.8398L54.2039
+                                                        52.7379C54.7891 52.3514 55.4613 52.1169 56.1598 52.0555C56.8584 51.9941 57.5612 52.1078 58.2047 52.3863L74.8055 59.8254C75.6365 60.1869 76.329 60.8064 76.7805 61.5922C77.2319 62.378 77.4184 63.2883
+                                                        77.3121 64.1883H77.3227ZM73.684 62.3883L57.0762 54.9492C56.8744 54.8645 56.6554 54.8289 56.4372 54.8455C56.219 54.862 56.0079 54.9301 55.8211 55.0441L47.1094 62.4691L46.9793 62.5676C46.3736 62.972
+                                                        45.6735 63.2127 44.9472 63.2663C44.2208 63.3199 43.4929 63.1846 42.8344 62.8734C36.5063 59.8183 30.2098 53.5641 27.1547 47.3098C26.8405 46.6563 26.7 45.9329 26.7468 45.2093C26.7936 44.4857 27.0261
+                                                        43.7864 27.4219 43.1789C27.4536 43.1297 27.4887 43.0875 27.5239 43.0418L34.9735 34.1824C35.0851 33.9925 35.1506 33.7791 35.1647 33.5592C35.1787 33.3394 35.1409 33.1193 35.0543 32.9168L27.6223
+                                                        16.3441C27.5176 16.0872 27.3392 15.867 27.1096 15.7113C26.88 15.5555 26.6095 15.4711 26.3321 15.4687C26.2759 15.4653 26.2195 15.4653 26.1633 15.4687C22.4166 15.9652 18.9789 17.8093 16.493
+                                                        20.6562C14.0071 23.5031 12.6432 27.158 12.6563 30.9375C12.6563 56.5242 33.4758 77.3437 59.0625 77.3437C62.842 77.3568 66.4969 75.9929 69.3438 73.507C72.1908 71.0212 74.0348 67.5835 74.5313
+                                                        63.8367C74.5637 63.5351 74.4977 63.231 74.3431 62.97C74.1885 62.7089 73.9536 62.5049 73.6735 62.3883H73.684Z" fill="#1E293B" />
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont">Schedule a Call</h3>
+      <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light group-hover:text-white">Reach out to us, and we'll learn about your business and IT needs.</p>
+    </div>
+    <div class="col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-12 group hover:border-teal-400">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M79.7449 21.5051L68.4949 10.2551C68.3643 10.1243 68.2092 10.0206 68.0385 9.94985C67.8678 9.87908 67.6848 9.84265 67.5 9.84265C67.3152 9.84265 67.1322 9.87908 66.9615 9.94985C66.7908 10.0206 66.6357
+                                                        10.1243 66.5051 10.2551L32.7551 44.0051C32.6245 44.1358 32.521 44.2909 32.4504 44.4616C32.3799 44.6323 32.3436 44.8153 32.3438 45V56.25C32.3438 56.623 32.4919 56.9807 32.7556 57.2444C33.0194 57.5081
+                                                        33.377 57.6563 33.75 57.6563H45C45.1847 57.6564 45.3677 57.6202 45.5384 57.5496C45.7091 57.479 45.8642 57.3755 45.9949 57.2449L79.7449 23.4949C79.8757 23.3643 79.9794 23.2092 80.0502 23.0385C80.1209
+                                                        22.8678 80.1574 22.6848 80.1574 22.5C80.1574 22.3152 80.1209 22.1322 80.0502 21.9615C79.9794 21.7908 79.8757 21.6357 79.7449 21.5051ZM44.4164 54.8438H35.1562V45.5836L59.0625 21.6774L68.3227
+                                                        30.9375L44.4164 54.8438ZM70.3125 28.9477L61.0523 19.6875L67.5 13.2399L76.7602 22.5L70.3125 28.9477ZM77.3438 45V73.125C77.3438 74.2439 76.8993 75.3169 76.1081 76.1081C75.3169 76.8993 74.2439 77.3438
+                                                        73.125 77.3438H16.875C15.7561 77.3438 14.6831 76.8993 13.8919 76.1081C13.1007 75.3169 12.6562 74.2439 12.6562 73.125V16.875C12.6562 15.7561 13.1007 14.6831 13.8919 13.8919C14.6831 13.1007 15.7561
+                                                        12.6563 16.875 12.6563H45C45.373 12.6563 45.7306 12.8044 45.9944 13.0681C46.2581 13.3319 46.4062 13.6895 46.4062 14.0625C46.4062 14.4355 46.2581 14.7932 45.9944 15.0569C45.7306 15.3206 45.373 15.4688
+                                                        45 15.4688H16.875C16.502 15.4688 16.1444 15.6169 15.8806 15.8806C15.6169 16.1444 15.4688 16.502 15.4688 16.875V73.125C15.4688 73.498 15.6169 73.8557 15.8806 74.1194C16.1444 74.3831 16.502 74.5313
+                                                        16.875 74.5313H73.125C73.498 74.5313 73.8556 74.3831 74.1194 74.1194C74.3831 73.8557 74.5312 73.498 74.5312 73.125V45C74.5312 44.627 74.6794 44.2694 74.9431 44.0056C75.2069 43.7419 75.5645 43.5938
+                                                        75.9375 43.5938C76.3105 43.5938 76.6681 43.7419 76.9319 44.0056C77.1956 44.2694 77.3438 44.627 77.3438 45Z" fill="#1E293B" />
+        </svg>
+        <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#1E293B" />
+          <path
+            d="M37.4428 96V92.832C37.4428 89.056 38.0828 85.792 39.3628 83.04C40.6428 80.224 42.7868 77.728 45.7948 75.552L64.8988 61.728C66.8188 60.256 68.3228 58.56 69.4108 56.64C70.4988 54.72 71.0428 52.608
+                                                        71.0428 50.304C71.0428 47.552 70.2428 45.376 68.6428 43.776C67.1068 42.112 64.7068 41.28 61.4427 41.28C59.5227 41.28 57.7948 41.696 56.2588 42.528C54.7868 43.296 53.6348 44.416 52.8028 45.888C51.9708
+                                                        47.296 51.5548 48.896 51.5548 50.688C51.5548 51.136 51.5548 51.584 51.5548 52.032C51.5548 52.416 51.5548 52.8 51.5548 53.184H37.9228C37.9228 52.864 37.9228 52.576 37.9228 52.32C37.9228 52 37.9228
+                                                        51.712 37.9228 51.456C37.9228 47.168 38.8508 43.36 40.7068 40.032C42.6268 36.704 45.3468 34.08 48.8668 32.16C52.4508 30.176 56.6748 29.184 61.5388 29.184H63.7468C68.3548 29.184 72.3548 30.08 75.7468
+                                                        31.872C79.1388 33.6 81.7628 36.032 83.6188 39.168C85.5388 42.304 86.4988 45.888 86.4988 49.92C86.4988 53.248 85.9228 56.128 84.7708 58.56C83.6828 60.992 82.0828 63.2 79.9708 65.184C77.9228 67.168
+                                                        75.4908 69.152 72.6748 71.136L61.3468 78.912C60.6428 79.424 60.0028 79.904 59.4268 80.352C58.9148 80.8 58.4668 81.248 58.0828 81.696C57.7628 82.144 57.5068 82.592 57.3148 83.04H86.6908V96H37.4428Z"
+            fill="white" />
+        </svg>
+        <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="transition-all ease-in-out group-hover:fill-teal-400"
+            d="M23.8321 22.057C23.738 21.7782 23.5589 21.536 23.3198 21.3644C23.0808 21.1927 22.794 21.1004 22.4997 21.1004C22.2055 21.1004 21.9186 21.1927 21.6796 21.3644C21.4406 21.536 21.2614 21.7782 21.1673
+                                                        22.057L7.10479 64.2445C7.03471 64.4557 7.01573 64.6805 7.04941 64.9004C7.08309 65.1203 7.16846 65.3291 7.29852 65.5096C7.42858 65.6901 7.59961 65.8372 7.79756 65.9387C7.99551 66.0403 8.21474 66.0934
+                                                        8.43722 66.0938H36.5622C36.7847 66.0934 37.0039 66.0403 37.2019 65.9387C37.3998 65.8372 37.5709 65.6901 37.7009 65.5096C37.831 65.3291 37.9163 65.1203 37.95 64.9004C37.9837 64.6805 37.9647 64.4557
+                                                        37.8946 64.2445L23.8321 22.057ZM10.3884 63.2813L22.4997 26.9473L34.611 63.2813H10.3884ZM71.7185 26.7188C71.7185 23.3812 70.7288 20.1186 68.8745 17.3435C67.0203 14.5684 64.3848 12.4055 61.3013
+                                                        11.1283C58.2177 9.85106 54.8247 9.51688 51.5513 10.168C48.2779 10.8191 45.271 12.4263 42.911 14.7863C40.551 17.1463 38.9438 20.1532 38.2927 23.4266C37.6416 26.7 37.9758 30.093 39.253 33.1765C40.5302
+                                                        36.26 42.6931 38.8956 45.4682 40.7498C48.2433 42.6041 51.5059 43.5938 54.8435 43.5938C59.3176 43.5891 63.6071 41.8097 66.7708 38.646C69.9344 35.4824 71.7138 31.1929 71.7185 26.7188ZM40.781
+                                                        26.7188C40.781 23.9375 41.6057 21.2186 43.1509 18.9061C44.6961 16.5935 46.8924 14.7911 49.462 13.7267C52.0316 12.6623 54.8591 12.3839 57.5869 12.9265C60.3148 13.4691 62.8205 14.8084 64.7872
+                                                        16.7751C66.7538 18.7417 68.0932 21.2474 68.6358 23.9753C69.1784 26.7032 68.8999 29.5307 67.8355 32.1002C66.7712 34.6698 64.9687 36.8661 62.6562 38.4113C60.3436 39.9565 57.6248 40.7813 54.8435
+                                                        40.7813C51.1139 40.7813 47.537 39.2997 44.8998 36.6624C42.2625 34.0252 40.781 30.4484 40.781 26.7188ZM78.7497 52.0313H47.8122C47.4393 52.0313 47.0816 52.1794 46.8178 52.4431C46.5541 52.7069 46.406
+                                                        53.0645 46.406 53.4375V73.125C46.406 73.498 46.5541 73.8557 46.8178 74.1194C47.0816 74.3831 47.4393 74.5313 47.8122 74.5313H78.7497C79.1227 74.5313 79.4804 74.3831 79.7441 74.1194C80.0078 73.8557
+                                                        80.156 73.498 80.156 73.125V53.4375C80.156 53.0645 80.0078 52.7069 79.7441 52.4431C79.4804 52.1794 79.1227 52.0313 78.7497 52.0313ZM77.3435 71.7188H49.2185V54.8438H77.3435V71.7188Z" fill="#1E293B" />
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont">Get a Tailored Plan</h3>
+      <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light group-hover:text-white">We'll craft a plan tailored to protect, optimize, and empower your business.</p>
+    </div>
+    <div class="col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-12 group hover:border-teal-400">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M56.25 15.4688C50.5891 15.4739 45.0487 17.1039 40.2869 20.165C35.5251 23.2261 31.742 27.5897 29.3871 32.7375C28.0447 32.476 26.6802 32.3441 25.3125 32.3438C19.7181 32.3438 14.3528 34.5661 10.397
+                                                        38.522C6.44112 42.4778 4.21875 47.8431 4.21875 53.4375C4.21875 59.0319 6.44112 64.3972 10.397 68.353C14.3528 72.3089 19.7181 74.5312 25.3125 74.5312H56.25C64.0822 74.5312 71.5936 71.4199 77.1317
+                                                        65.8817C82.6699 60.3436 85.7812 52.8322 85.7812 45C85.7812 37.1678 82.6699 29.6564 77.1317 24.1183C71.5936 18.5801 64.0822 15.4688 56.25 15.4688ZM56.25 71.7188H25.3125C22.7861 71.7165 20.2875 71.1906
+                                                        17.9745 70.1742C15.6615 69.1579 13.5843 67.6731 11.874 65.8137C10.1636 63.9542 8.85721 61.7604 8.03725 59.3708C7.21728 56.9811 6.90153 54.4474 7.10993 51.9296C7.31833 49.4117 8.04635 46.9644 9.24804
+                                                        44.7421C10.4497 42.5197 12.099 40.5706 14.0918 39.0176C16.0846 37.4647 18.3777 36.3417 20.8263 35.7194C23.2749 35.0972 25.8259 34.9892 28.3184 35.4023C27.256 38.4906 26.7154 41.7342 26.7188 45C26.7187
+                                                        45.373 26.8669 45.7306 27.1306 45.9944C27.3944 46.2581 27.752 46.4062 28.125 46.4062C28.498 46.4062 28.8556 46.2581 29.1194 45.9944C29.3831 45.7306 29.5312 45.373 29.5312 45C29.5313 39.7155 31.0983
+                                                        34.5497 34.0342 30.1559C36.9701 25.762 41.143 22.3374 46.0252 20.3151C50.9074 18.2928 56.2796 17.7637 61.4626 18.7946C66.6455 19.8256 71.4063 22.3703 75.143 26.107C78.8797 29.8437 81.4244 34.6045
+                                                        82.4554 39.7874C83.4863 44.9704 82.9572 50.3426 80.9349 55.2248C78.9126 60.107 75.488 64.2799 71.0941 67.2158C66.7003 70.1517 61.5345 71.7187 56.25 71.7188ZM68.4949 38.3801C68.6257 38.5107 68.7294
+                                                        38.6658 68.8002 38.8365C68.8709 39.0072 68.9074 39.1902 68.9074 39.375C68.9074 39.5598 68.8709 39.7428 68.8002 39.9135C68.7294 40.0842 68.6257 40.2393 68.4949 40.3699L51.6199 57.2449C51.4893 57.3757
+                                                        51.3342 57.4794 51.1635 57.5502C50.9928 57.6209 50.8098 57.6574 50.625 57.6574C50.4402 57.6574 50.2572 57.6209 50.0865 57.5502C49.9158 57.4794 49.7607 57.3757 49.6301 57.2449L41.1926 48.8074C40.9287
+                                                        48.5436 40.7805 48.1857 40.7805 47.8125C40.7805 47.4393 40.9287 47.0814 41.1926 46.8176C41.4564 46.5537 41.8143 46.4055 42.1875 46.4055C42.5607 46.4055 42.9186 46.5537 43.1824 46.8176L50.625
+                                                        54.2602L66.5051 38.3801C66.6357 38.2493 66.7908 38.1456 66.9615 38.0748C67.1322 38.0041 67.3152 37.9676 67.5 37.9676C67.6848 37.9676 67.8678 38.0041 68.0385 38.0748C68.2092 38.1456 68.3643 38.2493
+                                                        68.4949 38.3801Z" fill="#1E293B" />
+        </svg>
+        <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#1E293B" />
+          <path d="M60.6948 96.96C55.6388 96.96 51.3188 96.128 47.7348 94.464C44.1508 92.8 41.3988 90.528 39.4788 87.648C37.5588 84.768 36.5988 81.568 36.5988 78.048V76.224H50.2308C50.2308 79.68 51.2548 82.08 53.3028
+                                                        83.424C55.4148 84.704 58.1028 85.344 61.3668 85.344C64.7588 85.344 67.4788 84.64 69.5268 83.232C71.5748 81.76 72.5988 79.392 72.5988 76.128C72.5988 74.08 72.1508 72.416 71.2548 71.136C70.4228 69.792
+                                                        69.2708 68.8 67.7988 68.16C66.3908 67.52 64.7908 67.2 62.9988 67.2H53.7828V57.408H61.7508C63.4788 57.408 65.0468 57.088 66.4548 56.448C67.8628 55.808 68.9828 54.848 69.8148 53.568C70.6468 52.288
+                                                        71.0628 50.688 71.0628 48.768C71.0628 47.04 70.6468 45.6 69.8148 44.448C68.9828 43.232 67.7988 42.336 66.2628 41.76C64.7908 41.12 63.1268 40.8 61.2708 40.8C58.1988 40.8 55.7988 41.536 54.0708
+                                                        43.008C52.3428 44.48 51.4788 46.528 51.4788 49.152H38.5188V47.04C38.5188 43.584 39.4788 40.512 41.3988 37.824C43.3828 35.136 46.1028 33.024 49.5588 31.488C53.0148 29.952 56.9828 29.184 61.4628
+                                                        29.184H63.6708C68.0228 29.184 71.8628 29.952 75.1908 31.488C78.5828 33.024 81.2388 35.136 83.1588 37.824C85.0788 40.512 86.0388 43.552 86.0388 46.944C86.0388 49.248 85.6228 51.328 84.7908
+                                                        53.184C83.9588 55.04 82.8068 56.64 81.3348 57.984C79.9268 59.328 78.2948 60.448 76.4388 61.344V62.016C79.8308 63.168 82.5508 65.088 84.5988 67.776C86.7108 70.464 87.7668 73.888 87.7668 78.048C87.7668
+                                                        81.632 86.8068 84.864 84.8868 87.744C82.9668 90.56 80.1828 92.8 76.5348 94.464C72.9508 96.128 68.6628 96.96 63.6708 96.96H60.6948Z"
+            fill="white" />
+        </svg>
+        <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="transition-all ease-in-out group-hover:fill-teal-400"
+            d="M88.1469 38.5629L79.1716 20.6332C78.9239 20.1375 78.581 19.6955 78.1625 19.3324C77.744 18.9693 77.2581 18.6922 76.7325 18.5169C76.2069 18.3415 75.6519 18.2715 75.0992 18.3107C74.5466 18.3499 74.007
+                                                        18.4976 73.5114 18.7453L64.2934 23.3367L45.3512 18.3305C45.1208 18.2697 44.8786 18.2697 44.6481 18.3305L25.7059 23.3367L16.488 18.7277C15.9924 18.48 15.4528 18.3323 14.9001 18.2931C14.3474 18.2539
+                                                        13.7924 18.324 13.2668 18.4993C12.7412 18.6746 12.2553 18.9517 11.8368 19.3148C11.4183 19.678 11.0755 20.12 10.8278 20.6156L1.85241 38.5629C1.60468 39.0585 1.45699 39.598 1.4178 40.1507C1.3786 40.7034
+                                                        1.44866 41.2584 1.62397 41.784C1.79928 42.3096 2.07641 42.7955 2.43953 43.214C2.80266 43.6325 3.24466 43.9754 3.74031 44.223L13.3344 49.0219L32.9341 63.0211C33.0767 63.1237 33.2379 63.1977 33.4087
+                                                        63.239L55.9087 68.864C56.1428 68.9254 56.3887 68.9252 56.6228 68.8636C56.8568 68.802 57.071 68.6811 57.2446 68.5125L76.7704 48.9867L86.2626 44.2406C86.7582 43.993 87.2002 43.6501 87.5633
+                                                        43.2316C87.9265 42.8131 88.2036 42.3272 88.3789 41.8016C88.5542 41.276 88.6243 40.721 88.5851 40.1683C88.5459 39.6156 88.3982 39.0761 88.1505 38.5805L88.1469 38.5629ZM70.2173 51.5531L57.1391
+                                                        41.0765C56.8684 40.8593 56.5268 40.7499 56.1802 40.7694C55.8337 40.7888 55.5065 40.9358 55.2618 41.182C48.4098 48.0867 40.7282 47.1972 35.8239 44.0648C35.6434 43.949 35.4912 43.7941 35.3786
+                                                        43.6115C35.266 43.429 35.1959 43.2234 35.1735 43.0101C35.1495 42.8048 35.1721 42.5967 35.2397 42.4013C35.3073 42.2059 35.418 42.0283 35.5637 41.8816L51.1942 26.7187H63.8188L74.2251 47.5348L70.2173
+                                                        51.5531ZM4.29226 40.8937C4.17983 40.5455 4.20758 40.1672 4.3696 39.839L13.3591 21.8742C13.4744 21.642 13.6517 21.4463 13.8713 21.3085C14.0909 21.1708 14.3444 21.0965 14.6036 21.0937C14.8211 21.0951
+                                                        15.0353 21.1468 15.2294 21.2449L23.6669 25.4637L13.4329 45.9281L4.99538 41.7094C4.83035 41.6263 4.6833 41.5115 4.56266 41.3715C4.44201 41.2316 4.35013 41.0692 4.29226 40.8937ZM55.8173 65.9426L34.3509
+                                                        60.5742L15.8587 47.366L26.5251 26.0156L44.9997 21.143L55.4481 23.9062H50.6247C50.2585 23.9059 49.9066 24.0484 49.6438 24.3035L33.5774 39.8883C33.1303 40.3354 32.7894 40.8773 32.5799 41.474C32.3705
+                                                        42.0706 32.2979 42.7067 32.3674 43.3352C32.4369 43.9638 32.6469 44.5686 32.9817 45.105C33.3165 45.6415 33.7676 46.0958 34.3016 46.4344C41.2907 50.9027 49.8161 49.95 56.3305 44.0402L68.2028
+                                                        53.5535L55.8173 65.9426ZM85.7001 40.8937C85.6422 41.0692 85.5503 41.2316 85.4297 41.3715C85.309 41.5115 85.162 41.6263 84.9969 41.7094L76.5594 45.9281L66.3325 25.4637L74.77 21.2449C75.1019 21.0833
+                                                        75.4841 21.0587 75.8341 21.1764C76.184 21.2942 76.4736 21.5448 76.6403 21.8742L85.6157 39.8215C85.7871 40.1526 85.82 40.5383 85.7071 40.8937H85.7001ZM44.9786 76.289C44.9005 76.5913 44.7241 76.859
+                                                        44.4772 77.05C44.2302 77.2409 43.9267 77.3443 43.6145 77.3437C43.496 77.3442 43.378 77.33 43.263 77.3015L28.6098 73.6347C28.4382 73.5928 28.276 73.5188 28.1317 73.4168L18.8716 66.7969C18.5681 66.5801
+                                                        18.3631 66.2516 18.3018 65.8837C18.2405 65.5158 18.3278 65.1386 18.5446 64.8351C18.7614 64.5316 19.0899 64.3267 19.4577 64.2654C19.8256 64.2041 20.2028 64.2914 20.5063 64.5082L29.5485 70.9664L43.9626
+                                                        74.5699C44.1426 74.6154 44.3118 74.6961 44.4604 74.8073C44.6091 74.9185 44.7343 75.058 44.8287 75.2178C44.9232 75.3776 44.985 75.5546 45.0108 75.7384C45.0365 75.9223 45.0256 76.1094 44.9786 76.289Z"
+            fill="#1E293B" />
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont">Enjoy Reliable IT</h3>
+      <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light group-hover:text-white">Let us handle the technology while you focus on growing your business.</p>
+    </div>
+  </div>
+  <div class="mt-12">{% include "partials/cta/main-button.html" %}</div>
+</section>
+
+
+
+
+
+
+<section class="relative py-32">
+  <div class="absolute w-full h-full">
+    <img src="/images/home/bgs/parabg.svg" class="w-full" alt="">
+  </div>
+
+  <div class="container relative grid max-w-screen-xl grid-cols-1 px-4 mx-auto lg:gap-4 lg:grid-cols-12 md:px-0 md:mx-auto md:px-8">
+    <div class="col-span-1 p-8 mb-8 border border-slate-800 lg:col-span-9 rounded-2xl bg-black/50 backdrop-blur-sm">
+      <h2 class="relative mb-5 text-2xl font-semibold tracking-tighter md:text-6xl font-mont">Driving Success <br> Through Technology</h2>
+      <div class="pb-4 text-sm font-normal text-slate-200 md:text-base md:font-light md:text-slate-100">
+        <p class="mb-4">At L3 Networks, we understand your vision as a leader: to harness IT as a powerful enabler of growth and success. To do that, you need IT systems that are
+          <strong class="font-bold">secure, dependable, and seamless</strong>.
+        </p>
+        <p class="mb-5">The reality is that IT challenges and cybersecurity threats often disrupt operations, taking your focus away from what truly matters—driving your business forward. At L3
+          Networks, we
+          believe your IT should work for you, not against you. With over 20 years of expertise, we ensure your technology supports your goals, empowering you to lead with confidence.</p>
+        <p class="pb-4 text-base font-semibold text-slate-200 md:text-2xl md:text-teal-500">Here’s How it Works</p>
+        <ul class="pb-4 space-y-2 text-sm font-normal list-disc list-inside md:pl-8 text-slate-200 md:text-base md:font-light md:text-slate-100">
+          <li>
+            <span class="font-bold">Schedule a Call</span>
+            – Share your IT challenges and goals with our experts.
+          </li>
+          <li>
+            <span class="font-bold">Get a Tailored Plan</span>
+            – We’ll craft a customized IT plan designed to meet your specific needs.
+          </li>
+          <li>
+            <span class="font-bold">Enjoy Reliable IT Service</span>
+            – Focus on growing your business while we handle your IT.
+          </li>
+        </ul>
+        <p class="mb-4">Don’t let IT problems hold you back. Partner with L3 Networks and turn your technology into a competitive advantage. With secure, scalable, and expertly managed IT systems,
+          you’ll lead
+          your business toward a future of innovation and growth—without the headaches.</p>
+        <p class="mb-4">
+          <strong class="font-bold">Contact us today</strong>
+          to take the first step toward IT solutions that work as hard as you do.
+        </p>
+      </div>
+      <p class="py-8 text-lg text-teal-400">
+        <a class="flex items-center gap-2 hover:underline" href="/aboutus/">Learn More About Us
+          <img src="/images/home/icons/ArrowSquareOut.svg" alt="ArrowSquareOut"></a>
+      </p>
+    </div>
+    <div class="relative col-span-1 lg:col-span-3">
+      
+      <div x-data="{ isVideoModalOpen: false }" class="relative">
+        <!-- Trigger Button -->
+        <div class="relative block w-full h-56 px-20 py-20 transition-all ease-in-out border rounded-lg shadow-lg cursor-pointer bg-black/50 hover:bg-slate-900/70 group border-slate-800 backdrop-blur-sm">
+          <img src="/images/logo/logo-header.svg" alt="Video Thumbnail" class="block mx-auto">
+         
+          <div @click="isVideoModalOpen = true" class="absolute inset-0 flex items-center justify-center w-full h-full mx-auto transition-all ease-in-out">
+            <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+              <polygon class="transition-all ease-in-out opacity-10 fill-white group-hover:opacity-40" points="9.33 6.69 9.33 19.39 19.3 13.04 9.33 6.69"/>
+              <path class="transition-all ease-in-out opacity-10 fill-white group-hover:opacity-40" d="M26,13A13,13,0,1,1,13,0,13,13,0,0,1,26,13ZM13,2.18A10.89,10.89,0,1,0,23.84,13.06,10.89,10.89,0,0,0,13,2.18Z"/>
+            </svg>
+          </div>
+         
+        </div>
+        <button @click="isVideoModalOpen = true" class="block my-8 px-6 py-2.5 mx-auto text-lg font-semibold text-white transition-all ease-in-out bg-teal-500 rounded-full cursor-pointer hover:bg-teal-700">Watch
+          Video</button>
+        <!-- Modal -->
+        <div x-show="isVideoModalOpen" @keydown.escape.window="isVideoModalOpen = false" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100" x-transition:enter="transition ease-in duration-300" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center transition-all ease-in-out bg-black bg-opacity-90">
+          <div @click.away="isVideoModalOpen = false" class="container relative h-[720px]">
+            <!-- Close Button -->
+            <button @click="isVideoModalOpen = false" class="absolute top-0 right-0 px-4 py-2 text-2xl text-white bg-teal-400 rounded-lg hover:bg-teal-500">
+              ✖
+            </button>
+            <!-- Vimeo Embed -->
+            <div class="container">
+              <iframe src="https://player.vimeo.com/video/1039767191" frameborder="0" allow="autoplay; fullscreen" allowfullscreen class="w-full h-[720px] rounded-lg"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</article>
+
+<article class="relative bg-black">
+  <section class="container max-w-screen-xl px-4 py-24 md:mx-auto md:px-8">
+    <div class="overflow-hidden relative flex lg:flex-row flex-col items-center bg-black border border-blue-600 rounded-3xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
+      <div class="absolute w-full h-full bg-linear-to-r from-black to-black/10"></div>
+      <div class="relative p-8 text-center md:text-left">
+        <p class="text-2xl font-semibold tracking-tight text-white font-mont md:text-4xl">Eliminate Threats Before They <br class="hidden md:inline"> Happen with <span class="text-blue-500">Zero Trust Security</span></p>
+        <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
+      </div>
+      <button class="block px-6 py-2.5 lg:ml-auto text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700 relative mb-9 md:mb-0 md:mr-8">
+        <a href="/marketing/" class="flex items-center gap-2">
+          <span class="hidden md:inline">Get Your Guide to Zero Trust Security</span>
+          <span class="inline md:hidden">Get Your Guide</span>
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
+        </a>
+      </button>
+    </div>
+  </section>
+</article>
+
+<section class="px-3 py-24 text-white bg-black md:px-8 2xl:px-0">
+  <h2 class="py-8 mb-16 text-3xl font-extrabold tracking-tight text-center text-white md:text-5xl font-mont">Discover how leveraging <br><span class="text-teal-400">L3 Networks </span>can solve your challenges.</h2>
+  
+  <section class="container grid max-w-screen-xl gap-4 mx-auto mb-32 md:grid-cols-4">
+
+
+    {% set cards = [
+      {
+        image: '/images/yc/yc-cybersecurity-threats.jpg',
+        title: 'Cybersecurity Threats',
+        description: 'We protect your business from hackers and data breaches, so you can focus on what matters most—growing your company.',
+        link: '/your-challenges/cybersecurity'
+      },
+      {
+        image: '/images/yc/yc-controlling-costs-flip.jpg',
+        title: 'Controlling IT Costs',
+        description: 'We provide predictable, cost-effective IT solutions that save you money without sacrificing quality or performance.',
+        link: '/your-challenges/controlling-it-costs'
+      },
+      {
+        image: '/images/yc/yc-scalability.jpg',
+        title: 'Scalability & Future-Proofing',
+        description: 'Our scalable IT solutions grow with your business, so you’re always ready for what’s next—no matter how big you get.',
+        link: '/your-challenges/scalability'
+      },
+      {
+        image: '/images/yc/yc-controlling-costs.jpg',
+        title: 'Minimizing Downtime',
+        description: 'With 24/7 monitoring and support, we prevent downtime before it happens, so your operations never miss a beat.',
+        link: '/your-challenges/minimizing-downtime'
+      }
+    ] %}
+    
+    {% for card in cards %}
+      <div class="overflow-hidden bg-teal-800 rounded-3xl">
+        <div style="background-image: url('{{ card.image }}')" class="bg-center h-72"></div>
+        <div class="p-6">
+          <h3 class="pb-4 text-2xl font-[600] font-mont tracking-tight">{{ card.title }}</h3>
+          <p class="relative pb-4 text-sm font-light">{{ card.description }}</p>
+          <a href="{{ card.link }}" class="relative text-sm font-semibold text-teal-500 hover:text-white">Read More</a>
+        </div>
+      </div>
+    {% endfor %}
+
+  </section>
+  
+</section>
+
+{% include "partials/focus.html" %}
+
+{% include "partials/footer.html" %}
+{% endblock %}

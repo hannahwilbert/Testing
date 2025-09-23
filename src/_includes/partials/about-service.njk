@@ -1,0 +1,53 @@
+{# about-support.njk #}
+<div class="relative" x-data="{ openIndex: null }">
+  <div class="">
+    <div class="relative flex flex-col items-center h-auto">
+      {% for item in service %}
+        <div
+          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
+          x-bind:class="{ 'h-[300px]': openIndex === {{ loop.index0 }}, 'h-20': openIndex !== {{ loop.index0 }} }"
+          @click="openIndex === {{ loop.index0 }} ? openIndex = null : openIndex = {{ loop.index0 }}">
+          {# Card main body #}
+          <div
+            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
+            style="background: linear-gradient(145deg, rgba(29, 41, 61, {{ loop.index0 * 0.03 }}), rgba(98, 116, 142, {{ loop.index0 * 0.03 }}));">
+            {# Subtle accent lines #}
+            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
+            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
+            {# Collapsed State - Title #}
+            <div
+              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
+              x-bind:class="{ 'opacity-0 scale-95': openIndex === {{ loop.index0 }}, 'opacity-100': openIndex !== {{ loop.index0 }} }">
+              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
+                <span class="text-teal-400">{{ item.title }}</span>
+              </div>
+            </div>
+            {# Expanded State - Content #}
+            <div
+              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
+              x-bind:class="{ 'opacity-100 scale-100': openIndex === {{ loop.index0 }}, 'opacity-0 scale-95': openIndex !== {{ loop.index0 }} }"
+              x-bind:style="{ pointerEvents: openIndex === {{ loop.index0 }} ? 'auto' : 'none' }">
+              <div>
+                <div class="flex items-center mb-6 space-x-2">
+                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">0{{ loop.index0 + 1 }}</span>
+                </div>
+                <h3 class="mb-3 text-2xl font-medium text-teal-400">{{ item.title }}</h3>
+                <p class="mb-6 text-sm leading-relaxed text-slate-300">{{ item.body }}</p>
+              </div>
+              {# Preview Button (Optional) #}
+              {# <button
+                    class="relative flex items-center justify-center w-full px-4 py-3 space-x-2 overflow-hidden transition-all rounded-lg group/btn text-slate-200"
+                    style="backdrop-filter: blur(5px); background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(148, 163, 184, 0.1);"
+                  >
+                    <div class="absolute inset-0 transition-opacity opacity-0 bg-teal-500/10 group-hover/btn:opacity-100"></div>
+                    <span class="text-xl">{{ item.icon }}</span>
+                    <span class="relative z-10 font-medium">Preview</span>
+                    <span class="ml-1 text-teal-400 opacity-0 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 transition-all">→</span>
+                  </button> #}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

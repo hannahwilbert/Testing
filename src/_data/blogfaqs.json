@@ -1,0 +1,96 @@
+{
+  "content": [
+    {
+      "question": "Who should I contact for help?",
+      "answer": "For immediate support, call our 24/7 Service Desk at [Your Hotline Number]. You can also email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> — emails sent after business hours will be addressed the next business day."
+    },
+    {
+      "question": "How can I submit a service request?",
+      "answer": "For urgent requests, call our Service Desk at [Your Hotline Number]. For non-urgent needs, email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> to automatically create a service ticket."
+    },
+    {
+      "question": "What are your support hours?",
+      "answer": "We’re available 24/7. Regular weekday support runs from 6 AM to 10 PM (Mon-Fri), and weekend and after-hours support is available round the clock."
+    },
+    {
+      "question": "Do you offer onsite support?",
+      "answer": "Yes, onsite support is included in our Managed IT Services Plans when remote solutions are not sufficient."
+    },
+    {
+      "question": "Can you support businesses with multiple locations?",
+      "answer": "Absolutely. We specialize in supporting businesses with multiple offices and work seamlessly across all locations."
+    },
+    {
+      "question": "How do I log a ticket?",
+      "answer": "Simply email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> to generate a ticket automatically. You can also call our Service Desk for immediate assistance."
+    },
+    {
+      "question": "What are your response times?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li><strong>High Priority (e.g., network/server down):</strong> Response within 30 minutes.</li><li><strong>Medium Priority (e.g., impaired functionality):</strong> Response within 4 hours.</li><li><strong>Low Priority (e.g., minor issues):</strong> Response within 24 hours.</li></ul>"
+    },
+    {
+      "question": "What are the priority levels for support requests?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li><strong>High Priority:</strong> Network/server outages or major disruptions.</li><li><strong>Medium Priority:</strong> Impaired functionality or issues affecting some users.</li><li><strong>Low Priority:</strong> Minor issues that can be addressed by the next business day.</li></ul>"
+    },
+    {
+      "question": "How can I track my ticket?",
+      "answer": "Log in to our Customer Support Portal to check the status of your service requests. Contact us if you need portal access or credentials."
+    },
+    {
+      "question": "What is the escalation process?",
+      "answer": "We offer a streamlined escalation process with 24/7 access to senior management to ensure timely resolution of critical issues."
+    },
+    {
+      "question": "Are there any charges for using the Service Desk?",
+      "answer": "Our Confidence Plus Plan includes unlimited Service Desk access. Non-plan users can use it on a time-and-material basis."
+    },
+    {
+      "question": "What information should I provide when asking for assistance?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li>Your name</li><li>Company name</li><li>Location</li><li>Contact number</li><li>A brief description of the issue</li></ul>"
+    },
+    {
+      "question": "What is your onboarding process like?",
+      "answer": "Our onboarding process ensures a seamless transition to our services, with regular Quarterly Business Reviews (QBRs) to align with your goals."
+    },
+    {
+      "question": "Do you offer training services?",
+      "answer": "Yes, we provide training during onboarding and ongoing, including:<ul class='mt-4 space-y-2 list-disc list-inside'><li>Security tips</li><li>Monthly webinars</li><li>Phishing and security awareness training</li></ul>"
+    },
+    {
+      "question": "What are Quarterly Business Reviews (QBRs)?",
+      "answer": "QBRs are strategic planning meetings to align our services with your goals, review past performance, and plan for future success."
+    },
+    {
+      "question": "Can you work with our internal IT staff?",
+      "answer": "Yes, we collaborate with internal IT teams, using clearly defined processes for seamless integration."
+    },
+    {
+      "question": "Where is your support center located?",
+      "answer": "Our Network Operations Center (NOC) is based in Columbia, Maryland."
+    },
+    {
+      "question": "Do you follow industry standard practices?",
+      "answer": "Yes, we use ITIL-based best practices for IT services and systems management to ensure reliability and efficiency."
+    },
+    {
+      "question": "How do you notify clients about maintenance?",
+      "answer": "We communicate maintenance windows and outages in advance and coordinate with your team to minimize disruption."
+    },
+    {
+      "question": "Do you support third-party vendors?",
+      "answer": "Yes, we manage vendor coordination, ensuring smooth resolution for systems like phones, cameras, and more."
+    },
+    {
+      "question": "Do you conduct disaster recovery (DR) testing?",
+      "answer": "Yes, we recommend and perform annual or bi-annual DR tests based on your business needs."
+    },
+    {
+      "question": "Do you have liability and cybersecurity insurance?",
+      "answer": "Yes, we carry liability and cybersecurity insurance. We can also recommend partners for additional coverage if needed."
+    },
+    {
+      "question": "Do you support Mac systems?",
+      "answer": "Yes, we provide full support for Mac systems alongside other major platforms, ensuring compatibility and smooth performance."
+    }
+  ]
+}

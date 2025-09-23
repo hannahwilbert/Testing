@@ -1,0 +1,159 @@
+{
+  "items": [
+    {
+      "text": "Cyber Security",
+      "url": "/products/cyber-security",
+      "prod": [
+        {
+          "text": "Application Security",
+          "description": "Protect your applications and web services from vulnerabilities with our advanced solutions.",
+          "prods": ["Email Security", "Multifactor Authentication", "DNS Security", "Single Sign-On", "Mobile Device Manager"],
+          "key": "1"
+        },
+        {
+          "text": "Network Security",
+          "description": "Defend your business and reputation against evolving threats with our robust network security.",
+          "prods": ["Managed Firewall", "Managed WAP", "Secure Remote Access", "Secure Internet Gateway"],
+          "key": "2"
+        },
+        {
+          "text": "Device Security",
+          "description": "Secure your most vulnerable endpoints with our comprehensive device security management services.",
+          "prods": ["Managed Endpoint Protection", "Zero Trust", "DNS Security"],
+          "key": "3"
+        },
+        {
+          "text": "Security Monitoring",
+          "description": "Stay ahead of complex attack vectors with our advanced security monitoring services.",
+          "prods": ["Endpoint Detection & Response", "Threat Hunter", "Remote Containment & Remediation"],
+          "key": "4"
+        },
+        {
+          "text": "Vulnerability Management",
+          "description": "Mitigate and manage threats effectively with a holistic view of your security landscape.",
+          "prods": ["Vulnerability Scanning", "Penetration Testing", "Ransomware Impact Assessment"],
+          "key": "5"
+        },
+        {
+          "text": "Assessment & Compliancy",
+          "description": "Ensure compliance and manage threats with our comprehensive cybersecurity assessments.",
+          "prods": ["Cybersecurity Assessment", "Compliancy Conformance"],
+          "key": "6"
+        }
+      ]
+    },
+    {
+      "text": "Managed Networks",
+      "url": "/products/managed-networks",
+      "prod": [
+        {
+          "text": "Network Operations",
+          "description": "Experience 24/7 support and enhanced security while reducing costs with our network operations.",
+          "prods": ["Network Operations"],
+          "key": "1"
+        },
+        {
+          "text": "SDWAN",
+          "description": "Simplify your network operations with our tailored SDWAN solutions.",
+          "prods": ["Managed SDWAN"],
+          "key": "2"
+        },
+        {
+          "text": "Cloud Networking",
+          "description": "Securely connect to your mission-critical cloud applications with our seamless cloud networking solutions.",
+          "prods": ["Azure Connect", "AWS Connect CSP", "Connect"],
+          "key": "3"
+        },
+        {
+          "text": "Connectivity",
+          "description": "Keep your organization connected with our high-availability Internet and Ethernet solutions.",
+          "prods": ["Wireless", "Internet", "Private Line", "SIP", "Managed SBC"],
+          "key": "4"
+        },
+        {
+          "text": "Unified Communications",
+          "description": "Transform your telephony with our cloud-based unified communications solutions.",
+          "prods": ["Microsoft Teams", "IP Telephony", "Contact Center"],
+          "key": "5"
+        }
+      ]
+    },
+    {
+      "text": "User & Device Management",
+      "url": "/products/user-and-device-management",
+      "prod": [
+        {
+          "text": "Helpdesk",
+          "description": "Scale your support team effortlessly with our managed helpdesk services.",
+          "prods": ["Managed Helpdesk"],
+          "key": "1"
+        },
+        {
+          "text": "Endpoint Device Management",
+          "description": "Trust our experts to manage your devices and mitigate risks effectively.",
+          "prods": ["Desktop Manager"],
+          "key": "2"
+        },
+        {
+          "text": "Mobile Device Management",
+          "description": "Centralize and simplify the management of your workforce's mobile devices with ease.",
+          "prods": ["Mobile Device Management", "Enterprise Mobility Management"],
+          "key": "3"
+        },
+        {
+          "text": "Identity & Access Management",
+          "description": "Enhance user experience and security with our identity and access management solutions.",
+          "prods": ["Azure AD Manager", "User On/Off Boarding", "Single Sign-On"],
+          "key": "4"
+        }
+      ]
+    },
+    {
+      "text": "Cloud & Systems Services",
+      "url": "/products/cloud-and-systems-services",
+      "prod": [
+        {
+          "text": "Cloud Services",
+          "description": "Find the perfect balance of cost, security, and reliability with our tailored cloud services.",
+          "prods": ["Microsoft Azure Managed Cloud", "Hybrid Managed Cloud"],
+          "key": "1"
+        },
+        {
+          "text": "Server Infrastructure Management",
+          "description": "Boost your business efficiency with our expert server infrastructure management.",
+          "prods": ["Server Operations"],
+          "key": "2"
+        },
+        {
+          "text": "Microsoft 365",
+          "description": "Empower the next generation of team collaboration with our Microsoft 365 solutions.",
+          "prods": ["MS365 Deployment & Support", "MS365 Backup"],
+          "key": "3"
+        },
+        {
+          "text": "Data Backup & Disaster Recovery",
+          "description": "Ensure your data is protected and secure with our comprehensive backup and recovery services.",
+          "prods": ["Backup Manager", "On-Demand Disaster Recovery"],
+          "key": "4"
+        },
+        {
+          "text": "Desktop Virtualization",
+          "description": "Keep your desktop images current without burdening your team with our virtualization solutions.",
+          "prods": ["Virtual Desktop", "Application Virtualization"],
+          "key": "5"
+        },
+        {
+          "text": "Datacenter & Hybrid Cloud",
+          "description": "Manage environments with uncompromised security across all platforms with our hybrid cloud solutions.",
+          "prods": ["Private Cloud", "CoLocation"],
+          "key": "6"
+        }
+      ]
+    },
+    {
+      "text": "Professional Services",
+      "description": "Leverage our expertise to optimize your IT strategy and operations.",
+      "url": "/professional-services"
+    }
+  ]
+}

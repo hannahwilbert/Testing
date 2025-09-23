@@ -1,0 +1,94 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+<section style="background-image: url('/images/ms/ztna/xhero.webp')" class="relative w-full px-10 pt-16 text-white bg-black bg-center bg-no-repeat bg-cover font-open" aria-label="Diagram of an exmaple ZTNA setup">
+  {# <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-teal-900/50 to-black/10">&nbsp;</div> #}
+  <div class="container relative px-0 pb-16 text-center md:px-0 md:mx-auto md:py-32">
+    <p class="text-base">L3 Networks Partner</p>
+    <h1 class="mb-5 text-5xl font-black tracking-tight md:text-6xl">
+      Threatlocker
+    </h1>
+    <p class="text-4xl font-light">See why our collaboration with ThreatLocker enables us to provide our most comprehensive Zero Trust solution.</p>
+    
+  </div>
+</section>
+
+<article class="block">
+
+  <div class="p-8 py-24 bg-white md:px-36 md:pb-28 md:pt-32 font-open">
+
+       
+{% for item in items %}
+    <div class="pt-24 mx-auto mb-32 -mt-24 max-w-[1170px]" id="{{item.title|slug}}">
+        <h3 class="mb-10 text-6xl font-black tracking-tight ">{{ item.title }}</h3>
+
+        <div class="overflow-hidden border rounded-lg shadow-md border-slate-300" >
+          {% for faqs in item.content %}
+                {% for key, value in faqs %}
+                    {% if key.startsWith('Q') %}
+                    {% set accordionId = "accordion-" + loop.index %}
+                    <main x-data="{ isExpanded: false }" class="border-b divide-y border-slate-300 divide-slate-300">
+                        <button id="controls{{ accordionId }}" type="button" class="flex items-center justify-between w-full gap-4 px-10 py-6 text-left bg-white underline-offset-2 hover:bg-slate-100/75 focus-visible:bg-slate-100/75 focus-visible:underline focus-visible:outline-none"
+                        aria-controls="{{ accordionId }}" @click="isExpanded = ! isExpanded" :class="isExpanded ? 'text-onSurfaceStrong font-bold'  : 'text-onSurface font-medium'" :aria-expanded="isExpanded ? 'true' : 'false'">
+                            {{ value }}
+                            <span class="w-5 h-5">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="transition size-5 shrink-0" aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                              </svg>
+                            </span>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="{{ accordionId }}" role="region" aria-labelledby="controls{{ accordionId }}" x-collapse>
+                            <div class="px-10 py-6 text-sm sm:text-base text-pretty bg-slate-100">
+                                {{ faqs['A' ~ key.slice(1)] }}
+                            </div>
+                        </div>
+                    </main>
+                    {% endif %}
+                {% endfor %}
+          {% endfor %}
+        </div>
+
+
+    </div>
+{% endfor %}
+
+
+  </div>
+</article>
+
+
+
+
+<script>
+  window.onload = (event) => {
+
+    const accordionElement = document.getElementById("accordion-open");
+
+    // options with default values
+    const options = {
+      alwaysOpen: true,
+      activeClasses: "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white",
+      inactiveClasses: "text-slate-500 dark:text-slate-400",
+      onOpen: (item) => {
+        console.log("accordion item has been shown");
+        console.log(item);
+      },
+      onClose: (item) => {
+        console.log("accordion item has been hidden");
+        console.log(item);
+      },
+      onToggle: (item) => {
+        console.log("accordion item has been toggled");
+        console.log(item);
+      },
+    };
+  };
+  
+  const instanceOptions = {
+    id: 'accordion-open',
+    override: true
+  };
+
+</script>
+
+{% endblock %}

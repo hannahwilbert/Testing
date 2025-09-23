@@ -1,0 +1,42 @@
+{
+  "title": "L3 Endpoint Zero Trust FAQs",
+  "faqs": [
+    {
+      "question": "Threatlocker, why we partner with them and promote their product",
+      "answer": "L3 Networks partners with Threatlocker because it's a best-in-class Application Whitelisting and Least Privilege Enforcement solution. This aligns perfectly with our commitment to providing robust security solutions for our clients. Threatlocker complements our existing security offerings by stopping malware execution at the endpoint, effectively preventing a wide range of cyberattacks. We believe in the power of this technology and its ability to significantly enhance our clients' security posture."
+    },
+    {
+      "question": "How L3 and Threatlocker partner to provide a fully managed service",
+      "answer": "L3 leverages its extensive security expertise to configure and manage Threatlocker within your environment. This includes initial deployment, policy creation, ongoing monitoring, and maintenance. We take care of the technical complexities, allowing you to focus on your core business objectives. Our team ensures Threatlocker integrates seamlessly with your existing infrastructure, maximizing its effectiveness and minimizing disruption. Additionally, L3 provides ongoing support and guidance to ensure you're maximizing the value of your Threatlocker investment."
+    },
+    {
+      "question": "Benefits of Endpoint Zero Trust",
+      "answer": "Endpoint Zero Trust delivers a multi-layered approach to security, offering numerous benefits for organizations.",
+      "bullet_points": [
+        "Reduced Attack Surface: By restricting application execution to only authorized programs, Endpoint Zero Trust significantly reduces the attack surface, making it more difficult for malware to gain a foothold in your environment.",
+        "Enhanced Breach Prevention: Even if a malicious actor bypasses perimeter defenses, Endpoint Zero Trust prevents unauthorized applications from running, stopping malware in its tracks and minimizing potential damage.",
+        "Improved Compliance: Endpoint Zero Trust helps organizations meet strict data security regulations by ensuring only authorized applications access sensitive information.",
+        "Simplified Security Management: Centralized policy management and automated enforcement significantly streamline security management, allowing IT teams to focus on strategic initiatives."
+      ]
+    },
+    {
+      "question": "Why you need Network and Endpoint Zero Trust",
+      "answer": "A layered security approach is crucial in today's evolving threat landscape. While Network Zero Trust secures your network perimeter, it doesn't address threats originating from within or breaches that bypass the perimeter. Endpoint Zero Trust complements your Network Zero Trust strategy by securing endpoints themselves, creating a comprehensive defense that covers all potential entry points for cyberattacks."
+    },
+    {
+      "question": "How Endpoint Zerotrust can save IT time and allow User greater flexibility to install and update their digital workspace",
+      "answer": "Endpoint Zero Trust streamlines IT workflows by automating application whitelisting and access control. This eliminates the need for manual configuration and approval processes, saving IT teams valuable time and resources. Users, on the other hand, benefit from simplified software updates. Approved applications can be automatically updated without requiring IT intervention, ensuring users have access to the latest features and security patches, while still maintaining strict application control."
+    },
+    {
+      "question": "ROI of Endpoint Zero Trust",
+      "answer": "Endpoint Zero Trust delivers a strong return on investment (ROI) by significantly reducing the risk and impact of cyberattacks. These savings can be realized in several ways:",
+      "bullet_points": [
+        "Reduced Incident Response Costs: By preventing successful attacks, businesses avoid the costly process of incident response, saving on labor, forensics, and remediation efforts.",
+        "Minimized Business Disruption: Data breaches and ransomware attacks can lead to significant downtime and lost productivity. Endpoint Zero Trust minimizes the likelihood of such disruptions, protecting your bottom line.",
+        "Improved Regulatory Compliance: Avoiding compliance fines associated with data breaches translates to significant cost savings.",
+        "Enhanced Productivity: Streamlined IT workflows and simplified application updates free up IT resources and empower users, boosting overall productivity."
+      ],
+      "answer2": "By implementing Endpoint Zero Trust, organizations can experience these tangible benefits, translating to a strong ROI for their security investments."
+    }
+  ]
+}

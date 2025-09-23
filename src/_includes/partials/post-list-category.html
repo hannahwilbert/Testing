@@ -1,0 +1,22 @@
+{% for type in category %}
+<div class="container md:mx-auto">
+  {% set test = type %}
+  <h2 class="text-2xl font-bold mt-6"> {{ test }} </h2>
+  <div class="grid gap-2 grid-flow-col grid-cols-3 grid-rows-1">
+    {% for post in collections[test] %}
+    {% if (loop.index < 4) %}
+    <div class="">
+      <a href="{{ item.url }}" class="text-xl font-semibold">{{ post.data.title }}</a>
+      <p class="text-xs text-slate-600">{{ post.data.date }}</p>
+      <div class="flex mt-2">
+        {% for tag in post.data.tags %}
+        <a class="text-teal-400 mr-2 rounded-full text-xs py-1 hover:underline"
+          href="/tag/{{ tag | slug }}/">#{{ tag | replace(' ', '') }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>  
+</div>
+{% endfor %}

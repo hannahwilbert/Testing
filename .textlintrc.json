@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "common-misspellings": true,
+    "no-todo": true,
+    "preset-ja-technical-writing": true,
+    "spellcheck-tech-word": true
+  }
+}

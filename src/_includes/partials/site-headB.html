@@ -1,0 +1,184 @@
+<header
+  class="absolute z-50 hidden w-full md:block"
+  x-data="{
+    activeAccordion: null,
+    pastHero: false,
+    navH: 0,
+    heroH: 0,
+    updateState(){
+      const hero = document.querySelector('header.hero');
+      const nav  = this.$refs.navbar;
+      if (!hero || !nav) return;
+      this.navH  = nav.offsetHeight || 0;
+      this.heroH = hero.getBoundingClientRect().height || hero.offsetHeight || 0;
+      const y = window.scrollY || window.pageYOffset || 0;
+      // Turn on the glass bar when the nav has left the hero by ~8px
+      this.pastHero = y > (this.heroH - this.navH - 8);
+    }
+  }"
+  x-init="
+    updateState();
+    window.addEventListener('scroll', () => updateState(), { passive:true });
+    window.addEventListener('resize', () => updateState());
+    // one more pass after fonts/video settle
+    setTimeout(updateState, 250);
+  "
+>
+  <!-- NAV -->
+  <nav
+    x-ref="navbar"
+    class="fixed inset-x-0 top-0 grid grid-cols-12 items-center px-5 lg:px-10 py-2 border"
+    :style="{
+      backgroundColor: pastHero ? 'rgba(2, 6, 23, .78)' : 'rgba(2, 6, 23, 0)',     // slate-950-ish
+      borderColor:     pastHero ? 'rgba(255,255,255,.10)' : 'rgba(255,255,255,0)',
+      backdropFilter:  'blur(8px)',
+      WebkitBackdropFilter: 'blur(8px)',
+      transition: 'background-color .35s ease, border-color .35s ease'
+    }"
+    style="will-change: background-color, border-color; transform: translateZ(0);"
+    role="navigation"
+    aria-label="Main"
+  >
+    <!-- Logo (unchanged size) -->
+    <a class="col-span-4 flex items-center h-16" href="/" aria-label="{{ site.name }} - home">
+      <img class="h-full py-2" src="/images/logo/logo-header.svg" alt="L3 Networks, Inc.">
+    </a>
+
+    <!-- Right side -->
+    <div class="col-span-8 ml-auto flex flex-col">
+      <!-- Utility row -->
+      <ul class="ml-auto mb-0.5 hidden lg:flex text-[11px] tracking-wide"
+          :class="pastHero ? 'text-slate-300' : 'text-slate-200/80'"
+          style="transition: opacity .25s ease;">
+        <li class="px-3">(888) 282-5353</li>
+        <li class="px-3">
+          <a href="https://support.l3networks.com/" class="hover:underline">Ticketing &amp; Support</a>
+        </li>
+      </ul>
+
+      <!-- Main links -->
+      <ul class="ml-auto flex items-center gap-1.5">
+        <!-- Solutions trigger -->
+        <li class="px-2 lg:px-3 py-1.5">
+          <button
+            @click="activeAccordion = activeAccordion === 'solutions' ? null : 'solutions'"
+            class="inline-flex items-center rounded-full px-3 py-1.5 transition-colors"
+            :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mega-solutions"
+          >
+            Our Solutions
+            <svg class="ml-2 h-4 w-4 transition-transform duration-300"
+                 :class="{'rotate-180': activeAccordion === 'solutions'}"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+        </li>
+
+        <!-- Simple links -->
+        <li class="px-2 lg:px-3 py-1.5">
+          <a href="/why-l3/"
+             class="rounded-full px-3 py-1.5 transition-colors"
+             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">Why L3?</a>
+        </li>
+        <li class="px-2 lg:px-3 py-1.5">
+          <a href="/elevate/"
+             class="rounded-full px-3 py-1.5 transition-colors"
+             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">Elevate</a>
+        </li>
+        <li class="px-2 lg:px-3 py-1.5">
+          <a href="/about-us/"
+             class="rounded-full px-3 py-1.5 transition-colors"
+             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">About Us</a>
+        </li>
+
+        <!-- CTA -->
+        <li class="pl-2">
+          <a
+            class="relative block rounded-full px-5 py-2 text-sm font-semibold text-white transition-all"
+            :class="pastHero
+              ? 'bg-teal-500 hover:brightness-110 hover:shadow-[0_10px_28px_rgba(20,184,166,.35)]'
+              : 'bg-teal-500/90 hover:bg-teal-500'"
+            href="https://l3networks.timezest.com/sales/meeting-15"
+          >
+            <span class="relative z-10 flex items-center gap-2">
+              Book An Appointment
+              <img class="h-4" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MEGA MENU -->
+  <div
+    id="mega-solutions"
+    x-show="activeAccordion === 'solutions'"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 -translate-y-2"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 -translate-y-2"
+    x-cloak
+    class="fixed right-0 top-16 w-[92vw] max-w-5xl mr-5 lg:mr-10 overflow-hidden rounded-2xl text-white
+           border border-white/10 bg-slate-900/80 supports-[backdrop-filter]:backdrop-blur-md
+           shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
+    @click.away="activeAccordion = null"
+    role="region"
+    aria-label="Solutions menu"
+  >
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 p-4 lg:p-6">
+      {% for main in navSolutions.items %}
+      <a href="{{ main.url }}"
+         class="group rounded-xl p-4 transition-colors duration-300 hover:bg-white/5
+                focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-teal-300">
+            {{ main.text }}
+          </h3>
+          <svg class="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+
+        {% if main.text == "Cyber Security" %}
+          <p class="mt-1 text-sm text-slate-300/85">Safeguard your business with proactive threat detection, robust firewalls, and compliance strategies that protect your most valuable assets.</p>
+        {% elseif main.text == "Cloud Solutions" %}
+          <p class="mt-1 text-sm text-slate-300/85">Achieve flexibility and scalability with tailored cloud solutions that optimize performance and reduce downtime.</p>
+        {% elseif main.text == "Networks & Connectivity" %}
+          <p class="mt-1 text-sm text-slate-300/85">Ensure smooth and reliable communication between your systems with our managed network solutions.</p>
+        {% elseif main.text == "Users & Devices" %}
+          <p class="mt-1 text-sm text-slate-300/85">Streamline your IT environment with comprehensive support for devices, users, and access controls.</p>
+        {% elseif main.text == "Professional Services" %}
+          <p class="mt-1 text-sm text-slate-300/85">Transform your IT infrastructure with expert guidance, strategic planning, and seamless implementation tailored to your business needs.</p>
+        {% endif %}
+      </a>
+      {% endfor %}
+
+      <!-- Highlight tile -->
+      <a href="/alldeskai"
+         class="relative rounded-xl border border-teal-500/60 bg-slate-900/60 p-4 transition-all
+                hover:border-teal-400/80 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white">AllDesk Ai</h3>
+          <svg class="h-5 w-5 opacity-80 transition-transform duration-300 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+        <p class="mt-1 text-sm text-slate-300/85">
+          Deliver smarter support with AI-assisted ticketing, sentiment insights, and resolution suggestions.
+        </p>
+        <span class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5"></span>
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,376 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<style>
+  /* * {
+  outline: 1px solid red;
+} */
+</style>
+<script>
+  (function (window, document, undefined) {
+
+    // code that should be taken care of right away
+
+    window.onload = init;
+
+    function init() {
+      // the code to be called when the dom has loaded
+      // #document has its nodes
+
+      if (window.location.hash) {
+        // Fragment exists
+
+        var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+        // alert(hash);
+
+        document.getElementById('scrollHere').scrollIntoView();
+
+      } else {
+        // Fragment doesn't exist
+      }
+
+    }
+
+  })(window, document, undefined);
+</script>
+
+
+
+<section style="background-image: url('/images/products/{{product|slug}}.webp') ;"
+  class="w-full px-10 pt-16 text-white bg-center bg-no-repeat bg-cover">
+  <div class="container px-0 pb-32 text-center md:text-left md:px-0 md:mx-auto md:py-48 ">
+    <h1 class="mb-5 text-4xl font-bold text-center md:text-left md:text-5xl">{{ mainTitle | safe }}</h1>
+    <p class="text-2xl text-center mb-7 md:text-left md:text-3xl">{{ subtitle }}</p>
+    <button @click="showModal = true" 
+      class="px-5 py-3 text-lg font-bold text-white transition-all duration-200 bg-transparent border-2 border-white rounded-lg md:text-xl md:px-10 md:py-4 hover:bg-teal-500">{{ button }}</button>
+  </div>
+</section>
+
+<article class="hidden md:block" id="scrollHere">
+  <div class="container py-16 mx-auto md:py-24 lg:px-10">
+    <h2 class="mx-6 mb-16 text-xl text-center md:text-3xl md:mx-0">{{ prodtitle }}</h2>
+
+    <div class="grid grid-flow-row grid-cols-4 mb-8"
+      x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : '{{ keyprods[0].prodMain | slug }}' }"
+      id="tab_wrapper">
+      <!-- The tabs navigation -->
+      <div class="flex flex-col">
+        {% for item in keyprods %}
+        <a class="w-full font-bold mb-3 pl-4 pr-8 py-3 rounded-lg flex items-center border border-{{colorBase}}-300"
+          :class="{ 'text-white bg-{{color}} hover:bg-{{color}}/50': tab === '{{ item.prodMain | slug }}', 'text-{{color}}  bg-white hover:bg-slate-100': tab !== '{{ item.prodMain | slug }}' }"
+          @click.prevent="tab = '{{ item.prodMain | slug }}'; window.location.hash = '{{ item.prodMain | slug }}'"
+          href="#">
+          <span class="inline-block"><img class="min-h-[40px] min-w-[40px]"
+              src="/images/icons/SVG/{{ item.prodMain | slug }}.svg" alt="{{ item.prodMain }} icon"></span>
+          <h2 class="inline-block pl-3 lg:text-lg lg:leading-5">{{ item.prodMain }}</h2>
+        </a>
+        {% endfor %}
+      </div>
+      <!-- The tabs content -->
+      <div class="col-span-3 mx-8">
+        {% for item in keyprods %}
+        <div class="p-8 pt-4 bg-white rounded-lg shadow " x-show="tab === '{{ item.prodMain | slug }}'">
+          <div>
+            <p class="text-xl font-bold">{{item.prodTitle}} </p>
+            <p class="mb-8 text-xl">{{item.prodSubTitle}}</p>
+            <p class="text-xl mb-4 text-{{color}} font-bold">{{ item.prodMain }} Products</p>
+
+            <ul class="">
+              {% for items in item.subprods%}
+              <li class="text-sm pb-5 text-{{color}} flex flex-row">
+
+                <div class="w-[24px]">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 mt-1 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </div>
+
+                <div>
+                  <p class="text-xl font-bold text-black">{{ items.title }}</p>
+                  {% if items.pdf %}
+                  <p class="text-lg text-black">
+                    {{ items.info }}
+                    <a href="{{ items.pdf }}" class="text-{{color}} text-sm cursor-pointer flex hover:underline hover:opacity-50">Download Solution PDF
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="ml-2 relative top-[2px]">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                    </p>
+                  {% else %}
+                  <p class="text-lg text-black">{{ items.info }}</p>
+                  {% endif %}
+                </div>
+
+              </li>
+              {% endfor %}
+            </ul>
+
+          </div>
+
+         {# <!-- <a href="{{ item.pdf }}" class="inline-flex items-center w-full mt-5 text-{{color}} group hover:cursor-pointer">
+            <p class="text-sm font-bold relative -top-[2px]">Download the {{ item.prodMain }} Product Sheet</p>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 ml-3 transition-transform transform group-hover:translate-x-3" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a> -->#}
+
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="block py-16 md:hidden">
+  <h2 class="mx-6 mb-16 text-xl font-bold text-center md:text-3xl md:mx-0">{{ prodtitle }}</h2>
+  <div id="accordion-collapse" data-accordion="collapse" class="border-t border-slate-600"
+    data-active-classes="bg-{{color}} text-white font-semibold" data-inactive-classes="text-{{colorBase}}-500">
+    {% for item in keyprods %}
+    <h2 id="accordion-{{ item.prodMain | slug }}">
+      <button type="button"
+        class="flex items-center justify-between w-full p-5 text-lg text-left border-b border-slate-600"
+        data-accordion-target="#accordion-collapse-{{ item.prodMain | slug }}" aria-expanded="true"
+        aria-controls="accordion-collapse-{{ item.prodMain | slug }}">
+        <span>{{ item.prodMain }}</span>
+        <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-collapse-{{ item.prodMain | slug }}" class="hidden border-b border-slate-600">
+      <div class="p-8 pt-4 bg-white rounded-lg shadow">
+        <div>
+          <p class="text-lg font-bold">{{item.prodTitle}} </p>
+          <p class="mb-4 text-md">{{item.prodSubTitle}}</p>
+
+          <ul class="list-disc ">
+            {% for items in item.subprods%}
+
+            <li class="pb-5 text-{{color}} flex flex-row">
+              <div class="w-[12px] mr-4 relative">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6 top-[3px] -left-1 absolute">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-lg font-bold text-black">{{ items.title }}</p>
+                {% if items.pdf %}
+                  <p class="text-lg text-black">
+                    {{ items.info }}
+                    <a href="{{ items.pdf }}" class="text-{{color}} text-base cursor-pointer flex hover:underline hover:opacity-50">Download PDF
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="ml-2 relative top-[2px]">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                    </p> 
+                  {% else %}
+                  <p class="text-lg text-black">{{ items.info }}</p>
+                  {% endif %}
+              </div>
+            </li>
+
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</article>
+
+<article class="px-10 py-16 bg-center bg-cover" style="background-image: url('{{quoteImg}}') ;" aria-label="{{ quoteImgAlt }}">
+  <div class="container grid mx-auto md:grid-flow-row lg:grid-cols-2 md:gap-10">
+    <div class="grid-flow-col col-span-1 p-8 bg-white rounded-lg md:m-0">
+      <p class="text-xl text-slate-900">{{quote}}</p>
+      {#<!-- <p class="mt-5 italic text-slate-700 text-md">{{quotee}}</p> -->#}
+
+      {% if quoteLogo == '/images/products/cjc.svg' %}
+      <img class="mt-5 block max-h-[40px] w-[250px]" src="{{quoteLogo}}" alt="{{quoteLogoAlt}}">
+      {% else %}
+      <img class="mt-5 block max-h-[40px]" src="{{quoteLogo}}" alt="{{quoteLogoAlt}}">
+      {% endif %}
+
+    </div>
+
+  </div>
+</article>
+
+<article class="px-10 border-t border-slate-200 md:border-0">
+  <div class="container mx-auto my-10 md:my-32">
+    <h2 class="mb-12 text-2xl font-bold text-center md:text-3xl md:mx-32">
+      Our objectivity & established process for new
+      client onboarding leads quickly to personalized solutions</h2>
+    <div class="grid justify-center grid-flow-row gap-6 md:gap-0 md:grid-flow-col">
+      <div class="flex flex-row basis-3/3 md:basis-1/3">
+        <img class="relative h-6 pr-2 top-1 md:h-12 md:px-8" src="/images/products/solution-arrow.png" alt="arrow">
+        <span>
+          <p class="text-2xl font-bold">Business immersion</p>
+          <p class="text-lg">Immersion into business needs, growth plans, etc.</p>
+        </span>
+      </div>
+      <div class="flex flex-row basis-3/3 md:basis-1/3">
+        <img class="relative h-6 pr-2 top-1 md:h-12 md:px-8" src="/images/products/solution-arrow.png" alt="arrow">
+        <span>
+          <p class="text-2xl font-bold">Environment review</p>
+          <p class="text-lg">Review of current environment including vulnerability scanning, configuration reviews</p>
+        </span>
+      </div>
+      <div class="flex flex-row basis-3/3 md:basis-1/3">
+        <img class="relative h-6 pr-2 top-1 md:h-12 md:px-8" src="/images/products/solution-arrow.png" alt="arrow">
+        <span>
+          <p class="text-2xl font-bold">Personalized solutions</p>
+          <p class="text-lg">Presentation of findings, priorities and personalized solutions</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</article>
+
+{% include "partials/cta.html" %}
+
+<article style="background-image: url('/images/products/{{product|slug}}.webp') ;"
+  class="py-8 bg-center bg-no-repeat bg-cover">
+  <div class="container flex justify-center mx-auto">
+    <div class="p-8 mx-auto my-8 rounded-lg bg-black/70">
+      <h2 class="mb-10 text-3xl font-bold text-white">Why trust L3 for your {{product}}?</h2>
+      <div class="grid grid-flow-row">
+
+        <div class="flex items-start pb-5 text-white md:items-center font-open">
+          <div class="block pr-3 text-3xl font-bold text-teal-500 md:hidden">
+            1
+          </div>
+          <div class="hidden h-4 pr-3 md:block">
+            <svg class="stroke-teal-500" width="16" height="20" viewBox="0 0 17 21" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 18.4964L14.66 10.44L2 2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <p class="pb-2 pr-6 text-lg font-bold md:text-xl">Putting client needs first.</p>
+            <p class="w-full text-base md:w-auto md:text-lg">We define our success as your satisfaction. Period.</p>
+          </div>
+        </div>
+        <div class="flex items-start pb-5 text-white md:items-center font-open">
+          <div class="block pr-3 text-3xl font-bold text-teal-500 md:hidden">
+            2
+          </div>
+          <div class="hidden h-4 pr-3 md:block">
+            <svg class="stroke-teal-500" width="16" height="20" viewBox="0 0 17 21" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 18.4964L14.66 10.44L2 2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <p class="pb-2 pr-6 text-lg font-bold md:text-xl">Understanding prioritization in IT</p>
+            <p class="w-full text-base md:w-auto md:text-lg">We operate with the premise that security & reliability come
+              first. Always.</p>
+          </div>
+        </div>
+        <div class="flex items-start pb-5 text-white md:items-center font-open">
+          <div class="block pr-3 text-3xl font-bold text-teal-500 md:hidden">
+            3
+          </div>
+          <div class="hidden h-4 pr-3 md:block">
+            <svg class="stroke-teal-500" width="16" height="20" viewBox="0 0 17 21" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 18.4964L14.66 10.44L2 2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <p class="pb-2 pr-6 text-lg font-bold md:text-xl">Being objective on products and solutions</p>
+            <p class="w-full text-base md:w-auto md:text-lg">We're not selling anything. We take an objective view and
+              make recommendations for you. Only.</p>
+          </div>
+        </div>
+        <div class="flex items-start pb-5 text-white md:items-center font-open">
+          <div class="block pr-3 text-3xl font-bold text-teal-500 md:hidden">
+            4
+          </div>
+          <div class="hidden h-4 pr-3 md:block">
+            <svg class="stroke-teal-500" width="16" height="20" viewBox="0 0 17 21" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 18.4964L14.66 10.44L2 2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <p class="pb-2 pr-6 text-lg font-bold md:text-xl">Reducing risk with field tested solutions</p>
+            <p class="w-full text-base md:w-auto md:text-lg">We bring visibility & immersion across industries,
+              organizations and models.</p>
+          </div>
+        </div>
+        <div class="flex items-start pb-5 text-white md:items-center font-open">
+          <div class="block pr-3 text-3xl font-bold text-teal-500 md:hidden">
+            5
+          </div>
+          <div class="hidden h-4 pr-3 md:block">
+            <svg class="stroke-teal-500" width="16" height="20" viewBox="0 0 17 21" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 18.4964L14.66 10.44L2 2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <p class="pb-2 pr-6 text-lg font-bold md:text-xl">Bringing expertise in proven & emerging solutions</p>
+            <p class="w-full text-base md:w-auto md:text-lg">Our presence on the front-lines requires us to be current on
+              new technology solutions.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</article>
+
+<!-- <div class="border-teal-300"></div>
+<div class="border-yellow-300"></div>
+<div class="border-gray-300"></div>
+<div class="border-red-300"></div>
+<div class="border-blue-300"></div> -->
+<!-- <div class="bg-teal-400"></div>
+<div class="bg-yellow-400"></div>
+<div class="bg-gray-400"></div>
+<div class="bg-red-400"></div>
+<div class="bg-blue-400"></div> -->
+<!-- <div class="bg-teal-500"></div>
+<div class="bg-yellow-500"></div>
+<div class="bg-gray-500"></div>
+<div class="bg-red-500"></div>
+<div class="bg-red-600"></div>
+<div class="bg-red-700"></div>
+<div class="bg-blue-500"></div> -->
+<!-- <div class="bg-teal-600"></div>
+<div class="bg-yellow-600"></div>
+<div class="bg-gray-600"></div>
+<div class="bg-red-600"></div>
+<div class="bg-blue-600"></div> -->
+<!-- <div class="text-teal-500"></div>
+<div class="text-yellow-500"></div>
+<div class="text-gray-500"></div>
+<div class="text-red-400"></div>
+<div class="text-red-500"></div>
+<div class="text-red-600"></div>
+<div class="text-blue-500"></div> -->
+<!-- <div class="stroke-teal-400"></div>
+<div class="stroke-yellow-400"></div>
+<div class="stroke-gray-400"></div>
+<div class="stroke-red-400"></div>
+<div class="stroke-blue-500"></div> -->
+
+{% include "partials/footer.html" %}
+
+{% endblock %}

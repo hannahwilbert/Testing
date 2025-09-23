@@ -1,0 +1,134 @@
+<section class="w-full px-10">
+  <div class="container px-10 pt-32 text-center md:text-left md:mx-auto text-slate-800">
+
+    <!-- {% if pageHeaderSummary %}
+    <div class="mb-4 text-xs tracking-widest text-center text-teal-500 uppercase md:text-left">
+      {{ pageHeaderSummary | safe }}
+    </div>
+    {% endif %} -->
+    <h2 class="inline-block pr-4 text-3xl font-bold text-center border-r-2 border-teal-500">{{ title }}</h2>
+    <h1 class="inline-block pl-4 text-3xl font-light text-center">{{ subtitle }}</h1>
+
+  </div>
+</section>
+
+{% set recommendedPosts = helpers.getSiblingContent(collections.post, page) %}
+
+<div class="container mt-4 mb-16 md:mx-auto lg:px-10">
+  <div class="grid grid-cols-3 gap-8">
+
+    <div class="col-span-2 ">
+      
+      {% for post in recommendedPosts.slice(0,1) %}
+      
+      <img class="object-cover w-full h-96" alt="{{ post.data.alt }}" src="{{ post.data.img }}">
+
+      <div class="p-8 border-b-8 bg-slate-300 text-slate-800 border-b-slate-400">
+        <a href="{{ post.url }}" class="block text-3xl font-bold hover:text-teal-200">{{ post.data.title }}</a>
+        <p class="py-2 text-lg font-light">{{ post.data.exerpt }}</p>
+        <div class="flex pt-2 text-sm text-teal-200">
+          {# <p class="">{{ post.data.date }}</p> #}
+        </div>
+      </div>
+     
+      {% endfor %}
+    </div>
+
+    <div class="col-span-1">
+      <h2 class="pb-3 mb-3 font-bold border-b-2 text-md border-b-teal-500 text-slate-800">Featured Posts</h2>
+
+      {% for post in recommendedPosts.slice(1,5) %}
+      <div class="pb-4 my-4 border-b border-b-slate-300 text-slate-800">
+        <a href="{{ post.url }}" class="text-lg font-semibold hover:text-teal-500">{{ post.data.title }}</a>
+        <div class="flex text-sm text-slate-600">
+          <p class="">{{ post.data.exerpt }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="pb-4 my-4">
+        <a href="/tag/all/" class="px-3 py-1 font-bold text-white bg-teal-500 rounded-md cursor-pointer text-md hover:bg-teal-600">See All Articles</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container px-10 my-16 md:mx-auto" id="post-list">
+  <div class="grid grid-cols-4 gap-10">
+
+    {% for post in recommendedPosts.slice(5,9) %}
+    <div class="pb-4 my-4 border-b border-b-slate-300">
+      <img class="object-cover w-full h-40" alt="{{ post.data.alt }}" src="{{ post.data.img }}">
+      <a href="{{ post.url }}" class="block pt-4 mb-2 text-lg font-bold leading-6 hh-16 hover:text-teal-500 hover:underline">{{ post.data.title }}</a>
+      <p class="font-light text-md hh-32">{{ post.data.exerpt }}</p>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+<script src="/js/jquery-1.6.4.min.js"></script>
+
+<script>
+  $(function() {
+  function parseRSS(callback) {
+    $.ajax({
+      // url: 'https://filestore.fortinet.com/fortiguard/rss/ir.xml',
+      url: 'https://feeds.fortinet.com/fortinet/blog/business-and-technology',
+      //url: 'https://filestore.fortinet.com/fortiguard/rss/outbreakalert.xml',
+      dataType: 'xml',
+      error: function(e) {
+            // alert("An error occurred while processing XML file");
+            console.log("XML reading Failed: ", e);        
+      },
+      success: function(response) {
+        // Remove any existing elements in the container
+        $('#rss-feeds').children().remove();
+        // Find each <item> in the RSS feed
+        $(response).find("item").each(function(i) {
+          // Build a new element
+          var $build = $('<div class="py-3 item text-slate-800"></div>');
+          // Grab the variables from the RSS feed (title, link, description)
+          var scc_title = $(this).find('title').text();
+          var scc_link = $(this).find('link').text();
+          var scc_description = $(this).find('description').text();
+          // Append elements to the new element
+          $build.append('<a class="font-bold hover:underline" href="'+scc_link+'">'+scc_title+'</a>');
+          $build.append('<div class="text-sm text-slate-600">'+scc_description+'</div>');
+          // Append the new element to the container
+          $('#rss-feeds').append($build);
+          // stop at 5 items
+          return i<4;
+
+        });
+      }
+    });
+  }
+  $('document').ready(function() {
+    parseRSS();
+  });
+});
+</script>
+
+{# <div class="container grid grid-cols-3 gap-8 px-10 my-16 md:mx-auto" >
+  <div class="col-span-2 p-8 bg-slate-100">
+    <h3 class="font-bold text-slate-800 ">Around the Net</h3>
+    <article class="text-slate-800" id="rss-feeds">
+      <p>Loading...</p>
+
+    </article>
+  </div>
+  <div class="col-span-1">
+
+    <div class="w-full h-full p-8 bg-teal-500" style="background-image: url('/images/blog/yourchallengedbg.webp');">
+      <h3 class="pt-10 text-3xl font-bold text-center text-white">Ready to give your business an advantage?</h3>
+      <p class="px-6 py-3 mt-8 text-xl font-bold text-center text-white bg-teal-400 rounded-xl">Get Connected with our team</p>
+    </div>
+
+  </div>
+</div> #}
+
+
+

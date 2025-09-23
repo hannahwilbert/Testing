@@ -1,0 +1,197 @@
+{
+  "items": [
+    {
+      "text": "Cyber Security",
+      "url": "/products/cyber-security/",
+      "prod": [
+        {
+          "text": "Managed Detection & Response (MDR)",
+          "description": "Proactive threat monitoring and incident response for cybersecurity threats."
+        },
+        {
+          "text": "Managed SIEM",
+          "description": "Centralized Log Analysis and Real-Time Threat Detection for Enhanced Security Management"
+        },
+        {
+          "text": "Security Log Management",
+          "description": "Identify and Investigate Anomalies with Centralized Log Collection and Analysis"
+        },
+        {
+          "text": "Vulnerability Scanning",
+          "description": "Automated Scanning and Remediation to Strengthen Your Security Posture"
+        },
+        {
+          "text": "Penetration Testing",
+          "description": "Simulated Cyberattacks to Uncover and Verify Security Vulnerabilities"
+        },
+        {
+          "text": "Zero Trust",
+          "description": "Eliminate Implicit Trust and Secure Every Digital Interaction"
+        },
+        {
+          "text": "Managed Firewall",
+          "description": "Comprehensive Management of Firewall Policies to Safeguard Your Network"
+        },
+        {
+          "text": "Email Security",
+          "description": "Keep Your Business Communications Secure and Threat-Free"
+        },
+        {
+          "text": "Multi-Factor Authentication (MFA)",
+          "description": "Secure Your Business with Flexible, Reliable MFA Solutions"
+        },
+        {
+          "text": "DNS Security",
+          "description": "Block Malicious Sites and Enhance Network Security"
+        },
+        {
+          "text": "Cyber Containment & Remediation",
+          "description": "Rapidly Isolate Threats and Restore Normal Operations with Expert-Led Remediation"
+        },
+        {
+          "text": "Compliancy Conformance",
+          "description": "Ensure Your Systems and Practices Align with Regulatory and Industry Security Standards"
+        }
+      ]
+      
+    },
+    {
+      "text": "Networks & Connectivity",
+      "url": "/products/managed-networks/",
+      "prod": [
+        {
+          "text": "ISP | UCaaS | Contact Center Solutions",
+          "description": "Streamline Internet Connectivity, Communication Services, and Customer Contact Solutions"
+        },
+        {
+          "text": "Managed SASE",
+          "description": "Unified Connectivity and Security with Simplified, Centralized Management"
+        },
+        {
+          "text": "Managed SD-WAN",
+          "description": "Optimize Your Network for Performance, Security, and Reliability"
+        },
+        {
+          "text": "Microsoft Azure | Entra Networking",
+          "description": "Secure Networking and Identity Management for Seamless Access to Microsoft Environments"
+        },
+        {
+          "text": "Secure Gateway Services",
+          "description": "Seamless, Secure Access to Managed Connectivity and Cloud Providers"
+        },
+        {
+          "text": "Secure Remote Access",
+          "description": "Enable Safe, Encrypted Access to Corporate Networks for Remote Users"
+        }
+      ]      
+    },
+    {
+      "text": "Users & Devices",
+      "url": "/products/user-and-device-management/",
+      "prod": [
+        {
+          "text": "Desktop Infrastructure",
+          "description": "Comprehensive Management for Physical and Virtual Desktops"
+        },
+        {
+          "text": "End User Helpdesk",
+          "description": "24/7 Tailored IT Support for Systems and Applications"
+        },
+        {
+          "text": "Enterprise Mobility Management",
+          "description": "Managed Wireless Lifecycle Services with Specialist Support and Plan Optimization"
+        },
+        {
+          "text": "Identity & Access Management (IAM)",
+          "description": "Secure, Consistent Access Management with Ease of Use for End Users"
+        },
+        {
+          "text": "Subscription & Patch Management",
+          "description": "Keep Your Software, Patches, and Subscriptions Up to Date and Secure"
+        }
+      ]
+      
+    },
+    {
+      "text": "Cloud Solutions",
+      "url": "/products/cloud-and-systems-services/",
+      "prod": [
+        {
+          "text": "Active Directory Management",
+          "description": "Comprehensive Management of Users, Permissions, and Policies in Microsoft’s Directory Services"
+        },
+        {
+          "text": "Azure AI",
+          "description": "Leverage AI and Machine Learning Services from Microsoft Azure for Data Insights and Automation"
+        },
+        {
+          "text": "Cloud Direct Connect",
+          "description": "Secure and Efficient Dedicated Network Connectivity to Cloud Resources"
+        },
+        {
+          "text": "Device Automation & Management",
+          "description": "Automate and Optimize IT Processes to Streamline Key Operating Practices"
+        },
+        {
+          "text": "Managed Backup Services",
+          "description": "Automated Backup Solutions to Protect Your Data and Ensure Quick Recovery"
+        },
+        {
+          "text": "Microsoft Azure | Entra Cloud",
+          "description": "Cloud Services for Computing, Storage, and Identity Management with Microsoft Entra"
+        },
+        {
+          "text": "Microsoft 365 Deploy & Support",
+          "description": "Expert Deployment and Comprehensive Support for Microsoft 365"
+        },
+        {
+          "text": "On-Demand Disaster Recovery",
+          "description": "Flexible Recovery Solutions to Minimize Downtime When Disaster Strikes"
+        },
+        {
+          "text": "Private Cloud & Colocation",
+          "description": "Secure and Dedicated Hosting with Private Cloud Infrastructure and Colocation Services"
+        },
+        {
+          "text": "Server | Datacenter Management",
+          "description": "Comprehensive Oversight and Maintenance for Physical and Virtual Servers and Datacenter Operations"
+        },
+        {
+          "text": "Single Sign-On (SSO)",
+          "description": "Streamlined Access for Improved Security and Workflow Efficiency"
+        },
+        {
+          "text": "Virtual Desktop",
+          "description": "Cloud-Hosted Desktop Environments for Total End-User Flexibility"
+        }
+      ]
+    },
+    {
+      "text": "Professional Services",
+      "url": "/products/professional-services/",
+      "prod": [
+        {
+          "text": "Independent Security Consulting",
+          "description": "Neutral, Expert Guidance on Cybersecurity Strategies, Policies, and Risk Management"
+        },
+        {
+          "text": "M&A Consulting",
+          "description": "Expert Guidance for Seamless Integration and Value Realization in Mergers and Acquisitions"
+        },
+        {
+          "text": "Project Management",
+          "description": "Efficient Planning, Execution, and Oversight to Achieve Goals, Timelines, and Budgets"
+        },
+        {
+          "text": "Technology Transformation",
+          "description": "Empowering Organizations to Adopt New Technologies for Improved Efficiency and Growth"
+        },
+        {
+          "text": "Fully & Co-Managed IT Services",
+          "description": "Flexible IT Management Models for Optimized Operations"
+        }
+      ]
+      
+    }
+  ]
+}
