@@ -1,0 +1,225 @@
+<section class="section-block mt-20" data-security-pressures>
+  <div aria-hidden="true" class="securityPressures__bg pointer-events-none absolute inset-0"></div>
+  <div class="securityPressures__wrap">
+    <header class="securityPressures__heading">
+      {% if challengesTitle %}
+      <h2 class="securityPressures__title">{{ challengesTitle }}</h2>
+      {% endif %}
+      {% if challengesIntro %}
+      <p class="securityPressures__intro">{{ challengesIntro }}</p>
+      {% endif %}
+    </header>
+
+    <div class="securityPressures__grid">
+      {% for item in challenges %}
+      <article class="securityPressures__card">
+        <div class="securityPressures__chip">Priority 0{{ loop.index }}</div>
+        {% if item.title %}
+        <h3 class="securityPressures__cardTitle">{{ item.title }}</h3>
+        {% endif %}
+        {% if item.description %}
+        <p class="securityPressures__text">{{ item.description }}</p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="securityPressures__actions">
+      {% if heroCtaLink and heroCtaText %}
+      <a href="{{ heroCtaLink }}" class="securityPressures__cta securityPressures__cta--primary">
+        {{ heroCtaText }}
+        <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
+      </a>
+      {% endif %}
+      {% if pressuresSecondaryLink and pressuresSecondaryText %}
+      <a href="{{ pressuresSecondaryLink }}" class="securityPressures__cta securityPressures__cta--secondary">
+        {{ pressuresSecondaryText }}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% set columns = pressuresColumns or 3 %}
+  <style>
+    [data-security-pressures]{
+      --sp-brand:#38bdf8;
+      --sp-border:rgba(148, 163, 184, 0.32);
+      color:#e6f1ff;
+      position:relative;
+      overflow:hidden;
+      padding-top:clamp(70px,10vh,140px);
+      padding-bottom:clamp(96px,13vh,160px);
+      background:linear-gradient(180deg,#0f172a 0%,#020b18 100%);
+      width:100vw;
+      margin-left:calc(50% - 50vw);
+      margin-right:calc(50% - 50vw);
+      margin-bottom:-1px;
+    }
+
+    [data-security-pressures] .securityPressures__bg{ background:none; }
+
+    [data-security-pressures] .securityPressures__wrap{
+      position:relative;
+      z-index:1;
+      max-width:min(1120px,92vw);
+      margin:0 auto;
+      padding:0 clamp(20px,3.6vw,36px);
+      display:flex;
+      flex-direction:column;
+      gap:clamp(48px,7vh,72px);
+    }
+
+    [data-security-pressures] .securityPressures__heading{
+      display:flex;
+      flex-direction:column;
+      gap:clamp(18px,3vh,26px);
+      max-width:780px;
+    }
+
+    [data-security-pressures] .securityPressures__title{
+      margin:0;
+      font-size:clamp(32px,5.4vw,54px);
+      font-weight:900;
+      line-height:1.05;
+      color:#ffffff;
+    }
+
+    [data-security-pressures] .securityPressures__intro{
+      margin:0;
+      font-size:clamp(16px,2.3vw,20px);
+      line-height:1.7;
+      color:rgba(226,232,240,0.9);
+    }
+
+    [data-security-pressures] .securityPressures__grid{
+      display:grid;
+      gap:clamp(20px,3vw,32px);
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+
+    @media(min-width:900px){
+      [data-security-pressures] .securityPressures__grid{ grid-template-columns:repeat({{ columns }},minmax(0,1fr)); }
+    }
+
+    [data-security-pressures] .securityPressures__card{
+      position:relative;
+      padding:clamp(26px,4vh,34px);
+      border-radius:26px;
+      border:1px solid rgba(148,163,184,0.26);
+      background:linear-gradient(155deg, rgba(15,23,42,0.94), rgba(37,54,78,0.76));
+      box-shadow:0 24px 54px rgba(4,10,31,0.55);
+      display:grid;
+      gap:clamp(14px,2vh,20px);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    [data-security-pressures] .securityPressures__card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      background:radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    [data-security-pressures] .securityPressures__card:hover,
+    [data-security-pressures] .securityPressures__card:focus-within{
+      transform:translateY(-4px);
+      box-shadow:0 28px 68px rgba(14,116,144,0.38);
+      border-color:rgba(56,189,248,0.38);
+    }
+
+    [data-security-pressures] .securityPressures__card > *{ position:relative; z-index:1; }
+
+    [data-security-pressures] .securityPressures__chip{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      height:2.2rem;
+      gap:.4rem;
+      padding:0 .95rem;
+      border-radius:999px;
+      font-size:.72rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(226,248,255,0.9);
+      background:rgba(56,189,248,0.12);
+      border:1px solid rgba(56,189,248,0.35);
+      font-variant-numeric:tabular-nums;
+      font-feature-settings:'tnum';
+      text-align:left;
+      flex-shrink:0;
+    }
+
+    [data-security-pressures] .securityPressures__cardTitle{
+      margin:0;
+      font-weight:700;
+      font-size:clamp(19px,2.7vw,26px);
+      color:#f8fafc;
+      letter-spacing:-0.01em;
+      text-wrap:balance;
+    }
+
+    [data-security-pressures] .securityPressures__text{
+      margin:0;
+      font-size:clamp(14px,2vw,17px);
+      line-height:1.7;
+      color:rgba(214,228,244,0.88);
+    }
+
+    [data-security-pressures] .securityPressures__actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      justify-content:center;
+    }
+
+    [data-security-pressures] .securityPressures__cta{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:1rem 1.35rem;
+      font-weight:800;
+      font-size:clamp(14px,1.9vw,17px);
+      text-decoration:none;
+      border-radius:999px;
+      transition:transform .18s ease, filter .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
+    }
+
+    [data-security-pressures] .securityPressures__cta--primary{
+      color:#fff;
+      background:var(--sp-brand);
+      box-shadow:0 20px 45px rgba(56,189,248,0.35);
+    }
+
+    [data-security-pressures] .securityPressures__cta--primary img{
+      height:18px;
+      filter:invert(1) brightness(1.6);
+    }
+
+    [data-security-pressures] .securityPressures__cta--secondary{
+      color:#e2e8f0;
+      background:transparent;
+      border:1.6px solid var(--sp-border);
+    }
+
+    [data-security-pressures] .securityPressures__cta--primary:is(:hover,:focus-visible){
+      transform:translateY(-1px) scale(1.02);
+      filter:brightness(1.03);
+    }
+
+    [data-security-pressures] .securityPressures__cta--secondary:is(:hover,:focus-visible){
+      transform:translateY(-1px);
+      border-color:var(--sp-brand);
+      background:rgba(56,189,248,0.08);
+      color:#fff;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      [data-security-pressures] .securityPressures__card,
+      [data-security-pressures] .securityPressures__cta{
+        transition:none;
+      }
+    }
+  </style>
+</section>

@@ -1,93 +1,355 @@
 <style>
-  @keyframes glow-burst {
-    0% {
-      box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.8);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(13, 148, 136, 0.1);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
-    }
+  .sticky-cta{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:70;
+    opacity:0;
+    transform:translate3d(0,120%,0);
+    pointer-events:none;
+    transition:opacity .35s ease, transform .35s ease;
   }
-  .animate-glow-burst {
-    animation: glow-burst 1.8s ease-out infinite;
+
+  .sticky-cta.show{
+    opacity:1;
+    transform:translate3d(0,0,0);
+    pointer-events:auto;
+  }
+
+  .sticky-cta-inner{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:.65rem .85rem;
+    border-radius:999px;
+    background:rgba(6,17,33,.92);
+    border:1px solid rgba(148,163,184,.22);
+    box-shadow:0 20px 42px rgba(2,12,24,.55), 0 4px 16px rgba(3,10,22,.48);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+
+  .sticky-cta .label{
+    color:#cbd5f5;
+    font-size:.9rem;
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  .sticky-cta .label strong{ color:#fff; }
+
+  @property --border-angle-1 { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+  @property --border-angle-2 { syntax: "<angle>"; inherits: true; initial-value: 90deg; }
+  @property --border-angle-3 { syntax: "<angle>"; inherits: true; initial-value: 180deg; }
+
+  @property --c1x { syntax: "<percentage>"; inherits: true; initial-value: 12%; }
+  @property --c1y { syntax: "<percentage>"; inherits: true; initial-value: 20%; }
+  @property --c2x { syntax: "<percentage>"; inherits: true; initial-value: 72%; }
+  @property --c2y { syntax: "<percentage>"; inherits: true; initial-value: 62%; }
+  @property --c3x { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+  @property --c3y { syntax: "<percentage>"; inherits: true; initial-value: 22%; }
+
+  @keyframes rotateBackground   { to { --border-angle-1: 360deg; } }
+  @keyframes rotateBackground2  { to { --border-angle-2: -270deg; } }
+  @keyframes rotateBackground3  { to { --border-angle-3: 540deg; } }
+
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:.55rem 1.25rem;
+    border-radius:999px;
+    font-size:.9rem;
+    font-weight:700;
+    text-decoration:none;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .pill-primary{
+    color:#ffffff;
+    background:transparent;
+    border:1px solid rgba(148,163,184,.45);
+  }
+
+  .pill-primary.glow{
+    position:relative;
+    isolation:isolate;
+    color:#ffffff;
+    border:1px solid transparent;
+    transition:transform .7s cubic-bezier(.22,1,.36,1);
+    will-change:transform;
+  }
+
+  .pill-primary:hover,
+  .pill-primary:focus-visible{
+    transform:scale(1.02) translateZ(0);
+    box-shadow:none;
+    filter:none;
+  }
+
+  .pill-primary.glow::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:999px;
+    padding:2px;
+    background:
+      conic-gradient(from var(--border-angle-1) at var(--c1x) var(--c1y),
+        transparent,
+        color-mix(in oklab, var(--cyan, #22d3ee) 85%, white) 12%,
+        transparent 36%,
+        transparent),
+      conic-gradient(from var(--border-angle-2) at var(--c2x) var(--c2y),
+        transparent,
+        color-mix(in oklab, var(--indigo, #6366f1) 85%, white) 10%,
+        transparent 56%,
+        transparent),
+      conic-gradient(from var(--border-angle-3) at var(--c3x) var(--c3y),
+        transparent,
+        color-mix(in oklab, var(--cyan, #22d3ee) 45%, var(--indigo, #6366f1) 55%) 10%,
+        transparent 50%,
+        transparent);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    --speed1:3s;
+    --speed2:8s;
+    --speed3:13s;
+    animation: rotateBackground var(--speed1) linear infinite,
+               rotateBackground2 var(--speed2) linear infinite,
+               rotateBackground3 var(--speed3) linear infinite;
+    animation-play-state:running;
+    opacity:.68;
+    transition:opacity .35s ease;
+    pointer-events:none;
+  }
+
+  .pill-primary.glow::after{ content:none; }
+
+  .pill-primary.glow:hover::before,
+  .pill-primary.glow:focus-visible::before{
+    opacity:1;
+  }
+
+  .sticky-cta button{
+    background:none;
+    border:0;
+    color:#94a3b8;
+    font-size:1rem;
+    line-height:1;
+    border-radius:999px;
+    transition:color .2s ease, transform .2s ease;
+  }
+
+  .sticky-cta button:hover,
+  .sticky-cta button:focus-visible{
+    color:#e2e8f0;
+    transform:scale(1.05);
+  }
+
+  @media (max-width: 720px){
+    .sticky-cta{
+      left:16px;
+      right:16px;
+      bottom:16px;
+    }
+
+    .sticky-cta-inner{
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      padding:.75rem .9rem;
+    }
+
+    .sticky-cta .label{ width:100%; text-align:center; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .sticky-cta{ transition:none; }
+    .pill{ transition:none; }
+    .pill-primary:hover,
+    .pill-primary:focus-visible{
+      transform:none;
+      filter:none;
+    }
+    .pill-primary.glow{ transition:none; }
+    .pill-primary.glow::before{ animation:none; }
+    .sticky-cta button:hover,
+    .sticky-cta button:focus-visible{
+      transform:none;
+    }
   }
 </style>
 
-<div 
-  x-data="{
-    visible: false,
-    expanded: false,
-    testMode: true, // Set to false in production
-    init() {
-      if (this.testMode) {
-        this.visible = true;
-        this.expanded = false;
-        setTimeout(() => { this.expanded = true }, 4000);
-      } else {
-        setTimeout(() => {
-          this.visible = true;
-          setTimeout(() => { this.expanded = true }, 4000);
-        }, 5000);
-      }
-    },
-    toggle() {
-      this.expanded = !this.expanded;
-    },
-    go() {
-      if (this.expanded) window.location.href = '/alldeskai/';
-    }
-  }"
-  x-init
-  x-cloak
-  class="fixed z-50 bottom-6 right-6"
->
-
-  <template x-if="visible">
-    <div class="relative group" @click.away="expanded = false">
-
-      <!-- Main Button -->
-      <button 
-        @click="expanded ? go() : toggle()"
-        class="flex items-center font-semibold text-white transition-all ease-in-out bg-teal-500 shadow-xl cursor-pointer duration-400 hover:bg-teal-600 focus:outline-none animate-glow-burst"
-        :class="expanded ? 'px-5 py-4 rounded-full space-x-3 w-auto' : 'p-4 rounded-full w-14 h-14 justify-center'"
-        aria-label="Explore AllDesk Ai"
-      >
-        <!-- Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles">
-          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
-          <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
-        </svg>
-
-        <!-- Text Label -->
-        <span 
-          x-show="expanded"
-          x-transition:enter="transition ease-out duration-200"
-          x-transition:enter-start="opacity-0 scale-0"
-          x-transition:enter-end="opacity-100 scale-100"
-          x-transition:leave="opacity-0 duration"
-          x-transition:leave-start="opacity-0 scale-0"
-          x-transition:leave-end="opacity-0 scale-0"
-          x-cloak
-          class="ml-2 whitespace-nowrap"
-        >Learn about AllDesk Ai</span>
-      </button>
-
-      <!-- Dismiss button -->
-      <button 
-        @click="expanded = false"
-        x-show="expanded"
-        x-transition
-        class="absolute p-1 bg-transparent rounded-full shadow-md cursor-pointer text-slate-400 -top-2 -right-2 hover:text-red-500"
-        aria-label="Collapse Button"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-
-    </div>
-  </template>
-
+<!-- Sticky CTA: AI Helpdesk (hidden until past hero) -->
+<div class="sticky-cta" id="stickyCta" role="region" aria-label="AI Helpdesk">
+  <div class="sticky-cta-inner">
+    <span class="label">Try our new <strong>AI Helpdesk</strong></span>
+    <a class="pill pill-primary glow" href="#ai-helpdesk">Try It Now</a>
+    <button aria-label="Dismiss" id="ctaDismiss" style="background:none;border:0;cursor:pointer;color:#5b6b8c;padding:.4rem .6rem">✕</button>
+  </div>
 </div>
+
+<script>
+  (function(){
+    var yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  })();
+
+  // Reveal on scroll
+  (function(){
+    var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if (!els.length) return;
+
+    var reduce = false;
+    if (window.matchMedia && typeof window.matchMedia === 'function') {
+      try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      catch (err) { reduce = false; }
+    }
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { root:null, rootMargin:'-10% 0px', threshold:0.15 });
+
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  // Sticky CTA: show only after passing the hero, with dismiss + session memory
+  (function(){
+    var cta = document.getElementById('stickyCta');
+    if (!cta) return;
+
+    var dismissBtn = document.getElementById('ctaDismiss');
+    var hero = document.getElementById('home') || document.querySelector('header.hero');
+    var supportsIO = 'IntersectionObserver' in window;
+    var dismissed = false;
+
+    try {
+      dismissed = sessionStorage.getItem('ai_cta_dismissed') === '1';
+    } catch (err) {
+      dismissed = false;
+    }
+
+    function setVisible(visible){
+      cta.classList.toggle('show', visible && !dismissed);
+    }
+
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', function(){
+        dismissed = true;
+        try { sessionStorage.setItem('ai_cta_dismissed', '1'); } catch (err) { /* ignore */ }
+        setVisible(false);
+      });
+    }
+
+    function heroPassed(){
+      if (!hero) return (window.scrollY || 0) > 400;
+      var rect = hero.getBoundingClientRect();
+      var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      if (rect.bottom <= 0) return true;
+      if (rect.top >= viewportHeight) return false;
+      return rect.top <= -(hero.offsetHeight * 0.05);
+    }
+
+    if (supportsIO && hero) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          setVisible(!entry.isIntersecting);
+        });
+      }, { threshold: 0.05 });
+      io.observe(hero);
+      setVisible(heroPassed());
+      return;
+    }
+
+    function onScroll(){
+      setVisible(heroPassed());
+    }
+
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
+
+  // Mouse-follow border centers for the "Try It Now" button (hover only)
+  (function(){
+    var btn = document.querySelector('.pill-primary.glow');
+    if (!btn) return;
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    var defaults = { c1x:12, c1y:20, c2x:72, c2y:62, c3x:50, c3y:22 };
+    var state = { x:0.5, y:0.5, tx:0.5, ty:0.5, raf:0, hovering:false };
+
+    function clamp(v, min, max){ return Math.min(max, Math.max(min, v)); }
+    function lerp(a, b, t){ return a + (b - a) * t; }
+
+    function updateTargets(ev){
+      var rect = btn.getBoundingClientRect();
+      var x = (ev.clientX - rect.left) / rect.width;
+      var y = (ev.clientY - rect.top) / rect.height;
+      state.tx = clamp(x, 0, 1);
+      state.ty = clamp(y, 0, 1);
+    }
+
+    function apply(){
+      var mx = state.x * 100;
+      var my = state.y * 100;
+      var c1x = lerp(defaults.c1x, mx, 0.55);
+      var c1y = lerp(defaults.c1y, my, 0.55);
+      var c2x = lerp(defaults.c2x, mx, 0.45);
+      var c2y = lerp(defaults.c2y, my, 0.45);
+      var c3x = lerp(defaults.c3x, mx, 0.50);
+      var c3y = lerp(defaults.c3y, my, 0.50);
+      btn.style.setProperty('--c1x', c1x + '%');
+      btn.style.setProperty('--c1y', c1y + '%');
+      btn.style.setProperty('--c2x', c2x + '%');
+      btn.style.setProperty('--c2y', c2y + '%');
+      btn.style.setProperty('--c3x', c3x + '%');
+      btn.style.setProperty('--c3y', c3y + '%');
+    }
+
+    function loop(){
+      state.x = lerp(state.x, state.tx, 0.18);
+      state.y = lerp(state.y, state.ty, 0.18);
+      apply();
+      state.raf = requestAnimationFrame(loop);
+    }
+
+    btn.addEventListener('pointerenter', function(ev){
+      state.hovering = true;
+      updateTargets(ev);
+      if (!state.raf) {
+        loop();
+      }
+    });
+
+    btn.addEventListener('pointermove', updateTargets);
+
+    btn.addEventListener('pointerleave', function(){
+      state.hovering = false;
+      state.tx = 0.5;
+      state.ty = 0.5;
+      setTimeout(function(){
+        if (!state.hovering && state.raf) {
+          cancelAnimationFrame(state.raf);
+          state.raf = 0;
+        }
+      }, 400);
+    });
+  })();
+</script>

@@ -40,7 +40,113 @@
   </div>
 </section>
 
-
+{% if heroChallenges %}
+<section class="relative isolate overflow-hidden bg-[#030a17]">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_-20%,rgba(102,199,232,0.24),rgba(3,10,28,0))]"></div>
+  <div class="container relative z-10 mx-auto max-w-screen-xl px-6 py-12 text-white md:px-10 md:py-16">
+    <div class="cyberChallenges">
+      <div class="cyberChallenges__intro">
+        {% if heroChallenges.title %}
+        <h2 class="cyberChallenges__title">{{ heroChallenges.title }}</h2>
+        {% endif %}
+        {% if heroChallenges.subtitle %}
+        <p class="cyberChallenges__copy">{{ heroChallenges.subtitle }}</p>
+        {% endif %}
+      </div>
+      {% if heroChallenges.items %}
+      <ul class="cyberChallenges__list">
+        {% for challenge in heroChallenges.items %}
+        <li class="cyberChallenges__item">
+          <span class="cyberChallenges__icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none" class="h-3.5 w-3.5">
+              <path d="M6.2 11.2 3.3 8.3l.9-.9 2 2 5-5 .9.9-5.9 5.9Z" fill="currentColor" />
+            </svg>
+          </span>
+          <span>{{ challenge }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  <style>
+    .cyberChallenges{
+      display:grid;
+      gap:clamp(24px,4vh,40px);
+    }
+    @media(min-width:960px){
+      .cyberChallenges{
+        grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);
+        align-items:center;
+      }
+    }
+    .cyberChallenges__intro{
+      display:grid;
+      gap:clamp(10px,1.6vh,16px);
+      max-width:520px;
+    }
+    .cyberChallenges__title{
+      margin:0;
+      font-size:clamp(26px,4.2vw,40px);
+      font-weight:800;
+      letter-spacing:-0.015em;
+      font-family:'Montserrat',var(--font-heading,'Montserrat'),sans-serif;
+    }
+    .cyberChallenges__copy{
+      margin:0;
+      color:rgba(226,232,240,.82);
+      line-height:1.7;
+    }
+    .cyberChallenges__list{
+      display:grid;
+      gap:clamp(12px,2vh,18px);
+    }
+    @media(min-width:640px){
+      .cyberChallenges__list{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media(min-width:1080px){
+      .cyberChallenges__list{ gap:clamp(14px,2vw,22px); }
+    }
+    .cyberChallenges__item{
+      display:flex;
+      gap:clamp(10px,1.6vw,14px);
+      align-items:flex-start;
+      padding:clamp(16px,2vw,20px) clamp(18px,2.4vw,24px);
+      border-radius:20px;
+      border:1px solid rgba(148,204,255,.16);
+      background:rgba(11,22,38,.68);
+      box-shadow:0 16px 42px rgba(3,10,28,.45);
+      color:rgba(226,232,240,.9);
+      transition:border-color .25s ease, background-color .25s ease, transform .25s ease;
+    }
+    .cyberChallenges__item:hover,
+    .cyberChallenges__item:focus-within{
+      border-color:rgba(102,199,232,.45);
+      background:rgba(11,28,46,.82);
+      transform:translateY(-3px);
+    }
+    .cyberChallenges__icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:clamp(28px,4vw,34px);
+      height:clamp(28px,4vw,34px);
+      border-radius:50%;
+      background:rgba(102,199,232,.18);
+      border:1px solid rgba(102,199,232,.32);
+      color:#66C7E8;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);
+      margin-top:2px;
+      flex-shrink:0;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .cyberChallenges__item,
+      .cyberChallenges__item:hover,
+      .cyberChallenges__item:focus-within{ transition:none !important; transform:none !important; }
+    }
+  </style>
+</section>
+{% endif %}
 {# Main Content #}
 <main class="px-3 py-24 text-white bg-black md:px-8 2xl:px-0">
 

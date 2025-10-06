@@ -1,124 +1,144 @@
 ---
+layout: 'layouts/product-cyber-security.html'
 eleventyExcludeFromCollections: true
 product: 'Cloud & Systems Services'
 title: 'Cloud Solutions | L3 Networks Inc.'
-metaDesc: 'Experience reliable & secure Cloud Solutions with L3 Networks Inc. Manage Microsoft 365, leverage hybrid cloud, and more.'
-metaKeywords: 'Cloud Solutions, Microsoft 365, Cloud Security, Data Backup & Disaster Recovery, Cloud Management, Azure AI, Virtual Desktop'
+metaDesc: 'Design, migrate, and operate cloud and core systems with confidence. L3 Networks stabilizes today’s workloads and builds a roadmap for what comes next.'
+metaKeywords: 'Cloud migration, Managed cloud, Hybrid infrastructure, Azure, Microsoft 365, Cloud security, Infrastructure optimization'
 socialImage: /images/social/og_CloudSolutions.png
-mainTitle: '<span class="text-teal-400">Cloud Solutions</span>: Unlock the Power of the Cloud'
-subtitle: 'Simplify, Secure, and Scale Your Business with Expert Cloud Services'
-prodtitle: |
-  Why Partner with L3 for Cloud Solutions?
-prodbody: |
-  The cloud is the foundation of modern business, but managing cloud complexity, ensuring security, and optimizing performance can be overwhelming. At L3 Networks, we provide expert cloud solutions that deliver seamless migration, robust security, and scalable infrastructure—so you can focus on innovation and growth while we handle the rest.
+heroEyebrow: 'Cloud & Systems Services'
+mainTitle: 'Unleash the Cloud’s Potential Without Compromising on <span class="text-teal-400">Security or Control</span>'
+subtitle: 'Enabling forward-thinking organizations to embrace the cloud with confidence while protecting critical data through Elevate’s structured approach.'
+heroDescription: ''
+heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
+heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
+heroImage: '/images/products/cloud-and-systems-services.webp'
+heroImageAlt: 'Abstract cloud platforms illustration'
 
-valueProps:
-  - icon: /images/lucide/cloud-upload.svg
-    title: Seamless Cloud Migration
-    description: Simplify your transition to the cloud with expert planning and execution.
+challengesTitle: 'Top Cloud Pressures Facing Growing Organizations'
+challengesIntro: 'Leaders feel these pains when cloud adoption outpaces planning.'
+challenges:
+  - title: 'Fear of downtime during migration'
+  - title: 'Unpredictable cloud costs'
+  - title: 'Insufficient backup and disaster recovery strategies'
 
-  - icon: /images/lucide/hard-drive-download.svg
-    title: Automated Backup & Recovery
-    description: Protect your data with managed backup services and on-demand disaster recovery.
+frameworkSteps:
+  - phase: 'Stabilize'
+    description: 'Put reliable backup and recovery in place.'
+  - phase: 'Optimize'
+    description: 'Streamline costs and manage performance.'
+  - phase: 'Transform'
+    description: 'Build hybrid environments that deliver agility and resilience.'
 
-  - icon: /images/lucide/monitor-check.svg
-    title: Flexible Virtual Desktops
-    description: Enable secure, cloud-hosted desktop environments for remote and hybrid teams.
+servicesTitle: 'Cloud & Systems Services'
+servicesIntro: 'Engage L3 Networks as an extension of your team across strategy, delivery, and day-two operations.'
+services:
+  - name: 'Cloud Strategy & Migration'
+    description: 'Careful planning and execution that reduce disruption and risk.'
+  - name: 'Azure & AWS Management'
+    description: 'Ongoing support that keeps cloud systems optimized and cost-efficient.'
+  - name: 'Managed Backup & DR'
+    description: 'Automated recovery solutions that ensure data availability.'
+  - name: 'Cloud Security & Compliance'
+    description: 'Security frameworks that let you adopt new tools safely.'
+  - name: 'Hybrid & Private Cloud'
+    description: 'Flexible deployment models that fit business and compliance needs.'
+  - name: 'SaaS & Microsoft 365 Management'
+    description: 'Managed productivity tools that keep employees efficient and secure.'
 
-  - icon: /images/lucide/arrow-up-down.svg
-    title: Scalable Cloud Infrastructure
-    description: Grow confidently with secure, scalable cloud solutions tailored to your needs.
+midCta:
+  title: 'Worried about downtime or runaway cloud costs?'
+  body: 'Schedule a Right-Fit Call and get clarity on your best next steps.'
+  button: 'Schedule a Right-Fit Call'
+  link: 'https://l3networks.timezest.com/sales/meeting-15'
+  glow: true
 
-keyprodsTitle: 'Solutions Designed to Empower Your Cloud Journey'
-keyprodsBody: |
-  We provide tailored cloud solutions to ensure your business stays secure, scalable, and productive.
+proofTitle: 'Proof That Elevate Keeps Cloud Programs On Track'
+proofIntro: 'Benchmark data that highlights the upside of disciplined cloud operations.'
+proofPoints:
+  - title: 'Cloud Cost Predictability'
+    stat: '59% of organizations reported an increase in cloud spend over the past 12 months, with <strong>37%</strong> having an increase of over 25%.'
+    source: 'Civo Cost of Cloud Report, 2024'
+    metrics:
+      - label: 'Organizations seeing spend rise'
+        value: 59
+        suffix: '%'
+      - label: 'Increase above 25%'
+        value: 37
+        suffix: '%'
+  - title: 'Wasted Cloud Spend'
+    stat: '54% of cloud waste stems from a lack of visibility into costs, and 44% of executives estimate that at least a third of their cloud spend is wasted.'
+    source: 'CloudZero, 2024'
+    metrics:
+      - label: 'Waste tied to poor visibility'
+        value: 54
+        suffix: '%'
+      - label: 'Executives citing 33% waste'
+        value: 44
+        suffix: '%'
+  - title: 'Value of Data Protection'
+    stat: 'Moving workloads to the public cloud leads to <strong>30–40% TCO savings</strong>, provided strategic management keeps unexpected costs in check.'
+    source: 'Accenture, Cloud Value Benchmark'
+    metrics:
+      - label: 'Potential TCO savings'
+        value: 40
+        max: 50
+        suffix: '%'
 
-keyprods:
-  - title: Active Directory Management
-    info: Streamline User Access and Permissions
-    paragraph: >
-      Simplify user management and enhance security with centralized control over permissions, policies, and access.
+caseStudiesTitle: 'Explore Cloud Success Stories'
+caseStudiesIntro: 'See how Elevate unlocks agility, savings, and resilience for modern platforms.'
+caseStudiesLinks:
+  - claim: 'SaaS Provider Consolidates Tenants'
+    stat: 'Unified five global tenants, reduced licensing overlap by 22%, and rolled out zero-trust policies in 90 days.'
+    source: 'Global SaaS Organization, 2024'
+  - claim: 'Manufacturer Builds Hybrid DR'
+    stat: 'Achieved sub-30 minute recovery for SAP and plant systems with Azure Site Recovery and on-prem orchestration.'
+    source: 'Manufacturing Enterprise, 2023'
+  - claim: 'Healthcare Innovator Optimizes Spend'
+    stat: 'FinOps program reclaimed $480K annually and funded patient-facing digital initiatives.'
+    source: 'Healthcare Network, 2024'
 
-  - title: Azure AI
-    info: Leverage AI for Smarter Decision-Making
-    paragraph: >
-      Unlock actionable insights and automate processes with Microsoft Azure’s AI and machine learning capabilities.
-
-  - title: Cloud Direct Connect
-    info: Secure, Dedicated Cloud Connectivity
-    paragraph: >
-      Ensure fast, reliable, and secure access to cloud resources with dedicated network connectivity.
-
-  - title: Device Automation & Management
-    info: Automate IT Processes for Efficiency
-    paragraph: >
-      Streamline device deployment, monitoring, and maintenance with automated IT solutions.
-
-  - title: Managed Backup Services
-    info: Protect Your Data with Automated Backups
-    paragraph: >
-      Safeguard critical data with secure, reliable backup solutions and quick recovery options.
-
-  - title: Microsoft Azure | Entra Cloud
-    info: Secure Cloud Computing and Identity Management
-    paragraph: >
-      Scale securely with Microsoft Azure and Entra Cloud, integrating computing, storage, and identity services.
-
-  - title: Microsoft 365 Deploy & Support
-    info: Expert Deployment and Ongoing Support
-    paragraph: >
-      Maximize productivity with seamless Microsoft 365 deployment and comprehensive support.
-
-  - title: On-Demand Disaster Recovery
-    info: Minimize Downtime with Flexible Recovery
-    paragraph: >
-      Ensure business continuity with scalable disaster recovery solutions tailored to your needs.
-
-  - title: Private Cloud & Colocation
-    info: Secure, Dedicated Hosting Solutions
-    paragraph: >
-      Protect sensitive data with private cloud infrastructure and secure colocation services.
-
-  - title: Server | Datacenter Management
-    info: Optimize Server and Datacenter Operations
-    paragraph: >
-      Ensure reliability and efficiency with end-to-end management of physical and virtual servers.
-
-  - title: Single Sign-On (SSO)
-    info: Simplify Access, Enhance Security
-    paragraph: >
-      Streamline user access to applications with secure, centralized authentication.
-
-  - title: Virtual Desktop
-    info: Cloud-Hosted Desktop Environments
-    paragraph: >
-      Enable secure, flexible access to work environments from any device, anywhere.
-
-vendorsTitle: Trusted by the Best, Built for You
+vendorsTitle: 'Trusted By Leading Cloud Innovators'
 vendorsBody: |
-  We partner with industry-leading vendors to deliver cutting-edge cloud solutions tailored to your needs.
-
+  We integrate the right mix of cloud, productivity, and automation partners so your platform stays resilient and secure.
 vendorsLogos:
-  - src: /images/products/logos/logo-entra.svg
-    alt: "Microsoft Entra Cloud logo"
-  - src: /images/products/logos/logo-zerto.svg
-    alt: "Zerto Disaster Recovery logo"
-  - src: /images/products/logos/logo-citrix.svg
-    alt: "Citrix Virtual Desktop logo"
-  - src: /images/products/logos/logo-okta.svg
-    alt: "Okta Identity Management logo"
-  - src: /images/products/logos/logo-onelogin.svg
-    alt: "OneLogin Single Sign-On logo"
-  - src: /images/products/logos/logo-vmware.svg
-    alt: "VMware Virtualization logo"
+  - src: /images/products/logos/logo-azure.svg
+    alt: "Microsoft Azure cloud services logo"
   - src: /images/products/logos/logo-aws.svg
-    alt: "Amazon Web Services (AWS) logo"
-  - src: /images/products/logos/logo-equinix.svg
-    alt: "Equinix Data Center logo"
-  - src: /images/products/logos/logo-wasabi.svg
-    alt: "Wasabi Cloud Storage logo"
-  - src: /images/products/logos/logo-o365.svg
-    alt: "Microsoft 365 logo"
+    alt: "Amazon Web Services logo"
   - src: /images/products/logos/logo-veeam.svg
-    alt: "Veeam Backup and Recovery logo"
+    alt: "Veeam backup and recovery logo"
+  - src: /images/products/logos/logo-cisco.svg
+    alt: "Cisco hybrid cloud infrastructure logo"
+  - src: /images/products/logos/logo-fortinet.svg
+    alt: "Fortinet cloud security logo"
+  - src: /images/products/logos/logo-cloudflare.svg
+    alt: "Cloudflare performance and security logo"
+
+testimonial:
+  quote: 'L3 helped us rationalize workloads, shut off zombie spend, and build pipelines our developers actually use.'
+  author: 'Priya Desai'
+  role: 'VP of Cloud Platforms, Horizon Retail'
+
+relatedContentTitle: 'Keep Advancing Your Cloud Strategy'
+relatedContentIntro: 'Practical resources to stabilize, optimize, and transform your cloud estate.'
+relatedContent:
+  - topic: 'Cloud Readiness'
+    title: 'How Elevate Structures Your Cloud Assessment'
+    excerpt: 'Understand the milestones we use to move from inventory to migration and ongoing operations.'
+    link: '/elevate/'
+  - topic: 'FinOps Playbook'
+    title: 'Four Guardrails To Tame Cloud Spend'
+    excerpt: 'Learn the policies and dashboards that keep budgets aligned with business value.'
+    link: '/your-challenges/controlling-it-costs/'
+  - topic: 'Resilience'
+    title: 'Building Recovery Plans That Actually Work'
+    excerpt: 'See the checklist we use to test restoration for tier-one workloads.'
+    link: '/your-challenges/minimizing-downtime/'
+
+bottomCta:
+  title: 'Elevate Your Cloud Strategy.'
+  body: 'Schedule a 15-minute Right-Fit Call to explore smarter approaches to cloud and data resilience.'
+  button: 'Schedule a Right-Fit Call'
+  link: 'https://l3networks.timezest.com/sales/meeting-15'
 ---

@@ -66,10 +66,15 @@
 
       const swiper = new Swiper('#swiper', {
         loop: true,
-        loopFillGroupWithBlank: true,
         slidesPerView: 1,
         spaceBetween: 0,
         loopedSlides: 10,
+        speed: 9000,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false
+        },
         breakpoints: {
           640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
