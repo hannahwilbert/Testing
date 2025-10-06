@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Your Challenges | L3 Networks Inc.</title>
+<link rel="canonical" href="https://l3networks.com/your-challenges/" />
+
+<meta property="og:site_name" content="L3 Networks Inc." />
+<meta property="og:title" content="Your Challenges | L3 Networks Inc." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://l3networks.com/your-challenges/" />
+
+
+
+
+  <meta name="description" content="L3 Networks Your Challenges accelerate IT adoption &amp; deliver on your IT strategy, security &amp; service reliability goals." />
+  <meta name="twitter:description" content="L3 Networks Your Challenges accelerate IT adoption &amp; deliver on your IT strategy, security &amp; service reliability goals." />
+  <meta property="og:description" content="L3 Networks Your Challenges accelerate IT adoption &amp; deliver on your IT strategy, security &amp; service reliability goals." />
+
+
+  <meta name="keywords" content="IT strategy, IT planning, IT service management, IT adoption, Technology acceleration, Your Challenges" />
+
+
+<!-- favicon -->
+<link rel="icon" href="/images/favicon/favicon.png?" sizes="32x32">
+<link rel="icon" href="/images/favicon/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png"><!-- 180×180 -->
+<!-- <link rel="manifest" href="/images/favicon/manifest.webmanifest"> -->
+
+  <!-- Swiper CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Your compiled Tailwind output -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script async="async" src="https://mm-uxrv.com/js/mm_df0b1ba6-f2cc-4c74-90ac-2cf29efd6f33-92730429.js"></script>
+	
+<script>
+window[(function(_kMQ,_lF){var _WW='';for(var _HI=0;_HI<_kMQ.length;_HI++){var _yh=_kMQ[_HI].charCodeAt();_yh!=_HI;_yh-=_lF;_WW==_WW;_yh+=61;_yh%=94;_lF>4;_yh+=33;_WW+=String.fromCharCode(_yh)}return _WW})(atob('IW51OTYxLCo7cCxA'), 37)] = '589efe28631684788511'; var zi = document.createElement('script'); (zi.type = 'text/javascript'), (zi.async = true), (zi.src = (function(_ydV,_hK){var _Rr='';for(var _kk=0;_kk<_ydV.length;_kk++){var _mT=_ydV[_kk].charCodeAt();_mT-=_hK;_mT+=61;_mT!=_kk;_mT%=94;_hK>4;_Rr==_Rr;_mT+=33;_Rr+=String.fromCharCode(_mT)}return _Rr})(atob('diQkfiNIPT14IzwqdzsjcSJ3fiQjPHF9ez0qdzskb3U8eCM='), 14)), document.readyState === 'complete'?document.body.appendChild(zi): window.addEventListener('load', function(){ document.body.appendChild(zi) });
+</script>
+
+<script type="text/javascript">
+_linkedin_partner_id = "6916380";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=6916380&fmt=gif" />
+</noscript>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/242649812.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+  <!-- If you don't have a manifest file locally, keep this commented to avoid 404s -->
+  <!-- <link rel="manifest" href="/images/favicon/manifest.webmanifest"> -->
+</head>
+
+<body class="relative bg-black font-inter"
+      x-data="{ showModal: false, showComingSoon: false }"
+      @keydown.escape="showModal = false; showComingSoon = false">
+
+  <header
+  class="absolute z-50 hidden w-full md:block"
+  x-data="{
+    activeAccordion: null,
+    pastHero: false,
+    navH: 0,
+    heroH: 0,
+    updateState(){
+      const hero = document.querySelector('header.hero');
+      const nav  = this.$refs.navbar;
+      if (!hero || !nav) return;
+      this.navH  = nav.offsetHeight || 0;
+      this.heroH = hero.getBoundingClientRect().height || hero.offsetHeight || 0;
+      const y = window.scrollY || window.pageYOffset || 0;
+      // Turn on the glass bar when the nav has left the hero by ~8px
+      this.pastHero = y > (this.heroH - this.navH - 8);
+    }
+  }"
+  x-init="
+    updateState();
+    window.addEventListener('scroll', () => updateState(), { passive:true });
+    window.addEventListener('resize', () => updateState());
+    // one more pass after fonts/video settle
+    setTimeout(updateState, 250);
+  "
+>
+  <!-- NAV -->
+  <nav
+    x-ref="navbar"
+    class="fixed inset-x-0 top-0 grid grid-cols-12 items-center px-5 lg:px-10 py-2 border"
+    :style="{
+      backgroundColor: pastHero ? 'rgba(2, 6, 23, .78)' : 'rgba(2, 6, 23, 0)',     // slate-950-ish
+      borderColor:     pastHero ? 'rgba(255,255,255,.10)' : 'rgba(255,255,255,0)',
+      backdropFilter:  'blur(8px)',
+      WebkitBackdropFilter: 'blur(8px)',
+      transition: 'background-color .35s ease, border-color .35s ease'
+    }"
+    style="will-change: background-color, border-color;"
+    role="navigation"
+    aria-label="Main"
+  >
+    <!-- Logo (unchanged size) -->
+    <a class="col-span-4 flex items-center h-16" href="/" aria-label="L3 Networks Inc. - home">
+      <img class="h-full py-2" src="/images/logo/logo-header.svg" alt="L3 Networks, Inc.">
+    </a>
+
+    <!-- Right side -->
+    <div class="col-span-8 ml-auto flex flex-col items-end gap-1 sm:gap-3">
+      <!-- Utility row -->
+      <ul class="ml-auto mb-0.5 hidden lg:flex text-[11px] tracking-wide"
+          :class="pastHero ? 'text-slate-300' : 'text-slate-200/80'"
+          style="transition: opacity .25s ease;">
+        <li class="px-3">(888) 282-5353</li>
+        <li class="px-3">
+          <a href="https://support.l3networks.com/" class="hover:underline">Ticketing &amp; Support</a>
+        </li>
+      </ul>
+
+      <!-- Main links -->
+      <ul class="ml-auto flex items-center gap-1.5">
+        <!-- Solutions trigger -->
+        <li class="px-2 lg:px-3 py-1.5">
+          <button
+            @click="activeAccordion = activeAccordion === 'solutions' ? null : 'solutions'"
+            class="inline-flex items-center whitespace-nowrap rounded-full px-3 py-1.5 transition-colors"
+            :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mega-solutions"
+          >
+            Elevate Your IT
+            <svg class="ml-2 h-4 w-4 transition-transform duration-300"
+                 :class="{'rotate-180': activeAccordion === 'solutions'}"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+        </li>
+
+        <!-- Simple links -->
+        <li class="px-2 lg:px-3 py-1.5">
+          <a href="/why-l3/"
+             class="rounded-full px-3 py-1.5 whitespace-nowrap transition-colors"
+             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">Why L3?</a>
+        </li>
+        <li class="px-2 lg:px-3 py-1.5">
+          <a href="/elevate/"
+             class="rounded-full px-3 py-1.5 whitespace-nowrap transition-colors inline-flex items-center gap-1.5"
+             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">
+            Elevate
+            <svg class="h-3.5 w-3.5 text-teal-400" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4.667 11.333 11.333 4.667" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.667 4.667h4.666v4.666" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="px-2 lg:px-3 py-1.5">
+          <a href="/about-us/"
+             class="rounded-full px-3 py-1.5 whitespace-nowrap transition-colors"
+             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">About Us</a>
+        </li>
+
+        <!-- CTA -->
+        <li class="pl-2">
+          <a
+            class="relative block rounded-full px-5 py-2 text-sm font-semibold text-white transition-all"
+            :class="pastHero
+              ? 'bg-teal-500 hover:brightness-110 hover:shadow-[0_10px_28px_rgba(20,184,166,.35)]'
+              : 'bg-teal-500/90 hover:bg-teal-500'"
+            href="https://l3networks.timezest.com/sales/meeting-15"
+          >
+            <span class="relative z-10 flex items-center gap-2">
+              Book An Appointment
+              <img class="h-4" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MEGA MENU -->
+  <div
+    id="mega-solutions"
+    x-show="activeAccordion === 'solutions'"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 -translate-y-2"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 -translate-y-2"
+    x-cloak
+    class="fixed right-0 top-16 w-[92vw] max-w-5xl mr-5 lg:mr-10 overflow-hidden rounded-2xl text-white
+           border border-white/10 bg-slate-900/80 supports-[backdrop-filter]:backdrop-blur-md
+           shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
+    @click.away="activeAccordion = null"
+    role="region"
+    aria-label="Solutions menu"
+  >
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 p-4 lg:p-6">
+      
+      <a href="/products/cyber-security/"
+         class="group rounded-xl p-4 transition-colors duration-300 hover:bg-white/5
+                focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-teal-300">
+            Cyber Security
+          </h3>
+          <svg class="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+
+        
+          <p class="mt-1 text-sm text-slate-300/85">Safeguard your business with proactive threat detection, robust firewalls, and compliance strategies that protect your most valuable assets.</p>
+        
+      </a>
+      
+      <a href="/products/managed-networks/"
+         class="group rounded-xl p-4 transition-colors duration-300 hover:bg-white/5
+                focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-teal-300">
+            Networks &amp; Connectivity
+          </h3>
+          <svg class="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+
+        
+          <p class="mt-1 text-sm text-slate-300/85">Ensure smooth and reliable communication between your systems with our managed network solutions.</p>
+        
+      </a>
+      
+      <a href="/products/user-and-device-management/"
+         class="group rounded-xl p-4 transition-colors duration-300 hover:bg-white/5
+                focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-teal-300">
+            Users &amp; Devices
+          </h3>
+          <svg class="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+
+        
+          <p class="mt-1 text-sm text-slate-300/85">Streamline your IT environment with comprehensive support for devices, users, and access controls.</p>
+        
+      </a>
+      
+      <a href="/products/cloud-and-systems-services/"
+         class="group rounded-xl p-4 transition-colors duration-300 hover:bg-white/5
+                focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-teal-300">
+            Cloud Solutions
+          </h3>
+          <svg class="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+
+        
+          <p class="mt-1 text-sm text-slate-300/85">Achieve flexibility and scalability with tailored cloud solutions that optimize performance and reduce downtime.</p>
+        
+      </a>
+      
+      <a href="/products/professional-services/"
+         class="group rounded-xl p-4 transition-colors duration-300 hover:bg-white/5
+                focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-teal-300">
+            Professional Services
+          </h3>
+          <svg class="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+
+        
+          <p class="mt-1 text-sm text-slate-300/85">Transform your IT infrastructure with expert guidance, strategic planning, and seamless implementation tailored to your business needs.</p>
+        
+      </a>
+      
+
+      <!-- Highlight tile -->
+      <a href="/alldeskai"
+         class="relative rounded-xl border border-teal-500/60 bg-slate-900/60 p-4 transition-all
+                hover:border-teal-400/80 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white">AllDesk Ai</h3>
+          <svg class="h-5 w-5 opacity-80 transition-transform duration-300 group-hover:translate-x-1"
+               viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+        <p class="mt-1 text-sm text-slate-300/85">
+          Deliver smarter support with AI-assisted ticketing, sentiment insights, and resolution suggestions.
+        </p>
+        <span class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5"></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+  <header class="fixed z-50 flex flex-row w-full bg-black md:hidden" x-data="{ drawerOpen: false }">
+  <a href="/" aria-label="L3 Networks Inc. - home" class="site-head__brand">
+    <img class="p-4 h-14" src="/images/logo/logo-header.svg" alt="">
+  </a>
+  <div class="flex items-center justify-center p-4 ml-auto">
+    <div
+      class="flex items-center justify-center mr-2 text-white"
+      type="button"
+      @click="drawerOpen = !drawerOpen"
+      aria-controls="drawer-example">
+      <img class="h-6" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+    </div>
+  </div>
+
+  <!-- Drawer -->
+  <div
+    id="drawer-example"
+    class="fixed z-50 h-screen p-4 overflow-y-auto -translate-x-full bg-black md:hidden w-80 font-open"
+    :class="{ '-translate-x-full': !drawerOpen }"
+    tabindex="-1"
+    aria-labelledby="drawer-label"
+    aria-hidden="true"
+    x-show="drawerOpen"
+    @click.away="drawerOpen = false"
+    x-transition:enter="transition ease-in-out duration-300"
+    x-transition:enter-start="-translate-x-full"
+    x-transition:enter-end="translate-x-0"
+    x-transition:leave="transition ease-in-out duration-300"
+    x-transition:leave-start="translate-x-0"
+    x-transition:leave-end="-translate-x-full"
+  >
+    <a href="/" id="drawer-label" class="inline-flex items-center mb-4 font-black text-slate-100">
+      L3 Networks
+    </a>
+    <button
+      type="button"
+      @click="drawerOpen = false"
+      aria-controls="drawer-example"
+      class="text-slate-100 bg-transparent text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center"
+    >
+      <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          clip-rule="evenodd"></path>
+      </svg>
+      <span class="sr-only">Close menu</span>
+    </button>
+
+    <div id="accordion-flush" class="" data-accordion="collapse" data-active-classes="text-white"
+      data-inactive-classes="text-gray-500">
+      
+      <p id="accordion-flush-cyber-security">
+        <a type="button" href="/products/cyber-security/"
+          class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+          <span>Cyber Security</span>
+        </a>
+      </p>
+      
+      <p id="accordion-flush-networks-and-connectivity">
+        <a type="button" href="/products/managed-networks/"
+          class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+          <span>Networks &amp; Connectivity</span>
+        </a>
+      </p>
+      
+      <p id="accordion-flush-users-and-devices">
+        <a type="button" href="/products/user-and-device-management/"
+          class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+          <span>Users &amp; Devices</span>
+        </a>
+      </p>
+      
+      <p id="accordion-flush-cloud-solutions">
+        <a type="button" href="/products/cloud-and-systems-services/"
+          class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+          <span>Cloud Solutions</span>
+        </a>
+      </p>
+      
+      <p id="accordion-flush-professional-services">
+        <a type="button" href="/products/professional-services/"
+          class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+          <span>Professional Services</span>
+        </a>
+      </p>
+      
+
+      <a type="button" href="/why-l3/"
+        class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+        Why L3?
+      </a>
+
+      <a type="button" href="/your-challenges/"
+        class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+        Your Challenges
+      </a>
+
+      <a type="button" href="/aboutus/"
+        class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+        About Us
+      </a>
+
+      <a type="button" href="https://support.l3networks.com"
+        class="flex items-center justify-between w-full py-5 font-medium text-left border-b border-slate-700 text-slate-200">
+        Support
+      </a>
+    </div>
+  </div>
+</header>
+
+  <main tabindex="-1" id="main-content">
+
+
+
+<header class="relative z-0 flex items-center justify-center min-h-[600px] overflow-hidden text-white md:h-screen">
+
+  <div class="container absolute z-30 mx-auto md:py-24 lg:px-20 md:pb-24 md:pt-48 ">
+    <div class="flex py-8 text-center lg:px-12">
+      <span class="block w-full p-3 rounded-lg">
+        <h1 class="mb-4 text-3xl font-extrabold md:tracking-tight font-mont md:text-4xl lg:text-6xl">Overcome Your IT Challenges <br>with Our Expert Solutions</h1>
+        <p class="text-lg font-light md:text-2xl lg:text-3xl">Whether it’s security, scalability, or day-to-day IT headaches, we understand the problems businesses face—and we’ve got the solutions.</p>
+        <div class="relative mt-6 sm:mt-8"><button>
+  <a href="https://l3networks.timezest.com/sales/meeting-15" class="block w-auto px-6 py-2.5 mx-auto text-lg font-semibold text-white transition-all ease-in-out bg-teal-500 rounded-full hover:bg-teal-600">
+    <div class="flex items-center gap-2">Book An Appointment <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment"></div>
+  </a>
+</button></div>
+      </span>
+    </div>
+  </div>
+
+  <video autoplay loop muted class="absolute w-auto min-w-full min-h-full max-w-none">
+    <source src="/videos/yc-vid.mp4" type="video/mp4" /> Your browser does not support the video tag.
+  </video>
+  
+  <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-black to-black/40">&nbsp;</div>
+  
+</header>
+
+<div class="py-32 bg-black">
+  
+  <article class="xmax-w-[1080px] container mx-auto">
+    <h2 class="px-4 py-8 mb-16 text-3xl font-extrabold tracking-tight text-center text-white md:text-5xl font-mont md:px-0">Discover how leveraging <br><span class="text-teal-400">L3 Networks </span>can solve your challenges.</h2>
+
+
+    <section class="gap-12 mx-auto space-y-12 md:space-y-0 md:grid-cols-2 md:grid">
+  
+      <div style="background-image: url('/images/yc/yc-cybersecurity-threats.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-r from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Cybersecurity Threats</h3>
+          <p class="relative pb-4 text-base font-light">
+            Cyberattacks and data breaches threaten your business, but with our advanced security solutions, we proactively block threats to ensure your operations stay protected and compliant.
+          </p>
+          <a href="/your-challenges/cybersecurity" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+        
+      </div>
+  
+      <div style="background-image: url('/images/yc/yc-controlling-costs-flip.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-l from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+        
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Controlling IT Costs</h3>
+          <p class="pb-4 text-base font-light">
+            Unpredictable IT expenses can strain your budget, but our cost-efficient managed services provide transparent pricing that helps you save money while maintaining quality.
+          </p>
+          <a href="/your-challenges/controlling-it-costs" class="inline-block text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+
+      </div>
+      
+      <div style="background-image: url('/images/yc/yc-minimizing-downtime.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-r from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Minimizing Downtime</h3>
+          <p class="relative pb-4 text-base font-light">
+          Unexpected downtime disrupts productivity, but our proactive monitoring and 24/7 support keep your systems running smoothly, ensuring your business operates without interruptions.
+          </p>
+          <a href="/your-challenges/minimizing-downtime" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+
+
+      </div>
+  
+      
+      <div style="background-image: url('/images/yc/yc-scalability.jpg')" class="relative col-span-1 px-8 py-16 overflow-hidden text-white transition-all bg-black bg-center border rounded-2xl group border-slate-800">
+        <div class="absolute inset-0 w-full h-full transition-all ease-in-out bg-gradient-to-l from-black to-black/10 group-hover:opacity-70">&nbsp;</div>
+
+        <div class="relative flex flex-col items-start gap-2 md:w-4/5">
+          <h3 class="text-2xl font-bold md:text-3xl">Scalability & Future-Proofing</h3>
+          <p class="pb-4 text-base font-light">
+            Outdated systems can’t keep up with growth, but our scalable solutions evolve with your business, empowering you to stay competitive and ready for the future.
+          </p>
+          <a href="/your-challenges/scalability" class="relative text-base font-semibold hover:underline hover:text-teal-400">Read More</a>
+        </div>
+        
+      </div>
+  
+    </section>
+     
+  
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  function faqSearch() {
+      return {
+          searchQuery: '',
+          faqs: [
+    {
+      "question": "Who should I contact for help?",
+      "answer": "For immediate support, call our 24/7 Service Desk at [Your Hotline Number]. You can also email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> — emails sent after business hours will be addressed the next business day."
+    },
+    {
+      "question": "How can I submit a service request?",
+      "answer": "For urgent requests, call our Service Desk at [Your Hotline Number]. For non-urgent needs, email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> to automatically create a service ticket."
+    },
+    {
+      "question": "What are your support hours?",
+      "answer": "We’re available 24/7. Regular weekday support runs from 6 AM to 10 PM (Mon-Fri), and weekend and after-hours support is available round the clock."
+    },
+    {
+      "question": "Do you offer onsite support?",
+      "answer": "Yes, onsite support is included in our Managed IT Services Plans when remote solutions are not sufficient."
+    },
+    {
+      "question": "Can you support businesses with multiple locations?",
+      "answer": "Absolutely. We specialize in supporting businesses with multiple offices and work seamlessly across all locations."
+    },
+    {
+      "question": "How do I log a ticket?",
+      "answer": "Simply email <a class='text-teal-500 hover:underline' href='mailto:support@l3networks.com'>support@l3networks.com</a> to generate a ticket automatically. You can also call our Service Desk for immediate assistance."
+    },
+    {
+      "question": "What are your response times?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li><strong>High Priority (e.g., network/server down):</strong> Response within 30 minutes.</li><li><strong>Medium Priority (e.g., impaired functionality):</strong> Response within 4 hours.</li><li><strong>Low Priority (e.g., minor issues):</strong> Response within 24 hours.</li></ul>"
+    },
+    {
+      "question": "What are the priority levels for support requests?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li><strong>High Priority:</strong> Network/server outages or major disruptions.</li><li><strong>Medium Priority:</strong> Impaired functionality or issues affecting some users.</li><li><strong>Low Priority:</strong> Minor issues that can be addressed by the next business day.</li></ul>"
+    },
+    {
+      "question": "How can I track my ticket?",
+      "answer": "Log in to our Customer Support Portal to check the status of your service requests. Contact us if you need portal access or credentials."
+    },
+    {
+      "question": "What is the escalation process?",
+      "answer": "We offer a streamlined escalation process with 24/7 access to senior management to ensure timely resolution of critical issues."
+    },
+    {
+      "question": "Are there any charges for using the Service Desk?",
+      "answer": "Our Confidence Plus Plan includes unlimited Service Desk access. Non-plan users can use it on a time-and-material basis."
+    },
+    {
+      "question": "What information should I provide when asking for assistance?",
+      "answer": "<ul class='space-y-2 list-disc list-inside'><li>Your name</li><li>Company name</li><li>Location</li><li>Contact number</li><li>A brief description of the issue</li></ul>"
+    },
+    {
+      "question": "What is your onboarding process like?",
+      "answer": "Our onboarding process ensures a seamless transition to our services, with regular Quarterly Business Reviews (QBRs) to align with your goals."
+    },
+    {
+      "question": "Do you offer training services?",
+      "answer": "Yes, we provide training during onboarding and ongoing, including:<ul class='mt-4 space-y-2 list-disc list-inside'><li>Security tips</li><li>Monthly webinars</li><li>Phishing and security awareness training</li></ul>"
+    },
+    {
+      "question": "What are Quarterly Business Reviews (QBRs)?",
+      "answer": "QBRs are strategic planning meetings to align our services with your goals, review past performance, and plan for future success."
+    },
+    {
+      "question": "Can you work with our internal IT staff?",
+      "answer": "Yes, we collaborate with internal IT teams, using clearly defined processes for seamless integration."
+    },
+    {
+      "question": "Where is your support center located?",
+      "answer": "Our Network Operations Center (NOC) is based in Columbia, Maryland."
+    },
+    {
+      "question": "Do you follow industry standard practices?",
+      "answer": "Yes, we use ITIL-based best practices for IT services and systems management to ensure reliability and efficiency."
+    },
+    {
+      "question": "How do you notify clients about maintenance?",
+      "answer": "We communicate maintenance windows and outages in advance and coordinate with your team to minimize disruption."
+    },
+    {
+      "question": "Do you support third-party vendors?",
+      "answer": "Yes, we manage vendor coordination, ensuring smooth resolution for systems like phones, cameras, and more."
+    },
+    {
+      "question": "Do you conduct disaster recovery (DR) testing?",
+      "answer": "Yes, we recommend and perform annual or bi-annual DR tests based on your business needs."
+    },
+    {
+      "question": "Do you have liability and cybersecurity insurance?",
+      "answer": "Yes, we carry liability and cybersecurity insurance. We can also recommend partners for additional coverage if needed."
+    },
+    {
+      "question": "Do you support Mac systems?",
+      "answer": "Yes, we provide full support for Mac systems alongside other major platforms, ensuring compatibility and smooth performance."
+    }
+  ],
+          get filteredFaqs() {
+              if (!this.searchQuery) {
+                  return this.faqs;
+              }
+              const query = this.searchQuery.toLowerCase();
+              return this.faqs.filter(faq => faq.question.toLowerCase().includes(query));
+          }
+      };
+  }
+</script>
+
+
+<article class="relative bg-black">
+  <section class="container px-4 py-24 md:px-0 md:mx-auto">
+    <div class="flex lg:flex-row flex-col items-center px-12 py-8 bg-black border border-blue-600 rounded-2xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
+      <div>
+        <p class="text-3xl font-black tracking-tight text-white md:text-4xl">Eliminate Threats Before They Happen <br> with Zero Trust Security</p>
+        <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
+      </div>
+      <button class="block px-6 py-2.5 lg:ml-auto text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700">
+        <a href="/marketing/" class="flex items-center gap-2">Get Your Guide to Zero Trust Security
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
+        </a>
+      </button>
+    </div>
+  </section>
+</article>
+
+
+
+
+<footer class="px-3 pt-24 pb-8 text-white bg-black md:px-8 2xl:px-0">
+
+  <section class="container grid max-w-screen-xl mx-auto">
+    
+    <div class="flex flex-col col-span-8 gap-12 p-6 transition-all duration-300 border rounded-lg md:p-12 md:flex-row bg-slate-900/50 border-slate-800 hover:border-slate-700">
+      <div class="flex flex-col gap-4 font-light">
+    
+        <img class="block mb-6" src="/images/logo/logo-header.svg" alt="">
+        <p class="text-base">
+          11205 Knott Avenue, <br class="2xl:hidden"> Suite B <br>
+          Cypress, CA 90630
+        </p>
+        <p class="text-base">+1 (888) 282-5353</p>
+        <p class="text-base">sales@L3Networks.com</p>
+        <div class="mb-8 text-base font-light md:mb-0">
+    
+    
+          <div class="flex gap-2">
+            <a href="https://www.linkedin.com/company/l3-networks" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/LinkedIn.svg" alt="LinkedIn Logo"></a>
+            <a href="https://www.facebook.com/people/L3-Networks-Inc/61562904941740/" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/Facebook.svg"
+                alt="Facebook Logo"></a>
+            <a href="https://www.youtube.com/@L3Networks" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/YouTube.svg" alt="YouTube Logo"></a>
+          </div>
+          <div class="flex gap-4 mt-6">
+            <p class="">2025 &copy;</p>
+            <a class="text-teal-400" href="/privacy-policy/">Privacy Policy</a>
+          </div>
+          
+          
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 md:ml-auto md:mr-8">
+        
+        <a href="/products/cyber-security/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Cyber Security</a>
+        
+        <a href="/products/managed-networks/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Networks &amp; Connectivity</a>
+        
+        <a href="/products/user-and-device-management/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Users &amp; Devices</a>
+        
+        <a href="/products/cloud-and-systems-services/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Cloud Solutions</a>
+        
+        <a href="/products/professional-services/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Professional Services</a>
+        
+    
+      </div>
+      <div class="flex flex-col gap-1 md:mr-8">
+        <a href="/why-l3/" class="block py-1 hover:underline">Why L3?</a>
+        <a href="/aboutus/" class="block py-1 hover:underline">About Us</a>
+        <a href="https://support.l3networks.com/" class="block py-1 hover:underline">Support</a>
+        <a href="https://l3networks.timezest.com/sales/meeting-15" class="block py-1 hover:underline">Contact Us</a>
+    
+      </div>
+    </div>
+
+
+      <!-- <div class="col-span-4 overflow-hidden relative flex flex-col items-center bg-black border border-slate-800 rounded-2xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
+        <div class="absolute w-full h-full bg-linear-to-r from-black to-black/10"></div>
+        <div class="relative p-8 text-center md:text-left">
+          <p class="text-2xl font-semibold tracking-tight text-white font-mont md:text-3xl">Eliminate Threats Before They Happen with <span class="text-blue-500">Zero Trust Security</span></p>
+          <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
+        </div>
+        <button class="block px-6 py-2.5 text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700 relative mb-9 md:mb-0 md:mr-8">
+          <a href="/marketing/" class="flex items-center gap-2">
+            <span>Get Your Guide</span>
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
+          </a>
+        </button>
+      </div> -->
+
+  </section>
+
+ 
+
+</footer>
+
+
+</main>
+
+  <!-- JS LIBS (CDN) -->
+  <!-- Alpine plugin must load before Alpine core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Anime.js -->
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script> lucide.createIcons(); </script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const vendorSwiperEl = document.querySelector('#vendorSwiper');
+
+      if (vendorSwiperEl) {
+        new Swiper('#vendorSwiper', {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 24,
+          speed: 7000,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+          },
+          breakpoints: {
+            480: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+            1280: { slidesPerView: 5 },
+          },
+          navigation: {
+            nextEl: '.vendor-next',
+            prevEl: '.vendor-prev',
+          },
+        });
+      }
+    });
+  </script>
+
+  <!-- If you actually have a local custom script, include it AFTER libs.
+       Otherwise leave this commented to avoid MIME/404 errors. -->
+  <!-- <script src="/js/animate.js"></script> -->
+</body>
+</html>

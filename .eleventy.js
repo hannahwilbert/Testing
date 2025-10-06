@@ -65,14 +65,14 @@ module.exports = (config) => {
     notify: false,
     files: [
       "src/**/*",
-      "dist/**/*",
-      "!dist/images/**/*",
+      "docs/**/*",
+      "!docs/images/**/*",
     ],
   });
 
   // Return dirs / template engines
   return {
-    dir: { input: "src", output: "dist", includes: "_includes", data: "_data" },
+    dir: { input: "src", output: "docs", includes: "_includes", data: "_data" },
     pathPrefix: "",
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",

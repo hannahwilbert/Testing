@@ -6,7 +6,6 @@ yarn-error.log*
 
 # Build outputs
 _site/
-dist/
 build/
 
 # Environment variables
@@ -48,3 +47,4 @@ Thumbs.db
 # Cache
 .cache/
 .parcel-cache/
+node_modules

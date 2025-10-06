@@ -6,10 +6,10 @@
   "scripts": {
     "start": "run-p start:*",
     "start:eleventy": "eleventy --serve --incremental",
-    "start:tailwind": "npx @tailwindcss/cli -i css/tailwind.css -c css/tailwind.config.js -o dist/css/style.css --watch",
+    "start:tailwind": "npx @tailwindcss/cli -i css/tailwind.css -c css/tailwind.config.js -o docs/css/style.css --watch",
     "build": "run-p build:*",
     "build:eleventy": "eleventy",
-    "build:tailwind": "npx @tailwindcss/cli -i css/tailwind.css -c css/tailwind.config.js -o dist/css/style.css"
+    "build:tailwind": "npx @tailwindcss/cli -i css/tailwind.css -c css/tailwind.config.js -o docs/css/style.css"
   },
   "keywords": [],
   "author": "",
