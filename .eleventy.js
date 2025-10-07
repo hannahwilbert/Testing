@@ -11,6 +11,8 @@ const markdownIt = require("markdown-it");
 const { DateTime } = require("luxon");
 const slugify = require("slugify");
 
+const pathPrefix = process.env.PATH_PREFIX || "";
+
 module.exports = (config) => {
   // Markdown
   config.setLibrary("md", markdownIt({ html: true, breaks: true, linkify: true }));
@@ -70,10 +72,23 @@ module.exports = (config) => {
     ],
   });
 
+  if (pathPrefix) {
+    config.addTransform("prefixStaticPaths", (content, outputPath) => {
+      if (!outputPath || !outputPath.endsWith(".html")) return content;
+
+      const prefix = pathPrefix.endsWith("/") ? pathPrefix.slice(0, -1) : pathPrefix;
+
+      return content
+        .replace(/(href|src)="\/([^"]*)"/g, (match, attr, assetPath) => `${attr}="${prefix}/${assetPath}"`)
+        .replace(/(href|src)='\/([^']*)'/g, (match, attr, assetPath) => `${attr}='${prefix}/${assetPath}'`)
+        .replace(/url\(\s*(['"]?)\/(?!\/)([^'")]+)(['"]?\))/g, (match, quote, assetPath, closing) => `url(${quote}${prefix}/${assetPath}${closing}`);
+    });
+  }
+
   // Return dirs / template engines
   return {
     dir: { input: "src", output: "docs", includes: "_includes", data: "_data" },
-    pathPrefix: "",
+    pathPrefix,
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
