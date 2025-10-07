@@ -78,27 +78,11 @@ module.exports = (config) => {
       if (!outputPath || !outputPath.endsWith(".html")) return content;
 
       const prefix = pathPrefix.endsWith("/") ? pathPrefix.slice(0, -1) : pathPrefix;
-      const trimmedPrefix = prefix.replace(/^\//, "");
 
       return content
-        .replace(/(href|src)="\/([^"]*)"/g, (match, attr, assetPath) => {
-          if (!trimmedPrefix || assetPath.startsWith(`${trimmedPrefix}/`) || assetPath === trimmedPrefix) {
-            return match;
-          }
-          return `${attr}="${prefix}/${assetPath}"`;
-        })
-        .replace(/(href|src)='\/([^']*)'/g, (match, attr, assetPath) => {
-          if (!trimmedPrefix || assetPath.startsWith(`${trimmedPrefix}/`) || assetPath === trimmedPrefix) {
-            return match;
-          }
-          return `${attr}='${prefix}/${assetPath}'`;
-        })
-        .replace(/url\(\s*(['"]?)\/(?!\/)([^'")]+)(['"]?\))/g, (match, quote, assetPath, closing) => {
-          if (!trimmedPrefix || assetPath.startsWith(`${trimmedPrefix}/`) || assetPath === trimmedPrefix) {
-            return match;
-          }
-          return `url(${quote}${prefix}/${assetPath}${closing}`;
-        });
+        .replace(/(href|src)="\/([^"]*)"/g, (match, attr, assetPath) => `${attr}="${prefix}/${assetPath}"`)
+        .replace(/(href|src)='\/([^']*)'/g, (match, attr, assetPath) => `${attr}='${prefix}/${assetPath}'`)
+        .replace(/url\(\s*(['"]?)\/(?!\/)([^'")]+)(['"]?\))/g, (match, quote, assetPath, closing) => `url(${quote}${prefix}/${assetPath}${closing}`);
     });
   }
 
