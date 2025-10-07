@@ -34,8 +34,10 @@
         </a>
         {% endif %}
       </div>
-      {% if heroImage %}
-      <img src="{{ heroImage }}" alt="{{ heroImageAlt }}" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-contain">
+      {% if heroAnimation %}
+        {% include "partials/hero-animations/" + heroAnimation + ".html" %}
+      {% elseif heroImage %}
+        <img src="{{ heroImage }}" alt="{{ heroImageAlt }}" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-contain">
       {% endif %}
     </div>
   </div>

@@ -55,6 +55,7 @@ module.exports = (config) => {
   config.addPassthroughCopy("./src/images/");                         // -> /images
   config.addPassthroughCopy({ "src/images": "images" });              // (ok if duplicated, but harmless)
   config.addPassthroughCopy({ "src/videos": "videos" });              // -> /videos (IMPORTANT)
+  config.addPassthroughCopy({ "src/js": "js" });                      // -> /js assets
   config.addPassthroughCopy({ "css/kit.css": "css/kit.css" });        // -> /css/kit.css
   config.addPassthroughCopy({ "css/swiper-bundle.min.css": "css/swiper-bundle.min.css" });
   config.addPassthroughCopy({ "./node_modules/alpinejs/dist/cdn.js": "./js/alpine.js" });
