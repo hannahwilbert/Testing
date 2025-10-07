@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <!-- Your compiled Tailwind -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
 
   {% include "partials/happierleads.html" %}
 </head>
@@ -52,7 +52,7 @@
 
   <!-- If you actually have a local custom script, include it AFTER libs.
        Otherwise keep it commented to avoid 404/MIME errors. -->
-  <!-- <script src="/js/animate.js"></script> -->
+  <!-- <script src="{{ '/js/animate.js' | url }}"></script> -->
 
   <script>
     window.addEventListener('DOMContentLoaded', () => {
