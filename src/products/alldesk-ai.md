@@ -8,9 +8,8 @@ metaDesc: 'AllDesk Ai from L3 Networks is an AI-enhanced helpdesk solution offer
 metaKeywords: 'AI Helpdesk, Helpdesk Automation, Ticket Resolution AI, Smart Helpdesk, AI Customer Support, IT Helpdesk AI, SLA Ticket QA, AI Support Tools, Sentiment Analysis Helpdesk, CloudRadial AI Chat'
 socialImage: /images/products/alldeskai.png
 heroEyebrow: 'Users & Device Management'
-mainTitle: 'Deliver <span class="text-teal-400">AI-Enhanced Helpdesk</span> Support Without Adding Headcount'
-subtitle: 'AllDesk Ai blends 24/7 human expertise with intelligent automation so every employee gets fast, consistent help.'
-heroDescription: 'You are not just buying a tool. You are gaining a modern, enterprise-grade helpdesk team that detects user frustration before it escalates, prevents recurring issues, and keeps your workforce productive around the clock.'
+mainTitle: 'AI-Enhanced Helpdesk That Keeps Your Business Moving'
+subtitle: 'Stop losing productivity to outdated IT support. AllDesk Ai combines next-gen AI with 24/7 human expertise—so your employees get faster, smarter, and more consistent helpdesk support.'
 heroCtaText: 'Schedule a Demo'
 heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
 heroImage: '/images/products/alldeskai.png'
