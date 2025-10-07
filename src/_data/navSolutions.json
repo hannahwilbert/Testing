@@ -90,6 +90,11 @@
       "url": "/products/user-and-device-management/",
       "prod": [
         {
+          "text": "AllDesk Ai Managed Support",
+          "description": "AI-enhanced helpdesk that blends 24/7 experts with automation.",
+          "url": "/alldeskai/"
+        },
+        {
           "text": "Desktop Infrastructure",
           "description": "Comprehensive Management for Physical and Virtual Desktops"
         },
