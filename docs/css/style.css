@@ -1852,9 +1852,6 @@
   .bg-\[radial-gradient\(circle_at_top\,_rgba\(45\,212\,191\,0\.25\)\,_transparent_55\%\)\] {
     background-image: radial-gradient(circle at top, rgba(45,212,191,0.25), transparent 55%);
   }
-  .bg-\[url\(\'\/Testing\/images\/marketing\/zt-bookcover\.png\'\)\] {
-    background-image: url('/Testing/images/marketing/zt-bookcover.png');
-  }
   .bg-\[url\(\'\/images\/home\/aitech\.webp\'\)\] {
     background-image: url('/images/home/aitech.webp');
   }
