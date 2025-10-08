@@ -57,9 +57,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <!-- Your compiled Tailwind output -->
   <link rel="stylesheet" href="/css/style.css">
@@ -169,7 +167,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             aria-expanded="false"
             aria-controls="mega-solutions"
           >
-            Elevate Your IT
+            Our Solutions
             <svg class="ml-2 h-4 w-4 transition-transform duration-300"
                  :class="{'rotate-180': activeAccordion === 'solutions'}"
                  viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -239,6 +237,18 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     role="region"
     aria-label="Solutions menu"
   >
+    <div class="px-6 pt-5 pb-3 border-b border-white/10">
+      <p class="flex items-center gap-2 text-[11px] uppercase tracking-[0.32em] text-slate-300/80">
+        <span>Elevate Your IT</span>
+        <img
+          src="/images/icons/ArrowUpRightWhite.svg"
+          alt=""
+          class="h-3 w-3 opacity-80"
+          aria-hidden="true"
+        >
+      </p>
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 p-4 lg:p-6">
       
       <a href="/products/cyber-security/"
@@ -375,7 +385,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <!-- Drawer -->
   <div
     id="drawer-example"
-    class="fixed z-50 h-screen p-4 overflow-y-auto -translate-x-full bg-black md:hidden w-80 font-open"
+    class="fixed z-50 h-screen p-4 overflow-y-auto -translate-x-full bg-black md:hidden w-80 font-inter"
     :class="{ '-translate-x-full': !drawerOpen }"
     tabindex="-1"
     aria-labelledby="drawer-label"
@@ -481,7 +491,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         
         <span class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-semibold tracking-[0.28em] uppercase rounded-full border border-white/20 bg-white/5 text-teal-200/90">User &amp; Device Management</span>
         
-        <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl font-mont">Empower Your People with <span class="text-teal-400">Hassle-Free IT Support and Device Management</span></h1>
+        <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl font-inter">Empower Your People with <span class="text-teal-400">Hassle-Free IT Support and Device Management</span></h1>
         <p class="text-lg font-light md:text-2xl text-slate-100/90">Partnering with IT leaders in scaling companies to reduce support burdens and deliver seamless employee experiences as part of the Elevate journey.</p>
         
         
@@ -885,7 +895,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <section class="frameworkJourney">
       <div class="frameworkJourney__wrap">
         <div class="max-w-3xl space-y-4">
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont text-white">Our Approach Through Elevate</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">Our Approach Through Elevate</h2>
         </div>
 
         <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -1131,7 +1141,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="cyberServices">
         <header class="cyberServices__head">
           
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">User &amp; Device Management Services</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">User &amp; Device Management Services</h2>
           
           
           <p class="cyber-body-lead">Mix and match managed services that cover the full user lifecycle.</p>
@@ -1279,7 +1289,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <div class="midCtaCard midCtaCard--glow">
           <div class="midCtaContent">
             
-            <h2 class="text-3xl font-semibold md:text-4xl font-mont text-white">Reduce Tickets and Elevate the Employee IT Experience</h2>
+            <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">Reduce Tickets and Elevate the Employee IT Experience</h2>
             
             
             <p class="mt-4 text-lg font-light leading-relaxed text-slate-200 md:text-xl">Schedule your Right-Fit Call today.</p>
@@ -1373,7 +1383,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="w-full max-w-[1180px] mx-auto space-y-10">
         <div class="max-w-3xl space-y-4 text-white">
           
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">Proof That Elevate Improves Workforce Experience</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">Proof That Elevate Improves Workforce Experience</h2>
           
           
           <p class="text-lg font-light text-slate-300 md:text-xl">Customer metrics that show how managed user services impact productivity and risk.</p>
@@ -1524,7 +1534,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           max-width:980px;
           margin:clamp(18px,3vh,28px) auto;
           padding:0 clamp(6px,1.4vw,14px);
-          font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial;
+          font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
         }
 
         @media(min-width:900px){
@@ -1840,7 +1850,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="w-full max-w-[1180px] mx-auto space-y-8">
         <div class="max-w-3xl space-y-4">
           
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">Explore User &amp; Device Success Stories</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">Explore User &amp; Device Success Stories</h2>
           
           
           <p class="text-lg font-light text-slate-300 md:text-xl">Organizations that modernized workforce support with L3 Networks.</p>
@@ -1954,7 +1964,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="w-full max-w-[1180px] mx-auto space-y-8">
         <div class="max-w-3xl space-y-4">
           
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">Trusted Tools We Manage Every Day</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">Trusted Tools We Manage Every Day</h2>
           
         
           <p class="text-lg font-light text-slate-300 md:text-xl">We orchestrate best-of-breed endpoint, identity, and collaboration platforms so employees stay secure and productive.
@@ -2200,7 +2210,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div class="max-w-3xl space-y-4">
               
-              <h2 class="text-3xl font-semibold text-white md:text-4xl font-mont">Elevate the Employee IT Experience.</h2>
+              <h2 class="text-3xl font-semibold text-white md:text-4xl font-inter">Elevate the Employee IT Experience.</h2>
               
               
               <p class="text-lg font-light leading-relaxed text-slate-200 md:text-xl">Schedule a 15-minute Right-Fit Call to discover how to improve support and device management.</p>
@@ -2850,7 +2860,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <!-- <div class="col-span-4 overflow-hidden relative flex flex-col items-center bg-black border border-slate-800 rounded-2xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
         <div class="absolute w-full h-full bg-linear-to-r from-black to-black/10"></div>
         <div class="relative p-8 text-center md:text-left">
-          <p class="text-2xl font-semibold tracking-tight text-white font-mont md:text-3xl">Eliminate Threats Before They Happen with <span class="text-blue-500">Zero Trust Security</span></p>
+          <p class="text-2xl font-semibold tracking-tight text-white font-inter md:text-3xl">Eliminate Threats Before They Happen with <span class="text-blue-500">Zero Trust Security</span></p>
           <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
         </div>
         <button class="block px-6 py-2.5 text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700 relative mb-9 md:mb-0 md:mr-8">

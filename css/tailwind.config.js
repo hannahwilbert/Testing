@@ -15,9 +15,8 @@ module.exports = {
         'pos-100': '100% 100%',
       },
       fontFamily: {
-        'open': ['"Open Sans"', 'sans-serif'],
-        'mont': ['"Montserrat"', 'sans-serif'],
-        'inter': ['"Inter"', 'sans-serif']
+        'sans': ['"Inter"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        'inter': ['"Inter"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif']
       },
     },
   },

@@ -51,9 +51,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <!-- Your compiled Tailwind output -->
   <link rel="stylesheet" href="/css/style.css">
@@ -163,7 +161,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             aria-expanded="false"
             aria-controls="mega-solutions"
           >
-            Elevate Your IT
+            Our Solutions
             <svg class="ml-2 h-4 w-4 transition-transform duration-300"
                  :class="{'rotate-180': activeAccordion === 'solutions'}"
                  viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -233,6 +231,18 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     role="region"
     aria-label="Solutions menu"
   >
+    <div class="px-6 pt-5 pb-3 border-b border-white/10">
+      <p class="flex items-center gap-2 text-[11px] uppercase tracking-[0.32em] text-slate-300/80">
+        <span>Elevate Your IT</span>
+        <img
+          src="/images/icons/ArrowUpRightWhite.svg"
+          alt=""
+          class="h-3 w-3 opacity-80"
+          aria-hidden="true"
+        >
+      </p>
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 p-4 lg:p-6">
       
       <a href="/products/cyber-security/"
@@ -369,7 +379,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <!-- Drawer -->
   <div
     id="drawer-example"
-    class="fixed z-50 h-screen p-4 overflow-y-auto -translate-x-full bg-black md:hidden w-80 font-open"
+    class="fixed z-50 h-screen p-4 overflow-y-auto -translate-x-full bg-black md:hidden w-80 font-inter"
     :class="{ '-translate-x-full': !drawerOpen }"
     tabindex="-1"
     aria-labelledby="drawer-label"
@@ -468,7 +478,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <section style="background-image: url('/images/yc/yc-scalability-flip.jpg')" class="relative flex flex-col justify-center pt-32 text-white md:h-100 min-h-[600px]">
     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
     <div class="container relative max-w-screen-xl px-3 pb-20 text-left md:pb-32 md:px-8 2xl:px-0 md:mx-auto md:py-48">
-      <h1 class="mb-4 text-3xl font-semibold tracking-tight md:text-6xl font-mont">Outdated IT Systems Are Holding You Back</h1>
+      <h1 class="mb-4 text-3xl font-semibold tracking-tight md:text-6xl font-inter">Outdated IT Systems Are Holding You Back</h1>
       <p class="text-xl font-light md:text-2xl">24/7 IT Security and Reliable Service You Can Trust</p>
       <div class="relative mx-auto mt-8 pb-44"><button>
   <a href="https://l3networks.timezest.com/sales/meeting-15" class="block w-auto px-6 py-2.5 mx-auto text-lg font-semibold text-white transition-all ease-in-out bg-teal-500 rounded-full hover:bg-teal-600">
@@ -482,7 +492,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   <section class="order-last md:col-span-4 md:order-first">
     <hr class="mb-10 border-slate-700">
-    <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-mont">Solutions In Use</h2>
+    <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-inter">Solutions In Use</h2>
     
     <a href="/products/cloud-and-systems-services/#microsoft-azure-or-entra-cloud">
       <div class="flex items-center gap-4 p-4 my-5 l3-card group hover:cursor-pointer">
@@ -536,7 +546,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     
     <div class="hidden md:block">
       <hr class="mt-20 mb-10 border-slate-700">
-      <h2 class="mb-5 text-lg font-extrabold tracking-tight font-mont">Stats</h2>
+      <h2 class="mb-5 text-lg font-extrabold tracking-tight font-inter">Stats</h2>
       
         <div class="my-3 text-slate-400">
           <p class="text-sm font-light"><strong>20-40% higher costs</strong><br> Faced by businesses delaying IT modernization.</p>
@@ -560,11 +570,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   
   <section class="xl:grid xl:col-start-5 xl:col-end-12 md:col-span-8">
       <hr class="mt-10 mb-10 md:mt-0 border-slate-700">
-      <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-mont">Outdated IT Systems Are Holding You Back</h2>
+      <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-inter">Outdated IT Systems Are Holding You Back</h2>
   
       <div class="space-y-5 text-slate-400">
         
-        <h2 class="text-2xl font-extrabold text-white font-mont">Challenge</h2>
+        <h2 class="text-2xl font-extrabold text-white font-inter">Challenge</h2>
         <p class="text-lg font-bold">Outdated Systems Hold Back Your Growth</p>
         <p class="text-sm font-light">Outdated IT systems aren’t just inefficient—they’re a roadblock to your success. As your business grows, legacy infrastructure struggles to keep up, causing bottlenecks, poor performance, and rising maintenance costs. According to a McKinsey report, companies that delay IT modernization experience 20-40% higher operational costs and risk losing competitive advantage to businesses that embrace scalable, future-ready technology.
 </p>
@@ -575,7 +585,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <p class="text-sm font-light"></p>
         
         
-        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Solution</h2>
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-inter">Solution</h2>
         <p class="text-lg font-bold">Future-Proof Your Business With L3 Networks</p>
         <p class="text-sm font-light">At L3 Networks, we deliver IT solutions that scale seamlessly with your business—ensuring you’re equipped for growth, innovation, and long-term success. Our proven services empower you to upgrade and evolve without disruption, keeping you competitive in a fast-changing digital world.
 </p>
@@ -593,7 +603,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         
   
         
-        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Result</h2>
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-inter">Result</h2>
         <p class="text-lg font-bold"></p>
         <p class="text-sm font-light"><ul class="pl-8 space-y-4 text-sm font-light list-disc list-outside md:text-base">
 <li class="text-sm"><strong class="font-semibold">Reduced Operational Costs:</strong> Streamlined systems cut maintenance expenses and inefficiencies.</li>
@@ -611,7 +621,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
 
       <div class="block md:hidden">
-        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Stats</h2>
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-inter">Stats</h2>
         
           <div class="my-3 text-slate-400">
             <p class="text-sm font-light"><strong>20-40% higher costs</strong><br> Faced by businesses delaying IT modernization.</p>
@@ -648,7 +658,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 <section class="container max-w-screen-xl px-3 py-24 mx-auto text-white bg-black md:px-8 2xl:px-0">
  
-  <h2 class="py-8 mb-10 text-3xl font-semibold tracking-tight md:text-5xl font-mont text-slate-white">
+  <h2 class="py-8 mb-10 text-3xl font-semibold tracking-tight md:text-5xl font-inter text-slate-white">
     Discover how leveraging <br><span class="text-teal-400">L3 Networks </span>can solve your challenges.
   </h2>
 
@@ -662,7 +672,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="overflow-hidden bg-teal-800 rounded-3xl" x-show="currentPath !== '/your-challenges/cybersecurity/'">
         <div style="background-image: url('/images/yc/yc-cybersecurity-threats.jpg')" class="bg-center h-72"></div>
         <div class="p-6">
-          <h3 class="pb-4 text-2xl font-[600] font-mont tracking-tight">Cybersecurity Threats</h3>
+          <h3 class="pb-4 text-2xl font-[600] font-inter tracking-tight">Cybersecurity Threats</h3>
           <p class="relative pb-4 text-sm font-light">We protect your business from hackers and data breaches, so you can focus on what matters most—growing your company.</p>
           <a href="/your-challenges/cybersecurity/" class="relative text-sm font-semibold text-teal-500 hover:text-white">Read More</a>
         </div>
@@ -671,7 +681,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="overflow-hidden bg-teal-800 rounded-3xl" x-show="currentPath !== '/your-challenges/controlling-it-costs/'">
         <div style="background-image: url('/images/yc/yc-controlling-costs-flip.jpg')" class="bg-center h-72"></div>
         <div class="p-6">
-          <h3 class="pb-4 text-2xl font-[600] font-mont tracking-tight">Controlling IT Costs</h3>
+          <h3 class="pb-4 text-2xl font-[600] font-inter tracking-tight">Controlling IT Costs</h3>
           <p class="relative pb-4 text-sm font-light">We provide predictable, cost-effective IT solutions that save you money without sacrificing quality or performance.</p>
           <a href="/your-challenges/controlling-it-costs/" class="relative text-sm font-semibold text-teal-500 hover:text-white">Read More</a>
         </div>
@@ -680,7 +690,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="overflow-hidden bg-teal-800 rounded-3xl" x-show="currentPath !== '/your-challenges/scalability/'">
         <div style="background-image: url('/images/yc/yc-scalability.jpg')" class="bg-center h-72"></div>
         <div class="p-6">
-          <h3 class="pb-4 text-2xl font-[600] font-mont tracking-tight">Scalability &amp; Future-Proofing</h3>
+          <h3 class="pb-4 text-2xl font-[600] font-inter tracking-tight">Scalability &amp; Future-Proofing</h3>
           <p class="relative pb-4 text-sm font-light">Our scalable IT solutions grow with your business, so you’re always ready for what’s next—no matter how big you get.</p>
           <a href="/your-challenges/scalability/" class="relative text-sm font-semibold text-teal-500 hover:text-white">Read More</a>
         </div>
@@ -689,7 +699,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <div class="overflow-hidden bg-teal-800 rounded-3xl" x-show="currentPath !== '/your-challenges/minimizing-downtime/'">
         <div style="background-image: url('/images/yc/yc-controlling-costs.jpg')" class="bg-center h-72"></div>
         <div class="p-6">
-          <h3 class="pb-4 text-2xl font-[600] font-mont tracking-tight">Minimizing Downtime</h3>
+          <h3 class="pb-4 text-2xl font-[600] font-inter tracking-tight">Minimizing Downtime</h3>
           <p class="relative pb-4 text-sm font-light">With 24/7 monitoring and support, we prevent downtime before it happens, so your operations never miss a beat.</p>
           <a href="/your-challenges/minimizing-downtime/" class="relative text-sm font-semibold text-teal-500 hover:text-white">Read More</a>
         </div>
@@ -765,7 +775,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <!-- <div class="col-span-4 overflow-hidden relative flex flex-col items-center bg-black border border-slate-800 rounded-2xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
         <div class="absolute w-full h-full bg-linear-to-r from-black to-black/10"></div>
         <div class="relative p-8 text-center md:text-left">
-          <p class="text-2xl font-semibold tracking-tight text-white font-mont md:text-3xl">Eliminate Threats Before They Happen with <span class="text-blue-500">Zero Trust Security</span></p>
+          <p class="text-2xl font-semibold tracking-tight text-white font-inter md:text-3xl">Eliminate Threats Before They Happen with <span class="text-blue-500">Zero Trust Security</span></p>
           <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
         </div>
         <button class="block px-6 py-2.5 text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700 relative mb-9 md:mb-0 md:mr-8">

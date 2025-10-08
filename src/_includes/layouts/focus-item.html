@@ -65,7 +65,7 @@
   
 {# Product Overview #}
 <hr class="mt-4 mb-10 border-slate-700">
-<h2 class="mt-4 mb-3 text-3xl font-semibold font-mont md:mx-0">{{ prodtitle }}</h2>
+<h2 class="mt-4 mb-3 text-3xl font-semibold font-inter md:mx-0">{{ prodtitle }}</h2>
 <h3 class="mb-12 text-base font-light md:w-4/5 md:mx-0 text-slate-300">{{ prodbody | safe }}</h3>
 
 <section class="grid grid-cols-1 gap-4 md:grid-cols-4">
@@ -84,13 +84,13 @@
 <div class="pt-32">&nbsp;</div>
 <hr class="mb-10 border-slate-700">
 
-<h2 class="mx-4 mt-4 mb-3 text-3xl font-semibold text-white font-mont md:mx-0">{{ keyprodsTitle }}</h2>
+<h2 class="mx-4 mt-4 mb-3 text-3xl font-semibold text-white font-inter md:mx-0">{{ keyprodsTitle }}</h2>
 <h3 class="mx-4 mb-12 text-base font-light md:mx-0 text-slate-200">{{ keyprodsBody }}</h3>
 
 <!-- Group: Insights & Analysis -->
 <div class="mb-10">
   <div class="flex items-center w-full gap-6 mb-4">
-    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-mont text-slate-100">Insights & Analysis</h4>
+    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-inter text-slate-100">Insights & Analysis</h4>
     <hr class="w-full border-teal-700">
   </div>
   <section class="grid grid-cols-1 md:grid-cols-3 gap-4 [grid-auto-rows:1fr]">
@@ -116,7 +116,7 @@
 <!-- Group: Automation & Efficiency -->
 <div class="mb-10">
   <div class="flex items-center w-full gap-6 mb-4">
-    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-mont text-slate-100">Automation & Efficiency</h4>
+    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-inter text-slate-100">Automation & Efficiency</h4>
     <hr class="w-full border-teal-700">
   </div>
   <section class="grid grid-cols-1 md:grid-cols-3 gap-4 [grid-auto-rows:1fr]">
@@ -144,7 +144,7 @@
 <!-- Group: Quality & Control -->
 <div class="mb-10">
   <div class="flex items-center w-full gap-6 mb-4">
-    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-mont text-slate-100">Quality & Control</h4>
+    <h4 class="flex-shrink-0 ml-1 text-lg font-light tracking-wider uppercase font-inter text-slate-100">Quality & Control</h4>
     <hr class="w-full border-teal-700">
   </div>
   <section class="grid grid-cols-1 md:grid-cols-3 gap-4 [grid-auto-rows:1fr]">
@@ -170,7 +170,7 @@
     <hr class="mb-10 border-slate-700">
 
     <section class="w-full text-white">
-  <h2 class="mt-4 mb-12 text-3xl font-semibold text-white font-mont md:mx-0">
+  <h2 class="mt-4 mb-12 text-3xl font-semibold text-white font-inter md:mx-0">
     How All Desk Ai Stacks Up
   </h2>
  {% set rows = [
@@ -234,13 +234,13 @@
     <hr class="mb-10 border-slate-700">
 
 <section id="faq" class="py-12">
-  <h2 class="mt-4 mb-12 text-3xl font-semibold text-white font-mont md:mx-0">
+  <h2 class="mt-4 mb-12 text-3xl font-semibold text-white font-inter md:mx-0">
     Frequently Asked Questions
   </h2>
   <div class="space-y-10">
     {% for category in faqCategories %}
     <div>
-      <h3 class="mt-10 mb-4 text-xl font-semibold text-slate-600 font-mont md:mx-0">{{ category.name }}</h3>
+      <h3 class="mt-10 mb-4 text-xl font-semibold text-slate-600 font-inter md:mx-0">{{ category.name }}</h3>
       <div class="space-y-4">
         {% for faq in category.items %}
         <div x-data="{ open: false }" class="pb-2 border-b border-b-slate-700">

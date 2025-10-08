@@ -52,7 +52,7 @@
     {{ content | safe }}
 
     <!-- {% if tags %}
-      <ul class="flex mt-16 tags-list font-open" aria-describedby="tags-desc">
+      <ul class="flex mt-16 tags-list font-inter" aria-describedby="tags-desc">
         <li class="mt-2 mr-2 "><span class="py-1 font-light text-slate-800 text-md ">Topics:</span></li>
         {% for tag in tags %}
         <li class="mt-2 mr-2">
@@ -74,7 +74,7 @@
   </div>
 
   {% if recommendedPosts %}
-  <section class="h-full pt-24 pb-32 mt-32 recommended-posts font-open bg-slate-100">
+  <section class="h-full pt-24 pb-32 mt-32 recommended-posts font-inter bg-slate-100">
     {% set postListItems = recommendedPosts %}
     {% set postListHeadline = 'Check out more Articles' %}
     {% include "partials/post-list-footer.html" %}

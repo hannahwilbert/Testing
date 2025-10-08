@@ -6,7 +6,7 @@
   <section style="background-image: url('{{imgflip}}')" class="relative flex flex-col justify-center pt-32 text-white md:h-100 min-h-[600px]">
     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
     <div class="container relative max-w-screen-xl px-3 pb-20 text-left md:pb-32 md:px-8 2xl:px-0 md:mx-auto md:py-48">
-      <h1 class="mb-4 text-3xl font-semibold tracking-tight md:text-6xl font-mont">{{ mainTitle | safe }}</h1>
+      <h1 class="mb-4 text-3xl font-semibold tracking-tight md:text-6xl font-inter">{{ mainTitle | safe }}</h1>
       <p class="text-xl font-light md:text-2xl">{{ subtitle }}</p>
       <div class="relative mx-auto mt-8 pb-44">{% include "partials/cta/main-button.html" %}</div>
     </div>
@@ -16,7 +16,7 @@
 
   <section class="order-last md:col-span-4 md:order-first">
     <hr class="mb-10 border-slate-700">
-    <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-mont">Solutions In Use</h2>
+    <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-inter">Solutions In Use</h2>
     {% for item in ties %}
     <a href="{{ item.url }}">
       <div class="flex items-center gap-4 p-4 my-5 l3-card group hover:cursor-pointer">
@@ -30,7 +30,7 @@
     {% endfor %}
     <div class="hidden md:block">
       <hr class="mt-20 mb-10 border-slate-700">
-      <h2 class="mb-5 text-lg font-extrabold tracking-tight font-mont">Stats</h2>
+      <h2 class="mb-5 text-lg font-extrabold tracking-tight font-inter">Stats</h2>
       {% for item in stats %}
         <div class="my-3 text-slate-400">
           <p class="text-sm font-light">{{ item.body | safe }}</p>
@@ -42,11 +42,11 @@
   
   <section class="xl:grid xl:col-start-5 xl:col-end-12 md:col-span-8">
       <hr class="mt-10 mb-10 md:mt-0 border-slate-700">
-      <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-mont">{{ mainTitle | safe }}</h2>
+      <h2 class="mb-10 text-3xl font-extrabold tracking-tight font-inter">{{ mainTitle | safe }}</h2>
   
       <div class="space-y-5 text-slate-400">
         {% for challenge in challenge %}
-        <h2 class="text-2xl font-extrabold text-white font-mont">Challenge</h2>
+        <h2 class="text-2xl font-extrabold text-white font-inter">Challenge</h2>
         <p class="text-lg font-bold">{{ challenge.title }}</p>
         <p class="text-sm font-light">{{ challenge.body | safe }}</p>
         <p class="text-sm font-light">{{ challenge.body2 | safe }}</p>
@@ -54,7 +54,7 @@
         <p class="text-sm font-light">{{ challenge.body4 | safe }}</p>
         {% endfor %}
         {% for solution in solution %}
-        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Solution</h2>
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-inter">Solution</h2>
         <p class="text-lg font-bold">{{ solution.title }}</p>
         <p class="text-sm font-light">{{ solution.body | safe }}</p>
         <p class="text-sm font-light">{{ solution.body2 | safe }}</p>
@@ -63,7 +63,7 @@
         {% endfor %}
   
         {% for result in result %}
-        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Result</h2>
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-inter">Result</h2>
         <p class="text-lg font-bold">{{ result.title }}</p>
         <p class="text-sm font-light">{{ result.body | safe }}</p>
         <p class="text-sm font-light">{{ result.body2 | safe }}</p>
@@ -74,7 +74,7 @@
       
 
       <div class="block md:hidden">
-        <h2 class="pt-10 text-2xl font-extrabold text-white font-mont">Stats</h2>
+        <h2 class="pt-10 text-2xl font-extrabold text-white font-inter">Stats</h2>
         {% for item in stats %}
           <div class="my-3 text-slate-400">
             <p class="text-sm font-light">{{ item.body | safe }}</p>
@@ -99,7 +99,7 @@
 
 <section class="container max-w-screen-xl px-3 py-24 mx-auto text-white bg-black md:px-8 2xl:px-0">
  
-  <h2 class="py-8 mb-10 text-3xl font-semibold tracking-tight md:text-5xl font-mont text-slate-white">
+  <h2 class="py-8 mb-10 text-3xl font-semibold tracking-tight md:text-5xl font-inter text-slate-white">
     Discover how leveraging <br><span class="text-teal-400">L3 Networks </span>can solve your challenges.
   </h2>
 
@@ -138,7 +138,7 @@
       <div class="overflow-hidden bg-teal-800 rounded-3xl" x-show="currentPath !== '{{ card.link }}'">
         <div style="background-image: url('{{ card.image }}')" class="bg-center h-72"></div>
         <div class="p-6">
-          <h3 class="pb-4 text-2xl font-[600] font-mont tracking-tight">{{ card.title }}</h3>
+          <h3 class="pb-4 text-2xl font-[600] font-inter tracking-tight">{{ card.title }}</h3>
           <p class="relative pb-4 text-sm font-light">{{ card.description }}</p>
           <a href="{{ card.link }}" class="relative text-sm font-semibold text-teal-500 hover:text-white">Read More</a>
         </div>

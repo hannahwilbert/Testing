@@ -39,13 +39,13 @@
   <!-- Foreground copy (centered) -->
   <div class="heroCopy"
        style="position:relative; z-index:3; width:100%; max-width:var(--max); margin:0 auto; padding:32px var(--pad); text-align:center;">
-    <div style="max-width:980px; margin-inline:auto;">
+    <div style="max-width:1120px; margin-inline:auto;">
       <p style="margin:0 0 14px; color:rgba(255,255,255,.72); font-weight:800; letter-spacing:.14em; text-transform:uppercase; font-size:12px;">
         Secure • Simple • Scalable
       </p>
 
       <!-- Typing headline -->
-      <h1 style="margin:0 0 16px; font-weight:900; letter-spacing:-.02em; line-height:1.03; font-size:clamp(36px,6.5vw,84px);">
+      <h1 style="margin:0 0 16px; font-weight:700; letter-spacing:-.02em; line-height:1.03; font-size:clamp(36px,6.5vw,84px);">
         <span id="t1a"></span><span id="t1b" style="color:var(--brand);"></span><span id="t1c"></span><br>
         <span id="t2a"></span><span id="t2b" style="color:var(--brand);"></span><span id="t2c"></span>
       </h1>
@@ -57,15 +57,11 @@
       <!-- CTAs -->
       <div class="ctaRow" style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
         <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary"
-           style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:800; font-size:clamp(14px,2.4vw,18px); text-decoration:none; color:#fff; background:var(--brand); border-radius:999px; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
+           style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); text-decoration:none; color:#fff; background:var(--brand); border-radius:999px; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
           Book a Consultation
-          <img src="/images/icons/ArrowUpRightWhite.svg" alt="" style="height:18px; filter:invert(1) brightness(1.6);">
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book a Consultation" style="height:18px;">
         </a>
 
-        <a href="/why-l3/" data-cta="secondary"
-           style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:800; font-size:clamp(14px,2.4vw,18px); text-decoration:none; color:var(--ink); background:transparent; border:1.5px solid var(--border); border-radius:999px; transition:transform .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;">
-          Learn More
-        </a>
       </div>
 
     </div>
@@ -79,13 +75,6 @@
       box-shadow:0 14px 34px rgba(0,187,167,.45);
       filter:brightness(1.03);
     }
-    .hero a[data-cta="secondary"]:is(:hover,:focus-visible){
-      transform:translateY(-1px);
-      border-color:var(--brand);
-      background:rgba(0,187,167,.08);
-      color:#fff;
-    }
-
     @media (max-width: 980px){
       .hero .heroCopy{ padding:24px var(--pad); }
     }
@@ -133,7 +122,6 @@
         var hero = document.currentScript && document.currentScript.closest('header.hero') || document.querySelector('header.hero');
         if (hero) {
           var primary = hero.querySelector('a[data-cta="primary"]');
-          var secondary = hero.querySelector('a[data-cta="secondary"]');
           function bindHover(el, enter, leave) {
             if (!el) return;
             el.addEventListener('pointerenter', enter, { passive: true });
@@ -145,10 +133,6 @@
             function () { primary.style.transform='translateY(-1px) scale(1.02)'; primary.style.boxShadow='0 14px 34px rgba(0,187,167,.45)'; primary.style.filter='brightness(1.03)'; },
             function () { primary.style.transform='translateY(0) scale(1)';       primary.style.boxShadow='0 10px 28px rgba(0,187,167,.35)'; primary.style.filter='none'; }
           );
-          bindHover(secondary,
-            function () { secondary.style.transform='translateY(-1px)'; secondary.style.borderColor='var(--brand)'; secondary.style.background='rgba(0,187,167,.08)'; secondary.style.color='#fff'; },
-            function () { secondary.style.transform='translateY(0)';    secondary.style.borderColor='var(--border)'; secondary.style.background='transparent';        secondary.style.color='var(--ink)'; }
-          );
         }
       } catch(e){ /* swallow */ }
     })();
@@ -156,7 +140,7 @@
 </header>
 
 <section class="section-block section-block--tight" data-hero-highlights
-  style="position:relative; background:#0A1A2F; overflow:visible; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
+  style="position:relative; background:#061021; overflow:visible; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
   <div class="section-shell" style="position:relative; z-index:1;">
 
     <div class="heroHighlights"
@@ -222,7 +206,7 @@
 
   <style>
     [data-hero-highlights]{
-      background:#0A1A2F;
+      background:#061021;
     }
 
     [data-hero-highlights] .heroHighlights{
@@ -242,14 +226,18 @@
       gap:clamp(12px, 2vw, 20px);
       padding:clamp(24px, 3.2vw, 34px);
       border-radius:24px;
-      border:1px solid rgba(59,130,246,.45);
+      border:1px solid rgba(112,224,240,.52);
       background:
-        radial-gradient(circle at 18% 12%, rgba(59,130,246,.36) 0%, rgba(59,130,246,0) 56%),
-        radial-gradient(circle at 82% 90%, rgba(96,165,250,.32) 0%, rgba(96,165,250,0) 64%),
-        linear-gradient(188deg, rgba(10,26,47,.95) 0%, rgba(10,26,47,.95) 52%, rgba(10,26,47,1) 100%);
-      box-shadow:0 34px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.24), inset 0 0 0 1px rgba(148,204,255,.2);
-      backdrop-filter:saturate(170%) blur(18px);
-      -webkit-backdrop-filter:saturate(170%) blur(18px);
+        radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+        radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+        linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+        linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+      box-shadow:
+        0 34px 88px rgba(5,12,24,.64),
+        inset 0 1px 0 rgba(255,255,255,.24),
+        inset 0 -1px 0 rgba(0,0,0,.32);
+      backdrop-filter:saturate(160%) blur(16px);
+      -webkit-backdrop-filter:saturate(160%) blur(16px);
       text-align:left;
       overflow:hidden;
       isolation:isolate;
@@ -260,48 +248,49 @@
     [data-hero-highlights] .heroHighlight::after{
       content:"";
       position:absolute;
+      inset:0;
       pointer-events:none;
       transition:opacity .35s ease, transform .35s ease;
     }
 
     [data-hero-highlights] .heroHighlight::before{
-      inset:-140% 34% 50% -46%;
-      background:linear-gradient(120deg, rgba(59,130,246,.45) 0%, rgba(59,130,246,0) 68%);
-      opacity:.58;
-      transform:rotate(-8deg);
+      inset:-120% 32% 46% -40%;
+      background:linear-gradient(122deg, rgba(102,237,255,.52) 0%, rgba(102,237,255,0) 68%);
+      opacity:.52;
+      transform:rotate(-5deg);
+      filter:blur(22px);
       mix-blend-mode:screen;
-      filter:blur(18px);
     }
 
     [data-hero-highlights] .heroHighlight::after{
-      inset:62% -36% -130% 42%;
-      background:linear-gradient(210deg, rgba(96,165,250,.3) 0%, rgba(96,165,250,0) 68%);
-      opacity:.32;
-      transform:rotate(5deg);
+      inset:58% -30% -122% 34%;
+      background:linear-gradient(205deg, rgba(0,204,198,.4) 0%, rgba(0,204,198,0) 74%);
+      opacity:.38;
+      transform:rotate(4deg);
       filter:blur(20px);
     }
 
-    [data-hero-highlights] .heroHighlight:is(:hover,:focus-visible){
-      border-color:rgba(56,189,248,.6);
-      box-shadow:0 42px 110px rgba(10,26,47,.72), inset 0 1px 0 rgba(255,255,255,.26);
-      transform:translate3d(0,-8px,0);
+[data-hero-highlights] .heroHighlight:is(:hover,:focus-visible){
+      border-color:rgba(120,248,255,.72);
+      box-shadow:0 36px 96px rgba(6,14,28,.66), inset 0 1px 0 rgba(255,255,255,.24);
+      transform:translate3d(0,-5px,0);
     }
 
     [data-hero-highlights] .heroHighlight:is(:hover,:focus-visible)::before{
-      opacity:.78;
-      transform:rotate(-6deg) translate3d(4%,-10%,0);
+      opacity:.55;
+      transform:rotate(-4deg) translate3d(2.5%,-4%,0);
     }
 
     [data-hero-highlights] .heroHighlight:is(:hover,:focus-visible)::after{
       opacity:.42;
-      transform:rotate(6deg) translate3d(-4%,8%,0);
+      transform:rotate(3deg) translate3d(-2%,4%,0);
     }
 
     [data-hero-highlights] .heroHighlight__title{
       position:relative;
       margin:0;
       font-size:clamp(20px,2.4vw,24px);
-      font-weight:800;
+      font-weight:700;
       letter-spacing:-.01em;
       color:#f8fbff;
       text-wrap:balance;
@@ -314,7 +303,7 @@
       height:3px;
       border-radius:999px;
       margin-top:clamp(8px,1.2vw,12px);
-      background:linear-gradient(90deg, rgba(59,130,246,1) 0%, rgba(191,219,254,0.85) 100%);
+      background:#00BBA7;
     }
 
     [data-hero-highlights] .heroHighlight__body{
@@ -360,7 +349,7 @@
 
   <style>
     :root {
-      --flat-section-bg: #0A1A2F;
+      --flat-section-bg: #061021;
       --section-pad-block: clamp(84px, 12vh, 160px);
       --section-pad-tight: clamp(64px, 10vh, 120px);
       --heading-xl: clamp(30px, 5.6vw, 52px);
@@ -484,7 +473,7 @@
     .heading-lg,
     .heading-md {
       margin: 0;
-      font-weight: 900;
+      font-weight: 700;
       letter-spacing: -.02em;
       line-height: 1.06;
     }
@@ -538,14 +527,14 @@
 
 
 <!-- PROBLEM (flat layout • matches key features aesthetic) -->
-<section class="section-block" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, #0A1A2F 80%,#000000 100%)">
+<section class="section-block" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, #061021 80%,#000000 100%)">
   <div class="section-shell problemFlat__wrap" style="position:relative; z-index:1;">
     <div class="problemFlat__grid">
 
       <!-- LEFT: copy -->
       <section class="problemFlat__copy">
         <h2 class="heading-xl mb-sm" style="color:#e8eef5;">
-          Are IT Gaps Costing You <span style="white-space:nowrap;">Time, Money &amp; Trust?</span>
+          Are IT Gaps Costing You <span style="white-space:nowrap; color:#00BBA7;">Time, Money &amp; Trust?</span>
         </h2>
 
         <ul class="problemFlat__list">
@@ -749,14 +738,10 @@
         </figure>
 
         <div class="problemFlat__ctas">
-          <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="problemFlat__cta problemFlat__cta--primary">
-            See How Elevate Solves This
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
-          </a>
-
-          <a href="/why-l3/" data-cta="secondary" class="problemFlat__cta problemFlat__cta--secondary">
-            Learn More
-          </a>
+        <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="problemFlat__cta problemFlat__cta--primary">
+          See How Elevate Solves This
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="See How Elevate Solves This">
+        </a>
         </div>
       </aside>
     </div>
@@ -766,7 +751,7 @@
   <style>
     [data-problem="flat"]{
       color:#e8eef5;
-      background:linear-gradient(180deg,#0A1A2F 80%,#000000 100%);
+      background:linear-gradient(180deg,#061021 80%,#000000 100%);
       width:100vw;
       margin-left:calc(50% - 50vw);
       margin-right:calc(50% - 50vw);
@@ -839,7 +824,7 @@
 
     .problemFlat__itemTitle{
       color:#fff;
-      font-weight:800;
+      font-weight:600;
       font-size:clamp(18px,2.6vw,24px);
       letter-spacing:-.01em;
     }
@@ -901,6 +886,9 @@
     [data-problem="flat"] .problemFlat__ctas{
       display:flex;
       flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      width:100%;
       gap:14px;
     }
 
@@ -909,7 +897,7 @@
       align-items:center;
       gap:.6rem;
       padding:1rem 1.35rem;
-      font-weight:800;
+      font-weight:600;
       font-size:clamp(14px,1.9vw,17px);
       text-decoration:none;
       border-radius:999px;
@@ -923,25 +911,12 @@
 
     [data-problem="flat"] .problemFlat__cta--primary img{
       height:18px;
-      filter:invert(1) brightness(1.6);
-    }
-
-    [data-problem="flat"] .problemFlat__cta--secondary{
-      color:#e2e8f0;
-      background:transparent;
-      border:1.6px solid var(--border);
+      filter:none;
     }
 
     [data-problem="flat"] .problemFlat__cta--primary:is(:hover,:focus-visible){
       transform:translateY(-1px) scale(1.02);
       filter:brightness(1.03);
-    }
-
-    [data-problem="flat"] .problemFlat__cta--secondary:is(:hover,:focus-visible){
-      transform:translateY(-1px);
-      border-color:var(--brand);
-      background:rgba(0,187,167,.09);
-      color:#fff;
     }
 
     @media (max-width: 980px){
@@ -1216,8 +1191,10 @@
 
     <div class="kfE__cta">
       <button>
-        <a href="https://l3networks.timezest.com/sales/meeting-15" class="block w-auto px-6 py-2.5 mx-auto text-lg font-semibold text-white transition-all ease-in-out bg-teal-500 rounded-full hover:bg-teal-600">
-          <div class="flex items-center gap-2">Start Your Elevate Plan <img src="/images/icons/ArrowUpRightWhite.svg" alt="Start Your Elevate Plan"></div>
+        <a href="https://l3networks.timezest.com/sales/meeting-15"
+           style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); text-decoration:none; color:#fff; background:var(--brand); border-radius:999px; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
+          Start Your Elevate Plan
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Start Your Elevate Plan" style="height:18px;">
         </a>
       </button>
     </div>
@@ -1248,7 +1225,7 @@
     [data-kf="elite"]{
       --max: min(1180px, 92vw);
       --pad: clamp(16px, 3vw, 24px);
-      --bg: #0A1A2F;
+      --bg: #061021;
       --ink: #e8eef5;
       --muted:#9fb0c3;
       --brand:#11a79a; /* teal, calmer */
@@ -1256,8 +1233,8 @@
       --ring: rgba(17,167,154,.28);
       --radius: 14px;
       color: var(--ink);
-      background:linear-gradient(180deg,#0A1A2Fc6 80%,#0A1A2F 100%) !important;
-      background-color:#0A1A2F;
+      background:linear-gradient(180deg,#061021c6 80%,#061021 100%) !important;
+      background-color:#061021;
       position: relative;
       isolation: isolate;
     }
@@ -1281,10 +1258,7 @@
     }
 
     .kfE__titleGradient{
-      background:linear-gradient(95deg,#66C7E8 0%, #00BBA7 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      color:#00BBA7;
       font-weight:inherit;
     }
     .kfE__head{
@@ -1359,7 +1333,7 @@
 
     .kfE__itemTitle{
       color:#fff;
-      font-weight:800;
+      font-weight:600;
       font-size:clamp(18px,2.6vw,24px);
       letter-spacing:-.01em;
     }
@@ -1411,7 +1385,7 @@
     .kfE__partnersHeading{
       margin:0;
       font-size:clamp(18px,2.4vw,22px);
-      font-weight:800;
+      font-weight:700;
       letter-spacing:.1em;
       text-transform:uppercase;
       color:#cfe9ff;
@@ -1516,9 +1490,9 @@
 ] %}
 {% endif %}
 
-<section data-how="elevate" class="section-block" style="background:linear-gradient(180deg, #000000 0%, #0A1A2F 10%, #0A1A2F 90%,black 100%); color:#ecf3fb;">
+<section data-how="elevate" class="section-block" style="background:linear-gradient(180deg, #000000 0%, #061021 10%, #061021 90%,black 100%); color:#ecf3fb;">
   <div class="section-shell howE__wrap">
-    <h2 class="heading-xl mb-sm">The <span class="howE__titleGradient">Elevate</span> Path</h2>
+    <h2 class="heading-xl mb-sm">The <span class="howE__titleGradient">Elevate</span> <span style="color:#00BBA7;">Path</span></h2>
     <p class="body-lead measure mb-md howE__lead">Move through the Elevate IT Maturity Framework in clear stages so every initiative drives measurable progress.</p>
 
     <div class="howE__grid" role="list">
@@ -1541,9 +1515,6 @@
           <div class="px-6 pb-6 mt-8 space-y-4 sm:px-6">
             <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">{{ phase.title }}</h3>
             <p class="text-base sm:text-lg font-light text-neutral-200 leading-snug">{{ phase.tagline }}</p>
-            {% if phase.description %}
-            <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">{{ phase.description }}</p>
-            {% endif %}
           </div>
         </div>
       </article>
@@ -1558,20 +1529,6 @@
       isolation:isolate;
     }
 
-    section[data-how="elevate"]::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        repeating-linear-gradient(90deg, rgba(148,233,255,.12) 0 1px, transparent 1px 20px),
-        repeating-linear-gradient(0deg, rgba(45,212,191,.08) 0 1px, transparent 1px 16px);
-      opacity:.32;
-      pointer-events:none;
-      mix-blend-mode:screen;
-    }
-
-    section[data-how="elevate"]::after{ display:none; }
-
     section[data-how="elevate"] .howE__wrap{
       position:relative;
       z-index:1;
@@ -1585,10 +1542,7 @@
     }
 
     .howE__titleGradient{
-      background:linear-gradient(95deg,#66C7E8 0%, #00BBA7 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      color:#00BBA7;
       font-weight:inherit;
     }
 
@@ -1627,11 +1581,11 @@
     section[data-how="elevate"] .howE__card--transform{
       background:linear-gradient(160deg,rgba(0,187,167,0.92) 0%,rgba(0,187,167,0.82) 100%);
       border-color:rgba(94,234,212,0.4);
-      color:#0A1A2F;
+      color:#061021;
     }
 
     section[data-how="elevate"] .howE__card--transform .howE__title{
-      color:#0A1A2F;
+      color:#061021;
     }
 
     section[data-how="elevate"] .howE__card--transform .howE__tagline,
@@ -1655,7 +1609,7 @@
 
     section[data-how="elevate"] .howE__stage--transform{
       background:#ffffff;
-      color:#0A1A2F;
+      color:#061021;
     }
 
     section[data-how="elevate"] .howE__body{
@@ -1724,8 +1678,8 @@
 
 <section data-services class="section-block"
   style="position:relative; overflow:hidden; isolation:isolate;
-    background:linear-gradient(180deg,#000000 0%,#000000 90%, #0A1A2F 100%);
-    background-color:#0A1A2F;
+    background:linear-gradient(180deg,#000000 0%,#000000 90%, #061021 100%);
+    background-color:#061021;
   ">
 
   <canvas id="servicesWaves" aria-hidden="true"
@@ -1733,11 +1687,8 @@
   ></canvas>
 
   <div class="section-shell" style="position:relative; z-index:1;">
-    <p class="eyebrow">
-      Efficient • Scalable • Secure
-    </p>
     <h2 class="heading-xl mb-sm">
-      Technology That <span style="background:linear-gradient(90deg,#66C7E8,#00BBA7); -webkit-background-clip:text; background-clip:text; color:transparent;">Works for You</span>
+      Technology That <span style="color:#00BBA7;">Works for You</span>
     </h2>
     <p class="body-lead measure mb-md">
       Security-first, cloud-smart, engineered for performance—choose the layer you need or bundle for end-to-end coverage.
@@ -1748,9 +1699,7 @@
       <a href="/elevate/" class="svcCard svcCard--feature">
         <div class="svcCard__header">
           <img src="/images/products/elevatelogo.svg" alt="Elevate logo" class="svcCard__icon svcCard__icon--feature">
-          <svg class="svcArrow" width="18" height="18" viewBox="0 0 24 24">
-            <path d="M13 5l7 7-7 7v-4H4v-6h9V5z"/>
-          </svg>
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Open" class="svcArrow">
         </div>
 
         <h3 class="heading-md mb-xs svcCard__title">Your Managed IT Command Center</h3>
@@ -1771,9 +1720,7 @@
           <img src="{{ s.icon }}" alt="" class="svcCard__icon">
 
           <!-- chevron hint (no button) -->
-          <svg class="svcArrow" width="18" height="18" viewBox="0 0 24 24">
-            <path d="M13 5l7 7-7 7v-4H4v-6h9V5z"/>
-          </svg>
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Open" class="svcArrow">
         </div>
 
         <h3 class="heading-md mb-xs svcCard__title">
@@ -1818,83 +1765,64 @@
       height:100%;
       padding:clamp(22px,2.6vw,30px);
       border-radius:20px;
-      border:1px solid rgba(148,204,255,.22);
+      border:1px solid #1a2534;
       text-decoration:none;
       color:#e2e8f0;
-      background:linear-gradient(185deg, rgba(10,26,47,.96) 0%, rgba(10,26,47,.92) 55%, rgba(10,26,47,1) 100%);
-      box-shadow:0 20px 52px rgba(10,26,47,.46), inset 0 1px 0 rgba(255,255,255,.12);
+      background:linear-gradient(210deg, #080f1a 0%, #020409 100%);
+      box-shadow:0 14px 36px rgba(3,7,14,.5), inset 0 1px 0 rgba(255,255,255,.04);
       overflow:hidden;
       isolation:isolate;
       transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
     }
 
     section[data-services] .svcCard--feature{
-      border:1px solid rgba(59,130,246,.72);
+      border:1px solid rgba(124,168,232,.26);
       background:
-        radial-gradient(circle at 18% 12%, rgba(45,212,191,.36) 0%, rgba(45,212,191,0) 60%),
-        radial-gradient(circle at 82% 82%, rgba(56,189,248,.42) 0%, rgba(56,189,248,0) 70%),
-        linear-gradient(205deg, rgba(10,26,47,.96) 0%, rgba(10,26,47,.98) 55%, rgba(10,26,47,1) 100%);
-      box-shadow:0 48px 110px rgba(10,26,47,.7), inset 0 1px 0 rgba(255,255,255,.24), inset 0 0 0 1px rgba(148,204,255,.18);
-    }
-
-    section[data-services] .svcCard--feature::before{
-      inset:-140% 32% 40% -36%;
-      background:linear-gradient(128deg, rgba(59,130,246,.45) 0%, rgba(59,130,246,0) 72%);
-      opacity:.62;
-      transform:rotate(-4deg);
-      filter:blur(16px);
-    }
-
-    section[data-services] .svcCard--feature::after{
-      inset:60% -32% -122% 38%;
-      background:linear-gradient(198deg, rgba(45,212,191,.35) 0%, rgba(45,212,191,0) 66%);
-      opacity:.42;
-      transform:rotate(5deg);
-      filter:blur(20px);
+        radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+        radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+        linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+        linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+      box-shadow:0 26px 70px rgba(7,15,32,.56), inset 0 1px 0 rgba(255,255,255,.14);
+      position:relative;
+      overflow:hidden;
     }
 
     section[data-services] .svcCard::before,
     section[data-services] .svcCard::after{
+      content:none;
+    }
+
+    section[data-services] .svcCard--feature::before,
+    section[data-services] .svcCard--feature::after{
       content:"";
       position:absolute;
+      inset:0;
       pointer-events:none;
-      transition:opacity .35s ease, transform .35s ease;
+      transition:opacity .3s ease, transform .3s ease;
     }
 
-    section[data-services] .svcCard::before{
-      inset:-120% 34% 48% -48%;
-      background:linear-gradient(118deg, rgba(168,194,238,.38) 0%, rgba(168,194,238,0) 65%);
-      opacity:.45;
-      transform:rotate(-8deg);
+    section[data-services] .svcCard--feature::before{
+      inset:-110% 28% 44% -34%;
+      background:linear-gradient(124deg, rgba(148,244,240,.28) 0%, rgba(148,244,240,0) 70%);
+      opacity:.28;
+      transform:rotate(-6deg);
+      filter:blur(14px);
       mix-blend-mode:screen;
-      filter:blur(12px);
     }
 
-    section[data-services] .svcCard::after{
-      inset:66% -38% -140% 32%;
-      background:linear-gradient(184deg, rgba(78,112,160,.24) 0%, rgba(10,26,47,0) 65%);
+    section[data-services] .svcCard--feature::after{
+      inset:56% -28% -116% 32%;
+      background:linear-gradient(210deg, rgba(96,165,250,.24) 0%, rgba(96,165,250,0) 72%);
       opacity:.2;
-      transform:rotate(6deg);
-      filter:blur(18px);
+      transform:rotate(4deg);
+      filter:blur(12px);
     }
 
     section[data-services] .svcCard:hover,
     section[data-services] .svcCard:focus-visible{
-      border-color:rgba(180,210,240,.34);
-      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-      transform:translate3d(0,-6px,0);
-    }
-
-    section[data-services] .svcCard:hover::before,
-    section[data-services] .svcCard:focus-visible::before{
-      opacity:.7;
-      transform:rotate(-6deg) translate3d(3%,-6%,0);
-    }
-
-    section[data-services] .svcCard:hover::after,
-    section[data-services] .svcCard:focus-visible::after{
-      opacity:.35;
-      transform:rotate(4deg) translate3d(-3%,6%,0);
+      border-color:#223246;
+      box-shadow:0 20px 52px rgba(5,12,22,.54);
+      transform:translate3d(0,-3px,0);
     }
 
     section[data-services] .svcCard__icon{
@@ -1904,7 +1832,19 @@
       filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
     }
 
-    section[data-services] .svcCard--feature .svcCard__icon{
+        section[data-services] .svcArrow{
+      opacity:0;
+      transform:translate3d(0,0,0);
+      transition:opacity .25s ease, transform .25s ease;
+    }
+
+    section[data-services] .svcCard:hover .svcArrow,
+    section[data-services] .svcCard:focus-visible .svcArrow{
+      opacity:1;
+      transform:translate3d(4px,-4px,0);
+    }
+
+section[data-services] .svcCard--feature .svcCard__icon{
       width:clamp(140px, 15vw, 220px);
       margin-bottom:clamp(6px, 1.2vw, 14px);
     }
@@ -2004,17 +1944,14 @@
 <!-- PROVEN RESULTS (refined tech aesthetic) -->
 <article class="section-block" style="
   position:relative; overflow:hidden; isolation:isolate;
-  background:linear-gradient(180deg,#0A1A2F 0%, #102949 55%, #000000 100%) !important;
+  background:linear-gradient(180deg,#061021 0%, #0b1a30 55%, #000000 100%) !important;
   min-height:92svh; display:flex; align-items:center;
 ">
   <div class="section-shell" style="position:relative; z-index:1; width:100%;">
     <div style="display:flex; align-items:flex-end; justify-content:flex-start; gap:18px; flex-wrap:wrap;">
       <div>
-        <p class="eyebrow">
-          What clients say
-        </p>
-        <h2 class="heading-lg mb-sm">
-          Proven Results. Real Impact.
+        <h2 class="heading-xl mb-sm">
+          Proven Results. <span style="color:#00BBA7;">Real Impact.</span>
         </h2>
       </div>
     </div>
@@ -2032,12 +1969,12 @@
       <div style="
         position:relative; padding:24px 24px 22px;
         border:1px solid var(--border); border-radius:16px;
-        background:#0A1A2F;
+        background:#061021;
         box-shadow:0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
         transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
       "
-      onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--brand)'; this.style.boxShadow='0 20px 48px rgba(0,187,167,.20), 0 16px 36px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)'; this.style.background='#0A1A2F';"
-      onmouseout="this.style.transform='none'; this.style.borderColor='var(--border)'; this.style.boxShadow='0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)'; this.style.background='#0A1A2F';">
+      onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--brand)'; this.style.boxShadow='0 20px 48px rgba(0,187,167,.20), 0 16px 36px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)'; this.style.background='#061021';"
+      onmouseout="this.style.transform='none'; this.style.borderColor='var(--border)'; this.style.boxShadow='0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)'; this.style.background='#061021';">
         <!-- accent ring -->
         <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" style="flex:0 0 auto; fill:var(--brand); opacity:.95;">
@@ -2058,12 +1995,12 @@
       <div style="
         position:relative; padding:24px 24px 22px;
         border:1px solid var(--border); border-radius:16px;
-        background:#0A1A2F;
+        background:#061021;
         box-shadow:0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
         transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
       "
-      onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--brand)'; this.style.boxShadow='0 20px 48px rgba(0,187,167,.20), 0 16px 36px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)'; this.style.background='#0A1A2F';"
-      onmouseout="this.style.transform='none'; this.style.borderColor='var(--border)'; this.style.boxShadow='0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)'; this.style.background='#0A1A2F';">
+      onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--brand)'; this.style.boxShadow='0 20px 48px rgba(0,187,167,.20), 0 16px 36px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)'; this.style.background='#061021';"
+      onmouseout="this.style.transform='none'; this.style.borderColor='var(--border)'; this.style.boxShadow='0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)'; this.style.background='#061021';">
         <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" style="flex:0 0 auto; fill:var(--brand); opacity:.95;">
             <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
@@ -2083,12 +2020,12 @@
       <div style="
         position:relative; padding:24px 24px 22px;
         border:1px solid var(--border); border-radius:16px;
-        background:#0A1A2F;
+        background:#061021;
         box-shadow:0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
         transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
       "
-      onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--brand)'; this.style.boxShadow='0 20px 48px rgba(0,187,167,.20), 0 16px 36px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)'; this.style.background='#0A1A2F';"
-      onmouseout="this.style.transform='none'; this.style.borderColor='var(--border)'; this.style.boxShadow='0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)'; this.style.background='#0A1A2F';">
+      onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--brand)'; this.style.boxShadow='0 20px 48px rgba(0,187,167,.20), 0 16px 36px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)'; this.style.background='#061021';"
+      onmouseout="this.style.transform='none'; this.style.borderColor='var(--border)'; this.style.boxShadow='0 14px 36px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)'; this.style.background='#061021';">
         <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px;">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" style="flex:0 0 auto; fill:var(--brand); opacity:.95;">
             <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
@@ -2133,11 +2070,10 @@
 </article>
 
 <!-- CTA: Right-Fit Call -->
-<section class="section-block" data-cta="right-fit" style="background:linear-gradient(180deg,#000000 0%, #000000 90%, #0A1A2F 100% )!important
+<section class="section-block" data-cta="right-fit" style="background:linear-gradient(180deg,#000000 0%, #000000 90%, #061021 100% )!important
 ; position:relative; overflow:hidden; isolation:isolate; color:#f1f5f9;">
   <div class="section-shell" style="position:relative; z-index:1;">
     <div class="ctaRF__card">
-      <p class="eyebrow" style="color:rgba(94,234,212,.88); letter-spacing:.22em; text-transform:uppercase;">Take the next step</p>
       <h2 class="heading-xl" style="margin:0; text-wrap:balance;">
         Ready to find out where your IT stands on the Elevate path?
       </h2>
@@ -2148,7 +2084,7 @@
       <div style="display:flex; justify-content:center;">
         <a href="https://l3networks.timezest.com/sales/meeting-15" class="ctaRF__button">
           <span>Schedule a Right-Fit Call</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" /></svg>
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a Right-Fit Call">
         </a>
       </div>
     </div>
@@ -2187,51 +2123,74 @@
       gap:clamp(16px,3vw,24px);
       padding:clamp(24px,4vw,36px) clamp(24px,4vw,38px);
       border-radius:28px;
-      border:1px solid rgba(148,204,255,.28);
+      border:1px solid rgba(124,168,232,.24);
       background:
-        radial-gradient(circle at 16% 10%, rgba(56,189,248,.28) 0%, rgba(56,189,248,0) 65%),
-        radial-gradient(circle at 84% 92%, rgba(0,187,167,.28) 0%, rgba(0,187,167,0) 70%),
-        linear-gradient(200deg, rgba(10,26,47,.92) 0%, rgba(10,26,47,.94) 60%, rgba(10,26,47,1) 100%);
-      box-shadow:0 36px 80px rgba(10,26,47,.65), inset 0 1px 0 rgba(255,255,255,.16);
+        radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+        radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+        linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+        linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+      box-shadow:0 28px 72px rgba(7,15,32,.54), inset 0 1px 0 rgba(255,255,255,.12);
       text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .ctaRF__card::before,
+    .ctaRF__card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      transition:opacity .3s ease, transform .3s ease;
+    }
+
+    .ctaRF__card::before{
+      inset:-112% 30% 48% -34%;
+      background:linear-gradient(124deg, rgba(148,244,240,.28) 0%, rgba(148,244,240,0) 70%);
+      opacity:.26;
+      transform:rotate(-5deg);
+      filter:blur(14px);
+      mix-blend-mode:screen;
+    }
+
+    .ctaRF__card::after{
+      inset:60% -28% -118% 32%;
+      background:linear-gradient(210deg, rgba(96,165,250,.22) 0%, rgba(96,165,250,0) 70%);
+      opacity:.2;
+      transform:rotate(4deg);
+      filter:blur(12px);
     }
 
     .ctaRF__button{
       display:inline-flex;
       align-items:center;
-      gap:14px;
-      padding:clamp(14px,2vw,18px) clamp(24px,3vw,32px);
+      gap:.6rem;
+      padding:.95rem 1.3rem;
       border-radius:999px;
       text-decoration:none;
-      font-size:clamp(16px,2.6vw,18px);
-      font-weight:700;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      color:#0A1A2F;
-      background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%);
-      box-shadow:0 18px 46px rgba(0,187,167,.35);
-      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+      font-size:clamp(14px,2.4vw,18px);
+      font-weight:600;
+      color:#fff;
+      background:var(--brand);
+      box-shadow:0 10px 28px rgba(0,187,167,.35);
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
     }
 
-    .ctaRF__button svg{
-      width:22px;
-      height:22px;
-      stroke:currentColor;
-      stroke-width:1.8;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      transition:transform .25s ease;
+    .ctaRF__button img{
+      width:18px;
+      height:18px;
+      transition:transform .18s ease;
     }
 
     .ctaRF__button:hover,
     .ctaRF__button:focus-visible{
-      transform:translateY(-2px) scale(1.02);
-      box-shadow:0 24px 56px rgba(0,187,167,.45);
-      filter:brightness(1.05);
+      transform:translateY(-1px) scale(1.02);
+      box-shadow:0 14px 34px rgba(0,187,167,.45);
+      filter:brightness(1.03);
     }
 
-    .ctaRF__button:hover svg,
-    .ctaRF__button:focus-visible svg{
+    .ctaRF__button:hover img,
+    .ctaRF__button:focus-visible img{
       transform:translateX(3px);
     }
 
@@ -2271,11 +2230,10 @@
   { icon:'/images/home/icons/teal/scale-without-limits.svg', alt:'Scalability icon', heading:'Scalability & Adaptability', description:'Adapt as your business grows and changes. Whether expanding locations, adding staff, or adopting new technologies, our solutions scale to meet evolving needs.' }
 ] %}
 
-<section data-diff="features" class="section-block" style="background:linear-gradient(180deg,#0A1A2F 89%,#000000 100%) !important; position:relative; overflow:hidden; isolation:isolate; color:#e2e8f0;">
+<section data-diff="features" class="section-block" style="background:linear-gradient(180deg,#061021 89%,#000000 100%) !important; position:relative; overflow:hidden; isolation:isolate; color:#e2e8f0;">
   <div class="section-shell diff__wrap" style="position:relative; z-index:1;">
     <header class="diff__head">
-      <p class="eyebrow diff__eyebrow">Features &amp; Differentiators</p>
-      <h2 class="heading-lg diff__title">Why growing IT teams choose L3 Networks</h2>
+      <h2 class="heading-xl diff__title">Why growing IT teams choose <span style="color:#00BBA7;">L3 Networks</span></h2>
     </header>
 
     <div class="diffCards" role="list">
@@ -2284,7 +2242,7 @@
         <span class="diffCard__icon">
           <img src="{{ item.icon }}" alt="{{ item.alt }}" width="22" height="22">
         </span>
-        <h3 class="diffCard__title">{{ item.heading }}</h3>
+        <h3 class="heading-md diffCard__title">{{ item.heading }}</h3>
         <p class="diffCard__copy">{{ item.description }}</p>
       </article>
       {% endfor %}
@@ -2314,14 +2272,6 @@
       max-width:60ch;
     }
 
-    .diff__eyebrow{
-      margin:0;
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      font-weight:800;
-      color:rgba(94,234,212,.82);
-    }
-
     .diff__title{
       margin:0;
       max-width:60ch;
@@ -2330,65 +2280,96 @@
 
     .diffCards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:clamp(18px,2.6vw,28px);
+      grid-template-columns:repeat(2,minmax(280px,1fr));
+      gap:clamp(22px,4vw,32px);
+    }
+
+    @media(max-width:960px){
+      .diffCards{ grid-template-columns:minmax(0,1fr); }
     }
 
     .diffCard{
       position:relative;
-      padding:clamp(24px,3.4vh,32px);
-      border-radius:22px;
-      border:1px solid rgba(148,204,255,.18);
-      background:linear-gradient(160deg, rgba(255,255,255,.05) 0%, rgba(8,24,41,.92) 100%);
-      box-shadow:0 18px 46px rgba(10,26,47,.5);
-      display:grid;
-      gap:clamp(12px,2vh,18px);
-      align-content:start;
+      display:flex;
+      flex-direction:column;
+      gap:clamp(12px,1.8vw,18px);
+      padding:clamp(22px,2.6vw,30px);
+      border-radius:20px;
+      border:1px solid rgba(148,204,255,.22);
+      background:linear-gradient(185deg, rgba(10,26,47,.96) 0%, rgba(10,26,47,.92) 55%, rgba(10,26,47,1) 100%);
+      box-shadow:0 20px 52px rgba(10,26,47,.46), inset 0 1px 0 rgba(255,255,255,.12);
+      color:#e2e8f0;
+      overflow:hidden;
+      isolation:isolate;
+      transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
       min-height:clamp(220px,28vw,260px);
     }
 
+    .diffCard::before,
     .diffCard::after{
       content:"";
       position:absolute;
-      inset:0;
-      border-radius:inherit;
-      background:radial-gradient(circle at top right, rgba(94,234,212,.12), transparent 60%);
-      opacity:.8;
       pointer-events:none;
+      transition:opacity .35s ease, transform .35s ease;
     }
 
-    .diffCard__icon{
-      display:inline-flex;
-      width:40px;
-      height:40px;
-      border-radius:14px;
-      align-items:center;
-      justify-content:center;
-      background:rgba(94,234,212,.16);
-      border:1px solid rgba(94,234,212,.24);
-      box-shadow:inset 0 0 0 1px rgba(14,116,144,.32);
-      position:relative;
-      z-index:1;
+    .diffCard::before{
+      inset:-120% 34% 48% -48%;
+      background:linear-gradient(118deg, rgba(90,122,150,.22) 0%, rgba(90,122,150,0) 65%);
+      opacity:.22;
+      transform:rotate(-8deg);
+      mix-blend-mode:screen;
+      filter:blur(10px);
     }
 
-    .diffCard__icon img{ width:24px; height:24px; }
+    .diffCard::after{
+      inset:66% -38% -140% 32%;
+      background:linear-gradient(184deg, rgba(40,70,96,.16) 0%, rgba(6,16,33,0) 65%);
+      opacity:.12;
+      transform:rotate(5deg);
+      filter:blur(12px);
+    }
+
+    .diffCard:hover,
+    .diffCard:focus-visible{
+      border-color:rgba(180,210,240,.34);
+      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+      transform:translate3d(0,-6px,0);
+    }
+
+    .diffCard:hover::before,
+    .diffCard:focus-visible::before{
+      opacity:.7;
+      transform:rotate(-6deg) translate3d(3%,-6%,0);
+    }
+
+    .diffCard:hover::after,
+    .diffCard:focus-visible::after{
+      opacity:.35;
+      transform:rotate(4deg) translate3d(-3%,6%,0);
+    }
+
+    .diffCard__icon img{
+      width:clamp(48px,6vw,60px);
+      height:auto;
+      display:block;
+      filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
+    }
 
     .diffCard__title{
-      margin:0;
+      margin:0 0 clamp(6px,0.8vw,10px);
       position:relative;
       z-index:1;
-      font-weight:700;
-      font-size:clamp(16px,2.4vw,22px);
-      color:#fff;
-      letter-spacing:-.01em;
+      font-weight:600;
+      color:#f8fbff;
     }
 
     .diffCard__copy{
       margin:0;
       position:relative;
       z-index:1;
-      font-size:clamp(14px,2.2vw,17px);
-      color:rgba(222,231,242,.85);
+      font-size:clamp(15px,1.9vw,17px);
+      color:rgba(226,232,240,.82);
       line-height:1.65;
     }
 
@@ -2403,7 +2384,7 @@
 
 <!-- STORY + VIDEO — EXACT Waves BG, layout-safe -->
 <section data-stack="tpv" class="section-block"
-  style="background:linear-gradient(180deg,#000000 0%,#000000 50%,#0A1A2F 100%) !important; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg,#0A1A2Fc6 80%,#0A1A2F 100%); background-color:#0A1A2F; min-height:92svh; display:flex; align-items:center;">
+  style="background:linear-gradient(180deg,#000000 0%,#000000 50%,#061021 100%) !important; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg,#061021c6 80%,#061021 100%); background-color:#061021; min-height:92svh; display:flex; align-items:center;">
   
   <canvas id="tpvWaves" aria-hidden="true"
     style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
@@ -2414,10 +2395,12 @@
        style="position:relative; z-index:1; width:100%;">
     <article class="tpv__card"
       style="border-radius:22px;
-             background:radial-gradient(circle at 16% 10%, rgba(56,189,248,.28) 0%, rgba(56,189,248,0) 65%),
-        radial-gradient(circle at 84% 92%, rgba(0,187,167,.28) 0%, rgba(0,187,167,0) 70%),
-        linear-gradient(200deg, rgba(10,26,47,.92) 0%, rgba(10,26,47,.94) 60%, rgba(10,26,47,1) 100%);
-             padding:clamp(28px,4vw,48px); box-shadow:0 24px 64px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);">
+             background:
+               radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+               radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+               linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+               linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+             padding:clamp(28px,4vw,48px); box-shadow:0 28px 72px rgba(5,10,22,.58), inset 0 1px 0 rgba(255,255,255,.1);">
       <div class="tpv__stack"
            style="max-width:980px; margin:0 auto; display:grid; gap:clamp(20px,4vh,36px);
                   text-align:center; align-items:center; justify-items:center;">
@@ -2436,19 +2419,19 @@
 
         <!-- Video + modal (unchanged) -->
         <div class="tpv__media" style="width:min(900px,100%); margin-inline:auto;">
-          <div x-data="{ isVideoModalOpen: false }" style="position:relative;">
+          <div x-data="{ isVideoModalOpen: false, openModal(){ this.isVideoModalOpen = true; window.dispatchEvent(new CustomEvent('tpv-modal-open')); }, closeModal(){ this.isVideoModalOpen = false; window.dispatchEvent(new CustomEvent('tpv-modal-close')); } }" style="position:relative;">
             <div data-tpv-preview-holder
-                 style="position:relative; width:100%; height:280px; padding:22px; border:1px solid var(--border);
-                        border-radius:16px; background:rgba(10,26,47,0.997); backdrop-filter:blur(6px);
-                        cursor:pointer; overflow:hidden;"
-                 @click="isVideoModalOpen = true" aria-label="Play video">
+                 style="position:relative; width:100%; height:280px; padding:22px 0;
+                        border-radius:16px; background:transparent;
+                         cursor:pointer; overflow:hidden;"
+                 @click="openModal()" aria-label="Play video">
               <iframe data-tpv-preview
                       src="https://player.vimeo.com/video/1039767191?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1&amp;background=1&amp;autoplay=0"
                       frameborder="0"
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
                       title="L3 Networks - Your IT Challenges, Solved With Expertise"
-                      style="position:absolute; inset:0; width:100%; height:100%; border:0; opacity:.6; pointer-events:none;"></iframe>
+                      style="position:absolute; inset:0; width:110%; left:-5%; height:100%; border:0; opacity:.6; pointer-events:none;"></iframe>
               <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
                 <svg width="84" height="84" viewBox="0 0 26 26" aria-hidden="true">
                   <polygon style="fill:#ffffffc0" points="9.33 6.69 9.33 19.39 19.3 13.04 9.33 6.69"/>
@@ -2456,9 +2439,8 @@
               </div>
             </div>
 
-            <button @click="isVideoModalOpen = true"
-                    style="display:block; margin:16px auto 0; padding:.78rem 1.15rem; font-weight:700;
-                           color:#fff; background:var(--brand); border-radius:999px; border:0; cursor:pointer;">
+            <button @click="openModal()"
+                    style="display:inline-flex; align-items:center; justify-content:center; margin:16px auto 0; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); color:#fff; background:var(--brand); border-radius:999px; border:0; cursor:pointer; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
               Watch Video
             </button>
 
@@ -2466,21 +2448,15 @@
                  x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
                  x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300"
                  x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                 @keydown.escape.window="isVideoModalOpen = false"
-                 style="position:fixed; inset:0; z-index:60; display:flex; align-items:center; justify-content:center;
-                        background:rgba(0,0,0,.9); padding:clamp(10px,2vw,28px);">
-              <div @click.away="isVideoModalOpen = false" class="tpv__modalInner"
-                   style="width:min(1200px,94vw); position:relative;">
-                <button @click="isVideoModalOpen = false" class="tpv__close"
-                        style="position:absolute; top:-44px; right:0; padding:.5rem .7rem; font-size:20px; color:#0A1A2F;
-                               background:var(--brand); border-radius:10px; border:0; cursor:pointer;
-                               box-shadow:0 8px 22px rgba(0,0,0,.35);">✖</button>
-                <div class="tpv__videoFrame"
-                     style="position:relative; width:100%; aspect-ratio:16/9; max-height:min(84vh,820px);
-                            border-radius:12px; overflow:hidden; background:#000;">
+                 @keydown.escape.window="closeModal()"
+                 class="tpv__modal" role="dialog" aria-modal="true" aria-label="L3 Networks video">
+              <div @click.away="closeModal()" class="tpv__modalInner">
+                <button @click="closeModal()" type="button" class="tpv__modalClose" aria-label="Close video">
+                  <span aria-hidden="true">✕</span>
+                </button>
+                <div class="tpv__modalFrame">
                   <iframe src="https://player.vimeo.com/video/1039767191" frameborder="0"
-                          allow="autoplay; fullscreen" allowfullscreen
-                          style="position:absolute; inset:0; width:100%; height:100%; border-radius:12px;"></iframe>
+                          allow="autoplay; fullscreen" allowfullscreen class="tpv__modalIframe"></iframe>
                 </div>
               </div>
             </div>
@@ -2488,53 +2464,164 @@
         </div>
 
         <!-- CTA -->
-        <p class="tpv__cta" style="margin: clamp(10px, 2vh, 18px) 0 0;">
-          <a href="/aboutus/" class="tpv__ctaLink"
-             style="display:inline-flex; align-items:center; gap:.6rem; color:var(--brand); text-decoration:none; font-weight:700;"
-             onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
-            Learn More About Us
-            <img src="/images/home/icons/ArrowSquareOut.svg" alt=""
-                 style="height:16px; filter:invert(1) sepia(1) saturate(5) hue-rotate(120deg);">
-          </a>
-        </p>
+
       </div>
     </article>
   </div>
 
+  <style>
+    .tpv__modal{
+      position:fixed;
+      inset:0;
+      z-index:90;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:clamp(12px,4vw,38px);
+      background:rgba(0,0,0,.88);
+      backdrop-filter:blur(10px);
+    }
+
+    .tpv__modalInner{
+      position:relative;
+      width:min(1120px,92vw);
+      max-height:90vh;
+      display:flex;
+      flex-direction:column;
+      gap:clamp(12px,2vw,18px);
+    }
+
+    .tpv__modalFrame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      background:#000;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 28px 64px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .tpv__modalIframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    .tpv__modalClose{
+      position:absolute;
+      top:-56px;
+      right:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:0;
+      color:#061021;
+      background:var(--brand);
+      font-size:22px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 18px 42px rgba(0,187,167,.35);
+      transition:transform .22s ease, filter .22s ease;
+    }
+
+    .tpv__modalClose:hover,
+    .tpv__modalClose:focus-visible{
+      transform:translateY(-2px) scale(1.03);
+      filter:brightness(1.05);
+    }
+
+    .tpv__modalClose:focus-visible{
+      outline:2px solid rgba(102,199,232,.65);
+      outline-offset:4px;
+    }
+
+    @media (max-width: 768px){
+      .tpv__modalClose{
+        top:-48px;
+        width:42px;
+        height:42px;
+      }
+      .tpv__modalFrame{
+        border-radius:14px;
+      }
+    }
+
+    @media (max-width: 520px){
+      .tpv__modal{
+        padding:18px;
+      }
+      .tpv__modalClose{
+        top:-40px;
+        width:38px;
+        height:38px;
+      }
+      .tpv__modalFrame{
+        border-radius:12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .tpv__modalClose{
+        transition:none;
+      }
+    }
+  </style>
+
   <script>
     (function(){
-      var iframe = document.querySelector('[data-tpv-preview]');
-      if (!iframe) return;
+      var previewIframe = document.querySelector('[data-tpv-preview]');
+      var modalIframe = document.querySelector('.tpv__modalIframe');
+      if (!previewIframe && !modalIframe) return;
 
       function initPlayer(){
         if (!window.Vimeo || !window.Vimeo.Player) return false;
 
-        var player = new window.Vimeo.Player(iframe);
-        player.setMuted(true).catch(function(){});
+        var previewPlayer = null;
+        if (previewIframe) {
+          previewPlayer = new window.Vimeo.Player(previewIframe);
+          previewPlayer.setMuted(true).catch(function(){});
 
-        function playVideo(){
-          player.play().catch(function(){ /* autoplay may be blocked */ });
+          var target = previewIframe.closest('[data-tpv-preview-holder]') || previewIframe;
+
+          function playPreview(){
+            previewPlayer.play().catch(function(){ /* autoplay may be blocked */ });
+          }
+
+          function pausePreview(){
+            previewPlayer.pause().catch(function(){});
+          }
+
+          if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries){
+              entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                  playPreview();
+                } else {
+                  pausePreview();
+                }
+              });
+            }, { threshold: 0.4 });
+            observer.observe(target);
+          } else {
+            playPreview();
+          }
         }
 
-        function pauseVideo(){
-          player.pause().catch(function(){});
-        }
+        if (modalIframe) {
+          var modalPlayer = new window.Vimeo.Player(modalIframe);
 
-        var target = iframe.closest('[data-tpv-preview-holder]') || iframe;
+          window.addEventListener('tpv-modal-open', function(){
+            modalPlayer.play().catch(function(){});
+          });
 
-        if ('IntersectionObserver' in window) {
-          var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-              if (entry.isIntersecting) {
-                playVideo();
-              } else {
-                pauseVideo();
-              }
-            });
-          }, { threshold: 0.4 });
-          observer.observe(target);
-        } else {
-          playVideo();
+          window.addEventListener('tpv-modal-close', function(){
+            modalPlayer.pause().catch(function(){});
+          });
         }
 
         return true;
@@ -2750,7 +2837,7 @@
 
 
 
-<!-- <section data-howworks class="section-block" style="background:linear-gradient(180deg,#0A1A2F 0%,#0A1A2F6b 50%,#000000 100%); position:relative; color:#fff; background:linear-gradient(180deg,#0A1A2F 0%, #0A1A2F81 50%, #0A1A2F43 100%) !important; background-color:#000000;">
+<!-- <section data-howworks class="section-block" style="background:linear-gradient(180deg,#061021 0%,#0610216b 50%,#000000 100%); position:relative; color:#fff; background:linear-gradient(180deg,#061021 0%, #06102181 50%, #06102143 100%) !important; background-color:#000000;">
   <div class="section-shell howW__wrap">
     <header class="howW__head">
       <h2 class="heading-lg howW__title">Here's How it Works</h2>
@@ -2762,15 +2849,15 @@
           <article class="howW__item group">
           <div class="howW__iconRow">
             <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M73.125 12.6562H63.2812V8.4375C63.2812 8.06454 63.1331 7.70685 62.8694 7.44313C62.6056 7.17941 62.248 7.03125 61.875 7.03125C61.502 7.03125 61.1444 7.17941 60.8806 7.44313C60.6169 7.70685 60.4688 8.06454 60.4688 8.4375V12.6562H29.5312V8.4375C29.5312 8.06454 29.3831 7.70685 29.1194 7.44313C28.8556 7.17941 28.498 7.03125 28.125 7.03125C27.752 7.03125 27.3944 7.17941 27.1306 7.44313C26.8669 7.70685 26.7188 8.06454 26.7188 8.4375V12.6562H16.875C15.7561 12.6562 14.6831 13.1007 13.8919 13.8919C13.1007 14.6831 12.6562 15.7561 12.6562 16.875V73.125C12.6562 74.2439 13.1007 75.3169 13.8919 76.1081C14.6831 76.8993 15.7561 77.3438 16.875 77.3438H73.125C74.2439 77.3438 75.3169 76.8993 76.1081 76.1081C76.8993 75.3169 77.3438 74.2439 77.3438 73.125V16.875C77.3438 15.7561 76.8993 14.6831 76.1081 13.8919C75.3169 13.1007 74.2439 12.6562 73.125 12.6562ZM16.875 15.4688H26.7188V19.6875C26.7188 20.0605 26.8669 20.4181 27.1306 20.6819C27.3944 20.9456 27.752 21.0938 28.125 21.0938C28.498 21.0938 28.8556 20.9456 29.1194 20.6819C29.3831 20.4181 29.5312 20.0605 29.5312 19.6875V15.4688H60.4688V19.6875C60.4688 20.0605 60.6169 20.4181 60.8806 20.6819C61.1444 20.9456 61.502 21.0938 61.875 21.0938C62.248 21.0938 62.6056 20.9456 62.8694 20.6819C63.1331 20.4181 63.2812 20.0605 63.2812 19.6875V15.4688H73.125C73.498 15.4688 73.8556 15.6169 74.1194 15.8806C74.3831 16.1444 74.5312 16.502 74.5312 16.875V29.5312H15.4688V16.875C15.4688 16.502 15.6169 16.1444 15.8806 15.8806C16.1444 15.6169 16.502 15.4688 16.875 15.4688ZM73.125 74.5312H16.875C16.502 74.5312 16.1444 74.3831 15.8806 74.1194C15.6169 73.8556 15.4688 73.498 15.4688 73.125V32.3438H74.5312V73.125C74.5312 73.498 74.3831 73.8556 74.1194 74.1194C73.8556 74.3831 73.498 74.5312 73.125 74.5312ZM58.6512 44.0051C58.7819 44.1357 58.8856 44.2908 58.9564 44.4615C59.0272 44.6322 59.0636 44.8152 59.0636 45C59.0636 45.1848 59.0272 45.3678 58.9564 45.5385C58.8856 45.7092 58.7819 45.8643 58.6512 45.9949L41.7762 62.8699C41.6456 63.0007 41.4905 63.1044 41.3198 63.1752C41.149 63.2459 40.9661 63.2824 40.7812 63.2824C40.5964 63.2824 40.4135 63.2459 40.2427 63.1752C40.072 63.1044 39.9169 63.0007 39.7863 62.8699L31.3488 54.4324C31.085 54.1686 30.9367 53.8107 30.9367 53.4375C30.9367 53.0643 31.085 52.7064 31.3488 52.4426C31.6127 52.1787 31.9706 52.0305 32.3438 52.0305C32.7169 52.0305 33.0748 52.1787 33.3387 52.4426L40.7812 59.8852L56.6613 44.0051C56.7919 43.8743 56.947 43.7706 57.1177 43.6998C57.2885 43.6291 57.4714 43.5926 57.6562 43.5926C57.8411 43.5926 58.024 43.6291 58.1948 43.6998C58.3655 43.7706 58.5206 43.8743 58.6512 44.0051Z" fill="#0A1A2F" />
+              <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M73.125 12.6562H63.2812V8.4375C63.2812 8.06454 63.1331 7.70685 62.8694 7.44313C62.6056 7.17941 62.248 7.03125 61.875 7.03125C61.502 7.03125 61.1444 7.17941 60.8806 7.44313C60.6169 7.70685 60.4688 8.06454 60.4688 8.4375V12.6562H29.5312V8.4375C29.5312 8.06454 29.3831 7.70685 29.1194 7.44313C28.8556 7.17941 28.498 7.03125 28.125 7.03125C27.752 7.03125 27.3944 7.17941 27.1306 7.44313C26.8669 7.70685 26.7188 8.06454 26.7188 8.4375V12.6562H16.875C15.7561 12.6562 14.6831 13.1007 13.8919 13.8919C13.1007 14.6831 12.6562 15.7561 12.6562 16.875V73.125C12.6562 74.2439 13.1007 75.3169 13.8919 76.1081C14.6831 76.8993 15.7561 77.3438 16.875 77.3438H73.125C74.2439 77.3438 75.3169 76.8993 76.1081 76.1081C76.8993 75.3169 77.3438 74.2439 77.3438 73.125V16.875C77.3438 15.7561 76.8993 14.6831 76.1081 13.8919C75.3169 13.1007 74.2439 12.6562 73.125 12.6562ZM16.875 15.4688H26.7188V19.6875C26.7188 20.0605 26.8669 20.4181 27.1306 20.6819C27.3944 20.9456 27.752 21.0938 28.125 21.0938C28.498 21.0938 28.8556 20.9456 29.1194 20.6819C29.3831 20.4181 29.5312 20.0605 29.5312 19.6875V15.4688H60.4688V19.6875C60.4688 20.0605 60.6169 20.4181 60.8806 20.6819C61.1444 20.9456 61.502 21.0938 61.875 21.0938C62.248 21.0938 62.6056 20.9456 62.8694 20.6819C63.1331 20.4181 63.2812 20.0605 63.2812 19.6875V15.4688H73.125C73.498 15.4688 73.8556 15.6169 74.1194 15.8806C74.3831 16.1444 74.5312 16.502 74.5312 16.875V29.5312H15.4688V16.875C15.4688 16.502 15.6169 16.1444 15.8806 15.8806C16.1444 15.6169 16.502 15.4688 16.875 15.4688ZM73.125 74.5312H16.875C16.502 74.5312 16.1444 74.3831 15.8806 74.1194C15.6169 73.8556 15.4688 73.498 15.4688 73.125V32.3438H74.5312V73.125C74.5312 73.498 74.3831 73.8556 74.1194 74.1194C73.8556 74.3831 73.498 74.5312 73.125 74.5312ZM58.6512 44.0051C58.7819 44.1357 58.8856 44.2908 58.9564 44.4615C59.0272 44.6322 59.0636 44.8152 59.0636 45C59.0636 45.1848 59.0272 45.3678 58.9564 45.5385C58.8856 45.7092 58.7819 45.8643 58.6512 45.9949L41.7762 62.8699C41.6456 63.0007 41.4905 63.1044 41.3198 63.1752C41.149 63.2459 40.9661 63.2824 40.7812 63.2824C40.5964 63.2824 40.4135 63.2459 40.2427 63.1752C40.072 63.1044 39.9169 63.0007 39.7863 62.8699L31.3488 54.4324C31.085 54.1686 30.9367 53.8107 30.9367 53.4375C30.9367 53.0643 31.085 52.7064 31.3488 52.4426C31.6127 52.1787 31.9706 52.0305 32.3438 52.0305C32.7169 52.0305 33.0748 52.1787 33.3387 52.4426L40.7812 59.8852L56.6613 44.0051C56.7919 43.8743 56.947 43.7706 57.1177 43.6998C57.2885 43.6291 57.4714 43.5926 57.6562 43.5926C57.8411 43.5926 58.024 43.6291 58.1948 43.6998C58.3655 43.7706 58.5206 43.8743 58.6512 44.0051Z" fill="#061021" />
             </svg>
             <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F"/>
+              <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#061021"/>
               <path d="M40.9188 96V84.096H56.6628V46.656H40.9188V37.824C43.4788 37.632 46.2308 37.12 49.1748 36.288C52.1828 35.456 55.1588 34.432 58.1028 33.216C61.1108 31.936 63.8948 30.592 66.4548
                                                         29.184H71.6388V84.096H86.9988V96H40.9188Z" fill="white" />
             </svg>
             <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M52.0805 16.5234C52.174 16.1635 52.4063 15.8553 52.7265 15.6662C53.0467 15.4771 53.4288 15.4225 53.7891 15.5144C58.7677 16.8112 63.3102 19.4128 66.9477 23.051C70.5853 26.6892 73.1862 31.2321 74.4821 36.2109C74.5776 36.5708 74.5265 36.9539 74.34 37.2762C74.1535 37.5985 73.8468 37.8336 73.4871 37.9301C73.3728 37.9627 73.2545 37.9792 73.1356 37.9793C72.8246 37.9783 72.5227 37.8742 72.2772 37.6834C72.0317 37.4925 71.8563 37.2257 71.7786 36.9246C70.6054 32.4286 68.2551 28.3266 64.9695 25.0411C61.6839 21.7555 57.5819 19.4051 53.086 18.232C52.7267 18.1377 52.4193 17.9052 52.2309 17.585C52.0426 17.2649 51.9885 16.8833 52.0805 16.5234ZM50.2735 29.482C55.5469 30.8988 59.1012 34.4531 60.518 39.7266C60.5957 40.0277 60.7711 40.2945 61.0167 40.4853C61.2622 40.6762 61.5641 40.7802 61.875 40.7812C61.9939 40.7812 62.1123 40.7646 62.2266 40.732C62.5863 40.6356 62.893 40.4004 63.0795 40.0781C63.266 39.7559 63.3171 39.3728 63.2215 39.0129C61.534 32.6848 57.2977 28.466 50.9766 26.7644C50.6253 26.6965 50.2613 26.7651 49.9587 26.9561C49.6562 27.1472 49.4378 27.4465 49.3482 27.7929C49.2586 28.1393 49.3044 28.5069 49.4763 28.8207C49.6482 29.1345 49.9333 29.371 50.2735 29.482ZM77.3227 64.1883C76.7392 68.6142 74.5638 72.6762 71.2032 75.615C67.8426 78.5537 63.5268 80.1681 59.0625 80.1562C31.9219 80.1562 9.84379 58.0781 9.84379 30.9375C9.83454 26.475 11.45 22.1618 14.3885 18.8034C17.327 15.4451 21.3876 13.2712 25.8118 12.6879C26.7181 12.5777 27.6358 12.7645 28.4269 13.2203C29.218 13.6761 29.84 14.3762 30.1993 15.2156L37.6172 31.7883C37.8945 32.4309 38.0075 33.1324 37.9462 33.8296C37.8848 34.5268 37.6509 35.1977 37.2657 35.782C37.234 35.8277 37.2024 35.8734 37.1672 35.9156L29.7141 44.7785C29.5971 44.9727 29.5302 45.1928 29.5191 45.4192C29.5081 45.6456 29.5533 45.8712 29.6508 46.0758C32.4071 51.7183 38.3168 57.5824 44.0262 60.3387C44.2324 60.4343 44.459 60.4776 44.6859 60.4647C44.9128 60.4518 45.133 60.3832 45.327 60.2648L54.0704 52.8398L54.2039 52.7379C54.7891 52.3514 55.4613 52.1169 56.1598 52.0555C56.8584 51.9941 57.5612 52.1078 58.2047 52.3863L74.8055 59.8254C75.6365 60.1869 76.329 60.8064 76.7805 61.5922C77.2319 62.378 77.4184 63.2883 77.3121 64.1883H77.3227ZM73.684 62.3883L57.0762 54.9492C56.8744 54.8645 56.6554 54.8289 56.4372 54.8455C56.219 54.862 56.0079 54.9301 55.8211 55.0441L47.1094 62.4691L46.9793 62.5676C46.3736 62.972 45.6735 63.2127 44.9472 63.2663C44.2208 63.3199 43.4929 63.1846 42.8344 62.8734C36.5063 59.8183 30.2098 53.5641 27.1547 47.3098C26.8405 46.6563 26.7 45.9329 26.7468 45.2093C26.7936 44.4857 27.0261 43.7864 27.4219 43.1789C27.4536 43.1297 27.4887 43.0875 27.5239 43.0418L34.9735 34.1824C35.0851 33.9925 35.1506 33.7791 35.1647 33.5592C35.1787 33.3394 35.1409 33.1193 35.0543 32.9168L27.6223 16.3441C27.5176 16.0872 27.3392 15.867 27.1096 15.7113C26.88 15.5555 26.6095 15.4711 26.3321 15.4687C26.2759 15.4653 26.2195 15.4653 26.1633 15.4687C22.4166 15.9652 18.9789 17.8093 16.493 20.6562C14.0071 23.5031 12.6432 27.158 12.6563 30.9375C12.6563 56.5242 33.4758 77.3437 59.0625 77.3437C62.842 77.3568 66.4969 75.9929 69.3438 73.507C72.1908 71.0212 74.0348 67.5835 74.5313 63.8367C74.5637 63.5351 74.4977 63.231 74.3431 62.97C74.1885 62.7089 73.9536 62.5049 73.6735 62.3883H73.684Z" fill="#0A1A2F" />
+              <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M52.0805 16.5234C52.174 16.1635 52.4063 15.8553 52.7265 15.6662C53.0467 15.4771 53.4288 15.4225 53.7891 15.5144C58.7677 16.8112 63.3102 19.4128 66.9477 23.051C70.5853 26.6892 73.1862 31.2321 74.4821 36.2109C74.5776 36.5708 74.5265 36.9539 74.34 37.2762C74.1535 37.5985 73.8468 37.8336 73.4871 37.9301C73.3728 37.9627 73.2545 37.9792 73.1356 37.9793C72.8246 37.9783 72.5227 37.8742 72.2772 37.6834C72.0317 37.4925 71.8563 37.2257 71.7786 36.9246C70.6054 32.4286 68.2551 28.3266 64.9695 25.0411C61.6839 21.7555 57.5819 19.4051 53.086 18.232C52.7267 18.1377 52.4193 17.9052 52.2309 17.585C52.0426 17.2649 51.9885 16.8833 52.0805 16.5234ZM50.2735 29.482C55.5469 30.8988 59.1012 34.4531 60.518 39.7266C60.5957 40.0277 60.7711 40.2945 61.0167 40.4853C61.2622 40.6762 61.5641 40.7802 61.875 40.7812C61.9939 40.7812 62.1123 40.7646 62.2266 40.732C62.5863 40.6356 62.893 40.4004 63.0795 40.0781C63.266 39.7559 63.3171 39.3728 63.2215 39.0129C61.534 32.6848 57.2977 28.466 50.9766 26.7644C50.6253 26.6965 50.2613 26.7651 49.9587 26.9561C49.6562 27.1472 49.4378 27.4465 49.3482 27.7929C49.2586 28.1393 49.3044 28.5069 49.4763 28.8207C49.6482 29.1345 49.9333 29.371 50.2735 29.482ZM77.3227 64.1883C76.7392 68.6142 74.5638 72.6762 71.2032 75.615C67.8426 78.5537 63.5268 80.1681 59.0625 80.1562C31.9219 80.1562 9.84379 58.0781 9.84379 30.9375C9.83454 26.475 11.45 22.1618 14.3885 18.8034C17.327 15.4451 21.3876 13.2712 25.8118 12.6879C26.7181 12.5777 27.6358 12.7645 28.4269 13.2203C29.218 13.6761 29.84 14.3762 30.1993 15.2156L37.6172 31.7883C37.8945 32.4309 38.0075 33.1324 37.9462 33.8296C37.8848 34.5268 37.6509 35.1977 37.2657 35.782C37.234 35.8277 37.2024 35.8734 37.1672 35.9156L29.7141 44.7785C29.5971 44.9727 29.5302 45.1928 29.5191 45.4192C29.5081 45.6456 29.5533 45.8712 29.6508 46.0758C32.4071 51.7183 38.3168 57.5824 44.0262 60.3387C44.2324 60.4343 44.459 60.4776 44.6859 60.4647C44.9128 60.4518 45.133 60.3832 45.327 60.2648L54.0704 52.8398L54.2039 52.7379C54.7891 52.3514 55.4613 52.1169 56.1598 52.0555C56.8584 51.9941 57.5612 52.1078 58.2047 52.3863L74.8055 59.8254C75.6365 60.1869 76.329 60.8064 76.7805 61.5922C77.2319 62.378 77.4184 63.2883 77.3121 64.1883H77.3227ZM73.684 62.3883L57.0762 54.9492C56.8744 54.8645 56.6554 54.8289 56.4372 54.8455C56.219 54.862 56.0079 54.9301 55.8211 55.0441L47.1094 62.4691L46.9793 62.5676C46.3736 62.972 45.6735 63.2127 44.9472 63.2663C44.2208 63.3199 43.4929 63.1846 42.8344 62.8734C36.5063 59.8183 30.2098 53.5641 27.1547 47.3098C26.8405 46.6563 26.7 45.9329 26.7468 45.2093C26.7936 44.4857 27.0261 43.7864 27.4219 43.1789C27.4536 43.1297 27.4887 43.0875 27.5239 43.0418L34.9735 34.1824C35.0851 33.9925 35.1506 33.7791 35.1647 33.5592C35.1787 33.3394 35.1409 33.1193 35.0543 32.9168L27.6223 16.3441C27.5176 16.0872 27.3392 15.867 27.1096 15.7113C26.88 15.5555 26.6095 15.4711 26.3321 15.4687C26.2759 15.4653 26.2195 15.4653 26.1633 15.4687C22.4166 15.9652 18.9789 17.8093 16.493 20.6562C14.0071 23.5031 12.6432 27.158 12.6563 30.9375C12.6563 56.5242 33.4758 77.3437 59.0625 77.3437C62.842 77.3568 66.4969 75.9929 69.3438 73.507C72.1908 71.0212 74.0348 67.5835 74.5313 63.8367C74.5637 63.5351 74.4977 63.231 74.3431 62.97C74.1885 62.7089 73.9536 62.5049 73.6735 62.3883H73.684Z" fill="#061021" />
             </svg>
           </div>
           <div class="howW__body">
@@ -2791,10 +2878,10 @@
                                                         12.6563 16.875 12.6563H45C45.373 12.6563 45.7306 12.8044 45.9944 13.0681C46.2581 13.3319 46.4062 13.6895 46.4062 14.0625C46.4062 14.4355 46.2581 14.7932 45.9944 15.0569C45.7306 15.3206 45.373 15.4688
                                                         45 15.4688H16.875C16.502 15.4688 16.1444 15.6169 15.8806 15.8806C15.6169 16.1444 15.4688 16.502 15.4688 16.875V73.125C15.4688 73.498 15.6169 73.8557 15.8806 74.1194C16.1444 74.3831 16.502 74.5313
                                                         16.875 74.5313H73.125C73.498 74.5313 73.8556 74.3831 74.1194 74.1194C74.3831 73.8557 74.5312 73.498 74.5312 73.125V45C74.5312 44.627 74.6794 44.2694 74.9431 44.0056C75.2069 43.7419 75.5645 43.5938
-                                                        75.9375 43.5938C76.3105 43.5938 76.6681 43.7419 76.9319 44.0056C77.1956 44.2694 77.3438 44.627 77.3438 45Z" fill="#0A1A2F" />
+                                                        75.9375 43.5938C76.3105 43.5938 76.6681 43.7419 76.9319 44.0056C77.1956 44.2694 77.3438 44.627 77.3438 45Z" fill="#061021" />
             </svg>
             <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F"/>
+              <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#061021"/>
               <path d="M37.4428 96V92.832C37.4428 89.056 38.0828 85.792 39.3628 83.04C40.6428 80.224 42.7868 77.728 45.7948 75.552L64.8988 61.728C66.8188 60.256 68.3228 58.56 69.4108 56.64C70.4988 54.72 71.0428 52.608 71.0428 50.304C71.0428 47.552 70.2428 45.376 68.6428 43.776C67.1068 42.112 64.7068 41.28 61.4427 41.28C59.5227 41.28 57.7948 41.696 56.2588 42.528C54.7868 43.296 53.6348 44.416 52.8028 45.888C51.9708 47.296 51.5548 48.896 51.5548 50.688C51.5548 51.136 51.5548 51.584 51.5548 52.032C51.5548 52.416 51.5548 52.8 51.5548 53.184H37.9228C37.9228 52.864 37.9228 52.576 37.9228 52.32C37.9228 52 37.9228 51.712 37.9228 51.456C37.9228 47.168 38.8508 43.36 40.7068 40.032C42.6268 36.704 45.3468 34.08 48.8668 32.16C52.4508 30.176 56.6748 29.184 61.5388 29.184H63.7468C68.3548 29.184 72.3548 30.08 75.7468 31.872C79.1388 33.6 81.7628 36.032 83.6188 39.168C85.5388 42.304 86.4988 45.888 86.4988 49.92C86.4988 53.248 85.9228 56.128 84.7708 58.56C83.6828 60.992 82.0828 63.2 79.9708 65.184C77.9228 67.168 75.4908 69.152 72.6748 71.136L61.3468 78.912C60.6428 79.424 60.0028 79.904 59.4268 80.352C58.9148 80.8 58.4668 81.248 58.0828 81.696C57.7628 82.144 57.5068 82.592 57.3148 83.04H86.6908V96H37.4428Z" fill="white" />
             </svg>
             <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2808,7 +2895,7 @@
                                                         16.7751C66.7538 18.7417 68.0932 21.2474 68.6358 23.9753C69.1784 26.7032 68.8999 29.5307 67.8355 32.1002C66.7712 34.6698 64.9687 36.8661 62.6562 38.4113C60.3436 39.9565 57.6248 40.7813 54.8435
                                                         40.7813C51.1139 40.7813 47.537 39.2997 44.8998 36.6624C42.2625 34.0252 40.781 30.4484 40.781 26.7188ZM78.7497 52.0313H47.8122C47.4393 52.0313 47.0816 52.1794 46.8178 52.4431C46.5541 52.7069 46.406
                                                         53.0645 46.406 53.4375V73.125C46.406 73.498 46.5541 73.8557 46.8178 74.1194C47.0816 74.3831 47.4393 74.5313 47.8122 74.5313H78.7497C79.1227 74.5313 79.4804 74.3831 79.7441 74.1194C80.0078 73.8557
-                                                        80.156 73.498 80.156 73.125V53.4375C80.156 53.0645 80.0078 52.7069 79.7441 52.4431C79.4804 52.1794 79.1227 52.0313 78.7497 52.0313ZM77.3435 71.7188H49.2185V54.8438H77.3435V71.7188Z" fill="#0A1A2F" />
+                                                        80.156 73.498 80.156 73.125V53.4375C80.156 53.0645 80.0078 52.7069 79.7441 52.4431C79.4804 52.1794 79.1227 52.0313 78.7497 52.0313ZM77.3435 71.7188H49.2185V54.8438H77.3435V71.7188Z" fill="#061021" />
             </svg>
           </div>
           <div class="howW__body">
@@ -2820,15 +2907,15 @@
         <article class="howW__item group">
           <div class="howW__iconRow">
             <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M56.25 15.4688C50.5891 15.4739 45.0487 17.1039 40.2869 20.165C35.5251 23.2261 31.742 27.5897 29.3871 32.7375C28.0447 32.476 26.6802 32.3441 25.3125 32.3438C19.7181 32.3438 14.3528 34.5661 10.397 38.522C6.44112 42.4778 4.21875 47.8431 4.21875 53.4375C4.21875 59.0319 6.44112 64.3972 10.397 68.353C14.3528 72.3089 19.7181 74.5312 25.3125 74.5312H56.25C64.0822 74.5312 71.5936 71.4199 77.1317 65.8817C82.6699 60.3436 85.7812 52.8322 85.7812 45C85.7812 37.1678 82.6699 29.6564 77.1317 24.1183C71.5936 18.5801 64.0822 15.4688 56.25 15.4688ZM56.25 71.7188H25.3125C22.7861 71.7165 20.2875 71.1906 17.9745 70.1742C15.6615 69.1579 13.5843 67.6731 11.874 65.8137C10.1636 63.9542 8.85721 61.7604 8.03725 59.3708C7.21728 56.9811 6.90153 54.4474 7.10993 51.9296C7.31833 49.4117 8.04635 46.9644 9.24804 44.7421C10.4497 42.5197 12.099 40.5706 14.0918 39.0176C16.0846 37.4647 18.3777 36.3417 20.8263 35.7194C23.2749 35.0972 25.8259 34.9892 28.3184 35.4023C27.256 38.4906 26.7154 41.7342 26.7188 45C26.7187 45.373 26.8669 45.7306 27.1306 45.9944C27.3944 46.2581 27.752 46.4062 28.125 46.4062C28.498 46.4062 28.8556 46.2581 29.1194 45.9944C29.3831 45.7306 29.5312 45.373 29.5312 45C29.5313 39.7155 31.0983 34.5497 34.0342 30.1559C36.9701 25.762 41.143 22.3374 46.0252 20.3151C50.9074 18.2928 56.2796 17.7637 61.4626 18.7946C66.6455 19.8256 71.4063 22.3703 75.143 26.107C78.8797 29.8437 81.4244 34.6045 82.4554 39.7874C83.4863 44.9704 82.9572 50.3426 80.9349 55.2248C78.9126 60.107 75.488 64.2799 71.0941 67.2158C66.7003 70.1517 61.5345 71.7187 56.25 71.7188ZM68.4949 38.3801C68.6257 38.5107 68.7294 38.6658 68.8002 38.8365C68.8709 39.0072 68.9074 39.1902 68.9074 39.375C68.9074 39.5598 68.8709 39.7428 68.8002 39.9135C68.7294 40.0842 68.6257 40.2393 68.4949 40.3699L51.6199 57.2449C51.4893 57.3757 51.3342 57.4794 51.1635 57.5502C50.9928 57.6209 50.8098 57.6574 50.625 57.6574C50.4402 57.6574 50.2572 57.6209 50.0865 57.5502C49.9158 57.4794 49.7607 57.3757 49.6301 57.2449L41.1926 48.8074C40.9287 48.5436 40.7805 48.1857 40.7805 47.8125C40.7805 47.4393 40.9287 47.0814 41.1926 46.8176C41.4564 46.5537 41.8143 46.4055 42.1875 46.4055C42.5607 46.4055 42.9186 46.5537 43.1824 46.8176L50.625 54.2602L66.5051 38.3801C66.6357 38.2493 66.7908 38.1456 66.9615 38.0748C67.1322 38.0041 67.3152 37.9676 67.5 37.9676C67.6848 37.9676 67.8678 38.0041 68.0385 38.0748C68.2092 38.1456 68.3643 38.2493 68.4949 38.3801Z" fill="#0A1A2F" />
+              <path class="transition-all ease-in-out group-hover:fill-teal-400" d="M56.25 15.4688C50.5891 15.4739 45.0487 17.1039 40.2869 20.165C35.5251 23.2261 31.742 27.5897 29.3871 32.7375C28.0447 32.476 26.6802 32.3441 25.3125 32.3438C19.7181 32.3438 14.3528 34.5661 10.397 38.522C6.44112 42.4778 4.21875 47.8431 4.21875 53.4375C4.21875 59.0319 6.44112 64.3972 10.397 68.353C14.3528 72.3089 19.7181 74.5312 25.3125 74.5312H56.25C64.0822 74.5312 71.5936 71.4199 77.1317 65.8817C82.6699 60.3436 85.7812 52.8322 85.7812 45C85.7812 37.1678 82.6699 29.6564 77.1317 24.1183C71.5936 18.5801 64.0822 15.4688 56.25 15.4688ZM56.25 71.7188H25.3125C22.7861 71.7165 20.2875 71.1906 17.9745 70.1742C15.6615 69.1579 13.5843 67.6731 11.874 65.8137C10.1636 63.9542 8.85721 61.7604 8.03725 59.3708C7.21728 56.9811 6.90153 54.4474 7.10993 51.9296C7.31833 49.4117 8.04635 46.9644 9.24804 44.7421C10.4497 42.5197 12.099 40.5706 14.0918 39.0176C16.0846 37.4647 18.3777 36.3417 20.8263 35.7194C23.2749 35.0972 25.8259 34.9892 28.3184 35.4023C27.256 38.4906 26.7154 41.7342 26.7188 45C26.7187 45.373 26.8669 45.7306 27.1306 45.9944C27.3944 46.2581 27.752 46.4062 28.125 46.4062C28.498 46.4062 28.8556 46.2581 29.1194 45.9944C29.3831 45.7306 29.5312 45.373 29.5312 45C29.5313 39.7155 31.0983 34.5497 34.0342 30.1559C36.9701 25.762 41.143 22.3374 46.0252 20.3151C50.9074 18.2928 56.2796 17.7637 61.4626 18.7946C66.6455 19.8256 71.4063 22.3703 75.143 26.107C78.8797 29.8437 81.4244 34.6045 82.4554 39.7874C83.4863 44.9704 82.9572 50.3426 80.9349 55.2248C78.9126 60.107 75.488 64.2799 71.0941 67.2158C66.7003 70.1517 61.5345 71.7187 56.25 71.7188ZM68.4949 38.3801C68.6257 38.5107 68.7294 38.6658 68.8002 38.8365C68.8709 39.0072 68.9074 39.1902 68.9074 39.375C68.9074 39.5598 68.8709 39.7428 68.8002 39.9135C68.7294 40.0842 68.6257 40.2393 68.4949 40.3699L51.6199 57.2449C51.4893 57.3757 51.3342 57.4794 51.1635 57.5502C50.9928 57.6209 50.8098 57.6574 50.625 57.6574C50.4402 57.6574 50.2572 57.6209 50.0865 57.5502C49.9158 57.4794 49.7607 57.3757 49.6301 57.2449L41.1926 48.8074C40.9287 48.5436 40.7805 48.1857 40.7805 47.8125C40.7805 47.4393 40.9287 47.0814 41.1926 46.8176C41.4564 46.5537 41.8143 46.4055 42.1875 46.4055C42.5607 46.4055 42.9186 46.5537 43.1824 46.8176L50.625 54.2602L66.5051 38.3801C66.6357 38.2493 66.7908 38.1456 66.9615 38.0748C67.1322 38.0041 67.3152 37.9676 67.5 37.9676C67.6848 37.9676 67.8678 38.0041 68.0385 38.0748C68.2092 38.1456 68.3643 38.2493 68.4949 38.3801Z" fill="#061021" />
             </svg>
             <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F" />
+              <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#061021" />
               <path d="M60.6948 96.96C55.6388 96.96 51.3188 96.128 47.7348 94.464C44.1508 92.8 41.3988 90.528 39.4788 87.648C37.5588 84.768 36.5988 81.568 36.5988 78.048V76.224H50.2308C50.2308 79.68 51.2548 82.08 53.3028 83.424C55.4148 84.704 58.1028 85.344 61.3668 85.344C64.7588 85.344 67.4788 84.64 69.5268 83.232C71.5748 81.76 72.5988 79.392 72.5988 76.128C72.5988 74.08 72.1508 72.416 71.2548 71.136C70.4228 69.792 69.2708 68.8 67.7988 68.16C66.3908 67.52 64.7908 67.2 62.9988 67.2H53.7828V57.408H61.7508C63.4788 57.408 65.0468 57.088 66.4548 56.448C67.8628 55.808 68.9828 54.848 69.8148 53.568C70.6468 52.288 71.0628 50.688 71.0628 48.768C71.0628 47.04 70.6468 45.6 69.8148 44.448C68.9828 43.232 67.7988 42.336 66.2628 41.76C64.7908 41.12 63.1268 40.8 61.2708 40.8C58.1988 40.8 55.7988 41.536 54.0708 43.008C52.3428 44.48 51.4788 46.528 51.4788 49.152H38.5188V47.04C38.5188 43.584 39.5188 40.512 41.4388 37.824C43.4228 35.136 46.1428 33.024 49.5988 31.488C53.0548 29.952 57.0228 29.184 61.5028 29.184H63.7108C68.0628 29.184 71.9028 29.952 75.2308 31.488C78.6228 33.024 81.2788 35.136 83.1988 37.824C85.1188 40.512 86.0788 43.552 86.0788 46.944C86.0788 49.248 85.6628 51.328 84.8308 53.184C83.9988 55.04 82.8468 56.64 81.3748 57.984C79.9668 59.328 78.3348 60.448 76.4788 61.344V62.016C79.8708 63.168 82.5908 65.088 84.6388 67.776C86.7508 70.464 87.8068 73.888 87.8068 78.048C87.8068 81.632 86.8468 84.864 84.9268 87.744C83.0068 90.56 80.2228 92.8 76.5748 94.464C72.9908 96.128 68.7028 96.96 63.7108 96.96H60.6948Z" fill="white" />
             </svg>
             <svg class="w-16 h-16 transition-all ease-in-out group-hover:h-20 group-hover:w-20" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path class="transition-all ease-in-out group-hover:fill-teal-400"
-                d="M88.1469 38.5629L79.1716 20.6332C78.9239 20.1375 78.581 19.6955 78.1625 19.3324C77.744 18.9693 77.2581 18.6922 76.7325 18.5169C76.2069 18.3415 75.6519 18.2715 75.0992 18.3107C74.5466 18.3499 74.007 18.4976 73.5114 18.7453L64.2934 23.3367L45.3512 18.3305C45.1208 18.2697 44.8786 18.2697 44.6481 18.3305L25.7059 23.3367L16.488 18.7277C15.9924 18.48 15.4528 18.3323 14.9001 18.2931C14.3474 18.2539 13.7924 18.324 13.2668 18.4993C12.7412 18.6746 12.2553 18.9517 11.8368 19.3148C11.4183 19.678 11.0755 20.12 10.8278 20.6156L1.85241 38.5629C1.60468 39.0585 1.45699 39.598 1.4178 40.1507C1.3786 40.7034 1.44866 41.2584 1.62397 41.784C1.79928 42.3096 2.07641 42.7955 2.43953 43.214C2.80266 43.6325 3.24466 43.9754 3.74031 44.223L13.3344 49.0219L32.9341 63.0211C33.0767 63.1237 33.2379 63.1977 33.4087 63.239L55.9087 68.864C56.1428 68.9254 56.3887 68.9252 56.6228 68.8636C56.8568 68.802 57.071 68.6811 57.2446 68.5125L76.7704 48.9867L86.2626 44.2406C86.7582 43.993 87.2002 43.6501 87.5633 43.2316C87.9265 42.8131 88.2036 42.3272 88.3789 41.8016C88.5542 41.276 88.6243 40.721 88.5851 40.1683C88.5459 39.6156 88.3982 39.0761 88.1505 38.5805L88.1469 38.5629ZM70.2173 51.5531L57.1391 41.0765C56.8684 40.8593 56.5268 40.7499 56.1802 40.7694C55.8337 40.7888 55.5065 40.9358 55.2618 41.182C48.4098 48.0867 40.7282 47.1972 35.8239 44.0648C35.6434 43.949 35.4912 43.7941 35.3786 43.6115C35.266 43.429 35.1959 43.2234 35.1735 43.0101C35.1495 42.8048 35.1721 42.5967 35.2397 42.4013C35.3073 42.2059 35.418 42.0283 35.5637 41.8816L51.1942 26.7187H63.8188L74.2251 47.5348L70.2173 51.5531ZM4.29226 40.8937C4.17983 40.5455 4.20758 40.1672 4.3696 39.839L13.3591 21.8742C13.4744 21.642 13.6517 21.4463 13.8713 21.3085C14.0909 21.1708 14.3444 21.0965 14.6036 21.0937C14.8211 21.0951 15.0353 21.1468 15.2294 21.2449L23.6669 25.4637L13.4329 45.9281L4.99538 41.7094C4.83035 41.6263 4.6833 41.5115 4.56266 41.3715C4.44201 41.2316 4.35013 41.0692 4.29226 40.8937ZM55.8173 65.9426L34.3509 60.5742L15.8587 47.366L26.5251 26.0156L44.9997 21.143L55.4481 23.9062H50.6247C50.2585 23.9059 49.9066 24.0484 49.6438 24.3035L33.5774 39.8883C33.1303 40.3354 32.7894 40.8773 32.5799 41.474C32.3705 42.0706 32.2979 42.7067 32.3674 43.3352C32.4369 43.9638 32.6469 44.5686 32.9817 45.105C33.3165 45.6415 33.7676 46.0958 34.3016 46.4344C41.2907 50.9027 49.8161 49.95 56.3305 44.0402L68.2028 53.5535L55.8173 65.9426ZM85.7001 40.8937C85.6422 41.0692 85.5503 41.2316 85.4297 41.3715C85.309 41.5115 85.162 41.6263 84.9969 41.7094L76.5594 45.9281L66.3325 25.4637L74.77 21.2449C75.1019 21.0833 75.4841 21.0587 75.8341 21.1764C76.184 21.2942 76.4736 21.5448 76.6403 21.8742L85.6157 39.8215C85.7871 40.1526 85.82 40.5383 85.7071 40.8937H85.7001ZM44.9786 76.289C44.9005 76.5913 44.7241 76.859 44.4772 77.05C44.2302 77.2409 43.9267 77.3443 43.6145 77.3437C43.496 77.3442 43.378 77.33 43.263 77.3015L28.6098 73.6347C28.4382 73.5928 28.276 73.5188 28.1317 73.4168L18.8716 66.7969C18.5681 66.5801 18.3631 66.2516 18.3018 65.8837C18.2405 65.5158 18.3278 65.1386 18.5446 64.8351C18.7614 64.5316 19.0899 64.3267 19.4577 64.2654C19.8256 64.2041 20.2028 64.2914 20.5063 64.5082L29.5485 70.9664L43.9626 74.5699C44.1426 74.6154 44.3118 74.6961 44.4604 74.8073C44.6091 74.9185 44.7343 75.058 44.8287 75.2178C44.9232 75.3776 44.985 75.5546 45.0108 75.7384C45.0365 75.9223 45.0256 76.1094 44.9786 76.289Z" fill="#0A1A2F" />
+                d="M88.1469 38.5629L79.1716 20.6332C78.9239 20.1375 78.581 19.6955 78.1625 19.3324C77.744 18.9693 77.2581 18.6922 76.7325 18.5169C76.2069 18.3415 75.6519 18.2715 75.0992 18.3107C74.5466 18.3499 74.007 18.4976 73.5114 18.7453L64.2934 23.3367L45.3512 18.3305C45.1208 18.2697 44.8786 18.2697 44.6481 18.3305L25.7059 23.3367L16.488 18.7277C15.9924 18.48 15.4528 18.3323 14.9001 18.2931C14.3474 18.2539 13.7924 18.324 13.2668 18.4993C12.7412 18.6746 12.2553 18.9517 11.8368 19.3148C11.4183 19.678 11.0755 20.12 10.8278 20.6156L1.85241 38.5629C1.60468 39.0585 1.45699 39.598 1.4178 40.1507C1.3786 40.7034 1.44866 41.2584 1.62397 41.784C1.79928 42.3096 2.07641 42.7955 2.43953 43.214C2.80266 43.6325 3.24466 43.9754 3.74031 44.223L13.3344 49.0219L32.9341 63.0211C33.0767 63.1237 33.2379 63.1977 33.4087 63.239L55.9087 68.864C56.1428 68.9254 56.3887 68.9252 56.6228 68.8636C56.8568 68.802 57.071 68.6811 57.2446 68.5125L76.7704 48.9867L86.2626 44.2406C86.7582 43.993 87.2002 43.6501 87.5633 43.2316C87.9265 42.8131 88.2036 42.3272 88.3789 41.8016C88.5542 41.276 88.6243 40.721 88.5851 40.1683C88.5459 39.6156 88.3982 39.0761 88.1505 38.5805L88.1469 38.5629ZM70.2173 51.5531L57.1391 41.0765C56.8684 40.8593 56.5268 40.7499 56.1802 40.7694C55.8337 40.7888 55.5065 40.9358 55.2618 41.182C48.4098 48.0867 40.7282 47.1972 35.8239 44.0648C35.6434 43.949 35.4912 43.7941 35.3786 43.6115C35.266 43.429 35.1959 43.2234 35.1735 43.0101C35.1495 42.8048 35.1721 42.5967 35.2397 42.4013C35.3073 42.2059 35.418 42.0283 35.5637 41.8816L51.1942 26.7187H63.8188L74.2251 47.5348L70.2173 51.5531ZM4.29226 40.8937C4.17983 40.5455 4.20758 40.1672 4.3696 39.839L13.3591 21.8742C13.4744 21.642 13.6517 21.4463 13.8713 21.3085C14.0909 21.1708 14.3444 21.0965 14.6036 21.0937C14.8211 21.0951 15.0353 21.1468 15.2294 21.2449L23.6669 25.4637L13.4329 45.9281L4.99538 41.7094C4.83035 41.6263 4.6833 41.5115 4.56266 41.3715C4.44201 41.2316 4.35013 41.0692 4.29226 40.8937ZM55.8173 65.9426L34.3509 60.5742L15.8587 47.366L26.5251 26.0156L44.9997 21.143L55.4481 23.9062H50.6247C50.2585 23.9059 49.9066 24.0484 49.6438 24.3035L33.5774 39.8883C33.1303 40.3354 32.7894 40.8773 32.5799 41.474C32.3705 42.0706 32.2979 42.7067 32.3674 43.3352C32.4369 43.9638 32.6469 44.5686 32.9817 45.105C33.3165 45.6415 33.7676 46.0958 34.3016 46.4344C41.2907 50.9027 49.8161 49.95 56.3305 44.0402L68.2028 53.5535L55.8173 65.9426ZM85.7001 40.8937C85.6422 41.0692 85.5503 41.2316 85.4297 41.3715C85.309 41.5115 85.162 41.6263 84.9969 41.7094L76.5594 45.9281L66.3325 25.4637L74.77 21.2449C75.1019 21.0833 75.4841 21.0587 75.8341 21.1764C76.184 21.2942 76.4736 21.5448 76.6403 21.8742L85.6157 39.8215C85.7871 40.1526 85.82 40.5383 85.7071 40.8937H85.7001ZM44.9786 76.289C44.9005 76.5913 44.7241 76.859 44.4772 77.05C44.2302 77.2409 43.9267 77.3443 43.6145 77.3437C43.496 77.3442 43.378 77.33 43.263 77.3015L28.6098 73.6347C28.4382 73.5928 28.276 73.5188 28.1317 73.4168L18.8716 66.7969C18.5681 66.5801 18.3631 66.2516 18.3018 65.8837C18.2405 65.5158 18.3278 65.1386 18.5446 64.8351C18.7614 64.5316 19.0899 64.3267 19.4577 64.2654C19.8256 64.2041 20.2028 64.2914 20.5063 64.5082L29.5485 70.9664L43.9626 74.5699C44.1426 74.6154 44.3118 74.6961 44.4604 74.8073C44.6091 74.9185 44.7343 75.058 44.8287 75.2178C44.9232 75.3776 44.985 75.5546 45.0108 75.7384C45.0365 75.9223 45.0256 76.1094 44.9786 76.289Z" fill="#061021" />
             </svg>
           </div>
           <div class="howW__body">
@@ -2894,8 +2981,8 @@
     [data-howworks] .howW__itemTitle{margin:0 0 clamp(4px,.8vh,8px); color:#f8fafc;}
     [data-howworks] .howW__itemCopy{margin:0; color:rgba(203,213,225,.88); line-height:1.6; max-width:52ch;}
     [data-howworks] .howW__cta{margin-top:clamp(20px,3vw,28px);}
-    [data-howworks] .howW__ctaButton{display:inline-flex; align-items:center; gap:12px; padding:clamp(12px,1.6vw,14px) clamp(24px,2.8vw,30px); border-radius:999px; background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); color:#0A1A2F; font-weight:700; letter-spacing:.04em; text-transform:uppercase; text-decoration:none; box-shadow:0 18px 48px rgba(0,187,167,.32); transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;}
-    [data-howworks] .howW__ctaButton img{width:20px; height:20px; filter:invert(1) saturate(2);}
+    [data-howworks] .howW__ctaButton{display:inline-flex; align-items:center; gap:12px; padding:clamp(12px,1.6vw,14px) clamp(24px,2.8vw,30px); border-radius:999px; background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); color:#061021; font-weight:700; letter-spacing:.04em; text-transform:uppercase; text-decoration:none; box-shadow:0 18px 48px rgba(0,187,167,.32); transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;}
+    [data-howworks] .howW__ctaButton img{width:20px; height:20px; filter:none;}
     [data-howworks] .howW__ctaButton:hover,
     [data-howworks] .howW__ctaButton:focus-visible{transform:translateY(-2px); box-shadow:0 28px 60px rgba(0,187,167,.42); filter:brightness(1.06);}
     [data-howworks] .howW__ctaButton:focus-visible{outline:2px solid rgba(102,199,232,.7); outline-offset:4px;}
@@ -2914,7 +3001,7 @@
     [data-howworks] .c-textarea{resize:vertical; min-height:140px;}
     [data-howworks] .c-actions{display:flex; flex-wrap:wrap; gap:clamp(12px,2vw,16px); align-items:center;}
     [data-howworks] .c-btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:clamp(.9rem,2.2vw,1rem) clamp(1.4rem,2.8vw,1.8rem); border-radius:999px; font-weight:700; text-decoration:none; cursor:pointer; border:0; transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;}
-    [data-howworks] .c-btn--primary{background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); color:#0A1A2F; box-shadow:0 18px 48px rgba(0,187,167,.32);}
+    [data-howworks] .c-btn--primary{background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); color:#061021; box-shadow:0 18px 48px rgba(0,187,167,.32);}
     [data-howworks] .c-btn--primary:hover,
     [data-howworks] .c-btn--primary:focus-visible{transform:translateY(-2px); box-shadow:0 28px 60px rgba(0,187,167,.42); filter:brightness(1.05);}
     [data-howworks] .c-btn--ghost{background:transparent; color:#a5f3fc; border:1px solid rgba(148,204,255,.4);}
@@ -2936,7 +3023,7 @@
 <section style="padding:clamp(80px,14vh,220px) var(--pad); background:#000; min-height:92svh; display:flex; align-items:center;">
   <div style="max-width:var(--max); margin:0 auto; text-align:center; width:100%;">
     <p style="margin:0 0 6px; color:var(--muted); text-transform:uppercase; letter-spacing:.18em; font-weight:800; font-size:.8rem;">Resources</p>
-    <h2 style="margin:0 0 8px; color:var(--ink); font-size:clamp(26px,5vw,44px); font-weight:800; letter-spacing:-.015em;">Latest insights to keep you secure</h2>
+    <h2 class="heading-xl" style="margin:0 0 8px; color:var(--ink);">Latest insights to <span style="color:#00BBA7;">keep you secure</span></h2>
     <p style="margin:0 0 22px; color:var(--muted); font-size:clamp(14px,2.4vw,18px);">Practical guidance for non-technical leaders.</p>
 
     <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px); text-align:left;">
@@ -2946,8 +3033,8 @@
         {t:'MFA fatigue attacks', d:'Stop push bombing without user pain.'}
       ] %}
       <article style="padding:22px; border:1px solid var(--border); border-radius:14px; background:var(--card);">
-        <div style="margin:0 0 10px; aspect-ratio:16/9; border-radius:12px; border:1px solid var(--border); background:linear-gradient(180deg,#0A1A2F,#0A1A2F); display:grid; place-items:center; color:var(--muted); font-size:.9rem;">Thumbnail</div>
-        <h3 style="margin:0 0 6px; color:var(--ink); font-size:1.1rem; font-weight:800; letter-spacing:-.01em;">{{ res.t }}</h3>
+        <div style="margin:0 0 10px; aspect-ratio:16/9; border-radius:12px; border:1px solid var(--border); background:linear-gradient(180deg,#061021,#061021); display:grid; place-items:center; color:var(--muted); font-size:.9rem;">Thumbnail</div>
+        <h3 style="margin:0 0 6px; color:var(--ink); font-size:1.1rem; font-weight:700; letter-spacing:-.01em;">{{ res.t }}</h3>
         <p style="margin:0 0 10px; color:var(--muted);">{{ res.d }}</p>
         <a href="#" style="display:inline-flex; font-weight:800; color:var(--ink); text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--ink)'">Read →</a>
       </article>
@@ -2955,9 +3042,10 @@
     </div>
 
     <div style="margin-top:18px;">
-      <a href="/resources/" style="display:inline-flex; align-items:center; gap:.6rem; padding:.7rem 1.1rem; font-weight:700; border-radius:999px; background:var(--brand); color:#fff; text-decoration:none; box-shadow:0 6px 22px rgba(0,187,167,.35);">
+      <a href="/resources/"
+         style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); color:#fff; background:var(--brand); border-radius:999px; text-decoration:none; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
         Visit Resource Center
-        <img src="/images/icons/ArrowUpRightWhite.svg" alt="" style="height:18px; filter:invert(1) brightness(1.6);">
+        <img src="/images/icons/ArrowUpRightWhite.svg" alt="Visit Resource Center" style="height:18px;">
       </a>
     </div>
   </div>
@@ -2969,9 +3057,9 @@
 
 
 
-<section class="section-block text-center" style="position:relative; color:#fff; background:linear-gradient(180deg,#0A1A2F 0%, #0A1A2F81 50%, #0A1A2F43 100%) !important; background-color:#000000;">
+<section class="section-block text-center" style="position:relative; color:#fff; background:linear-gradient(180deg,#061021 0%, #06102181 50%, #06102143 100%) !important; background-color:#000000;">
   <div class="section-shell stack-lg">
-    <h2 class="heading-lg">Here's How it Works</h2>
+    <h2 class="heading-xl">Here's <span style="color:#00BBA7;">How it Works</span></h2>
     <div class="container threeSteps__cards grid max-w-screen-xl grid-cols-1 gap-4 mx-auto text-center md:grid-cols-3">
       <div class="threeSteps__card col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-10 group hover:border-teal-400">
       <div class="flex items-center justify-center gap-4 mb-6">
@@ -2989,10 +3077,10 @@
                                                         62.8699C41.6456 63.0007 41.4905 63.1044 41.3198 63.1752C41.149 63.2459 40.9661 63.2824 40.7812 63.2824C40.5964 63.2824 40.4135 63.2459 40.2427 63.1752C40.072 63.1044 39.9169 63.0007 39.7863
                                                         62.8699L31.3488 54.4324C31.085 54.1686 30.9367 53.8107 30.9367 53.4375C30.9367 53.0643 31.085 52.7064 31.3488 52.4426C31.6127 52.1787 31.9706 52.0305 32.3438 52.0305C32.7169 52.0305 33.0748 52.1787
                                                         33.3387 52.4426L40.7812 59.8852L56.6613 44.0051C56.7919 43.8743 56.947 43.7706 57.1177 43.6998C57.2885 43.6291 57.4714 43.5926 57.6562 43.5926C57.8411 43.5926 58.024 43.6291 58.1948 43.6998C58.3655
-                                                        43.7706 58.5206 43.8743 58.6512 44.0051Z" fill="#0A1A2F" />
+                                                        43.7706 58.5206 43.8743 58.6512 44.0051Z" fill="#061021" />
         </svg>
         <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F"/>
+          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#061021"/>
           <path d="M40.9188 96V84.096H56.6628V46.656H40.9188V37.824C43.4788 37.632 46.2308 37.12 49.1748 36.288C52.1828 35.456 55.1588 34.432 58.1028 33.216C61.1108 31.936 63.8948 30.592 66.4548
                                                         29.184H71.6388V84.096H86.9988V96H40.9188Z" fill="white" />
         </svg>
@@ -3013,10 +3101,10 @@
                                                         43.7864 27.4219 43.1789C27.4536 43.1297 27.4887 43.0875 27.5239 43.0418L34.9735 34.1824C35.0851 33.9925 35.1506 33.7791 35.1647 33.5592C35.1787 33.3394 35.1409 33.1193 35.0543 32.9168L27.6223
                                                         16.3441C27.5176 16.0872 27.3392 15.867 27.1096 15.7113C26.88 15.5555 26.6095 15.4711 26.3321 15.4687C26.2759 15.4653 26.2195 15.4653 26.1633 15.4687C22.4166 15.9652 18.9789 17.8093 16.493
                                                         20.6562C14.0071 23.5031 12.6432 27.158 12.6563 30.9375C12.6563 56.5242 33.4758 77.3437 59.0625 77.3437C62.842 77.3568 66.4969 75.9929 69.3438 73.507C72.1908 71.0212 74.0348 67.5835 74.5313
-                                                        63.8367C74.5637 63.5351 74.4977 63.231 74.3431 62.97C74.1885 62.7089 73.9536 62.5049 73.6735 62.3883H73.684Z" fill="#0A1A2F" />
+                                                        63.8367C74.5637 63.5351 74.4977 63.231 74.3431 62.97C74.1885 62.7089 73.9536 62.5049 73.6735 62.3883H73.684Z" fill="#061021" />
         </svg>
       </div>
-      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont heading-md mb-xs">Schedule a Call</h3>
+      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-inter heading-md mb-xs">Schedule a Call</h3>
       <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light group-hover:text-white">Reach out to us, and we'll learn about your business and IT needs.</p>
     </div>
     <div class="threeSteps__card col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-10 group hover:border-teal-400">
@@ -3031,10 +3119,10 @@
                                                         12.6563 16.875 12.6563H45C45.373 12.6563 45.7306 12.8044 45.9944 13.0681C46.2581 13.3319 46.4062 13.6895 46.4062 14.0625C46.4062 14.4355 46.2581 14.7932 45.9944 15.0569C45.7306 15.3206 45.373 15.4688
                                                         45 15.4688H16.875C16.502 15.4688 16.1444 15.6169 15.8806 15.8806C15.6169 16.1444 15.4688 16.502 15.4688 16.875V73.125C15.4688 73.498 15.6169 73.8557 15.8806 74.1194C16.1444 74.3831 16.502 74.5313
                                                         16.875 74.5313H73.125C73.498 74.5313 73.8556 74.3831 74.1194 74.1194C74.3831 73.8557 74.5312 73.498 74.5312 73.125V45C74.5312 44.627 74.6794 44.2694 74.9431 44.0056C75.2069 43.7419 75.5645 43.5938
-                                                        75.9375 43.5938C76.3105 43.5938 76.6681 43.7419 76.9319 44.0056C77.1956 44.2694 77.3438 44.627 77.3438 45Z" fill="#0A1A2F" />
+                                                        75.9375 43.5938C76.3105 43.5938 76.6681 43.7419 76.9319 44.0056C77.1956 44.2694 77.3438 44.627 77.3438 45Z" fill="#061021" />
         </svg>
         <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F" />
+          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#061021" />
           <path
             d="M37.4428 96V92.832C37.4428 89.056 38.0828 85.792 39.3628 83.04C40.6428 80.224 42.7868 77.728 45.7948 75.552L64.8988 61.728C66.8188 60.256 68.3228 58.56 69.4108 56.64C70.4988 54.72 71.0428 52.608
                                                         71.0428 50.304C71.0428 47.552 70.2428 45.376 68.6428 43.776C67.1068 42.112 64.7068 41.28 61.4427 41.28C59.5227 41.28 57.7948 41.696 56.2588 42.528C54.7868 43.296 53.6348 44.416 52.8028 45.888C51.9708
@@ -3056,10 +3144,10 @@
                                                         16.7751C66.7538 18.7417 68.0932 21.2474 68.6358 23.9753C69.1784 26.7032 68.8999 29.5307 67.8355 32.1002C66.7712 34.6698 64.9687 36.8661 62.6562 38.4113C60.3436 39.9565 57.6248 40.7813 54.8435
                                                         40.7813C51.1139 40.7813 47.537 39.2997 44.8998 36.6624C42.2625 34.0252 40.781 30.4484 40.781 26.7188ZM78.7497 52.0313H47.8122C47.4393 52.0313 47.0816 52.1794 46.8178 52.4431C46.5541 52.7069 46.406
                                                         53.0645 46.406 53.4375V73.125C46.406 73.498 46.5541 73.8557 46.8178 74.1194C47.0816 74.3831 47.4393 74.5313 47.8122 74.5313H78.7497C79.1227 74.5313 79.4804 74.3831 79.7441 74.1194C80.0078 73.8557
-                                                        80.156 73.498 80.156 73.125V53.4375C80.156 53.0645 80.0078 52.7069 79.7441 52.4431C79.4804 52.1794 79.1227 52.0313 78.7497 52.0313ZM77.3435 71.7188H49.2185V54.8438H77.3435V71.7188Z" fill="#0A1A2F" />
+                                                        80.156 73.498 80.156 73.125V53.4375C80.156 53.0645 80.0078 52.7069 79.7441 52.4431C79.4804 52.1794 79.1227 52.0313 78.7497 52.0313ZM77.3435 71.7188H49.2185V54.8438H77.3435V71.7188Z" fill="#061021" />
         </svg>
       </div>
-      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont heading-md mb-xs">Get a Tailored Plan</h3>
+      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-inter heading-md mb-xs">Get a Tailored Plan</h3>
       <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light group-hover:text-white">We'll craft a plan tailored to protect, optimize, and empower your business.</p>
     </div>
     <div class="threeSteps__card col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-10 group hover:border-teal-400">
@@ -3077,10 +3165,10 @@
                                                         51.3342 57.4794 51.1635 57.5502C50.9928 57.6209 50.8098 57.6574 50.625 57.6574C50.4402 57.6574 50.2572 57.6209 50.0865 57.5502C49.9158 57.4794 49.7607 57.3757 49.6301 57.2449L41.1926 48.8074C40.9287
                                                         48.5436 40.7805 48.1857 40.7805 47.8125C40.7805 47.4393 40.9287 47.0814 41.1926 46.8176C41.4564 46.5537 41.8143 46.4055 42.1875 46.4055C42.5607 46.4055 42.9186 46.5537 43.1824 46.8176L50.625
                                                         54.2602L66.5051 38.3801C66.6357 38.2493 66.7908 38.1456 66.9615 38.0748C67.1322 38.0041 67.3152 37.9676 67.5 37.9676C67.6848 37.9676 67.8678 38.0041 68.0385 38.0748C68.2092 38.1456 68.3643 38.2493
-                                                        68.4949 38.3801Z" fill="#0A1A2F" />
+                                                        68.4949 38.3801Z" fill="#061021" />
         </svg>
         <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F" />
+          <circle class="transition-all ease-in-out fill-slate-800 group-hover:fill-teal-400" cx="62.5" cy="62.5" r="62.5" fill="#061021" />
           <path d="M60.6948 96.96C55.6388 96.96 51.3188 96.128 47.7348 94.464C44.1508 92.8 41.3988 90.528 39.4788 87.648C37.5588 84.768 36.5988 81.568 36.5988 78.048V76.224H50.2308C50.2308 79.68 51.2548 82.08 53.3028
                                                         83.424C55.4148 84.704 58.1028 85.344 61.3668 85.344C64.7588 85.344 67.4788 84.64 69.5268 83.232C71.5748 81.76 72.5988 79.392 72.5988 76.128C72.5988 74.08 72.1508 72.416 71.2548 71.136C70.4228 69.792
                                                         69.2708 68.8 67.7988 68.16C66.3908 67.52 64.7908 67.2 62.9988 67.2H53.7828V57.408H61.7508C63.4788 57.408 65.0468 57.088 66.4548 56.448C67.8628 55.808 68.9828 54.848 69.8148 53.568C70.6468 52.288
@@ -3110,15 +3198,15 @@
                                                         44.4772 77.05C44.2302 77.2409 43.9267 77.3443 43.6145 77.3437C43.496 77.3442 43.378 77.33 43.263 77.3015L28.6098 73.6347C28.4382 73.5928 28.276 73.5188 28.1317 73.4168L18.8716 66.7969C18.5681 66.5801
                                                         18.3631 66.2516 18.3018 65.8837C18.2405 65.5158 18.3278 65.1386 18.5446 64.8351C18.7614 64.5316 19.0899 64.3267 19.4577 64.2654C19.8256 64.2041 20.2028 64.2914 20.5063 64.5082L29.5485 70.9664L43.9626
                                                         74.5699C44.1426 74.6154 44.3118 74.6961 44.4604 74.8073C44.6091 74.9185 44.7343 75.058 44.8287 75.2178C44.9232 75.3776 44.985 75.5546 45.0108 75.7384C45.0365 75.9223 45.0256 76.1094 44.9786 76.289Z"
-            fill="#0A1A2F" />
+            fill="#061021" />
         </svg>
       </div>
-      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont heading-md mb-xs">Enjoy Reliable IT</h3>
+      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-inter heading-md mb-xs">Enjoy Reliable IT</h3>
       <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light group-hover:text-white">Let us handle the technology while you focus on growing your business.</p>
     </div>
     <div class="threeSteps__ctaWrap" aria-label="Schedule a consultation">
       <div class="threeSteps__ctaCard">
-        <h3 class="threeSteps__ctaTitle">Elevate Your IT.</h3>
+        <h2 class="heading-xl threeSteps__ctaTitle">Elevate Your IT.</h2>
         <div class="threeSteps__ctaBody">
           <div class="threeSteps__ctaContent">
             <p class="threeSteps__ctaCopy">Schedule a 15-minute Right-Fit Call and let’s create your roadmap forward.</p>
@@ -3133,12 +3221,12 @@
     </div>
   </div>
   </div>
-  <div class="mt-12">
-    <button>
-      <a href="https://l3networks.timezest.com/sales/meeting-15" class="block w-auto px-6 py-2.5 mx-auto text-lg font-semibold text-white transition-all ease-in-out bg-teal-500 rounded-full hover:bg-teal-600">
-        <div class="flex items-center gap-2">Get Your Free Assessment <img src="/images/icons/ArrowUpRightWhite.svg" alt="Get Your Free Assessment"></div>
-      </a>
-    </button>
+  <div class="mt-12" style="text-align:center;">
+    <a href="https://l3networks.timezest.com/sales/meeting-15"
+       style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); color:#fff; background:#00BBA7; border-radius:999px; text-decoration:none; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
+      Get Your Free Assessment
+      <img src="/images/icons/ArrowUpRightWhite.svg" alt="Get Your Free Assessment" style="height:18px;">
+    </a>
   </div>
   <style>
     .threeSteps__cards{

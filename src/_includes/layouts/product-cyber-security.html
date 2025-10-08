@@ -13,7 +13,7 @@
         {% if heroEyebrow %}
         <span class="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-semibold tracking-[0.28em] uppercase rounded-full border border-white/20 bg-white/5 text-teal-200/90">{{ heroEyebrow }}</span>
         {% endif %}
-        <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl font-mont">{{ mainTitle | safe }}</h1>
+        <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl font-inter">{{ mainTitle | safe }}</h1>
         <p class="text-lg font-light md:text-2xl text-slate-100/90">{{ subtitle }}</p>
         {% if heroDescription %}
         <p class="mt-6 text-lg font-light text-slate-200/90 md:text-xl">{{ heroDescription }}</p>
@@ -174,7 +174,7 @@
     <section class="frameworkJourney">
       <div class="frameworkJourney__wrap">
         <div class="max-w-3xl space-y-4">
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont text-white">Our Approach Through Elevate</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">Our Approach Through Elevate</h2>
         </div>
 
         <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -376,7 +376,7 @@
       <div class="cyberServices">
         <header class="cyberServices__head">
           {% if servicesTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">{{ servicesTitle }}</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ servicesTitle }}</h2>
           {% endif %}
           {% if servicesIntro %}
           <p class="cyber-body-lead">{{ servicesIntro }}</p>
@@ -496,7 +496,7 @@
         <div class="midCtaCard{% if midCta.glow %} midCtaCard--glow{% endif %}">
           <div class="midCtaContent">
             {% if midCta.title %}
-            <h2 class="text-3xl font-semibold md:text-4xl font-mont text-white">{{ midCta.title }}</h2>
+            <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">{{ midCta.title }}</h2>
             {% endif %}
             {% if midCta.body %}
             <p class="mt-4 text-lg font-light leading-relaxed text-slate-200 md:text-xl">{{ midCta.body }}</p>
@@ -590,7 +590,7 @@
       <div class="w-full max-w-[1180px] mx-auto space-y-10">
         <div class="max-w-3xl space-y-4 text-white">
           {% if proofTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">{{ proofTitle }}</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ proofTitle }}</h2>
           {% endif %}
           {% if proofIntro %}
           <p class="text-lg font-light text-slate-300 md:text-xl">{{ proofIntro }}</p>
@@ -703,7 +703,7 @@
                 </defs>
                 <rect x="40" y="50" width="1" height="120" fill="#e5e7eb"/>
                 <rect x="40" y="170" width="220" height="1" fill="#e5e7eb"/>
-                <g fill="#94a3b8" font-size="14" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial">
+                <g fill="#94a3b8" font-size="14" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial">
                   <text x="28" y="174">$</text>
                   <text x="28" y="144">$</text>
                   <text x="28" y="114">$</text>
@@ -713,8 +713,8 @@
                 <rect x="95" y="170" width="48" height="0" fill="url(#grad-red)" rx="6" ry="6" data-target-height="120" data-target-y="50"/>
                 <rect x="185" y="170" width="48" height="0" fill="url(#grad-teal)" rx="6" ry="6" data-target-height="84" data-target-y="86"/>
                 <rect x="166" y="66" width="86" height="24" rx="12" ry="12" fill="#ecfdf5" stroke="#a7f3d0" opacity="0" data-callout=""/>
-                <text x="209" y="83" text-anchor="middle" font-size="12" fill="#065f46" font-weight="800" font-family="system-ui" data-count-up data-target="2.2" data-prefix="−$" data-suffix="M" data-decimals="1" data-duration="1500">−$2.2M</text>
-                <g fill="#111827" font-size="12" font-family="system-ui">
+                <text x="209" y="83" text-anchor="middle" font-size="12" fill="#065f46" font-weight="800" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif" data-count-up data-target="2.2" data-prefix="−$" data-suffix="M" data-decimals="1" data-duration="1500">−$2.2M</text>
+                <g fill="#111827" font-size="12" font-family="'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif">
                   <text x="119" y="194" text-anchor="middle">Without</text>
                   <text x="209" y="194" text-anchor="middle">With</text>
                 </g>
@@ -738,7 +738,7 @@
           max-width:980px;
           margin:clamp(18px,3vh,28px) auto;
           padding:0 clamp(6px,1.4vw,14px);
-          font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial;
+          font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
         }
 
         @media(min-width:900px){
@@ -1052,7 +1052,7 @@
       <div class="w-full max-w-[1180px] mx-auto space-y-8">
         <div class="max-w-3xl space-y-4">
           {% if caseStudiesTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">{{ caseStudiesTitle }}</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ caseStudiesTitle }}</h2>
           {% endif %}
           {% if caseStudiesIntro %}
           <p class="text-lg font-light text-slate-300 md:text-xl">{{ caseStudiesIntro }}</p>
@@ -1177,7 +1177,7 @@
       <div class="w-full max-w-[1180px] mx-auto space-y-8">
         <div class="max-w-3xl space-y-4">
           {% if vendorsTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-mont">{{ vendorsTitle }}</h2>
+          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ vendorsTitle }}</h2>
           {% endif %}
         {% if vendorsBody %}
           <p class="text-lg font-light text-slate-300 md:text-xl">{{ vendorsBody }}</p>
@@ -1386,7 +1386,7 @@
           <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div class="max-w-3xl space-y-4">
               {% if bottomCta.title %}
-              <h2 class="text-3xl font-semibold text-white md:text-4xl font-mont">{{ bottomCta.title }}</h2>
+              <h2 class="text-3xl font-semibold text-white md:text-4xl font-inter">{{ bottomCta.title }}</h2>
               {% endif %}
               {% if bottomCta.body %}
               <p class="text-lg font-light leading-relaxed text-slate-200 md:text-xl">{{ bottomCta.body }}</p>
