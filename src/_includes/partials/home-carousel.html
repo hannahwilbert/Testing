@@ -4,58 +4,45 @@
   <div class="swiper-wrapper">
     <!-- Slides -->
 
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-16 mx-auto" height="64" src="images/home/clients/cjc.svg" alt="CJC"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/cjc.svg" alt="CJC">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-12 mx-auto" height="64" src="images/home/clients/atm.svg" alt="ATM"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/atm.svg" alt="ATM">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block mx-auto h-14" height="64" src="images/home/clients/maxpost.svg" alt="MaxPost"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/maxpost.svg" alt="MaxPost">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-16 mx-auto" height="64" src="images/home/clients/exodus.svg" alt="Exodus Recovery"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/exodus.svg" alt="Exodus Recovery">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-12 mx-auto" height="64" src="images/home/clients/dga.svg" alt="DGA"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/dga.svg" alt="DG Architects">
     </div>
-    
-
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-10 mx-auto" height="64" src="images/home/clients/razor.svg" alt="Razor logo"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/razor.svg" alt="Razor">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-8 mx-auto" height="64" src="images/home/clients/roland.svg" alt="Roland logo"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/roland.svg" alt="Roland">
     </div>
-    <div class="swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-10 mx-auto" height="64" src="images/home/clients/axs.svg" alt="AXS logo"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/axs.svg" alt="AXS">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-16 mx-auto" height="64" src="images/home/clients/computacenter.svg" alt="Computacenter logo"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/computacenter.svg" alt="Computacenter">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-8 mx-auto" height="64" src="images/home/clients/fremantle.svg" alt="Fremantle logo"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/fremantle.svg" alt="Fremantle">
     </div>
-
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-12 mx-auto" height="64" src="images/home/clients/mnx.svg" alt="MNX logo"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/mnx.svg" alt="MNX">
     </div>
-    <div class="flex align-middle swiper-slide">
-      <div class="grid content-center w-full h-full"><img class="block h-16 mx-auto" height="64" src="images/home/clients/op.svg" alt="ORIGINAL Productions by Fremantle Company logo"></div>
+    <div class="swiper-slide brandSlide">
+      <img class="brandSlide__logo" src="images/home/clients/op.svg" alt="Original Productions">
     </div>
 
 
  
-  </div>
-
-  <!-- If we need navigation buttons -->
-  <div
-    class="prev-swipe px-2 h-full w-8 bg-transparent absolute left-0 right-auto flex justify-center align-middle top-0.5 z-10 hover:bg-slate-800/30">
-    <img src="/images/home/swipe-left.svg" alt="Swipe left arrow">
-  </div>
-  <div
-    class="next-swipe px-2 h-full w-8 bg-transparent absolute right-0 left-auto flex justify-center align-middle top-0.5 z-10 hover:bg-slate-800/30">
-    <img src="/images/home/swipe-right.svg" alt="Swipe right arrow">
   </div>
 
 </div>
@@ -63,5 +50,31 @@
 <style>
   #swiper .swiper-wrapper{
     transition-timing-function: linear !important;
+  }
+
+  .brandSlide{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 clamp(32px,5vw,46px);
+    min-width:clamp(120px,12vw,180px);
+  }
+
+  .brandSlide__logo{
+    max-height:56px;
+    height:auto;
+    width:auto;
+    opacity:.9;
+    filter:contrast(1.05);
+  }
+
+  @media (max-width: 720px){
+    .brandSlide{
+      padding:0 clamp(20px,4vw,30px);
+      min-width:clamp(100px,32vw,140px);
+    }
+    .brandSlide__logo{
+      max-height:48px;
+    }
   }
 </style>
