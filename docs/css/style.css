@@ -4900,6 +4900,47 @@
     font-weight: 700 !important;
   }
 }
+@layer base {
+  :root {
+    --heading-xl: clamp(30px, 5.6vw, 52px);
+    --heading-lg: clamp(26px, 5vw, 44px);
+    --heading-md: clamp(22px, 4.4vw, 34px);
+    --body-lead: clamp(15px, 2.2vw, 19px);
+    --body-text: clamp(14px, 1.9vw, 16px);
+    --body-sm: clamp(13px, 1.7vw, 15px);
+  }
+  .heading-xl, .heading-lg, .heading-md {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.06;
+  }
+  .heading-xl {
+    font-size: var(--heading-xl);
+  }
+  .heading-lg {
+    font-size: var(--heading-lg);
+  }
+  .heading-md {
+    font-size: var(--heading-md);
+  }
+  .body-lead, .body-text, .body-sm {
+    margin: 0;
+    color: inherit;
+  }
+  .body-lead {
+    font-size: var(--body-lead);
+    line-height: 1.65;
+  }
+  .body-text {
+    font-size: var(--body-text);
+    line-height: 1.7;
+  }
+  .body-sm {
+    font-size: var(--body-sm);
+    line-height: 1.6;
+  }
+}
 html {
   scroll-behavior: smooth;
 }

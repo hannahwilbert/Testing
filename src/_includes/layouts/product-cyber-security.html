@@ -174,7 +174,7 @@
     <section class="frameworkJourney">
       <div class="frameworkJourney__wrap">
         <div class="max-w-3xl space-y-4">
-          <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">Our Approach Through Elevate</h2>
+          <h2 class="frameworkJourney__title heading-xl">Our Approach Through Elevate</h2>
         </div>
 
         <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -223,6 +223,12 @@
           flex-direction:column;
           gap:clamp(40px,7vh,72px);
           padding:0 clamp(22px,4.8vw,36px);
+        }
+
+        .frameworkJourney__title{
+          margin:0;
+          color:#f8fafc;
+          text-wrap:balance;
         }
 
         .frameworkJourney__wrap .framework-card{
@@ -384,7 +390,7 @@
       <div class="cyberServices">
         <header class="cyberServices__head">
           {% if servicesTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ servicesTitle }}</h2>
+          <h2 class="cyberServices__title heading-xl">{{ servicesTitle }}</h2>
           {% endif %}
           {% if servicesIntro %}
           <p class="cyber-body-lead">{{ servicesIntro }}</p>
@@ -425,6 +431,12 @@
           display:grid;
           gap:clamp(10px,1.8vh,16px);
           max-width:760px;
+        }
+
+        .cyberServices__title{
+          margin:0;
+          color:#f8fafc;
+          text-wrap:balance;
         }
 
         .cyberServices__grid{
@@ -501,10 +513,10 @@
     {% if midCta %}
     <section class="midCtaShell" style="margin-top:-1px; margin-bottom:-1px;">
       <div class="midCtaWrap">
-        <div class="midCtaCard{% if midCta.glow %} midCtaCard--glow{% endif %}">
+          <div class="midCtaCard{% if midCta.glow %} midCtaCard--glow{% endif %}">
           <div class="midCtaContent">
             {% if midCta.title %}
-            <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">{{ midCta.title }}</h2>
+            <h2 class="midCtaTitle heading-xl">{{ midCta.title }}</h2>
             {% endif %}
             {% if midCta.body %}
             <p class="mt-4 text-lg font-light leading-relaxed text-slate-200 md:text-xl">{{ midCta.body }}</p>
@@ -539,6 +551,12 @@
           margin:0 auto;
           position:relative;
           overflow:visible;
+        }
+
+        .midCtaTitle{
+          margin:0;
+          color:#f8fafc;
+          text-wrap:balance;
         }
 
         .midCtaCard{
@@ -598,7 +616,7 @@
       <div class="w-full max-w-[1120px] mx-auto space-y-10">
         <div class="max-w-3xl space-y-4 text-white">
           {% if proofTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ proofTitle }}</h2>
+          <h2 class="heading-xl">{{ proofTitle }}</h2>
           {% endif %}
           {% if proofIntro %}
           <p class="text-lg font-light text-slate-300 md:text-xl">{{ proofIntro }}</p>
@@ -1063,7 +1081,7 @@
       <div class="w-full max-w-[1120px] mx-auto space-y-8">
         <div class="max-w-3xl space-y-4">
           {% if caseStudiesTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ caseStudiesTitle }}</h2>
+          <h2 class="caseStudies__title heading-xl">{{ caseStudiesTitle }}</h2>
           {% endif %}
           {% if caseStudiesIntro %}
           <p class="text-lg font-light text-slate-300 md:text-xl">{{ caseStudiesIntro }}</p>
@@ -1121,6 +1139,12 @@
         {% endif %}
       </div>
       <style>
+        .caseStudies__title{
+          margin:0;
+          color:#f8fafc;
+          text-wrap:balance;
+        }
+
         .caseGraphs{display:grid;gap:clamp(18px,3vw,28px);}
         @media(min-width:980px){.caseGraphs{grid-template-columns:repeat(3,minmax(0,1fr));}}
         .caseGraph{position:relative;display:grid;gap:clamp(10px,1.6vh,16px);padding:clamp(22px,3vw,28px);border-radius:24px;border:1px solid rgba(148,204,255,0.18);background:linear-gradient(150deg,rgba(12,22,38,0.88),rgba(3,10,24,0.94));box-shadow:0 26px 56px rgba(0,0,0,0.45);overflow:hidden;}
@@ -1188,7 +1212,7 @@
       <div class="w-full max-w-[1120px] mx-auto space-y-8">
         <div class="max-w-3xl space-y-4">
           {% if vendorsTitle %}
-          <h2 class="text-3xl font-semibold md:text-4xl font-inter">{{ vendorsTitle }}</h2>
+          <h2 class="vendors__title heading-xl">{{ vendorsTitle }}</h2>
           {% endif %}
         {% if vendorsBody %}
           <p class="text-lg font-light text-slate-300 md:text-xl">{{ vendorsBody }}</p>
@@ -1208,6 +1232,12 @@
 
           </div>
           <style>
+            .vendors__title{
+              margin:0;
+              color:#f8fafc;
+              text-wrap:balance;
+            }
+
             #vendorSwiper .swiper-wrapper {
               transition-timing-function: linear !important;
             }
@@ -1391,7 +1421,7 @@
           <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div class="max-w-3xl space-y-4">
               {% if bottomCta.title %}
-              <h2 class="text-3xl font-semibold text-white md:text-4xl font-inter">{{ bottomCta.title }}</h2>
+              <h2 class="bottomCtaTitle heading-xl">{{ bottomCta.title }}</h2>
               {% endif %}
               {% if bottomCta.body %}
               <p class="text-lg font-light leading-relaxed text-slate-200 md:text-xl">{{ bottomCta.body }}</p>
@@ -1418,6 +1448,12 @@
         .bottomCtaWrap{
           max-width:min(1120px,92vw);
           margin:0 auto;
+        }
+
+        .bottomCtaTitle{
+          margin:0;
+          color:#f8fafc;
+          text-wrap:balance;
         }
       </style>
     </section>

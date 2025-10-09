@@ -3,10 +3,10 @@
   <div class="securityPressures__wrap">
     <header class="securityPressures__heading">
       {% if challengesTitle %}
-      <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">{{ challengesTitle }}</h2>
+      <h2 class="securityPressures__title heading-xl">{{ challengesTitle }}</h2>
       {% endif %}
       {% if challengesIntro %}
-      <p class="securityPressures__intro">{{ challengesIntro }}</p>
+      <p class="securityPressures__intro body-text">{{ challengesIntro }}</p>
       {% endif %}
     </header>
 
@@ -15,10 +15,10 @@
       <article class="securityPressures__card">
         <div class="securityPressures__chip">Priority 0{{ loop.index }}</div>
         {% if item.title %}
-        <h3 class="securityPressures__cardTitle">{{ item.title }}</h3>
+        <h3 class="securityPressures__cardTitle heading-md">{{ item.title }}</h3>
         {% endif %}
         {% if item.description %}
-        <p class="securityPressures__text">{{ item.description }}</p>
+        <p class="securityPressures__text body-text">{{ item.description }}</p>
         {% endif %}
       </article>
       {% endfor %}
@@ -75,10 +75,15 @@
       max-width:780px;
     }
 
+    [data-security-pressures] .securityPressures__title{
+      margin:0;
+      color:#f8fafc;
+      letter-spacing:-.02em;
+      text-wrap:balance;
+    }
+
     [data-security-pressures] .securityPressures__intro{
       margin:0;
-      font-size:clamp(16px,2.3vw,20px);
-      line-height:1.7;
       color:rgba(226,232,240,0.9);
     }
 
@@ -150,7 +155,6 @@
     [data-security-pressures] .securityPressures__cardTitle{
       margin:0;
       font-weight:700;
-      font-size:clamp(19px,2.7vw,26px);
       color:#f8fafc;
       letter-spacing:-0.01em;
       text-wrap:balance;
@@ -158,8 +162,6 @@
 
     [data-security-pressures] .securityPressures__text{
       margin:0;
-      font-size:clamp(14px,2vw,17px);
-      line-height:1.7;
       color:rgba(214,228,244,0.88);
     }
 

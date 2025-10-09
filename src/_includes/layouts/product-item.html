@@ -47,7 +47,7 @@
     <div class="cyberChallenges">
       <div class="cyberChallenges__intro">
         {% if heroChallenges.title %}
-        <h2 class="cyberChallenges__title">{{ heroChallenges.title }}</h2>
+        <h2 class="cyberChallenges__title heading-xl">{{ heroChallenges.title }}</h2>
         {% endif %}
         {% if heroChallenges.subtitle %}
         <p class="cyberChallenges__copy">{{ heroChallenges.subtitle }}</p>
@@ -87,10 +87,9 @@
     }
     .cyberChallenges__title{
       margin:0;
-      font-size:clamp(26px,4.2vw,40px);
-      font-weight:800;
+      color:#f8fafc;
       letter-spacing:-0.015em;
-      font-family:'Inter',var(--font-heading,'Inter'),system-ui,-apple-system,'Segoe UI',sans-serif;
+      text-wrap:balance;
     }
     .cyberChallenges__copy{
       margin:0;
@@ -235,7 +234,7 @@
 
     {# <div class="w-10 h-2 mt-24 bg-gradient-to-r from-teal-500 to-teal-400"></div> #}
     <hr class="mt-4 mb-10 border-slate-700">
-    <h2 class="mt-4 mb-3 text-3xl font-semibold font-inter md:mx-0">{{ prodtitle }}</h2>
+    <h2 class="mt-4 mb-3 heading-xl md:mx-0">{{ prodtitle }}</h2>
     <h3 class="mb-12 text-base font-light md:w-4/5 md:mx-0 text-slate-300">{{ prodbody }}</h3>
     
 
@@ -255,7 +254,7 @@
 
     {# <div class="w-10 h-2 bg-gradient-to-r from-teal-500 to-teal-400"></div> #}
     <hr class="mb-10 border-slate-700">
-    <h2 class="mx-4 mt-4 mb-3 text-3xl font-semibold text-white font-inter md:mx-0">{{ keyprodsTitle }}</h2>
+    <h2 class="mx-4 mt-4 mb-3 heading-xl text-white md:mx-0">{{ keyprodsTitle }}</h2>
     <h3 class="mx-4 mb-12 text-base font-light md:mx-0 text-slate-200">{{ keyprodsBody }}</h3>
 
     <section class="grid grid-cols-1 gap-4 md:grid md:grid-flow-row md:grid-cols-6">
@@ -277,7 +276,7 @@
 
     {# <div class="w-10 h-2 bg-gradient-to-r from-teal-500 to-teal-400"></div> #}
     <hr class="mb-10 border-slate-700">
-    <h2 class="mx-4 mt-4 mb-3 text-3xl font-semibold text-white font-inter md:mx-0">{{ vendorsTitle }}</h2>
+    <h2 class="mx-4 mt-4 mb-3 heading-xl text-white md:mx-0">{{ vendorsTitle }}</h2>
     <h3 class="mx-4 mb-12 text-base font-light md:mx-0 text-slate-200">{{ vendorsBody }}</h3>
 
     <div class="grid grid-cols-2 gap-8 md:grid-cols-6">
