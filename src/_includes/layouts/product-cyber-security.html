@@ -401,8 +401,8 @@
           {% for service in services %}
           <article class="cyberServiceCard">
             <div class="cyberServiceCard__body">
-              <h3 class="cyber-heading-md">{{ service.name }}</h3>
-              <p class="cyber-body-text">{{ service.description }}</p>
+              <h3 class="cyberServiceCard__title heading-md">{{ service.name }}</h3>
+              <p class="cyberServiceCard__text body-text">{{ service.description }}</p>
             </div>
           </article>
           {% endfor %}
@@ -454,33 +454,12 @@
           gap:clamp(10px,1.6vh,14px);
           padding:clamp(24px,3.2vw,32px) clamp(24px,3.2vw,32px) clamp(26px,3.4vw,34px);
           border-radius:22px;
-          border:1px solid rgba(148,204,255,.16);
-          background:rgba(8,19,35,.86);
-          box-shadow:0 22px 48px rgba(3,10,24,.45);
+          border:1px solid #1b2d46;
+          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           overflow:hidden;
-          transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-        }
-
-        .cyberServiceCard::before{
-          content:"";
-          position:absolute;
-          inset:0;
-          border-radius:inherit;
-          background:linear-gradient(135deg, rgba(102,199,232,.10), rgba(102,199,232,0));
-          opacity:0;
-          transition:opacity .3s ease;
-        }
-
-        .cyberServiceCard::after{
-          content:"";
-          position:absolute;
-          top:0;
-          left:0;
-          width:100%;
-          height:4px;
-          background:linear-gradient(90deg, rgba(102,199,232,.38), rgba(0,187,167,.28));
-          opacity:.45;
-          transition:opacity .3s ease;
+          transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+          isolation:isolate;
         }
 
         .cyberServiceCard__body{
@@ -490,17 +469,22 @@
           gap:clamp(8px,1.3vh,12px);
         }
 
-        .cyberServiceCard__body h3{ color:#f8fafc; letter-spacing:-.01em; font-weight:700; }
-        .cyberServiceCard__body p{ color:rgba(226,232,240,.86); line-height:1.68; }
-
-        .cyberServiceCard:is(:hover,:focus-within){
-          transform:translateY(-4px);
-          border-color:rgba(102,199,232,.4);
-          box-shadow:0 30px 62px rgba(4,12,28,.6);
+        .cyberServiceCard__title{
+          margin:0;
+          color:#f8fafc;
+          letter-spacing:-.01em;
         }
 
-        .cyberServiceCard:is(:hover,:focus-within)::before{ opacity:.5; }
-        .cyberServiceCard:is(:hover,:focus-within)::after{ opacity:.9; }
+        .cyberServiceCard__text{
+          color:rgba(226,232,240,.86);
+          line-height:1.68;
+        }
+
+        .cyberServiceCard:is(:hover,:focus-within){
+          transform:translateY(-6px);
+          border-color:rgba(180,210,240,.34);
+          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+        }
 
         @media (prefers-reduced-motion: reduce){
           .cyberServiceCard,
@@ -576,13 +560,13 @@
           gap:clamp(24px,3vw,32px);
           align-items:center;
           border-radius:clamp(24px,3vw,32px);
-          border:1px solid rgba(112,224,240,.52);
+          border:none;
           background:
             radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
             radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
             linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
             linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
-          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32), 0 25px 55px rgba(13,148,136,0.35);
+          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
           padding:clamp(28px,4vw,40px);
           overflow:visible;
         }
@@ -674,10 +658,10 @@
           {% set metrics = point.metrics or point.graphs %}
           <section class="card">
             {% if pointTitle %}
-            <h4>{{ pointTitle }}</h4>
+            <h4 class="proofCard__title heading-md">{{ pointTitle }}</h4>
             {% endif %}
             {% if pointStat %}
-            <p class="subtitle">{{ pointStat | safe }}</p>
+            <p class="proofCard__subtitle body-text">{{ pointStat | safe }}</p>
             {% endif %}
 
             {% if metrics %}
@@ -713,27 +697,27 @@
         {% else %}
         <div class="l3-kpi-cards" role="group" aria-label="Three security stats">
           <section class="card">
-            <h4>Urgency of Proactive Defense</h4>
-            <p class="subtitle">Average time to identify &amp; contain a breach</p>
+            <h4 class="proofCard__title heading-md">Urgency of Proactive Defense</h4>
+            <p class="proofCard__subtitle body-text">Average time to identify &amp; contain a breach</p>
             <div class="card-visual card-visual--bar">
               <div class="kpi">
                 <span class="num" data-count-up data-target="258" data-decimals="0" data-duration="1400">258</span>
-                <span class="unit">days</span>
+                <span class="unit" style="color:#fff;">days</span>
               </div>
               <div class="bar-wrap">
-                <div class="bar" style="--pct:0" data-target-pct="86"><span class="threshold" style="--threshold:66.666" aria-label="200-day threshold"></span></div>
+                <div class="bar" style="--pct:0" data-target-pct="86"></div>
                 <div class="labels"><span>0</span><span>100</span><span>200</span><span>300</span></div>
               </div>
             </div>
             <div class="card-description">
-              <p class="clarifier">Crossing <b>200 days</b> is linked to <b>+$1.12M</b> higher breach costs.</p>
-              <p class="src">IBM Cost of a Data Breach Report, 2024</p>
+              <p class="proofCard__clarifier body-text">Crossing <b>200 days</b> is linked to <b>+$1.12M</b> higher breach costs.</p>
+              <p class="proofCard__source body-sm">IBM Cost of a Data Breach Report, 2024</p>
             </div>
           </section>
 
           <section class="card">
-            <h4>Cost of a Breach for Growing Businesses</h4>
-            <p class="subtitle">Average total cost for smaller companies (≤500 employees)</p>
+            <h4 class="proofCard__title heading-md">Cost of a Breach for Growing Businesses</h4>
+            <p class="proofCard__subtitle body-text">Average total cost for smaller companies (≤500 employees)</p>
             <div class="card-visual card-visual--meter">
               <div class="kpi"><span class="num" data-count-up data-target="3.31" data-prefix="$" data-suffix="M" data-decimals="2" data-duration="1500">$3.31M</span></div>
               <div class="meter" style="--pct:0" data-target-pct="66">
@@ -742,14 +726,14 @@
               </div>
             </div>
             <div class="card-description">
-              <p class="clarifier">Average breach cost for smaller companies in 2022.</p>
-              <p class="src">IBM Cost of a Data Breach Report, 2022</p>
+              <p class="proofCard__clarifier body-text">Average breach cost for smaller companies in 2022.</p>
+              <p class="proofCard__source body-sm">IBM Cost of a Data Breach Report, 2022</p>
             </div>
           </section>
 
           <section class="card">
-            <h4>Value of Security Automation</h4>
-            <p class="subtitle">Average cost savings with AI &amp; automation</p>
+            <h4 class="proofCard__title heading-md">Value of Security Automation</h4>
+            <p class="proofCard__subtitle body-text">Average cost savings with AI &amp; automation</p>
 
             <div class="card-visual card-visual--chart">
               <svg class="v-bars" viewBox="0 0 300 220" width="100%" height="auto" aria-label="Bar chart showing higher cost without automation and lower cost with automation (−$2.2M)">
@@ -784,8 +768,8 @@
             </div>
 
             <div class="card-description">
-              <p class="clarifier">Automation cut costs by <b data-count-up data-target="2.2" data-prefix="−$" data-suffix="M" data-decimals="1" data-duration="1500">−$2.2M</b> on average.</p>
-              <p class="src">IBM Cost of a Data Breach Report, 2024</p>
+              <p class="proofCard__clarifier body-text">Automation cut costs by <b data-count-up data-target="2.2" data-prefix="−$" data-suffix="M" data-decimals="1" data-duration="1500">−$2.2M</b> on average.</p>
+              <p class="proofCard__source body-sm">IBM Cost of a Data Breach Report, 2024</p>
             </div>
           </section>
         </div>
@@ -795,37 +779,37 @@
       <style>
         .l3-kpi-cards{
           display:grid;
-          grid-template-columns:1fr;
-          gap:clamp(18px,2.8vw,26px);
-          max-width:980px;
-          margin:clamp(18px,3vh,28px) auto;
-          padding:0 clamp(6px,1.4vw,14px);
+          grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+          gap:clamp(20px,3vw,28px);
+          max-width:min(1120px,92vw);
+          margin:clamp(18px,3vh,32px) auto;
+          padding:0 clamp(8px,1.8vw,18px);
           font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-        }
-
-        @media(min-width:900px){
-          .l3-kpi-cards{ grid-template-columns:repeat(3,1fr); }
         }
 
         .l3-kpi-cards .card{
           position:relative;
           overflow:hidden;
           text-align:left;
-          background:
-            radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
-            radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
-            linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
-            linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
-          border:1px solid rgba(112,224,240,.52);
+          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+          border:1px solid #1b2d46;
           border-radius:22px;
           padding:clamp(18px,2.6vw,26px);
-          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
+          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           display:flex;
           flex-direction:column;
           gap:clamp(10px,1.4vh,14px);
           min-height:clamp(260px,32vh,320px);
           color:#e2e8f0;
           isolation:isolate;
+          transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+
+        .l3-kpi-cards .card:hover,
+        .l3-kpi-cards .card:focus-visible{
+          border-color:rgba(180,210,240,.34);
+          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+          transform:translate3d(0,-6px,0);
         }
 
         .l3-kpi-cards .kpi{
@@ -940,34 +924,31 @@
           color:#da6d6d;
         }
 
-        .l3-kpi-cards h4{
-          margin:2px 0 0;
-          font-size:clamp(18px,2.2vw,20px);
-          font-weight:700;
-          line-height:1.3;
+        .proofCard__title{
+          margin:2px 0 clamp(8px,1.1vh,12px);
           color:#f8fafc;
+          letter-spacing:-.01em;
         }
 
-        .l3-kpi-cards .subtitle{
-          margin:2px 0 6px;
-          color:rgba(148,163,184,0.78);
-          font-size:12px;
-          line-height:1.4;
+        .proofCard__subtitle{
+          margin:0;
+          color:rgba(209,213,219,.92);
+          line-height:1.65;
         }
 
         .l3-kpi-cards .kpi .num{
           font-weight:800;
-          font-size:clamp(26px,3vw,32px);
+          font-size:clamp(32px,3.6vw,40px);
           color:#3ba59c;
         }
 
         .l3-kpi-cards .unit{
-          font-size:11px;
+          font-size:clamp(12px,1.6vw,14px);
           color:#3ba59c;
           font-weight:700;
           text-transform:uppercase;
-          letter-spacing:0.08em;
-          margin-left:4px;
+          letter-spacing:0.12em;
+          margin-left:6px;
         }
 
         .l3-kpi-cards .bar-wrap{ margin-top:2px; }
@@ -1015,15 +996,6 @@
           transition:width 1.1s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
-        .l3-kpi-cards .threshold{
-          position:absolute;
-          left:66.6%;
-          top:-3px;
-          bottom:-3px;
-          width:2px;
-          background:#f87171;
-        }
-
         .l3-kpi-cards .labels,
         .l3-kpi-cards .meter .scale{
           display:flex;
@@ -1038,29 +1010,30 @@
           padding-top:clamp(10px,1.6vh,14px);
           display:flex;
           flex-direction:column;
-          gap:6px;
+          gap:clamp(8px,1.2vh,12px);
           align-items:flex-start;
           width:100%;
         }
 
-        .l3-kpi-cards .clarifier{
-          display:block;
-          font-size:12px;
-          color:#f8fafc;
-          background:rgba(20,184,166,0.12);
-          border:1px solid rgba(45,212,191,0.35);
-          padding:8px 12px;
-          border-radius:16px;
-          line-height:1.4;
-          width:fit-content;
-          max-width:100%;
+        .proofCard__clarifier{
           margin:0;
+          padding:10px 14px;
+          border-radius:16px;
+          background:rgba(20,184,166,0.12);
+          border:1px solid rgba(45,212,191,0.28);
+          color:rgba(226,232,240,.95);
+          line-height:1.6;
         }
 
-        .l3-kpi-cards .src{
-          margin-top:0;
+        .proofCard__source{
+          margin:0;
           font-size:11px;
-          color:rgba(148,163,184,0.75);
+          letter-spacing:0.12em;
+          text-transform:uppercase;
+          color:rgba(148,163,184,0.68);
+          font-weight:600;
+          align-self:center;
+          text-align:center;
         }
 
         .l3-kpi-cards .v-bars{
@@ -1493,10 +1466,31 @@
           align-items:center;
           padding:clamp(32px,4.6vw,52px);
           border-radius:clamp(28px,4vw,40px);
-          border:1px solid rgba(45,212,191,0.36);
-          background:linear-gradient(110deg,rgba(20,184,166,0.22),rgba(30,64,118,0.62));
-          box-shadow:0 25px 55px rgba(13,148,136,0.35);
+          border:none;
+          background:
+            radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+            radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+            linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+            linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
           text-align:center;
+          position:relative;
+          overflow:hidden;
+        }
+
+        .bottomCtaCard::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          border-radius:inherit;
+          background:radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 55%);
+          opacity:.85;
+          pointer-events:none;
+        }
+
+        .bottomCtaCard > *{
+          position:relative;
+          z-index:1;
         }
 
         .bottomCtaContent{

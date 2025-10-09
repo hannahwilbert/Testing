@@ -763,33 +763,21 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       position:relative;
       padding:clamp(26px,4vh,34px);
       border-radius:26px;
-      border:1px solid rgba(112,224,240,.52);
-      background:
-        radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
-        radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
-        linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
-        linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
-      box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
+      border:1px solid #1b2d46;
+      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+      box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       display:grid;
       gap:clamp(14px,2vh,20px);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-
-    [data-network-pressures] .networkPressures__card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:inherit;
-      background:radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 55%);
-      opacity:.9;
-      pointer-events:none;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      overflow:hidden;
+      isolation:isolate;
     }
 
     [data-network-pressures] .networkPressures__card:hover,
     [data-network-pressures] .networkPressures__card:focus-within{
-      transform:translateY(-4px);
-      box-shadow:0 28px 68px rgba(14,116,144,0.38);
-      border-color:rgba(56,189,248,0.38);
+      transform:translateY(-6px);
+      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+      border-color:rgba(180,210,240,.34);
     }
 
     [data-network-pressures] .networkPressures__card > *{ position:relative; z-index:1; }
@@ -1159,43 +1147,43 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
           <article class="cyberServiceCard">
             <div class="cyberServiceCard__body">
-              <h3 class="cyber-heading-md">Cloud Strategy &amp; Migration</h3>
-              <p class="cyber-body-text">Careful planning and execution that reduce disruption and risk.</p>
+              <h3 class="cyberServiceCard__title heading-md">Cloud Strategy &amp; Migration</h3>
+              <p class="cyberServiceCard__text body-text">Careful planning and execution that reduce disruption and risk.</p>
             </div>
           </article>
           
           <article class="cyberServiceCard">
             <div class="cyberServiceCard__body">
-              <h3 class="cyber-heading-md">Azure &amp; AWS Management</h3>
-              <p class="cyber-body-text">Ongoing support that keeps cloud systems optimized and cost-efficient.</p>
+              <h3 class="cyberServiceCard__title heading-md">Azure &amp; AWS Management</h3>
+              <p class="cyberServiceCard__text body-text">Ongoing support that keeps cloud systems optimized and cost-efficient.</p>
             </div>
           </article>
           
           <article class="cyberServiceCard">
             <div class="cyberServiceCard__body">
-              <h3 class="cyber-heading-md">Managed Backup &amp; DR</h3>
-              <p class="cyber-body-text">Automated recovery solutions that ensure data availability.</p>
+              <h3 class="cyberServiceCard__title heading-md">Managed Backup &amp; DR</h3>
+              <p class="cyberServiceCard__text body-text">Automated recovery solutions that ensure data availability.</p>
             </div>
           </article>
           
           <article class="cyberServiceCard">
             <div class="cyberServiceCard__body">
-              <h3 class="cyber-heading-md">Cloud Security &amp; Compliance</h3>
-              <p class="cyber-body-text">Security frameworks that let you adopt new tools safely.</p>
+              <h3 class="cyberServiceCard__title heading-md">Cloud Security &amp; Compliance</h3>
+              <p class="cyberServiceCard__text body-text">Security frameworks that let you adopt new tools safely.</p>
             </div>
           </article>
           
           <article class="cyberServiceCard">
             <div class="cyberServiceCard__body">
-              <h3 class="cyber-heading-md">Hybrid &amp; Private Cloud</h3>
-              <p class="cyber-body-text">Flexible deployment models that fit business and compliance needs.</p>
+              <h3 class="cyberServiceCard__title heading-md">Hybrid &amp; Private Cloud</h3>
+              <p class="cyberServiceCard__text body-text">Flexible deployment models that fit business and compliance needs.</p>
             </div>
           </article>
           
           <article class="cyberServiceCard">
             <div class="cyberServiceCard__body">
-              <h3 class="cyber-heading-md">SaaS &amp; Microsoft 365 Management</h3>
-              <p class="cyber-body-text">Managed productivity tools that keep employees efficient and secure.</p>
+              <h3 class="cyberServiceCard__title heading-md">SaaS &amp; Microsoft 365 Management</h3>
+              <p class="cyberServiceCard__text body-text">Managed productivity tools that keep employees efficient and secure.</p>
             </div>
           </article>
           
@@ -1247,33 +1235,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           gap:clamp(10px,1.6vh,14px);
           padding:clamp(24px,3.2vw,32px) clamp(24px,3.2vw,32px) clamp(26px,3.4vw,34px);
           border-radius:22px;
-          border:1px solid rgba(148,204,255,.16);
-          background:rgba(8,19,35,.86);
-          box-shadow:0 22px 48px rgba(3,10,24,.45);
+          border:1px solid #1b2d46;
+          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           overflow:hidden;
-          transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-        }
-
-        .cyberServiceCard::before{
-          content:"";
-          position:absolute;
-          inset:0;
-          border-radius:inherit;
-          background:linear-gradient(135deg, rgba(102,199,232,.10), rgba(102,199,232,0));
-          opacity:0;
-          transition:opacity .3s ease;
-        }
-
-        .cyberServiceCard::after{
-          content:"";
-          position:absolute;
-          top:0;
-          left:0;
-          width:100%;
-          height:4px;
-          background:linear-gradient(90deg, rgba(102,199,232,.38), rgba(0,187,167,.28));
-          opacity:.45;
-          transition:opacity .3s ease;
+          transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+          isolation:isolate;
         }
 
         .cyberServiceCard__body{
@@ -1283,17 +1250,22 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           gap:clamp(8px,1.3vh,12px);
         }
 
-        .cyberServiceCard__body h3{ color:#f8fafc; letter-spacing:-.01em; font-weight:700; }
-        .cyberServiceCard__body p{ color:rgba(226,232,240,.86); line-height:1.68; }
-
-        .cyberServiceCard:is(:hover,:focus-within){
-          transform:translateY(-4px);
-          border-color:rgba(102,199,232,.4);
-          box-shadow:0 30px 62px rgba(4,12,28,.6);
+        .cyberServiceCard__title{
+          margin:0;
+          color:#f8fafc;
+          letter-spacing:-.01em;
         }
 
-        .cyberServiceCard:is(:hover,:focus-within)::before{ opacity:.5; }
-        .cyberServiceCard:is(:hover,:focus-within)::after{ opacity:.9; }
+        .cyberServiceCard__text{
+          color:rgba(226,232,240,.86);
+          line-height:1.68;
+        }
+
+        .cyberServiceCard:is(:hover,:focus-within){
+          transform:translateY(-6px);
+          border-color:rgba(180,210,240,.34);
+          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+        }
 
         @media (prefers-reduced-motion: reduce){
           .cyberServiceCard,
@@ -1369,13 +1341,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           gap:clamp(24px,3vw,32px);
           align-items:center;
           border-radius:clamp(24px,3vw,32px);
-          border:1px solid rgba(112,224,240,.52);
+          border:none;
           background:
             radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
             radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
             linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
             linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
-          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32), 0 25px 55px rgba(13,148,136,0.35);
+          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
           padding:clamp(28px,4vw,40px);
           overflow:visible;
         }
@@ -1467,10 +1439,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
           <section class="card">
             
-            <h4>Cloud Cost Predictability</h4>
+            <h4 class="proofCard__title heading-md">Cloud Cost Predictability</h4>
             
             
-            <p class="subtitle">59% of organizations reported an increase in cloud spend over the past 12 months, with <strong>37%</strong> having an increase of over 25%.</p>
+            <p class="proofCard__subtitle body-text">59% of organizations reported an increase in cloud spend over the past 12 months, with <strong>37%</strong> having an increase of over 25%.</p>
             
 
             
@@ -1524,10 +1496,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
           <section class="card">
             
-            <h4>Wasted Cloud Spend</h4>
+            <h4 class="proofCard__title heading-md">Wasted Cloud Spend</h4>
             
             
-            <p class="subtitle">54% of cloud waste stems from a lack of visibility into costs, and 44% of executives estimate that at least a third of their cloud spend is wasted.</p>
+            <p class="proofCard__subtitle body-text">54% of cloud waste stems from a lack of visibility into costs, and 44% of executives estimate that at least a third of their cloud spend is wasted.</p>
             
 
             
@@ -1581,10 +1553,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
           <section class="card">
             
-            <h4>Value of Data Protection</h4>
+            <h4 class="proofCard__title heading-md">Value of Data Protection</h4>
             
             
-            <p class="subtitle">Moving workloads to the public cloud leads to <strong>30–40% TCO savings</strong>, provided strategic management keeps unexpected costs in check.</p>
+            <p class="proofCard__subtitle body-text">Moving workloads to the public cloud leads to <strong>30–40% TCO savings</strong>, provided strategic management keeps unexpected costs in check.</p>
             
 
             
@@ -1623,37 +1595,37 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <style>
         .l3-kpi-cards{
           display:grid;
-          grid-template-columns:1fr;
-          gap:clamp(18px,2.8vw,26px);
-          max-width:980px;
-          margin:clamp(18px,3vh,28px) auto;
-          padding:0 clamp(6px,1.4vw,14px);
+          grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+          gap:clamp(20px,3vw,28px);
+          max-width:min(1120px,92vw);
+          margin:clamp(18px,3vh,32px) auto;
+          padding:0 clamp(8px,1.8vw,18px);
           font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-        }
-
-        @media(min-width:900px){
-          .l3-kpi-cards{ grid-template-columns:repeat(3,1fr); }
         }
 
         .l3-kpi-cards .card{
           position:relative;
           overflow:hidden;
           text-align:left;
-          background:
-            radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
-            radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
-            linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
-            linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
-          border:1px solid rgba(112,224,240,.52);
+          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+          border:1px solid #1b2d46;
           border-radius:22px;
           padding:clamp(18px,2.6vw,26px);
-          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
+          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           display:flex;
           flex-direction:column;
           gap:clamp(10px,1.4vh,14px);
           min-height:clamp(260px,32vh,320px);
           color:#e2e8f0;
           isolation:isolate;
+          transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+        }
+
+        .l3-kpi-cards .card:hover,
+        .l3-kpi-cards .card:focus-visible{
+          border-color:rgba(180,210,240,.34);
+          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+          transform:translate3d(0,-6px,0);
         }
 
         .l3-kpi-cards .kpi{
@@ -1768,34 +1740,31 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           color:#da6d6d;
         }
 
-        .l3-kpi-cards h4{
-          margin:2px 0 0;
-          font-size:clamp(18px,2.2vw,20px);
-          font-weight:700;
-          line-height:1.3;
+        .proofCard__title{
+          margin:2px 0 clamp(8px,1.1vh,12px);
           color:#f8fafc;
+          letter-spacing:-.01em;
         }
 
-        .l3-kpi-cards .subtitle{
-          margin:2px 0 6px;
-          color:rgba(148,163,184,0.78);
-          font-size:12px;
-          line-height:1.4;
+        .proofCard__subtitle{
+          margin:0;
+          color:rgba(209,213,219,.92);
+          line-height:1.65;
         }
 
         .l3-kpi-cards .kpi .num{
           font-weight:800;
-          font-size:clamp(26px,3vw,32px);
+          font-size:clamp(32px,3.6vw,40px);
           color:#3ba59c;
         }
 
         .l3-kpi-cards .unit{
-          font-size:11px;
+          font-size:clamp(12px,1.6vw,14px);
           color:#3ba59c;
           font-weight:700;
           text-transform:uppercase;
-          letter-spacing:0.08em;
-          margin-left:4px;
+          letter-spacing:0.12em;
+          margin-left:6px;
         }
 
         .l3-kpi-cards .bar-wrap{ margin-top:2px; }
@@ -1843,15 +1812,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           transition:width 1.1s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
-        .l3-kpi-cards .threshold{
-          position:absolute;
-          left:66.6%;
-          top:-3px;
-          bottom:-3px;
-          width:2px;
-          background:#f87171;
-        }
-
         .l3-kpi-cards .labels,
         .l3-kpi-cards .meter .scale{
           display:flex;
@@ -1866,29 +1826,30 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           padding-top:clamp(10px,1.6vh,14px);
           display:flex;
           flex-direction:column;
-          gap:6px;
+          gap:clamp(8px,1.2vh,12px);
           align-items:flex-start;
           width:100%;
         }
 
-        .l3-kpi-cards .clarifier{
-          display:block;
-          font-size:12px;
-          color:#f8fafc;
-          background:rgba(20,184,166,0.12);
-          border:1px solid rgba(45,212,191,0.35);
-          padding:8px 12px;
-          border-radius:16px;
-          line-height:1.4;
-          width:fit-content;
-          max-width:100%;
+        .proofCard__clarifier{
           margin:0;
+          padding:10px 14px;
+          border-radius:16px;
+          background:rgba(20,184,166,0.12);
+          border:1px solid rgba(45,212,191,0.28);
+          color:rgba(226,232,240,.95);
+          line-height:1.6;
         }
 
-        .l3-kpi-cards .src{
-          margin-top:0;
+        .proofCard__source{
+          margin:0;
           font-size:11px;
-          color:rgba(148,163,184,0.75);
+          letter-spacing:0.12em;
+          text-transform:uppercase;
+          color:rgba(148,163,184,0.68);
+          font-weight:600;
+          align-self:center;
+          text-align:center;
         }
 
         .l3-kpi-cards .v-bars{
@@ -2349,10 +2310,31 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           align-items:center;
           padding:clamp(32px,4.6vw,52px);
           border-radius:clamp(28px,4vw,40px);
-          border:1px solid rgba(45,212,191,0.36);
-          background:linear-gradient(110deg,rgba(20,184,166,0.22),rgba(30,64,118,0.62));
-          box-shadow:0 25px 55px rgba(13,148,136,0.35);
+          border:none;
+          background:
+            radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+            radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+            linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+            linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
           text-align:center;
+          position:relative;
+          overflow:hidden;
+        }
+
+        .bottomCtaCard::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          border-radius:inherit;
+          background:radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 55%);
+          opacity:.85;
+          pointer-events:none;
+        }
+
+        .bottomCtaCard > *{
+          position:relative;
+          z-index:1;
         }
 
         .bottomCtaContent{
