@@ -88,3 +88,42 @@ html {
 .l3-card {
   @apply transition-all duration-300 border rounded-lg md:flex-row bg-slate-900/50 border-slate-800 hover:border-slate-700
 }
+
+@layer components {
+  [data-cta="primary"]{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.6rem;
+    padding:.95rem 1.3rem;
+    font-weight:600;
+    font-size:clamp(14px,2.4vw,18px);
+    text-decoration:none;
+    color:#fff;
+    background:#00bba7;
+    border-radius:999px;
+    box-shadow:0 10px 28px rgba(0,187,167,.35);
+    transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+
+  [data-cta="primary"] img{
+    height:18px;
+  }
+
+  [data-cta="primary"]:is(:hover,:focus-visible){
+    transform:translateY(-1px) scale(1.02);
+    box-shadow:0 14px 34px rgba(0,187,167,.45);
+    filter:brightness(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  [data-cta="primary"]{
+    transition:none;
+  }
+  [data-cta="primary"]:is(:hover,:focus-visible){
+    transform:none;
+    box-shadow:0 10px 28px rgba(0,187,167,.35);
+    filter:none;
+  }
+}

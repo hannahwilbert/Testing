@@ -24,7 +24,7 @@
 
     <div class="networkPressures__actions">
       {% if heroCtaLink and heroCtaText %}
-      <a href="{{ heroCtaLink }}" class="networkPressures__cta networkPressures__cta--primary">
+      <a href="{{ heroCtaLink }}" data-cta="primary" class="networkPressures__cta networkPressures__cta--primary">
         {{ heroCtaText }}
         <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
       </a>
@@ -171,24 +171,19 @@
     [data-network-pressures] .networkPressures__cta{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:.6rem;
-      padding:1rem 1.35rem;
-      font-weight:800;
-      font-size:clamp(14px,1.9vw,17px);
+      padding:.95rem 1.3rem;
+      font-weight:600;
+      font-size:clamp(14px,2.4vw,18px);
       text-decoration:none;
       border-radius:999px;
-      transition:transform .18s ease, filter .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
-    }
-
-    [data-network-pressures] .networkPressures__cta--primary{
-      color:#fff;
-      background:var(--np-brand);
-      box-shadow:0 20px 45px rgba(56,189,248,0.35);
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
     }
 
     [data-network-pressures] .networkPressures__cta--primary img{
       height:18px;
-      filter:invert(1) brightness(1.6);
+      filter:none;
     }
 
     [data-network-pressures] .networkPressures__cta--secondary{

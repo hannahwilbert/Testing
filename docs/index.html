@@ -2733,40 +2733,64 @@ section[data-services] .svcCard--feature .svcCard__icon{
     <!-- Slides -->
 
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/cjc.svg" alt="CJC">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/cjc.svg" alt="CJC">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/atm.svg" alt="ATM">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/atm.svg" alt="ATM">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/maxpost.svg" alt="MaxPost">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/maxpost.svg" alt="MaxPost">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/exodus.svg" alt="Exodus Recovery">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/exodus.svg" alt="Exodus Recovery">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/dga.svg" alt="DG Architects">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/dga.svg" alt="DG Architects">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/razor.svg" alt="Razor">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/razor.svg" alt="Razor">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/roland.svg" alt="Roland">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/roland.svg" alt="Roland">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/axs.svg" alt="AXS">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/axs.svg" alt="AXS">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/computacenter.svg" alt="Computacenter">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/computacenter.svg" alt="Computacenter">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/fremantle.svg" alt="Fremantle">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/fremantle.svg" alt="Fremantle">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/mnx.svg" alt="MNX">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/mnx.svg" alt="MNX">
+      </div>
     </div>
     <div class="swiper-slide brandSlide">
-      <img class="brandSlide__logo" src="images/home/clients/op.svg" alt="Original Productions">
+      <div class="brandSlide__card">
+        <img class="brandSlide__logo" src="images/home/clients/op.svg" alt="Original Productions">
+      </div>
     </div>
 
 
@@ -2784,8 +2808,22 @@ section[data-services] .svcCard--feature .svcCard__icon{
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:0 clamp(32px,5vw,46px);
-    min-width:clamp(120px,12vw,180px);
+    padding:0 clamp(22px,4vw,32px);
+    min-width:clamp(140px,18vw,220px);
+  }
+
+  .brandSlide__card{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:clamp(140px,16vw,200px);
+    min-height:clamp(68px,8vw,92px);
+    padding:clamp(14px,2.2vw,20px);
+    border-radius:20px;
+    border:1px solid rgba(148,163,184,0.18);
+    background:linear-gradient(160deg, rgba(148,163,184,0.18), rgba(148,163,184,0.06));
+    box-shadow:0 18px 40px rgba(15,23,42,0.28);
+    backdrop-filter:blur(10px);
   }
 
   .brandSlide__logo{
@@ -2798,8 +2836,13 @@ section[data-services] .svcCard--feature .svcCard__icon{
 
   @media (max-width: 720px){
     .brandSlide{
-      padding:0 clamp(20px,4vw,30px);
-      min-width:clamp(100px,32vw,140px);
+      padding:0 clamp(16px,5vw,24px);
+      min-width:clamp(120px,40vw,180px);
+    }
+    .brandSlide__card{
+      width:clamp(130px,48vw,180px);
+      min-height:clamp(60px,16vw,80px);
+      padding:clamp(12px,4vw,18px);
     }
     .brandSlide__logo{
       max-height:48px;

@@ -510,7 +510,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
         
         
-        <a href="https://l3networks.timezest.com/sales/meeting-15" class="inline-flex items-center gap-2 px-6 py-3 mt-12 text-lg font-semibold text-white transition-all bg-teal-500 rounded-full hover:bg-teal-600 shadow-[0_20px_45px_rgba(13,148,136,0.35)]">
+        <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="mt-12">
           Schedule a 15-Minute Right-Fit Call
           <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a 15-Minute Right-Fit Call">
         </a>
@@ -696,7 +696,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     <div class="networkPressures__actions">
       
-      <a href="https://l3networks.timezest.com/sales/meeting-15" class="networkPressures__cta networkPressures__cta--primary">
+      <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="networkPressures__cta networkPressures__cta--primary">
         Schedule a 15-Minute Right-Fit Call
         <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
       </a>
@@ -843,24 +843,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     [data-network-pressures] .networkPressures__cta{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:.6rem;
-      padding:1rem 1.35rem;
-      font-weight:800;
-      font-size:clamp(14px,1.9vw,17px);
+      padding:.95rem 1.3rem;
+      font-weight:600;
+      font-size:clamp(14px,2.4vw,18px);
       text-decoration:none;
       border-radius:999px;
-      transition:transform .18s ease, filter .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
-    }
-
-    [data-network-pressures] .networkPressures__cta--primary{
-      color:#fff;
-      background:var(--np-brand);
-      box-shadow:0 20px 45px rgba(56,189,248,0.35);
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
     }
 
     [data-network-pressures] .networkPressures__cta--primary img{
       height:18px;
-      filter:invert(1) brightness(1.6);
+      filter:none;
     }
 
     [data-network-pressures] .networkPressures__cta--secondary{
@@ -996,6 +991,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
         .frameworkJourney__wrap .framework-card{
           position:relative;
+          display:flex;
+          flex-direction:column;
+          border-radius:24px;
+          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+          border:1px solid #1b2d46;
+          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+          color:#e2e8f0;
         }
 
         .frameworkJourney__wrap .framework-card::after{
@@ -1009,16 +1011,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
 
         .frameworkJourney__wrap .framework-card--transform{
-          background:linear-gradient(160deg,rgba(20,184,166,0.65) 0%,rgba(13,148,136,0.55) 100%);
-          color:#ecfeff;
+          background:linear-gradient(160deg,rgba(0,187,167,0.92) 0%,rgba(0,187,167,0.82) 100%);
+          border-color:rgba(94,234,212,0.4);
+          color:#061021;
         }
 
         .frameworkJourney__wrap .framework-card--transform h3{
-          color:#f0fdfa;
+          color:#061021;
         }
 
         .frameworkJourney__wrap .framework-card--transform p{
-          color:rgba(240,253,250,0.88);
+          color:rgba(10,26,47,0.82);
         }
       </style>
       <script>
@@ -1305,7 +1308,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             
             
             
-            <a href="https://l3networks.timezest.com/sales/meeting-15" class="inline-flex items-center justify-center w-full gap-2 px-6 py-3 font-semibold text-white transition-all bg-teal-500 rounded-full hover:bg-teal-600 md:w-auto midCtaButton">
+            <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="w-full md:w-auto midCtaButton">
               Schedule a Right-Fit Call
               <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a Right-Fit Call">
             </a>
@@ -2036,12 +2039,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
               
             </div>
 
-            <div class="vendor-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur hover:bg-black/60 transition">
-              <img src="/images/home/swipe-left.svg" alt="Previous logo" class="w-4">
-            </div>
-            <div class="vendor-next absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur hover:bg-black/60 transition">
-              <img src="/images/home/swipe-right.svg" alt="Next logo" class="w-4">
-            </div>
           </div>
           <style>
             #vendorSwiper .swiper-wrapper {
@@ -2240,7 +2237,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
               
             </div>
             
-            <a href="https://l3networks.timezest.com/sales/meeting-15" class="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white transition-all bg-teal-500 rounded-full hover:bg-teal-600">
+            <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary">
               Schedule a Right-Fit Call
               <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a Right-Fit Call">
             </a>
