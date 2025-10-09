@@ -1257,138 +1257,203 @@
     {% endif %}
 
     {% if testimonial %}
-    <section class="testimonialShell" style="margin-top:-1px; margin-bottom:-1px;">
-      <div class="testimonialWrap">
-        <div class="testimonialCard">
-          <div class="testimonialQuote">
-            <div class="testimonialMark">“</div>
-            {% if testimonial.quote %}
-            <p class="testimonialCopy">{{ testimonial.quote }}</p>
-            {% endif %}
-            <div class="testimonialMeta">
-              {% if testimonial.author %}
-              <p class="testimonialAuthor">{{ testimonial.author }}</p>
-              {% endif %}
-              {% if testimonial.role %}
-              <p class="testimonialRole">{{ testimonial.role }}</p>
-              {% endif %}
-            </div>
+    <!-- PROVEN RESULTS -->
+    <article class="section-block" style="
+      position:relative; overflow:hidden; isolation:isolate;
+      background:linear-gradient(180deg,#0f172a 0%, #0b1a30 55%, #000000 100%) !important;
+      min-height:92svh; display:flex; align-items:center;
+      width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+      margin-top:-1px; margin-bottom:-1px;
+    ">
+      <div class="section-shell" style="position:relative; z-index:1; width:100%; max-width:min(1120px,92vw); margin:0 auto; padding:0 clamp(16px,3vw,24px);">
+        <div style="display:flex; align-items:flex-end; justify-content:flex-start; gap:18px; flex-wrap:wrap;">
+          <div>
+            <h2 class="heading-xl mb-sm">
+              Proven Results. <span style="color:#00BBA7;">Real Impact.</span>
+            </h2>
           </div>
         </div>
-        {% if testimonial.image %}
-        <div class="testimonialImage">
-          <img src="{{ testimonial.image }}" alt="{{ testimonial.author }}">
+
+        <p class="body-lead measure mb-md">
+          Technology challenges can be frustrating—we deliver tailored solutions and 24/7 support to reduce downtime and secure your systems.
+        </p>
+
+        <!-- Testimonials grid -->
+        <div class="resultsGrid">
+          <!-- Card 1 -->
+          <article class="resultsCard">
+            <div class="resultsCard__head">
+              <span class="resultsCard__badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </span>
+              <p class="resultsCard__quote">
+                Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance…
+              </p>
+            </div>
+            <footer class="resultsCard__foot">
+              <div class="resultsCard__person">
+                <span class="resultsCard__name">LeeAnn S</span>
+                <span class="resultsCard__role">C Level – Exodus Recovery</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="resultsCard">
+            <div class="resultsCard__head">
+              <span class="resultsCard__badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </span>
+              <p class="resultsCard__quote">
+                L3 has proven to be an invaluable security MSP partner… I would recommend L3 to any business that needs security help.
+              </p>
+            </div>
+            <footer class="resultsCard__foot">
+              <div class="resultsCard__person">
+                <span class="resultsCard__name">Royce N</span>
+                <span class="resultsCard__role">IT Director – DG Architects</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="resultsCard">
+            <div class="resultsCard__head">
+              <span class="resultsCard__badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </span>
+              <p class="resultsCard__quote">
+                L3 Networks keeps us structured and ensures that our systems are secure… a great partner with competitive costs.
+              </p>
+            </div>
+            <footer class="resultsCard__foot">
+              <div class="resultsCard__person">
+                <span class="resultsCard__name">Bruce M</span>
+                <span class="resultsCard__role">C Level – American Textile Maintenance</span>
+              </div>
+            </footer>
+          </article>
         </div>
-        {% endif %}
-      </div>
-      <style>
-        .testimonialShell{
-          position:relative;
-          padding:clamp(52px,9vh,120px) clamp(28px,4.6vw,44px) clamp(76px,11vh,140px);
-          background:linear-gradient(180deg,#0f172a 0%,#020b18 100%);
-          width:100vw;
-          margin-left:calc(50% - 50vw);
-          margin-right:calc(50% - 50vw);
-        }
 
-        .testimonialWrap{
-          max-width:min(1120px,92vw);
-          margin:0 auto;
-          display:grid;
-          gap:clamp(32px,4vw,48px);
-          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-          align-items:center;
-        }
-
-        .testimonialCard{
-          position:relative;
-          border-radius:clamp(26px,3vw,34px);
-          border:1px solid rgba(148,163,184,0.25);
-          background:linear-gradient(155deg,rgba(15,23,42,0.78),rgba(6,13,23,0.9));
-          padding:clamp(28px,4vw,40px);
-          box-shadow:0 26px 60px rgba(15,23,42,0.45);
-          overflow:hidden;
-        }
-
-        .testimonialCard::after{
-          content:"";
-          position:absolute;
-          inset:0;
-          border-radius:inherit;
-          pointer-events:none;
-          background:radial-gradient(circle at top right,rgba(20,184,166,0.12),transparent 65%);
-        }
-
-        .testimonialQuote{
-          display:flex;
-          flex-direction:column;
-          gap:clamp(20px,3vh,28px);
-        }
-
-        .testimonialMark{
-          width:clamp(52px,6vw,64px);
-          height:clamp(52px,6vw,64px);
-          border-radius:50%;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          font-size:clamp(28px,3.6vw,36px);
-          font-weight:700;
-          color:rgba(94,234,212,0.9);
-          background:rgba(20,184,166,0.16);
-        }
-
-        .testimonialCopy{
-          margin:0;
-          font-size:clamp(24px,4vw,34px);
-          line-height:1.4;
-          font-weight:600;
-          color:#f8fafc;
-        }
-
-        .testimonialMeta{
-          display:flex;
-          flex-direction:column;
-          gap:6px;
-        }
-
-        .testimonialAuthor{
-          margin:0;
-          font-size:clamp(16px,1.9vw,18px);
-          font-weight:600;
-          color:rgba(94,234,212,0.9);
-          letter-spacing:0.08em;
-          text-transform:uppercase;
-        }
-
-        .testimonialRole{
-          margin:0;
-          font-size:clamp(14px,1.7vw,16px);
-          font-weight:300;
-          color:rgba(203,213,225,0.75);
-        }
-
-        .testimonialImage{
-          display:flex;
-          justify-content:center;
-        }
-
-        .testimonialImage img{
-          width:clamp(180px,22vw,220px);
-          height:clamp(180px,22vw,220px);
-          border-radius:28px;
-          object-fit:cover;
-          border:1px solid rgba(148,163,184,0.18);
-          box-shadow:0 18px 45px rgba(15,23,42,0.35);
-        }
-
-        @media (max-width: 768px){
-          .testimonialShell{
-            padding-inline:clamp(18px,4vw,28px);
+        <style>
+          .resultsGrid{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:clamp(18px,3vw,28px);
+            margin-top:clamp(24px,3vw,32px);
           }
-        }
-      </style>
-    </section>
+
+          .resultsCard{
+            position:relative;
+            padding:clamp(24px,2.8vw,32px);
+            border:1px solid #1b2d46;
+            border-radius:20px;
+            background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+            box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+            display:grid;
+            gap:clamp(18px,2.4vw,26px);
+            transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+            overflow:hidden;
+          }
+
+          .resultsCard::before{
+            content:"";
+            position:absolute;
+            inset:-40% 45% 55% -25%;
+            background:radial-gradient(circle at top, rgba(0,187,167,.22) 0%, rgba(0,187,167,0) 65%);
+            opacity:.6;
+            pointer-events:none;
+            transition:opacity .25s ease;
+          }
+
+          .resultsCard:hover,
+          .resultsCard:focus-within{
+            transform:translateY(-6px);
+            border-color:rgba(0,187,167,.55);
+            box-shadow:0 24px 58px rgba(0,187,167,.18), 0 18px 44px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.12);
+          }
+
+          .resultsCard:hover::before,
+          .resultsCard:focus-within::before{
+            opacity:.85;
+          }
+
+          .resultsCard__head{
+            display:grid;
+            gap:clamp(14px,2vw,18px);
+          }
+
+          .resultsCard__badge{
+            width:44px;
+            aspect-ratio:1;
+            border-radius:14px;
+            background:linear-gradient(145deg, rgba(0,187,167,.22), rgba(102,199,232,.18));
+            display:grid;
+            place-items:center;
+            color:var(--brand);
+          }
+
+          .resultsCard__badge svg{
+            fill:rgba(0,187,167,.85);
+          }
+
+          .resultsCard__quote{
+            margin:0;
+            color:#eef9ff;
+            font-size:clamp(1rem,1.6vw,1.12rem);
+            line-height:1.7;
+            font-style:italic;
+          }
+
+          .resultsCard__foot{
+            display:flex;
+            align-items:flex-start;
+            justify-content:flex-start;
+            gap:clamp(10px,1.6vw,14px);
+            border-top:1px solid rgba(148,204,255,.22);
+            padding-top:clamp(14px,2vw,18px);
+          }
+
+          .resultsCard__person{
+            display:grid;
+            gap:4px;
+            text-align:left;
+          }
+
+          .resultsCard__name{
+            font-weight:700;
+            color:#f1fbff;
+            font-size:.95rem;
+          }
+
+          .resultsCard__role{
+            font-size:.85rem;
+            color:rgba(203,213,225,.76);
+          }
+
+          @media (max-width: 960px){
+            .resultsGrid{
+              grid-template-columns:repeat(2,minmax(0,1fr));
+            }
+          }
+
+          @media (max-width: 640px){
+            .resultsGrid{
+              grid-template-columns:minmax(0,1fr);
+            }
+            .resultsCard__foot{
+              flex-direction:column;
+            }
+          }
+        </style>
+      </div>
+    </article>
     {% endif %}
 
 {% if relatedContent %}
