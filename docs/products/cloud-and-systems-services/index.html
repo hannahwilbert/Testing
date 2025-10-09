@@ -1316,7 +1316,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             
           </div>
           
-          <div class="flex md:justify-end">
+          <div class="midCtaActions">
             
             
             
@@ -1346,6 +1346,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           overflow:visible;
         }
 
+        .midCtaContent{
+          display:grid;
+          gap:clamp(12px,2vh,18px);
+          text-align:center;
+          justify-items:center;
+          width:100%;
+          max-width:min(820px,100%);
+          margin:0 auto;
+        }
+
         .midCtaTitle{
           margin:0;
           color:#f8fafc;
@@ -1353,16 +1363,42 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
 
         .midCtaCard{
-          display:grid;
+          position:relative;
+          display:flex;
+          flex-direction:column;
           gap:clamp(24px,3vw,32px);
-          grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
           align-items:center;
           border-radius:clamp(24px,3vw,32px);
-          border:1px solid rgba(45,212,191,0.35);
-          background:rgba(15,23,42,0.65);
-          box-shadow:0 30px 60px rgba(13,148,136,0.25);
+          border:1px solid rgba(112,224,240,.52);
+          background:
+            radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+            radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+            linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+            linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32), 0 25px 55px rgba(13,148,136,0.35);
           padding:clamp(28px,4vw,40px);
           overflow:visible;
+        }
+
+        .midCtaCard::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          border-radius:inherit;
+          background:radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 55%);
+          opacity:.9;
+          pointer-events:none;
+        }
+
+        .midCtaCard > *{
+          position:relative;
+          z-index:1;
+        }
+
+        .midCtaActions{
+          display:flex;
+          justify-content:center;
+          width:100%;
         }
 
         
@@ -2273,23 +2309,23 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     
     <section class="bottomCtaShell" style="margin-top:-1px; margin-bottom:-1px;">
       <div class="bottomCtaWrap">
-        <div class="p-10 border rounded-3xl border-teal-500/40 bg-gradient-to-r from-teal-500/20 via-slate-900/85 to-blue-500/20 shadow-[0_25px_55px_rgba(13,148,136,0.35)]">
-          <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div class="max-w-3xl space-y-4">
-              
-              <h2 class="bottomCtaTitle heading-xl">Elevate Your Cloud Strategy.</h2>
-              
-              
-              <p class="text-lg font-light leading-relaxed text-slate-200 md:text-xl">Schedule a 15-minute Right-Fit Call to explore smarter approaches to cloud and data resilience.</p>
-              
-            </div>
+        <div class="bottomCtaCard">
+          <div class="bottomCtaContent">
             
+            <h2 class="bottomCtaTitle heading-xl">Elevate Your Cloud Strategy.</h2>
+            
+            
+            <p class="bottomCtaCopy body-text">Schedule a 15-minute Right-Fit Call to explore smarter approaches to cloud and data resilience.</p>
+            
+          </div>
+          
+          <div class="bottomCtaActions">
             <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary">
               Schedule a Right-Fit Call
               <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a Right-Fit Call">
             </a>
-            
           </div>
+          
         </div>
       </div>
       <style>
@@ -2306,10 +2342,42 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           margin:0 auto;
         }
 
+        .bottomCtaCard{
+          display:flex;
+          flex-direction:column;
+          gap:clamp(22px,3vw,32px);
+          align-items:center;
+          padding:clamp(32px,4.6vw,52px);
+          border-radius:clamp(28px,4vw,40px);
+          border:1px solid rgba(45,212,191,0.36);
+          background:linear-gradient(110deg,rgba(20,184,166,0.22),rgba(30,64,118,0.62));
+          box-shadow:0 25px 55px rgba(13,148,136,0.35);
+          text-align:center;
+        }
+
+        .bottomCtaContent{
+          display:grid;
+          gap:clamp(14px,2.4vh,22px);
+          width:100%;
+          max-width:min(840px,100%);
+          margin:0 auto;
+          justify-items:center;
+        }
+
         .bottomCtaTitle{
           margin:0;
           color:#f8fafc;
           text-wrap:balance;
+        }
+
+        .bottomCtaCopy{
+          color:rgba(226,232,240,0.88);
+        }
+
+        .bottomCtaActions{
+          display:flex;
+          justify-content:center;
+          width:100%;
         }
       </style>
     </section>
