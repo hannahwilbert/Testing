@@ -3,7 +3,7 @@
   <div class="networkPressures__wrap">
     <header class="networkPressures__heading">
       {% if challengesTitle %}
-      <h2 class="networkPressures__title">{{ challengesTitle }}</h2>
+      <h2 class="text-3xl font-semibold md:text-4xl font-inter text-white">{{ challengesTitle }}</h2>
       {% endif %}
       {% if challengesIntro %}
       <p class="networkPressures__intro">{{ challengesIntro }}</p>
@@ -73,14 +73,6 @@
       max-width:780px;
     }
 
-    [data-network-pressures] .networkPressures__title{
-      margin:0;
-      font-size:clamp(32px,5.4vw,54px);
-      font-weight:900;
-      line-height:1.05;
-      color:#ffffff;
-    }
-
     [data-network-pressures] .networkPressures__intro{
       margin:0;
       font-size:clamp(16px,2.3vw,20px);
@@ -102,9 +94,13 @@
       position:relative;
       padding:clamp(26px,4vh,34px);
       border-radius:26px;
-      border:1px solid rgba(148,163,184,0.26);
-      background:linear-gradient(155deg, rgba(15,23,42,0.94), rgba(37,54,78,0.76));
-      box-shadow:0 24px 54px rgba(4,10,31,0.55);
+      border:1px solid rgba(112,224,240,.52);
+      background:
+        radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
+        radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
+        linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
+        linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
+      box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
       display:grid;
       gap:clamp(14px,2vh,20px);
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;

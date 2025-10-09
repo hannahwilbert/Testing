@@ -897,6 +897,9 @@
   .max-w-\[1080px\] {
     max-width: 1080px;
   }
+  .max-w-\[1120px\] {
+    max-width: 1120px;
+  }
   .max-w-\[1170px\] {
     max-width: 1170px;
   }
@@ -1753,8 +1756,8 @@
   .bg-\[radial-gradient\(90\%_70\%_at_50\%_-20\%\,rgba\(102\,199\,232\,0\.24\)\,rgba\(3\,10\,28\,0\)\)\] {
     background-image: radial-gradient(90% 70% at 50% -20%,rgba(102,199,232,0.24),rgba(3,10,28,0));
   }
-  .bg-\[radial-gradient\(circle_at_top\,_rgba\(45\,212\,191\,0\.25\)\,_transparent_55\%\)\] {
-    background-image: radial-gradient(circle at top, rgba(45,212,191,0.25), transparent 55%);
+  .bg-\[radial-gradient\(circle_at_top\,_rgba\(45\,212\,191\,0\.12\)\,_transparent_60\%\)\] {
+    background-image: radial-gradient(circle at top, rgba(45,212,191,0.12), transparent 60%);
   }
   .bg-\[url\(\'\/images\/home\/aitech\.webp\'\)\] {
     background-image: url('/images/home/aitech.webp');
