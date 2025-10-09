@@ -17,9 +17,6 @@
         {% if item.title %}
         <h3 class="networkPressures__cardTitle heading-md">{{ item.title }}</h3>
         {% endif %}
-        {% if item.description %}
-        <p class="networkPressures__text body-text">{{ item.description }}</p>
-        {% endif %}
       </article>
       {% endfor %}
     </div>
@@ -60,9 +57,9 @@
     [data-network-pressures] .networkPressures__wrap{
       position:relative;
       z-index:1;
-      max-width:min(1120px,92vw);
+      max-width:var(--page-max);
       margin:0 auto;
-      padding:0 clamp(20px,3.6vw,36px);
+      padding:0 var(--page-pad);
       display:flex;
       flex-direction:column;
       gap:clamp(48px,7vh,72px);
@@ -91,6 +88,8 @@
       display:grid;
       gap:clamp(20px,3vw,32px);
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      align-items:stretch;
+      grid-auto-rows:1fr;
     }
 
     @media(min-width:900px){
@@ -104,7 +103,9 @@
       border:1px solid #1b2d46;
       background:linear-gradient(210deg,#10223c 0%,#081525 100%);
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
-      display:grid;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
       gap:clamp(14px,2vh,20px);
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       overflow:hidden;
@@ -126,7 +127,7 @@
       justify-content:flex-start;
       height:2.2rem;
       gap:.4rem;
-      padding:0 .95rem;
+      padding:0 clamp(20px,3vw,36px);
       border-radius:999px;
       font-size:.72rem;
       letter-spacing:.18em;
@@ -138,19 +139,20 @@
       font-feature-settings:'tnum';
       text-align:left;
       flex-shrink:0;
+      align-self:stretch;
     }
 
     [data-network-pressures] .networkPressures__cardTitle{
       margin:0;
-      font-weight:700;
+      font-weight:600;
+      font-size:clamp(1rem,1.85vw,1.25rem);
       color:#f8fafc;
       letter-spacing:-0.01em;
       text-wrap:balance;
-    }
-
-    [data-network-pressures] .networkPressures__text{
-      margin:0;
-      color:rgba(214,228,244,0.88);
+      flex:1 1 auto;
+      display:flex;
+      align-items:flex-start;
+      min-height:clamp(52px,7vh,92px);
     }
 
     [data-network-pressures] .networkPressures__actions{

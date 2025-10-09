@@ -71,8 +71,29 @@
   }
 </style>
 
-<main class="px-3 py-24 text-white md:px-8 2xl:px-0" style="background:#0f172a; background-repeat:no-repeat; background-size:100% 100%; min-height:100vh;">
-  <nav class="flex w-full h-full max-w-[1180px] mx-auto text-slate-200" aria-label="Breadcrumb">
+<style>
+  :root{
+    --page-max: min(1200px, 92vw);
+    --page-pad: clamp(18px,3vw,32px);
+  }
+
+  .product-shell{
+    width:100%;
+    max-width:var(--page-max);
+    margin:0 auto;
+    padding:0 var(--page-pad);
+  }
+
+  .section-shell{
+    width:100%;
+    max-width:var(--page-max);
+    margin:0 auto;
+    padding:0 var(--page-pad);
+  }
+</style>
+
+<main class="py-24 text-white" style="background:#0f172a; background-repeat:no-repeat; background-size:100% 100%; min-height:100vh;">
+  <nav class="product-shell flex w-full h-full text-slate-200" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
       <li class="inline-flex items-center">
         <a href="/" class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-slate-500">
@@ -168,7 +189,7 @@
   {% endif %}
   {% endif %}
 
-  <article class="container max-w-screen-2xl mx-auto px-6 md:px-10 space-y-0">
+  <article class="product-shell space-y-0">
 
     {% if frameworkSteps %}
     <section class="frameworkJourney">
@@ -217,12 +238,13 @@
         }
 
         .frameworkJourney__wrap{
-          width:min(1120px,92vw);
+          width:100%;
+          max-width:var(--page-max);
           margin:0 auto;
           display:flex;
           flex-direction:column;
           gap:clamp(40px,7vh,72px);
-          padding:0 clamp(22px,4.8vw,36px);
+          padding:0 var(--page-pad);
         }
 
         .frameworkJourney__title{
@@ -421,8 +443,9 @@
         }
 
         .cyberServices{
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:0 auto;
+          padding:0 var(--page-pad);
           display:grid;
           gap:clamp(28px,5vh,56px);
         }
@@ -531,8 +554,9 @@
         }
 
         .midCtaWrap{
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:0 auto;
+          padding:0 var(--page-pad);
           position:relative;
           overflow:visible;
         }
@@ -633,7 +657,7 @@
 
     {% if proofTitle or proofIntro %}
     <section data-proof-kpis style="background:linear-gradient(180deg,#021527 0%,#01070f 100%); padding:clamp(78px,11vh,160px) clamp(28px,4.6vw,44px) clamp(48px,8vh,92px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-1px; margin-bottom:-2px;">
-      <div class="w-full max-w-[1120px] mx-auto space-y-10">
+      <div class="product-shell space-y-10">
         <div class="max-w-3xl space-y-4 text-white">
           {% if proofTitle %}
           <h2 class="heading-xl">{{ proofTitle }}</h2>
@@ -688,7 +712,7 @@
 
             {% if pointSource %}
             <div class="card-description">
-              <p class="src">{{ pointSource }}</p>
+              <p class="proofCard__source body-sm">{{ pointSource }}</p>
             </div>
             {% endif %}
           </section>
@@ -781,9 +805,9 @@
           display:grid;
           grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
           gap:clamp(20px,3vw,28px);
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:clamp(18px,3vh,32px) auto;
-          padding:0 clamp(8px,1.8vw,18px);
+          padding:0 var(--page-pad);
           font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
         }
 
@@ -1071,7 +1095,7 @@
       {% endif %}
     {% endfor %}
     <section style="background:linear-gradient(180deg,#020b18 0%,#041526 100%); padding:clamp(64px,10vh,140px) clamp(28px,4.6vw,44px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
-      <div class="w-full max-w-[1120px] mx-auto space-y-8">
+      <div class="product-shell space-y-8">
         <div class="max-w-3xl space-y-4">
           {% if caseStudiesTitle %}
           <h2 class="caseStudies__title heading-xl">{{ caseStudiesTitle }}</h2>
@@ -1202,7 +1226,7 @@
 
     {% if vendorsLogos %}
     <section style="background:linear-gradient(180deg,#041526 0%,#0f172a 100%); padding:clamp(60px,10vh,130px) clamp(28px,4.6vw,44px) clamp(68px,11vh,120px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
-      <div class="w-full max-w-[1120px] mx-auto space-y-8">
+      <div class="product-shell space-y-8">
         <div class="max-w-3xl space-y-4">
           {% if vendorsTitle %}
           <h2 class="vendors__title heading-xl">{{ vendorsTitle }}</h2>
@@ -1249,11 +1273,11 @@
       width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
       margin-top:-1px; margin-bottom:-1px;
     ">
-      <div class="section-shell" style="position:relative; z-index:1; width:100%; max-width:min(1120px,92vw); margin:0 auto; padding:0 clamp(16px,3vw,24px);">
+      <div class="section-shell product-shell" style="position:relative; z-index:1;">
         <div style="display:flex; align-items:flex-end; justify-content:flex-start; gap:18px; flex-wrap:wrap;">
           <div>
             <h2 class="heading-xl mb-sm">
-              Proven Results. <span style="color:#00BBA7;">Real Impact.</span>
+              Proven Results. Real Impact.
             </h2>
           </div>
         </div>
@@ -1442,8 +1466,8 @@
 
 {% if relatedContent %}
     <section style="padding:clamp(80px,14vh,220px) 0; background:#000; min-height:92svh; display:flex; align-items:center; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
-      <div style="max-width:min(1120px,92vw); margin:0 auto; width:100%; padding:0 clamp(16px,3vw,24px); text-align:left;">
-        <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to <span style="color:#00BBA7;">Keep You Secure</span></h2>
+      <div class="product-shell" style="text-align:left;">
+        <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to Keep You Secure</h2>
 
         <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px); text-align:left;">
           {% for res in [
@@ -1503,8 +1527,9 @@
         }
 
         .bottomCtaWrap{
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:0 auto;
+          padding:0 var(--page-pad);
         }
 
         .bottomCtaCard{

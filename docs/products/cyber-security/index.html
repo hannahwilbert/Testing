@@ -185,13 +185,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </li>
         <li class="px-2 lg:px-3 py-1.5">
           <a href="/elevate/"
-             class="rounded-full px-3 py-1.5 whitespace-nowrap transition-colors inline-flex items-center gap-1.5"
+             class="rounded-full px-3 py-1.5 whitespace-nowrap transition-colors"
              :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">
             Elevate
-            <svg class="h-3.5 w-3.5 text-teal-400" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M4.667 11.333 11.333 4.667" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6.667 4.667h4.666v4.666" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
           </a>
         </li>
         <li class="px-2 lg:px-3 py-1.5">
@@ -551,8 +547,29 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   }
 </style>
 
-<main class="px-3 py-24 text-white md:px-8 2xl:px-0" style="background:#0f172a; background-repeat:no-repeat; background-size:100% 100%; min-height:100vh;">
-  <nav class="flex w-full h-full max-w-[1180px] mx-auto text-slate-200" aria-label="Breadcrumb">
+<style>
+  :root{
+    --page-max: min(1200px, 92vw);
+    --page-pad: clamp(18px,3vw,32px);
+  }
+
+  .product-shell{
+    width:100%;
+    max-width:var(--page-max);
+    margin:0 auto;
+    padding:0 var(--page-pad);
+  }
+
+  .section-shell{
+    width:100%;
+    max-width:var(--page-max);
+    margin:0 auto;
+    padding:0 var(--page-pad);
+  }
+</style>
+
+<main class="py-24 text-white" style="background:#0f172a; background-repeat:no-repeat; background-size:100% 100%; min-height:100vh;">
+  <nav class="product-shell flex w-full h-full text-slate-200" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
       <li class="inline-flex items-center">
         <a href="/" class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-slate-500">
@@ -655,40 +672,28 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <h2 class="securityPressures__title heading-xl">Top Cybersecurity Pressures Facing Growing Organizations</h2>
       
-      
-      <p class="securityPressures__intro body-text">These are the realities we hear from IT leaders every day.</p>
-      
-    </header>
+          </header>
 
     <div class="securityPressures__grid">
       
       <article class="securityPressures__card">
         <div class="securityPressures__chip">Priority 01</div>
         
-        <h3 class="securityPressures__cardTitle heading-md">Threat &amp; compliance overload</h3>
-        
-        
-        <p class="securityPressures__text body-text">Constant cyber threats and compliance mandates overwhelm in-house IT teams.</p>
+        <h3 class="securityPressures__cardTitle heading-md">Constant cyber threats and compliance mandates overwhelm in-house IT teams</h3>
         
       </article>
       
       <article class="securityPressures__card">
         <div class="securityPressures__chip">Priority 02</div>
         
-        <h3 class="securityPressures__cardTitle heading-md">Reputational stakes rising</h3>
-        
-        
-        <p class="securityPressures__text body-text">The risk of breaches and reputational damage keeps leadership on edge.</p>
+        <h3 class="securityPressures__cardTitle heading-md">Risk of breaches and reputational damage</h3>
         
       </article>
       
       <article class="securityPressures__card">
         <div class="securityPressures__chip">Priority 03</div>
         
-        <h3 class="securityPressures__cardTitle heading-md">Teams stuck firefighting</h3>
-        
-        
-        <p class="securityPressures__text body-text">Stretched resources stay reactive instead of driving long-term security strategy.</p>
+        <h3 class="securityPressures__cardTitle heading-md">Stretched resources focused on firefighting instead of strategy</h3>
         
       </article>
       
@@ -730,9 +735,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     [data-security-pressures] .securityPressures__wrap{
       position:relative;
       z-index:1;
-      max-width:min(1120px,92vw);
+      max-width:var(--page-max);
       margin:0 auto;
-      padding:0 clamp(20px,3.6vw,36px);
+      padding:0 var(--page-pad);
       display:flex;
       flex-direction:column;
       gap:clamp(48px,7vh,72px);
@@ -752,15 +757,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       text-wrap:balance;
     }
 
-    [data-security-pressures] .securityPressures__intro{
-      margin:0;
-      color:rgba(226,232,240,0.9);
-    }
-
     [data-security-pressures] .securityPressures__grid{
       display:grid;
       gap:clamp(20px,3vw,32px);
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      align-items:stretch;
+      grid-auto-rows:1fr;
     }
 
     @media(min-width:900px){
@@ -774,7 +776,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       border:1px solid #1b2d46;
       background:linear-gradient(210deg,#10223c 0%,#081525 100%);
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
-      display:grid;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
       gap:clamp(14px,2vh,20px);
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       overflow:hidden;
@@ -796,7 +800,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       justify-content:flex-start;
       height:2.2rem;
       gap:.4rem;
-      padding:0 .95rem;
+      padding:0 clamp(20px,3vw,36px);
       border-radius:999px;
       font-size:.72rem;
       letter-spacing:.18em;
@@ -808,19 +812,20 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       font-feature-settings:'tnum';
       text-align:left;
       flex-shrink:0;
+      align-self:stretch;
     }
 
     [data-security-pressures] .securityPressures__cardTitle{
       margin:0;
-      font-weight:700;
+      font-weight:600;
+      font-size:clamp(1rem,1.85vw,1.25rem);
       color:#f8fafc;
       letter-spacing:-0.01em;
       text-wrap:balance;
-    }
-
-    [data-security-pressures] .securityPressures__text{
-      margin:0;
-      color:rgba(214,228,244,0.88);
+      flex:1 1 auto;
+      display:flex;
+      align-items:flex-start;
+      min-height:clamp(52px,7vh,92px);
     }
 
     [data-security-pressures] .securityPressures__actions{
@@ -878,7 +883,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   
   
 
-  <article class="container max-w-screen-2xl mx-auto px-6 md:px-10 space-y-0">
+  <article class="product-shell space-y-0">
 
     
     <section class="frameworkJourney">
@@ -971,12 +976,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
 
         .frameworkJourney__wrap{
-          width:min(1120px,92vw);
+          width:100%;
+          max-width:var(--page-max);
           margin:0 auto;
           display:flex;
           flex-direction:column;
           gap:clamp(40px,7vh,72px);
-          padding:0 clamp(22px,4.8vw,36px);
+          padding:0 var(--page-pad);
         }
 
         .frameworkJourney__title{
@@ -990,7 +996,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           display:flex;
           flex-direction:column;
           border-radius:24px;
-          background:#0a172a;
+          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
           border:1px solid #1b2d46;
           box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           color:#e2e8f0;
@@ -1210,8 +1216,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
 
         .cyberServices{
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:0 auto;
+          padding:0 var(--page-pad);
           display:grid;
           gap:clamp(28px,5vh,56px);
         }
@@ -1244,7 +1251,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           padding:clamp(24px,3.2vw,32px) clamp(24px,3.2vw,32px) clamp(26px,3.4vw,34px);
           border-radius:22px;
           border:1px solid #1b2d46;
-          background:#0a172a;
+          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
           box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           overflow:hidden;
           transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
@@ -1318,8 +1325,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
 
         .midCtaWrap{
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:0 auto;
+          padding:0 var(--page-pad);
           position:relative;
           overflow:visible;
         }
@@ -1392,7 +1400,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     
     <section data-proof-kpis style="background:linear-gradient(180deg,#021527 0%,#01070f 100%); padding:clamp(78px,11vh,160px) clamp(28px,4.6vw,44px) clamp(48px,8vh,92px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-1px; margin-bottom:-2px;">
-      <div class="w-full max-w-[1120px] mx-auto space-y-10">
+      <div class="product-shell space-y-10">
         <div class="max-w-3xl space-y-4 text-white">
           
           <h2 class="heading-xl">Proof That Elevate Strengthens Security Outcomes</h2>
@@ -1495,9 +1503,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           display:grid;
           grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
           gap:clamp(20px,3vw,28px);
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:clamp(18px,3vh,32px) auto;
-          padding:0 clamp(8px,1.8vw,18px);
+          padding:0 var(--page-pad);
           font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
         }
 
@@ -1787,7 +1795,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
     
     <section style="background:linear-gradient(180deg,#020b18 0%,#041526 100%); padding:clamp(64px,10vh,140px) clamp(28px,4.6vw,44px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
-      <div class="w-full max-w-[1120px] mx-auto space-y-8">
+      <div class="product-shell space-y-8">
         <div class="max-w-3xl space-y-4">
           
           <h2 class="caseStudies__title heading-xl">Explore Security Success Stories</h2>
@@ -1907,7 +1915,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     
     <section style="background:linear-gradient(180deg,#041526 0%,#0f172a 100%); padding:clamp(60px,10vh,130px) clamp(28px,4.6vw,44px) clamp(68px,11vh,120px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
-      <div class="w-full max-w-[1120px] mx-auto space-y-8">
+      <div class="product-shell space-y-8">
         <div class="max-w-3xl space-y-4">
           
           <h2 class="vendors__title heading-xl">Trusted by Security Innovators You Already Rely On</h2>
@@ -1996,11 +2004,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
       margin-top:-1px; margin-bottom:-1px;
     ">
-      <div class="section-shell" style="position:relative; z-index:1; width:100%; max-width:min(1120px,92vw); margin:0 auto; padding:0 clamp(16px,3vw,24px);">
+      <div class="section-shell product-shell" style="position:relative; z-index:1;">
         <div style="display:flex; align-items:flex-end; justify-content:flex-start; gap:18px; flex-wrap:wrap;">
           <div>
             <h2 class="heading-xl mb-sm">
-              Proven Results. <span style="color:#00BBA7;">Real Impact.</span>
+              Proven Results. Real Impact.
             </h2>
           </div>
         </div>
@@ -2085,7 +2093,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             padding:clamp(24px,2.8vw,32px);
             border:1px solid #1b2d46;
             border-radius:20px;
-            background:#0a172a;
+            background:linear-gradient(210deg,#10223c 0%,#081525 100%);
             box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
             display:grid;
             gap:clamp(18px,2.4vw,26px);
@@ -2189,8 +2197,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
     <section style="padding:clamp(80px,14vh,220px) 0; background:#000; min-height:92svh; display:flex; align-items:center; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
-      <div style="max-width:min(1120px,92vw); margin:0 auto; width:100%; padding:0 clamp(16px,3vw,24px); text-align:left;">
-        <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to <span style="color:#00BBA7;">Keep You Secure</span></h2>
+      <div class="product-shell" style="text-align:left;">
+        <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to Keep You Secure</h2>
 
         <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px); text-align:left;">
           
@@ -2260,8 +2268,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
 
         .bottomCtaWrap{
-          max-width:min(1120px,92vw);
+          max-width:var(--page-max);
           margin:0 auto;
+          padding:0 var(--page-pad);
         }
 
         .bottomCtaCard{
