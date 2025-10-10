@@ -423,7 +423,7 @@
       background-image: none !important;
     }
 
-    header.hero ~ section > canvas:not(#servicesWaves):not(#tpvWaves),
+    header.hero ~ section > canvas:not(#servicesWaves):not(#diffWaves),
     header.hero ~ article > canvas,
     header.hero ~ section > i[aria-hidden="true"],
     header.hero ~ article > i[aria-hidden="true"] {
@@ -432,7 +432,7 @@
 
     @media (prefers-reduced-motion: reduce){
       #servicesWaves,
-      #tpvWaves{
+      #diffWaves{
         display:none !important;
       }
     }
@@ -2330,6 +2330,10 @@ section[data-services] .svcCard--feature .svcCard__icon{
 ] %}
 
 <section data-diff="features" class="section-block" style="background:linear-gradient(180deg,#061021 89%,#000000 100%) !important; position:relative; overflow:hidden; isolation:isolate; color:#e2e8f0;">
+  <canvas id="diffWaves" aria-hidden="true"
+    style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
+  ></canvas>
+
   <div class="section-shell diff__wrap" style="position:relative; z-index:1;">
     <header class="diff__head">
       <h2 class="heading-xl diff__title">Why Growing IT Teams Choose <span style="color:#00BBA7;">L3 Networks</span></h2>
@@ -2485,10 +2489,6 @@ section[data-services] .svcCard--feature .svcCard__icon{
 <section data-stack="tpv" class="section-block"
   style="background:linear-gradient(180deg,#000000 0%,#000000 50%,#061021 100%) !important; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg,#061021c6 80%,#061021 100%); background-color:#061021; min-height:92svh; display:flex; align-items:center;">
   
-  <canvas id="tpvWaves" aria-hidden="true"
-    style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
-  ></canvas>
-
   <!-- Your content stays on top, untouched -->
   <div class="tpv__wrap section-shell"
        style="position:relative; z-index:1; width:100%;">
@@ -2741,10 +2741,10 @@ section[data-services] .svcCard--feature .svcCard__icon{
     })();
   </script>
 
-  <!-- Waves script: EXACT logic, bound to #tpvWaves, runs after DOM -->
+  <!-- Waves script: EXACT logic, bound to #diffWaves, runs after DOM -->
   <script>
     (function () {
-      var CANVAS_IDS = ['tpvWaves', 'servicesWaves'];
+      var CANVAS_IDS = ['diffWaves', 'servicesWaves'];
 
       function initCanvas(cv) {
         if (!cv || cv.__wavesInitialized) return;
