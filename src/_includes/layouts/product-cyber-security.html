@@ -37,7 +37,12 @@
       {% if heroAnimation %}
         {% include "partials/hero-animations/" + heroAnimation + ".html" %}
       {% elseif heroImage %}
-        <img src="{{ heroImage }}" alt="{{ heroImageAlt }}" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-contain">
+        <figure class="relative flex flex-col items-center gap-3 text-center">
+          <img src="{{ heroImage }}" alt="{{ heroImageAlt }}" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-contain">
+          {% if product != 'Cyber Security' %}
+          <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70">[placeholder image]</figcaption>
+          {% endif %}
+        </figure>
       {% endif %}
     </div>
   </div>

@@ -2430,6 +2430,10 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .tracking-\[0\.24em\] {
+    --tw-tracking: 0.24em;
+    letter-spacing: 0.24em;
+  }
   .tracking-\[0\.28em\] {
     --tw-tracking: 0.28em;
     letter-spacing: 0.28em;
@@ -2541,6 +2545,12 @@
   }
   .text-slate-300 {
     color: var(--color-slate-300);
+  }
+  .text-slate-300\/70 {
+    color: color-mix(in srgb, oklch(86.9% 0.022 252.894) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-slate-300) 70%, transparent);
+    }
   }
   .text-slate-300\/80 {
     color: color-mix(in srgb, oklch(86.9% 0.022 252.894) 80%, transparent);
