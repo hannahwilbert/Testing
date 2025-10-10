@@ -1363,30 +1363,56 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           gap:clamp(24px,3vw,32px);
           align-items:center;
           border-radius:clamp(24px,3vw,32px);
-          border:none;
+          border:1px solid #1b2d46;
           background:
-            radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
-            radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
-            linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
-            linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
-          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
+            linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
+            linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
+            linear-gradient(210deg,#10223c 0%,#081525 100%);
+          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           padding:clamp(28px,4vw,40px);
-          overflow:visible;
+          overflow:hidden;
+          isolation:isolate;
+          text-align:center;
+          transition:border-color .35s ease, box-shadow .35s ease, transform .35s ease;
         }
 
+        .midCtaCard::before,
         .midCtaCard::after{
           content:"";
           position:absolute;
           inset:0;
-          border-radius:inherit;
-          background:radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 55%);
-          opacity:.9;
           pointer-events:none;
+          transition:opacity .35s ease, transform .35s ease;
+        }
+
+        .midCtaCard::before{
+          inset:-60% 24% 40% -30%;
+          background:linear-gradient(120deg, rgba(188,214,255,.32) 0%, rgba(188,214,255,0) 65%);
+          opacity:.28;
+          transform:rotate(-7deg);
+          mix-blend-mode:screen;
+          filter:blur(16px);
+        }
+
+        .midCtaCard::after{
+          inset:54% -32% -120% 28%;
+          background:
+            linear-gradient(212deg, rgba(82,140,200,.18) 0%, rgba(10,22,42,0) 68%),
+            radial-gradient(120% 140% at 80% -20%, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 58%);
+          opacity:.2;
+          transform:rotate(3deg);
+          filter:blur(12px);
         }
 
         .midCtaCard > *{
           position:relative;
           z-index:1;
+        }
+
+        .midCtaCard:is(:hover,:focus-visible){
+          border-color:rgba(180,210,240,.34);
+          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+          transform:translate3d(0,-6px,0);
         }
 
         .midCtaActions{
@@ -1428,6 +1454,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         @media (max-width: 768px){
           .midCtaShell{
             padding-inline:clamp(18px,4vw,28px);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce){
+          .midCtaCard,
+          .midCtaCard::before,
+          .midCtaCard::after{
+            transition:none !important;
+          }
+          .midCtaCard:is(:hover,:focus-visible){
+            transform:none;
           }
         }
       </style>
@@ -2385,31 +2422,56 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           align-items:center;
           padding:clamp(32px,4.6vw,52px);
           border-radius:clamp(28px,4vw,40px);
-          border:none;
+          border:1px solid #1b2d46;
           background:
-            radial-gradient(140% 160% at 50% -20%, rgba(102,237,255,.32) 0%, rgba(102,237,255,0) 56%),
-            radial-gradient(140% 160% at 50% 120%, rgba(0,204,185,.3) 0%, rgba(0,204,185,0) 58%),
-            linear-gradient(180deg, rgba(18,52,83,.9) 0%, rgba(6,20,33,.96) 54%, rgba(4,12,23,.99) 100%),
-            linear-gradient(0deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.1) 100%);
-          box-shadow:0 34px 88px rgba(5,12,24,.64), inset 0 1px 0 rgba(255,255,255,.24), inset 0 -1px 0 rgba(0,0,0,.32);
+            linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
+            linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
+            linear-gradient(210deg,#10223c 0%,#081525 100%);
+          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
           text-align:center;
           position:relative;
           overflow:hidden;
+          isolation:isolate;
+          transition:border-color .35s ease, box-shadow .35s ease, transform .35s ease;
         }
 
+        .bottomCtaCard::before,
         .bottomCtaCard::after{
           content:"";
           position:absolute;
           inset:0;
-          border-radius:inherit;
-          background:radial-gradient(circle at top right, rgba(56,189,248,0.18), transparent 55%);
-          opacity:.85;
           pointer-events:none;
+          transition:opacity .35s ease, transform .35s ease;
+        }
+
+        .bottomCtaCard::before{
+          inset:-60% 24% 40% -30%;
+          background:linear-gradient(120deg, rgba(188,214,255,.32) 0%, rgba(188,214,255,0) 65%);
+          opacity:.28;
+          transform:rotate(-7deg);
+          mix-blend-mode:screen;
+          filter:blur(16px);
+        }
+
+        .bottomCtaCard::after{
+          inset:54% -32% -120% 28%;
+          background:
+            linear-gradient(212deg, rgba(82,140,200,.18) 0%, rgba(10,22,42,0) 68%),
+            radial-gradient(120% 140% at 80% -20%, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 58%);
+          opacity:.2;
+          transform:rotate(3deg);
+          filter:blur(12px);
         }
 
         .bottomCtaCard > *{
           position:relative;
           z-index:1;
+        }
+
+        .bottomCtaCard:is(:hover,:focus-visible){
+          border-color:rgba(180,210,240,.34);
+          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+          transform:translate3d(0,-6px,0);
         }
 
         .bottomCtaContent{
@@ -2435,6 +2497,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           display:flex;
           justify-content:center;
           width:100%;
+        }
+
+        @media (prefers-reduced-motion: reduce){
+          .bottomCtaCard,
+          .bottomCtaCard::before,
+          .bottomCtaCard::after{
+            transition:none !important;
+          }
+          .bottomCtaCard:is(:hover,:focus-visible){
+            transform:none;
+          }
         }
       </style>
     </section>
