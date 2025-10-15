@@ -1754,7 +1754,7 @@
         // Snap mode: decide 'start' vs 'center' based on last interaction
         var lastAction = 'init'; // 'dot' | 'kbd' | 'auto' | 'nav' | 'wheel' | 'drag' | 'init'
         // Autoplay controls
-        var autoplay = true;
+        var autoplay = false; // disable auto-scrolling
         var autoplayMs = 5000;
         var autoplayTimer = null;
         // Respect reduced motion
@@ -1971,6 +1971,9 @@
           }
           updateDotsVisibility();
           window.addEventListener('resize', updateDotsVisibility);
+
+          // Move initial keyboard focus to the first radio dot
+          try { requestAnimationFrame(function(){ focusDot(0); }); } catch (e) { /* no-op */ }
         })();
 
         // Offset initial scroll so first card appears flush-left despite left spacer
@@ -1983,8 +1986,7 @@
           updateButtons();
         })();
         pointerScroll = false;
-        // start autoplay
-        resumeAutoplay();
+        // autoplay disabled
       });
     })();
   </script>
@@ -2463,10 +2465,10 @@
       min-width:clamp(280px,40vw,480px);
       padding:clamp(22px,2.6vw,30px);
       border-radius:20px;
-      border:none;
+      border:1px solid #1b2d46;
       text-decoration:none;
       color:#e2e8f0;
-      background:none;
+      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       overflow:hidden;
       isolation:isolate;
@@ -2475,15 +2477,7 @@
       scroll-snap-stop:always;
     }
 
-    section[data-services] .svcCard::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      /* Remove card background images: keep a soft gradient only */
-      background:linear-gradient(180deg, rgba(3,10,20,.58) 0%, rgba(3,10,20,.28) 42%, rgba(3,10,20,.62) 100%);
-      z-index:0;
-      transition:transform .35s ease, opacity .35s ease;
-    }
+    section[data-services] .svcCard::before{ content:none; }
 
     section[data-services] .svcCard > *{ position:relative; z-index:1; }
 
