@@ -2479,9 +2479,8 @@
       content:"";
       position:absolute;
       inset:0;
-      background-image:linear-gradient(180deg, rgba(3,10,20,.58) 0%, rgba(3,10,20,.28) 42%, rgba(3,10,20,.62) 100%), var(--svcBg);
-      background-size:cover;
-      background-position:center;
+      /* Remove card background images: keep a soft gradient only */
+      background:linear-gradient(180deg, rgba(3,10,20,.58) 0%, rgba(3,10,20,.28) 42%, rgba(3,10,20,.62) 100%);
       z-index:0;
       transition:transform .35s ease, opacity .35s ease;
     }
