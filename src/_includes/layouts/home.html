@@ -624,6 +624,7 @@
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 1 ? 'pb-0' : 'pb-4 sm:pb-6'">
                     <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                      <img class="problemFlat__icon" src="/images/home/icons/teal/ClockClockwise.svg" alt="">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Unplanned Downtime</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -653,6 +654,7 @@
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 2 ? 'pb-0' : 'pb-4 sm:pb-6'">
                     <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                      <img class="problemFlat__icon" src="/images/home/icons/teal/proactive-support.svg" alt="">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Teams Stretched Thin</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -682,6 +684,7 @@
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 3 ? 'pb-0' : 'pb-4 sm:pb-6'">
                     <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                      <img class="problemFlat__icon" src="/images/home/icons/teal/CloudCheck.svg" alt="">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Cloud Initiatives Stalling</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -711,6 +714,7 @@
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 4 ? 'pb-0' : 'pb-4 sm:pb-6'">
                     <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                      <img class="problemFlat__icon" src="/images/home/icons/teal/TrendUp.svg" alt="">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Missing Roadmap</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -865,6 +869,14 @@
       margin:0;
       line-height:1.25;
       min-width:0;
+    }
+    /* Icon next to titles */
+    .problemFlat__icon{
+      width:clamp(20px,2.6vw,28px);
+      height:auto;
+      display:block;
+      filter:drop-shadow(0 10px 24px rgba(0,187,167,.22));
+      flex:0 0 auto;
     }
 
     .problemFlat__itemCopy{
