@@ -2017,10 +2017,11 @@
 
 <section data-how="elevate" class="section-block" style="background:linear-gradient(180deg, #000000 0%, #061021 10%, #061021 90%,black 100%); color:#ecf3fb;">
   <div class="section-shell howE__wrap">
-    <h2 class="heading-xl mb-sm">The <span class="howE__titleGradient">Elevate</span> <span style="color:var(--brand);">Path</span></h2>
-    <p class="body-lead measure mb-md howE__lead">Move through the Elevate IT Maturity Framework in clear stages so every initiative drives measurable progress.</p>
+    <div class="howE__frame">
+      <h2 class="heading-xl mb-sm">The <span class="howE__titleGradient">Elevate</span> <span style="color:var(--brand);">Path</span></h2>
+      <p class="body-lead measure mb-md howE__lead">Move through the Elevate IT Maturity Framework in clear stages so every initiative drives measurable progress.</p>
 
-    <div class="howE__grid" role="list">
+      <div class="howE__grid" role="list">
       {% for phase in elevateHowItWorks %}
       {% set overlayId = 'elevate-overlay-' ~ loop.index %}
       <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
@@ -2080,6 +2081,7 @@
       </article>
       {% endfor %}
     </div>
+    </div>
   </div>
 
   <style>
@@ -2096,6 +2098,22 @@
       margin:0 auto;
       padding:0 var(--pad);
       width:100%;
+    }
+
+    /* Add a subtle outlined frame to make the section pop */
+    section[data-how="elevate"] .howE__frame{
+      border:1px solid rgba(102,199,232,.32);
+      border-radius:28px;
+      padding:clamp(18px,4vw,28px);
+      background:linear-gradient(180deg, rgba(12,26,48,.35) 0%, rgba(12,26,48,.15) 100%);
+      box-shadow:0 20px 48px rgba(8,18,35,.45), inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    /* Center the section title */
+    section[data-how="elevate"] .howE__frame .heading-xl{
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     section[data-how="elevate"] .howE__lead{
