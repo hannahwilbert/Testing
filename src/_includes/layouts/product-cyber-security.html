@@ -203,26 +203,73 @@
           <h2 class="frameworkJourney__title heading-xl">Our Approach Through Elevate</h2>
         </div>
 
-        <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="howE__grid" role="list">
           {% for step in frameworkSteps %}
-          <article
-            x-data="{ open:false }"
-            class="framework-card overflow-hidden rounded-4xl flex flex-col bg-neutral-800 text-neutral-100 relative{% if loop.index == 3 %} framework-card--transform{% endif %}"
-          >
-            <div class="flex flex-col flex-1 h-full">
-              <div class="p-6 pb-4">
+          {% set overlayId = 'elevate-overlay-product-' ~ loop.index %}
+          {% set img = '/images/elevate/stabilize.png' %}
+          {% set tag = 'Fix urgent gaps, secure the foundation.' %}
+          {% if step.phase and step.phase | lower == 'optimize' %}
+            {% set img = '/images/elevate/optimize.png' %}
+            {% set tag = 'Improve performance, reduce risks, automate.' %}
+          {% elseif step.phase and step.phase | lower == 'transform' %}
+            {% set img = '/images/elevate/transform.png' %}
+            {% set tag = 'Align IT strategy with business growth.' %}
+          {% endif %}
+
+          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+              <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
-                    <div class="px-3 py-1 text-xs rounded-full bg-neutral-600 text-neutral-100">Stage {{ loop.index }}</div>
+                    <span class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">
+                      Stage {{ loop.index }}
+                    </span>
                   </div>
+                  <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
+                  <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
                 </div>
               </div>
 
-              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-4">
+              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">{{ step.phase }}</h3>
-                {% if step.description %}
-                <p class="text-base sm:text-lg font-light text-neutral-200 leading-snug">{{ step.description }}</p>
-                {% endif %}
+                <p class="text-base sm:text-lg font-extralight leading-snug">{{ tag }}</p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <button
+                type="button"
+                class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :aria-expanded="open.toString()"
+                :aria-controls="'{{ overlayId }}'"
+                :aria-label="(open ? 'Hide' : 'Show') + ' details for {{ step.phase | safe }}'"
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                @keydown.escape.prevent="open = false"
+              >
+                <img src="{{ img }}" alt="{{ step.phase }} image" class="w-full h-full object-cover">
+              </button>
+
+              <div
+                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                :aria-hidden="(!open).toString()"
+                :id="'{{ overlayId }}'"
+              >
+                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
+                  {% if step.description %}
+                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">{{ step.description }}</p>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
+                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
+                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </article>
@@ -258,41 +305,105 @@
           text-wrap:balance;
         }
 
-        .frameworkJourney__wrap .framework-card{
+        /* Match home 'The Elevate Path' card styles */
+        .frameworkJourney .howE__grid{
+          display:grid;
+          gap:clamp(20px,3vw,28px);
+          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+          width:100%;
+        }
+
+        .frameworkJourney .howE__card{
           position:relative;
           display:flex;
           flex-direction:column;
-          border-radius:24px;
-          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-          border:1px solid #1b2d46;
-          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
-          color:#e2e8f0;
+          border-radius:32px;
+          overflow:hidden;
+          background:rgba(12,26,48,0.9);
+          box-shadow:0 24px 48px rgba(8,17,33,0.45);
+          isolation:isolate;
+          transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
         }
 
-        .frameworkJourney__wrap .framework-card::after{
-          content:"";
-          position:absolute;
-          top:clamp(12px,1.6vh,22px);
-          right:clamp(12px,1.6vh,22px);
-          width:36px;
-          height:36px;
-          background:url('/images/icons/ArrowUpRightWhite.svg') center/contain no-repeat;
+        .frameworkJourney .howE__card--open{
+          box-shadow:0 30px 60px rgba(17,94,89,0.45);
+          border-color:rgba(20,184,166,0.45);
         }
 
-        .frameworkJourney__wrap .framework-card--transform{
-          background:linear-gradient(160deg,rgba(0,187,167,0.92) 0%,rgba(0,187,167,0.82) 100%);
-          border-color:rgba(94,234,212,0.4);
-          color:#fff;
+        .frameworkJourney .howE__card:hover{ transform:translateY(-4px); }
+        .frameworkJourney .howE__card > div:first-child{ border-bottom:1px solid rgba(148,163,184,0.12); }
+        .frameworkJourney .howE__card button{ transition:transform .45s cubic-bezier(.4,0,.2,1); }
+        .frameworkJourney .howE__card button:hover{ transform:scale(1.02); }
+        .frameworkJourney .howE__card button:focus-visible{ outline:2px solid rgba(20,184,166,.55); outline-offset:4px; }
+
+        @media (max-width: 720px){
+          .frameworkJourney .howE__grid{ grid-template-columns:1fr; }
         }
 
-        .frameworkJourney__wrap .framework-card--transform h3{
-          color:#fff;
-        }
-
-        .frameworkJourney__wrap .framework-card--transform p{
-          color:rgba(10,26,47,0.82);
+        @media (prefers-reduced-motion: reduce){
+          .frameworkJourney .howE__card{ transition:none; }
+          .frameworkJourney .howE__card button{ transition:none; }
         }
       </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          var section = document.querySelector('section[data-cyber-services]');
+          if (!section) return;
+          var row = section.querySelector('#cyberServicesRow');
+          var dotsWrap = section.querySelector('.svcDots');
+          if (!row || !dotsWrap) return;
+          var cards = Array.prototype.slice.call(row.children).filter(function(el){ return el.classList.contains('cyberServiceCard'); });
+          if (!cards.length) return;
+
+          function buildDots(){
+            dotsWrap.innerHTML = '';
+            dotsWrap.setAttribute('role','tablist');
+            var dots = [];
+            function setActive(idx){
+              for (var i=0;i<dots.length;i++){
+                var on = i === idx;
+                dots[i].classList.toggle('is-active', on);
+                dots[i].setAttribute('aria-selected', on?'true':'false');
+                dots[i].setAttribute('tabindex', on?'0':'-1');
+              }
+            }
+            function scrollToIndex(idx, smooth){
+              var card = cards[idx]; if (!card) return;
+              row.scrollTo({ left: card.offsetLeft, behavior: (smooth===false? 'auto':'smooth') });
+              setActive(idx);
+            }
+            cards.forEach(function(_, i){
+              var b = document.createElement('button');
+              b.type = 'button'; b.className = 'svcDot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Show service '+(i+1));
+              b.addEventListener('click', function(){ scrollToIndex(i, true); });
+              dotsWrap.appendChild(b); dots.push(b);
+            });
+
+            // init flush-left
+            row.scrollLeft = cards[0].offsetLeft;
+            setActive(0);
+
+            // update on scroll
+            var ticking = false;
+            row.addEventListener('scroll', function(){
+              if (ticking) return; ticking = true;
+              requestAnimationFrame(function(){
+                var sl = row.scrollLeft, idx = 0, min = Infinity;
+                for (var i=0;i<cards.length;i++){
+                  var d = Math.abs(sl - cards[i].offsetLeft);
+                  if (d < min){ min = d; idx = i; }
+                }
+                setActive(idx);
+                ticking = false;
+              });
+            }, { passive:true });
+
+            function updateDotsVis(){ dotsWrap.style.display = (row.scrollWidth > row.clientWidth + 4) ? 'flex' : 'none'; }
+            updateDotsVis(); window.addEventListener('resize', updateDotsVis);
+          }
+          buildDots();
+        });
+      </script>
       <script>
         document.addEventListener('DOMContentLoaded', function () {
           const section = document.querySelector('[data-proof-kpis]');
@@ -424,9 +535,12 @@
           {% endif %}
         </header>
 
-        <div class="cyberServices__grid">
+        {% if product == 'Cyber Security' %}
+        <div class="cyberServices__row" id="cyberServicesRow" role="list">
           {% for service in services %}
-          <article class="cyberServiceCard">
+          {% set icon = service.icon or '/images/home/icons/teal/ShieldCheckered.svg' %}
+          <article class="cyberServiceCard" role="listitem">
+            <img src="{{ icon }}" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">{{ service.name }}</h3>
               <p class="cyberServiceCard__text body-text">{{ service.description }}</p>
@@ -434,6 +548,21 @@
           </article>
           {% endfor %}
         </div>
+        <div class="svcDots" role="tablist" aria-label="Service slides"></div>
+        {% else %}
+        <div class="cyberServices__grid">
+          {% for service in services %}
+          {% set icon = service.icon or '/images/home/icons/teal/ShieldCheckered.svg' %}
+          <article class="cyberServiceCard">
+            <img src="{{ icon }}" alt="" class="cyberServiceCard__icon">
+            <div class="cyberServiceCard__body">
+              <h3 class="cyberServiceCard__title heading-md">{{ service.name }}</h3>
+              <p class="cyberServiceCard__text body-text">{{ service.description }}</p>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
 
       <style>
@@ -454,6 +583,8 @@
           display:grid;
           gap:clamp(28px,5vh,56px);
         }
+
+        /* (no left/right split; header sits above row for Cyber Security) */
 
         .cyberServices__head{
           display:grid;
@@ -489,6 +620,79 @@
           transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
           isolation:isolate;
         }
+        .cyberServiceCard__icon{
+          display:block;
+          width:clamp(38px,5.2vw,56px);
+          height:auto;
+          filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
+        }
+
+        /* Horizontal row for Cyber Security page (simple cards) */
+        {% raw %}{% endraw %}{% if product == 'Cyber Security' %}
+        .cyberServices__row{
+          display:flex;
+          gap:clamp(20px,4vw,40px);
+          overflow-x:auto;
+          width:100vw;
+          max-width:none;
+          box-sizing:border-box;
+          margin-left:calc((100vw - 100%)/-2);
+          margin-right:calc((100vw - 100%)/-2);
+          padding:clamp(12px,2vw,20px) clamp(36px,7vw,120px) clamp(24px,3vw,36px);
+          align-items:stretch;
+          scroll-snap-type:x proximity;
+          scroll-behavior:smooth;
+          scroll-padding-inline:clamp(36px,7vw,120px);
+          -webkit-overflow-scrolling:touch;
+          touch-action:auto;
+          overscroll-behavior-x:contain;
+          overscroll-behavior-y:auto;
+          scrollbar-width:thin;
+          scrollbar-color:rgba(102,199,232,.6) rgba(15,32,56,.4);
+        }
+        .cyberServices__row::before,
+        .cyberServices__row::after{
+          content:"";
+          flex:0 0 calc((100% - clamp(280px,40vw,480px)) / 2);
+        }
+        .cyberServices__row::-webkit-scrollbar{ height:8px; }
+        .cyberServices__row::-webkit-scrollbar-track{ background:rgba(7,15,26,.6); border-radius:999px; }
+        .cyberServices__row::-webkit-scrollbar-thumb{
+          background:linear-gradient(135deg, rgba(102,199,232,.85), rgba(14,116,144,.85));
+          border-radius:999px;
+        }
+        /* Card sizing within row */
+        .cyberServices__row .cyberServiceCard{
+          display:flex;
+          flex-direction:column;
+          justify-content:space-between;
+          flex:0 0 clamp(280px,40vw,480px);
+          scroll-snap-align:start;
+        }
+        /* Dots under the row */
+        [data-cyber-services] .svcDots{
+          display:flex; justify-content:center; align-items:center;
+          gap:clamp(8px, 1vw, 14px); padding-top:12px;
+          -webkit-tap-highlight-color: transparent;
+        }
+        [data-cyber-services] .svcDot{
+          width:clamp(10px, 1.2vw, 14px); height:clamp(10px, 1.2vw, 14px);
+          border-radius:999px; cursor:pointer;
+          border:1px solid rgba(148,163,184,.45);
+          background:rgba(148,163,184,.28);
+          transition:transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+          outline:none;
+        }
+        [data-cyber-services] .svcDot:hover,
+        [data-cyber-services] .svcDot:focus-visible{ transform:scale(1.12); box-shadow:0 0 0 3px rgba(102,199,232,.16); border-color:rgba(102,199,232,.65); }
+        [data-cyber-services] .svcDot.is-active{
+          background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%);
+          border-color:rgba(102,199,232,.85);
+          box-shadow:0 0 0 4px rgba(102,199,232,.20);
+          transform:translateY(-1px);
+        }
+        @media (pointer: coarse){ [data-cyber-services] .svcDot{ width:16px; height:16px; } }
+        {% raw %}{% endraw %}{% endif %}
 
         .cyberServiceCard__body{
           position:relative;
@@ -764,7 +968,7 @@
         <div class="l3-kpi-cards" role="group" aria-label="Three security stats">
           <section class="card">
             <h4 class="proofCard__title heading-md">Urgency of Proactive Defense</h4>
-            <p class="proofCard__subtitle body-text">Average time to identify &amp; contain a breach</p>
+            <p class="proofCard__subtitle body-text">Time to detect and contain breaches</p>
             <div class="card-visual card-visual--bar">
               <div class="kpi">
                 <span class="num" data-count-up data-target="258" data-decimals="0" data-duration="1400">258</span>
@@ -776,14 +980,14 @@
               </div>
             </div>
             <div class="card-description">
-              <p class="proofCard__clarifier body-text">Crossing <b>200 days</b> is linked to <b>+$1.12M</b> higher breach costs.</p>
+              <p class="proofCard__clarifier body-text">Over <b>200 days</b> adds about <b>$1.12M</b> in costs.</p>
               <p class="proofCard__source body-sm">IBM Cost of a Data Breach Report, 2024</p>
             </div>
           </section>
 
           <section class="card">
             <h4 class="proofCard__title heading-md">Cost of a Breach for Growing Businesses</h4>
-            <p class="proofCard__subtitle body-text">Average total cost for smaller companies (≤500 employees)</p>
+            <p class="proofCard__subtitle body-text">Avg. cost for smaller companies (≤500 staff)</p>
             <div class="card-visual card-visual--meter">
               <div class="kpi"><span class="num" data-count-up data-target="3.31" data-prefix="$" data-suffix="M" data-decimals="2" data-duration="1500">$3.31M</span></div>
               <div class="meter" style="--pct:0" data-target-pct="66">
@@ -792,14 +996,14 @@
               </div>
             </div>
             <div class="card-description">
-              <p class="proofCard__clarifier body-text">Average breach cost for smaller companies in 2022.</p>
+              <p class="proofCard__clarifier body-text">Smaller companies, 2022.</p>
               <p class="proofCard__source body-sm">IBM Cost of a Data Breach Report, 2022</p>
             </div>
           </section>
 
           <section class="card">
             <h4 class="proofCard__title heading-md">Value of Security Automation</h4>
-            <p class="proofCard__subtitle body-text">Average cost savings with AI &amp; automation</p>
+            <p class="proofCard__subtitle body-text">Savings from AI &amp; automation</p>
 
             <div class="card-visual card-visual--chart">
               <svg class="v-bars" viewBox="0 0 300 220" width="100%" height="auto" aria-label="Bar chart showing higher cost without automation and lower cost with automation (−$2.2M)">
@@ -834,7 +1038,7 @@
             </div>
 
             <div class="card-description">
-              <p class="proofCard__clarifier body-text">Automation cut costs by <b data-count-up data-target="2.2" data-prefix="−$" data-suffix="M" data-decimals="1" data-duration="1500">−$2.2M</b> on average.</p>
+              <p class="proofCard__clarifier body-text">Average savings: <b data-count-up data-target="2.2" data-prefix="−$" data-suffix="M" data-decimals="1" data-duration="1500">−$2.2M</b>.</p>
               <p class="proofCard__source body-sm">IBM Cost of a Data Breach Report, 2024</p>
             </div>
           </section>
@@ -856,7 +1060,7 @@
         .l3-kpi-cards .card{
           position:relative;
           overflow:hidden;
-          text-align:left;
+          text-align:center;
           background:#0a172a;
           border:1px solid #1b2d46;
           border-radius:22px;
@@ -920,11 +1124,14 @@
           display:grid;
           gap:clamp(12px,1.8vh,16px);
           margin-top:clamp(8px,1.4vh,14px);
+          justify-items:center;
+          text-align:center;
         }
 
         .proof-metric{
           display:grid;
           gap:6px;
+          text-align:center;
         }
 
         .proof-metric__label{
@@ -932,6 +1139,7 @@
           text-transform:uppercase;
           letter-spacing:0.12em;
           color:rgba(148,204,255,0.72);
+          text-align:center;
         }
 
         .proof-metric__track{
@@ -1061,7 +1269,8 @@
           display:flex;
           flex-direction:column;
           gap:clamp(8px,1.2vh,12px);
-          align-items:flex-start;
+          align-items:center;
+          text-align:center;
           width:100%;
         }
 

@@ -32,6 +32,36 @@ module.exports = (config) => {
   config.addFilter("postDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
   });
+  // Address formatting: street (+suite) on line 1, city/state/zip on line 2
+  config.addFilter("formatAddress", (address) => {
+    if (!address || typeof address !== "string") return address;
+    const parts = address.split(",").map((p) => p.trim()).filter(Boolean);
+    if (parts.length === 0) return address;
+
+    if (parts.length === 1) {
+      return parts[0];
+    }
+
+    // Heuristic: last two segments form the locality line (e.g., City and "ST ZIP")
+    const cityPart = parts[parts.length - 2] || "";
+    const regionPart = parts[parts.length - 1] || "";
+
+    // Keep state and ZIP together with a non-breaking space when matching US pattern
+    const regionFormatted = regionPart.replace(
+      /^([A-Z]{2})\s+(\d{5}(?:-\d{4})?)$/,
+      "$1&nbsp;$2"
+    );
+
+    const line2 = cityPart ? `${cityPart}, ${regionFormatted}` : regionFormatted;
+    const line1 = parts.slice(0, -2).join(", ");
+
+    // If only two parts total, line1 would be empty; handle gracefully
+    if (!line1) {
+      return `${parts[0]}<br>${line2}`;
+    }
+
+    return `${line1}<br>${line2}`;
+  });
 
   // Shortcodes / globals
   config.addShortcode("year", () => `${new Date().getFullYear()}`);

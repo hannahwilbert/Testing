@@ -13,10 +13,23 @@
     <div class="networkPressures__grid">
       {% for item in challenges %}
       <article class="networkPressures__card">
-        <div class="networkPressures__chip">Priority 0{{ loop.index }}</div>
+        <div class="networkPressures__icon" aria-hidden="true">
+          {% if loop.index == 1 %}
+          <!-- activity -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          {% elseif loop.index == 2 %}
+          <!-- wifi -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          {% else %}
+          <!-- server -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg>
+          {% endif %}
+        </div>
+
         {% if item.title %}
         <h3 class="networkPressures__cardTitle heading-md">{{ item.title }}</h3>
         {% endif %}
+        {# description intentionally omitted per request #}
       </article>
       {% endfor %}
     </div>
@@ -105,7 +118,8 @@
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       display:flex;
       flex-direction:column;
-      align-items:flex-start;
+      align-items:center;
+      text-align:center;
       gap:clamp(14px,2vh,20px);
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       overflow:hidden;
@@ -121,26 +135,19 @@
 
     [data-network-pressures] .networkPressures__card > *{ position:relative; z-index:1; }
 
-    [data-network-pressures] .networkPressures__chip{
-      display:flex;
+    /* removed priority chip */
+
+    [data-network-pressures] .networkPressures__icon{
+      display:inline-flex;
       align-items:center;
-      justify-content:flex-start;
-      height:2.2rem;
-      gap:.4rem;
-      padding:0 clamp(20px,3vw,36px);
+      justify-content:center;
+      width:56px; height:56px;
       border-radius:999px;
-      font-size:.72rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:rgba(226,248,255,0.9);
-      background:rgba(56,189,248,0.12);
-      border:1px solid rgba(56,189,248,0.35);
-      font-variant-numeric:tabular-nums;
-      font-feature-settings:'tnum';
-      text-align:left;
-      flex-shrink:0;
-      align-self:stretch;
+      color:#7dd3fc;
+      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(59,130,246,.14));
+      border:1px solid rgba(148,163,184,.22);
     }
+    [data-network-pressures] .networkPressures__icon svg{ width:28px; height:28px; display:block; }
 
     [data-network-pressures] .networkPressures__cardTitle{
       margin:0;
@@ -151,9 +158,13 @@
       text-wrap:balance;
       flex:1 1 auto;
       display:flex;
-      align-items:flex-start;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
       min-height:clamp(52px,7vh,92px);
     }
+
+    /* per-card description removed */
 
     [data-network-pressures] .networkPressures__actions{
       display:flex;

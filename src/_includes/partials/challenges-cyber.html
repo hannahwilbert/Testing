@@ -5,15 +5,31 @@
       {% if challengesTitle %}
       <h2 class="securityPressures__title heading-xl">{{ challengesTitle }}</h2>
       {% endif %}
+      {% if challengesIntro %}
+      <p class="securityPressures__intro body-text">{{ challengesIntro }}</p>
+      {% endif %}
           </header>
 
     <div class="securityPressures__grid">
       {% for item in challenges %}
       <article class="securityPressures__card">
-        <div class="securityPressures__chip">Priority 0{{ loop.index }}</div>
+        <div class="securityPressures__icon" aria-hidden="true">
+          {% if loop.index == 1 %}
+          <!-- alert-triangle -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
+          {% elseif loop.index == 2 %}
+          <!-- shield -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          {% else %}
+          <!-- activity -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          {% endif %}
+        </div>
+
         {% if item.title %}
         <h3 class="securityPressures__cardTitle heading-md">{{ item.title }}</h3>
         {% endif %}
+        {# description intentionally omitted per request #}
       </article>
       {% endfor %}
     </div>
@@ -76,6 +92,11 @@
       text-wrap:balance;
     }
 
+    [data-security-pressures] .securityPressures__intro{
+      margin:0;
+      color:rgba(226,232,240,0.9);
+    }
+
     [data-security-pressures] .securityPressures__grid{
       display:grid;
       gap:clamp(20px,3vw,32px);
@@ -97,8 +118,9 @@
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       display:flex;
       flex-direction:column;
-      align-items:flex-start;
-      gap:clamp(14px,2vh,20px);
+      align-items:center;
+      text-align:center;
+      gap:clamp(12px,1.8vh,18px);
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       overflow:hidden;
       isolation:isolate;
@@ -134,6 +156,18 @@
       align-self:stretch;
     }
 
+    [data-security-pressures] .securityPressures__icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:56px; height:56px;
+      border-radius:999px;
+      color:#7dd3fc;
+      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(59,130,246,.14));
+      border:1px solid rgba(148,163,184,.22);
+    }
+    [data-security-pressures] .securityPressures__icon svg{ width:28px; height:28px; display:block; }
+
     [data-security-pressures] .securityPressures__cardTitle{
       margin:0;
       font-weight:600;
@@ -143,9 +177,13 @@
       text-wrap:balance;
       flex:1 1 auto;
       display:flex;
-      align-items:flex-start;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
       min-height:clamp(52px,7vh,92px);
     }
+
+    /* description removed */
 
     [data-security-pressures] .securityPressures__actions{
       display:flex;

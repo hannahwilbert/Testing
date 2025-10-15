@@ -32,6 +32,11 @@
     --body-sm: clamp(13px, 1.7vw, 15px);
   }
 
+  /* Enforce Inter across the site */
+  html { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  body { font-family: inherit; }
+  *, *::before, *::after { font-family: inherit; }
+
   .heading-xl,
   .heading-lg,
   .heading-md {

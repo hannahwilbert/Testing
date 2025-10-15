@@ -470,597 +470,638 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   <main tabindex="-1" id="main-content">
 
-<div class="relative overflow-hidden text-white md:bg-gradient-to-b bg-gradient-to-t from-black to-slate-900">
-  <div class="absolute inset-0 hidden w-full h-full md:block">
-    <img src="/images/about/icons/aboutbg1.svg" class="w-full" alt="">
-  </div>
-  <!-- <div class="absolute inset-0 hidden w-full h-full overflow-hidden md:block">
-    <img src="/images/about/icons/aboutbg1.svg" class="max-w-[800px] filter brightness-200" alt="">
-  </div> -->
-  <img class="absolute bottom-0 hidden w-full rotate-180 opacity-70 md:block" src="/images/about/icons/aboutbg1.svg" alt="">
 
-
-  <div class="relative flex flex-col justify-center pt-12 text-white md:pt-32 h-100">
-    <h1 class="relative mb-4 text-3xl font-semibold tracking-tight text-center font-inter pt-44 md:text-5xl">Why Choose L3 Networks?</h1>
-    <div class="relative pb-32 mx-auto mt-8"><button>
-  <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="mx-auto">
-    Book An Appointment
-    <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
-  </a>
-</button>
-</div>
-  </div>
+<section style="background:#020617;" class="relative w-full px-6 pt-32 text-white overflow-hidden md:px-10 md:pt-16">
   
+  <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-950/85 to-slate-900/65"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.12),_transparent_60%)]"></div>
+  <div class="container relative max-w-screen-xl px-0 pb-20 text-left md:pb-32 md:px-0 md:mx-auto md:py-48">
+    <div class="relative z-10 grid max-w-screen-xl gap-12 px-0 mx-auto items-center md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <div class="max-w-3xl">
+        <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl font-inter">Why Choose L3 Networks as Your IT Support Partner?</h1>
+        
+        <p class="text-lg font-light md:text-2xl text-slate-100/90">Learn About Us</p>
+        
+        <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="mt-12">
+          Schedule a 15-Minute Right-Fit Call
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a 15-Minute Right-Fit Call">
+        </a>
+      </div>
+      <figure class="relative flex flex-col items-center gap-3 text-center">
+        <img src="/images/about/planet.webp" alt="Abstract planet illustration" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-contain">
+        <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70">[placeholder image]</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
-  <section class="container relative max-w-screen-xl px-3 mx-auto md:px-8 2xl:px-0">
+<main class="bg-[#030a1c] text-white">
+  <article class="container max-w-screen-xl px-6 py-16 mx-auto md:px-10 md:py-24">
 
-    <hr class="mt-4 mb-10 border-slate-700">
-    <h2 class="mt-4 mb-3 text-3xl font-semibold font-inter md:mx-0">Why Partner With L3 Networks?</h2>
-    <h3 class="w-4/5 mb-12 text-base font-light md:mx-0 text-slate-300">By choosing L3 Networks, you gain more than just an IT partner. You gain a collaborator dedicated to your success. With our combination of support and operational expertise, we deliver.</h3>
-
-  <section class="grid grid-cols-1 gap-4 md:grid-cols-4 ">
     
-      <div class="flex flex-row items-center gap-2 mb-4 rounded-lg md:gap-6 md:flex-col md:items-start md:mb-0">
-        <img class="block w-16 h-16 text-teal-400" src="/images/lucide/zap.svg" alt="Streamlined Efficiency">
-        <div class="text-left">
-          <h3 class="mb-2 text-lg font-semibold leading-4 font-inter">Streamlined Efficiency</h3>
-          <p class="text-sm font-light text-slate-400">Automate workflows and implement proactive strategies to keep your business running smoothly and efficiently.</p>
+    
+    <section class="mb-16 md:mb-24">
+      <h2 class="mb-3 heading-xl">Why Partner With L3 Networks?</h2>
+      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">By choosing L3 Networks, you gain more than just an IT partner. You gain a collaborator dedicated to your success. With our combination of support and operational expertise, we deliver.</p>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+        
+        <div x-data="{ open:false }" class="relative z-10">
+          <button
+            @click="open = !open"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
+            :class="open ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+            :aria-expanded="open.toString()"
+            :aria-controls="'vp-panel-' + 1"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                <img class="w-7 h-7" src="/images/lucide/zap.svg" alt="">
+                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Streamlined Efficiency</h3>
+              </div>
+              <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <div
+              :id="'vp-panel-' + 1"
+              x-show="open"
+              x-transition:enter="transition ease-out duration-500"
+              x-transition:enter-start="opacity-0 transform translate-y-4"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+            >
+              <p class="text-lg sm:text-xl font-light">Automate workflows and implement proactive strategies to keep your business running smoothly and efficiently.</p>
+            </div>
+          </button>
         </div>
+        
+        <div x-data="{ open:false }" class="relative z-10">
+          <button
+            @click="open = !open"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
+            :class="open ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+            :aria-expanded="open.toString()"
+            :aria-controls="'vp-panel-' + 2"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                <img class="w-7 h-7" src="/images/lucide/piggy-bank.svg" alt="">
+                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Optimized Cost Savings</h3>
+              </div>
+              <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <div
+              :id="'vp-panel-' + 2"
+              x-show="open"
+              x-transition:enter="transition ease-out duration-500"
+              x-transition:enter-start="opacity-0 transform translate-y-4"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+            >
+              <p class="text-lg sm:text-xl font-light">Leverage flexible pricing and expert vendor management to maximize the value of your IT investments.</p>
+            </div>
+          </button>
+        </div>
+        
+        <div x-data="{ open:false }" class="relative z-10">
+          <button
+            @click="open = !open"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
+            :class="open ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+            :aria-expanded="open.toString()"
+            :aria-controls="'vp-panel-' + 3"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                <img class="w-7 h-7" src="/images/lucide/shield-check.svg" alt="">
+                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Unwavering Peace of Mind</h3>
+              </div>
+              <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <div
+              :id="'vp-panel-' + 3"
+              x-show="open"
+              x-transition:enter="transition ease-out duration-500"
+              x-transition:enter-start="opacity-0 transform translate-y-4"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+            >
+              <p class="text-lg sm:text-xl font-light">Rely on secure, dependable, and always-available IT services to keep your operations running without interruption.</p>
+            </div>
+          </button>
+        </div>
+        
+        <div x-data="{ open:false }" class="relative z-10">
+          <button
+            @click="open = !open"
+            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
+            :class="open ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+            :aria-expanded="open.toString()"
+            :aria-controls="'vp-panel-' + 4"
+            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+          >
+            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open ? 'pb-0' : 'pb-4 sm:pb-6'">
+              <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                <img class="w-7 h-7" src="/images/lucide/chart-no-axes-combined.svg" alt="">
+                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Accelerated Business Growth</h3>
+              </div>
+              <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+                <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
+              </svg>
+            </div>
+            <div
+              :id="'vp-panel-' + 4"
+              x-show="open"
+              x-transition:enter="transition ease-out duration-500"
+              x-transition:enter-start="opacity-0 transform translate-y-4"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+            >
+              <p class="text-lg sm:text-xl font-light">Unlock strategic guidance and cutting-edge tools designed to empower your organization’s growth and success.</p>
+            </div>
+          </button>
+        </div>
+        
       </div>
-      
-      <div class="flex flex-row items-center gap-2 mb-4 rounded-lg md:gap-6 md:flex-col md:items-start md:mb-0">
-        <img class="block w-16 h-16 text-teal-400" src="/images/lucide/piggy-bank.svg" alt="Optimized Cost Savings">
-        <div class="text-left">
-          <h3 class="mb-2 text-lg font-semibold leading-4 font-inter">Optimized Cost Savings</h3>
-          <p class="text-sm font-light text-slate-400">Leverage flexible pricing and expert vendor management to maximize the value of your IT investments.</p>
-        </div>
-      </div>
-      
-      <div class="flex flex-row items-center gap-2 mb-4 rounded-lg md:gap-6 md:flex-col md:items-start md:mb-0">
-        <img class="block w-16 h-16 text-teal-400" src="/images/lucide/shield-check.svg" alt="Unwavering Peace of Mind">
-        <div class="text-left">
-          <h3 class="mb-2 text-lg font-semibold leading-4 font-inter">Unwavering Peace of Mind</h3>
-          <p class="text-sm font-light text-slate-400">Rely on secure, dependable, and always-available IT services to keep your operations running without interruption.</p>
-        </div>
-      </div>
-      
-      <div class="flex flex-row items-center gap-2 mb-4 rounded-lg md:gap-6 md:flex-col md:items-start md:mb-0">
-        <img class="block w-16 h-16 text-teal-400" src="/images/lucide/chart-no-axes-combined.svg" alt="Accelerated Business Growth">
-        <div class="text-left">
-          <h3 class="mb-2 text-lg font-semibold leading-4 font-inter">Accelerated Business Growth</h3>
-          <p class="text-sm font-light text-slate-400">Unlock strategic guidance and cutting-edge tools designed to empower your organization’s growth and success.</p>
-        </div>
-      </div>
-      
-  </section>
-  <div class="pt-32">&nbsp;</div>
-
-  <hr class="mb-10 border-slate-700">
-  <h2 class="mt-4 mb-3 text-3xl font-semibold font-inter md:mx-0">A Strategic Partner</h2>
-  <p class="mb-12 text-base font-light md:w-4/5 md:mx-0 text-slate-300">
-    Your IT strategy should drive business success, not hold it back. We take a proactive approach to aligning technology with your goals, ensuring seamless operations and a competitive edge.
-  </p>
-  
-  
-
-    <div class="relative grid grid-cols-1 gap-2 md:grid-cols-3 xl:grid-cols-5">
-      
-        <div class="relative mb-2 md:mb-0 transition-all duration-300 ease-out rounded-xl lg:xh-[400px]">
-          
-          <div class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg">
-
-            
-            <div class="flex flex-col p-4 transition-all duration-300">
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">01</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Strategic Guidance</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our consultants work closely with your leadership team to align IT strategies with your business objectives. Through in-depth analysis and planning, we help position your organization for long-term success.
-</p>
-            </div>
-
-          </div>
-        </div>
-      
-        <div class="relative mb-2 md:mb-0 transition-all duration-300 ease-out rounded-xl lg:xh-[400px]">
-          
-          <div class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg">
-
-            
-            <div class="flex flex-col p-4 transition-all duration-300">
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">02</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Flexible Solutions</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Whether you’re transitioning to the cloud, upgrading existing systems, or building a hybrid environment, our engineers tailor deployment strategies to align with your unique business goals.
-</p>
-            </div>
-
-          </div>
-        </div>
-      
-        <div class="relative mb-2 md:mb-0 transition-all duration-300 ease-out rounded-xl lg:xh-[400px]">
-          
-          <div class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg">
-
-            
-            <div class="flex flex-col p-4 transition-all duration-300">
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">03</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Service-Level Driven</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">We deliver services backed by robust SLAs, ensuring measurable performance standards and consistent quality. Our team’s dedication to accountability guarantees reliable outcomes.
-</p>
-            </div>
-
-          </div>
-        </div>
-      
-        <div class="relative mb-2 md:mb-0 transition-all duration-300 ease-out rounded-xl lg:xh-[400px]">
-          
-          <div class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg">
-
-            
-            <div class="flex flex-col p-4 transition-all duration-300">
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">04</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Vendor Management</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">We take the hassle out of managing third-party vendors by coordinating purchases, maintenance, and issue resolution, freeing up your internal resources for core activities.
-</p>
-            </div>
-
-          </div>
-        </div>
-      
-        <div class="relative mb-2 md:mb-0 transition-all duration-300 ease-out rounded-xl lg:xh-[400px]">
-          
-          <div class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg">
-
-            
-            <div class="flex flex-col p-4 transition-all duration-300">
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">05</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Transparency</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our open communication policy provides you with complete visibility into your IT operations, projects, and costs. Regular updates and detailed reports keep you informed at every step.
-</p>
-            </div>
-
-          </div>
-        </div>
-      
-    </div>
-
-
-
-  
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-    <section>
-      <hr class="mt-32 mb-10 border-slate-700">
-      <h2 class="mt-4 mb-3 text-3xl font-semibold font-inter md:mx-0">Dedicated to Service</h2>
-      <p class="mb-12 text-base font-light md:mx-0 text-slate-300">
-        Downtime is not an option. With 24/7 monitoring, rapid response, and a relentless focus on performance, we provide IT support that keeps your business moving forward—without disruptions.
-      </p>
-      
-<div class="relative" x-data="{ openIndex: null }">
-  <div class="">
-    <div class="relative flex flex-col items-center h-auto">
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 0, 'h-20': openIndex !== 0 }"
-          @click="openIndex === 0 ? openIndex = null : openIndex = 0">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0), rgba(98, 116, 142, 0));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 0, 'opacity-100': openIndex !== 0 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">24/7 Coverage</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 0, 'opacity-0 scale-95': openIndex !== 0 }"
-              x-bind:style="{ pointerEvents: openIndex === 0 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">01</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">24/7 Coverage</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our team of highly skilled IT professionals is available around the clock to ensure your business operations run without interruption. With immediate response times and a dedicated support structure, we proactively monitor and resolve issues before they impact your business.
-</p>
-              </div>
-              
-              
-            </div>
-          </div>
-        </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 1, 'h-20': openIndex !== 1 }"
-          @click="openIndex === 1 ? openIndex = null : openIndex = 1">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.03), rgba(98, 116, 142, 0.03));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 1, 'opacity-100': openIndex !== 1 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">Proactive &amp; Reactive Support</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 1, 'opacity-0 scale-95': openIndex !== 1 }"
-              x-bind:style="{ pointerEvents: openIndex === 1 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">02</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Proactive &amp; Reactive Support</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">With proactive monitoring and maintenance, we identify and address potential issues before they escalate. At the same time, our responsive support team is prepared to resolve any immediate challenges efficiently.
-</p>
-              </div>
-              
-              
-            </div>
-          </div>
-        </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 2, 'h-20': openIndex !== 2 }"
-          @click="openIndex === 2 ? openIndex = null : openIndex = 2">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.06), rgba(98, 116, 142, 0.06));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 2, 'opacity-100': openIndex !== 2 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">Service Escalation</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 2, 'opacity-0 scale-95': openIndex !== 2 }"
-              x-bind:style="{ pointerEvents: openIndex === 2 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">03</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Service Escalation</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">When complex issues arise, our structured escalation process ensures they are promptly addressed by the appropriate level of expertise. We prioritize resolution speed while maintaining clear communication with your team.
-</p>
-              </div>
-              
-              
-            </div>
-          </div>
-        </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 3, 'h-20': openIndex !== 3 }"
-          @click="openIndex === 3 ? openIndex = null : openIndex = 3">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.09), rgba(98, 116, 142, 0.09));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 3, 'opacity-100': openIndex !== 3 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">AI Workflow Automation</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 3, 'opacity-0 scale-95': openIndex !== 3 }"
-              x-bind:style="{ pointerEvents: openIndex === 3 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">04</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">AI Workflow Automation</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our experts evaluate your processes and design automation solutions that streamline operations, eliminate redundancies, and save your team valuable time. By leveraging the latest in AI and machine learning, we ensure accuracy and efficiency.
-</p>
-              </div>
-              
-              
-            </div>
-          </div>
-        </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 4, 'h-20': openIndex !== 4 }"
-          @click="openIndex === 4 ? openIndex = null : openIndex = 4">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.12), rgba(98, 116, 142, 0.12));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 4, 'opacity-100': openIndex !== 4 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">Comprehensive Reporting</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 4, 'opacity-0 scale-95': openIndex !== 4 }"
-              x-bind:style="{ pointerEvents: openIndex === 4 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">05</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Comprehensive Reporting</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">We provide detailed analytics and performance metrics, giving you clear visibility into system health, potential risks, and areas for optimization. This ensures informed decision-making.
-</p>
-              </div>
-              
-              
-            </div>
-          </div>
-        </div>
-      
-    </div>
-  </div>
-</div>
     </section>
-    <section>
-      <hr class="mt-32 mb-10 border-slate-700">
-      <h2 class="mt-4 mb-3 text-3xl font-semibold font-inter md:mx-0">Expert Capability</h2>
-      <p class="mb-12 text-base font-light md:mx-0 text-slate-300">
-        IT complexity shouldn’t slow you down. Our certified experts deliver enterprise-grade solutions, cutting-edge security, and seamless integration—so your technology works for you, not against you.
-      </p>
-      
-<div class="relative" x-data="{ openIndex: null }">
-  <div class="">
-    <div class="relative flex flex-col items-center h-auto">
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 0, 'h-20': openIndex !== 0 }"
-          @click="openIndex === 0 ? openIndex = null : openIndex = 0">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0), rgba(98, 116, 142, 0));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 0, 'opacity-100': openIndex !== 0 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">NOC + SOC Excellence</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 0, 'opacity-0 scale-95': openIndex !== 0 }"
-              x-bind:style="{ pointerEvents: openIndex === 0 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">01</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">NOC + SOC Excellence</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our Network Operations Center (NOC) and Security Operations Center (SOC) teams work in unison to provide 24/7 monitoring, rapid incident response, and proactive threat mitigation, ensuring the highest level of operational security and reliability.
+    
+
+    
+    
+    <section class="mt-10" style="display:none">
+      <h2 class="mb-3 heading-xl">Strategic Partner</h2>
+      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Clear, proactive guidance that aligns IT with business outcomes.</p>
+      <div class="hScrollCards hScrollCards--partner">
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Strategy</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Strategic Guidance</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our consultants work closely with your leadership team to align IT strategies with your business objectives. Through in-depth analysis and planning, we help position your organization for long-term success.
 </p>
-              </div>
-              
-              
-            </div>
-          </div>
         </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 1, 'h-20': openIndex !== 1 }"
-          @click="openIndex === 1 ? openIndex = null : openIndex = 1">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.03), rgba(98, 116, 142, 0.03));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 1, 'opacity-100': openIndex !== 1 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">Industry Accreditation</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 1, 'opacity-0 scale-95': openIndex !== 1 }"
-              x-bind:style="{ pointerEvents: openIndex === 1 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">02</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Industry Accreditation</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our team holds top certifications and industry accreditations, ensuring that your IT environment is managed by competent professionals who stay ahead of emerging trends.
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Strategy</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Flexible Solutions</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Whether you’re transitioning to the cloud, upgrading existing systems, or building a hybrid environment, our engineers tailor deployment strategies to align with your unique business goals.
 </p>
-              </div>
-              
-              
-            </div>
-          </div>
         </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 2, 'h-20': openIndex !== 2 }"
-          @click="openIndex === 2 ? openIndex = null : openIndex = 2">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.06), rgba(98, 116, 142, 0.06));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 2, 'opacity-100': openIndex !== 2 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">Multi-Tier Engineering</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 2, 'opacity-0 scale-95': openIndex !== 2 }"
-              x-bind:style="{ pointerEvents: openIndex === 2 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">03</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Multi-Tier Engineering</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our multi-tier engineering model ensures that every issue is handled by the right level of expertise, from first-line troubleshooting to advanced problem resolution, optimizing efficiency and minimizing downtime.
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Strategy</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Service-Level Driven</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">We deliver services backed by robust SLAs, ensuring measurable performance standards and consistent quality. Our team’s dedication to accountability guarantees reliable outcomes.
 </p>
-              </div>
-              
-              
-            </div>
-          </div>
         </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 3, 'h-20': openIndex !== 3 }"
-          @click="openIndex === 3 ? openIndex = null : openIndex = 3">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.09), rgba(98, 116, 142, 0.09));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 3, 'opacity-100': openIndex !== 3 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">Project Management</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 3, 'opacity-0 scale-95': openIndex !== 3 }"
-              x-bind:style="{ pointerEvents: openIndex === 3 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">04</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Project Management</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">From planning to execution, our project management team ensures that IT initiatives are delivered on time, within scope, and aligned with your business goals. We take a structured approach to mitigate risks and maximize success.
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Strategy</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Vendor Management</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">We take the hassle out of managing third-party vendors by coordinating purchases, maintenance, and issue resolution, freeing up your internal resources for core activities.
 </p>
-              </div>
-              
-              
-            </div>
-          </div>
         </div>
-      
-        <div
-          class="relative w-full mb-4 transition-all duration-300 ease-out rounded-xl"
-          x-bind:class="{ 'h-[300px]': openIndex === 4, 'h-20': openIndex !== 4 }"
-          @click="openIndex === 4 ? openIndex = null : openIndex = 4">
-          
-          <div
-            class="relative h-full overflow-hidden border rounded-xl border-slate-900 bg-slate-900/30 backdrop-blur-lg"
-            style="background: linear-gradient(145deg, rgba(29, 41, 61, 0.12), rgba(98, 116, 142, 0.12));">
-            
-            <div class="absolute top-0 left-0 w-full h-px bg-teal-500/30"></div>
-            <div class="absolute bottom-0 left-0 w-full h-px bg-teal-500/10"></div>
-            
-            <div
-              class="absolute inset-0 z-10 flex items-center justify-start p-4 transition-all duration-300"
-              x-bind:class="{ 'opacity-0 scale-95': openIndex === 4, 'opacity-100': openIndex !== 4 }">
-              <div class="flex items-center space-x-2 font-medium tracking-wider whitespace-nowrap text-slate-300">
-                <span class="text-teal-400">Service Delivery Management</span>
-              </div>
-            </div>
-            
-            <div
-              class="absolute inset-0 z-10 flex flex-col justify-between p-8 transition-all duration-300"
-              x-bind:class="{ 'opacity-100 scale-100': openIndex === 4, 'opacity-0 scale-95': openIndex !== 4 }"
-              x-bind:style="{ pointerEvents: openIndex === 4 ? 'auto' : 'none' }">
-              <div>
-                <div class="flex items-center mb-6 space-x-2">
-                  <span class="text-xs font-medium bg-teal-400/90 text-slate-900 px-2 py-0.5 rounded backdrop-blur-sm">05</span>
-                </div>
-                <h3 class="mb-3 text-2xl font-medium text-teal-400">Service Delivery Management</h3>
-                <p class="mb-6 text-sm leading-relaxed text-slate-300">Our service delivery managers act as dedicated points of contact, ensuring seamless coordination between your team and our experts. We align service execution with your expectations and continuously optimize performance.
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Strategy</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Transparency</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our open communication policy provides you with complete visibility into your IT operations, projects, and costs. Regular updates and detailed reports keep you informed at every step.
 </p>
-              </div>
-              
-              
-            </div>
-          </div>
         </div>
-      
-    </div>
-  </div>
-</div>
+        
+      </div>
     </section>
-  </div>
-  
-    <hr class="my-10 border-slate-700">
-      <p class="font-mono text-xs text-slate-500">Share</p>
-      <div class="flex gap-2 mb-32">
-        <a href="https://www.linkedin.com/company/l3-networks" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/LinkedIn.svg" alt="LinkedIn Logo"></a>
-        <a href="https://www.facebook.com/people/L3-Networks-Inc/61562904941740/" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/Facebook.svg" alt="Facebook Logo"></a>
-        <a href="https://www.youtube.com/@L3Networks" class="block h-5 py-1 font-bold hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/YouTube.svg" alt="YouTube Logo"></a>
+    
+
+    
+    
+    <section class="mt-16" style="display:none">
+      <h2 class="mb-3 heading-xl">Dedicated to Service</h2>
+      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Always‑on coverage and a service model built for consistency.</p>
+      <div class="hScrollCards hScrollCards--service">
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Service</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">24/7 Coverage</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our team of highly skilled IT professionals is available around the clock to ensure your business operations run without interruption. With immediate response times and a dedicated support structure, we proactively monitor and resolve issues before they impact your business.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Service</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Proactive &amp; Reactive Support</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">With proactive monitoring and maintenance, we identify and address potential issues before they escalate. At the same time, our responsive support team is prepared to resolve any immediate challenges efficiently.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Service</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Service Escalation</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">When complex issues arise, our structured escalation process ensures they are promptly addressed by the appropriate level of expertise. We prioritize resolution speed while maintaining clear communication with your team.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Service</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">AI Workflow Automation</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our experts evaluate your processes and design automation solutions that streamline operations, eliminate redundancies, and save your team valuable time. By leveraging the latest in AI and machine learning, we ensure accuracy and efficiency.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Service</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Comprehensive Reporting</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">We provide detailed analytics and performance metrics, giving you clear visibility into system health, potential risks, and areas for optimization. This ensures informed decision-making.
+</p>
+        </div>
+        
+      </div>
+    </section>
+    
+
+    
+    
+    <section class="mt-16" style="display:none">
+      <h2 class="mb-3 heading-xl">Expert Capability</h2>
+      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Certified teams, proven processes, and enterprise‑grade execution.</p>
+      <div class="hScrollCards hScrollCards--expert">
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Expertise</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">NOC + SOC Excellence</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our Network Operations Center (NOC) and Security Operations Center (SOC) teams work in unison to provide 24/7 monitoring, rapid incident response, and proactive threat mitigation, ensuring the highest level of operational security and reliability.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Expertise</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Industry Accreditation</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our team holds top certifications and industry accreditations, ensuring that your IT environment is managed by competent professionals who stay ahead of emerging trends.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Expertise</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Multi-Tier Engineering</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our multi-tier engineering model ensures that every issue is handled by the right level of expertise, from first-line troubleshooting to advanced problem resolution, optimizing efficiency and minimizing downtime.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Expertise</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Project Management</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">From planning to execution, our project management team ensures that IT initiatives are delivered on time, within scope, and aligned with your business goals. We take a structured approach to mitigate risks and maximize success.
+</p>
+        </div>
+        
+        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Expertise</span></div>
+          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Service Delivery Management</h3>
+          <p class="text-lg sm:text-xl font-light text-slate-300">Our service delivery managers act as dedicated points of contact, ensuring seamless coordination between your team and our experts. We align service execution with your expectations and continuously optimize performance.
+</p>
+        </div>
+        
+      </div>
+    </section>
+    
+
+    
+    <section class="mt-32 md:mt-40" x-data="{ active:'partner' }">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-10">
+        <h2 class="heading-xl m-0">Explore How We Deliver</h2>
+        <div role="tablist" aria-label="Showcase categories" class="flex items-center gap-2 bg-slate-800/60 rounded-full p-1 border border-slate-700">
+          <button role="tab" :aria-selected="(active==='partner').toString()" @click="active='partner'" class="px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" :class="active==='partner' ? 'bg-white text-slate-900' : 'text-slate-200 hover:text-white'">Strategy</button>
+          <button role="tab" :aria-selected="(active==='service').toString()" @click="active='service'" class="px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" :class="active==='service' ? 'bg-white text-slate-900' : 'text-slate-200 hover:text-white'">Service</button>
+          <button role="tab" :aria-selected="(active==='expert').toString()" @click="active='expert'" class="px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" :class="active==='expert' ? 'bg-white text-slate-900' : 'text-slate-200 hover:text-white'">Expertise</button>
+        </div>
       </div>
 
-  </section>
+      <div>
+        <!-- Strategy (partner) -->
+        <template x-if="active==='partner'">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#00BBA7">Strategy</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Strategic Guidance</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our consultants work closely with your leadership team to align IT strategies with your business objectives. Through in-depth analysis and planning, we help position your organization for long-term success.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#00BBA7">Strategy</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Flexible Solutions</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Whether you’re transitioning to the cloud, upgrading existing systems, or building a hybrid environment, our engineers tailor deployment strategies to align with your unique business goals.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#00BBA7">Strategy</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Service-Level Driven</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">We deliver services backed by robust SLAs, ensuring measurable performance standards and consistent quality. Our team’s dedication to accountability guarantees reliable outcomes.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#00BBA7">Strategy</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Vendor Management</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">We take the hassle out of managing third-party vendors by coordinating purchases, maintenance, and issue resolution, freeing up your internal resources for core activities.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#00BBA7">Strategy</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Transparency</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our open communication policy provides you with complete visibility into your IT operations, projects, and costs. Regular updates and detailed reports keep you informed at every step.
+</p>
+            </div>
+            
+          </div>
+        </template>
 
-</div>
+        <!-- Service -->
+        <template x-if="active==='service'">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#66C7E8">Service</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">24/7 Coverage</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our team of highly skilled IT professionals is available around the clock to ensure your business operations run without interruption. With immediate response times and a dedicated support structure, we proactively monitor and resolve issues before they impact your business.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#66C7E8">Service</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Proactive &amp; Reactive Support</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">With proactive monitoring and maintenance, we identify and address potential issues before they escalate. At the same time, our responsive support team is prepared to resolve any immediate challenges efficiently.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#66C7E8">Service</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Service Escalation</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">When complex issues arise, our structured escalation process ensures they are promptly addressed by the appropriate level of expertise. We prioritize resolution speed while maintaining clear communication with your team.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#66C7E8">Service</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">AI Workflow Automation</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our experts evaluate your processes and design automation solutions that streamline operations, eliminate redundancies, and save your team valuable time. By leveraging the latest in AI and machine learning, we ensure accuracy and efficiency.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#66C7E8">Service</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Comprehensive Reporting</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">We provide detailed analytics and performance metrics, giving you clear visibility into system health, potential risks, and areas for optimization. This ensures informed decision-making.
+</p>
+            </div>
+            
+          </div>
+        </template>
 
+        <!-- Expertise -->
+        <template x-if="active==='expert'">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#5D0EC1">Expertise</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">NOC + SOC Excellence</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our Network Operations Center (NOC) and Security Operations Center (SOC) teams work in unison to provide 24/7 monitoring, rapid incident response, and proactive threat mitigation, ensuring the highest level of operational security and reliability.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#5D0EC1">Expertise</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Industry Accreditation</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our team holds top certifications and industry accreditations, ensuring that your IT environment is managed by competent professionals who stay ahead of emerging trends.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#5D0EC1">Expertise</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Multi-Tier Engineering</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our multi-tier engineering model ensures that every issue is handled by the right level of expertise, from first-line troubleshooting to advanced problem resolution, optimizing efficiency and minimizing downtime.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#5D0EC1">Expertise</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Project Management</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">From planning to execution, our project management team ensures that IT initiatives are delivered on time, within scope, and aligned with your business goals. We take a structured approach to mitigate risks and maximize success.
+</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#5D0EC1">Expertise</span></div>
+              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Service Delivery Management</h3>
+              <p class="text-lg sm:text-xl font-light text-slate-300">Our service delivery managers act as dedicated points of contact, ensuring seamless coordination between your team and our experts. We align service execution with your expectations and continuously optimize performance.
+</p>
+            </div>
+            
+          </div>
+        </template>
+      </div>
+    </section>
 
+    
+
+    
+    <section class="mt-20">
+      <hr class="mb-8 border-slate-700">
+      <div class="grid items-center grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="md:col-span-2">
+          <h2 class="mb-2 heading-xl">Ready to Talk?</h2>
+          <p class="text-base font-light text-slate-300">Schedule a quick Right‑Fit Call to assess needs and next steps.</p>
+        </div>
+        <div class="md:text-right">
+          <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="inline-flex">
+            Book An Appointment
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<style>
+  
+
+  /* Horizontal scroll rows for section cards */
+  .hScrollCards{
+    display:flex;
+    gap:clamp(20px,4vw,40px);
+    overflow-x:auto;
+    width:100vw;
+    max-width:none;
+    box-sizing:border-box;
+    margin-left:calc((100vw - 100%)/-2);
+    margin-right:calc((100vw - 100%)/-2);
+    padding:clamp(12px,2vw,20px) clamp(36px,7vw,120px) clamp(24px,3vw,36px);
+    align-items:stretch;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:clamp(36px,7vw,120px);
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(102,199,232,.6) rgba(15,32,56,.4);
+  }
+  .hScrollCards::-webkit-scrollbar{ height:8px; }
+  .hScrollCards::-webkit-scrollbar-track{ background:rgba(7,15,26,.6); border-radius:999px; }
+  .hScrollCards::-webkit-scrollbar-thumb{ background:linear-gradient(135deg, rgba(102,199,232,.85), rgba(14,116,144,.85)); border-radius:999px; }
+
+  .hScrollCard{
+    flex:0 0 clamp(280px,40vw,480px);
+    min-width:clamp(280px,40vw,480px);
+    scroll-snap-align:center;
+    scroll-snap-stop:always;
+  }
+  @media (max-width:720px){
+    .hScrollCard{ flex:0 0 84vw; min-width:84vw; }
+  }
+
+  /* Edge fades */
+  .hScrollFade{ position:absolute; top:0; bottom:0; width:48px; z-index:5; pointer-events:none; }
+  .hScrollFade--left{ left:0; background:linear-gradient(90deg, rgba(3,10,28,1), rgba(3,10,28,0)); }
+  .hScrollFade--right{ right:0; background:linear-gradient(270deg, rgba(3,10,28,1), rgba(3,10,28,0)); }
+
+  /* Accents per row */
+  .hScrollCards--partner{ --accent:#00BBA7; --accentGlow: rgba(0,187,167,.22); }
+  .hScrollCards--service{ --accent:#66C7E8; --accentGlow: rgba(102,199,232,.22); }
+  .hScrollCards--expert { --accent:#5D0EC1; --accentGlow: rgba(93,14,193,.22); }
+
+  .hScrollCards .hScrollCard{ position:relative; }
+  /* remove heavy radial glow to avoid container-like shadow */
+  .hScrollCards .hScrollCard::before{ content:none; }
+  /* lighten hover: subtle border accent, no big shadow */
+  .hScrollCards .hScrollCard:hover{ box-shadow:none; border-color:var(--accent); }
+
+  .rowChip{ display:inline-flex; align-items:center; justify-content:center; padding:.15rem .5rem; font-size:11px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; border-radius:999px; border:1px solid var(--accent); color:var(--accent); background:rgba(148,163,184,.10); box-shadow:inset 0 0 0 1px color-mix(in oklab, var(--accent) 28%, transparent); }
+  @supports not (color: color-mix(in oklab, black, white)){
+    .rowChip{ box-shadow:none; }
+  }
+
+  
+</style>
+
+<!-- removed hero particle waves script -->
+
+<!-- Advanced tech wave lines (multi-layer, reactive, adaptive) -->
+<script>
+  (function(){
+    var cv = document.getElementById('whyWaves');
+    if(!cv) return;
+    var reduce = false;
+    try{ reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches }catch(e){}
+    if(reduce) return;
+
+    var ctx = cv.getContext('2d');
+    var DPR = Math.max(1, window.devicePixelRatio||1);
+    var W=0, H=0, t=0;
+
+    // Simple hash-based value noise (fast) + smoothing
+    function hash(x,y){
+      var s = Math.sin(x*127.1 + y*311.7) * 43758.5453123; return s - Math.floor(s);
+    }
+    function lerp(a,b,w){ return a + (b-a)*w }
+    function smoothstep(x){ return x*x*(3-2*x) }
+    function noise2D(x,y){ // tileable-ish value noise
+      var xi = Math.floor(x), yi = Math.floor(y);
+      var xf = x - xi, yf = y - yi;
+      var h00 = hash(xi,yi), h10 = hash(xi+1,yi), h01 = hash(xi,yi+1), h11 = hash(xi+1,yi+1);
+      var u = smoothstep(xf), v = smoothstep(yf);
+      return lerp(lerp(h00,h10,u), lerp(h01,h11,u), v);
+    }
+
+    var pointer = {x:0.5, y:0.55, active:false};
+    window.addEventListener('pointermove', function(e){
+      var r = cv.getBoundingClientRect();
+      pointer.x = (e.clientX - r.left)/Math.max(1,r.width);
+      pointer.y = (e.clientY - r.top)/Math.max(1,r.height);
+      pointer.active = true;
+    }, { passive:true });
+
+    function size(){
+      var r = cv.getBoundingClientRect();
+      W = cv.width = Math.floor(r.width * DPR);
+      H = cv.height = Math.floor(r.height * DPR);
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.scale(DPR,DPR);
+    }
+
+    function hsl(h,s,l,a){ return 'hsla('+h+','+s+'%,'+l+'%,'+a+')' }
+
+    var LAYERS = [
+      { lines:7, amp:18, freq:1.25, speed:0.55, blur:10, alpha:0.45 },
+      { lines:5, amp:26, freq:0.95, speed:0.35, blur:18, alpha:0.30 },
+      { lines:3, amp:34, freq:0.65, speed:0.20, blur:26, alpha:0.20 }
+    ];
+
+    function draw(){
+      var w = cv.clientWidth, h = cv.clientHeight;
+      ctx.clearRect(0,0,w,h);
+      ctx.globalCompositeOperation = 'lighter';
+      var baseHue = 180 + 40*Math.sin(t*0.15);
+
+      for(var li=0; li<LAYERS.length; li++){
+        var L = LAYERS[li];
+        ctx.shadowBlur = L.blur; ctx.shadowColor = 'rgba(0,187,167,0.25)';
+        var lines = L.lines, amp = L.amp, freq=L.freq, sp=L.speed;
+        for(var i=0;i<lines;i++){
+          var u = (i/(lines-1))*2 - 1; // -1..1
+          var mid = h * (0.54 + 0.06*u);
+          ctx.beginPath();
+          // color per-line: cycle hue slightly per line + time
+          var hue = baseHue + u*40 + li*22;
+          ctx.lineWidth = 1.5 + li*0.6;
+          ctx.strokeStyle = hsl((hue+360)%360, 85, 60, L.alpha);
+          var step = Math.max(1.2, w/240);
+          for(var x=0; x<=w; x+=step){
+            var nx = x/w;
+            var n = noise2D(nx*3 + i*0.15 + t*sp, u*2 + t*sp*0.7);
+            var y = mid
+              + Math.sin((nx*6 + t*sp*1.4) + u*1.2) * amp
+              + (n-0.5) * amp * 1.4
+              + Math.sin(nx*12 + t*0.3 + li) * amp * 0.15;
+            if(pointer.active){
+              var dx = nx - pointer.x;
+              var dy = (y/h) - pointer.y;
+              var d2 = Math.max(0.0001, dx*dx + dy*dy);
+              y += (0.12/d2) * (amp*0.8) * Math.sin(t*0.9 + i);
+            }
+            if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+          }
+          ctx.stroke();
+        }
+      }
+      ctx.globalCompositeOperation = 'source-over';
+      t += 0.016;
+      requestAnimationFrame(draw);
+    }
+
+    function boot(){ size(); draw(); }
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded', boot, { once:true });
+    } else { boot(); }
+    window.addEventListener('resize', size, { passive:true });
+  })();
+</script>
 
 
 
@@ -1138,7 +1179,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
  
 
 </footer>
-
 
 
 </main>

@@ -3,7 +3,7 @@ title: 'Why Choose L3 Networks as Your IT Support Partner?'
 subtitle: 'Learn About Us'
 metaDesc: 'Enhance your operations with L3 Networks comprehensive IT solutions, expert team, and dedicated service for unparalleled business growth.'
 metaKeywords: 'IT Support Company, IT Consulting Services, Business IT Services, IT Support & Services, IT Solutions Company'
-layout: 'layouts/about.html'
+layout: 'layouts/why-l3-services.html'
 permalink: '/why-l3/index.html' 
 eleventyExcludeFromCollections: true
 

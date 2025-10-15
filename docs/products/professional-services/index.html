@@ -683,30 +683,58 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <div class="networkPressures__grid">
       
       <article class="networkPressures__card">
-        <div class="networkPressures__chip">Priority 01</div>
+        <div class="networkPressures__icon" aria-hidden="true">
+          
+          <!-- activity -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          
+        </div>
+
         
         <h3 class="networkPressures__cardTitle heading-md">No cohesive IT roadmap aligned with business goals</h3>
         
+        
       </article>
       
       <article class="networkPressures__card">
-        <div class="networkPressures__chip">Priority 02</div>
+        <div class="networkPressures__icon" aria-hidden="true">
+          
+          <!-- wifi -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          
+        </div>
+
         
         <h3 class="networkPressures__cardTitle heading-md">Limited bandwidth for major initiatives</h3>
         
+        
       </article>
       
       <article class="networkPressures__card">
-        <div class="networkPressures__chip">Priority 03</div>
+        <div class="networkPressures__icon" aria-hidden="true">
+          
+          <!-- server -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg>
+          
+        </div>
+
         
         <h3 class="networkPressures__cardTitle heading-md">Board-level security concerns unmet</h3>
         
+        
       </article>
       
       <article class="networkPressures__card">
-        <div class="networkPressures__chip">Priority 04</div>
+        <div class="networkPressures__icon" aria-hidden="true">
+          
+          <!-- server -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg>
+          
+        </div>
+
         
         <h3 class="networkPressures__cardTitle heading-md">Overworked IT leadership unable to innovate</h3>
+        
         
       </article>
       
@@ -796,7 +824,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       display:flex;
       flex-direction:column;
-      align-items:flex-start;
+      align-items:center;
+      text-align:center;
       gap:clamp(14px,2vh,20px);
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       overflow:hidden;
@@ -812,26 +841,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     [data-network-pressures] .networkPressures__card > *{ position:relative; z-index:1; }
 
-    [data-network-pressures] .networkPressures__chip{
-      display:flex;
+    /* removed priority chip */
+
+    [data-network-pressures] .networkPressures__icon{
+      display:inline-flex;
       align-items:center;
-      justify-content:flex-start;
-      height:2.2rem;
-      gap:.4rem;
-      padding:0 clamp(20px,3vw,36px);
+      justify-content:center;
+      width:56px; height:56px;
       border-radius:999px;
-      font-size:.72rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:rgba(226,248,255,0.9);
-      background:rgba(56,189,248,0.12);
-      border:1px solid rgba(56,189,248,0.35);
-      font-variant-numeric:tabular-nums;
-      font-feature-settings:'tnum';
-      text-align:left;
-      flex-shrink:0;
-      align-self:stretch;
+      color:#7dd3fc;
+      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(59,130,246,.14));
+      border:1px solid rgba(148,163,184,.22);
     }
+    [data-network-pressures] .networkPressures__icon svg{ width:28px; height:28px; display:block; }
 
     [data-network-pressures] .networkPressures__cardTitle{
       margin:0;
@@ -842,9 +864,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       text-wrap:balance;
       flex:1 1 auto;
       display:flex;
-      align-items:flex-start;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
       min-height:clamp(52px,7vh,92px);
     }
+
+    /* per-card description removed */
 
     [data-network-pressures] .networkPressures__actions{
       display:flex;
@@ -910,70 +936,199 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           <h2 class="frameworkJourney__title heading-xl">Our Approach Through Elevate</h2>
         </div>
 
-        <div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="howE__grid" role="list">
           
-          <article
-            x-data="{ open:false }"
-            class="framework-card overflow-hidden rounded-4xl flex flex-col bg-neutral-800 text-neutral-100 relative"
-          >
-            <div class="flex flex-col flex-1 h-full">
-              <div class="p-6 pb-4">
+          
+          
+          
+          
+
+          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+              <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
-                    <div class="px-3 py-1 text-xs rounded-full bg-neutral-600 text-neutral-100">Stage 1</div>
+                    <span class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">
+                      Stage 1
+                    </span>
                   </div>
+                  <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
+                  <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
                 </div>
               </div>
 
-              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-4">
+              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Stabilize</h3>
-                
-                <p class="text-base sm:text-lg font-light text-neutral-200 leading-snug">Assess current IT maturity and risks.</p>
-                
+                <p class="text-base sm:text-lg font-extralight leading-snug">Fix urgent gaps, secure the foundation.</p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <button
+                type="button"
+                class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :aria-expanded="open.toString()"
+                :aria-controls="'elevate-overlay-product-1'"
+                :aria-label="(open ? 'Hide' : 'Show') + ' details for Stabilize'"
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                @keydown.escape.prevent="open = false"
+              >
+                <img src="/images/elevate/stabilize.png" alt="Stabilize image" class="w-full h-full object-cover">
+              </button>
+
+              <div
+                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                :aria-hidden="(!open).toString()"
+                :id="'elevate-overlay-product-1'"
+              >
+                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
+                  
+                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">Assess current IT maturity and risks.</p>
+                  
+                </div>
+              </div>
+
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
+                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
+                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </article>
           
-          <article
-            x-data="{ open:false }"
-            class="framework-card overflow-hidden rounded-4xl flex flex-col bg-neutral-800 text-neutral-100 relative"
-          >
-            <div class="flex flex-col flex-1 h-full">
-              <div class="p-6 pb-4">
+          
+          
+          
+          
+            
+            
+          
+
+          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+              <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
-                    <div class="px-3 py-1 text-xs rounded-full bg-neutral-600 text-neutral-100">Stage 2</div>
+                    <span class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">
+                      Stage 2
+                    </span>
                   </div>
+                  <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
+                  <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
                 </div>
               </div>
 
-              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-4">
+              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Optimize</h3>
-                
-                <p class="text-base sm:text-lg font-light text-neutral-200 leading-snug">Build a tailored roadmap through vCIO guidance and project management.</p>
-                
+                <p class="text-base sm:text-lg font-extralight leading-snug">Improve performance, reduce risks, automate.</p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <button
+                type="button"
+                class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :aria-expanded="open.toString()"
+                :aria-controls="'elevate-overlay-product-2'"
+                :aria-label="(open ? 'Hide' : 'Show') + ' details for Optimize'"
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                @keydown.escape.prevent="open = false"
+              >
+                <img src="/images/elevate/optimize.png" alt="Optimize image" class="w-full h-full object-cover">
+              </button>
+
+              <div
+                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                :aria-hidden="(!open).toString()"
+                :id="'elevate-overlay-product-2'"
+              >
+                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
+                  
+                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">Build a tailored roadmap through vCIO guidance and project management.</p>
+                  
+                </div>
+              </div>
+
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
+                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
+                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </article>
           
-          <article
-            x-data="{ open:false }"
-            class="framework-card overflow-hidden rounded-4xl flex flex-col bg-neutral-800 text-neutral-100 relative framework-card--transform"
-          >
-            <div class="flex flex-col flex-1 h-full">
-              <div class="p-6 pb-4">
+          
+          
+          
+          
+            
+            
+          
+
+          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+              <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
-                    <div class="px-3 py-1 text-xs rounded-full bg-neutral-600 text-neutral-100">Stage 3</div>
+                    <span class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">
+                      Stage 3
+                    </span>
                   </div>
+                  <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
+                  <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
                 </div>
               </div>
 
-              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-4">
+              <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Transform</h3>
-                
-                <p class="text-base sm:text-lg font-light text-neutral-200 leading-snug">Align IT strategy with business innovation and growth.</p>
-                
+                <p class="text-base sm:text-lg font-extralight leading-snug">Align IT strategy with business growth.</p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <button
+                type="button"
+                class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :aria-expanded="open.toString()"
+                :aria-controls="'elevate-overlay-product-3'"
+                :aria-label="(open ? 'Hide' : 'Show') + ' details for Transform'"
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                @keydown.escape.prevent="open = false"
+              >
+                <img src="/images/elevate/transform.png" alt="Transform image" class="w-full h-full object-cover">
+              </button>
+
+              <div
+                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                :aria-hidden="(!open).toString()"
+                :id="'elevate-overlay-product-3'"
+              >
+                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
+                  
+                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">Align IT strategy with business innovation and growth.</p>
+                  
+                </div>
+              </div>
+
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
+                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
+                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </article>
@@ -1009,41 +1164,105 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           text-wrap:balance;
         }
 
-        .frameworkJourney__wrap .framework-card{
+        /* Match home 'The Elevate Path' card styles */
+        .frameworkJourney .howE__grid{
+          display:grid;
+          gap:clamp(20px,3vw,28px);
+          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+          width:100%;
+        }
+
+        .frameworkJourney .howE__card{
           position:relative;
           display:flex;
           flex-direction:column;
-          border-radius:24px;
-          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-          border:1px solid #1b2d46;
-          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
-          color:#e2e8f0;
+          border-radius:32px;
+          overflow:hidden;
+          background:rgba(12,26,48,0.9);
+          box-shadow:0 24px 48px rgba(8,17,33,0.45);
+          isolation:isolate;
+          transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
         }
 
-        .frameworkJourney__wrap .framework-card::after{
-          content:"";
-          position:absolute;
-          top:clamp(12px,1.6vh,22px);
-          right:clamp(12px,1.6vh,22px);
-          width:36px;
-          height:36px;
-          background:url('/images/icons/ArrowUpRightWhite.svg') center/contain no-repeat;
+        .frameworkJourney .howE__card--open{
+          box-shadow:0 30px 60px rgba(17,94,89,0.45);
+          border-color:rgba(20,184,166,0.45);
         }
 
-        .frameworkJourney__wrap .framework-card--transform{
-          background:linear-gradient(160deg,rgba(0,187,167,0.92) 0%,rgba(0,187,167,0.82) 100%);
-          border-color:rgba(94,234,212,0.4);
-          color:#fff;
+        .frameworkJourney .howE__card:hover{ transform:translateY(-4px); }
+        .frameworkJourney .howE__card > div:first-child{ border-bottom:1px solid rgba(148,163,184,0.12); }
+        .frameworkJourney .howE__card button{ transition:transform .45s cubic-bezier(.4,0,.2,1); }
+        .frameworkJourney .howE__card button:hover{ transform:scale(1.02); }
+        .frameworkJourney .howE__card button:focus-visible{ outline:2px solid rgba(20,184,166,.55); outline-offset:4px; }
+
+        @media (max-width: 720px){
+          .frameworkJourney .howE__grid{ grid-template-columns:1fr; }
         }
 
-        .frameworkJourney__wrap .framework-card--transform h3{
-          color:#fff;
-        }
-
-        .frameworkJourney__wrap .framework-card--transform p{
-          color:rgba(10,26,47,0.82);
+        @media (prefers-reduced-motion: reduce){
+          .frameworkJourney .howE__card{ transition:none; }
+          .frameworkJourney .howE__card button{ transition:none; }
         }
       </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          var section = document.querySelector('section[data-cyber-services]');
+          if (!section) return;
+          var row = section.querySelector('#cyberServicesRow');
+          var dotsWrap = section.querySelector('.svcDots');
+          if (!row || !dotsWrap) return;
+          var cards = Array.prototype.slice.call(row.children).filter(function(el){ return el.classList.contains('cyberServiceCard'); });
+          if (!cards.length) return;
+
+          function buildDots(){
+            dotsWrap.innerHTML = '';
+            dotsWrap.setAttribute('role','tablist');
+            var dots = [];
+            function setActive(idx){
+              for (var i=0;i<dots.length;i++){
+                var on = i === idx;
+                dots[i].classList.toggle('is-active', on);
+                dots[i].setAttribute('aria-selected', on?'true':'false');
+                dots[i].setAttribute('tabindex', on?'0':'-1');
+              }
+            }
+            function scrollToIndex(idx, smooth){
+              var card = cards[idx]; if (!card) return;
+              row.scrollTo({ left: card.offsetLeft, behavior: (smooth===false? 'auto':'smooth') });
+              setActive(idx);
+            }
+            cards.forEach(function(_, i){
+              var b = document.createElement('button');
+              b.type = 'button'; b.className = 'svcDot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Show service '+(i+1));
+              b.addEventListener('click', function(){ scrollToIndex(i, true); });
+              dotsWrap.appendChild(b); dots.push(b);
+            });
+
+            // init flush-left
+            row.scrollLeft = cards[0].offsetLeft;
+            setActive(0);
+
+            // update on scroll
+            var ticking = false;
+            row.addEventListener('scroll', function(){
+              if (ticking) return; ticking = true;
+              requestAnimationFrame(function(){
+                var sl = row.scrollLeft, idx = 0, min = Infinity;
+                for (var i=0;i<cards.length;i++){
+                  var d = Math.abs(sl - cards[i].offsetLeft);
+                  if (d < min){ min = d; idx = i; }
+                }
+                setActive(idx);
+                ticking = false;
+              });
+            }, { passive:true });
+
+            function updateDotsVis(){ dotsWrap.style.display = (row.scrollWidth > row.clientWidth + 4) ? 'flex' : 'none'; }
+            updateDotsVis(); window.addEventListener('resize', updateDotsVis);
+          }
+          buildDots();
+        });
+      </script>
       <script>
         document.addEventListener('DOMContentLoaded', function () {
           const section = document.querySelector('[data-proof-kpis]');
@@ -1175,37 +1394,48 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
         </header>
 
+        
         <div class="cyberServices__grid">
           
+          
           <article class="cyberServiceCard">
+            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Virtual CIO (vCIO)</h3>
               <p class="cyberServiceCard__text body-text">Strategic leadership that ensures IT supports business objectives.</p>
             </div>
           </article>
           
+          
           <article class="cyberServiceCard">
+            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Independent Security Consulting</h3>
               <p class="cyberServiceCard__text body-text">Neutral assessments that strengthen security posture.</p>
             </div>
           </article>
           
+          
           <article class="cyberServiceCard">
+            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Project Management</h3>
               <p class="cyberServiceCard__text body-text">Structured execution that delivers projects on time and budget.</p>
             </div>
           </article>
           
+          
           <article class="cyberServiceCard">
+            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">M&amp;A IT Integration</h3>
               <p class="cyberServiceCard__text body-text">Planning and oversight that simplify transitions during business change.</p>
             </div>
           </article>
           
+          
           <article class="cyberServiceCard">
+            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Co-Managed IT</h3>
               <p class="cyberServiceCard__text body-text">Collaborative models that extend the capabilities of your in-house team.</p>
@@ -1213,6 +1443,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           </article>
           
         </div>
+        
       </div>
 
       <style>
@@ -1233,6 +1464,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           display:grid;
           gap:clamp(28px,5vh,56px);
         }
+
+        /* (no left/right split; header sits above row for Cyber Security) */
 
         .cyberServices__head{
           display:grid;
@@ -1268,6 +1501,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
           isolation:isolate;
         }
+        .cyberServiceCard__icon{
+          display:block;
+          width:clamp(38px,5.2vw,56px);
+          height:auto;
+          filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
+        }
+
+        /* Horizontal row for Cyber Security page (simple cards) */
+        
 
         .cyberServiceCard__body{
           position:relative;
@@ -1654,7 +1896,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         .l3-kpi-cards .card{
           position:relative;
           overflow:hidden;
-          text-align:left;
+          text-align:center;
           background:#0a172a;
           border:1px solid #1b2d46;
           border-radius:22px;
@@ -1718,11 +1960,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           display:grid;
           gap:clamp(12px,1.8vh,16px);
           margin-top:clamp(8px,1.4vh,14px);
+          justify-items:center;
+          text-align:center;
         }
 
         .proof-metric{
           display:grid;
           gap:6px;
+          text-align:center;
         }
 
         .proof-metric__label{
@@ -1730,6 +1975,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           text-transform:uppercase;
           letter-spacing:0.12em;
           color:rgba(148,204,255,0.72);
+          text-align:center;
         }
 
         .proof-metric__track{
@@ -1859,7 +2105,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           display:flex;
           flex-direction:column;
           gap:clamp(8px,1.2vh,12px);
-          align-items:flex-start;
+          align-items:center;
+          text-align:center;
           width:100%;
         }
 
