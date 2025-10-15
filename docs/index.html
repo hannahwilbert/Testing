@@ -882,10 +882,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       padding:clamp(24px, 3.2vw, 34px);
       border-radius:24px;
             background:
-        linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
-        linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
-        linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+        /* soft frost overlay tints */
+        linear-gradient(135deg, rgba(196,215,248,.10) 0%, rgba(20,34,56,0) 40%),
+        linear-gradient(315deg, rgba(62,90,136,.08) 0%, rgba(12,24,44,0) 44%),
+        /* sleek blue/black base gradient */
+        linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      border:1px solid #1b2d46;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       color:#e2e8f0;
       text-align:left;
       overflow:hidden;
@@ -904,21 +907,21 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     [data-hero-highlights] .heroHighlight::before{
       inset:-60% 24% 40% -30%;
-      background:linear-gradient(120deg, rgba(188,214,255,.32) 0%, rgba(188,214,255,0) 65%);
-      opacity:.28;
-      transform:rotate(-7deg);
+      background:linear-gradient(120deg, rgba(188,214,255,.22) 0%, rgba(188,214,255,0) 70%);
+      opacity:.22;
+      transform:rotate(-6deg);
       mix-blend-mode:screen;
-      filter:blur(16px);
+      filter:blur(18px);
     }
 
     [data-hero-highlights] .heroHighlight::after{
       inset:54% -32% -120% 28%;
       background:
-        linear-gradient(212deg, rgba(82,140,200,.18) 0%, rgba(10,22,42,0) 68%),
-        radial-gradient(120% 140% at 80% -20%, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 58%);
-      opacity:.2;
-      transform:rotate(3deg);
-      filter:blur(12px);
+        linear-gradient(212deg, rgba(82,140,200,.14) 0%, rgba(10,22,42,0) 68%),
+        radial-gradient(120% 140% at 80% -20%, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 58%);
+      opacity:.18;
+      transform:rotate(2deg);
+      filter:blur(14px);
     }
 
 [data-hero-highlights] .heroHighlight:is(:hover,:focus-visible){
@@ -1184,7 +1187,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                 <button
                   @click="activeCard = activeCard === 1 ? null : 1"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 1 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -1192,9 +1195,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Unplanned Downtime</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#000000' : '#525252'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#000000' : '#525252'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#000000' : '#525252'"/>
+                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#FFFFFF' : '#FFFFFF'"/>
                     </svg>
                   </div>
                   <div
@@ -1213,7 +1216,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                 <button
                   @click="activeCard = activeCard === 2 ? null : 2"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 2 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -1221,9 +1224,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Teams Stretched Thin</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#000000' : '#525252'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#000000' : '#525252'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#000000' : '#525252'"/>
+                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#FFFFFF' : '#FFFFFF'"/>
                     </svg>
                   </div>
                   <div
@@ -1242,7 +1245,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                 <button
                   @click="activeCard = activeCard === 3 ? null : 3"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 3 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -1250,9 +1253,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Cloud Initiatives Stalling</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#000000' : '#525252'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#000000' : '#525252'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#000000' : '#525252'"/>
+                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#FFFFFF' : '#FFFFFF'"/>
                     </svg>
                   </div>
                   <div
@@ -1271,7 +1274,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                 <button
                   @click="activeCard = activeCard === 4 ? null : 4"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 4 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 4 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 4 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -1279,9 +1282,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Missing Roadmap</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#000000' : '#525252'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#000000' : '#525252'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#000000' : '#525252'"/>
+                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#FFFFFF' : '#FFFFFF'"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#FFFFFF' : '#FFFFFF'"/>
                     </svg>
                   </div>
                   <div
@@ -1406,6 +1409,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       will-change: transform, box-shadow, border-color;
       min-width:0; height:100%;
       position:relative;
+    }
+
+    /* Off-state (pre-click) problem cards: match plain blue card style */
+    [data-problem="flat"] .problemFlat__btnOff{
+      /* Sleek black/blue gradient */
+      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      border:1px solid #1b2d46;
+      color:#cbd5e1;
+      box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
     }
 
     [data-problem="flat"] .problemFlat__text::before{ content:none; display:none; }
@@ -1773,7 +1785,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <button
               @click="activeIndex = activeIndex === 1 ? null : 1"
               class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-              :class="activeIndex === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+              :class="activeIndex === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'kfE__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
               style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
             >
               <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIndex === 1 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -1781,9 +1793,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                   <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">A Clear Framework for IT Maturity</h3>
                 </div>
                 <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#000000' : '#525252'"/>
-                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#000000' : '#525252'"/>
-                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#000000' : '#525252'"/>
+                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#FFFFFF' : '#FFFFFF'"/>
                 </svg>
               </div>
 
@@ -1803,7 +1815,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <button
               @click="activeIndex = activeIndex === 2 ? null : 2"
               class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-              :class="activeIndex === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+              :class="activeIndex === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'kfE__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
               style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
             >
               <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIndex === 2 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -1811,9 +1823,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                   <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Decades of Experience, Delivered with Focus</h3>
                 </div>
                 <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#000000' : '#525252'"/>
-                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#000000' : '#525252'"/>
-                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#000000' : '#525252'"/>
+                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#FFFFFF' : '#FFFFFF'"/>
                 </svg>
               </div>
 
@@ -1833,7 +1845,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <button
               @click="activeIndex = activeIndex === 3 ? null : 3"
               class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-              :class="activeIndex === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-400 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+              :class="activeIndex === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'kfE__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
               style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
             >
               <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIndex === 3 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -1841,9 +1853,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                   <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Vendor-Neutral, Business-First Approach</h3>
                 </div>
                 <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#000000' : '#525252'"/>
-                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#000000' : '#525252'"/>
-                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#000000' : '#525252'"/>
+                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#FFFFFF' : '#FFFFFF'"/>
                 </svg>
               </div>
 
@@ -2196,6 +2208,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     .kfE__icon img{ width:100%; height:auto; display:block; }
     .kfE__itemTitle{ color:#fff; font-weight:600; font-size:clamp(18px,2.6vw,24px); letter-spacing:-.01em; }
     .kfE__itemCopy{ margin:0; color:rgba(226,232,240,.78); font-size:clamp(14px,1.9vw,16px); line-height:1.65; }
+    /* Off-state for Why L3 cards: match plain blue card style */
+    .kfE__btnOff{
+      /* Sleek black/blue gradient */
+      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      border:1px solid #1b2d46;
+      color:#cbd5e1;
+      box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
+    }
 
     /* Drop-down card grid styles (scoped to this section) */
     [data-kf="elite"] .howE__grid{
@@ -3310,7 +3330,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       border:1px solid #1b2d46;
       text-decoration:none;
       color:#e2e8f0;
-      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
+      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       overflow:hidden;
       isolation:isolate;
@@ -3816,8 +3836,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       position:relative;
       padding:clamp(24px,2.8vw,32px);
             border-radius:20px;
-      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+      /* Sleek blue/black gradient to match highlights */
+      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      border:1px solid rgba(102,199,232,.22);
+      box-shadow:0 28px 72px rgba(5,12,22,.62), inset 0 1px 0 rgba(255,255,255,.06);
       display:grid;
       gap:clamp(18px,2.4vw,26px);
       transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
@@ -4018,7 +4040,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <button
           @click="activeIdx = activeIdx === 1 ? null : 1"
           class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-          :class="activeIdx === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-600 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+          :class="activeIdx === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'diff__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
           style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
         >
           <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIdx === 1 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -4026,9 +4048,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">Vendor-Neutral Consulting</h3>
             </div>
             <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#000000' : '#525252'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#000000' : '#525252'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#000000' : '#525252'"/>
+              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#FFFFFF' : '#FFFFFF'"/>
             </svg>
           </div>
           <div
@@ -4047,7 +4069,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <button
           @click="activeIdx = activeIdx === 2 ? null : 2"
           class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-          :class="activeIdx === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-600 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+          :class="activeIdx === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'diff__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
           style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
         >
           <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIdx === 2 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -4055,9 +4077,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">24/7 Proactive Monitoring &amp; Support</h3>
             </div>
             <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#000000' : '#525252'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#000000' : '#525252'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#000000' : '#525252'"/>
+              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#FFFFFF' : '#FFFFFF'"/>
             </svg>
           </div>
           <div
@@ -4076,7 +4098,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <button
           @click="activeIdx = activeIdx === 3 ? null : 3"
           class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-          :class="activeIdx === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-600 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+          :class="activeIdx === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'diff__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
           style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
         >
           <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIdx === 3 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -4084,9 +4106,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">Industry Compliance &amp; Security Expertise</h3>
             </div>
             <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#000000' : '#525252'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#000000' : '#525252'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#000000' : '#525252'"/>
+              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#FFFFFF' : '#FFFFFF'"/>
             </svg>
           </div>
           <div
@@ -4105,7 +4127,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <button
           @click="activeIdx = activeIdx === 4 ? null : 4"
           class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-          :class="activeIdx === 4 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'bg-neutral-950 bg-gradient-to-br from-neutral-950 via-black to-neutral-900 border-1 border-neutral-700 text-neutral-600 ring-1 ring-neutral-700/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+          :class="activeIdx === 4 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'diff__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
           style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
         >
           <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIdx === 4 ? 'pb-0' : 'pb-4 sm:pb-6'">
@@ -4113,9 +4135,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">Scalability &amp; Adaptability</h3>
             </div>
             <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#000000' : '#525252'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#000000' : '#525252'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#000000' : '#525252'"/>
+              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#FFFFFF' : '#FFFFFF'"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#FFFFFF' : '#FFFFFF'"/>
             </svg>
           </div>
           <div
@@ -4187,6 +4209,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       overflow-wrap:anywhere;
       word-break:break-word;
       color:#ffffff;
+    }
+    /* Off-state for diff (Why Growing IT Teams...) cards: sleek black/blue gradient */
+    .diff__btnOff{
+      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      border:1px solid #1b2d46;
+      color:#cbd5e1;
+      box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
     }
     [data-diff="features"] button > div.min-w-0{ min-width:0; }
 
