@@ -2018,7 +2018,14 @@
 <section data-how="elevate" class="section-block" style="background:linear-gradient(180deg, #000000 0%, #061021 10%, #061021 90%,black 100%); color:#ecf3fb;">
   <div class="section-shell howE__wrap">
     <div class="howE__frame">
-      <h2 class="heading-xl mb-sm">The <span class="howE__titleGradient">Elevate</span> <span style="color:var(--brand);">Path</span></h2>
+      <h2 class="heading-xl mb-sm howE__title">The <span class="howE__titleGradient">Elevate</span> <span style="color:var(--brand);">Path</span>
+        <svg class="howE__titleIcon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </g>
+        </svg>
+      </h2>
       <p class="body-lead measure mb-md howE__lead">Move through the Elevate IT Maturity Framework in clear stages so every initiative drives measurable progress.</p>
 
       <div class="howE__grid" role="list">
@@ -2117,6 +2124,20 @@
       text-align:center;
       margin-left:auto;
       margin-right:auto;
+    }
+    /* Title layout with icon */
+    section[data-how="elevate"] .howE__frame .howE__title{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:.6rem;
+      flex-wrap:wrap;
+    }
+    section[data-how="elevate"] .howE__frame .howE__titleIcon{
+      width:clamp(18px,2.2vw,24px);
+      height:clamp(18px,2.2vw,24px);
+      color:var(--brand);
+      filter:drop-shadow(0 6px 14px rgba(0,187,167,.25));
     }
     /* Center the subtitle/lead as well */
     section[data-how="elevate"] .howE__frame .howE__lead{
