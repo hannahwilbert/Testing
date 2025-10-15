@@ -535,12 +535,10 @@
           {% endif %}
         </header>
 
-        {% if product == 'Cyber Security' %}
+        {% if product == 'Cyber Security' or product == 'Managed Networks' or product == 'User & Device Management' or product == 'Cloud & Systems Services' or product == 'Professional Services' %}
         <div class="cyberServices__row" id="cyberServicesRow" role="list">
           {% for service in services %}
-          {% set icon = service.icon or '/images/home/icons/teal/ShieldCheckered.svg' %}
           <article class="cyberServiceCard" role="listitem">
-            <img src="{{ icon }}" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">{{ service.name }}</h3>
               <p class="cyberServiceCard__text body-text">{{ service.description }}</p>
@@ -552,9 +550,7 @@
         {% else %}
         <div class="cyberServices__grid">
           {% for service in services %}
-          {% set icon = service.icon or '/images/home/icons/teal/ShieldCheckered.svg' %}
           <article class="cyberServiceCard">
-            <img src="{{ icon }}" alt="" class="cyberServiceCard__icon">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">{{ service.name }}</h3>
               <p class="cyberServiceCard__text body-text">{{ service.description }}</p>
@@ -620,15 +616,10 @@
           transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
           isolation:isolate;
         }
-        .cyberServiceCard__icon{
-          display:block;
-          width:clamp(38px,5.2vw,56px);
-          height:auto;
-          filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
-        }
+        /* icon removed */
 
-        /* Horizontal row for Cyber Security page (simple cards) */
-        {% raw %}{% endraw %}{% if product == 'Cyber Security' %}
+        /* Horizontal row for Cyber Security, Managed Networks, User & Device Management, Cloud & Systems Services, and Professional Services (simple cards) */
+        {% raw %}{% endraw %}{% if product == 'Cyber Security' or product == 'Managed Networks' or product == 'User & Device Management' or product == 'Cloud & Systems Services' or product == 'Professional Services' %}
         .cyberServices__row{
           display:flex;
           gap:clamp(20px,4vw,40px);

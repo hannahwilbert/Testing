@@ -1381,56 +1381,44 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </header>
 
         
-        <div class="cyberServices__grid">
+        <div class="cyberServices__row" id="cyberServicesRow" role="list">
           
-          
-          <article class="cyberServiceCard">
-            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
+          <article class="cyberServiceCard" role="listitem">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Cloud Strategy &amp; Migration</h3>
               <p class="cyberServiceCard__text body-text">Careful planning and execution that reduce disruption and risk.</p>
             </div>
           </article>
           
-          
-          <article class="cyberServiceCard">
-            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
+          <article class="cyberServiceCard" role="listitem">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Azure &amp; AWS Management</h3>
               <p class="cyberServiceCard__text body-text">Ongoing support that keeps cloud systems optimized and cost-efficient.</p>
             </div>
           </article>
           
-          
-          <article class="cyberServiceCard">
-            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
+          <article class="cyberServiceCard" role="listitem">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Managed Backup &amp; DR</h3>
               <p class="cyberServiceCard__text body-text">Automated recovery solutions that ensure data availability.</p>
             </div>
           </article>
           
-          
-          <article class="cyberServiceCard">
-            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
+          <article class="cyberServiceCard" role="listitem">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Cloud Security &amp; Compliance</h3>
               <p class="cyberServiceCard__text body-text">Security frameworks that let you adopt new tools safely.</p>
             </div>
           </article>
           
-          
-          <article class="cyberServiceCard">
-            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
+          <article class="cyberServiceCard" role="listitem">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">Hybrid &amp; Private Cloud</h3>
               <p class="cyberServiceCard__text body-text">Flexible deployment models that fit business and compliance needs.</p>
             </div>
           </article>
           
-          
-          <article class="cyberServiceCard">
-            <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="" class="cyberServiceCard__icon">
+          <article class="cyberServiceCard" role="listitem">
             <div class="cyberServiceCard__body">
               <h3 class="cyberServiceCard__title heading-md">SaaS &amp; Microsoft 365 Management</h3>
               <p class="cyberServiceCard__text body-text">Managed productivity tools that keep employees efficient and secure.</p>
@@ -1438,6 +1426,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           </article>
           
         </div>
+        <div class="svcDots" role="tablist" aria-label="Service slides"></div>
         
       </div>
 
@@ -1496,14 +1485,73 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
           isolation:isolate;
         }
-        .cyberServiceCard__icon{
-          display:block;
-          width:clamp(38px,5.2vw,56px);
-          height:auto;
-          filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
-        }
+        /* icon removed */
 
-        /* Horizontal row for Cyber Security page (simple cards) */
+        /* Horizontal row for Cyber Security, Managed Networks, User & Device Management, Cloud & Systems Services, and Professional Services (simple cards) */
+        
+        .cyberServices__row{
+          display:flex;
+          gap:clamp(20px,4vw,40px);
+          overflow-x:auto;
+          width:100vw;
+          max-width:none;
+          box-sizing:border-box;
+          margin-left:calc((100vw - 100%)/-2);
+          margin-right:calc((100vw - 100%)/-2);
+          padding:clamp(12px,2vw,20px) clamp(36px,7vw,120px) clamp(24px,3vw,36px);
+          align-items:stretch;
+          scroll-snap-type:x proximity;
+          scroll-behavior:smooth;
+          scroll-padding-inline:clamp(36px,7vw,120px);
+          -webkit-overflow-scrolling:touch;
+          touch-action:auto;
+          overscroll-behavior-x:contain;
+          overscroll-behavior-y:auto;
+          scrollbar-width:thin;
+          scrollbar-color:rgba(102,199,232,.6) rgba(15,32,56,.4);
+        }
+        .cyberServices__row::before,
+        .cyberServices__row::after{
+          content:"";
+          flex:0 0 calc((100% - clamp(280px,40vw,480px)) / 2);
+        }
+        .cyberServices__row::-webkit-scrollbar{ height:8px; }
+        .cyberServices__row::-webkit-scrollbar-track{ background:rgba(7,15,26,.6); border-radius:999px; }
+        .cyberServices__row::-webkit-scrollbar-thumb{
+          background:linear-gradient(135deg, rgba(102,199,232,.85), rgba(14,116,144,.85));
+          border-radius:999px;
+        }
+        /* Card sizing within row */
+        .cyberServices__row .cyberServiceCard{
+          display:flex;
+          flex-direction:column;
+          justify-content:space-between;
+          flex:0 0 clamp(280px,40vw,480px);
+          scroll-snap-align:start;
+        }
+        /* Dots under the row */
+        [data-cyber-services] .svcDots{
+          display:flex; justify-content:center; align-items:center;
+          gap:clamp(8px, 1vw, 14px); padding-top:12px;
+          -webkit-tap-highlight-color: transparent;
+        }
+        [data-cyber-services] .svcDot{
+          width:clamp(10px, 1.2vw, 14px); height:clamp(10px, 1.2vw, 14px);
+          border-radius:999px; cursor:pointer;
+          border:1px solid rgba(148,163,184,.45);
+          background:rgba(148,163,184,.28);
+          transition:transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+          outline:none;
+        }
+        [data-cyber-services] .svcDot:hover,
+        [data-cyber-services] .svcDot:focus-visible{ transform:scale(1.12); box-shadow:0 0 0 3px rgba(102,199,232,.16); border-color:rgba(102,199,232,.65); }
+        [data-cyber-services] .svcDot.is-active{
+          background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%);
+          border-color:rgba(102,199,232,.85);
+          box-shadow:0 0 0 4px rgba(102,199,232,.20);
+          transform:translateY(-1px);
+        }
+        @media (pointer: coarse){ [data-cyber-services] .svcDot{ width:16px; height:16px; } }
         
 
         .cyberServiceCard__body{

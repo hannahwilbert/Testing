@@ -57,7 +57,32 @@ midCta:
   link: 'https://l3networks.timezest.com/sales/meeting-15'
 proofTitle: 'Proof That Elevate Strengthens Security Outcomes'
 proofIntro: 'We pair measurable results with transparent reporting so you can show progress to leadership and auditors.'
-proofPoints: []
+proofPoints:
+  - title: 'Urgency of Proactive Defense'
+    stat: 'Average time to identify and contain a breach is 258 days.'
+    source: 'IBM Cost of a Data Breach Report, 2024'
+    metrics:
+      - label: 'Avg days to contain'
+        value: 258
+        max: 300
+  - title: 'Cost of a Breach for Smaller Companies'
+    stat: 'Average total cost is $3.31M for companies with ≤500 employees.'
+    source: 'IBM Cost of a Data Breach Report, 2022'
+    metrics:
+      - label: 'Average total cost'
+        value: 3.31
+        max: 5
+        prefix: '$'
+        suffix: 'M'
+  - title: 'Value of Security Automation'
+    stat: 'Organizations leveraging security AI and automation saved an average of $2.2M.'
+    source: 'IBM Cost of a Data Breach Report, 2024'
+    metrics:
+      - label: 'Avg savings'
+        value: 2.2
+        max: 5
+        prefix: '$'
+        suffix: 'M'
 caseStudiesTitle: 'Explore Security Success Stories'
 caseStudiesIntro: 'See how Elevate helps organizations stabilize, optimize, and transform their security programs.'
 caseStudiesLinks:
