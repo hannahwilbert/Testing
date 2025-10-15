@@ -1399,6 +1399,9 @@
               function bootOnView(){
                 var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 if ('IntersectionObserver' in window && !reduceMotion) {
+                  // Observe the whole "Why L3 Networks is Different" section so animation starts
+                  // when the section scrolls into view (not only when the SVG itself does).
+                  var container = scope.closest('section[data-kf="elite"]') || scope.closest('.kfE__wrap') || scope;
                   var io = new IntersectionObserver(function(entries){
                     entries.forEach(function(entry){
                       if (entry.isIntersecting && !hasPlayed) {
@@ -1407,8 +1410,8 @@
                         io.unobserve(scope);
                       }
                     });
-                  }, { threshold: 0.35 });
-                  io.observe(scope);
+                  }, { threshold: 0.25 });
+                  io.observe(container);
                 } else {
                   if (document.readyState === 'loading') {
                     document.addEventListener('DOMContentLoaded', run, { once:true });
