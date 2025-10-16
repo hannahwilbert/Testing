@@ -356,8 +356,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       </a>
     </div>
   </div>
-
-  
 </header>
 
   <header class="fixed z-50 flex flex-row w-full bg-black md:hidden" x-data="{ drawerOpen: false }">
@@ -475,8 +473,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <!-- Inline-styled wrapper with design tokens -->
 <div style="
   --max:1200px; --pad:16px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
-  --bg:#000; --ink:#ffffff; --muted:rgba(255,255,255,.78);
-  --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+  /* Apply brand palette tokens */
+  --bg:#020617; /* surface-0 */
+  --ink:#F8FAFC; /* ink */
+  --muted:#94A3B8; /* muted */
+  --card:rgba(255,255,255,.06); --border:#1B2D46;
   --brand:#00BBA7; --brand-ink:#061216;
   color:var(--ink); background:var(--bg); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 ">
@@ -1178,7 +1179,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 <!-- PROBLEM (flat layout • matches key features aesthetic) -->
-<section class="section-block" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, #061021 80%,#000000 100%)">
+<section class="section-block" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, var(--surface-1, #061021) 80%, #020617 100%)">
   <div class="section-shell problemFlat__wrap" style="position:relative; z-index:1;">
     <h2 class="heading-xl mb-sm" style="color:var(--ink);">
       Are IT Gaps Costing You <span style="white-space:nowrap; color:var(--brand);">Time, Money &amp; Trust?</span>
@@ -1422,8 +1423,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     /* Off-state (pre-click) problem cards: match plain blue card style */
     [data-problem="flat"] .problemFlat__btnOff{
-      /* Sleek black/blue gradient */
-      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      /* Brand-aligned dark surface */
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       border:1px solid #1b2d46;
       color:#cbd5e1;
       box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
@@ -3005,8 +3006,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       flex-direction:column;
       border-radius:32px;
       overflow:hidden;
-            background:rgba(12,26,48,0.92);
-      border:1px solid rgba(148,163,184,0.18);
+            background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+      border:1px solid #1B2D46;
       box-shadow:0 32px 96px rgba(8,17,33,0.55), 0 12px 36px rgba(8,17,33,0.45), 0 0 48px rgba(102,199,232,.12);
       isolation:isolate;
       transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
@@ -3019,7 +3020,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     section[data-how="elevate"] .howE__card:hover{
       transform:translateY(-4px);
-      border-color:rgba(102,199,232,.38);
+      border-color:var(--brand-cyan, #66C7E8);
       box-shadow:0 40px 110px rgba(17,94,89,0.45), 0 18px 44px rgba(8,17,33,0.55), 0 0 60px rgba(102,199,232,.18);
     }
 
@@ -3352,7 +3353,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       border:1px solid #1b2d46;
       text-decoration:none;
       color:#e2e8f0;
-      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       overflow:hidden;
       isolation:isolate;
@@ -3365,10 +3366,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     section[data-services] .svcCard > *{ position:relative; z-index:1; }
 
-    section[data-services] .svcCard:hover,
-    section[data-services] .svcCard:focus-visible{
+      section[data-services] .svcCard:hover,
+      section[data-services] .svcCard:focus-visible{
       box-shadow:0 20px 52px rgba(5,12,22,.54);
       transform:translate3d(0,-3px,0);
+      border-color: var(--brand-cyan, #66C7E8);
     }
 
     section[data-services] .svcCard__icon{
@@ -3858,8 +3860,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       position:relative;
       padding:clamp(24px,2.8vw,32px);
             border-radius:20px;
-      /* Sleek blue/black gradient to match highlights */
-      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      /* Brand-aligned dark surface */
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       border:1px solid rgba(102,199,232,.22);
       box-shadow:0 28px 72px rgba(5,12,22,.62), inset 0 1px 0 rgba(255,255,255,.06);
       display:grid;
@@ -5484,81 +5486,91 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 
-<footer class="px-3 pt-24 pb-8 text-white bg-black md:px-8 2xl:px-0">
+<footer id="siteFooter" class="text-white" style="background:linear-gradient(180deg,#020617 0%, #061021 100%);">
+  <section class="container max-w-screen-xl mx-auto px-5 md:px-8 2xl:px-0 py-14 border-t" style="border-color:var(--border-color,#1B2D46);">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-12">
 
-  <section class="container grid max-w-screen-xl mx-auto">
-    
-    <div class="flex flex-col col-span-8 gap-12 p-6 transition-all duration-300 border rounded-lg md:p-12 md:flex-row bg-slate-900/50 border-slate-800 hover:border-slate-700">
-      <div class="flex flex-col gap-4 font-light">
-    
-        <img class="block mb-6" src="/images/logo/logo-header.svg" alt="">
-        <p class="text-base">
-          11205 Knott Avenue, <br class="2xl:hidden"> Suite B <br>
+      <!-- Brand & contact -->
+      <div class="md:col-span-4">
+        <img class="block mb-4 h-10" src="/images/logo/logo-header.svg" alt="L3 Networks">
+        <p class="text-sm tracking-[.14em] uppercase text-slate-300/80 mb-3">Secure • Simple • Scalable</p>
+        <address class="not-italic text-base text-slate-200/90 leading-relaxed">
+          11205 Knott Avenue, Suite B<br>
           Cypress, CA 90630
-        </p>
-        <p class="text-base">+1 (888) 282-5353</p>
-        <p class="text-base">sales@L3Networks.com</p>
-        <div class="mb-8 text-base font-light md:mb-0">
-    
-    
-          <div class="flex gap-2">
-            <a href="https://www.linkedin.com/company/l3-networks" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/LinkedIn.svg" alt="LinkedIn Logo"></a>
-            <a href="https://www.facebook.com/people/L3-Networks-Inc/61562904941740/" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/Facebook.svg"
-                alt="Facebook Logo"></a>
-            <a href="https://www.youtube.com/@L3Networks" class="block h-5 py-1 hover:underline"><img class="w-5 h-5 pr-1" src="/images/home/YouTube.svg" alt="YouTube Logo"></a>
-          </div>
-          <div class="flex gap-4 mt-6">
-            <p class="">2025 &copy;</p>
-            <a class="text-teal-400" href="/privacy-policy/">Privacy Policy</a>
-          </div>
-          
-          
+        </address>
+        <div class="mt-3 text-base">
+          <a class="hover:underline" href="tel:+18882825353">+1 (888) 282-5353</a><br>
+          <a class="hover:underline" href="mailto:sales@L3Networks.com">sales@L3Networks.com</a>
+        </div>
+        <div class="flex items-center gap-2 mt-4">
+          <a href="https://www.linkedin.com/company/l3-networks" aria-label="LinkedIn" class="opacity-90 hover:opacity-100"><img class="w-5 h-5" src="/images/home/LinkedIn.svg" alt=""></a>
+          <a href="https://www.facebook.com/people/L3-Networks-Inc/61562904941740/" aria-label="Facebook" class="opacity-90 hover:opacity-100"><img class="w-5 h-5" src="/images/home/Facebook.svg" alt=""></a>
+          <a href="https://www.youtube.com/@L3Networks" aria-label="YouTube" class="opacity-90 hover:opacity-100"><img class="w-5 h-5" src="/images/home/YouTube.svg" alt=""></a>
         </div>
       </div>
-      <div class="flex flex-col gap-2 md:ml-auto md:mr-8">
-        
-        <a href="/products/cyber-security/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Cyber Security</a>
-        
-        <a href="/products/managed-networks/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Networks &amp; Connectivity</a>
-        
-        <a href="/products/user-and-device-management/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Users &amp; Devices</a>
-        
-        <a href="/products/cloud-and-systems-services/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Cloud Solutions</a>
-        
-        <a href="/products/professional-services/" class="block py-1 text-xl font-bold transition-all duration-300 hover:underline">Professional Services</a>
-        
-    
+
+      <!-- Solutions -->
+      <nav class="md:col-span-3" aria-label="Solutions">
+        <h4 class="mb-3 text-sm font-semibold tracking-[.22em] uppercase text-slate-300/80">Elevate Your IT</h4>
+        <ul class="space-y-2">
+          
+          <li><a href="/products/cyber-security/" class="footerLink">Cyber Security</a></li>
+          
+          <li><a href="/products/managed-networks/" class="footerLink">Networks &amp; Connectivity</a></li>
+          
+          <li><a href="/products/user-and-device-management/" class="footerLink">Users &amp; Devices</a></li>
+          
+          <li><a href="/products/cloud-and-systems-services/" class="footerLink">Cloud Solutions</a></li>
+          
+          <li><a href="/products/professional-services/" class="footerLink">Professional Services</a></li>
+          
+        </ul>
+      </nav>
+
+      <!-- Company -->
+      <nav class="md:col-span-2" aria-label="Company">
+        <h4 class="mb-3 text-sm font-semibold tracking-[.22em] uppercase text-slate-300/80">Company</h4>
+        <ul class="space-y-2">
+          <li><a href="/why-l3/" class="footerLink">Why L3?</a></li>
+          <li><a href="/about-us/" class="footerLink">About Us</a></li>
+          <li><button type="button" aria-disabled="true" class="text-white cursor-default">Resources</button></li>
+          <li><a href="https://support.l3networks.com/" class="footerLink">Support</a></li>
+          <li><a href="/privacy-policy/" class="footerLink">Privacy Policy</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA -->
+      <div class="md:col-span-3 flex flex-col items-start justify-start gap-3">
+        <h4 class="text-lg font-semibold tracking-tight">Ready to Talk?</h4>
+        <p class="text-slate-300/90 text-sm">Schedule a quick Right‑Fit Call to assess needs and next steps.</p>
+        <a
+          href="https://l3networks.timezest.com/sales/meeting-15"
+          class="relative inline-flex items-center flex-shrink-0 rounded-full px-5 py-2 text-sm font-semibold text-white transition-all whitespace-nowrap bg-teal-500 hover:brightness-110 hover:shadow-[0_10px_28px_rgba(20,184,166,.35)] mt-1"
+        >
+          <span class="relative z-10 flex items-center gap-2 whitespace-nowrap">
+            Book An Appointment
+            <img class="h-4" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+          </span>
+        </a>
       </div>
-      <div class="flex flex-col gap-1 md:mr-8">
-        <a href="/why-l3/" class="block py-1 hover:underline">Why L3?</a>
-        <a href="/aboutus/" class="block py-1 hover:underline">About Us</a>
-        <a href="https://support.l3networks.com/" class="block py-1 hover:underline">Support</a>
-        <a href="https://l3networks.timezest.com/sales/meeting-15" class="block py-1 hover:underline">Contact Us</a>
-    
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-10 pt-6 border-t flex flex-col md:flex-row items-start md:items-center justify-between gap-4" style="border-color:var(--border-color,#1B2D46);">
+      <p class="text-sm text-slate-400">&copy; 2025 L3 Networks, Inc. All rights reserved.</p>
+      <div class="flex items-center gap-4 text-sm text-slate-400">
+        <a class="footerLink" href="/privacy-policy/">Privacy Policy</a>
+        <!-- <a class="hover:text-teal-300" href="#">Terms</a> -->
       </div>
     </div>
 
-
-      <!-- <div class="col-span-4 overflow-hidden relative flex flex-col items-center bg-black border border-slate-800 rounded-2xl bg-no-repeat bg-right bg-[url('/images/marketing/zt-bookcover.png')]" style="background-position: right;">
-        <div class="absolute w-full h-full bg-linear-to-r from-black to-black/10"></div>
-        <div class="relative p-8 text-center md:text-left">
-          <p class="text-2xl font-semibold tracking-tight text-white font-inter md:text-3xl">Eliminate Threats Before They Happen with <span class="text-blue-500">Zero Trust Security</span></p>
-          <p class="py-4 text-xl font-light text-slate-300">Discover how to Safeguard Your Business with our Free Guide</p>
-        </div>
-        <button class="block px-6 py-2.5 text-lg font-semibold text-white transition-all ease-in-out bg-blue-600 rounded-full hover:bg-blue-700 relative mb-9 md:mb-0 md:mr-8">
-          <a href="/marketing/" class="flex items-center gap-2">
-            <span>Get Your Guide</span>
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
-          </a>
-        </button>
-      </div> -->
-
   </section>
-
- 
-
+  <style>
+    /* Footer link hover matches header brand accent */
+    #siteFooter a.footerLink:hover{ color: var(--brand-cyan, #66C7E8); }
+  </style>
 </footer>
-
 
 
 </div>

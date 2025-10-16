@@ -611,9 +611,6 @@
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
-  .mb-9 {
-    margin-bottom: calc(var(--spacing) * 9);
-  }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
   }
@@ -1018,6 +1015,9 @@
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .cursor-default {
+    cursor: default;
   }
   .cursor-pointer {
     cursor: pointer;
@@ -1733,13 +1733,6 @@
   .bg-yellow-600 {
     background-color: var(--color-yellow-600);
   }
-  .bg-linear-to-r {
-    --tw-gradient-position: to right;
-    @supports (background-image: linear-gradient(in lab, red, red)) {
-      --tw-gradient-position: to right in oklab;
-    }
-    background-image: linear-gradient(var(--tw-gradient-stops));
-  }
   .bg-gradient-to-b {
     --tw-gradient-position: to bottom in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
@@ -2077,6 +2070,9 @@
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
+  .py-14 {
+    padding-block: calc(var(--spacing) * 14);
+  }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
@@ -2342,6 +2338,14 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .tracking-\[\.14em\] {
+    --tw-tracking: .14em;
+    letter-spacing: .14em;
+  }
+  .tracking-\[\.22em\] {
+    --tw-tracking: .22em;
+    letter-spacing: .22em;
+  }
   .tracking-\[0\.24em\] {
     --tw-tracking: 0.24em;
     letter-spacing: 0.24em;
@@ -2469,10 +2473,22 @@
       color: color-mix(in oklab, var(--color-slate-300) 70%, transparent);
     }
   }
+  .text-slate-300\/80 {
+    color: color-mix(in srgb, oklch(86.9% 0.022 252.894) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-slate-300) 80%, transparent);
+    }
+  }
   .text-slate-300\/85 {
     color: color-mix(in srgb, oklch(86.9% 0.022 252.894) 85%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       color: color-mix(in oklab, var(--color-slate-300) 85%, transparent);
+    }
+  }
+  .text-slate-300\/90 {
+    color: color-mix(in srgb, oklch(86.9% 0.022 252.894) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-slate-300) 90%, transparent);
     }
   }
   .text-slate-300\/95 {
@@ -2555,6 +2571,9 @@
   }
   .italic {
     font-style: italic;
+  }
+  .not-italic {
+    font-style: normal;
   }
   .underline {
     text-decoration-line: underline;
@@ -3264,6 +3283,13 @@
       }
     }
   }
+  .hover\:opacity-100 {
+    &:hover {
+      @media (hover: hover) {
+        opacity: 100%;
+      }
+    }
+  }
   .hover\:shadow-\[0_10px_28px_rgba\(20\,184\,166\,\.35\)\] {
     &:hover {
       @media (hover: hover) {
@@ -3867,6 +3893,11 @@
   .md\:col-span-2 {
     @media (width >= 48rem) {
       grid-column: span 2 / span 2;
+    }
+  }
+  .md\:col-span-3 {
+    @media (width >= 48rem) {
+      grid-column: span 3 / span 3;
     }
   }
   .md\:col-span-4 {
@@ -4886,11 +4917,6 @@
       line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
-  .\32 xl\:hidden {
-    @media (width >= 96rem) {
-      display: none;
-    }
-  }
   .\32 xl\:px-0 {
     @media (width >= 96rem) {
       padding-inline: calc(var(--spacing) * 0);
@@ -4940,6 +4966,16 @@
     --body-lead: clamp(15px, 2.2vw, 19px);
     --body-text: clamp(14px, 1.9vw, 16px);
     --body-sm: clamp(13px, 1.7vw, 15px);
+    --brand: #00BBA7;
+    --brand-cyan: #66C7E8;
+    --ink: #F8FAFC;
+    --body-ink: #E2E8F0;
+    --muted: #94A3B8;
+    --surface-0: #020617;
+    --surface-1: #061021;
+    --surface-card-a: #0A172A;
+    --surface-card-b: #10223C;
+    --border-color: #1B2D46;
   }
   html {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -5119,7 +5155,7 @@ html {
     font-size: clamp(14px,2.4vw,18px);
     text-decoration: none;
     color: #fff;
-    background: #00bba7;
+    background: linear-gradient(135deg, var(--brand-cyan, #66C7E8) 0%, var(--brand, #00BBA7) 100%);
     border-radius: 999px;
     box-shadow: 0 10px 28px rgba(0,187,167,.35);
     transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
@@ -5130,7 +5166,7 @@ html {
   [data-cta="primary"]:is(:hover,:focus-visible) {
     transform: translateY(-1px) scale(1.02);
     box-shadow: 0 14px 34px rgba(0,187,167,.45);
-    filter: brightness(1.03);
+    filter: brightness(1.04);
   }
 }
 @media (prefers-reduced-motion: reduce) {

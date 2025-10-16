@@ -4,8 +4,11 @@
 <!-- Inline-styled wrapper with design tokens -->
 <div style="
   --max:1200px; --pad:16px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
-  --bg:#000; --ink:#ffffff; --muted:rgba(255,255,255,.78);
-  --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+  /* Apply brand palette tokens */
+  --bg:#020617; /* surface-0 */
+  --ink:#F8FAFC; /* ink */
+  --muted:#94A3B8; /* muted */
+  --card:rgba(255,255,255,.06); --border:#1B2D46;
   --brand:#00BBA7; --brand-ink:#061216;
   color:var(--ink); background:var(--bg); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 ">
@@ -614,7 +617,7 @@
 
 
 <!-- PROBLEM (flat layout • matches key features aesthetic) -->
-<section class="section-block" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, #061021 80%,#000000 100%)">
+<section class="section-block" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, var(--surface-1, #061021) 80%, #020617 100%)">
   <div class="section-shell problemFlat__wrap" style="position:relative; z-index:1;">
     <h2 class="heading-xl mb-sm" style="color:var(--ink);">
       Are IT Gaps Costing You <span style="white-space:nowrap; color:var(--brand);">Time, Money &amp; Trust?</span>
@@ -858,8 +861,8 @@
 
     /* Off-state (pre-click) problem cards: match plain blue card style */
     [data-problem="flat"] .problemFlat__btnOff{
-      /* Sleek black/blue gradient */
-      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      /* Brand-aligned dark surface */
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       border:1px solid #1b2d46;
       color:#cbd5e1;
       box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
@@ -2243,8 +2246,8 @@
       flex-direction:column;
       border-radius:32px;
       overflow:hidden;
-            background:rgba(12,26,48,0.92);
-      border:1px solid rgba(148,163,184,0.18);
+            background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+      border:1px solid #1B2D46;
       box-shadow:0 32px 96px rgba(8,17,33,0.55), 0 12px 36px rgba(8,17,33,0.45), 0 0 48px rgba(102,199,232,.12);
       isolation:isolate;
       transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
@@ -2257,7 +2260,7 @@
 
     section[data-how="elevate"] .howE__card:hover{
       transform:translateY(-4px);
-      border-color:rgba(102,199,232,.38);
+      border-color:var(--brand-cyan, #66C7E8);
       box-shadow:0 40px 110px rgba(17,94,89,0.45), 0 18px 44px rgba(8,17,33,0.55), 0 0 60px rgba(102,199,232,.18);
     }
 
@@ -2511,7 +2514,7 @@
       border:1px solid #1b2d46;
       text-decoration:none;
       color:#e2e8f0;
-      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
       overflow:hidden;
       isolation:isolate;
@@ -2524,10 +2527,11 @@
 
     section[data-services] .svcCard > *{ position:relative; z-index:1; }
 
-    section[data-services] .svcCard:hover,
-    section[data-services] .svcCard:focus-visible{
+      section[data-services] .svcCard:hover,
+      section[data-services] .svcCard:focus-visible{
       box-shadow:0 20px 52px rgba(5,12,22,.54);
       transform:translate3d(0,-3px,0);
+      border-color: var(--brand-cyan, #66C7E8);
     }
 
     section[data-services] .svcCard__icon{
@@ -2894,8 +2898,8 @@
       position:relative;
       padding:clamp(24px,2.8vw,32px);
             border-radius:20px;
-      /* Sleek blue/black gradient to match highlights */
-      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      /* Brand-aligned dark surface */
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       border:1px solid rgba(102,199,232,.22);
       box-shadow:0 28px 72px rgba(5,12,22,.62), inset 0 1px 0 rgba(255,255,255,.06);
       display:grid;
