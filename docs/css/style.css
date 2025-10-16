@@ -859,9 +859,6 @@
   .w-\[84vw\] {
     width: 84vw;
   }
-  .w-\[88vw\] {
-    width: 88vw;
-  }
   .w-\[92vw\] {
     width: 92vw;
   }
@@ -1266,14 +1263,6 @@
   .divide-slate-600 {
     :where(& > :not(:last-child)) {
       border-color: var(--color-slate-600);
-    }
-  }
-  .divide-slate-700\/50 {
-    :where(& > :not(:last-child)) {
-      border-color: color-mix(in srgb, oklch(37.2% 0.044 257.287) 50%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        border-color: color-mix(in oklab, var(--color-slate-700) 50%, transparent);
-      }
     }
   }
   .divide-slate-800 {
