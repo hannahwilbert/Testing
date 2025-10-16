@@ -52,16 +52,7 @@
   <!-- Your compiled Tailwind output -->
   <link rel="stylesheet" href="/css/style.css">
 
-  <!-- Ensure page starts at top on load/refresh -->
-  <script>
-    (function(){
-      try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch (e) {}
-      function toTop(){ try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch(e){ window.scrollTo(0,0); } }
-      window.addEventListener('load', toTop, { once:true });
-      // Handle back/forward cache restores
-      window.addEventListener('pageshow', function(evt){ if (evt && evt.persisted) toTop(); });
-    })();
-  </script>
+  
 
   <script async="async" src="https://mm-uxrv.com/js/mm_df0b1ba6-f2cc-4c74-90ac-2cf29efd6f33-92730429.js"></script>
 	
