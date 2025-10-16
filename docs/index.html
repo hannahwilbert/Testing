@@ -2754,8 +2754,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           updateDotsVisibility();
           window.addEventListener('resize', updateDotsVisibility);
 
-          // Move initial keyboard focus to the first radio dot
-          try { requestAnimationFrame(function(){ focusDot(0); }); } catch (e) { /* no-op */ }
+          // Do not auto-focus dots on init to avoid page autoscroll on load
+          // (keep focus management only for user-initiated key events)
         })();
 
         // Offset initial scroll so first card is centered
