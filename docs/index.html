@@ -4777,7 +4777,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
     </div>
 
-    <div style="margin-top:clamp(28px,4vw,44px); display:flex; justify-content:center;">
+    <div class="insightsCTA" style="margin-top:clamp(28px,4vw,44px); display:flex; justify-content:center;">
       <a href="/resources/"
          style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); color:#fff; background:var(--brand); border-radius:999px; text-decoration:none; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
         Visit Resource Center
@@ -4789,6 +4789,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <style>
     /* Use a dark top fade for this section since it follows a dark block */
     .homeBlend[data-resources="insights"]::before{ background:linear-gradient(180deg, var(--surface-0, #000000) 0%, rgba(0,0,0,0) 100%); }
+    /* Ensure CTA never gets clipped at the bottom */
+    .homeBlend[data-resources="insights"]{ padding-bottom: clamp(120px, 20vh, 320px) !important; }
+    .homeBlend[data-resources="insights"] .insightsCTA{ position:relative; z-index:2; }
+    @media (max-width: 720px){
+      .homeBlend[data-resources="insights"]{ padding-bottom: max(140px, 24vh) !important; }
+    }
   </style>
 </section>
 
