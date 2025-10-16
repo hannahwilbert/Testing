@@ -184,6 +184,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
              class="rounded-full px-3 py-1.5 whitespace-nowrap transition-colors"
              :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">About Us</a>
         </li>
+        <li class="px-2 lg:px-3 py-1.5">
+          <a href="/resources/"
+             class="rounded-full px-3 py-1.5 whitespace-nowrap transition-colors"
+             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'">Resources</a>
+        </li>
 
         <!-- CTA -->
         <li class="pl-2">
@@ -222,26 +227,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     role="region"
     aria-label="Solutions menu"
   >
-    <div class="px-6 pt-5 pb-3 border-b border-white/10">
-      <p class="flex items-center gap-2 text-[11px] uppercase tracking-[0.32em] text-slate-300/80">
-        <span>Elevate Your IT</span>
-        <img
-          src="/images/icons/ArrowUpRightWhite.svg"
-          alt=""
-          class="h-3 w-3 opacity-80"
-          aria-hidden="true"
-        >
-      </p>
-    </div>
+    
 
     <!-- Full-width Elevate CTA above grid -->
-    <div class="px-4 lg:px-6 pt-3">
-      <a href="/elevate/"
-         class="group flex items-center justify-between w-full rounded-xl px-4 py-3 border border-teal-500/70 bg-teal-500 text-black font-semibold transition-all hover:brightness-105 hover:shadow-[0_10px_28px_rgba(20,184,166,.35)] focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+    <div class="px-4 lg:px-6 pt-4 lg:pt-6">
+      <a href="/elevate/" data-cta="primary" class="w-full justify-center rounded-full text-base">
         <span>Explore Elevate</span>
-        <svg class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
+        <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
       </a>
     </div>
 
