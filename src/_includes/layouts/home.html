@@ -1826,6 +1826,12 @@
         }
 
         function syncIndex() {
+          // During initial load (before any user interaction), lock to first card
+          if (lastAction === 'init') {
+            currentIndex = 0;
+            updateButtons();
+            return;
+          }
           var maxScroll = Math.max(0, grid.scrollWidth - grid.clientWidth);
           // Clamp to first/last when at edges so first dot stays active
           if (grid.scrollLeft <= 2) {
@@ -1838,6 +1844,15 @@
             updateButtons();
             return;
           }
+          // If the first card's left edge is effectively flush with the viewport, keep index at 0
+          try {
+            var firstLeft = cards[0] ? cards[0].offsetLeft : 0;
+            if (Math.abs(firstLeft - grid.scrollLeft) <= 8) {
+              currentIndex = 0;
+              updateButtons();
+              return;
+            }
+          } catch (e) { /* no-op */ }
 
           var centerX = grid.scrollLeft + grid.clientWidth / 2;
           var closest = 0;
@@ -1879,7 +1894,7 @@
           });
           if (snapTimer) clearTimeout(snapTimer);
           snapTimer = setTimeout(function(){
-            var align = (lastAction === 'wheel' || lastAction === 'drag') ? 'start' : 'center';
+            var align = (lastAction === 'wheel' || lastAction === 'drag' || lastAction === 'init') ? 'center' : 'center';
             scrollToIndex(currentIndex, true, align);
           }, 140);
         }, { passive: true });
@@ -1913,7 +1928,8 @@
 
         window.addEventListener('resize', function () {
           syncIndex();
-          scrollToIndex(currentIndex, false);
+          var align = (currentIndex === 0 && lastAction === 'init') ? 'center' : 'center';
+          scrollToIndex(currentIndex, false, align);
         });
 
         // Build dots after we know cards + add full keyboard/ARIA support
@@ -1996,14 +2012,11 @@
           try { requestAnimationFrame(function(){ focusDot(0); }); } catch (e) { /* no-op */ }
         })();
 
-        // Offset initial scroll so first card appears flush-left despite left spacer
+        // Offset initial scroll so first card is centered
+        // Use scrollToIndex to avoid triggering syncIndex on init
         (function initLeftAligned(){
-          var first = cards[0];
-          if (!first) return;
-          var leftSpacer = first.offsetLeft; // includes ::before spacer width
-          grid.scrollLeft = leftSpacer;
-          currentIndex = 0;
-          updateButtons();
+          if (!cards[0]) return;
+          scrollToIndex(0, false, 'center');
         })();
         pointerScroll = false;
         // autoplay disabled
