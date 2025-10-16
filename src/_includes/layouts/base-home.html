@@ -30,7 +30,7 @@
   {% include "partials/happierleads.html" %}
 </head>
 
-<body class="relative font-inter bg-black" x-data="{ showModal: false }" @keydown.escape="showModal = false">
+<body class="relative font-inter" style="background:#061021;" x-data="{ showModal: false }" @keydown.escape="showModal = false">
   {% include "partials/site-headB.html" %}
   {% include "partials/site-head-mobile.html" %}
   <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>

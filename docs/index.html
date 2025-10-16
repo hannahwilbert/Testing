@@ -93,7 +93,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <!-- End of HubSpot Embed Code -->
 </head>
 
-<body class="relative font-inter bg-black" x-data="{ showModal: false }" @keydown.escape="showModal = false">
+<body class="relative font-inter" style="background:#061021;" x-data="{ showModal: false }" @keydown.escape="showModal = false">
   <header
   class="absolute z-50 hidden w-full md:block"
   x-data="{
@@ -474,7 +474,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <div style="
   --max:1200px; --pad:16px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
   /* Apply brand palette tokens */
-  --bg:#020617; /* surface-0 */
+  --bg:#061021; /* match surface-1 for seamless handoff */
   --ink:#F8FAFC; /* ink */
   --muted:#94A3B8; /* muted */
   --card:rgba(255,255,255,.06); --border:#1B2D46;
@@ -506,6 +506,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
               background:
                 radial-gradient(120% 80% at 50% 60%, rgba(0,0,0,.48) 0%, rgba(0,0,0,.72) 58%, rgba(0,0,0,.90) 100%),
                 linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.10));">
+  </div>
+  <!-- Bottom fade to section background for smoother handoff -->
+  <div aria-hidden="true"
+       style="position:absolute; left:0; right:0; bottom:0; height:24vh; z-index:2; pointer-events:none;
+              background:linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,.55) 50%, var(--surface-0, #000000) 100%);">
   </div>
 
   <!-- Foreground copy (centered) -->
@@ -541,6 +546,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   <!-- Helpers / Styles -->
   <style>
+    /* Alternating section backgrounds with top blend to previous */
+    .homeBlend{ position:relative; }
+    .homeBlend > .section-shell{ position:relative; z-index:1; }
+    .homeBlend::before{ content:""; position:absolute; left:0; right:0; top:-16vh; height:16vh; pointer-events:none; z-index:0; }
+    .homeBlend::after{  content:""; position:absolute; left:0; right:0; bottom:0;  height:16vh; pointer-events:none; z-index:0; }
+    .homeBlend[data-alt="light"]{ background:linear-gradient(180deg, var(--surface-1, #0B1629) 0%, var(--surface-1, #0B1629) 100%) !important; }
+    .homeBlend[data-alt="dark"]{  background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important; }
+    /* top blends from previous to current */
+    .homeBlend[data-alt="light"]::before{ background:linear-gradient(180deg, var(--surface-0, #000000) 0%, rgba(0,0,0,0) 100%); }
+    .homeBlend[data-alt="dark"]::before{  background:linear-gradient(180deg, var(--surface-1, #0B1629) 0%, rgba(11,22,41,0) 100%); }
+    /* bottom blends from current to next */
+    .homeBlend[data-alt="light"]::after{ background:linear-gradient(180deg, rgba(11,22,41,0) 0%, var(--surface-0, #000000) 100%); }
+    .homeBlend[data-alt="dark"]::after{  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--surface-1, #0B1629) 100%); }
     /* CTA hovers */
     .hero a[data-cta="primary"]:is(:hover,:focus-visible){
       transform:translateY(-1px) scale(1.02);
@@ -707,7 +725,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </header>
 
 <section id="after-hero" class="section-block section-block--tight" data-hero-highlights
-  style="position:relative; background:#061021; overflow:visible; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
+  style="position:relative; background:var(--surface-0, #000000); overflow:visible; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
   <canvas id="highlightsWaves" aria-hidden="true"
     style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
   ></canvas>
@@ -869,7 +887,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   <style>
     [data-hero-highlights]{
-      background:#061021;
+      background:var(--surface-0, #000000);
       display:grid;
       place-items:center;
     }
@@ -1179,7 +1197,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 <!-- PROBLEM (flat layout • matches key features aesthetic) -->
-<section class="section-block" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, var(--surface-1, #061021) 80%, #020617 100%)">
+<section class="section-block homeBlend" data-alt="dark" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, var(--surface-0, #020617) 0%, var(--surface-0, #020617) 100%)">
   <div class="section-shell problemFlat__wrap" style="position:relative; z-index:1;">
     <h2 class="heading-xl mb-sm" style="color:var(--ink);">
       Are IT Gaps Costing You <span style="white-space:nowrap; color:var(--brand);">Time, Money &amp; Trust?</span>
@@ -1339,7 +1357,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <style>
     [data-problem="flat"]{
       color:#e8eef5;
-      background:linear-gradient(180deg,#061021 80%,#000000 100%);
+      background:linear-gradient(180deg, var(--surface-0, #020617) 0%, var(--surface-0, #020617) 100%);
       width:100vw;
       margin-left:calc(50% - 50vw);
       margin-right:calc(50% - 50vw);
@@ -1778,7 +1796,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 
-<section data-kf="elite" class="section-block" style="background:black!important;">
+<section data-kf="elite" class="section-block homeBlend" data-alt="light" style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important;">
   <div class="kfE__wrap section-shell">
     <header class="kfE__head">
       <h2 class="kfE__title heading-xl">Why <span class="kfE__titleGradient">L3 Networks</span> is Different</h2>
@@ -2180,8 +2198,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       --ring: rgba(17,167,154,.28);
       --radius: 14px;
       color: var(--ink);
-      background:linear-gradient(180deg,#061021c6 80%,#061021 100%) !important;
-      background-color:#061021;
+      background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important;
+      background-color: var(--surface-1, #061021);
       position: relative;
       isolation: isolate;
     }
@@ -2221,7 +2239,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     /* Off-state for Why L3 cards: match plain blue card style */
     .kfE__btnOff{
       /* Sleek black/blue gradient */
-      background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%);
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       border:1px solid #1b2d46;
       color:#cbd5e1;
       box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
@@ -2711,7 +2729,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 
-<section data-how="elevate" class="section-block" style="background:linear-gradient(180deg, #000000 0%, #061021 10%, #061021 90%,black 100%); color:#ecf3fb;">
+<section data-how="elevate" class="section-block homeBlend" data-alt="dark" style="background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%); color:#ecf3fb;">
   <div class="section-shell howE__wrap">
     <div class="howE__frame">
       <h2 class="heading-xl mb-sm howE__title">The <span class="howE__titleGradient">Elevate</span> <span style="color:var(--brand);">Path</span>
@@ -3062,10 +3080,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <!-- SERVICES (reimagined: whole-card links, no buttons) + WAVES BACKGROUND -->
 
 
-<section data-services class="section-block"
+<section data-services class="section-block homeBlend" data-alt="light"
   style="position:relative; overflow:hidden; isolation:isolate;
-    background:linear-gradient(180deg,#000000 0%,#000000 90%, #061021 100%);
-    background-color:#061021;
+    background:linear-gradient(180deg, var(--surface-1, #0B1629) 0%, var(--surface-1, #0B1629) 100%);
+    background-color: var(--surface-1, #0B1629);
   ">
 
   
@@ -3482,9 +3500,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </section>
 
 <!-- PROVEN RESULTS (refined tech aesthetic) -->
-<article class="section-block" style="
+<article class="section-block homeBlend" data-alt="dark" style="
   position:relative; overflow:hidden; isolation:isolate;
-  background:linear-gradient(180deg,#061021 0%, #0b1a30 55%, #000000 100%) !important;
+  background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important;
   min-height:92svh; display:flex; align-items:center;
 ">
   <div class="section-shell" style="position:relative; z-index:1; width:100%;">
@@ -3676,7 +3694,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </article>
 
 <!-- CTA: Right-Fit Call -->
-<section class="section-block" data-cta="right-fit" style="background:linear-gradient(180deg,#000000 0%, #0b1a30 55%, #061021 100%) !important;; position:relative; overflow:hidden; isolation:isolate; color:#f1f5f9;">
+<section class="section-block homeBlend" data-alt="light" data-cta="right-fit" style="background:linear-gradient(180deg, var(--surface-1, #0B1629) 0%, var(--surface-1, #0B1629) 80%, var(--surface-0, #000000) 100%) !important; position:relative; overflow:hidden; isolation:isolate; color:#f1f5f9;">
   <div class="section-shell" style="position:relative; z-index:1;">
     <div class="ctaRF__card">
       <div class="ctaRF__grid">
@@ -3727,6 +3745,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       bottom:-180px;
       right:-160px;
     }
+
+    /* Strengthen the seam blend between CTA (light) and the next dark section */
+    .homeBlend[data-cta="right-fit"]::after{ height:22vh; }
+    .homeBlend[data-diff="features"]::before{ top:-22vh; height:22vh; }
 
     .ctaRF__card{
       display:block;
@@ -4048,9 +4070,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 
-<section data-diff="features" class="section-block" style="background:linear-gradient(180deg,#061021 89%,#000000 100%) !important; position:relative; overflow:hidden; isolation:isolate; color:#e2e8f0;">
+<section data-diff="features" class="section-block homeBlend" data-alt="dark" style="background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important; position:relative; overflow:hidden; isolation:isolate; color:#e2e8f0;">
   <canvas id="diffWaves" aria-hidden="true"
-    style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
+    style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:-1;"
   ></canvas>
 
   <div class="section-shell diff__wrap" style="position:relative; z-index:1;">
@@ -4276,8 +4298,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </section>
 
 <!-- STORY + VIDEO — EXACT Waves BG, layout-safe -->
-<section data-stack="tpv" class="section-block"
-  style="background:linear-gradient(180deg,#000000 0%,#000000 50%,#061021 100%) !important; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg,#061021c6 80%,#061021 100%); background-color:#061021; min-height:92svh; display:flex; align-items:center;">
+<section data-stack="tpv" class="section-block homeBlend" data-alt="light"
+  style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); background-color: var(--surface-1, #061021); min-height:92svh; display:flex; align-items:center;">
   
   <!-- Your content stays on top, untouched -->
   <div class="tpv__wrap section-shell"
@@ -4323,6 +4345,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   </div>
 
   <style>
+
+    /* Strengthen blend between the "Why Growing IT Teams" (dark) section and this (light) section */
+    .homeBlend[data-diff="features"]::after{ height:22vh; }
+    .homeBlend[data-stack="tpv"]::before{ top:-22vh; height:22vh; }
 
     section[data-stack="tpv"] .tpv__video{
       position:relative;
@@ -4722,8 +4748,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </section> -->
 
 <!-- RESOURCES (huge) -->
-<section style="padding:clamp(80px,14vh,220px) 0; background:linear-gradient(180deg,#061021 0%, #0b1a30 55%, #000000 100%) !important; min-height:92svh; display:flex; align-items:center;">
-  <div style="max-width:var(--max); margin:0 auto; width:100%; padding:0 var(--pad); text-align:left;">
+<section class="section-block homeBlend" data-alt="dark" data-resources="insights" style="padding:clamp(80px,14vh,220px) 0; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important; min-height:92svh; display:flex; align-items:center; color:#e2e8f0;">
+  <div style="max-width:var(--max); margin:0 auto; width:100%; padding:0 var(--pad); text-align:left; position:relative; z-index:1;">
     <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to <span style="color:var(--brand);">Keep You Secure</span></h2>
 
     <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px); text-align:left;">
@@ -4759,9 +4785,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       </a>
     </div>
   </div>
+  <!-- Blend tuning for adjacency with previous dark section -->
+  <style>
+    /* Use a dark top fade for this section since it follows a dark block */
+    .homeBlend[data-resources="insights"]::before{ background:linear-gradient(180deg, var(--surface-0, #000000) 0%, rgba(0,0,0,0) 100%); }
+  </style>
 </section>
 
-<section class="section-block" style="position:relative; color:#fff; background:linear-gradient(180deg,#000000 0%,#000000 90%, #061021 100%) !important; background-color:#000000;">
+<section class="section-block homeBlend" data-alt="light" style="position:relative; color:#fff; background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important; background-color: var(--surface-1, #061021);">
   <div class="section-shell stack-lg">
   <h2 class="heading-xl">Here's <span style="color:var(--brand);">How it Works</span></h2>
     <div class="container threeSteps__cards grid max-w-screen-xl grid-cols-1 gap-4 mx-auto text-center md:grid-cols-3">
@@ -5486,7 +5517,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 
-<footer id="siteFooter" class="text-white" style="background:linear-gradient(180deg,#020617 0%, #061021 100%);">
+<footer id="siteFooter" class="text-white" style="background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important; background-color: var(--surface-0, #000000);">
   <section class="container max-w-screen-xl mx-auto px-5 md:px-8 2xl:px-0 py-14 border-t" style="border-color:var(--border-color,#1B2D46);">
     <div class="grid grid-cols-1 gap-10 md:grid-cols-12">
 

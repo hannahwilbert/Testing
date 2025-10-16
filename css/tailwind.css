@@ -37,9 +37,9 @@
     --ink: #F8FAFC;
     --body-ink: #E2E8F0;
     --muted: #94A3B8;
-    /* Surfaces */
-    --surface-0: #020617;   /* page bg */
-    --surface-1: #061021;   /* section bg */
+    /* Surfaces (dark/light alternation) */
+    --surface-0: #000000;   /* dark */
+    --surface-1: #0B1629;   /* light */
     --surface-card-a: #0A172A; /* card start */
     --surface-card-b: #10223C; /* card end */
     --border-color: #1B2D46;
