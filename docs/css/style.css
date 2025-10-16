@@ -5018,6 +5018,11 @@
     font-size: var(--body-sm);
     line-height: 1.6;
   }
+  p {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
 }
 html {
   scroll-behavior: smooth;
