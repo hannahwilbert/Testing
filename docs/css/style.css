@@ -4960,12 +4960,12 @@
 }
 @layer base {
   :root {
-    --heading-xl: clamp(30px, 5.6vw, 52px);
-    --heading-lg: clamp(26px, 5vw, 44px);
+    --heading-xl: clamp(34px, 6.4vw, 60px);
+    --heading-lg: clamp(28px, 5.2vw, 46px);
     --heading-md: clamp(22px, 4.4vw, 34px);
-    --body-lead: clamp(15px, 2.2vw, 19px);
-    --body-text: clamp(14px, 1.9vw, 16px);
-    --body-sm: clamp(13px, 1.7vw, 15px);
+    --body-lead: clamp(16px, 2.4vw, 21px);
+    --body-text: clamp(16px, 2vw, 18px);
+    --body-sm: clamp(14px, 1.8vw, 15px);
     --brand: #00BBA7;
     --brand-cyan: #66C7E8;
     --ink: #F8FAFC;
@@ -4978,7 +4978,7 @@
     --border-color: #1B2D46;
   }
   html {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   body {
     font-family: inherit;
@@ -4991,6 +4991,7 @@
     font-weight: 700;
     letter-spacing: -.02em;
     line-height: 1.06;
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   .heading-xl {
     font-size: var(--heading-xl);

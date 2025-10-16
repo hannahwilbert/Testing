@@ -22,15 +22,29 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <!-- Use the same face pairing as l3networks.com -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Your compiled Tailwind -->
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Typographic overrides to match l3networks.com on the home page -->
+  <style>
+    html { font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; }
+    h1, h2, h3, h4, .heading-xl, .heading-lg, .heading-md { font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; }
+    :root{ 
+      --heading-xl: clamp(34px, 6.4vw, 60px);
+      --heading-lg: clamp(28px, 5.2vw, 46px);
+      --heading-md: clamp(22px, 4.4vw, 34px);
+      --body-lead: clamp(16px, 2.4vw, 21px);
+      --body-text: clamp(16px, 2vw, 18px);
+      --body-sm: clamp(14px, 1.8vw, 15px);
+    }
+  </style>
 
   {% include "partials/happierleads.html" %}
 </head>
 
-<body class="relative font-inter" style="background:#061021;" x-data="{ showModal: false }" @keydown.escape="showModal = false">
+<body class="relative" style="background:#061021;" x-data="{ showModal: false }" @keydown.escape="showModal = false">
   {% include "partials/site-headB.html" %}
   {% include "partials/site-head-mobile.html" %}
   <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>
