@@ -23,10 +23,10 @@
   <!-- Background video -->
   <video
     src="/videos/herovid.mp4"
-    autoplayand 
+    autoplay
     muted
     playsinline
-    loopse
+    loop
     preload="auto"
     style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
   </video>
@@ -123,6 +123,22 @@
     }
     @media (prefers-reduced-motion: reduce){ .hero .scroll-white__chev1, .hero .scroll-white__chev2{ animation:none; } }
   </style>
+  <!-- Fallback: ensure autoplay starts when permitted by the browser -->
+  <script>
+    (function(){
+      function ready(fn){ if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+      ready(function(){
+        try{
+          var vid = document.querySelector('header.hero video');
+          if (!vid) return;
+          vid.muted = true; // required for autoplay
+          // Some browsers need an explicit play call after canplay
+          function kick(){ try{ var p = vid.play(); if (p && p.catch) p.catch(function(){}); }catch(_){} }
+          if (vid.readyState >= 2){ kick(); } else { vid.addEventListener('canplay', kick, { once:true }); }
+        }catch(e){}
+      });
+    })();
+  </script>
   <script>
     (function(){
       function ready(fn){ if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
