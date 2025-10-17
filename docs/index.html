@@ -488,7 +488,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 <!-- Inline-styled wrapper with design tokens -->
 <div style="
-  --max:1200px; --pad:16px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
+  --max:min(1360px, 96vw); --pad:16px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
   /* Apply brand palette tokens */
   --bg:#061021; /* match surface-1 for seamless handoff */
   --ink:#F8FAFC; /* ink */
@@ -748,7 +748,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <div class="section-shell" style="position:relative; z-index:1;">
 
     <div class="heroHighlights"
-         style="display:grid; gap:clamp(16px,2.6vw,22px); max-width:min(1040px,94vw);">
+         style="display:grid; gap:clamp(16px,2.6vw,22px); max-width:var(--max);">
       <article class="heroHighlight">
         <h3 class="heroHighlight__title">Tailored Solutions</h3>
         <p class="heroHighlight__body">
@@ -970,9 +970,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     }
 
 [data-hero-highlights] .heroHighlight:is(:hover,:focus-visible){
-      border-color:rgba(180,210,240,.34);
-      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-      transform:translate3d(0,-6px,0);
+      /* Remove hover animations/effects */
+      border-color:inherit;
+      box-shadow:inherit;
+      transform:none;
     }
 
     [data-hero-highlights] .heroHighlight__title{
@@ -1004,8 +1005,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       color:rgba(214,224,236,.9);
       text-wrap:pretty;
     }
-    /* Hover depth */
-    [data-hero-highlights] .heroHighlight:hover{ transform:translate3d(0,-6px,0); }
+    /* Hover depth disabled */
+    [data-hero-highlights] .heroHighlight:hover{ transform:none; }
 
     @media (max-width: 780px){
       [data-hero-highlights] .heroHighlight::before{
@@ -1045,6 +1046,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       }
     }
   </style>
+  
 </section>
 
   <style>
@@ -1218,7 +1220,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     .text-center { text-align: center; }
   </style>
-
+  
 
 
 <!-- PROBLEM (flat layout • matches key features aesthetic) -->
@@ -1244,7 +1246,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 1 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Unplanned Downtime</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1273,7 +1275,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 2 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Teams Stretched Thin</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1302,7 +1304,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 3 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Cloud Initiatives Stalling</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1331,7 +1333,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
                   <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 4 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Missing Roadmap</h3>
                     </div>
                     <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1364,14 +1366,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
       </section>
 
-      <!-- RIGHT: list & CTAs (animation hidden) -->
-
-      <!-- RIGHT: issues animation -->
-            <!-- RIGHT: placeholder image -->
+      <!-- RIGHT: supporting stock photo (desktop) -->
       <aside class="problemFlat__aside">
         <figure class="problemFlat__media">
-          <img src="/images/about/planet.webp" alt="Abstract illustration">
-          <figcaption class="sr-only">Placeholder image</figcaption>
+          <img loading="lazy" src="https://media.licdn.com/dms/image/v2/D5612AQHXspWvuFkPXw/article-cover_image-shrink_720_1280/B56ZjNBDwmHcAI-/0/1755786265302?e=2147483647&amp;v=beta&amp;t=IdX5IHhO8HqEx6mNEsA802CJ3MhwsSo_-O7Sy1tZ82c" alt="Home office scene with laptop and tablet showing analytics and warning indicators" />
+          <figcaption class="sr-only">Home office scene with analytics and warning indicators</figcaption>
         </figure>
       </aside>
 
@@ -1389,7 +1388,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     }
 
     [data-problem="flat"] .problemFlat__wrap{
-      --max: min(1180px, 92vw);
+      --max: min(1360px, 96vw);
       --pad: clamp(16px, 3vw, 24px);
     }
 
@@ -1399,7 +1398,21 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       gap: clamp(24px, 4vw, 56px);
       align-items:center;
     }
-    
+    .threeSteps__split{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:clamp(20px,3vw,36px); align-items:stretch; --split-inner-max: clamp(640px, 48vw, 900px); }
+    @media(max-width: 980px){ .threeSteps__split{ grid-template-columns:1fr; } }
+    .threeSteps__left, .threeSteps__right{ width:100%; }
+    .threeSteps__right{ display:flex; }
+    .threeSteps__split .threeSteps__cards{ width:100%; max-width:var(--split-inner-max); margin:0 auto 0 0; }
+    .threeSteps__split .threeSteps__ctaWrap{ width:100%; margin:0 auto; display:flex; align-items:stretch; }
+    .threeSteps__ctaEmbed{ justify-items:start; }
+    .threeSteps__ctaEmbed .meetings-iframe-container{ max-width:100%; overflow:visible; }
+    @media (min-width: 981px){
+      .threeSteps__left, .threeSteps__right{ align-self:stretch; }
+      .threeSteps__left{ display:flex; }
+      /* Let cards hug content; distribute free space so first aligns to top, last to bottom */
+      .threeSteps__cards{ height:100%; display:flex; flex-direction:column; justify-content:space-between; }
+      .threeSteps__card{ height:auto; display:flex; flex-direction:column; }
+    }
 
     [data-problem="flat"] .problemFlat__copy{
       display:flex;
@@ -1425,7 +1438,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       padding:0;
       list-style:none;
       display:grid;
-      gap:clamp(14px, 2vh, 20px);
+      gap:clamp(6px, 1.2vh, 10px); /* slight spacing between rows */
     }
 
     [data-problem="flat"] .problemFlat__item{
@@ -1440,10 +1453,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     [data-problem="flat"] .problemFlat__group{
       display:grid;
-      gap:clamp(16px, 2.4vh, 22px);
+      gap:clamp(6px, 1.2vh, 10px); /* slight spacing between cards */
       grid-template-columns:1fr;
       align-items:stretch;
     }
+    /* override utility margin on wrappers (mb-4) */
+    [data-problem="flat"] .problemFlat__group > .relative{ margin-bottom:0 !important; }
 
     [data-problem="flat"] .problemFlat__text{
       display:grid;
@@ -1453,11 +1468,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       align-items:flex-start;
       padding:clamp(18px,2.8vw,24px) clamp(18px,3vw,28px);
       border-radius:16px;
+      /* Match opaque hero-card look */
       background:
-        linear-gradient(165deg, rgba(16,34,60,.72) 0%, rgba(8,21,37,.72) 100%),
-        radial-gradient(120% 140% at 90% -20%, rgba(255,255,255,.05) 0%, rgba(255,255,255,0) 60%);
-      box-shadow:0 18px 44px rgba(8,18,35,.35), inset 0 1px 0 rgba(255,255,255,.04);
-      border:1px solid rgba(148,163,184,.16);
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      border:1px solid #1b2d46;
       transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
       will-change: transform, box-shadow, border-color;
       min-width:0; height:100%;
@@ -1466,11 +1483,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     /* Off-state (pre-click) problem cards: match plain blue card style */
     [data-problem="flat"] .problemFlat__btnOff{
-      /* Brand-aligned dark surface */
-      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+      /* Match opaque hero highlight card look */
+      background:
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
       border:1px solid #1b2d46;
-      color:#cbd5e1;
-      box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
+      color:#e2e8f0;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
     }
 
     [data-problem="flat"] .problemFlat__text::before{ content:none; display:none; }
@@ -1496,7 +1516,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       line-height:1.25;
       min-width:0;
     }
-    /* (icons removed) */
+    /* left-of-title icons */
+    .problemFlat__icon{ width:clamp(24px, 3.2vw, 32px); height:auto; display:block; filter:drop-shadow(0 10px 24px rgba(0,187,167,.28)); }
 
     .problemFlat__itemCopy{
       color:rgba(226,232,240,.84);
@@ -1508,11 +1529,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     }
 
     @media (min-width: 980px){
-      /* Display list cards in a 2x2 grid */
+      /* Stack list vertically on desktop as well */
       [data-problem="flat"] .problemFlat__group{
-        grid-template-columns:repeat(2, minmax(0,1fr));
-        column-gap:clamp(18px,3vw,24px);
-        row-gap:clamp(16px,2.4vh,22px);
+        grid-template-columns:1fr;
       }
     }
 
@@ -1521,7 +1540,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     [data-problem="flat"] .problemFlat__aside{ display:none; }
 
     [data-problem="flat"] .problemFlat__media{
-      margin:0;
+      margin: clamp(20px, 3.4vh, 32px) 0 0;
+      display:flex;
+      justify-content:center;
+      align-self:start;
+      position:relative;
+      border-radius: clamp(16px, 2.8vw, 22px);
+      overflow:hidden;
     }
 
     [data-problem="flat"] .problemFlat__media img{
@@ -1531,6 +1556,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       object-fit:cover;
       object-position:50% 42%;
       display:block;
+      margin-inline:auto;
       filter:saturate(1.04) contrast(1.02);
     }
 
@@ -1542,6 +1568,18 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       width:120%;
       max-width:640px;
       height:auto;
+    }
+
+    /* Teal-ish gradient overlay tint on the image */
+    [data-problem="flat"] .problemFlat__media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      /* Stronger green ombré from bottom-right + subtle global tint */
+      background:
+        radial-gradient(135% 160% at 100% 100%, rgba(0,187,167,.54) 0%, rgba(0,187,167,.38) 24%, rgba(102,199,232,.28) 48%, rgba(0,187,167,.12) 70%, rgba(0,187,167,0) 88%),
+        linear-gradient(180deg, rgba(0,187,167,.10) 0%, rgba(0,187,167,0) 60%);
     }
 
     [data-problem="flat"] #graph_line{
@@ -1608,6 +1646,21 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       [data-problem="flat"] .problemFlat__media img,
       [data-problem="flat"] .problemFlat__animation{
         height:clamp(260px, 52vh, 420px);
+      }
+    }
+
+    /* Desktop: left-aligned cards, stock photo on right */
+    @media (min-width: 981px){
+      [data-problem="flat"] .problemFlat__grid{
+        /* Make cards narrower and image wider */
+        grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+        column-gap:clamp(24px,4vw,40px);
+        align-items:stretch;
+      }
+      [data-problem="flat"] .problemFlat__aside{ display:block; }
+      [data-problem="flat"] .problemFlat__media img{
+        height:clamp(360px, 56vh, 560px);
+        object-position:50% 50%;
       }
     }
 
@@ -1829,9 +1882,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     </header>
 
     <!-- Reworked: accordion + image side-by-side -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 md:gap-12 lg:gap-x-12 xl:gap-x-16 items-start">
-      <!-- Left: Accordion (half width) -->
-      <div class="lg:col-span-8 xl:col-span-8">
+    <div class="kfE__twoCol items-start">
+      <!-- Left: Accordion (same width as section above) -->
+      <div>
         <div class="relative" x-data="{ activeIndex: 1 }">
           
           <div class="relative z-40 mb-4">
@@ -1927,8 +1980,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
       </div>
 
-      <!-- Right: Animated illustration (half width) -->
-      <div class="lg:col-span-3 lg:col-start-10 xl:col-span-3 xl:col-start-10 flex justify-end">
+      <!-- Right: Animated illustration -->
+      <div class="flex justify-end">
+        <!-- Stock photo (visible) -->
+        <div class="kfE__media flex justify-end">
+          <img src="https://partners.wsj.com/workday/responsible-and-innovative-ai/wp-content/uploads/sites/1134/2023/09/Workday_Article02_AIBusiness_1600x930-01.jpeg" alt="IT team collaborating in a modern workspace" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover">
+        </div>
         <section data-infra-anim class="relative flex flex-col items-end justify-center text-right">
           <div class="replayWrap" style="position:absolute; left:0; right:0; top:-48px; display:grid; justify-items:center; pointer-events:none; z-index:10;">
             <button class="replay" aria-label="Replay animation" title="Replay" style="display:inline-grid; place-items:center; width:36px; height:36px; border-radius:50%; background:transparent; border:none; cursor:pointer; transform:scale(0); pointer-events:auto;">
@@ -2213,7 +2270,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <style>
     /* ===== Elite style (scoped) ===== */
     [data-kf="elite"]{
-      --max: min(1180px, 92vw);
+      --max: min(1360px, 96vw);
       --pad: clamp(16px, 3vw, 24px);
       --bg: #061021;
       --ink: #e8eef5;
@@ -2261,13 +2318,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     .kfE__icon img{ width:100%; height:auto; display:block; }
     .kfE__itemTitle{ color:#fff; font-weight:600; font-size:clamp(18px,2.6vw,24px); letter-spacing:-.01em; }
     .kfE__itemCopy{ margin:0; color:rgba(226,232,240,.78); font-size:clamp(14px,1.9vw,16px); line-height:1.65; }
-    /* Off-state for Why L3 cards: match plain blue card style */
+    /* Off-state for Why L3 cards: match hero highlight/IT gaps card surface */
     .kfE__btnOff{
-      /* Sleek black/blue gradient */
-      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+      background:
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
       border:1px solid #1b2d46;
-      color:#cbd5e1;
-      box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
+      color:#e2e8f0;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
     }
 
     /* Drop-down card grid styles (scoped to this section) */
@@ -2349,6 +2408,26 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     /* media card */
     /* hide previous media panel in this new layout */
     .kfE__media, .kfE__videoWrap, .kfE__video{ display:none; }
+    /* Show media column with image */
+    .kfE__media{ display:flex; align-items:center; justify-content:flex-end; align-self:start; position:relative; border-radius:20px; overflow:hidden; }
+    .kfE__media img{
+      width:100%;
+      height:clamp(360px, 56vh, 560px);
+      max-width:none;
+      object-fit:cover;
+      object-position:50% 50%;
+    }
+    /* Teal overlay tint */
+    .kfE__media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      /* Stronger green ombré from bottom-right + subtle global tint */
+      background:
+        radial-gradient(135% 160% at 100% 100%, rgba(0,187,167,.54) 0%, rgba(0,187,167,.38) 24%, rgba(102,199,232,.28) 48%, rgba(0,187,167,.12) 70%, rgba(0,187,167,0) 88%),
+        linear-gradient(180deg, rgba(0,187,167,.10) 0%, rgba(0,187,167,0) 60%);
+    }
 
     .kfE__partnersBlock{
       margin-top:clamp(64px,9vh,92px);
@@ -2432,14 +2511,33 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       }
     }
 
-    .kfE__cta{ display:flex; justify-content:center; margin-top: var(--space-md); }
+    .kfE__cta{ display:flex; justify-content:flex-start; margin-top: clamp(24px, 3vh, 32px); }
+    /* Hide animation here after moving it to CTA */
+    [data-kf="elite"] [data-infra-anim]{ display:none !important; }
+
+    /* Match spacing with section above: small vertical gaps between cards */
+    [data-kf="elite"] .relative.z-40{ margin-bottom:clamp(6px, 1.2vh, 10px) !important; }
+    [data-kf="elite"] .relative.z-40:last-child{ margin-bottom:0 !important; }
 
     /* smooth stacking */
     @media (max-width: 980px){
       .kfE__grid{ grid-template-columns:1fr; gap: clamp(18px, 4vh, 28px); }
+      .kfE__twoCol{ display:grid; grid-template-columns:1fr; gap:clamp(18px,4vh,28px); }
       .kfE__media{ order:-1; max-width:min(520px, 94vw); }
+      .kfE__media img{ height:clamp(260px, 52vh, 420px); }
       .kfE__p{ max-width: unset; }
       .kfE__partnersHeading{ text-align:left; }
+    }
+
+    /* Desktop two-column grid aligned with section above (60/40 split) */
+    @media (min-width: 981px){
+      /* Make accordion (left) narrower and image (right) wider */
+      .kfE__twoCol{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); column-gap:clamp(24px,4vw,40px); }
+      /* Ensure the media column stretches to the same height as cards */
+      [data-kf="elite"] .kfE__twoCol{ align-items:stretch; }
+      [data-kf="elite"] .kfE__twoCol > div:last-child{ display:flex; align-items:stretch; }
+      [data-kf="elite"] .kfE__media{ height:100%; display:flex; align-items:stretch; }
+      [data-kf="elite"] .kfE__media img{ height:100%; max-height:none; }
     }
 
     /* reduced motion */
@@ -2616,25 +2714,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             syncIndex();
             ticking = false;
           });
-          if (snapTimer) clearTimeout(snapTimer);
-          snapTimer = setTimeout(function(){
-            var align = (lastAction === 'wheel' || lastAction === 'drag' || lastAction === 'init') ? 'center' : 'center';
-            scrollToIndex(currentIndex, true, align);
-          }, 140);
+          // No programmatic snapping; keep manual scroll only
         }, { passive: true });
 
         // Make grid focusable and keyboard-navigable
-        grid.setAttribute('tabindex','0');
-        grid.setAttribute('role','region');
-        grid.setAttribute('aria-label','Services carousel');
-        grid.addEventListener('keydown', function(evt){
-          var k = evt.key;
-          lastAction = 'kbd';
-          if (k === 'ArrowRight' || k === 'Right'){ evt.preventDefault(); scrollToIndex(currentIndex + 1, true, 'center'); }
-          else if (k === 'ArrowLeft' || k === 'Left'){ evt.preventDefault(); scrollToIndex(currentIndex - 1, true, 'center'); }
-          else if (k === 'Home'){ evt.preventDefault(); scrollToIndex(0, true, 'center'); }
-          else if (k === 'End'){ evt.preventDefault(); scrollToIndex(cards.length - 1, true, 'center'); }
-        });
+        // Do not capture keyboard; let natural browser scroll behavior apply
 
         // Translate vertical wheel to horizontal scroll for better control
         // Do not respond to vertical wheel scrolling; let the page handle it
@@ -2738,11 +2822,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
         // Offset initial scroll so first card is centered
         // Use scrollToIndex to avoid triggering syncIndex on init
-        (function initLeftAligned(){
-          if (!cards[0]) return;
-          scrollToIndex(0, false, 'center');
-        })();
-        pointerScroll = false;
+        // No automatic scroll on init
         // autoplay disabled
       });
     })();
@@ -2949,6 +3029,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       position:relative;
       overflow:hidden;
       isolation:isolate;
+      /* Scoot content up a bit within the section */
+      padding-top: clamp(110px, 14vh, 200px);
     }
 
     section[data-how="elevate"] .howE__wrap{
@@ -2960,18 +3042,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       width:100%;
     }
 
-    /* Add a subtle outlined frame to make the section pop */
+    /* Elevate frame — teal outline (non-glow) */
     section[data-how="elevate"] .howE__frame{
-      border:1px solid rgba(102,199,232,.32);
+      border:2px solid rgba(102,199,232,.38);
       border-radius:28px;
-      padding:clamp(24px,5.5vw,40px);
-      background:linear-gradient(180deg, rgba(12,26,48,.35) 0%, rgba(12,26,48,.15) 100%);
-      box-shadow:
-        0 28px 72px rgba(7,15,32,.54),
-        0 10px 30px rgba(2,6,23,.35),
-        0 0 60px rgba(102,199,232,.18),
-        0 0 0 1px rgba(102,199,232,.22),
-        inset 0 1px 0 rgba(255,255,255,.08);
+      /* add a bit more breathing room inside the outline */
+      /* more padding above/below than left/right */
+      padding:clamp(36px, 8vw, 72px) clamp(28px, 6.5vw, 56px);
+      background:linear-gradient(180deg, rgba(12,26,48,.20) 0%, rgba(12,26,48,.10) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
       position:relative;
       z-index:1;
     }
@@ -2989,37 +3068,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       justify-content:center;
       gap:.6rem;
       flex-wrap:wrap;
-      text-shadow:0 6px 22px rgba(102,199,232,.22);
+      text-shadow:none;
     }
     section[data-how="elevate"] .howE__frame .howE__titleIcon{
       width:1em;
       height:1em;
       color:var(--brand);
-      filter:drop-shadow(0 6px 14px rgba(0,187,167,.25));
+      filter:none;
       flex:0 0 auto;
     }
 
-    /* Big soft glows behind the Elevate frame */
+    /* Remove big soft glows behind the Elevate frame */
     section[data-how="elevate"] .howE__wrap::before,
-    section[data-how="elevate"] .howE__wrap::after{
-      content:"";
-      position:absolute;
-      pointer-events:none;
-      border-radius:999px;
-      filter:blur(120px);
-      opacity:.5;
-      z-index:0;
-    }
-    section[data-how="elevate"] .howE__wrap::before{
-      width:340px; height:340px;
-      top:-140px; left:-160px;
-      background:radial-gradient(circle at center, rgba(102,199,232,.58) 0%, rgba(102,199,232,0) 70%);
-    }
-    section[data-how="elevate"] .howE__wrap::after{
-      width:420px; height:420px;
-      bottom:-200px; right:-180px;
-      background:radial-gradient(circle at center, rgba(0,187,167,.50) 0%, rgba(0,187,167,0) 70%);
-    }
+    section[data-how="elevate"] .howE__wrap::after{ content:none; }
     /* Center the subtitle/lead as well */
     section[data-how="elevate"] .howE__frame .howE__lead{
       text-align:center;
@@ -3049,22 +3110,30 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       flex-direction:column;
       border-radius:32px;
       overflow:hidden;
-            background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
       border:1px solid #1B2D46;
-      box-shadow:0 32px 96px rgba(8,17,33,0.55), 0 12px 36px rgba(8,17,33,0.45), 0 0 48px rgba(102,199,232,.12);
+      box-shadow:none;
       isolation:isolate;
-      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+      transition:transform .28s ease, border-color .28s ease, background .28s ease;
     }
 
     section[data-how="elevate"] .howE__card--open{
-      box-shadow:0 40px 110px rgba(17,94,89,0.55), 0 16px 40px rgba(17,94,89,0.45);
-      border-color:rgba(20,184,166,0.45);
+      box-shadow:none;
+      border-color:rgba(20,184,166,0.55);
+      border-width:2px;
     }
 
     section[data-how="elevate"] .howE__card:hover{
-      transform:translateY(-4px);
-      border-color:var(--brand-cyan, #66C7E8);
-      box-shadow:0 40px 110px rgba(17,94,89,0.45), 0 18px 44px rgba(8,17,33,0.55), 0 0 60px rgba(102,199,232,.18);
+      transform:translateY(-2px) scale(1.005);
+      border-color:rgba(102,199,232,.35);
+      box-shadow:none;
+      background:linear-gradient(210deg, #0B1D33 0%, #122A45 55%, #06111F 100%);
+    }
+
+    /* Accessible, non-glow focus treatment */
+    section[data-how="elevate"] .howE__card:focus-within{
+      outline:2px solid rgba(102,199,232,.45);
+      outline-offset:3px;
     }
 
     section[data-how="elevate"] .howE__card > div:first-child{
@@ -3236,8 +3305,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       </a>
       
     </div>
-    <!-- Arrows removed; dots provide pagination -->
-    <div class="svcDots" role="tablist" aria-label="Service slides"></div>
   </div>
 
   <!-- responsive -->
@@ -3251,13 +3318,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       width:100vw;
       max-width:none;
       box-sizing:border-box;
-      margin-left:calc((100vw - 100%)/-2);
-      margin-right:calc((100vw - 100%)/-2);
-      padding:clamp(12px,2vw,20px) clamp(36px,7vw,120px) clamp(24px,3vw,36px);
+      margin-left:calc(50% - 50vw);
+      margin-right:calc(50% - 50vw);
+      padding:clamp(12px,2vw,20px) clamp(20px,4vw,40px) clamp(24px,3vw,36px);
       align-items:stretch;
       scroll-snap-type:x proximity;
       scroll-behavior:smooth;
-      scroll-padding-inline:clamp(36px,7vw,120px);
+      scroll-padding-inline:clamp(20px,4vw,40px);
       -webkit-overflow-scrolling:touch;
       touch-action: auto; /* allow vertical scroll to pass through */
       overscroll-behavior-x: contain;
@@ -3268,10 +3335,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     /* Edge spacers so any card can center; we'll offset initial scroll to keep first flush-left */
     section[data-services] .svcGrid::before,
-    section[data-services] .svcGrid::after{
-      content:"";
-      flex:0 0 calc((100% - clamp(280px,40vw,480px)) / 2);
-    }
+    section[data-services] .svcGrid::after{ content:none; flex:0 0 0; }
 
     section[data-services] .svcGrid::-webkit-scrollbar{
       height:8px;
@@ -3396,8 +3460,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       border:1px solid #1b2d46;
       text-decoration:none;
       color:#e2e8f0;
-      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
-      box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+      /* Match hero highlight card surface */
+      background:
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       overflow:hidden;
       isolation:isolate;
       transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
@@ -3546,23 +3614,30 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <!-- Testimonials carousel (one full-width card at a time) -->
     <div class="resultsCarousel" id="resultsCarousel" aria-label="Client testimonials" role="region">
       <!-- Slide 1 -->
-      <article class="resultsCard resultsSlide" role="group" aria-roledescription="slide" aria-label="1 of 1">
-        <div class="resultsCard__head">
-          <span class="resultsCard__badge" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
-            </svg>
-          </span>
-          <p class="resultsCard__quote">
-            Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance…
-          </p>
-        </div>
-        <footer class="resultsCard__foot">
-          <div class="resultsCard__person">
-            <span class="resultsCard__name">LeeAnn S</span>
-            <span class="resultsCard__role">C Level – Exodus Recovery</span>
+      <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="1 of 1">
+        <div class="resultsGrid">
+          <div class="resultsCard">
+            <div class="resultsCard__head">
+              <span class="resultsCard__badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </span>
+              <p class="resultsCard__quote">
+                Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance…
+              </p>
+            </div>
+            <footer class="resultsCard__foot">
+              <div class="resultsCard__person">
+                <span class="resultsCard__name">LeeAnn S</span>
+                <span class="resultsCard__role">C Level – Exodus Recovery</span>
+              </div>
+            </footer>
           </div>
-        </footer>
+          <figure class="resultsImage" aria-hidden="true">
+            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+          </figure>
+        </div>
       </article>
 
     </div>
@@ -3727,7 +3802,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           <h2 class="heading-xl" style="margin:0 0 clamp(10px,1.6vh,14px); text-wrap:balance;">
             Ready to Find Out Where Your IT Stands on the Elevate Path?
           </h2>
-          <p class="body-lead" style="margin:clamp(6px,1.2vh,10px) 0 0; color:rgba(226,232,240,.88); max-width:60ch;">
+          <p class="body-lead" style="margin:clamp(6px,1.2vh,10px) 0 0; color:rgba(226,232,240,.88); max-width:72ch;">
             Schedule a 15-minute Right-Fit Call and get a fast read on what it will take to stabilize, optimize, or transform your environment.
           </p>
           <div class="ctaRF__actions">
@@ -3738,7 +3813,165 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           </div>
         </div>
         <figure class="ctaRF__right">
-          <img src="/images/about/planet.webp" alt="Abstract placeholder" />
+          <section data-infra-anim class="relative flex flex-col items-end justify-center text-right" style="width:clamp(110px, 15vw, 200px); padding:clamp(8px, 1.2vw, 14px);">
+            <svg id="Infrastructure-SVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 379" role="img" aria-label="Animated server stack graphic" style="width:100%; max-width:min(90vw, 560px); height:auto; visibility:hidden; display:block;">
+              <defs>
+                <linearGradient id="CTA-shadowGradient" gradientUnits="userSpaceOnUse" x1="32" y1="337.7053" x2="278" y2="337.7053">
+                  <stop offset="0"   style="stop-color:#00BBA7;stop-opacity:0.16"/>
+                  <stop offset="0.4" style="stop-color:#1FD6C4;stop-opacity:.09"/>
+                  <stop offset="1"   style="stop-color:#00BBA7;stop-opacity:0"/>
+                </linearGradient>
+                <linearGradient id="CTA-serverGradient" gradientUnits="userSpaceOnUse" x1="32" y1="249.7053" x2="278" y2="249.7053">
+                  <stop offset="0"    style="stop-color:#00BBA7;stop-opacity:0.30"/>
+                  <stop offset="0.18" style="stop-color:#26C9BA;stop-opacity:0.40"/>
+                  <stop offset="0.38" style="stop-color:#6EDFD6;stop-opacity:0.54"/>
+                  <stop offset="0.62" style="stop-color:#D9FFFA;stop-opacity:0.78"/>
+                  <stop offset="1"    style="stop-color:#FFFFFF"/>
+                </linearGradient>
+                <linearGradient id="CTA-borderGradient" gradientUnits="userSpaceOnUse" x1="32" y1="2820.022" x2="278" y2="2820.022" gradientTransform="matrix(1 0 0 1 0 -2596)">
+                  <stop offset="0" style="stop-color:#00BBA7"/>
+                  <stop offset="1" style="stop-color:#14B8A6"/>
+                </linearGradient>
+              </defs>
+              <g id="Infrastructure-shadow">
+                <polygon class="Infrastructure-shadow" points="278,337.8 155,379 32,337.8 155,296.5"/>
+              </g>
+              <g class="Infrastructure-lines" id="Infrastructure-bottomLines">
+                <polyline class="Infrastucture-box" points="308.7,289 155,340.5 1,289"/>
+                <polyline class="Infrastucture-box" points="1,289 155,237.1 308.7,289"/>
+                <line class="Infrastucture-borderLine" x1="155" y1="238.8" x2="155" y2="1.1"/>
+                <line class="Infrastucture-borderLine" x1="309" y1="289" x2="309" y2="53"/>
+                <line class="Infrastucture-borderLine" x1="1" y1="289" x2="1" y2="53"/>
+              </g>
+              <g class="Server" id="Server_4">
+                <polygon class="Infrastructure-topBorder" points="32,253.8 155,212.6 278,253.8 278,250 155,208.6 32,249.8"/>
+                <polygon class="Infrastructure-border" points="278,249.8 155,291 32,249.8 32,253.8 155,295 278,253.8"/>
+                <polygon class="Infrastructure-server" points="278,249.8 155,291 32,249.8 155,208.5"/>
+              </g>
+              <g class="Server" id="Server_3">
+                <polygon class="Infrastructure-topBorder" points="32,205.5 155,164.3 278,205.4 278,201.7 155,160.3 32,201.5"/>
+                <polygon class="Infrastructure-border" points="278,201.4 155,242.6 32,201.4 32,205.4 155,246.6 278,205.4"/>
+                <polygon class="Infrastructure-server" points="278,201.4 155,242.6 32,201.4 155,160.1"/>
+              </g>
+              <g class="Server" id="Server_2">
+                <polygon class="Infrastructure-topBorder" points="32,157.1 155,115.9 278,157.1 278,153.3 155,111.9 32,153.1"/>
+                <polygon class="Infrastructure-border" points="278,153.1 155,194.3 32,153.1 32,157 155,198.3 278,157"/>
+                <polygon class="Infrastructure-server" points="278,153.1 155,194.3 32,153.1 155,111.7"/>
+              </g>
+              <g class="Server" id="Server_1">
+                <polygon class="Infrastructure-topBorder" points="32,108.7 155,67.5 278,108.7 278,104.9 155,63.5 32,104.7"/>
+                <polygon class="Infrastructure-border" points="278,104.7 155,145.9 32,104.7 32,108.7 155,150 278,108.7"/>
+                <polygon class="Infrastructure-server" points="278,104.7 155,145.9 32,104.7 155,63.3"/>
+              </g>
+              <g class="Infrastructure-lines" id="Infrastructure-topLines">
+                <line class="Infrastucture-borderLine" x1="155" y1="340.7" x2="155" y2="104.5"/>
+                <polyline class="Infrastucture-box" points="1,53 155,1.1 309,53"/>
+                <polyline class="Infrastucture-box" points="309,53 155,104.5 1,53"/>
+              </g>
+            </svg>
+            <style>
+              section[data-cta="right-fit"] [data-infra-anim]{ --primary: var(--brand); --primary-2:#14B8A6; --ink:#e8eef5; }
+              section[data-cta="right-fit"] [data-infra-anim] .Infrastructure-shadow{fill:url(#CTA-shadowGradient);}
+              section[data-cta="right-fit"] [data-infra-anim] .Infrastucture-box{ fill:none; stroke:var(--primary); stroke-width:2; stroke-linecap:round; stroke-miterlimit:10; stroke-dasharray:0,7.0744; }
+              section[data-cta="right-fit"] [data-infra-anim] .Infrastucture-borderLine{ fill:none; stroke:var(--primary); stroke-width:2; stroke-linecap:round; stroke-miterlimit:10; stroke-dasharray:0,7; }
+              section[data-cta="right-fit"] [data-infra-anim] .Infrastructure-topBorder{ fill:var(--primary); }
+              section[data-cta="right-fit"] [data-infra-anim] .Infrastructure-border{ fill:url(#CTA-borderGradient); }
+              section[data-cta="right-fit"] [data-infra-anim] .Infrastructure-server{ fill:url(#CTA-serverGradient); }
+              section[data-cta="right-fit"] [data-infra-anim] .replay:focus-visible{ outline:3px solid rgba(0,187,167,.35); outline-offset:4px; border-radius:50%; }
+            </style>
+            <script>
+              (function(){
+                const $ = (sel, ctx=document) => ctx.querySelector(sel);
+                const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+                const scope = document.currentScript && document.currentScript.closest('[data-infra-anim]') || document.querySelector('[data-infra-anim]');
+                if (!scope) return;
+                const svg = $('#Infrastructure-SVG', scope);
+                const replayBtn = null; // no replay button in CTA
+
+                function animateEl(el, keyframes, options){
+                  const node = (typeof el === 'string') ? $(el, scope) : el;
+                  if (!node) return Promise.resolve();
+                  const anim = node.animate(keyframes, options);
+                  return anim.finished.catch(()=>{});
+                }
+
+                function popKeyframes(fromScale=0.0){
+                  return [
+                    { transform:`scale(${fromScale})`, opacity:0, offset:0 },
+                    { transform:'scale(1.02)', opacity:1, offset:.65 },
+                    { transform:'scale(.995)', opacity:1, offset:.85 },
+                    { transform:'scale(1.0)',  opacity:1, offset:1 }
+                  ];
+                }
+
+                async function run(){
+                  svg.style.visibility = 'visible';
+                  ['#Infrastructure-shadow','#Server_1','#Server_2','#Server_3','#Server_4','#Infrastructure-topLines','#Infrastructure-bottomLines'].forEach(sel => {
+                    const n = $(sel, scope);
+                    if (n && n.getAnimations) n.getAnimations().forEach(a => a.cancel());
+                  });
+
+                  const POP_DUR=1100, POP_STAG=220, SHADOW_D=1000, MOVE_DUR=600, LINES_DUR=900, EASE_OUT='cubic-bezier(.25,.8,.25,1)';
+
+                  await Promise.all([
+                    animateEl('#Infrastructure-shadow', popKeyframes(0.0), { duration:SHADOW_D, delay:200, easing:EASE_OUT, fill:'both' }),
+                    (async () => {
+                      const servers = $$('.Server', scope);
+                      for(let i=0;i<servers.length;i++){
+                        animateEl(servers[i], popKeyframes(0.0), { duration:POP_DUR, delay:150 + i*POP_STAG, easing:EASE_OUT, fill:'both' });
+                      }
+                    })()
+                  ]);
+
+                  await Promise.all([
+                    animateEl('#Server_1', [{ transform:'translateY(30px)' }, { transform:'translateY(0)' }], { duration:MOVE_DUR, easing:EASE_OUT, fill:'both' }),
+                    animateEl('#Server_3', [{ transform:'translateY(-30px)' }, { transform:'translateY(0)' }], { duration:MOVE_DUR, easing:EASE_OUT, fill:'both' }),
+                    animateEl('#Server_4', [{ transform:'translateY(-60px)' }, { transform:'translateY(0)' }], { duration:MOVE_DUR, easing:EASE_OUT, fill:'both' }),
+                    animateEl('#Infrastructure-shadow', [{ transform:'translateY(-60px)' }, { transform:'translateY(0)' }], { duration:MOVE_DUR, easing:EASE_OUT, fill:'both' })
+                  ]);
+
+                  await Promise.all([
+                    animateEl('#Infrastructure-topLines',    [{ opacity:0 }, { opacity:1 }], { duration:LINES_DUR, fill:'both', easing:'ease-in' }),
+                    animateEl('#Infrastructure-bottomLines', [{ opacity:0 }, { opacity:1 }], { duration:LINES_DUR, fill:'both', easing:'ease-in' })
+                  ]);
+
+                  // no replay pop in CTA variant
+                }
+
+                // no replay click handler in CTA
+
+                let hasPlayed = false;
+                function bootOnView(){
+                  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                  if ('IntersectionObserver' in window && !reduceMotion) {
+                    // Observe the CTA block so the animation starts when it scrolls into view
+                    const container = scope.closest('section[data-cta="right-fit"]') || scope;
+                    const io = new IntersectionObserver((entries) => {
+                      entries.forEach((entry) => {
+                        if (entry.isIntersecting && !hasPlayed) {
+                          hasPlayed = true;
+                          run();
+                          io.unobserve(container);
+                        }
+                      });
+                    }, { threshold: 0.25 });
+                    io.observe(container);
+                  } else {
+                    if (document.readyState === 'loading') {
+                      document.addEventListener('DOMContentLoaded', run, { once:true });
+                    } else {
+                      run();
+                    }
+                  }
+                }
+                bootOnView();
+
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                  scope.querySelectorAll('#Infrastructure-SVG *').forEach(n => { n.style.transition = 'none'; });
+                }
+              })();
+            </script>
+          </section>
         </figure>
       </div>
     </div>
@@ -3747,13 +3980,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <style>
     section[data-cta="right-fit"]::before,
     section[data-cta="right-fit"]::after{
-      content:"";
-      position:absolute;
-      inset:auto;
-      border-radius:999px;
-      pointer-events:none;
-      filter:blur(120px);
-      opacity:.45;
+      content:none; /* remove background glow orbs */
     }
 
     section[data-cta="right-fit"]::before{
@@ -3785,7 +4012,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
         linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
         linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 28px 72px rgba(7,15,32,.54), inset 0 1px 0 rgba(255,255,255,.12);
+      /* remove heavy outer glow */
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
       text-align:left;
       position:relative;
       overflow:hidden;
@@ -3793,7 +4021,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     .ctaRF__grid{
       display:grid;
-      grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
+      grid-template-columns:minmax(0,1.6fr) minmax(0,.4fr);
       gap:clamp(24px,4vw,36px);
       align-items:start;
     }
@@ -3805,35 +4033,18 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     }
 
     .ctaRF__right{ margin:0; }
-    .ctaRF__right img{ width:100%; height:auto; border-radius:20px; display:block; box-shadow:0 20px 48px rgba(8,18,35,.48); }
+    .ctaRF__right img{ width:100%; height:auto; border-radius:20px; display:block; box-shadow:none; }
+    /* Ensure uniform fit for CTA animation */
+    section[data-cta="right-fit"] .ctaRF__right{ display:flex; justify-content:center; align-self:center; justify-self:center; }
+    section[data-cta="right-fit"] .ctaRF__right [data-infra-anim]{ width:clamp(110px, 15vw, 200px); padding:clamp(8px, 1.2vw, 14px); box-sizing:content-box; }
+    section[data-cta="right-fit"] .ctaRF__right #Infrastructure-SVG{ width:100%; height:auto; max-width:none; }
 
     .ctaRF__card::before,
     .ctaRF__card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      transition:opacity .3s ease, transform .3s ease;
+      content:none; /* remove inner sheen/glow layers */
     }
 
-    .ctaRF__card::before{
-      inset:-58% 26% 42% -28%;
-      background:linear-gradient(124deg, rgba(188,214,255,.28) 0%, rgba(188,214,255,0) 70%);
-      opacity:.24;
-      transform:rotate(-6deg);
-      filter:blur(15px);
-      mix-blend-mode:screen;
-    }
-
-    .ctaRF__card::after{
-      inset:52% -30% -120% 26%;
-      background:
-        linear-gradient(216deg, rgba(72,132,190,.18) 0%, rgba(8,17,33,0) 68%),
-        radial-gradient(120% 140% at 82% -18%, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 56%);
-      opacity:.18;
-      transform:rotate(3deg);
-      filter:blur(13px);
-    }
+    /* (removed before/after glow layers) */
 
     .ctaRF__button{
       display:inline-flex;
@@ -3881,6 +4092,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       transition:height .28s ease;
     }
 
+    /* Two-column layout: narrower card + wider image */
+    .resultsGrid{
+      display:grid;
+      grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+      gap:clamp(18px,2.4vw,28px);
+      align-items:stretch;
+    }
+
+    .resultsImage{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:flex; align-items:stretch; }
+    .resultsImage img{ width:100%; height:100%; object-fit:cover; display:block; }
+
     .resultsSlide{
       position:absolute;
       left:0; right:0; top:0;
@@ -3906,38 +4128,32 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     .resultsCard{
       position:relative;
       padding:clamp(24px,2.8vw,32px);
-            border-radius:20px;
-      /* Brand-aligned dark surface */
-      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
-      border:1px solid rgba(102,199,232,.22);
-      box-shadow:0 28px 72px rgba(5,12,22,.62), inset 0 1px 0 rgba(255,255,255,.06);
+      border-radius:20px;
+      /* Match hero highlight card surface */
+      background:
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      border:1px solid #1b2d46;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       display:grid;
       gap:clamp(18px,2.4vw,26px);
       transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
       overflow:hidden;
+      color:#e2e8f0;
     }
 
-    .resultsCard::before{
-      content:"";
-      position:absolute;
-      inset:-40% 45% 55% -25%;
-      background:radial-gradient(circle at top, rgba(0,187,167,.22) 0%, rgba(0,187,167,0) 65%);
-      opacity:.6;
-      pointer-events:none;
-      transition:opacity .25s ease;
-    }
+    .resultsCard::before{ content:none; }
 
     .resultsCard:hover,
     .resultsCard:focus-within{
       transform:translateY(-6px);
-      border-color:rgba(0,187,167,.55);
-      box-shadow:0 24px 58px rgba(0,187,167,.18), 0 18px 44px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.12);
+      border-color:#66C7E8; /* slight cyan, like hero highlight focus */
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.08);
     }
 
     .resultsCard:hover::before,
-    .resultsCard:focus-within::before{
-      opacity:.85;
-    }
+    .resultsCard:focus-within::before{ opacity:0; }
 
     .resultsCard__head{
       display:grid;
@@ -3999,10 +4215,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     }
 
     @media (max-width: 860px){
+      .resultsGrid{ grid-template-columns:1fr; }
+    }
+
+    @media (max-width: 860px){
       .ctaRF__grid{ grid-template-columns:1fr; }
       .ctaRF__actions{ justify-content:center; }
       .ctaRF__right{ order:2; }
       .ctaRF__left{ text-align:center; }
+      section[data-cta="right-fit"] .ctaRF__right [data-infra-anim]{ width:clamp(110px, 50vw, 200px); padding:clamp(8px, 2.4vw, 14px); margin-inline:auto; }
     }
 
     @media (max-width: 720px){
@@ -4096,16 +4317,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 <section data-diff="features" class="section-block homeBlend" data-alt="dark" style="background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important; position:relative; overflow:hidden; isolation:isolate; color:#e2e8f0;">
-  <canvas id="diffWaves" aria-hidden="true"
-    style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:-1;"
-  ></canvas>
+  
 
   <div class="section-shell diff__wrap" style="position:relative; z-index:1;">
     <header class="diff__head">
       <h2 class="heading-xl diff__title">Why Growing IT Teams Choose <span style="color:var(--brand);">L3 Networks</span></h2>
     </header>
 
-    <div class="diffCards" role="list" x-data="{ activeIdx: null }">
+    <div class="diff__twoCol">
+      <!-- Left: stacked cards like the IT Gaps section -->
+      <div class="diffCards" role="list" x-data="{ activeIdx: null }">
       
       <div class="relative z-10">
         <button
@@ -4223,6 +4444,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </button>
       </div>
       
+      </div>
+
+      <!-- Right: supporting placeholder image -->
+      <aside class="diff__aside">
+        <figure class="diff__media">
+          <img src="https://t4.ftcdn.net/jpg/15/65/73/21/360_F_1565732179_iKDCmWx1xQCWlyiZLNbubrqKV6t4nzVg.jpg" alt="Why L3 Networks illustrative image" loading="lazy" />
+          <figcaption class="sr-only">Illustrative image for Why L3 Networks is Different</figcaption>
+        </figure>
+      </aside>
     </div>
   </div>
 
@@ -4236,10 +4466,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       pointer-events:none;
     }
 
-    .diff__wrap{
-      display:grid;
-      gap:clamp(26px,4vh,38px);
-    }
+    .diff__wrap{ display:grid; gap:clamp(26px,4vh,38px); }
 
     .diff__head{
       text-align:left;
@@ -4257,7 +4484,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       text-wrap:balance;
     }
 
-    .diffCards{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(12px,2vw,18px); align-items:stretch; }
+    /* Two-column layout similar to IT Gaps section */
+    .diff__twoCol{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); column-gap:clamp(24px,4vw,40px); align-items:start; }
+    .diffCards{ display:grid; grid-template-columns:1fr; gap:clamp(12px,2vw,18px); align-items:stretch; }
     /* Equal height per row so items align cleanly in the grid */
     [data-diff="features"] .diffCards > div{ height:100%; display:flex; }
     [data-diff="features"] .diffCards > div > button{
@@ -4288,10 +4517,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       color:#cbd5e1;
       box-shadow:0 20px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
     }
+    .diff__aside{ display:block; }
+    .diff__media{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:flex; align-items:stretch; }
+    .diff__media img{ width:100%; height:clamp(360px, 56vh, 560px); object-fit:cover; display:block; }
     [data-diff="features"] button > div.min-w-0{ min-width:0; }
 
     @media(max-width:960px){
-      .diffCards{ grid-template-columns:minmax(0,1fr); }
+      .diff__twoCol{ grid-template-columns:1fr; gap:clamp(18px,4vh,28px); }
+      .diff__aside{ order:2; }
     }
 
     /* legacy diffCard styles no longer used after accordion conversion */
@@ -4324,18 +4557,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 <!-- STORY + VIDEO — EXACT Waves BG, layout-safe -->
 <section data-stack="tpv" class="section-block homeBlend" data-alt="light"
-  style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); background-color: var(--surface-1, #061021); min-height:92svh; display:flex; align-items:center;">
+  style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); background-color: var(--surface-1, #061021); min-height:92svh; display:flex; align-items:flex-start; padding-top:clamp(36px, 8vh, 96px);">
   
   <!-- Your content stays on top, untouched -->
   <div class="tpv__wrap section-shell"
        style="position:relative; z-index:1; width:100%;">
     <article class="tpv__card"
-      style="border-radius:22px; border:none;
-             background:
-               linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
-               linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
-               linear-gradient(210deg,#10223c 0%,#081525 100%);
-             padding:clamp(32px,4.5vw,50px); box-shadow:0 24px 60px rgba(8,18,35,.55), inset 0 1px 0 rgba(255,255,255,.12); position:relative; overflow:hidden; isolation:isolate;">
+      style="padding:clamp(32px,4.5vw,50px); position:relative; border:0; background:transparent; box-shadow:none; overflow:visible;">
       <div class="tpv__stack"
            style="max-width:980px; margin:0 auto; display:grid; gap:clamp(20px,4vh,36px);
                   text-align:center; align-items:center; justify-items:center;">
@@ -4777,38 +5005,94 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <div style="max-width:var(--max); margin:0 auto; width:100%; padding:0 var(--pad); text-align:left; position:relative; z-index:1;">
     <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to <span style="color:var(--brand);">Keep You Secure</span></h2>
 
-    <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px); text-align:left;">
-      
-      <article class="resourceCard">
-        <div style="margin:0 0 10px; aspect-ratio:16/9; border-radius:12px;  background:linear-gradient(180deg,#061021,#061021); display:grid; place-items:center; color:var(--muted); font-size:.9rem;">Thumbnail</div>
-        <h3 style="margin:0 0 6px; color:var(--ink); font-size:1.1rem; font-weight:700; letter-spacing:-.01em;">Zero Trust, Explained</h3>
-        <p style="margin:0 0 10px; color:var(--muted);">A short, practical explainer for leadership.</p>
-        <a href="#" style="display:inline-flex; font-weight:800; color:var(--ink); text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--ink)'">Read →</a>
-      </article>
-      
-      <article class="resourceCard">
-        <div style="margin:0 0 10px; aspect-ratio:16/9; border-radius:12px;  background:linear-gradient(180deg,#061021,#061021); display:grid; place-items:center; color:var(--muted); font-size:.9rem;">Thumbnail</div>
-        <h3 style="margin:0 0 6px; color:var(--ink); font-size:1.1rem; font-weight:700; letter-spacing:-.01em;">Backup vs. DR</h3>
-        <p style="margin:0 0 10px; color:var(--muted);">Budget correctly and actually recover.</p>
-        <a href="#" style="display:inline-flex; font-weight:800; color:var(--ink); text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--ink)'">Read →</a>
-      </article>
-      
-      <article class="resourceCard">
-        <div style="margin:0 0 10px; aspect-ratio:16/9; border-radius:12px;  background:linear-gradient(180deg,#061021,#061021); display:grid; place-items:center; color:var(--muted); font-size:.9rem;">Thumbnail</div>
-        <h3 style="margin:0 0 6px; color:var(--ink); font-size:1.1rem; font-weight:700; letter-spacing:-.01em;">MFA Fatigue Attacks</h3>
-        <p style="margin:0 0 10px; color:var(--muted);">Stop push bombing without user pain.</p>
-        <a href="#" style="display:inline-flex; font-weight:800; color:var(--ink); text-decoration:none;" onmouseover="this.style.color='var(--brand)'" onmouseout="this.style.color='var(--ink)'">Read →</a>
-      </article>
-      
+    <div class="rcDemo">
+
+      <div class="rcDemo__grid">
+        
+
+        
+        <article class="rcDemo__card">
+          <a href="/resources/" class="rcDemo__thumb" aria-label="Why Your Help Desk Is Slowing Down">
+            <div class="rcDemo__thumbBadge">Blog</div>
+            <div class="rcDemo__thumbImg" aria-hidden="true">
+              
+                <img src="https://sandbox.l3networks.com/images/optimized/why-your-help-desk-is-slowing-down-your-business-and-how-to-fix-it-640w.webp" alt="">
+              
+            </div>
+          </a>
+          <div class="rcDemo__cardBody">
+            <p class="rcDemo__type">Blog</p>
+            <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">Why Your Help Desk Is Slowing Down</h3></a>
+            <p class="rcDemo__copy">How to speed up response and resolution.</p>
+            
+          </div>
+        </article>
+        
+        <article class="rcDemo__card">
+          <a href="/resources/" class="rcDemo__thumb" aria-label="AI Isn’t Replacing IT — It’s Empowering It">
+            <div class="rcDemo__thumbBadge">Blog</div>
+            <div class="rcDemo__thumbImg" aria-hidden="true">
+              
+                <img src="https://sandbox.l3networks.com/images/optimized/ai-isnt-replacing-it-its-empowering-it-640w.webp" alt="">
+              
+            </div>
+          </a>
+          <div class="rcDemo__cardBody">
+            <p class="rcDemo__type">Blog</p>
+            <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">AI Isn’t Replacing IT — It’s Empowering It</h3></a>
+            <p class="rcDemo__copy">Practical ways to use AI in IT today.</p>
+            
+          </div>
+        </article>
+        
+        <article class="rcDemo__card">
+          <a href="/resources/" class="rcDemo__thumb" aria-label="Zero Trust — A Practical Starter">
+            <div class="rcDemo__thumbBadge">Guide</div>
+            <div class="rcDemo__thumbImg" aria-hidden="true">
+              
+                <img src="https://sandbox.l3networks.com/images/optimized/what-makes-a-modern-help-desk-640w.webp" alt="">
+              
+            </div>
+          </a>
+          <div class="rcDemo__cardBody">
+            <p class="rcDemo__type">Guide</p>
+            <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">Zero Trust — A Practical Starter</h3></a>
+            <p class="rcDemo__copy">A simple baseline to get moving.</p>
+            
+          </div>
+        </article>
+        
+      </div>
+
+      <div class="insightsCTA rcDemo__ctaWrap">
+        <a href="/resources/" class="rcDemo__cta">
+          Visit Resource Center
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Visit Resource Center" style="height:18px;">
+        </a>
+      </div>
     </div>
 
-    <div class="insightsCTA" style="margin-top:clamp(28px,4vw,44px); display:flex; justify-content:center;">
-      <a href="/resources/"
-         style="display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); color:#fff; background:var(--brand); border-radius:999px; text-decoration:none; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;">
-        Visit Resource Center
-        <img src="/images/icons/ArrowUpRightWhite.svg" alt="Visit Resource Center" style="height:18px;">
-      </a>
-    </div>
+    <style>
+      .rcDemo__grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px)}
+      .rcDemo__card{background:#0b0f1a; border:1px solid #0f172a; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+      .rcDemo__card:hover{transform:translateY(-3px); box-shadow:0 18px 36px rgba(0,0,0,.45); border-color:#1f2a44}
+      .rcDemo__thumb{position:relative; display:block}
+      .rcDemo__thumbImg{width:100%; aspect-ratio:16/9; background:linear-gradient(180deg,#0b1325,#0c1220); display:grid; place-items:center; color:#cbd5e1; font-size:.85rem}
+      .rcDemo__thumbImg img{width:100%; height:100%; object-fit:cover; display:block}
+      .rcDemo__thumbBadge{position:absolute; top:12px; left:12px; background:#14b8a6; color:#000; font-weight:700; font-size:.72rem; padding:.3rem .6rem; border-radius:999px}
+      .rcDemo__cardBody{padding:clamp(16px,2.4vw,22px)}
+      .rcDemo__type{margin:.1rem 0 .5rem; color:#94a3b8; font-size:.8rem}
+      .rcDemo__titleLink{text-decoration:none}
+      .rcDemo__cardTitle{margin:0 0 .5rem; color:#e6edf6; font-size:1.08rem; font-weight:700; letter-spacing:-.01em}
+      .rcDemo__copy{margin:0; color:#cbd5e1; font-size:.95rem; line-height:1.55}
+
+      .rcDemo__ctaWrap{margin-top:clamp(28px,4vw,44px); display:flex; justify-content:center}
+      .rcDemo__cta{display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); color:#fff; background:#00BBA7; border-radius:999px; text-decoration:none; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease}
+      .rcDemo__cta:hover{transform:translateY(-1px); box-shadow:0 16px 34px rgba(0,187,167,.45); filter:saturate(1.05)}
+
+      @media (max-width: 960px){.rcDemo__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      @media (max-width: 640px){.rcDemo__grid{grid-template-columns:minmax(0,1fr)}}
+    </style>
   </div>
   <!-- Blend tuning for adjacency with previous dark section -->
   <style>
@@ -4825,11 +5109,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 <section class="section-block homeBlend" data-alt="light" style="position:relative; color:#fff; background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important; background-color: var(--surface-1, #061021);">
   <div class="section-shell stack-lg">
-  <h2 class="heading-xl">Here's <span style="color:var(--brand);">How it Works</span></h2>
-    <div class="container threeSteps__cards grid max-w-screen-xl grid-cols-1 gap-4 mx-auto text-center md:grid-cols-3">
-      <div class="threeSteps__card col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-10 group hover:border-teal-400">
-      <div class="flex items-center justify-center gap-4 mb-6">
-        <svg class="w-16 h-16 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="howLead" style="text-align:center; margin:0 0 clamp(4px,1vh,8px);">
+    <h3 class="heading-xl howLead__title" style="margin:0;"><span>Elevate</span> <span style="color:var(--brand);">Your IT</span>.</h3>
+    <p class="body-lead howLead__sub" style="margin:clamp(4px,1vh,8px) 0 0; color:rgba(226,232,240,.88);">Schedule a 15-minute Right-Fit Call and let’s create your roadmap forward.</p>
+  </div>
+  
+  <div class="threeSteps__split">
+    <div class="threeSteps__left">
+    <div class="threeSteps__cards grid grid-cols-1 gap-3 text-center">
+      <div class="threeSteps__card col-span-1 p-2 transition-all ease-in-out border rounded-2xl border-slate-800 md:p-4 group hover:border-teal-400">
+      <div class="flex items-center justify-center gap-3 mb-2">
+        <svg class="w-10 h-10 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="transition-all ease-in-out " d="M73.125 12.6562H63.2812V8.4375C63.2812 8.06454 63.1331 7.70685 62.8694 7.44313C62.6056 7.17941 62.248 7.03125 61.875 7.03125C61.502 7.03125 61.1444 7.17941 60.8806 7.44313C60.6169 7.70685 60.4688
                                                         8.06454 60.4688 8.4375V12.6562H29.5312V8.4375C29.5312 8.06454 29.3831 7.70685 29.1194 7.44313C28.8556 7.17941 28.498 7.03125 28.125 7.03125C27.752 7.03125 27.3944 7.17941 27.1306 7.44313C26.8669
                                                         7.70685 26.7188 8.06454 26.7188 8.4375V12.6562H16.875C15.7561 12.6562 14.6831 13.1007 13.8919 13.8919C13.1007 14.6831 12.6562 15.7561 12.6562 16.875V73.125C12.6562 74.2439 13.1007 75.3169 13.8919
@@ -4850,7 +5140,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           <path d="M40.9188 96V84.096H56.6628V46.656H40.9188V37.824C43.4788 37.632 46.2308 37.12 49.1748 36.288C52.1828 35.456 55.1588 34.432 58.1028 33.216C61.1108 31.936 63.8948 30.592 66.4548
                                                         29.184H71.6388V84.096H86.9988V96H40.9188Z" fill="white" />
         </svg>
-        <svg class="w-16 h-16 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-10 h-10 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="transition-all ease-in-out " d="M52.0805 16.5234C52.174 16.1635 52.4063 15.8553 52.7265 15.6662C53.0467 15.4771 53.4288 15.4225 53.7891 15.5144C58.7677 16.8112 63.3102 19.4128 66.9477 23.051C70.5853 26.6892 73.1862 31.2321 74.4821
                                                         36.2109C74.5776 36.5708 74.5265 36.9539 74.34 37.2762C74.1535 37.5985 73.8468 37.8336 73.4871 37.9301C73.3728 37.9627 73.2545 37.9792 73.1356 37.9793C72.8246 37.9783 72.5227 37.8742 72.2772
                                                         37.6834C72.0317 37.4925 71.8563 37.2257 71.7786 36.9246C70.6054 32.4286 68.2551 28.3266 64.9695 25.0411C61.6839 21.7555 57.5819 19.4051 53.086 18.232C52.7267 18.1377 52.4193 17.9052 52.2309
@@ -4870,12 +5160,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                                                         63.8367C74.5637 63.5351 74.4977 63.231 74.3431 62.97C74.1885 62.7089 73.9536 62.5049 73.6735 62.3883H73.684Z" fill="#0A1A2F" />
         </svg>
       </div>
-      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont heading-md mb-xs">Schedule a Call</h3>
-      <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light">Reach out to us, and we'll learn about your business and IT needs.</p>
+      <h3 class="text-lg font-bold tracking-tight md:pb-1 md:text-xl font-mont heading-md mb-xs">Schedule a Call</h3>
+      <p class="text-xs font-normal text-slate-300 md:text-sm md:font-light">Reach out to us, and we'll learn about your business and IT needs.</p>
     </div>
-    <div class="threeSteps__card col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-10 group hover:border-teal-400">
-      <div class="flex items-center justify-center gap-4 mb-6">
-        <svg class="w-16 h-16 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="threeSteps__card col-span-1 p-2 transition-all ease-in-out border rounded-2xl border-slate-800 md:p-4 group hover:border-teal-400">
+      <div class="flex items-center justify-center gap-3 mb-2">
+        <svg class="w-10 h-10 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="transition-all ease-in-out " d="M79.7449 21.5051L68.4949 10.2551C68.3643 10.1243 68.2092 10.0206 68.0385 9.94985C67.8678 9.87908 67.6848 9.84265 67.5 9.84265C67.3152 9.84265 67.1322 9.87908 66.9615 9.94985C66.7908 10.0206 66.6357
                                                         10.1243 66.5051 10.2551L32.7551 44.0051C32.6245 44.1358 32.521 44.2909 32.4504 44.4616C32.3799 44.6323 32.3436 44.8153 32.3438 45V56.25C32.3438 56.623 32.4919 56.9807 32.7556 57.2444C33.0194 57.5081
                                                         33.377 57.6563 33.75 57.6563H45C45.1847 57.6564 45.3677 57.6202 45.5384 57.5496C45.7091 57.479 45.8642 57.3755 45.9949 57.2449L79.7449 23.4949C79.8757 23.3643 79.9794 23.2092 80.0502 23.0385C80.1209
@@ -4887,7 +5177,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                                                         16.875 74.5313H73.125C73.498 74.5313 73.8556 74.3831 74.1194 74.1194C74.3831 73.8557 74.5312 73.498 74.5312 73.125V45C74.5312 44.627 74.6794 44.2694 74.9431 44.0056C75.2069 43.7419 75.5645 43.5938
                                                         75.9375 43.5938C76.3105 43.5938 76.6681 43.7419 76.9319 44.0056C77.1956 44.2694 77.3438 44.627 77.3438 45Z" fill="#0A1A2F" />
         </svg>
-        <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="84" height="84" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle class="transition-all ease-in-out fill-slate-800 " cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F" />
           <path
             d="M37.4428 96V92.832C37.4428 89.056 38.0828 85.792 39.3628 83.04C40.6428 80.224 42.7868 77.728 45.7948 75.552L64.8988 61.728C66.8188 60.256 68.3228 58.56 69.4108 56.64C70.4988 54.72 71.0428 52.608
@@ -4898,7 +5188,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                                                         75.4908 69.152 72.6748 71.136L61.3468 78.912C60.6428 79.424 60.0028 79.904 59.4268 80.352C58.9148 80.8 58.4668 81.248 58.0828 81.696C57.7628 82.144 57.5068 82.592 57.3148 83.04H86.6908V96H37.4428Z"
             fill="white" />
         </svg>
-        <svg class="w-16 h-16 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-10 h-10 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="transition-all ease-in-out "
             d="M23.8321 22.057C23.738 21.7782 23.5589 21.536 23.3198 21.3644C23.0808 21.1927 22.794 21.1004 22.4997 21.1004C22.2055 21.1004 21.9186 21.1927 21.6796 21.3644C21.4406 21.536 21.2614 21.7782 21.1673
                                                         22.057L7.10479 64.2445C7.03471 64.4557 7.01573 64.6805 7.04941 64.9004C7.08309 65.1203 7.16846 65.3291 7.29852 65.5096C7.42858 65.6901 7.59961 65.8372 7.79756 65.9387C7.99551 66.0403 8.21474 66.0934
@@ -4913,12 +5203,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                                                         80.156 73.498 80.156 73.125V53.4375C80.156 53.0645 80.0078 52.7069 79.7441 52.4431C79.4804 52.1794 79.1227 52.0313 78.7497 52.0313ZM77.3435 71.7188H49.2185V54.8438H77.3435V71.7188Z" fill="#0A1A2F" />
         </svg>
       </div>
-      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont heading-md mb-xs">Get a Tailored Plan</h3>
-      <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light">We'll craft a plan tailored to protect, optimize, and empower your business.</p>
+      <h3 class="text-lg font-bold tracking-tight md:pb-1 md:text-xl font-mont heading-md mb-xs">Get a Tailored Plan</h3>
+      <p class="text-xs font-normal text-slate-300 md:text-sm md:font-light">We'll craft a plan tailored to protect, optimize, and empower your business.</p>
     </div>
-    <div class="threeSteps__card col-span-1 p-4 mx-4 transition-all ease-in-out border rounded-2xl border-slate-800 md:mx-0 md:p-10 group hover:border-teal-400">
-      <div class="flex items-center justify-center gap-4 mb-6">
-        <svg class="w-16 h-16 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="threeSteps__card col-span-1 p-2 transition-all ease-in-out border rounded-2xl border-slate-800 md:p-4 group hover:border-teal-400">
+      <div class="flex items-center justify-center gap-3 mb-2">
+        <svg class="w-10 h-10 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="transition-all ease-in-out " d="M56.25 15.4688C50.5891 15.4739 45.0487 17.1039 40.2869 20.165C35.5251 23.2261 31.742 27.5897 29.3871 32.7375C28.0447 32.476 26.6802 32.3441 25.3125 32.3438C19.7181 32.3438 14.3528 34.5661 10.397
                                                         38.522C6.44112 42.4778 4.21875 47.8431 4.21875 53.4375C4.21875 59.0319 6.44112 64.3972 10.397 68.353C14.3528 72.3089 19.7181 74.5312 25.3125 74.5312H56.25C64.0822 74.5312 71.5936 71.4199 77.1317
                                                         65.8817C82.6699 60.3436 85.7812 52.8322 85.7812 45C85.7812 37.1678 82.6699 29.6564 77.1317 24.1183C71.5936 18.5801 64.0822 15.4688 56.25 15.4688ZM56.25 71.7188H25.3125C22.7861 71.7165 20.2875 71.1906
@@ -4933,7 +5223,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                                                         54.2602L66.5051 38.3801C66.6357 38.2493 66.7908 38.1456 66.9615 38.0748C67.1322 38.0041 67.3152 37.9676 67.5 37.9676C67.6848 37.9676 67.8678 38.0041 68.0385 38.0748C68.2092 38.1456 68.3643 38.2493
                                                         68.4949 38.3801Z" fill="#0A1A2F" />
         </svg>
-        <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="84" height="84" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle class="transition-all ease-in-out fill-slate-800 " cx="62.5" cy="62.5" r="62.5" fill="#0A1A2F" />
           <path d="M60.6948 96.96C55.6388 96.96 51.3188 96.128 47.7348 94.464C44.1508 92.8 41.3988 90.528 39.4788 87.648C37.5588 84.768 36.5988 81.568 36.5988 78.048V76.224H50.2308C50.2308 79.68 51.2548 82.08 53.3028
                                                         83.424C55.4148 84.704 58.1028 85.344 61.3668 85.344C64.7588 85.344 67.4788 84.64 69.5268 83.232C71.5748 81.76 72.5988 79.392 72.5988 76.128C72.5988 74.08 72.1508 72.416 71.2548 71.136C70.4228 69.792
@@ -4945,7 +5235,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                                                         81.632 86.8068 84.864 84.8868 87.744C82.9668 90.56 80.1828 92.8 76.5348 94.464C72.9508 96.128 68.6628 96.96 63.6708 96.96H60.6948Z"
             fill="white" />
         </svg>
-        <svg class="w-16 h-16 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-10 h-10 transition-all ease-in-out" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="transition-all ease-in-out "
             d="M88.1469 38.5629L79.1716 20.6332C78.9239 20.1375 78.581 19.6955 78.1625 19.3324C77.744 18.9693 77.2581 18.6922 76.7325 18.5169C76.2069 18.3415 75.6519 18.2715 75.0992 18.3107C74.5466 18.3499 74.007
                                                         18.4976 73.5114 18.7453L64.2934 23.3367L45.3512 18.3305C45.1208 18.2697 44.8786 18.2697 44.6481 18.3305L25.7059 23.3367L16.488 18.7277C15.9924 18.48 15.4528 18.3323 14.9001 18.2931C14.3474 18.2539
@@ -4967,60 +5257,76 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             fill="#0A1A2F" />
         </svg>
       </div>
-      <h3 class="text-2xl font-bold tracking-tight md:pb-2 md:text-3xl font-mont heading-md mb-xs">Enjoy Reliable IT</h3>
-      <p class="text-sm font-normal text-slate-300 md:text-lg md:font-light">Let us handle the technology while you focus on growing your business.</p>
+      <h3 class="text-lg font-bold tracking-tight md:pb-1 md:text-xl font-mont heading-md mb-xs">Enjoy Reliable IT</h3>
+      <p class="text-xs font-normal text-slate-300 md:text-sm md:font-light">Let us handle the technology while you focus on growing your business.</p>
     </div>
+
+    </div>
+    </div>
+
+    <div class="threeSteps__right">
     <div class="threeSteps__ctaWrap" aria-label="Schedule a consultation">
       <div class="threeSteps__ctaCard">
         <div class="threeSteps__ctaContent">
-          <h3 class="threeSteps__ctaTitle">Elevate Your IT.</h3>
           <div class="threeSteps__ctaBody">
-            <p class="threeSteps__ctaCopy">Schedule a 15-minute Right-Fit Call and let’s create your roadmap forward.</p>
-            <p class="threeSteps__ctaNote">You’ll leave with insights you can act on immediately—even if you decide not to engage further.</p>
           </div>
         </div>
         <div class="threeSteps__ctaEmbed">
           <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/brandon-williams/alldesk-ai?embed=true"></div>
-          <a href="https://l3networks.timezest.com/sales/meeting-15" class="threeSteps__ctaButton">
-            <span>Get Your Free Assessment</span>
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Get Your Free Assessment">
-          </a>
         </div>
       </div>
       <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
     </div>
+    </div>
   </div>
   </div>
+  </div>
+  </div>
+  
   <style>
-    .resourceCard{
-      padding:22px;
-            border-radius:18px;
-      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 18px 48px rgba(8,18,35,.42), inset 0 1px 0 rgba(255,255,255,.05);
-      display:grid;
-      gap:14px;
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
+    
 
-    .resourceCard:hover,
-    .resourceCard:focus-within{
-      transform:translateY(-4px);
-      border-color:rgba(0,187,167,.46);
-      box-shadow:0 24px 58px rgba(0,187,167,.18), 0 18px 44px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.12);
-    }
+    .resGrid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px);}
+    @media(max-width: 980px){ .resGrid{ grid-template-columns:1fr; } }
+
+    .resTile{ margin:0; }
+    .resTile__link{ display:block; text-decoration:none; color:inherit; }
+    .resTile__media{ position:relative; margin:0; border-radius:16px; overflow:hidden; aspect-ratio:16/9; background:#0b1629; }
+    .resTile__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(1.02) contrast(1.02); }
+    .resTile__overlay{ position:absolute; inset:0; background:
+      linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.85) 82%, rgba(0,0,0,.92) 100%),
+      radial-gradient(120% 140% at 100% 100%, rgba(0,187,167,.28) 0%, rgba(0,187,167,0) 60%);
+      pointer-events:none; transition:opacity .25s ease; }
+    .resTile__bar{ position:absolute; left:0; right:0; bottom:0; padding:clamp(14px,2vw,18px) clamp(16px,2.4vw,20px); display:grid; gap:6px; }
+    .resTile__eyebrow{ font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(203,213,225,.9); font-weight:800; }
+    .resTile__title{ margin:0; color:#f1fbff; font-weight:800; letter-spacing:-.01em; font-size:clamp(1.05rem,1.8vw,1.25rem); }
+    .resTile:hover .resTile__overlay, .resTile:focus-within .resTile__overlay{ opacity:.92; }
+
+    .howLead__title{ letter-spacing:-.01em; text-wrap:balance; }
 
     .threeSteps__cards{
-      gap:clamp(12px,2vw,20px);
+      gap:clamp(6px,1vw,12px);
+      width:100%;
       max-width:min(1120px,96vw);
       margin-inline:auto;
-      padding:0 var(--pad);
+      margin-top:0;
     }
 
     .threeSteps__card{
-      padding:clamp(18px,2.2vw,26px);
+      padding:clamp(8px,1.2vw,14px);
       width:100%;
-      max-width:320px;
-      margin-inline:auto;
+      margin-inline:0;
+    }
+
+    /* Make the step icons smaller */
+    .threeSteps__card .flex svg:not(:nth-of-type(2)){
+      width:clamp(28px,4.5vw,40px);
+      height:clamp(28px,4.5vw,40px);
+    }
+    /* Make the step number badge (middle SVG) smaller */
+    .threeSteps__card .flex svg:nth-of-type(2){
+      width:clamp(40px,6vw,56px);
+      height:clamp(40px,6vw,56px);
     }
 
     .threeSteps__ctaWrap{
@@ -5028,69 +5334,34 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       width:100%;
       max-width:min(1120px,96vw);
       grid-column:1 / -1;
-      margin:clamp(28px,4vw,40px) auto 0;
+      margin:clamp(6px,1.2vw,12px) auto 0;
       text-align:left;
     }
 
     .threeSteps__ctaCard{
       position:relative;
       width:100%;
-      border-radius:24px;
-      border:none;
-      background:
-        linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
-        linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
-        linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 24px 60px rgba(8,18,35,.55), inset 0 1px 0 rgba(255,255,255,.12);
-      padding:clamp(36px,4vw,54px);
-      display:grid;
-      gap:clamp(22px,3vw,32px);
+      border-radius:0;
+      border:0;
+      background:transparent !important;
+      box-shadow:none;
+      padding:0;
+      display:flex;
+      flex-direction:column;
+      gap:clamp(10px,1.5vw,16px);
       text-align:center;
       justify-items:center;
-      overflow:hidden;
+      overflow:visible;
       isolation:isolate;
+      height:100%;
     }
 
     .threeSteps__ctaCard::before,
-    .threeSteps__ctaCard::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      border-radius:inherit;
-      transition:opacity .35s ease, transform .35s ease;
-    }
+    .threeSteps__ctaCard::after{ content:none; }
 
-    .threeSteps__ctaCard::before{
-      inset:-64% 24% 42% -26%;
-      background:linear-gradient(128deg, rgba(188,214,255,.26) 0%, rgba(188,214,255,0) 68%);
-      opacity:.24;
-      transform:rotate(-6deg);
-      mix-blend-mode:screen;
-      filter:blur(15px);
-    }
+    .threeSteps__ctaCard:is(:hover,:focus-visible){ box-shadow:none; transform:none; }
 
-    .threeSteps__ctaCard::after{
-      inset:54% -32% -118% 24%;
-      background:
-        linear-gradient(214deg, rgba(72,132,190,.18) 0%, rgba(8,17,33,0) 70%),
-        radial-gradient(118% 142% at 84% -18%, rgba(255,255,255,.15) 0%, rgba(255,255,255,0) 56%);
-      opacity:.18;
-      transform:rotate(3deg);
-      filter:blur(12px);
-    }
-
-    .threeSteps__ctaCard:is(:hover,:focus-visible){
-      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-      transform:translate3d(0,-4px,0);
-    }
-
-    .threeSteps__ctaContent{
-      display:grid;
-      gap:clamp(16px,3vw,24px);
-      max-width:60ch;
-      margin-inline:auto;
-    }
+    .threeSteps__ctaContent{ display:none; }
 
     .threeSteps__ctaBody{
       display:grid;
@@ -5127,19 +5398,45 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     }
 
     .threeSteps__ctaEmbed{
-      display:grid;
-      gap:clamp(18px,3vw,28px);
-      justify-items:center;
+      display:flex;
+      flex-direction:column;
+      gap:0;
       width:100%;
       margin-inline:auto;
+      flex:1 1 auto;
+      align-items:center;
+      justify-content:stretch;
     }
 
     .threeSteps__ctaEmbed .meetings-iframe-container{
+      /* Visible form viewport (taller to help bottom alignment) */
+      --form-visible-height: clamp(640px, 66vh, 920px);
+      /* Trim a little off the iframe top to align to the first field */
+      --form-trim-top: 28px; /* adjust 0–48px as needed */
+
       width:100%;
-      min-height:clamp(340px,46vh,520px);
+      max-width:clamp(560px, 64vw, 900px);
+      height:var(--form-visible-height);
       border:0;
       border-radius:16px;
       display:block;
+      overflow:hidden;
+      position:relative;
+      margin:0;
+      padding:0;
+      /* Hard-clip corners reliably across browsers */
+      clip-path: inset(0 round 16px);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      background:#ffffff; /* avoids dark slivers in rounded corners */
+    }
+    .threeSteps__ctaEmbed .meetings-iframe-container iframe{
+      display:block;
+      width:100%;
+      /* Pull iframe content up by the trim while preserving the bottom */
+      height:calc(100% + var(--form-trim-top));
+      transform:translateY(calc(-1 * var(--form-trim-top)));
+      border:0;
+      border-radius:inherit;
     }
 
     .threeSteps__ctaButton{
@@ -5179,9 +5476,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     }
 
     @media (max-width: 640px){
-      .threeSteps__ctaCard{
-        padding:clamp(24px,5.5vw,32px);
-      }
       .threeSteps__ctaEmbed .meetings-iframe-container{
         min-height:300px;
         border-radius:12px;
