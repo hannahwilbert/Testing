@@ -251,6 +251,61 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       }
       #mega-solutions a[data-cta="primary"] img{ height:18px; filter:none; }
       #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){ filter:brightness(1.03); }
+
+      /* Animated gradient border (reused from sticky CTA) */
+      @property --border-angle-1 { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+      @property --border-angle-2 { syntax: "<angle>"; inherits: true; initial-value: 90deg; }
+      @property --border-angle-3 { syntax: "<angle>"; inherits: true; initial-value: 180deg; }
+
+      @property --c1x { syntax: "<percentage>"; inherits: true; initial-value: 12%; }
+      @property --c1y { syntax: "<percentage>"; inherits: true; initial-value: 20%; }
+      @property --c2x { syntax: "<percentage>"; inherits: true; initial-value: 72%; }
+      @property --c2y { syntax: "<percentage>"; inherits: true; initial-value: 62%; }
+      @property --c3x { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+      @property --c3y { syntax: "<percentage>"; inherits: true; initial-value: 22%; }
+
+      @keyframes rotateBackground   { to { --border-angle-1: 360deg; } }
+      @keyframes rotateBackground2  { to { --border-angle-2: -270deg; } }
+      @keyframes rotateBackground3  { to { --border-angle-3: 540deg; } }
+
+      #mega-solutions .glow-border{
+        border:1px solid transparent;
+        isolation:isolate;
+      }
+      #mega-solutions .glow-border::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        border-radius:12px;
+        padding:2px;
+        background:
+          conic-gradient(from var(--border-angle-1) at var(--c1x) var(--c1y),
+            transparent,
+            color-mix(in oklab, var(--cyan, #22d3ee) 85%, white) 12%,
+            transparent 36%,
+            transparent),
+          conic-gradient(from var(--border-angle-2) at var(--c2x) var(--c2y),
+            transparent,
+            color-mix(in oklab, var(--indigo, #6366f1) 85%, white) 10%,
+            transparent 56%,
+            transparent),
+          conic-gradient(from var(--border-angle-3) at var(--c3x) var(--c3y),
+            transparent,
+            color-mix(in oklab, var(--cyan, #22d3ee) 45%, var(--indigo, #6366f1) 55%) 10%,
+            transparent 50%,
+            transparent);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        --speed1:3s; --speed2:8s; --speed3:13s;
+        animation: rotateBackground var(--speed1) linear infinite,
+                   rotateBackground2 var(--speed2) linear infinite,
+                   rotateBackground3 var(--speed3) linear infinite;
+        opacity:.75;
+        pointer-events:none;
+      }
+      #mega-solutions .glow-border:hover::before,
+      #mega-solutions .glow-border:focus-visible::before{ opacity:1; }
     </style>
     
 
@@ -362,8 +417,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
       <!-- Highlight tile -->
       <a href="/alldeskai"
-         class="relative rounded-xl border border-teal-500/60 bg-slate-900/60 p-4 transition-all
-                hover:border-teal-400/80 hover:bg-slate-900/70 focus:outline-none focus:ring-2 focus:ring-teal-400/60">
+         class="relative rounded-xl bg-slate-900/60 p-4 transition-all focus:outline-none glow-border">
         <div class="flex items-center justify-between">
           <h3 class="text-lg lg:text-xl font-bold tracking-tight text-white">AllDesk Ai</h3>
           <svg class="h-5 w-5 opacity-80 transition-transform duration-300 group-hover:translate-x-1"
