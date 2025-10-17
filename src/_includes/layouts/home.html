@@ -1231,7 +1231,7 @@
       { selector: 'section[data-services] .eyebrow', effect: 'fade-up', threshold: 0.3 },
       { selector: 'section[data-services] .heading-xl', effect: 'fade-up', threshold: 0.3, delay: 0.05 },
       { selector: 'section[data-services] .body-lead', effect: 'fade-up', threshold: 0.3, delay: 0.1 },
-      { selector: 'section[data-services] .svcCard', effect: 'fade-up', threshold: 0.25, stagger: 0.07 },
+      { selector: 'section[data-services] .svcCard', effect: 'fade-up', threshold: 0.25, stagger: 0.10, distance: 28 },
 
       { selector: 'section[data-cta="right-fit"] .ctaRF__card', effect: 'zoom-in', threshold: 0.35 },
 
@@ -2563,11 +2563,11 @@
 
 <!-- SERVICES (reimagined: whole-card links, no buttons) + WAVES BACKGROUND -->
 {% set services = services or [
-  { icon:'/images/home/icons/teal/ShieldCheckered.svg', title:'Cybersecurity & Risk Management', description:'Protect your organization with proactive monitoring, vulnerability management, and Zero Trust security.', link:'/products/cyber-security/' },
-  { icon:'/images/home/icons/teal/Network.svg', title:'Network Infrastructure & Connectivity', description:'Keep your business running smoothly with high-performance, secure, and resilient network solutions.', link:'/products/managed-networks/' },
-  { icon:'/images/home/icons/teal/Devices.svg', title:'User Support & Endpoint Management', description:'Reduce IT burdens and empower employees with AI-driven helpdesk and endpoint management.', link:'/products/user-and-device-management/' },
-  { icon:'/images/home/icons/teal/CloudCheck.svg', title:'Cloud Platforms & Data Protection', description:'Move to the cloud with confidence while ensuring backup, recovery, and compliance every step of the way.', link:'/products/cloud-and-systems-services/' },
-  { icon:'/images/home/icons/teal/TrendUp.svg', title:'Strategic IT Leadership (vCIO & Consulting)', description:'Align technology with business goals through strategic guidance, roadmaps, and project leadership.', link:'/elevate/' }
+  { icon:'/images/home/icons/teal/ShieldCheckered.svg', title:'Cybersecurity', description:'Protect your organization with proactive monitoring, vulnerability management, and Zero Trust security.', link:'/products/cyber-security/' },
+  { icon:'/images/home/icons/teal/Network.svg', title:'Networks & Connectivity', description:'Keep your business running smoothly with high-performance, secure, and resilient network solutions.', link:'/products/managed-networks/' },
+  { icon:'/images/home/icons/teal/Devices.svg', title:'Users & Devices', description:'Reduce IT burdens and empower employees with AI-driven helpdesk and endpoint management.', link:'/products/user-and-device-management/' },
+  { icon:'/images/home/icons/teal/CloudCheck.svg', title:'Cloud Solutions', description:'Move to the cloud with confidence while ensuring backup, recovery, and compliance every step of the way.', link:'/products/cloud-and-systems-services/' },
+  { icon:'/images/home/icons/teal/TrendUp.svg', title:'Professional Services', description:'Align technology with business goals through strategic guidance, roadmaps, and project leadership.', link:'/elevate/' }
 ] %}
 
 <section data-services class="section-block homeBlend" data-alt="light"
@@ -2593,26 +2593,47 @@
     ] %}
     <div class="svcGrid" id="servicesCarousel">
       {% for s in services %}
-      <a href="{{ s.link }}" class="svcCard" style="--svcBg: url('{{ svcBg[loop.index0 % (svcBg|length)] }}');">
-        <div class="svcCard__header">
-          <img src="{{ s.icon }}" alt="" class="svcCard__icon">
-
-          <!-- chevron hint (no button) -->
-          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Open" class="svcArrow">
-        </div>
-
-        <h3 class="heading-md mb-xs svcCard__title">
-          {{ s.title }}
-        </h3>
-
-        <!-- body -->
-        <p class="body-text">
-          {{ s.description }}
-        </p>
-        <div class="body-sm svcCard__meta">
-          <span class="svcCard__pulse"></span>
-          <span>Learn more</span>
-        </div>
+      {# Compute per-card image once to avoid nested ifs in attributes #}
+      {% set img = svcBg[loop.index0 % (svcBg|length)] %}
+      {% if loop.index0 == 0 %}{% set img = "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0016a533ecd959e5/664e6e5ebc1e340f04afb4bb/Cybersecurity(1800)_Skorzewiak_Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale" %}{% elif loop.index0 == 1 %}{% set img = "https://programminginsider.com/wp-content/uploads/2024/09/Network.jpg" %}{% elif loop.index0 == 2 %}{% set img = "https://t4.ftcdn.net/jpg/02/66/18/03/360_F_266180394_lFKeZa8xgxcXDYYaHtUZnv5qnvUUjnLL.jpg" %}{% elif loop.last %}{% set img = "https://tealtech.com/wp-content/uploads/2025/09/AdobeStock_1405552456-scaled.jpeg" %}{% endif %}
+      {% if s.title == 'Cloud Platforms & Data Protection' or s.title == 'Cloud Solutions' %}{% set img = "https://www.harpercollege.edu/academics/business/info-systems/images/cybersecurity-support-specialist1550x490.jpg" %}{% endif %}
+      {% set mediaFirst = (s.title == 'Network Infrastructure & Connectivity') or (s.title == 'Cloud Platforms & Data Protection') %}
+      <a href="{{ s.link }}" class="svcCard svcCard--split{% if s.title == 'Cloud Platforms & Data Protection' %} svcCard--flip{% endif %}{% if mediaFirst %} svcCard--mediaFirst{% endif %}" style="--svcBg: url('{{ img }}');">
+        {% if mediaFirst %}
+          <figure class="svcCard__media" aria-hidden="true">
+            <img src="{{ img }}" alt="" />
+          </figure>
+          <div class="svcCard__content">
+            <div class="svcCard__header">
+              <img src="/images/icons/ArrowUpRightWhite.svg" alt="Open" class="svcArrow">
+            </div>
+            <div class="svcCard__copy">
+              <h3 class="heading-md svcCard__title">{{ s.title }}</h3>
+              <p class="body-text">{{ s.description }}</p>
+              <div class="body-sm svcCard__meta">
+                <span class="svcCard__pulse"></span>
+                <span>Learn more</span>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div class="svcCard__content">
+            <div class="svcCard__header">
+              <img src="/images/icons/ArrowUpRightWhite.svg" alt="Open" class="svcArrow">
+            </div>
+            <div class="svcCard__copy">
+              <h3 class="heading-md svcCard__title">{{ s.title }}</h3>
+              <p class="body-text">{{ s.description }}</p>
+              <div class="body-sm svcCard__meta">
+                <span class="svcCard__pulse"></span>
+                <span>Learn more</span>
+              </div>
+            </div>
+          </div>
+          <figure class="svcCard__media" aria-hidden="true">
+            <img src="{{ img }}" alt="" />
+          </figure>
+        {% endif %}
       </a>
       {% endfor %}
     </div>
@@ -2625,13 +2646,13 @@
 
     section[data-services] .svcGrid{
       display:grid;
-      gap:clamp(16px, 2.8vw, 24px);
-      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap:clamp(14px, 1.8vw, 20px);
+      grid-template-columns: 1fr; /* stack: 5 rows of 1 */
       align-items:stretch;
       width:100%;
-      max-width:var(--max);
-      margin:0;
-      padding:0;
+      max-width:none; /* full width within section-shell */
+      margin:0; /* no centering constraint */
+      padding:0; /* let cards span the full inner width */
       overflow:visible;
     }
 
@@ -2747,7 +2768,7 @@
     section[data-services] .svcCard__header{
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content:flex-end;
       gap:clamp(12px, 2vw, 18px);
       margin:0;
     }
@@ -2758,8 +2779,9 @@
       flex-direction:column;
       gap:clamp(12px,2vw,18px);
       /* width constraints removed for grid layout */
-      padding:clamp(16px,2vw,22px);
-      border-radius:20px;
+      /* More left/right padding for a roomier feel */
+      padding: clamp(16px, 2vw, 22px) clamp(28px, 4vw, 40px);
+      border-radius:16px;
       border:1px solid #1b2d46;
       text-decoration:none;
       color:#e2e8f0;
@@ -2787,7 +2809,7 @@
 
     section[data-services] .svcCard__icon{
       display:block;
-      width:clamp(40px, 5vw, 52px);
+      width:clamp(32px, 4.4vw, 44px);
       height:auto;
       filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
     }
@@ -2805,9 +2827,30 @@
     }
 
     section[data-services] .svcCard__title{
-      margin:0 0 clamp(4px,0.8vw,8px);
+      margin:0; /* tighten spacing, gap handles vertical rhythm */
       min-width:0;
       line-height:1.2;
+    }
+
+    /* Split layout for Services cards */
+    section[data-services] .svcCard--split{ display:grid !important; grid-template-columns: 5fr 3fr; align-items:stretch; gap:clamp(16px,2.6vw,24px); }
+    section[data-services] .svcCard--split.svcCard--mediaFirst{ grid-template-columns: 3fr 5fr; }
+    section[data-services] .svcCard--split .svcCard__content{ position:relative; display:flex; flex-direction:column; justify-content:center; }
+    /* Center the copy block vertically with equal space above/below */
+    section[data-services] .svcCard--split .svcCard__copy{ display:flex; flex-direction:column; gap:clamp(2px,0.6vw,8px); margin:auto 0; }
+    /* Header arrow floats, no extra flow space */
+    section[data-services] .svcCard--split .svcCard__header{ position:absolute; top:clamp(10px,1.6vw,16px); right:clamp(10px,1.6vw,16px); }
+    /* Keep meta close to body, do not push group down */
+    section[data-services] .svcCard--split .svcCard__meta{ margin-top: 0; padding-top: clamp(6px, 1.2vw, 10px); }
+    section[data-services] .svcCard--split .svcCard__media{ position:relative; border-radius:14px; overflow:hidden; min-height:160px; }
+    section[data-services] .svcCard--split .svcCard__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    /* Flip image horizontally for Cloud Platforms & Data Protection */
+    section[data-services] .svcCard--flip .svcCard__media img{ transform: scaleX(-1); transform-origin:center; }
+    
+    @media (max-width: 640px){
+      section[data-services] .svcCard--split{ grid-template-columns: 1fr; }
+      section[data-services] .svcCard--split .svcCard__content{ order:1; }
+      section[data-services] .svcCard--split .svcCard__media{ order:2; min-height:140px; }
     }
 
     /* Services cards: match hero highlight paragraph typography */
@@ -2868,8 +2911,8 @@
 
     @media (max-width: 1080px){
       section[data-services] .svcGrid{
-        gap:clamp(16px,5vw,28px);
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap:clamp(14px,4vw,22px);
+        grid-template-columns: 1fr; /* remain stacked */
         padding-left:0;
         padding-right:0;
       }
