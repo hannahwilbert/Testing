@@ -674,22 +674,20 @@
                 <button
                   @click="activeCard = activeCard === 1 ? null : 1"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 1 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 1 ? 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 transform shadow-xl is-active' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
-                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 1 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center min-w-0">
-                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Unplanned Downtime</h3>
+                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 1 ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+                    <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
+                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Unplanned Downtime</h3>
                     </div>
-                    <!-- Arrow when open -->
-                    <svg x-show="activeCard === 1" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Active: Red X icon -->
+                    <svg x-show="activeCard === 1" class="flex-shrink-0 accIcon accIcon--x" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M6 6L18 18M6 18L18 6" />
                     </svg>
-                    <!-- Accordion icon when closed -->
-                    <svg x-show="activeCard !== 1" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                    <!-- Inactive: Question mark icon -->
+                    <svg x-show="activeCard !== 1" class="flex-shrink-0 accIcon accIcon--question" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <text x="12" y="12" text-anchor="middle" dominant-baseline="middle">?</text>
                     </svg>
                   </div>
                   <div
@@ -697,7 +695,7 @@
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                    class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+                    class="problemFlat__content rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
                   >
                     <p class="text-lg sm:text-xl font-light">Unplanned downtime or security gaps disrupting operations</p>
                   </div>
@@ -708,22 +706,20 @@
                 <button
                   @click="activeCard = activeCard === 2 ? null : 2"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 2 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 2 ? 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 transform shadow-xl is-active' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
-                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 2 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center min-w-0">
-                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Teams Stretched Thin</h3>
+                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 2 ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+                    <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
+                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Teams Stretched Thin</h3>
                     </div>
-                    <!-- Arrow when open -->
-                    <svg x-show="activeCard === 2" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Active: Red X icon -->
+                    <svg x-show="activeCard === 2" class="flex-shrink-0 accIcon accIcon--x" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M6 6L18 18M6 18L18 6" />
                     </svg>
-                    <!-- Accordion icon when closed -->
-                    <svg x-show="activeCard !== 2" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                    <!-- Inactive: Question mark icon -->
+                    <svg x-show="activeCard !== 2" class="flex-shrink-0 accIcon accIcon--question" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <text x="12" y="12" text-anchor="middle" dominant-baseline="middle">?</text>
                     </svg>
                   </div>
                   <div
@@ -731,7 +727,7 @@
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                    class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+                    class="problemFlat__content rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
                   >
                     <p class="text-lg sm:text-xl font-light">In-house IT teams stretched too thin trying to balance support and strategy</p>
                   </div>
@@ -742,22 +738,20 @@
                 <button
                   @click="activeCard = activeCard === 3 ? null : 3"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 3 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 3 ? 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 transform shadow-xl is-active' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
-                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 3 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center min-w-0">
-                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Cloud Initiatives Stalling</h3>
+                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 3 ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+                    <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
+                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Cloud Initiatives Stalling</h3>
                     </div>
-                    <!-- Arrow when open -->
-                    <svg x-show="activeCard === 3" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Active: Red X icon -->
+                    <svg x-show="activeCard === 3" class="flex-shrink-0 accIcon accIcon--x" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M6 6L18 18M6 18L18 6" />
                     </svg>
-                    <!-- Accordion icon when closed -->
-                    <svg x-show="activeCard !== 3" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                    <!-- Inactive: Question mark icon -->
+                    <svg x-show="activeCard !== 3" class="flex-shrink-0 accIcon accIcon--question" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <text x="12" y="12" text-anchor="middle" dominant-baseline="middle">?</text>
                     </svg>
                   </div>
                   <div
@@ -765,7 +759,7 @@
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                    class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+                    class="problemFlat__content rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
                   >
                     <p class="text-lg sm:text-xl font-light">Cloud projects or digital initiatives stalling under complexity</p>
                   </div>
@@ -776,22 +770,20 @@
                 <button
                   @click="activeCard = activeCard === 4 ? null : 4"
                   class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-                  :class="activeCard === 4 ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
+                  :class="activeCard === 4 ? 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 transform shadow-xl is-active' : 'problemFlat__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
                   style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
                 >
-                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 4 ? 'pb-0' : 'pb-4 sm:pb-6'">
-                    <div class="flex items-center min-w-0">
-                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Missing Roadmap</h3>
+                  <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeCard === 4 ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+                    <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
+                      <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Missing Roadmap</h3>
                     </div>
-                    <!-- Arrow when open -->
-                    <svg x-show="activeCard === 4" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Active: Red X icon -->
+                    <svg x-show="activeCard === 4" class="flex-shrink-0 accIcon accIcon--x" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M6 6L18 18M6 18L18 6" />
                     </svg>
-                    <!-- Accordion icon when closed -->
-                    <svg x-show="activeCard !== 4" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                    <!-- Inactive: Question mark icon -->
+                    <svg x-show="activeCard !== 4" class="flex-shrink-0 accIcon accIcon--question" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <text x="12" y="12" text-anchor="middle" dominant-baseline="middle">?</text>
                     </svg>
                   </div>
                   <div
@@ -799,7 +791,7 @@
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                    class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+                    class="problemFlat__content rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
                   >
                     <p class="text-lg sm:text-xl font-light">Lack of clear IT roadmap or guidance holding growth back</p>
                   </div>
@@ -911,6 +903,50 @@
       grid-template-columns:1fr;
       align-items:stretch;
     }
+    /* Ensure long titles don't crowd the right arrow: grid with a fixed icon column */
+    [data-problem="flat"] .problemFlat__list button > div{
+      display:grid; grid-template-columns:1fr auto; column-gap:clamp(12px,2vw,18px); align-items:center;
+    }
+    [data-problem="flat"] .problemFlat__list button > div > div:first-child{ min-width:0; }
+    [data-problem="flat"] .problemFlat__list h3{ display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+    /* Standard arrow icon size/position (applies to all accordions) */
+    .accIcon{ display:inline-block; width:36px !important; height:36px !important; transform:translateY(-3px) scale(1.18) !important; transform-origin:center; }
+    /* Legacy icon styles (kept for other sections) */
+    .accIcon.accIcon--open path{ stroke:#000 !important; stroke-width:2.5 !important; stroke-linecap:round !important; stroke-linejoin:round !important; fill:none !important; }
+    .accIcon.accIcon--bars rect{ fill:#fff !important; }
+    /* New icons for IT Gaps */
+    .accIcon.accIcon--x path{
+      stroke: var(--accent-red, #EF4444) !important;
+      stroke-width: 2.5 !important;
+      stroke-linecap: round !important;
+      stroke-linejoin: round !important;
+      fill: none !important;
+      filter: drop-shadow(0 8px 20px rgba(239,68,68,.35));
+    }
+    .accIcon.accIcon--question text{
+      fill:#fff !important;
+      font-weight:800;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-size:20px;
+    }
+    /* Nudge the question mark icon slightly lower for alignment */
+    .accIcon.accIcon--question{ transform: translateY(-1px) scale(1.18) !important; }
+    /* Make Why L3 arrows slightly larger to visually match preceding section */
+    [data-diff="features"] .accIcon{ width:40px !important; height:40px !important; transform:translateY(-4px) scale(1.22) !important; }
+    /* Make accordion triggers obviously clickable */
+    [data-problem="flat"] .problemFlat__list button{
+      cursor:pointer;
+      position:relative;
+      /* Left border accent removed to restore original look */
+      transition: border-color .28s ease, box-shadow .28s ease, filter .28s ease, background-color .28s ease, color .28s ease;
+      will-change: border-color, box-shadow, filter;
+    }
+    /* When open: subtly brighter border and ring to indicate state */
+    [data-problem="flat"] .problemFlat__list button.is-active{
+      border-color: rgba(148,163,184,.45) !important; /* brighter than #1b2d46 */
+      --tw-ring-color: rgba(148,163,184,.35);
+      filter: brightness(1.02);
+    }
     /* override utility margin on wrappers (mb-4) */
     [data-problem="flat"] .problemFlat__group > .relative{ margin-bottom:0 !important; }
 
@@ -945,6 +981,7 @@
       border:1px solid #1b2d46;
       color:#e2e8f0;
       box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      transition: border-color .28s ease, box-shadow .28s ease, filter .28s ease;
     }
 
     [data-problem="flat"] .problemFlat__text::before{ content:none; display:none; }
@@ -971,24 +1008,29 @@
       min-width:0;
     }
 
-    /* Match hero highlight paragraph typography inside expanded cards */
-    [data-problem="flat"] .problemFlat__group .bg-teal-600 p{
+    /* Expanded content typography inside cards */
+    [data-problem="flat"] .problemFlat__group .problemFlat__content p{
       margin:0;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size:clamp(16px, 2.4vw, 20px);
       font-weight:300;
       line-height:1.65;
-      color:#000000 !important;
+      color:#ffffff !important;
     }
 
-    /* Make inner teal panel touch parent sides and bottom (Are IT Gaps) */
-    [data-problem="flat"] .problemFlat__group .bg-teal-600{
+    /* Make inner panel touch parent sides and bottom (Are IT Gaps) */
+    [data-problem="flat"] .problemFlat__group .problemFlat__content{
       /* Small top radius while sides/bottom stay perfectly flush */
       border-top-left-radius: clamp(8px, 1.2vw, 14px) !important;
       border-top-right-radius: clamp(8px, 1.2vw, 14px) !important;
       border-bottom-left-radius: inherit !important;
       border-bottom-right-radius: inherit !important;
       margin-bottom:-1px; /* hide any 1px seam */
+      border: 1px solid var(--accent-red, #EF4444);
+      /* Transparent red wash behind text for subtle emphasis */
+      background:
+        linear-gradient(180deg, rgba(239,68,68,.12) 0%, rgba(249,115,22,.12) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
     }
 
     
@@ -1105,6 +1147,11 @@
       filter:brightness(1.03);
     }
 
+    /* Limit the title width so it doesn't crowd the accordion (desktop) */
+    @media (min-width: 981px){
+      [data-problem="flat"] .problemFlat__wrap > .heading-xl{ max-width:26ch; }
+    }
+
     @media (max-width: 980px){
       [data-problem="flat"] .problemFlat__grid{
         grid-template-columns:1fr;
@@ -1128,8 +1175,8 @@
     /* Desktop: left-aligned cards, stock photo on right */
     @media (min-width: 981px){
       [data-problem="flat"] .problemFlat__grid{
-        /* Uniform two-column layout: accordion left, image+CTA right */
-        grid-template-columns:1fr 1fr;
+        /* Accordion a little less wide than before */
+        grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
         column-gap:clamp(24px,4vw,40px);
         align-items:start; /* do not stretch columns */
       }
@@ -1383,16 +1430,16 @@
               :class="activeIndex === {{ loop.index }} ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'kfE__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
               style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
             >
-              <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIndex === {{ loop.index }} ? 'pb-0' : 'pb-4 sm:pb-6'">
-                <div class="flex items-center gap-0 min-w-0">
+              <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIndex === {{ loop.index }} ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+                <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
                   <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ feat.heading }}</h3>
                 </div>
                 <!-- Arrow when open -->
-                <svg x-show="activeIndex === {{ loop.index }}" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg x-show="activeIndex === {{ loop.index }}" class="flex-shrink-0 accIcon accIcon--open" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <!-- Accordion icon when closed -->
-                <svg x-show="activeIndex !== {{ loop.index }}" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg x-show="activeIndex !== {{ loop.index }}" class="flex-shrink-0 accIcon accIcon--bars" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                   <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                   <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
@@ -1404,7 +1451,7 @@
                 x-transition:enter="transition ease-out duration-500"
                 x-transition:enter-start="opacity-0 transform translate-y-4"
                 x-transition:enter-end="opacity-100 transform translate-y-0"
-                class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+                class="bg-teal-600 rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
               >
                 <p class="text-lg sm:text-xl font-light">{{ feat.description }}</p>
               </div>
@@ -1958,7 +2005,8 @@
     /* Desktop two-column grid with image + CTA stacked on right */
     @media (min-width: 981px){
       :root{ --kf-right-max: min(560px, 46vw); }
-      .kfE__twoCol{ display:grid; grid-template-columns:1fr auto; column-gap:clamp(24px,4vw,40px); justify-content:center; }
+      /* Accordion slightly less wide for balance with image */
+      .kfE__twoCol{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); column-gap:clamp(24px,4vw,40px); justify-content:center; }
       [data-kf="elite"] .kfE__twoCol{ align-items:start; }
       /* Right column: fixed content width so it aligns neatly with carousel center */
       .kfE__right{ display:grid; grid-template-rows:auto auto 1fr; gap:clamp(12px,2vh,20px); align-content:start; width:100%; max-width:var(--kf-right-max); }
@@ -2014,6 +2062,8 @@
         var prevBtn = section.querySelector('.svcNav__btn--prev');
         var nextBtn = section.querySelector('.svcNav__btn--next');
         if (!grid) return;
+        // If services are laid out as a CSS grid (no carousel), skip carousel logic
+        try { if (getComputedStyle(grid).display === 'grid') return; } catch (e) { /* no-op */ }
 
         var cards = Array.prototype.slice.call(grid.querySelectorAll('.svcCard'));
         if (!cards.length) {
@@ -2574,28 +2624,15 @@
     section[data-services] .body-lead{ font-size: clamp(17px, 2.6vw, 22px); }
 
     section[data-services] .svcGrid{
-      display:flex;
-      gap:clamp(20px,4vw,40px);
-      overflow-x:auto;
-      width:100vw;
-      max-width:none;
-      box-sizing:border-box;
-      margin-left:calc(50% - 50vw);
-      margin-right:calc(50% - 50vw);
-      /* top | right | bottom | left (left aligns under title) */
-      padding:clamp(12px,2vw,20px) clamp(20px,4vw,40px) clamp(24px,3vw,36px) calc((100vw - var(--max)) / 2 + var(--pad));
+      display:grid;
+      gap:clamp(16px, 2.8vw, 24px);
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
       align-items:stretch;
-      /* fully manual scrolling */
-      scroll-snap-type:none;
-      /* no programmatic easing; rely on native inertia */
-      /* scroll-behavior: auto; */
-      -webkit-overflow-scrolling:touch;
-      touch-action: auto; /* allow vertical scroll to pass through */
-      overscroll-behavior-x: contain;
-      overscroll-behavior-y: auto;
-      scrollbar-width:thin;
-      scrollbar-color:rgba(102,199,232,.6) rgba(15,32,56,.4);
-      position:relative;
+      width:100%;
+      max-width:var(--max);
+      margin:0;
+      padding:0;
+      overflow:visible;
     }
 
     /* (hint removed per request) */
@@ -2720,9 +2757,8 @@
       display:flex;
       flex-direction:column;
       gap:clamp(12px,2vw,18px);
-      flex:0 0 clamp(280px,40vw,480px);
-      min-width:clamp(280px,40vw,480px);
-      padding:clamp(22px,2.6vw,30px);
+      /* width constraints removed for grid layout */
+      padding:clamp(16px,2vw,22px);
       border-radius:20px;
       border:1px solid #1b2d46;
       text-decoration:none;
@@ -2736,8 +2772,6 @@
       overflow:hidden;
       isolation:isolate;
       transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
-      scroll-snap-align:center;
-      scroll-snap-stop:always;
     }
 
     section[data-services] .svcCard::before{ content:none; }
@@ -2753,7 +2787,7 @@
 
     section[data-services] .svcCard__icon{
       display:block;
-      width:clamp(48px, 6vw, 60px);
+      width:clamp(40px, 5vw, 52px);
       height:auto;
       filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
     }
@@ -2834,25 +2868,15 @@
 
     @media (max-width: 1080px){
       section[data-services] .svcGrid{
-        gap:clamp(18px,5vw,32px);
-        padding-left:calc((100vw - var(--max)) / 2 + var(--pad));
-        padding-right:clamp(28px,10vw,88px);
-      }
-      section[data-services] .svcCard{
-        flex-basis:clamp(260px,56vw,420px);
-        min-width:clamp(260px,56vw,420px);
+        gap:clamp(16px,5vw,28px);
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        padding-left:0;
+        padding-right:0;
       }
     }
 
     @media (max-width: 640px){
-      section[data-services] .svcGrid{
-        padding-left:calc((100vw - var(--max)) / 2 + var(--pad));
-        padding-right:clamp(20px,16vw,68px);
-      }
-      section[data-services] .svcCard{
-        flex-basis:clamp(240px,86vw,360px);
-        min-width:clamp(240px,86vw,360px);
-      }
+      section[data-services] .svcGrid{ grid-template-columns: 1fr; padding-left:0; padding-right:0; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -3568,7 +3592,7 @@
 
     <div class="diff__twoCol">
       <!-- Left: stacked cards like the IT Gaps section -->
-      <div class="diffCards" role="list" x-data="{ activeIdx: null }">
+      <div class="diffCards" role="list" x-data="{ activeIdx: 1 }">
       {% for item in diffFeatures %}
       <div class="relative z-10">
         <button
@@ -3577,16 +3601,16 @@
           :class="activeIdx === {{ loop.index }} ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'diff__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
           style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
         >
-          <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIdx === {{ loop.index }} ? 'pb-0' : 'pb-4 sm:pb-6'">
-            <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div class="flex items-center justify-between pt-4 sm:pt-6" :class="activeIdx === {{ loop.index }} ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+            <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">{{ item.heading }}</h3>
             </div>
             <!-- Arrow when open -->
-            <svg x-show="activeIdx === {{ loop.index }}" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg x-show="activeIdx === {{ loop.index }}" class="flex-shrink-0 accIcon accIcon--open" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <!-- Accordion icon when closed -->
-            <svg x-show="activeIdx !== {{ loop.index }}" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg x-show="activeIdx !== {{ loop.index }}" class="flex-shrink-0 accIcon accIcon--bars" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
               <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
               <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
@@ -3597,7 +3621,7 @@
             x-transition:enter="transition ease-out duration-500"
             x-transition:enter-start="opacity-0 transform translate-y-4"
             x-transition:enter-end="opacity-100 transform translate-y-0"
-            class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
+            class="bg-teal-600 rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
           >
             <p class="text-lg sm:text-xl font-light">{{ item.description }}</p>
           </div>
@@ -3649,11 +3673,18 @@
       width:100%;
       text-wrap:balance;
     }
+    /* Limit the title width in Why L3 so it doesn't crowd the accordion (desktop) */
+    @media (min-width: 981px){
+      [data-diff="features"] .diff__title{ max-width:26ch; }
+    }
 
     /* Two-column layout uniform with IT Gaps: equal columns */
-    .diff__twoCol{ display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(24px,4vw,40px); align-items:start; }
+    .diff__twoCol{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); column-gap:clamp(24px,4vw,40px); align-items:start; }
     /* Tighter vertical gaps between cards (like IT Gaps) */
     .diffCards{ display:grid; grid-template-columns:1fr; gap:clamp(6px, 1.2vh, 10px); align-items:stretch; }
+    /* Final normalization: ensure both sections render arrows identically */
+    /* Make accordion triggers obviously clickable */
+    [data-diff="features"] .diffCards button{ cursor:pointer; }
     /* Equal height per row so items align cleanly in the grid */
     [data-diff="features"] .diffCards > div{ height:100%; display:flex; }
     [data-diff="features"] .diffCards > div > button{
@@ -3667,11 +3698,17 @@
     /* Ensure long words and titles wrap cleanly inside accordion cards */
     [data-diff="features"] .accordionTitle{
       margin:0;
-      line-height:1.2;
+      line-height:1.15; /* match IT Gaps */
       overflow-wrap:anywhere;
       word-break:break-word;
       color:#ffffff;
+      display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
     }
+    /* Reserve space for right icon so headings never overlap: grid with fixed icon column */
+    [data-diff="features"] .diffCards button > div{
+      display:grid; grid-template-columns:1fr auto; column-gap:clamp(12px,2vw,18px); align-items:center;
+    }
+    [data-diff="features"] .diffCards button > div > div:first-child{ min-width:0; }
     /* Open state: make title black when the card is active */
     [data-diff="features"] .bg-teal-500 .accordionTitle{
       color:#000000 !important;
