@@ -625,15 +625,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     })();
   </script>
 
-  <!-- Ensure home loads at the top; prevent any initial scroll jump -->
-  <script>
-    (function(){
-      try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch (e) {}
-      function toTop(){ try { window.scrollTo(0,0); } catch(e){} }
-      window.addEventListener('load', toTop, { once:true });
-      window.addEventListener('pageshow', function(evt){ if (evt && evt.persisted) toTop(); });
-    })();
-  </script>
+  <!-- Remove forced scroll-to-top to prevent jumping on scroll -->
 
   <!-- One robust init script for both typers (scoped & defensive) -->
   <script>
