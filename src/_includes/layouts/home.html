@@ -3,7 +3,8 @@
 
 <!-- Inline-styled wrapper with design tokens -->
 <div style="
-  --max:min(1360px, 96vw); --pad:16px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
+  /* Slightly wider overall content width */
+  --max:min(1200px, 94vw); --pad:14px; --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.25);
   /* Apply brand palette tokens */
   --bg:#061021; /* match surface-1 for seamless handoff */
   --ink:#F8FAFC; /* ink */
@@ -271,7 +272,7 @@
   <div class="section-shell" style="position:relative; z-index:1;">
 
     <div class="heroHighlights"
-         style="display:grid; gap:clamp(16px,2.6vw,22px); max-width:var(--max);">
+         style="display:grid; gap:clamp(12px,2vw,18px); justify-content:center; max-width:var(--max);">
       <article class="heroHighlight">
         <h3 class="heroHighlight__title">Tailored Solutions</h3>
         <p class="heroHighlight__body">
@@ -344,7 +345,8 @@
       margin-inline:auto;
       margin-top:0;
       padding-bottom:0;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(3, minmax(260px, 360px));
+      justify-content:center; /* center the fixed-width columns */
     }
 
     [data-hero-highlights] .heroHighlight{
@@ -808,12 +810,7 @@
           </li>
         </ul>
 
-        <div class="problemFlat__ctas">
-          <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="problemFlat__cta problemFlat__cta--primary">
-            See How Elevate Solves This
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="See How Elevate Solves This">
-          </a>
-        </div>
+        <!-- CTA moved to right column below the image on desktop -->
       </section>
 
       <!-- RIGHT: supporting stock photo (desktop) -->
@@ -822,6 +819,12 @@
           <img loading="lazy" src="https://media.licdn.com/dms/image/v2/D5612AQHXspWvuFkPXw/article-cover_image-shrink_720_1280/B56ZjNBDwmHcAI-/0/1755786265302?e=2147483647&amp;v=beta&amp;t=IdX5IHhO8HqEx6mNEsA802CJ3MhwsSo_-O7Sy1tZ82c" alt="Home office scene with laptop and tablet showing analytics and warning indicators" />
           <figcaption class="sr-only">Home office scene with analytics and warning indicators</figcaption>
         </figure>
+        <div class="problemFlat__ctas" style="margin-top:clamp(12px, 2vh, 20px);">
+          <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="problemFlat__cta problemFlat__cta--primary">
+            See How Elevate Solves This
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="See How Elevate Solves This">
+          </a>
+        </div>
       </aside>
 
     </div>
@@ -838,8 +841,9 @@
     }
 
     [data-problem="flat"] .problemFlat__wrap{
-      --max: min(1360px, 96vw);
-      --pad: clamp(16px, 3vw, 24px);
+      /* Slightly wider content width for IT Gaps section */
+      --max: min(1200px, 94vw);
+      --pad: clamp(14px, 2.8vw, 22px);
     }
 
     [data-problem="flat"] .problemFlat__grid{
@@ -1124,28 +1128,22 @@
     /* Desktop: left-aligned cards, stock photo on right */
     @media (min-width: 981px){
       [data-problem="flat"] .problemFlat__grid{
-        /* Slightly reduce card width, increase image width */
-        grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+        /* Uniform two-column layout: accordion left, image+CTA right */
+        grid-template-columns:1fr 1fr;
         column-gap:clamp(24px,4vw,40px);
-        align-items:stretch; /* equalize columns' heights */
+        align-items:start; /* do not stretch columns */
       }
       /* Remove top offset so first card aligns with image top */
       [data-problem="flat"] .problemFlat__list{ margin-top:0; }
-      [data-problem="flat"] .problemFlat__aside{ display:block; }
-      /* Let the image match the card stack height */
-      [data-problem="flat"] .problemFlat__aside{ display:flex; align-items:stretch; }
-      [data-problem="flat"] .problemFlat__media{ height:100%; display:flex; align-items:stretch; align-self:stretch; margin:0; width:100%; }
-      [data-problem="flat"] .problemFlat__media img{ height:100%; max-height:none; object-fit:cover; object-position:50% 50%; }
-      /* Ensure the left column fills the row height, and the last card bottoms align */
-      [data-problem="flat"] .problemFlat__copy{ position:relative; height:100%; display:flex; flex-direction:column; }
-      [data-problem="flat"] .problemFlat__group{ flex:1 1 auto; display:flex; flex-direction:column; justify-content:space-between; }
-      [data-problem="flat"] .problemFlat__group > .relative{ flex:0 0 auto; }
-      /* Take CTAs out of the flow (below the column) so image bottom aligns to last card bottom */
-      [data-problem="flat"] .problemFlat__ctas{
-        position:absolute; left:0; bottom:0;
-        transform:translateY(calc(100% + clamp(18px, 3vh, 32px)));
-        margin-top:0 !important;
-      }
+      /* Image: natural height; stack CTA below in a tidy vertical grid */
+      [data-problem="flat"] .problemFlat__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px, 2vh, 20px); align-content:start; }
+      [data-problem="flat"] .problemFlat__media{ height:auto; display:block; margin:0; width:100%; }
+      [data-problem="flat"] .problemFlat__media img{ width:100%; height:auto; aspect-ratio: 16 / 10; object-fit:cover; object-position:50% 50%; border-radius:16px; }
+      /* Left column can be natural height; keep layout tidy */
+      [data-problem="flat"] .problemFlat__copy{ position:relative; height:auto; display:flex; flex-direction:column; }
+      [data-problem="flat"] .problemFlat__group{ display:grid; gap:clamp(6px, 1.2vh, 10px); }
+      /* CTA sits below image in right column */
+      [data-problem="flat"] .problemFlat__ctas{ position:static; transform:none; margin-top:clamp(12px, 2vh, 20px); display:flex; justify-content:flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1416,11 +1414,18 @@
         </div>
       </div>
 
-      <!-- Right: Animated illustration -->
-      <div class="flex justify-end">
+      <!-- Right: Image with CTA stacked (desktop) -->
+      <div class="kfE__right">
         <!-- Stock photo (visible) -->
-        <div class="kfE__media flex justify-end">
+        <div class="kfE__media">
           <img src="https://partners.wsj.com/workday/responsible-and-innovative-ai/wp-content/uploads/sites/1134/2023/09/Workday_Article02_AIBusiness_1600x930-01.jpeg" alt="IT team collaborating in a modern workspace" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover">
+        </div>
+        <!-- CTA under image on desktop -->
+        <div class="kfE__rightCtaWrap">
+          <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="kfE__rightCta">
+            Start Your Elevate Plan
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Start Your Elevate Plan">
+          </a>
         </div>
         <section data-infra-anim class="relative flex flex-col items-end justify-center text-right">
           <div class="replayWrap" style="position:absolute; left:0; right:0; top:-48px; display:grid; justify-items:center; pointer-events:none; z-index:10;">
@@ -1653,8 +1658,9 @@
   <style>
     /* ===== Elite style (scoped) ===== */
     [data-kf="elite"]{
-      --max: min(1360px, 96vw);
-      --pad: clamp(16px, 3vw, 24px);
+      /* Slightly wider content width for Why L3 section */
+      --max: min(1200px, 94vw);
+      --pad: clamp(14px, 2.8vw, 22px);
       --bg: #061021;
       --ink: #e8eef5;
       --muted:#9fb0c3;
@@ -1919,6 +1925,17 @@
     }
 
     .kfE__cta{ display:flex; justify-content:flex-start; margin-top: clamp(24px, 3vh, 32px); }
+    /* Right-column CTA under image: match button style used elsewhere */
+    .kfE__rightCtaWrap{ display:flex; justify-content:flex-start; margin-top:clamp(14px, 2vh, 24px); }
+    .kfE__rightCta{
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:1rem 1.35rem; font-weight:600; font-size:clamp(14px,1.9vw,17px);
+      text-decoration:none; border-radius:999px;
+      transition:transform .18s ease, filter .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
+      color:#fff; background:var(--brand);
+    }
+    .kfE__rightCta img{ height:18px; filter:none; }
+    .kfE__rightCta:is(:hover,:focus-visible){ transform:translateY(-1px) scale(1.02); filter:brightness(1.03); }
     /* Hide animation here after moving it to CTA */
     [data-kf="elite"] [data-infra-anim]{ display:none !important; }
 
@@ -1934,17 +1951,24 @@
       .kfE__media img{ height:clamp(260px, 52vh, 420px); }
       .kfE__p{ max-width: unset; }
       .kfE__partnersHeading{ text-align:left; }
+      .kfE__rightCtaWrap{ display:none; }
+      .kfE__cta{ display:flex; justify-content:flex-start; }
     }
 
-    /* Desktop two-column grid aligned with section above (cards wider than image) */
+    /* Desktop two-column grid with image + CTA stacked on right */
     @media (min-width: 981px){
-      /* Slightly reduce card width, increase image width */
-      .kfE__twoCol{ display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr); column-gap:clamp(24px,4vw,40px); }
-      /* Ensure the media column stretches to the same height as cards */
-      [data-kf="elite"] .kfE__twoCol{ align-items:stretch; }
-      [data-kf="elite"] .kfE__twoCol > div:last-child{ display:flex; align-items:stretch; }
-      [data-kf="elite"] .kfE__media{ height:100%; display:flex; align-items:stretch; }
-      [data-kf="elite"] .kfE__media img{ height:100%; max-height:none; object-fit:cover; }
+      :root{ --kf-right-max: min(560px, 46vw); }
+      .kfE__twoCol{ display:grid; grid-template-columns:1fr auto; column-gap:clamp(24px,4vw,40px); justify-content:center; }
+      [data-kf="elite"] .kfE__twoCol{ align-items:start; }
+      /* Right column: fixed content width so it aligns neatly with carousel center */
+      .kfE__right{ display:grid; grid-template-rows:auto auto 1fr; gap:clamp(12px,2vh,20px); align-content:start; width:100%; max-width:var(--kf-right-max); }
+      .kfE__media{ display:block; }
+      .kfE__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; }
+      /* Left-align CTA under the image for consistent alignment */
+      .kfE__rightCtaWrap{ display:flex; justify-content:flex-start; }
+      .kfE__rightCta img{ height:18px; }
+      /* Hide original bottom CTA on desktop */
+      .kfE__cta{ display:none; }
     }
 
     /* reduced motion */
@@ -2357,13 +2381,18 @@
 
     /* Elevate frame — teal outline (non-glow) */
     section[data-how="elevate"] .howE__frame{
-      border:2px solid rgba(102,199,232,.38);
+      border:2px solid rgba(102,199,232,.34);
       border-radius:28px;
       /* add a bit more breathing room inside the outline */
       /* more padding above/below than left/right */
       padding:clamp(36px, 8vw, 72px) clamp(28px, 6.5vw, 56px);
       background:linear-gradient(180deg, rgba(12,26,48,.20) 0%, rgba(12,26,48,.10) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+      /* subtle teal glow shadow outside only (no inner-card glow) */
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 0 0 1px rgba(102,199,232,.14),
+        0 18px 48px rgba(102,199,232,.08),
+        0 0 28px rgba(102,199,232,.08);
       position:relative;
       z-index:1;
     }
@@ -2429,7 +2458,7 @@
       border:1px solid #1B2D46;
       box-shadow:none;
       isolation:isolate;
-      transition:transform .28s ease, border-color .28s ease, background .28s ease;
+      transition:none; /* no hover animation on inner cards */
     }
 
     section[data-how="elevate"] .howE__card--open{
@@ -2439,10 +2468,10 @@
     }
 
     section[data-how="elevate"] .howE__card:hover{
-      transform:translateY(-2px) scale(1.005);
-      border-color:rgba(102,199,232,.35);
+      transform:none;
+      border-color:#1B2D46; /* keep base border on hover */
       box-shadow:none;
-      background:linear-gradient(210deg, #0B1D33 0%, #122A45 55%, #06111F 100%);
+      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
     }
 
     /* Accessible, non-glow focus treatment */
@@ -2456,11 +2485,7 @@
     }
 
     section[data-how="elevate"] .howE__card button{
-      transition:transform .45s cubic-bezier(.4,0,.2,1);
-    }
-
-    section[data-how="elevate"] .howE__card button:hover{
-      transform:scale(1.02);
+      transition:none;
     }
 
     section[data-how="elevate"] .howE__card button:focus-visible{
@@ -3581,12 +3606,18 @@
       {% endfor %}
       </div>
 
-      <!-- Right: supporting placeholder image -->
+      <!-- Right: supporting image + CTA stacked -->
       <aside class="diff__aside">
         <figure class="diff__media">
           <img src="https://t4.ftcdn.net/jpg/15/65/73/21/360_F_1565732179_iKDCmWx1xQCWlyiZLNbubrqKV6t4nzVg.jpg" alt="Why L3 Networks illustrative image" loading="lazy" />
           <figcaption class="sr-only">Illustrative image for Why L3 Networks is Different</figcaption>
         </figure>
+        <div class="diff__ctaWrap">
+          <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="diff__cta">
+            Start Your Elevate Plan
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Start Your Elevate Plan">
+          </a>
+        </div>
       </aside>
     </div>
   </div>
@@ -3619,8 +3650,8 @@
       text-wrap:balance;
     }
 
-    /* Two-column layout to match IT Gaps */
-    .diff__twoCol{ display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr); column-gap:clamp(24px,4vw,40px); align-items:stretch; }
+    /* Two-column layout uniform with IT Gaps: equal columns */
+    .diff__twoCol{ display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(24px,4vw,40px); align-items:start; }
     /* Tighter vertical gaps between cards (like IT Gaps) */
     .diffCards{ display:grid; grid-template-columns:1fr; gap:clamp(6px, 1.2vh, 10px); align-items:stretch; }
     /* Equal height per row so items align cleanly in the grid */
@@ -3666,9 +3697,25 @@
       color:#e2e8f0;
       box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
     }
-    .diff__aside{ display:block; }
-    .diff__media{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:flex; align-items:stretch; position:relative; }
-    .diff__media img{ width:100%; height:clamp(360px, 56vh, 560px); object-fit:cover; display:block; filter:saturate(1.04) contrast(1.02); }
+    .diff__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px,2vh,20px); align-content:start; }
+    .diff__media{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:block; position:relative; }
+    .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; display:block; filter:saturate(1.04) contrast(1.02); }
+    .diff__ctaWrap{ display:flex; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:14px; margin-top:clamp(12px,2vh,20px); }
+    .diff__cta{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:1rem 1.35rem;
+      font-weight:600;
+      font-size:clamp(14px,1.9vw,17px);
+      text-decoration:none;
+      border-radius:999px;
+      transition:transform .18s ease, filter .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease;
+      color:#fff;
+      background:var(--brand);
+    }
+    .diff__cta img{ height:18px; filter:none; }
+    .diff__cta:is(:hover,:focus-visible){ transform:translateY(-1px) scale(1.02); filter:brightness(1.03); }
     /* Teal-ish gradient overlay tint on the image (like IT Gaps) */
     .diff__media::after{
       content:""; position:absolute; inset:0; pointer-events:none;
@@ -3685,9 +3732,9 @@
 
     /* Desktop: align image height with card stack like IT Gaps */
     @media (min-width: 981px){
-      .diff__aside{ display:flex; align-items:stretch; }
-      .diff__media{ height:100%; display:flex; align-items:stretch; align-self:stretch; margin:0; width:100%; }
-      .diff__media img{ height:100%; max-height:none; object-fit:cover; object-position:50% 50%; }
+      .diff__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px,2vh,20px); align-content:start; }
+      .diff__media{ height:auto; display:block; margin:0; width:100%; }
+      .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:50% 50%; }
     }
 
     /* legacy diffCard styles no longer used after accordion conversion */
