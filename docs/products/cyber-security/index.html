@@ -242,6 +242,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     role="region"
     aria-label="Solutions menu"
   >
+    <style>
+      /* Make the Explore Elevate button fully teal inside the header menu */
+      #mega-solutions a[data-cta="primary"]{
+        background: var(--brand) !important;
+        color:#fff !important;
+        border:none;
+      }
+      #mega-solutions a[data-cta="primary"] img{ height:18px; filter:none; }
+      #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){ filter:brightness(1.03); }
+    </style>
     
 
     <!-- Full-width Elevate CTA above grid -->
@@ -660,7 +670,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
 
         
-        <h3 class="securityPressures__cardTitle heading-md">Constant <span class="sp__titleTeal">cyber threats</span> and compliance mandates overwhelm in-house IT teams</h3>
+        <h3 class="securityPressures__cardTitle">Constant <span style="font-weight:600;">cyber threats</span> and compliance mandates overwhelm in-house IT teams</h3>
         
         
       </article>
@@ -674,7 +684,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
 
         
-        <h3 class="securityPressures__cardTitle heading-md">Risk of <span class="sp__titleTeal">breaches</span> and reputational <span class="sp__titleTeal">damage</span></h3>
+        <h3 class="securityPressures__cardTitle">Risk of <span style="font-weight:600;">breaches</span> and reputational <span style="font-weight:600;">damage</span></h3>
         
         
       </article>
@@ -688,7 +698,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
 
         
-        <h3 class="securityPressures__cardTitle heading-md">Stretched resources focused on <span class="sp__titleTeal">firefighting</span> instead of strategy</h3>
+        <h3 class="securityPressures__cardTitle">Stretched resources focused on <span style="font-weight:600;">firefighting</span> instead of strategy</h3>
         
         
       </article>
@@ -794,17 +804,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       align-items:center;
       text-align:center;
       gap:clamp(12px,1.8vh,18px);
-      transition:none; /* remove hover animation */
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; /* restore hover animation */
       overflow:hidden;
       isolation:isolate;
     }
 
     [data-security-pressures] .securityPressures__card:hover,
     [data-security-pressures] .securityPressures__card:focus-within{
-      /* No visual change on hover/focus */
-      transform:none;
-      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
-      border-color:#1b2d46;
+      transform:translateY(-6px);
+      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+      border-color:rgba(180,210,240,.34);
     }
 
     [data-security-pressures] .securityPressures__card > *{ position:relative; z-index:1; }
@@ -847,15 +856,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     [data-security-pressures] .securityPressures__cardTitle{
       margin:0;
       /* Match services paragraph typography */
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
       font-weight:300; /* match page body text weight */
       font-size:clamp(16px, 2.4vw, 20px); /* match page body scale */
       line-height:1.65;
-      color:rgba(226,232,240,.86);
+      /* Match home highlight body color */
+      color:rgba(214,224,236,.9);
       letter-spacing:0; /* reset heading tracking */
       text-wrap:pretty;
       display:block; /* do not use flex so wrapping behaves naturally */
-      text-align:center;
+      text-align:center; /* center the copy per request */
       white-space:normal;
       word-break:normal;
       min-height:clamp(52px,7vh,92px);
@@ -2055,7 +2065,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           min-height:clamp(260px,32vh,320px);
           color:#e2e8f0;
           isolation:isolate;
-          transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+          transition:none; /* remove hover animation */
         }
         .l3-kpi-cards .card .proofCard__title,
         .l3-kpi-cards .card .proofCard__subtitle,
@@ -2066,9 +2076,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
         .l3-kpi-cards .card:hover,
         .l3-kpi-cards .card:focus-visible{
-          border-color:rgba(180,210,240,.34);
-          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-          transform:translate3d(0,-6px,0);
+          /* No visual change on hover/focus */
+          border-color:#1b2d46;
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+          transform:none;
         }
 
         .l3-kpi-cards .kpi{
@@ -2427,7 +2438,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
           linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
           box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;text-decoration:none;}
-        .caseStudiesCard:hover{transform:translateY(-6px);border-color:rgba(45,212,191,0.45);box-shadow:0 30px 70px rgba(13,148,136,0.35);}
+        /* Remove glow/lift on hover for success stories cards */
+        .caseStudiesCard:hover,
+        .caseStudiesCard:focus-within{
+          transform:none;
+          border-color:#1b2d46;
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+        }
         .caseStudiesCard__eyebrow{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;font-weight:600;color:rgba(94,234,212,0.85);}
         .caseStudiesCard__title{font-size:clamp(20px,2.2vw,24px);font-weight:600;line-height:1.35;color:#f8fafc;}
         .caseStudiesCard__description{font-size:clamp(14px,1.9vw,16px);line-height:1.65;color:rgba(226,232,240,0.85);font-weight:300;}

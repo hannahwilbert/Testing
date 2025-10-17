@@ -245,6 +245,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     role="region"
     aria-label="Solutions menu"
   >
+    <style>
+      /* Make the Explore Elevate button fully teal inside the header menu */
+      #mega-solutions a[data-cta="primary"]{
+        background: var(--brand) !important;
+        color:#fff !important;
+        border:none;
+      }
+      #mega-solutions a[data-cta="primary"] img{ height:18px; filter:none; }
+      #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){ filter:brightness(1.03); }
+    </style>
     
 
     <!-- Full-width Elevate CTA above grid -->
@@ -760,19 +770,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <article class="heroHighlight">
         <h3 class="heroHighlight__title">Tailored Solutions</h3>
         <p class="heroHighlight__body">
-          We build and manage solutions for your exact business needs to deliver on your vision.
+          We build and manage solutions for your exact business needs to <span style="font-weight:600;">deliver on your vision.</span>
         </p>
       </article>
       <article class="heroHighlight">
         <h3 class="heroHighlight__title">Expert Team</h3>
         <p class="heroHighlight__body">
-          Our culture is to foster a client relationship built on strong relationships, expertise and trust.
+          Our culture is to foster a client relationship built on <span style="font-weight:600;">strong relationships, expertise and trust.</span>
         </p>
       </article>
       <article class="heroHighlight">
         <h3 class="heroHighlight__title">Dedicated to Service</h3>
         <p class="heroHighlight__body">
-          Your vision is our success—and our 20+ years of long-term client relationships is proof.
+          Your vision is our success—and our <span style="font-weight:600;">20+ years of long-term client relationships is proof.</span>
         </p>
       </article>
     </div>

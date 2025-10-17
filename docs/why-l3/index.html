@@ -236,6 +236,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     role="region"
     aria-label="Solutions menu"
   >
+    <style>
+      /* Make the Explore Elevate button fully teal inside the header menu */
+      #mega-solutions a[data-cta="primary"]{
+        background: var(--brand) !important;
+        color:#fff !important;
+        border:none;
+      }
+      #mega-solutions a[data-cta="primary"] img{ height:18px; filter:none; }
+      #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){ filter:brightness(1.03); }
+    </style>
     
 
     <!-- Full-width Elevate CTA above grid -->

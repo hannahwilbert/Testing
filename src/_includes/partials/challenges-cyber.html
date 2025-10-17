@@ -27,15 +27,15 @@
         </div>
 
         {% if item.title %}
-        <h3 class="securityPressures__cardTitle heading-md">{{ item.title
-          | replace('Cyber Threats','<span class="sp__titleTeal">Cyber Threats</span>')
-          | replace('cyber threats','<span class="sp__titleTeal">cyber threats</span>')
-          | replace('Breaches','<span class="sp__titleTeal">Breaches</span>')
-          | replace('breaches','<span class="sp__titleTeal">breaches</span>')
-          | replace('Firefighting','<span class="sp__titleTeal">Firefighting</span>')
-          | replace('firefighting','<span class="sp__titleTeal">firefighting</span>')
-          | replace('Damage','<span class="sp__titleTeal">Damage</span>')
-          | replace('damage','<span class="sp__titleTeal">damage</span>')
+        <h3 class="securityPressures__cardTitle">{{ item.title
+          | replace('Cyber Threats','<span style="font-weight:600;">Cyber Threats</span>')
+          | replace('cyber threats','<span style="font-weight:600;">cyber threats</span>')
+          | replace('Breaches','<span style="font-weight:600;">Breaches</span>')
+          | replace('breaches','<span style="font-weight:600;">breaches</span>')
+          | replace('Firefighting','<span style="font-weight:600;">Firefighting</span>')
+          | replace('firefighting','<span style="font-weight:600;">firefighting</span>')
+          | replace('Damage','<span style="font-weight:600;">Damage</span>')
+          | replace('damage','<span style="font-weight:600;">damage</span>')
           | safe }}</h3>
         {% endif %}
         {# description intentionally omitted per request #}
@@ -142,17 +142,16 @@
       align-items:center;
       text-align:center;
       gap:clamp(12px,1.8vh,18px);
-      transition:none; /* remove hover animation */
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; /* restore hover animation */
       overflow:hidden;
       isolation:isolate;
     }
 
     [data-security-pressures] .securityPressures__card:hover,
     [data-security-pressures] .securityPressures__card:focus-within{
-      /* No visual change on hover/focus */
-      transform:none;
-      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
-      border-color:#1b2d46;
+      transform:translateY(-6px);
+      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+      border-color:rgba(180,210,240,.34);
     }
 
     [data-security-pressures] .securityPressures__card > *{ position:relative; z-index:1; }
@@ -195,15 +194,16 @@
     [data-security-pressures] .securityPressures__cardTitle{
       margin:0;
       /* Match services paragraph typography */
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
       font-weight:300; /* match page body text weight */
       font-size:clamp(16px, 2.4vw, 20px); /* match page body scale */
       line-height:1.65;
-      color:rgba(226,232,240,.86);
+      /* Match home highlight body color */
+      color:rgba(214,224,236,.9);
       letter-spacing:0; /* reset heading tracking */
       text-wrap:pretty;
       display:block; /* do not use flex so wrapping behaves naturally */
-      text-align:center;
+      text-align:center; /* center the copy per request */
       white-space:normal;
       word-break:normal;
       min-height:clamp(52px,7vh,92px);
