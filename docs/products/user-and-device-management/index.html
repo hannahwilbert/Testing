@@ -484,7 +484,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <main tabindex="-1" id="main-content">
 
 
-<section style="background:#020617;" class="relative w-full px-6 pt-36 pb-20 text-white overflow-hidden md:px-10 md:pt-40">
+<section style="background:#020617;" class="product-hero relative w-full px-6 pt-36 pb-20 text-white overflow-hidden md:px-10 md:pt-40">
   <div class="waves absolute inset-0 pointer-events-none"></div>
   <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-950/85 to-slate-900/65"></div>
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.12),_transparent_60%)]"></div>
@@ -521,7 +521,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       </div>
       
         <figure class="relative flex flex-col items-center gap-3 text-center">
-          <img src="/images/products/user-and-device-management.webp" alt="Managed device and user support illustration" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-contain">
+          <img src="/images/products/user-and-device-management.webp" alt="Managed device and user support illustration" class="relative w-full max-w-md h-auto object-contain">
           
           <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70">[placeholder image]</figcaption>
           
@@ -586,8 +586,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 <style>
   :root{
-    --page-max: min(1200px, 92vw);
-    --page-pad: clamp(18px,3vw,32px);
+    /* Match home wrapper width and comfortable padding */
+    --page-max: min(1360px, 96vw);
+    --page-pad: clamp(16px, 3vw, 24px);
+    /* Match home section vertical rhythm */
+    --section-pad-block: clamp(140px, 18vh, 240px);
+    --section-pad-tight: clamp(100px, 14vh, 180px);
   }
 
   .product-shell{
@@ -603,9 +607,26 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     margin:0 auto;
     padding:0 var(--page-pad);
   }
+  /* Section title width: about 60% of content (desktop) */
+  .product-shell .max-w-3xl{ max-width:60% !important; width:100%; }
+  /* Services section title wrapper */
+  .cyberServices__head{ max-width:60% !important; width:100%; }
+  /* On small screens, let titles span full width for readability */
+  @media (max-width: 720px){
+    .product-shell .max-w-3xl,
+    .cyberServices__head{ max-width:none !important; width:100%; }
+  }
+  /* Section titles: fixed 38px Inter */
+  .product-shell .heading-xl{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; font-size:38px !important; line-height:1.2; letter-spacing:-.01em; }
+  /* Also apply to the Cyber Pressures title included from partial */
+  [data-security-pressures] .securityPressures__title{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; font-size:38px !important; line-height:1.2; letter-spacing:-.01em; }
+  /* Teal accent for Elevate word in approach title */
+  .howTitleTeal{ color: var(--brand); }
+  /* Hero subhead under the main title */
+  .product-hero .body-lead{ font-size:clamp(17px, 2.6vw, 22px); line-height:1.65; }
 </style>
 
-<main class="py-24 text-white" style="background:transparent; background-repeat:no-repeat; background-size:100% 100%; min-height:100vh;">
+<main style="background:transparent; background-repeat:no-repeat; background-size:100% 100%; min-height:100vh;">
   
 
   
@@ -867,7 +888,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <section class="frameworkJourney">
       <div class="frameworkJourney__wrap">
         <div class="max-w-3xl space-y-4">
-          <h2 class="frameworkJourney__title heading-xl">Our Approach Through Elevate</h2>
+          <h2 class="frameworkJourney__title heading-xl">Our <span class="howTitleTeal">Approach Through</span> <span class="howTitleTeal">Elevate</span></h2>
         </div>
 
         <div class="howE__grid" role="list">
@@ -1075,7 +1096,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           position:relative;
           margin-top:-1px;
           margin-bottom:-1px;
-          padding:clamp(72px,11vh,150px) 0 clamp(96px,14vh,180px);
+          padding: var(--section-pad-block) 0;
           /* Make this section light (solutions-light background) */
           background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%);
           width:100vw;
@@ -1140,62 +1161,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
       </style>
       <script>
+        // Match home manual-scroll behavior: no dots, start flush-left
         document.addEventListener('DOMContentLoaded', function(){
-          var section = document.querySelector('section[data-cyber-services]');
-          if (!section) return;
-          var row = section.querySelector('#cyberServicesRow');
-          var dotsWrap = section.querySelector('.svcDots');
-          if (!row || !dotsWrap) return;
-          var cards = Array.prototype.slice.call(row.children).filter(function(el){ return el.classList.contains('cyberServiceCard'); });
-          if (!cards.length) return;
-
-          function buildDots(){
-            dotsWrap.innerHTML = '';
-            dotsWrap.setAttribute('role','tablist');
-            var dots = [];
-            function setActive(idx){
-              for (var i=0;i<dots.length;i++){
-                var on = i === idx;
-                dots[i].classList.toggle('is-active', on);
-                dots[i].setAttribute('aria-selected', on?'true':'false');
-                dots[i].setAttribute('tabindex', on?'0':'-1');
-              }
-            }
-            function scrollToIndex(idx, smooth){
-              var card = cards[idx]; if (!card) return;
-              row.scrollTo({ left: card.offsetLeft, behavior: (smooth===false? 'auto':'smooth') });
-              setActive(idx);
-            }
-            cards.forEach(function(_, i){
-              var b = document.createElement('button');
-              b.type = 'button'; b.className = 'svcDot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Show service '+(i+1));
-              b.addEventListener('click', function(){ scrollToIndex(i, true); });
-              dotsWrap.appendChild(b); dots.push(b);
-            });
-
-            // init flush-left
-            row.scrollLeft = cards[0].offsetLeft;
-            setActive(0);
-
-            // update on scroll
-            var ticking = false;
-            row.addEventListener('scroll', function(){
-              if (ticking) return; ticking = true;
-              requestAnimationFrame(function(){
-                var sl = row.scrollLeft, idx = 0, min = Infinity;
-                for (var i=0;i<cards.length;i++){
-                  var d = Math.abs(sl - cards[i].offsetLeft);
-                  if (d < min){ min = d; idx = i; }
-                }
-                setActive(idx);
-                ticking = false;
-              });
-            }, { passive:true });
-
-            function updateDotsVis(){ dotsWrap.style.display = (row.scrollWidth > row.clientWidth + 4) ? 'flex' : 'none'; }
-            updateDotsVis(); window.addEventListener('resize', updateDotsVis);
-          }
-          buildDots();
+          var row = document.querySelector('section[data-cyber-services] #cyberServicesRow');
+          if (!row) return;
+          try { row.scrollLeft = 0; } catch(e){}
         });
       </script>
       <script>
@@ -1330,37 +1300,72 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         
         <div class="cyberServices__row" id="cyberServicesRow" role="list">
           
+          
+          
+          
+          
+          
+          
+          
           <article class="cyberServiceCard" role="listitem">
+            <h3 class="cyberServiceCard__title heading-md">Desktop Infrastructure</h3>
             <div class="cyberServiceCard__body">
-              <h3 class="cyberServiceCard__title heading-md">Desktop Infrastructure</h3>
               <p class="cyberServiceCard__text body-text">Reliable, Secure, and Scalable Desktops — Your team needs dependable technology to stay productive. Our desktop infrastructure solutions ensure seamless performance, robust security, and scalability to grow with your business.</p>
             </div>
           </article>
           
+          
+          
+          
+          
+          
+          
+          
           <article class="cyberServiceCard" role="listitem">
+            <h3 class="cyberServiceCard__title heading-md">End User Helpdesk</h3>
             <div class="cyberServiceCard__body">
-              <h3 class="cyberServiceCard__title heading-md">End User Helpdesk</h3>
               <p class="cyberServiceCard__text body-text">Fast, Friendly, and Expert IT Support — Downtime is costly. Our end user helpdesk provides 24/7 support to resolve issues quickly, keeping your team productive and your operations running smoothly.</p>
             </div>
           </article>
           
+          
+          
+          
+          
+          
+          
+          
           <article class="cyberServiceCard" role="listitem">
+            <h3 class="cyberServiceCard__title heading-md">Enterprise Mobility Management</h3>
             <div class="cyberServiceCard__body">
-              <h3 class="cyberServiceCard__title heading-md">Enterprise Mobility Management</h3>
               <p class="cyberServiceCard__text body-text">Secure and Manage Mobile Devices — Mobile devices are essential but vulnerable. Our enterprise mobility management solutions secure your devices, apps, and data, enabling productivity without compromising security.</p>
             </div>
           </article>
           
+          
+          
+          
+          
+          
+          
+          
           <article class="cyberServiceCard" role="listitem">
+            <h3 class="cyberServiceCard__title heading-md">Identity &amp; Access Management (IAM)</h3>
             <div class="cyberServiceCard__body">
-              <h3 class="cyberServiceCard__title heading-md">Identity &amp; Access Management (IAM)</h3>
               <p class="cyberServiceCard__text body-text">Control Access, Protect Data — Unauthorized access can lead to disaster. Our IAM solutions ensure only the right people have access to your systems, safeguarding your critical data and resources.</p>
             </div>
           </article>
           
+          
+          
+          
+          
+          
+          
+          
           <article class="cyberServiceCard" role="listitem">
+            <h3 class="cyberServiceCard__title heading-md">Subscription &amp; Patch Management</h3>
             <div class="cyberServiceCard__body">
-              <h3 class="cyberServiceCard__title heading-md">Subscription &amp; Patch Management</h3>
               <p class="cyberServiceCard__text body-text">Keep Software Updated and Secure — Outdated software is a security risk. We automate subscription and patch management to ensure your systems are always up-to-date and protected against vulnerabilities.</p>
             </div>
           </article>
@@ -1377,13 +1382,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           margin-right:calc(50% - 50vw);
           margin-top:-2px;
           margin-bottom:-2px;
-          padding:clamp(90px,14vh,160px) clamp(28px,4.6vw,44px) clamp(100px,15vh,176px);
-          background:linear-gradient(180deg,#010101 0%,#021121 100%);
+          /* Use symmetric horizontal padding; align header via inner container */
+          padding: var(--section-pad-block) 0;
+          /* Solid dark background (no gradient) */
+          background: var(--surface-0, #000000);
+          background-color: var(--surface-0, #000000);
         }
 
         .cyberServices{
           max-width:var(--page-max);
           margin:0 auto;
+          /* Inner container provides standard page padding for header alignment */
           padding:0 var(--page-pad);
           display:grid;
           gap:clamp(28px,5vh,56px);
@@ -1394,13 +1403,30 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         .cyberServices__head{
           display:grid;
           gap:clamp(10px,1.8vh,16px);
-          max-width:760px;
+          max-width:none;
+          width:100%;
         }
 
         .cyberServices__title{
           margin:0;
           color:#f8fafc;
           text-wrap:balance;
+        }
+
+        .cyberServiceCard__header{
+          display:flex;
+          flex-direction:column; /* stack like home services cards */
+          align-items:flex-start;
+          justify-content:flex-start;
+          gap:clamp(12px, 2vw, 18px);
+          margin:0;
+        }
+        .cyberServiceCard__icon{
+          display:block;
+          width:clamp(48px, 6vw, 60px); /* match home svcCard icon sizing */
+          height:auto;
+          filter:drop-shadow(0 12px 30px rgba(0,187,167,.28));
+          flex:0 0 auto;
         }
 
         .cyberServices__grid{
@@ -1415,15 +1441,46 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         .cyberServiceCard{
           position:relative;
           display:grid;
-          gap:clamp(10px,1.6vh,14px);
-          padding:clamp(24px,3.2vw,32px) clamp(24px,3.2vw,32px) clamp(26px,3.4vw,34px);
-          border-radius:22px;
+          gap:clamp(12px, 2vw, 20px); /* match hero highlight spacing */
+          padding:clamp(24px, 3.2vw, 34px);
+          border-radius:24px; /* match hero highlight */
           border:1px solid #1b2d46;
-          background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+          /* Match hero highlight card surface */
+          background:
+            /* subtle cyan/blue tint to enhance blue */
+            radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+            linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+            /* base highlight layers */
+            linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+            linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+            linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
           overflow:hidden;
-          transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+          transition:none; /* remove hover animation */
           isolation:isolate;
+        }
+        /* Decorative sheens like hero highlight cards */
+        .cyberServiceCard::before,
+        .cyberServiceCard::after{
+          content:"";
+          position:absolute;
+          inset:0;
+          pointer-events:none;
+          transition:opacity .35s ease, transform .35s ease;
+        }
+        .cyberServiceCard::before{
+          inset:-60% 24% 40% -30%;
+          background:linear-gradient(120deg, rgba(0,0,0,.04) 0%, rgba(0,0,0,0) 70%);
+          opacity:.04;
+          transform:rotate(-6deg);
+          filter:blur(18px);
+        }
+        .cyberServiceCard::after{
+          inset:54% -32% -120% 28%;
+          background: linear-gradient(212deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,0) 68%);
+          opacity:.06;
+          transform:rotate(2deg);
+          filter:blur(14px);
         }
         /* icon removed */
 
@@ -1436,13 +1493,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           width:100vw;
           max-width:none;
           box-sizing:border-box;
-          margin-left:calc((100vw - 100%)/-2);
-          margin-right:calc((100vw - 100%)/-2);
-          padding:clamp(12px,2vw,20px) clamp(36px,7vw,120px) clamp(24px,3vw,36px);
+          margin-left:calc(50% - 50vw);
+          margin-right:calc(50% - 50vw);
+          /* top | right | bottom | left (left aligns under title like home) */
+          padding:clamp(12px,2vw,20px) clamp(20px,4vw,40px) clamp(24px,3vw,36px) calc((100vw - var(--page-max)) / 2 + var(--page-pad));
           align-items:stretch;
-          scroll-snap-type:x proximity;
-          scroll-behavior:smooth;
-          scroll-padding-inline:clamp(36px,7vw,120px);
+          /* fully manual scrolling like home */
+          scroll-snap-type:none;
           -webkit-overflow-scrolling:touch;
           touch-action:auto;
           overscroll-behavior-x:contain;
@@ -1451,10 +1508,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           scrollbar-color:rgba(102,199,232,.6) rgba(15,32,56,.4);
         }
         .cyberServices__row::before,
-        .cyberServices__row::after{
-          content:"";
-          flex:0 0 calc((100% - clamp(280px,40vw,480px)) / 2);
-        }
+        .cyberServices__row::after{ content:none; flex:0 0 0; }
         .cyberServices__row::-webkit-scrollbar{ height:8px; }
         .cyberServices__row::-webkit-scrollbar-track{ background:rgba(7,15,26,.6); border-radius:999px; }
         .cyberServices__row::-webkit-scrollbar-thumb{
@@ -1465,16 +1519,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         .cyberServices__row .cyberServiceCard{
           display:flex;
           flex-direction:column;
-          justify-content:space-between;
+          justify-content:flex-start; /* no icon/header; keep natural spacing */
           flex:0 0 clamp(280px,40vw,480px);
           scroll-snap-align:start;
         }
         /* Dots under the row */
-        [data-cyber-services] .svcDots{
-          display:flex; justify-content:center; align-items:center;
-          gap:clamp(8px, 1vw, 14px); padding-top:12px;
-          -webkit-tap-highlight-color: transparent;
-        }
+        /* Hide dots; behavior matches home manual scroll */
+        [data-cyber-services] .svcDots{ display:none !important; }
         [data-cyber-services] .svcDot{
           width:clamp(10px, 1.2vw, 14px); height:clamp(10px, 1.2vw, 14px);
           border-radius:999px; cursor:pointer;
@@ -1498,24 +1549,48 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           position:relative;
           z-index:1;
           display:grid;
-          gap:clamp(8px,1.3vh,12px);
+          gap:clamp(10px,1.8vh,16px);
         }
 
         .cyberServiceCard__title{
           margin:0;
-          color:#f8fafc;
-          letter-spacing:-.01em;
+          color:#f8fbff; /* match hero highlight title */
+          letter-spacing:-.02em;
+          line-height:1.15;
+          font-weight:600;
         }
+        /* Remove teal underline for service titles */
 
         .cyberServiceCard__text{
-          color:rgba(226,232,240,.86);
-          line-height:1.68;
+          margin:0; /* align with hero highlight body */
+          color:rgba(214,224,236,.9);
+          font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size:clamp(16px, 2.4vw, 20px);
+          line-height:1.65;
+          font-weight:300;
+          text-wrap:pretty;
+          /* Uniform height across cards: clamp to N lines */
+          --svc-lines: 3; /* default lines to show */
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp: var(--svc-lines);
+          line-clamp: var(--svc-lines);
+          overflow:hidden;
+          text-overflow:ellipsis;
+          /* Ensure shorter blurbs still occupy equal height */
+          min-height: calc(1.65em * var(--svc-lines));
+        }
+
+        /* Allow an extra line on smaller screens for readability */
+        @media (max-width: 640px){
+          .cyberServiceCard__text{ --svc-lines: 4; }
         }
 
         .cyberServiceCard:is(:hover,:focus-within){
-          transform:translateY(-6px);
-          border-color:rgba(180,210,240,.34);
-          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
+          /* No visual change on hover */
+          transform:none;
+          border-color:#1b2d46;
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
         }
 
         @media (prefers-reduced-motion: reduce){
@@ -1554,12 +1629,20 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       </div>
       <style>
         .midCtaShell{
-          padding:clamp(36px,6vh,80px) clamp(24px,4vw,40px) clamp(48px,8vh,96px);
+          padding: var(--section-pad-tight) clamp(24px,4vw,40px) var(--section-pad-tight);
           background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%);
           width:100vw;
           margin-left:calc(50% - 50vw);
           margin-right:calc(50% - 50vw);
           overflow:visible;
+        }
+
+        /* Mid CTA body: match home subhead typography */
+        .midCtaShell .body-lead{
+          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size: clamp(17px, 2.6vw, 22px);
+          line-height: 1.65;
+          color:#ffffff;
         }
 
         .midCtaWrap{
@@ -1592,28 +1675,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           flex-direction:column;
           gap:clamp(24px,3vw,32px);
           align-items:center;
-          border-radius:clamp(24px,3vw,32px);
-          border:1px solid #1b2d46;
-          background:
-            linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
-            linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
-            linear-gradient(210deg,#10223c 0%,#081525 100%);
-          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
-          padding:clamp(28px,4vw,40px);
-          overflow:hidden;
+          border-radius:0; /* remove card look */
+          border:none;
+          background:transparent;
+          box-shadow:none;
+          padding:0;
+          overflow:visible;
           isolation:isolate;
           text-align:center;
-          transition:border-color .35s ease, box-shadow .35s ease, transform .35s ease;
+          transition:none; /* no hover animation */
         }
 
         .midCtaCard::before,
-        .midCtaCard::after{
-          content:"";
-          position:absolute;
-          inset:0;
-          pointer-events:none;
-          transition:opacity .35s ease, transform .35s ease;
-        }
+        .midCtaCard::after{ content:none; }
 
         .midCtaCard::before{
           inset:-60% 24% 40% -30%;
@@ -1639,11 +1713,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           z-index:1;
         }
 
-        .midCtaCard:is(:hover,:focus-visible){
-          border-color:rgba(180,210,240,.34);
-          box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-          transform:translate3d(0,-6px,0);
-        }
+        .midCtaCard:is(:hover,:focus-visible){ transform:none; }
 
         .midCtaActions{
           display:flex;
@@ -1702,14 +1772,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     
 
     
-    <section data-proof-kpis style="background:linear-gradient(180deg,#021527 0%,#01070f 100%); padding:clamp(78px,11vh,160px) clamp(28px,4.6vw,44px) clamp(48px,8vh,92px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-1px; margin-bottom:-2px;">
+    <section data-proof-kpis style="background: var(--surface-0, #000000); padding: var(--section-pad-block) clamp(28px,4.6vw,44px) var(--section-pad-block); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-1px; margin-bottom:-2px;">
       <div class="product-shell space-y-10">
         <div class="max-w-3xl space-y-4 text-white">
           
           <h2 class="heading-xl">Proof That Elevate Improves Workforce Experience</h2>
           
           
-          <p class="body-lead">Customer metrics that show how managed user services impact productivity and risk.</p>
+          <p class="body-lead proofIntro">Customer metrics that show how managed user services impact productivity and risk.</p>
           
         </div>
 
@@ -1864,11 +1934,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           position:relative;
           overflow:hidden;
           text-align:center;
-          background:#0a172a;
+          /* Use cyber service card background style */
+          background:
+            radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+            linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+            linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+            linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+            linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
           border:1px solid #1b2d46;
-          border-radius:22px;
+          border-radius:24px;
           padding:clamp(18px,2.6vw,26px);
-          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
           display:flex;
           flex-direction:column;
           gap:clamp(10px,1.4vh,14px);
@@ -2150,14 +2226,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     
       
     
-    <section style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); padding:clamp(64px,10vh,140px) clamp(28px,4.6vw,44px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
+    <section style="background: var(--surface-1, #061021); padding: var(--section-pad-block) clamp(28px,4.6vw,44px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
       <div class="product-shell space-y-8">
         <div class="max-w-3xl space-y-4">
           
-          <h2 class="caseStudies__title heading-xl">Explore User &amp; Device Success Stories</h2>
+          <h2 class="caseStudies__title heading-xl">Explore User & Device <span class="howTitleTeal">Success Stories</span></h2>
           
           
-          <p class="body-lead">Organizations that modernized workforce support with L3 Networks.</p>
+          <p class="body-lead csIntro">Organizations that modernized workforce support with L3 Networks.</p>
           
         </div>
 
@@ -2201,6 +2277,23 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         
       </div>
       <style>
+        /* Proof intro typography */
+        .proofIntro{
+          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size: clamp(17px, 2.6vw, 22px);
+          line-height: 1.65;
+          color:#ffffff;
+        }
+
+        /* Case studies intro: match home subhead typography */
+        .csIntro{
+          margin:clamp(6px,1.2vh,10px) 0 0; /* small space below title */
+          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size: clamp(17px, 2.6vw, 22px);
+          line-height: 1.65;
+          color:#e6edf6;
+        }
+
         .caseStudies__title{
           margin:0;
           color:#f8fafc;
@@ -2223,7 +2316,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         .caseGraph__value{font-weight:700;color:#3ba59c;font-size:clamp(14px,1.8vw,16px);}
         .caseStudiesCardGrid{display:grid;gap:clamp(16px,2.6vw,24px);}
         @media(min-width:900px){.caseStudiesCardGrid{grid-template-columns:repeat(3,minmax(0,1fr));}}
-        .caseStudiesCard{display:flex;flex-direction:column;gap:clamp(16px,2vw,20px);padding:clamp(24px,3vw,30px);border-radius:clamp(22px,3vw,28px);border:1px solid rgba(148,163,184,0.18);background:linear-gradient(160deg,rgba(15,23,42,0.78),rgba(15,23,42,0.55));box-shadow:0 24px 50px rgba(15,23,42,0.4);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;text-decoration:none;}
+        .caseStudiesCard{display:flex;flex-direction:column;gap:clamp(16px,2vw,20px);padding:clamp(24px,3vw,30px);border-radius:24px;border:1px solid #1b2d46;background:
+          radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+          linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+          linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+          linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+          linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;text-decoration:none;}
         .caseStudiesCard:hover{transform:translateY(-6px);border-color:rgba(45,212,191,0.45);box-shadow:0 30px 70px rgba(13,148,136,0.35);}
         .caseStudiesCard__eyebrow{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;font-weight:600;color:rgba(94,234,212,0.85);}
         .caseStudiesCard__title{font-size:clamp(20px,2.2vw,24px);font-weight:600;line-height:1.35;color:#f8fafc;}
@@ -2270,7 +2369,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     
 
     
-    <section style="background:linear-gradient(180deg,#041526 0%,#0f172a 100%); padding:clamp(60px,10vh,130px) clamp(28px,4.6vw,44px) clamp(68px,11vh,120px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
+    <section style="background: var(--surface-0, #000000); padding: var(--section-pad-block) clamp(28px,4.6vw,44px) var(--section-pad-block); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
       <div class="product-shell space-y-8">
         <div class="max-w-3xl space-y-4">
           
@@ -2341,11 +2440,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     
 
     
-    <!-- PROVEN RESULTS -->
+    <!-- PROVEN RESULTS (home carousel version) -->
     <article class="section-block" style="
       position:relative; overflow:hidden; isolation:isolate;
-      background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important;
-      min-height:92svh; display:flex; align-items:center;
+      background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important;
+      padding: var(--section-pad-block) 0; min-height:92svh; display:flex; align-items:center;
       width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
       margin-top:-1px; margin-bottom:-1px;
     ">
@@ -2353,7 +2452,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <div style="display:flex; align-items:flex-end; justify-content:flex-start; gap:18px; flex-wrap:wrap;">
           <div>
             <h2 class="heading-xl mb-sm">
-              Proven Results. Real Impact.
+              <span style="color:#ffffff;">Proven Results.</span> <span style="color:var(--brand);">Real Impact.</span>
             </h2>
           </div>
         </div>
@@ -2362,256 +2461,242 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           Technology challenges can be frustrating—we deliver tailored solutions and 24/7 support to reduce downtime and secure your systems.
         </p>
 
-        <!-- Testimonials grid -->
-        <div class="resultsGrid">
-          <!-- Card 1 -->
-          <article class="resultsCard">
-            <div class="resultsCard__head">
-              <span class="resultsCard__badge" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
-                </svg>
-              </span>
-              <p class="resultsCard__quote">
-                Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance…
-              </p>
-            </div>
-            <footer class="resultsCard__foot">
-              <div class="resultsCard__person">
-                <span class="resultsCard__name">LeeAnn S</span>
-                <span class="resultsCard__role">C Level – Exodus Recovery</span>
+        <!-- Testimonials carousel (one full-width card at a time) -->
+        <div class="resultsCarousel" id="resultsCarousel" aria-label="Client testimonials" role="region">
+          <!-- Slide 1 -->
+          <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+            <div class="resultsGrid">
+              <div class="resultsCard">
+                <div class="resultsCard__head">
+                  <span class="resultsCard__badge" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                    </svg>
+                  </span>
+                  <p class="resultsCard__quote">
+                    Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance which adds value to our organization in a competitive market with growing cybersecurity demands. They are an experienced strategic partner that goes the extra mile without being asked!
+                  </p>
+                </div>
+                <footer class="resultsCard__foot">
+                  <div class="resultsCard__person">
+                    <span class="resultsCard__name">LeeAnn S</span>
+                    <span class="resultsCard__role">C Level – Exodus Recovery</span>
+                  </div>
+                </footer>
               </div>
-            </footer>
+              <figure class="resultsImage" aria-hidden="true">
+                <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+              </figure>
+            </div>
           </article>
 
-          <!-- Card 2 -->
-          <article class="resultsCard">
-            <div class="resultsCard__head">
-              <span class="resultsCard__badge" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
-                </svg>
-              </span>
-              <p class="resultsCard__quote">
-                L3 has proven to be an invaluable security MSP partner… I would recommend L3 to any business that needs security help.
-              </p>
-            </div>
-            <footer class="resultsCard__foot">
-              <div class="resultsCard__person">
-                <span class="resultsCard__name">Royce N</span>
-                <span class="resultsCard__role">IT Director – DG Architects</span>
+          <!-- Slide 2 -->
+          <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+            <div class="resultsGrid">
+              <div class="resultsCard">
+                <div class="resultsCard__head">
+                  <span class="resultsCard__badge" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                    </svg>
+                  </span>
+                  <p class="resultsCard__quote">
+                    L3 has proven to be an invaluable security MSP partner in helping us plan and evolve our IT security. Their support teams are truly available 24/7 and are highly experienced. I would recommend L3 to any business that needs security help.
+                  </p>
+                </div>
+                <footer class="resultsCard__foot">
+                  <div class="resultsCard__person">
+                    <span class="resultsCard__name">Royce N</span>
+                    <span class="resultsCard__role">IT Director – DG Architects</span>
+                  </div>
+                </footer>
               </div>
-            </footer>
+              <figure class="resultsImage" aria-hidden="true">
+                <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+              </figure>
+            </div>
           </article>
 
-          <!-- Card 3 -->
-          <article class="resultsCard">
-            <div class="resultsCard__head">
-              <span class="resultsCard__badge" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
-                </svg>
-              </span>
-              <p class="resultsCard__quote">
-                L3 Networks keeps us structured and ensures that our systems are secure… a great partner with competitive costs.
-              </p>
-            </div>
-            <footer class="resultsCard__foot">
-              <div class="resultsCard__person">
-                <span class="resultsCard__name">Bruce M</span>
-                <span class="resultsCard__role">C Level – American Textile Maintenance</span>
+          <!-- Slide 3 -->
+          <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+            <div class="resultsGrid">
+              <div class="resultsCard">
+                <div class="resultsCard__head">
+                  <span class="resultsCard__badge" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                      <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                    </svg>
+                  </span>
+                  <p class="resultsCard__quote">
+                    Our business continues to grow, and our IT needs are always changing. L3 Networks keeps us structured and ensures that our systems are secure, our data remains protected, and our network efficiently configured. With their expertise and guidance, we greatly decrease our risk of security breaches. L3 is a great partner with competitive costs and focused service.
+                  </p>
+                </div>
+                <footer class="resultsCard__foot">
+                  <div class="resultsCard__person">
+                    <span class="resultsCard__name">Bruce M</span>
+                    <span class="resultsCard__role">C Level – American Textile Maintenance</span>
+                  </div>
+                </footer>
               </div>
-            </footer>
+              <figure class="resultsImage" aria-hidden="true">
+                <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+              </figure>
+            </div>
           </article>
         </div>
 
+        <!-- radio dots hidden/omitted for now -->
+
         <style>
-          .resultsGrid{
-            display:grid;
-            grid-template-columns:repeat(3,minmax(0,1fr));
-            gap:clamp(18px,3vw,28px);
-            margin-top:clamp(24px,3vw,32px);
-          }
-
-          .resultsCard{
+          .resultsCarousel{
             position:relative;
-            padding:clamp(24px,2.8vw,32px);
-            border:1px solid #1b2d46;
-            border-radius:20px;
-            background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-            box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
-            display:grid;
-            gap:clamp(18px,2.4vw,26px);
-            transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+            margin-top:clamp(24px,3vw,32px);
             overflow:hidden;
+            min-height:0;
+            transition:height .28s ease;
           }
-
-          .resultsCard::before{
-            content:"";
-            position:absolute;
-            inset:-40% 45% 55% -25%;
-            background:radial-gradient(circle at top, rgba(0,187,167,.22) 0%, rgba(0,187,167,0) 65%);
-            opacity:.6;
-            pointer-events:none;
-            transition:opacity .25s ease;
-          }
-
+          .resultsGrid{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(18px,2.4vw,28px); align-items:stretch; }
+          .resultsImage{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:flex; align-items:stretch; }
+          .resultsImage img{ width:100%; height:100%; object-fit:cover; display:block; }
+          .resultsSlide{ position:absolute; left:0; right:0; top:0; opacity:0; transition:opacity .35s ease; pointer-events:none; will-change:opacity; }
+          .resultsSlide.is-active{ opacity:1; pointer-events:auto; }
+          .resultsCarousel .resultsCard:hover,
+          .resultsCarousel .resultsCard:focus-within{ transform:none; box-shadow:0 24px 48px rgba(8,18,35,0.45), inset 0 1px 0 rgba(255,255,255,0.08); }
+          .resultsCard{ position:relative; padding:clamp(24px,2.8vw,32px); border-radius:20px; background:
+            linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+            linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+            linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+            border:1px solid #1b2d46; box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+            display:grid; gap:clamp(18px,2.4vw,26px); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; overflow:hidden; color:#e2e8f0; }
+          .resultsCard::before{ content:none; }
           .resultsCard:hover,
-          .resultsCard:focus-within{
-            transform:translateY(-6px);
-            border-color:rgba(0,187,167,.55);
-            box-shadow:0 24px 58px rgba(0,187,167,.18), 0 18px 44px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.12);
-          }
-
+          .resultsCard:focus-within{ transform:translateY(-6px); border-color:#66C7E8; box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.08); }
           .resultsCard:hover::before,
-          .resultsCard:focus-within::before{
-            opacity:.85;
-          }
-
-          .resultsCard__head{
-            display:grid;
-            gap:clamp(14px,2vw,18px);
-          }
-
-          .resultsCard__badge{
-            width:44px;
-            aspect-ratio:1;
-            border-radius:14px;
-            background:linear-gradient(145deg, rgba(0,187,167,.22), rgba(102,199,232,.18));
-            display:grid;
-            place-items:center;
-            color:var(--brand);
-          }
-
-          .resultsCard__badge svg{
-            fill:rgba(0,187,167,.85);
-          }
-
-          .resultsCard__quote{
-            margin:0;
-            color:#eef9ff;
-            font-size:clamp(1rem,1.6vw,1.12rem);
-            line-height:1.7;
-            font-style:italic;
-          }
-
-          .resultsCard__foot{
-            display:flex;
-            align-items:flex-start;
-            justify-content:flex-start;
-            gap:clamp(10px,1.6vw,14px);
-            border-top:1px solid rgba(148,204,255,.22);
-            padding-top:clamp(14px,2vw,18px);
-          }
-
-          .resultsCard__person{
-            display:grid;
-            gap:4px;
-            text-align:left;
-          }
-
-          .resultsCard__name{
-            font-weight:700;
-            color:#f1fbff;
-            font-size:.95rem;
-          }
-
-          .resultsCard__role{
-            font-size:.85rem;
-            color:rgba(203,213,225,.76);
-          }
-
-          @media (max-width: 960px){
-            .resultsGrid{
-              grid-template-columns:repeat(2,minmax(0,1fr));
-            }
-          }
-
-          @media (max-width: 640px){
-            .resultsGrid{
-              grid-template-columns:minmax(0,1fr);
-            }
-            .resultsCard__foot{
-              flex-direction:column;
-            }
-          }
+          .resultsCard:focus-within::before{ opacity:0; }
+          .resultsCard__head{ display:grid; gap:clamp(14px,2vw,18px); }
+          .resultsCard__badge{ width:44px; aspect-ratio:1; border-radius:14px; background:linear-gradient(145deg, rgba(0,187,167,.22), rgba(102,199,232,.18)); display:grid; place-items:center; color:var(--brand); }
+          .resultsCard__badge svg{ fill:rgba(0,187,167,.85); }
+          .resultsCard__quote{ margin:0; color:#eef9ff; font-size:clamp(1rem,1.6vw,1.12rem); line-height:1.7; font-style:italic; }
+          .resultsCard__foot{ display:flex; align-items:flex-start; justify-content:flex-start; gap:clamp(10px,1.6vw,14px); border-top:1px solid rgba(148,204,255,.22); padding-top:clamp(14px,2vw,18px); }
+          .resultsCard__person{ display:grid; gap:4px; text-align:left; }
+          .resultsCard__name{ font-weight:700; color:#f1fbff; font-size:.95rem; }
+          .resultsCard__role{ font-size:.85rem; color:rgba(203,213,225,.76); }
+          @media (max-width: 960px){ .resultsGrid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+          @media (max-width: 640px){ .resultsGrid{ grid-template-columns:minmax(0,1fr); } .resultsCard__foot{ flex-direction:column; } }
         </style>
+
+        <!-- Carousel script (copied from home) -->
+        <script>
+          (function(){
+            function ready(fn){ if (document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+            ready(function(){
+              var wrap = document.getElementById('resultsCarousel'); if (!wrap) return;
+              var slides = Array.prototype.slice.call(wrap.querySelectorAll('.resultsSlide'));
+              var current = 0; var timer = null; var interval = 6000;
+              function clamp(i){ return Math.max(0, Math.min(slides.length-1, i)); }
+              function maxSlideHeight(){ var max=0; for (var i=0;i<slides.length;i++){ var card=slides[i].querySelector('.resultsCard'); var h=card?card.offsetHeight:slides[i].offsetHeight; if (h>max) max=h; } return max; }
+              function setHeights(){ var desktop = window.matchMedia('(min-width: 860px)').matches; var h = maxSlideHeight(); if (desktop && h && h>0){ wrap.style.height=h+'px'; for (var i=0;i<slides.length;i++){ var card=slides[i].querySelector('.resultsCard'); var img=slides[i].querySelector('.resultsImage'); if(card){ card.style.minHeight=h+'px'; card.style.height=h+'px'; } if(img){ img.style.height=h+'px'; } } } else { wrap.style.height=''; for (var j=0;j<slides.length;j++){ var c=slides[j].querySelector('.resultsCard'); var im=slides[j].querySelector('.resultsImage'); if(c){ c.style.minHeight=''; c.style.height=''; } if(im){ im.style.height=''; } } } }
+              function setActive(i){ current = clamp(i); slides.forEach(function(s,idx){ var on = idx===current; s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', on? 'false':'true'); }); setHeights(); }
+              function next(){ setActive(current+1 >= slides.length ? 0 : current+1); }
+              function pause(){ if (timer){ clearInterval(timer); timer=null; } }
+              function resume(){ pause(); timer=setInterval(next, interval); }
+              setActive(0);
+              wrap.addEventListener('pointerenter', pause, { passive:true });
+              wrap.addEventListener('pointerleave', resume, { passive:true });
+              window.addEventListener('resize', setHeights);
+              setHeights();
+              resume();
+            });
+          })();
+        </script>
       </div>
     </article>
     
 
+    
 
-    <section class="rcDemo" style="padding:clamp(80px,14vh,220px) 0; background:#000; min-height:92svh; display:flex; align-items:center; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
-      <div class="product-shell" style="text-align:left;">
-        <h2 class="heading-xl rcDemo__title" style="margin:0 0 clamp(18px,2.5vw,28px); color:#e6edf6;">Latest Insights to Keep You Secure</h2>
 
-        
+    <section class="section-block" data-resources="insights" style="padding:clamp(80px,14vh,220px) 0; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important; min-height:92svh; display:flex; align-items:center; color:#e2e8f0; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
+      <div class="product-shell" style="text-align:left; position:relative; z-index:1;">
+        <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to <span style="color:var(--brand);">Keep You Secure</span></h2>
 
-        <div class="rcDemo__grid">
-          
+        <div class="rcDemo">
+          <div class="rcDemo__grid">
+            
 
-          
-          <article class="rcDemo__card">
-            <a href="/resources/" class="rcDemo__thumb" aria-label="Zero Trust, explained">
-              <div class="rcDemo__thumbBadge">Blog</div>
-              <div class="rcDemo__thumbImg" aria-hidden="true">Resource</div>
+            
+            <article class="rcDemo__card">
+              <a href="/resources/" class="rcDemo__thumb" aria-label="Why Your Help Desk Is Slowing Down">
+                <div class="rcDemo__thumbBadge">Blog</div>
+                <div class="rcDemo__thumbImg" aria-hidden="true">
+                  
+                    <img src="https://sandbox.l3networks.com/images/optimized/why-your-help-desk-is-slowing-down-your-business-and-how-to-fix-it-640w.webp" alt="">
+                  
+                </div>
+              </a>
+              <div class="rcDemo__cardBody">
+                <p class="rcDemo__type">Blog</p>
+                <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">Why Your Help Desk Is Slowing Down</h3></a>
+                <p class="rcDemo__copy">How to speed up response and resolution.</p>
+              </div>
+            </article>
+            
+            <article class="rcDemo__card">
+              <a href="/resources/" class="rcDemo__thumb" aria-label="AI Isn’t Replacing IT — It’s Empowering It">
+                <div class="rcDemo__thumbBadge">Blog</div>
+                <div class="rcDemo__thumbImg" aria-hidden="true">
+                  
+                    <img src="https://sandbox.l3networks.com/images/optimized/ai-isnt-replacing-it-its-empowering-it-640w.webp" alt="">
+                  
+                </div>
+              </a>
+              <div class="rcDemo__cardBody">
+                <p class="rcDemo__type">Blog</p>
+                <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">AI Isn’t Replacing IT — It’s Empowering It</h3></a>
+                <p class="rcDemo__copy">Practical ways to use AI in IT today.</p>
+              </div>
+            </article>
+            
+            <article class="rcDemo__card">
+              <a href="/resources/" class="rcDemo__thumb" aria-label="Zero Trust — A Practical Starter">
+                <div class="rcDemo__thumbBadge">Guide</div>
+                <div class="rcDemo__thumbImg" aria-hidden="true">
+                  
+                    <img src="https://sandbox.l3networks.com/images/optimized/what-makes-a-modern-help-desk-640w.webp" alt="">
+                  
+                </div>
+              </a>
+              <div class="rcDemo__cardBody">
+                <p class="rcDemo__type">Guide</p>
+                <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">Zero Trust — A Practical Starter</h3></a>
+                <p class="rcDemo__copy">A simple baseline to get moving.</p>
+              </div>
+            </article>
+            
+          </div>
+
+          <div class="insightsCTA rcDemo__ctaWrap">
+            <a href="/resources/" class="rcDemo__cta">
+              Visit Resource Center
+              <img src="/images/icons/ArrowUpRightWhite.svg" alt="Visit Resource Center" style="height:18px;">
             </a>
-            <div class="rcDemo__cardBody">
-              <p class="rcDemo__type">Blog</p>
-              <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">Zero Trust, explained</h3></a>
-              <p class="rcDemo__copy">A short, practical explainer for leadership.</p>
-              
-            </div>
-          </article>
-          
-          <article class="rcDemo__card">
-            <a href="/resources/" class="rcDemo__thumb" aria-label="Backup vs. DR">
-              <div class="rcDemo__thumbBadge">Checklist</div>
-              <div class="rcDemo__thumbImg" aria-hidden="true">Resource</div>
-            </a>
-            <div class="rcDemo__cardBody">
-              <p class="rcDemo__type">Checklist</p>
-              <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">Backup vs. DR</h3></a>
-              <p class="rcDemo__copy">Budget correctly and actually recover.</p>
-              
-            </div>
-          </article>
-          
-          <article class="rcDemo__card">
-            <a href="/resources/" class="rcDemo__thumb" aria-label="MFA fatigue attacks">
-              <div class="rcDemo__thumbBadge">Webinar</div>
-              <div class="rcDemo__thumbImg" aria-hidden="true">Resource</div>
-            </a>
-            <div class="rcDemo__cardBody">
-              <p class="rcDemo__type">Webinar</p>
-              <a href="/resources/" class="rcDemo__titleLink"><h3 class="rcDemo__cardTitle">MFA fatigue attacks</h3></a>
-              <p class="rcDemo__copy">Stop push bombing without user pain.</p>
-              
-            </div>
-          </article>
-          
-        </div>
-
-        <div class="rcDemo__ctaWrap">
-          <a href="/resources/" class="rcDemo__cta">
-            Visit Resource Center
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Visit Resource Center" style="height:18px;">
-          </a>
+          </div>
         </div>
 
         <style>
-          .rcDemo .rcDemo__title{letter-spacing:-.01em}
           .rcDemo__grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(18px,3vw,28px)}
           .rcDemo__card{background:#0b0f1a; border:1px solid #0f172a; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
           .rcDemo__card:hover{transform:translateY(-3px); box-shadow:0 18px 36px rgba(0,0,0,.45); border-color:#1f2a44}
           .rcDemo__thumb{position:relative; display:block}
           .rcDemo__thumbImg{width:100%; aspect-ratio:16/9; background:linear-gradient(180deg,#0b1325,#0c1220); display:grid; place-items:center; color:#cbd5e1; font-size:.85rem}
+          .rcDemo__thumbImg img{width:100%; height:100%; object-fit:cover; display:block}
           .rcDemo__thumbBadge{position:absolute; top:12px; left:12px; background:#14b8a6; color:#000; font-weight:700; font-size:.72rem; padding:.3rem .6rem; border-radius:999px}
           .rcDemo__cardBody{padding:clamp(16px,2.4vw,22px)}
           .rcDemo__type{margin:.1rem 0 .5rem; color:#94a3b8; font-size:.8rem}
           .rcDemo__titleLink{text-decoration:none}
           .rcDemo__cardTitle{margin:0 0 .5rem; color:#e6edf6; font-size:1.08rem; font-weight:700; letter-spacing:-.01em}
           .rcDemo__copy{margin:0; color:#cbd5e1; font-size:.95rem; line-height:1.55}
+
           .rcDemo__ctaWrap{margin-top:clamp(28px,4vw,44px); display:flex; justify-content:center}
           .rcDemo__cta{display:inline-flex; align-items:center; gap:.6rem; padding:.95rem 1.3rem; font-weight:600; font-size:clamp(14px,2.4vw,18px); color:#fff; background:#00BBA7; border-radius:999px; text-decoration:none; box-shadow:0 10px 28px rgba(0,187,167,.35); transition:transform .18s ease, box-shadow .18s ease, filter .18s ease}
           .rcDemo__cta:hover{transform:translateY(-1px); box-shadow:0 16px 34px rgba(0,187,167,.45); filter:saturate(1.05)}
@@ -2672,11 +2757,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           padding:clamp(32px,4.6vw,52px);
           border-radius:clamp(28px,4vw,40px);
           border:1px solid #1b2d46;
+          /* Match hero highlight card surface color */
           background:
-            linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
-            linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
-            linear-gradient(210deg,#10223c 0%,#081525 100%);
-          box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+            linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+            linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+            linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
           text-align:center;
           position:relative;
           overflow:hidden;
@@ -2739,7 +2825,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         }
 
         .bottomCtaCopy{
-          color:rgba(226,232,240,0.88);
+          color:#ffffff;
+          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size: clamp(17px, 2.6vw, 22px);
+          line-height: 1.65;
         }
 
         .bottomCtaActions{

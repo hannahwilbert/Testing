@@ -3,7 +3,7 @@
   <div class="securityPressures__wrap">
     <header class="securityPressures__heading">
       {% if challengesTitle %}
-      <h2 class="securityPressures__title heading-xl">{{ challengesTitle }}</h2>
+      <h2 class="securityPressures__title heading-xl">{{ challengesTitle | replace('Cybersecurity Pressures', '<span class="sp__titleTeal">Cybersecurity Pressures</span>') | safe }}</h2>
       {% endif %}
       {% if challengesIntro %}
       <p class="securityPressures__intro body-lead">{{ challengesIntro }}</p>
@@ -27,7 +27,16 @@
         </div>
 
         {% if item.title %}
-        <h3 class="securityPressures__cardTitle heading-md">{{ item.title }}</h3>
+        <h3 class="securityPressures__cardTitle heading-md">{{ item.title
+          | replace('Cyber Threats','<span class="sp__titleTeal">Cyber Threats</span>')
+          | replace('cyber threats','<span class="sp__titleTeal">cyber threats</span>')
+          | replace('Breaches','<span class="sp__titleTeal">Breaches</span>')
+          | replace('breaches','<span class="sp__titleTeal">breaches</span>')
+          | replace('Firefighting','<span class="sp__titleTeal">Firefighting</span>')
+          | replace('firefighting','<span class="sp__titleTeal">firefighting</span>')
+          | replace('Damage','<span class="sp__titleTeal">Damage</span>')
+          | replace('damage','<span class="sp__titleTeal">damage</span>')
+          | safe }}</h3>
         {% endif %}
         {# description intentionally omitted per request #}
       </article>
@@ -56,9 +65,8 @@
       color:#e6f1ff;
       position:relative;
       overflow:hidden;
-      /* Pull section even closer to hero */
-      padding-top:clamp(8px, 4vh, 28px);
-      padding-bottom:clamp(80px,12vh,140px);
+      /* Reduce space above to sit closer to hero */
+      padding: var(--section-pad-tight, clamp(100px,14vh,180px)) 0 var(--section-pad-block, clamp(140px,18vh,240px));
       /* Solid dark background (no fade or gradient) */
       background: var(--surface-0, #000000);
       width:100vw;
@@ -94,10 +102,14 @@
       letter-spacing:-.02em;
       text-wrap:balance;
     }
+    [data-security-pressures] .sp__titleTeal{ color: var(--brand); }
 
     [data-security-pressures] .securityPressures__intro{
       margin:0;
       color:rgba(226,232,240,0.9);
+      /* Match home subhead sizing */
+      font-size: clamp(17px, 2.6vw, 22px);
+      line-height: 1.65;
     }
 
     [data-security-pressures] .securityPressures__grid{
@@ -117,23 +129,30 @@
       padding:clamp(26px,4vh,34px);
       border-radius:26px;
       border:1px solid #1b2d46;
-      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+      /* Match cyber service card surface (with subtle blue enhancement) */
+      background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       display:flex;
       flex-direction:column;
       align-items:center;
       text-align:center;
       gap:clamp(12px,1.8vh,18px);
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      transition:none; /* remove hover animation */
       overflow:hidden;
       isolation:isolate;
     }
 
     [data-security-pressures] .securityPressures__card:hover,
     [data-security-pressures] .securityPressures__card:focus-within{
-      transform:translateY(-6px);
-      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-      border-color:rgba(180,210,240,.34);
+      /* No visual change on hover/focus */
+      transform:none;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      border-color:#1b2d46;
     }
 
     [data-security-pressures] .securityPressures__card > *{ position:relative; z-index:1; }
@@ -163,26 +182,30 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:56px; height:56px;
+      width:clamp(60px, 7vw, 72px); height:clamp(60px, 7vw, 72px);
       border-radius:999px;
-      color:#7dd3fc;
-      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(59,130,246,.14));
-      border:1px solid rgba(148,163,184,.22);
+      color:var(--brand); /* teal icon stroke via currentColor */
+      background:linear-gradient(135deg, rgba(20,184,166,.18), rgba(13,148,136,.14)); /* teal tint */
+      border:1px solid rgba(20,184,166,.28);
     }
-    [data-security-pressures] .securityPressures__icon svg{ width:28px; height:28px; display:block; }
+    [data-security-pressures] .securityPressures__icon svg{
+      width:clamp(30px, 3.6vw, 36px); height:clamp(30px, 3.6vw, 36px); display:block;
+    }
 
     [data-security-pressures] .securityPressures__cardTitle{
       margin:0;
-      font-weight:600;
-      font-size:clamp(1rem,1.85vw,1.25rem);
-      color:#f8fafc;
-      letter-spacing:-0.01em;
-      text-wrap:balance;
-      flex:1 1 auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      /* Match services paragraph typography */
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight:300; /* match page body text weight */
+      font-size:clamp(16px, 2.4vw, 20px); /* match page body scale */
+      line-height:1.65;
+      color:rgba(226,232,240,.86);
+      letter-spacing:0; /* reset heading tracking */
+      text-wrap:pretty;
+      display:block; /* do not use flex so wrapping behaves naturally */
       text-align:center;
+      white-space:normal;
+      word-break:normal;
       min-height:clamp(52px,7vh,92px);
     }
 
@@ -226,7 +249,7 @@
 
     [data-security-pressures] .securityPressures__cta--secondary:is(:hover,:focus-visible){
       transform:translateY(-1px);
-      border-color:var(--sp-brand);
+      border-color:var(--brand); /* teal border on hover */
       background:rgba(56,189,248,0.08);
       color:#fff;
     }

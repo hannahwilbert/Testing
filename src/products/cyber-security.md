@@ -112,23 +112,7 @@ caseStudiesLinks:
     href: '/case-studies/security-automation-value/'
 vendorsTitle: 'Trusted by Security Innovators You Already Rely On'
 vendorsBody: 'We integrate best-of-breed platforms into a cohesive defense strategy aligned to your policies and industry requirements.'
-vendorsLogos:
-  - src: /images/products/logos/logo-crowdstrike.svg
-    alt: "CrowdStrike Endpoint Protection logo"
-  - src: /images/products/logos/logo-dnsfilter.svg
-    alt: "DNSFilter Threat Protection logo"
-  - src: /images/products/logos/logo-fortinet.svg
-    alt: "Fortinet Network Security logo"
-  - src: /images/products/logos/logo-netwrix.svg
-    alt: "Netwrix Visibility and Governance logo"
-  - src: /images/products/logos/logo-fortra.svg
-    alt: "Fortra Cybersecurity Solutions logo"
-  - src: /images/products/logos/logo-threatlocker.svg
-    alt: "ThreatLocker Application Whitelisting logo"
-  - src: /images/products/logos/logo-duo.svg
-    alt: "Duo Multi-Factor Authentication logo"
-  - src: /images/products/logos/logo-tenable.svg
-    alt: "Tenable Vulnerability Management logo"
+vendorsLogos: null
 testimonial:
   quote: 'L3 Networks helped us transition from constantly chasing alerts to confidently leading a proactive security program backed by real metrics.'
   author: 'Jordan Kim'
