@@ -1074,15 +1074,27 @@
     /* Desktop: left-aligned cards, stock photo on right */
     @media (min-width: 981px){
       [data-problem="flat"] .problemFlat__grid{
-        /* Make cards narrower and image wider */
-        grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+        /* Slightly reduce card width, increase image width */
+        grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
         column-gap:clamp(24px,4vw,40px);
-        align-items:stretch;
+        align-items:stretch; /* equalize columns' heights */
       }
+      /* Remove top offset so first card aligns with image top */
+      [data-problem="flat"] .problemFlat__list{ margin-top:0; }
       [data-problem="flat"] .problemFlat__aside{ display:block; }
-      [data-problem="flat"] .problemFlat__media img{
-        height:clamp(360px, 56vh, 560px);
-        object-position:50% 50%;
+      /* Let the image match the card stack height */
+      [data-problem="flat"] .problemFlat__aside{ display:flex; align-items:stretch; }
+      [data-problem="flat"] .problemFlat__media{ height:100%; display:flex; align-items:stretch; align-self:stretch; margin:0; width:100%; }
+      [data-problem="flat"] .problemFlat__media img{ height:100%; max-height:none; object-fit:cover; object-position:50% 50%; }
+      /* Ensure the left column fills the row height, and the last card bottoms align */
+      [data-problem="flat"] .problemFlat__copy{ position:relative; height:100%; display:flex; flex-direction:column; }
+      [data-problem="flat"] .problemFlat__group{ flex:1 1 auto; display:flex; flex-direction:column; justify-content:space-between; }
+      [data-problem="flat"] .problemFlat__group > .relative{ flex:0 0 auto; }
+      /* Take CTAs out of the flow (below the column) so image bottom aligns to last card bottom */
+      [data-problem="flat"] .problemFlat__ctas{
+        position:absolute; left:0; bottom:0;
+        transform:translateY(calc(100% + clamp(18px, 3vh, 32px)));
+        margin-top:0 !important;
       }
     }
 
@@ -1772,9 +1784,10 @@
 
     .kfE__partnersTrack{
       display:flex;
-      gap:clamp(16px,2vw,24px);
+      /* Slightly tighter spacing between partner cards */
+      gap:clamp(12px,1.8vw,20px);
       width:max-content;
-      animation:kfEPartnersScroll 18s linear infinite;
+      animation:kfEPartnersScroll 30s linear infinite;
       will-change:transform;
     }
 
@@ -1845,15 +1858,15 @@
       .kfE__partnersHeading{ text-align:left; }
     }
 
-    /* Desktop two-column grid aligned with section above (60/40 split) */
+    /* Desktop two-column grid aligned with section above (cards wider than image) */
     @media (min-width: 981px){
-      /* Make accordion (left) narrower and image (right) wider */
-      .kfE__twoCol{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); column-gap:clamp(24px,4vw,40px); }
+      /* Slightly reduce card width, increase image width */
+      .kfE__twoCol{ display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr); column-gap:clamp(24px,4vw,40px); }
       /* Ensure the media column stretches to the same height as cards */
       [data-kf="elite"] .kfE__twoCol{ align-items:stretch; }
       [data-kf="elite"] .kfE__twoCol > div:last-child{ display:flex; align-items:stretch; }
       [data-kf="elite"] .kfE__media{ height:100%; display:flex; align-items:stretch; }
-      [data-kf="elite"] .kfE__media img{ height:100%; max-height:none; }
+      [data-kf="elite"] .kfE__media img{ height:100%; max-height:none; object-fit:cover; }
     }
 
     /* reduced motion */
@@ -2762,7 +2775,7 @@
     <!-- Testimonials carousel (one full-width card at a time) -->
     <div class="resultsCarousel" id="resultsCarousel" aria-label="Client testimonials" role="region">
       <!-- Slide 1 -->
-      <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="1 of 1">
+      <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="1 of 3">
         <div class="resultsGrid">
           <div class="resultsCard">
             <div class="resultsCard__head">
@@ -2772,7 +2785,7 @@
                 </svg>
               </span>
               <p class="resultsCard__quote">
-                Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance…
+                Not only do we rely upon L3 Networks for all our day-to-day cybersecurity and SOC needs, but they have also helped guide us towards SOC2 Type 2 compliance which adds value to our organization in a competitive market with growing cybersecurity demands. They are an experienced strategic partner that goes the extra mile without being asked!
               </p>
             </div>
             <footer class="resultsCard__foot">
@@ -2788,16 +2801,68 @@
         </div>
       </article>
 
+      <!-- Slide 2 -->
+      <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+        <div class="resultsGrid">
+          <div class="resultsCard">
+            <div class="resultsCard__head">
+              <span class="resultsCard__badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </span>
+              <p class="resultsCard__quote">
+                L3 has proven to be an invaluable security MSP partner in helping us plan and evolve our IT security. Their support teams are truly available 24/7 and are highly experienced. I would recommend L3 to any business that needs security help.
+              </p>
+            </div>
+            <footer class="resultsCard__foot">
+              <div class="resultsCard__person">
+                <span class="resultsCard__name">Royce N</span>
+                <span class="resultsCard__role">IT Director – DG Architects</span>
+              </div>
+            </footer>
+          </div>
+          <figure class="resultsImage" aria-hidden="true">
+            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+          </figure>
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="resultsSlide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+        <div class="resultsGrid">
+          <div class="resultsCard">
+            <div class="resultsCard__head">
+              <span class="resultsCard__badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </span>
+              <p class="resultsCard__quote">
+                Our business continues to grow, and our IT needs are always changing. L3 Networks keeps us structured and ensures that our systems are secure, our data remains protected, and our network efficiently configured. With their expertise and guidance, we greatly decrease our risk of security breaches. L3 is a great partner with competitive costs and focused service.
+              </p>
+            </div>
+            <footer class="resultsCard__foot">
+              <div class="resultsCard__person">
+                <span class="resultsCard__name">Bruce M</span>
+                <span class="resultsCard__role">C Level – American Textile Maintenance</span>
+              </div>
+            </footer>
+          </div>
+          <figure class="resultsImage" aria-hidden="true">
+            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+          </figure>
+        </div>
+      </article>
+
     </div>
     <!-- radio dots hidden/omitted for now -->
 
     <!-- Brands -->
-    <div style="max-width:var(--max); margin:44px auto 0; text-align:center;">
-      <h3 class="heading-md mb-sm">
-        Trusted by Leading Brands
-      </h3>
+    <div class="kfE__partnersBlock">
+      <h3 class="kfE__partnersHeading">Trusted by Leading Brands</h3>
       {% include "partials/home-carousel.html" %}
-      <p class="body-sm mt-sm" style="font-style:italic;">
+      <p class="body-sm" style="font-style:italic; text-align:center;">
         We help companies become industry leaders by turning IT strategy into action.
       </p>
     </div>
@@ -3003,6 +3068,12 @@
   </div>
 
   <style>
+    /* Pull the CTA card higher within its section */
+    section[data-cta="right-fit"]{
+      /* scoot a bit more than "tight" */
+      padding-top: calc(var(--section-pad-tight) - clamp(32px, 4vh, 56px));
+    }
+
     section[data-cta="right-fit"]::before,
     section[data-cta="right-fit"]::after{
       content:none; /* remove background glow orbs */
@@ -3031,17 +3102,13 @@
       display:block;
       gap:clamp(16px,3vw,24px);
       padding:clamp(28px,5vw,44px) clamp(26px,5vw,42px);
-      border-radius:28px;
+      border-radius:0;
       border:none;
-      background:
-        linear-gradient(135deg, rgba(196,215,248,.18) 0%, rgba(20,34,56,0) 36%),
-        linear-gradient(315deg, rgba(62,90,136,.16) 0%, rgba(12,24,44,0) 42%),
-        linear-gradient(210deg,#10223c 0%,#081525 100%);
-      /* remove heavy outer glow */
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+      background:transparent;
+      box-shadow:none;
       text-align:left;
       position:relative;
-      overflow:hidden;
+      overflow:visible;
     }
 
     .ctaRF__grid{
@@ -3291,9 +3358,26 @@
           }
           return max;
         }
-        function setHeight(){
+        function setHeights(){
+          var desktop = window.matchMedia('(min-width: 860px)').matches;
           var h = maxSlideHeight();
-          if (h && h > 0) wrap.style.height = h + 'px';
+          if (desktop && h && h > 0){
+            wrap.style.height = h + 'px';
+            for (var i=0;i<slides.length;i++){
+              var card = slides[i].querySelector('.resultsCard');
+              var imgWrap = slides[i].querySelector('.resultsImage');
+              if (card){ card.style.minHeight = h + 'px'; card.style.height = h + 'px'; }
+              if (imgWrap){ imgWrap.style.height = h + 'px'; }
+            }
+          } else {
+            wrap.style.height = '';
+            for (var j=0;j<slides.length;j++){
+              var card2 = slides[j].querySelector('.resultsCard');
+              var imgWrap2 = slides[j].querySelector('.resultsImage');
+              if (card2){ card2.style.minHeight = ''; card2.style.height = ''; }
+              if (imgWrap2){ imgWrap2.style.height = ''; }
+            }
+          }
         }
         function setActive(i){
           current = clamp(i);
@@ -3303,7 +3387,7 @@
             s.setAttribute('aria-hidden', on ? 'false' : 'true');
           });
           updateDots();
-          setHeight();
+          setHeights();
         }
         function updateDots(){
           if (!dotsWrap) return;
@@ -3332,7 +3416,8 @@
         wrap.addEventListener('keydown', function(e){ if (e.key==='ArrowRight' || e.key==='Right'){ e.preventDefault(); pause(); next(); resume(); } else if (e.key==='ArrowLeft' || e.key==='Left'){ e.preventDefault(); pause(); setActive(current-1<0?slides.length-1:current-1); resume(); } });
         wrap.addEventListener('pointerenter', pause, { passive:true });
         wrap.addEventListener('pointerleave', resume, { passive:true });
-        window.addEventListener('resize', setHeight);
+        window.addEventListener('resize', setHeights);
+        setHeights();
         resume();
       });
     })();
