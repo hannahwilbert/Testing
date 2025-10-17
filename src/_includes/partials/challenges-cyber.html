@@ -1,4 +1,4 @@
-<section class="section-block mt-20" data-security-pressures>
+<section class="section-block" data-security-pressures>
   <div aria-hidden="true" class="securityPressures__bg pointer-events-none absolute inset-0"></div>
   <div class="securityPressures__wrap">
     <header class="securityPressures__heading">
@@ -6,7 +6,7 @@
       <h2 class="securityPressures__title heading-xl">{{ challengesTitle }}</h2>
       {% endif %}
       {% if challengesIntro %}
-      <p class="securityPressures__intro body-text">{{ challengesIntro }}</p>
+      <p class="securityPressures__intro body-lead">{{ challengesIntro }}</p>
       {% endif %}
           </header>
 
@@ -56,13 +56,16 @@
       color:#e6f1ff;
       position:relative;
       overflow:hidden;
-      padding-top:clamp(70px,10vh,140px);
-      padding-bottom:clamp(96px,13vh,160px);
-      background:linear-gradient(180deg,#0f172a 0%,#020b18 100%);
+      /* Pull section even closer to hero */
+      padding-top:clamp(8px, 4vh, 28px);
+      padding-bottom:clamp(80px,12vh,140px);
+      /* Solid dark background (no fade or gradient) */
+      background: var(--surface-0, #000000);
       width:100vw;
       margin-left:calc(50% - 50vw);
       margin-right:calc(50% - 50vw);
       margin-bottom:-1px;
+      margin-top:-12px;
     }
 
     [data-security-pressures] .securityPressures__bg{ background:none; }

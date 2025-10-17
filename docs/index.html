@@ -533,7 +533,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <div class="heroCopy"
        style="position:relative; z-index:3; width:100%; max-width:var(--max); margin:0 auto; padding:32px var(--pad); text-align:center;">
     <div style="max-width:1120px; margin-inline:auto;">
-      <p style="margin:0 0 14px; color:rgba(255,255,255,.72); font-weight:800; letter-spacing:.14em; text-transform:uppercase; font-size:12px;">
+      <p style="margin:0 0 14px; color:rgba(255,255,255,.72); font-weight:800; letter-spacing:.14em; text-transform:uppercase; font-size:clamp(12px, 1.4vw, 14px);">
         Secure • Simple • Scalable
       </p>
 
@@ -543,7 +543,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <span id="t2a"></span><span id="t2b" style="color:var(--brand);"></span><span id="t2c"></span>
       </h1>
 
-      <p style="margin:12px auto 28px; font-weight:300; font-size:clamp(16px,2.6vw,22px); color:var(--muted); max-width:64ch;">
+      <p style="margin:12px auto 28px; font-weight:300; font-size:clamp(17px, 2.6vw, 22px); color:var(--muted); max-width:64ch;">
         Partner with L3 Networks for secure, reliable IT services—24/7.
       </p>
 
@@ -1249,10 +1249,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                     <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Unplanned Downtime</h3>
                     </div>
-                    <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+                    <!-- Arrow when open -->
+                    <svg x-show="activeCard === 1" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Accordion icon when closed -->
+                    <svg x-show="activeCard !== 1" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                     </svg>
                   </div>
                   <div
@@ -1278,10 +1283,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                     <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Teams Stretched Thin</h3>
                     </div>
-                    <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+                    <!-- Arrow when open -->
+                    <svg x-show="activeCard === 2" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Accordion icon when closed -->
+                    <svg x-show="activeCard !== 2" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                     </svg>
                   </div>
                   <div
@@ -1307,10 +1317,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                     <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Cloud Initiatives Stalling</h3>
                     </div>
-                    <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+                    <!-- Arrow when open -->
+                    <svg x-show="activeCard === 3" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Accordion icon when closed -->
+                    <svg x-show="activeCard !== 3" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                     </svg>
                   </div>
                   <div
@@ -1336,10 +1351,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                     <div class="flex items-center min-w-0">
                       <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold truncate">Missing Roadmap</h3>
                     </div>
-                    <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#FFFFFF' : '#FFFFFF'"/>
-                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeCard === 4 ? '#FFFFFF' : '#FFFFFF'"/>
+                    <!-- Arrow when open -->
+                    <svg x-show="activeCard === 4" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <!-- Accordion icon when closed -->
+                    <svg x-show="activeCard !== 4" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                      <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                     </svg>
                   </div>
                   <div
@@ -1516,6 +1536,28 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       line-height:1.25;
       min-width:0;
     }
+
+    /* Match hero highlight paragraph typography inside expanded cards */
+    [data-problem="flat"] .problemFlat__group .bg-teal-600 p{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size:clamp(16px, 2.4vw, 20px);
+      font-weight:300;
+      line-height:1.65;
+      color:#000000 !important;
+    }
+
+    /* Make inner teal panel touch parent sides and bottom (Are IT Gaps) */
+    [data-problem="flat"] .problemFlat__group .bg-teal-600{
+      /* Small top radius while sides/bottom stay perfectly flush */
+      border-top-left-radius: clamp(8px, 1.2vw, 14px) !important;
+      border-top-right-radius: clamp(8px, 1.2vw, 14px) !important;
+      border-bottom-left-radius: inherit !important;
+      border-bottom-right-radius: inherit !important;
+      margin-bottom:-1px; /* hide any 1px seam */
+    }
+
+    
     /* left-of-title icons */
     .problemFlat__icon{ width:clamp(24px, 3.2vw, 32px); height:auto; display:block; filter:drop-shadow(0 10px 24px rgba(0,187,167,.28)); }
 
@@ -1910,10 +1952,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                 <div class="flex items-center gap-0 min-w-0">
                   <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">A Clear Framework for IT Maturity</h3>
                 </div>
-                <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#FFFFFF' : '#FFFFFF'"/>
-                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#FFFFFF' : '#FFFFFF'"/>
-                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+                <!-- Arrow when open -->
+                <svg x-show="activeIndex === 1" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <!-- Accordion icon when closed -->
+                <svg x-show="activeIndex !== 1" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                 </svg>
               </div>
 
@@ -1940,10 +1987,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                 <div class="flex items-center gap-0 min-w-0">
                   <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Decades of Experience, Delivered with Focus</h3>
                 </div>
-                <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#FFFFFF' : '#FFFFFF'"/>
-                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#FFFFFF' : '#FFFFFF'"/>
-                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+                <!-- Arrow when open -->
+                <svg x-show="activeIndex === 2" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <!-- Accordion icon when closed -->
+                <svg x-show="activeIndex !== 2" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                 </svg>
               </div>
 
@@ -1970,10 +2022,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
                 <div class="flex items-center gap-0 min-w-0">
                   <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Vendor-Neutral, Business-First Approach</h3>
                 </div>
-                <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#FFFFFF' : '#FFFFFF'"/>
-                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#FFFFFF' : '#FFFFFF'"/>
-                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIndex === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+                <!-- Arrow when open -->
+                <svg x-show="activeIndex === 3" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <!-- Accordion icon when closed -->
+                <svg x-show="activeIndex !== 3" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                  <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+                  <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
                 </svg>
               </div>
 
@@ -2341,6 +2398,28 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
     }
 
+    /* Why L3 (elite) accordion: match hero body copy inside expanded panels */
+    [data-kf="elite"] .bg-teal-600 p{
+      margin:0 !important;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      font-size:clamp(16px, 2.4vw, 20px) !important;
+      font-weight:300 !important;
+      line-height:1.65 !important;
+      color:#000000 !important;
+      text-wrap:pretty;
+    }
+
+    /* Make inner teal panel touch parent sides and bottom (Why L3) */
+    [data-kf="elite"] .bg-teal-600{
+      border-top-left-radius: clamp(8px, 1.2vw, 14px) !important;
+      border-top-right-radius: clamp(8px, 1.2vw, 14px) !important;
+      border-bottom-left-radius: inherit !important;
+      border-bottom-right-radius: inherit !important;
+      margin-bottom:-1px;
+    }
+
+    
+
     /* Drop-down card grid styles (scoped to this section) */
     [data-kf="elite"] .howE__grid{
       display:grid;
@@ -2412,7 +2491,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     .kfE__subhead{
       margin:14px 0 0;
       font-weight:400;
-      font-size: clamp(16px, 2.4vw, 20px);
+      /* Slightly larger for readability */
+      font-size: clamp(17px, 2.6vw, 22px);
       color: var(--muted);
       text-wrap: balance;
     }
@@ -3101,6 +3181,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     section[data-how="elevate"] .howE__lead{
       color:rgba(226,232,240,.85);
+      /* Match larger subhead sizing */
+      font-size:clamp(17px, 2.6vw, 22px);
     }
 
     .howE__titleGradient{
@@ -3320,7 +3402,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   <!-- responsive -->
   <style>
-    
+    /* Make the section intro line slightly larger */
+    section[data-services] .body-lead{ font-size: clamp(17px, 2.6vw, 22px); }
 
     section[data-services] .svcGrid{
       display:flex;
@@ -3525,6 +3608,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       line-height:1.2;
     }
 
+    /* Services cards: match hero highlight paragraph typography */
+    section[data-services] .svcCard .body-text{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size:clamp(16px, 2.4vw, 20px);
+      font-weight:300;
+      line-height:1.65;
+      text-wrap:pretty;
+    }
+
     section[data-services] .svcCard__intro{
       margin:0 0 clamp(16px,1.8vw,22px);
       color:#dde9ff;
@@ -3536,6 +3629,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       display:flex;
       align-items:center;
       gap:10px;
+      padding-top:clamp(8px, 1.6vw, 14px);
       color:rgba(203,213,225,.86);
     }
 
@@ -4114,6 +4208,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       outline-offset:4px;
     }
 
+    /* Make CTA lead line slightly larger */
+    section[data-cta="right-fit"] .body-lead{
+      font-size: clamp(17px, 2.6vw, 22px);
+    }
+
     .resultsCarousel{
       position:relative;
       margin-top:clamp(24px,3vw,32px);
@@ -4202,6 +4301,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     .resultsCard__badge svg{
       fill:rgba(0,187,167,.85);
+    }
+
+    /* Make the intro line above the testimonials slightly larger */
+    .homeBlend[data-alt="dark"] .section-shell > p.body-lead.measure.mb-md{
+      font-size: clamp(17px, 2.6vw, 22px);
     }
 
     .resultsCard__quote{
@@ -4387,10 +4491,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">Vendor-Neutral Consulting</h3>
             </div>
-            <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 1 ? '#FFFFFF' : '#FFFFFF'"/>
+            <!-- Arrow when open -->
+            <svg x-show="activeIdx === 1" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <!-- Accordion icon when closed -->
+            <svg x-show="activeIdx !== 1" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
             </svg>
           </div>
           <div
@@ -4416,10 +4525,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">24/7 Proactive Monitoring &amp; Support</h3>
             </div>
-            <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 2 ? '#FFFFFF' : '#FFFFFF'"/>
+            <!-- Arrow when open -->
+            <svg x-show="activeIdx === 2" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <!-- Accordion icon when closed -->
+            <svg x-show="activeIdx !== 2" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
             </svg>
           </div>
           <div
@@ -4445,10 +4559,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">Industry Compliance &amp; Security Expertise</h3>
             </div>
-            <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 3 ? '#FFFFFF' : '#FFFFFF'"/>
+            <!-- Arrow when open -->
+            <svg x-show="activeIdx === 3" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <!-- Accordion icon when closed -->
+            <svg x-show="activeIdx !== 3" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
             </svg>
           </div>
           <div
@@ -4474,10 +4593,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
               <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold accordionTitle" style="margin:0; line-height:1.15;">Scalability &amp; Adaptability</h3>
             </div>
-            <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#FFFFFF' : '#FFFFFF'"/>
-              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="activeIdx === 4 ? '#FFFFFF' : '#FFFFFF'"/>
+            <!-- Arrow when open -->
+            <svg x-show="activeIdx === 4" class="flex-shrink-0" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7M7 7h10v10" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <!-- Accordion icon when closed -->
+            <svg x-show="activeIdx !== 4" class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="12.1904" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
+              <rect y="24.3811" width="40" height="8.38092" rx="4.19046" fill="#FFFFFF"/>
             </svg>
           </div>
           <div
@@ -4554,10 +4678,20 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       word-break:break-word;
       color:#ffffff;
     }
+    /* Open state: make title black when the card is active */
+    [data-diff="features"] .bg-teal-500 .accordionTitle{
+      color:#000000 !important;
+    }
     [data-diff="features"] .bg-teal-600 p{
+      margin:0 !important;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      font-size:clamp(16px, 2.4vw, 20px) !important;
+      font-weight:300 !important;
+      line-height:1.65 !important;
       overflow-wrap:anywhere;
       word-break:break-word;
-      color:#ffffff;
+      text-wrap:pretty;
+      color:#000000 !important;
     }
     /* Off-state: match card look from IT Gaps */
     .diff__btnOff{
@@ -4686,6 +4820,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       width:100%;
       height:100%;
       border:0;
+    }
+
+    /* Make story/video intro line slightly larger */
+    section[data-stack="tpv"] .body-lead{
+      font-size: clamp(17px, 2.6vw, 22px);
     }
   </style>
   <!-- Waves script: EXACT logic, bound to #diffWaves, runs after DOM -->
@@ -5369,6 +5508,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     .resTile:hover .resTile__overlay, .resTile:focus-within .resTile__overlay{ opacity:.92; }
 
     .howLead__title{ letter-spacing:-.01em; text-wrap:balance; }
+    .howLead__sub{ font-size: clamp(17px, 2.6vw, 22px); }
 
     .threeSteps__cards{
       gap:clamp(6px,1vw,12px);

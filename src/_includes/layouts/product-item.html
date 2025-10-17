@@ -40,6 +40,15 @@
   </div>
 </section>
 
+<!-- Solutions pages: slightly smaller heading scale than home -->
+<style>
+  :root{
+    --heading-xl: clamp(28px, 5.6vw, 52px);
+    --heading-lg: clamp(22px, 4.6vw, 38px);
+    --heading-md: clamp(18px, 3.8vw, 28px);
+  }
+</style>
+
 {% if heroChallenges %}
 <section class="relative isolate overflow-hidden bg-[#030a17]">
   <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_-20%,rgba(102,199,232,0.24),rgba(3,10,28,0))]"></div>
