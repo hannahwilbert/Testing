@@ -5771,7 +5771,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   .sticky-cta{
     position:fixed;
     bottom:24px;
-    right:24px;
+    right:16px; /* nudge slightly more to the right */
     z-index:70;
     opacity:0;
     transform:translate3d(0,120%,0);
@@ -5788,8 +5788,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   .sticky-cta-inner{
     display:flex;
     align-items:center;
-    gap:14px;
-    padding:.8rem 1rem;
+    gap:10px; /* tighter */
+    padding:.6rem .8rem; /* smaller */
     border-radius:999px;
     background:
       radial-gradient(120% 140% at 80% -20%, rgba(45,212,191,.16) 0%, rgba(45,212,191,0) 58%),
@@ -5805,20 +5805,20 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   .sticky-cta-inner::before{
     content:"";
     position:absolute;
-    inset:-8px;
+    inset:-6px; /* smaller glow */
     border-radius:999px;
     pointer-events:none;
     background:radial-gradient(60% 80% at 85% 10%, rgba(0,187,167,.18), rgba(0,187,167,0) 70%);
-    filter:blur(10px);
-    opacity:.7;
+    filter:blur(8px);
+    opacity:.6;
     z-index:0;
   }
 
   .sticky-cta .label{
     color:#dbe7ff;
-    font-size:1rem;
+    font-size:.9rem; /* smaller */
     font-weight:500;
-    letter-spacing:.02em;
+    letter-spacing:.01em;
     white-space:nowrap;
     position:relative;
     z-index:1;
@@ -5830,6 +5830,17 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     font-weight:700;
     letter-spacing:.01em;
   }
+
+  .sticky-cta .ctaIcon{
+    width:20px; height:20px; flex:0 0 auto; /* smaller icon */
+    display:inline-flex; align-items:center; justify-content:center;
+    background:transparent; /* no teal background */
+    color:#ffffff; /* white icon */
+    box-shadow:none;
+    margin-right:6px;
+    position:relative; z-index:1;
+  }
+  .sticky-cta .ctaIcon svg{ width:100%; height:100%; display:block; stroke-width:1.8; }
 
   @property --border-angle-1 { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
   @property --border-angle-2 { syntax: "<angle>"; inherits: true; initial-value: 90deg; }
@@ -5850,9 +5861,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:.55rem 1.25rem;
+    padding:.5rem 1rem; /* smaller */
     border-radius:999px;
-    font-size:.9rem;
+    font-size:.85rem; /* smaller */
     font-weight:700;
     text-decoration:none;
     transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
@@ -5977,6 +5988,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <!-- Sticky CTA: AI Helpdesk (hidden until past hero) -->
 <div class="sticky-cta" id="stickyCta" role="region" aria-label="AI Helpdesk">
   <div class="sticky-cta-inner">
+    <span class="ctaIcon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles" aria-hidden="true">
+        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+        <path d="M20 3v4"></path>
+        <path d="M22 5h-4"></path>
+        <path d="M4 17v2"></path>
+        <path d="M5 18H3"></path>
+      </svg>
+    </span>
     <span class="label">Try our new <strong>AI Helpdesk</strong></span>
     <a class="pill pill-primary glow" href="#ai-helpdesk">Try It Now</a>
     <button aria-label="Dismiss" id="ctaDismiss" style="background:none;border:0;cursor:pointer;color:#5b6b8c;padding:.4rem .6rem">✕</button>
