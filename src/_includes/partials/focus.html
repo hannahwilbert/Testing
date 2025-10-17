@@ -19,24 +19,48 @@
   .sticky-cta-inner{
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:.65rem .85rem;
+    gap:14px;
+    padding:.8rem 1rem;
     border-radius:999px;
-    background:rgba(6,17,33,.92);
-    border:1px solid rgba(148,163,184,.22);
-    box-shadow:0 20px 42px rgba(2,12,24,.55), 0 4px 16px rgba(3,10,22,.48);
+    background:
+      radial-gradient(120% 140% at 80% -20%, rgba(45,212,191,.16) 0%, rgba(45,212,191,0) 58%),
+      linear-gradient(180deg, rgba(6,17,33,.92), rgba(6,17,33,.88));
+    border:1px solid rgba(148,163,184,.28);
+    box-shadow:0 22px 44px rgba(2,12,24,.58), 0 6px 18px rgba(3,10,22,.5);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
+    position:relative;
+    isolation:isolate;
+  }
+
+  .sticky-cta-inner::before{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border-radius:999px;
+    pointer-events:none;
+    background:radial-gradient(60% 80% at 85% 10%, rgba(0,187,167,.18), rgba(0,187,167,0) 70%);
+    filter:blur(10px);
+    opacity:.7;
+    z-index:0;
   }
 
   .sticky-cta .label{
-    color:#cbd5f5;
-    font-size:.9rem;
-    font-weight:600;
+    color:#dbe7ff;
+    font-size:1rem;
+    font-weight:500;
+    letter-spacing:.02em;
     white-space:nowrap;
+    position:relative;
+    z-index:1;
   }
 
-  .sticky-cta .label strong{ color:#fff; }
+  .sticky-cta .label strong{
+    color:#fff;
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight:700;
+    letter-spacing:.01em;
+  }
 
   @property --border-angle-1 { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
   @property --border-angle-2 { syntax: "<angle>"; inherits: true; initial-value: 90deg; }
@@ -75,16 +99,16 @@
     position:relative;
     isolation:isolate;
     color:#ffffff;
+    background: transparent; /* unfilled so glow border stands out */
     border:1px solid transparent;
     transition:transform .7s cubic-bezier(.22,1,.36,1);
     will-change:transform;
+    box-shadow:none;
   }
 
   .pill-primary:hover,
   .pill-primary:focus-visible{
     transform:scale(1.02) translateZ(0);
-    box-shadow:none;
-    filter:none;
   }
 
   .pill-primary.glow::before{
@@ -119,7 +143,7 @@
                rotateBackground2 var(--speed2) linear infinite,
                rotateBackground3 var(--speed3) linear infinite;
     animation-play-state:running;
-    opacity:.68;
+    opacity:.8;
     transition:opacity .35s ease;
     pointer-events:none;
   }
