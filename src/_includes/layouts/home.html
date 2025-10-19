@@ -2577,7 +2577,7 @@
       outline-offset:4px;
     }
 
-    /* Hover-to-reveal overlay (hover only) */
+    /* Hover-to-reveal overlay (hover only on desktops) */
     section[data-how="elevate"] .howE__card .howE__overlay{
       opacity:0;
       transform:translateY(8px);
@@ -2590,6 +2590,11 @@
     /* Hide the hint when overlay is shown via hover */
     section[data-how="elevate"] .howE__card:hover .howE__hint{
       opacity:0;
+    }
+    /* Touch devices: always show captions (no hover available) */
+    @media (pointer: coarse){
+      section[data-how="elevate"] .howE__card .howE__overlay{ opacity:1; transform:translateY(0) !important; }
+      section[data-how="elevate"] .howE__card .howE__hint{ opacity:0; }
     }
 
     @media (max-width: 720px){
@@ -3477,6 +3482,14 @@
       pointer-events:auto;
     }
 
+    /* Mobile: avoid absolute positioning so container doesn't collapse */
+    @media (max-width: 860px){
+      .resultsCarousel{ height:auto !important; }
+      .resultsSlide{ position:relative; opacity:1; pointer-events:auto; }
+      /* Show only the first slide on small screens to prevent stacking */
+      .resultsCarousel .resultsSlide:not(:first-child){ display:none; }
+    }
+
     /* Keep layout steady: disable hover lift for carousel cards */
     .resultsCarousel .resultsCard:hover,
     .resultsCarousel .resultsCard:focus-within{ transform:none; box-shadow:0 24px 48px rgba(8,18,35,0.45), inset 0 1px 0 rgba(255,255,255,0.08); }
@@ -4011,6 +4024,31 @@
     /* Make story/video intro line slightly larger */
     section[data-stack="tpv"] .body-lead{
       font-size: clamp(17px, 2.6vw, 22px);
+    }
+
+    /* Ensure the video stays perfectly centered on small screens */
+    @media (max-width: 860px){
+      section[data-stack="tpv"] .tpv__media{ width:100% !important; margin-left:0 !important; margin-right:0 !important; }
+      section[data-stack="tpv"] .tpv__video{ margin-inline:auto; }
+      /* Center the entire section content */
+      section[data-stack="tpv"]{ display:flex !important; flex-direction:column !important; align-items:center !important; overflow:hidden !important; min-height:auto !important; }
+      section[data-stack="tpv"] .tpv__wrap{ margin:0 auto !important; }
+      section[data-stack="tpv"] .tpv__card{ padding:clamp(24px,4vw,40px) !important; }
+      /* Mobile text: left align title and copy */
+      section[data-stack="tpv"] .tpv__stack{ margin:0 auto !important; justify-items:flex-start !important; text-align:left !important; }
+      section[data-stack="tpv"] .tpv__title{ text-align:left !important; }
+      section[data-stack="tpv"] .tpv__text{ text-align:left !important; }
+      /* Make video footprint smaller and centered on mobile */
+      section[data-stack="tpv"] .tpv__video{
+        width: min(560px, 94vw) !important;
+        min-height: clamp(180px, 50vw, 280px) !important;
+        margin-left:auto !important; margin-right:auto !important;
+        display:block !important;
+      }
+      /* Force the video container itself to center within the grid */
+      section[data-stack="tpv"] .tpv__media{ display:flex !important; justify-content:center !important; justify-self:center !important; }
+      /* Shorten top blend to avoid overlap with previous section */
+      .homeBlend[data-stack="tpv"]::before{ top:-10vh; height:10vh; }
     }
   </style>
   <!-- Waves script: EXACT logic, bound to #diffWaves, runs after DOM -->
