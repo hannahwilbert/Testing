@@ -2559,21 +2559,18 @@
       outline-offset:4px;
     }
 
-    /* Hover-to-reveal overlay (with keyboard focus fallback) */
+    /* Hover-to-reveal overlay (hover only) */
     section[data-how="elevate"] .howE__card .howE__overlay{
       opacity:0;
       transform:translateY(8px);
       transition:opacity .28s ease, transform .28s ease;
     }
-    section[data-how="elevate"] .howE__card:hover .howE__overlay,
-    section[data-how="elevate"] .howE__card:focus-within .howE__overlay,
-    section[data-how="elevate"] .howE__card.howE__card--open .howE__overlay{
+    section[data-how="elevate"] .howE__card:hover .howE__overlay{
       opacity:1;
       transform:translateY(0) !important;
     }
-    /* Hide the hint when overlay is shown via hover/focus */
-    section[data-how="elevate"] .howE__card:hover .howE__hint,
-    section[data-how="elevate"] .howE__card:focus-within .howE__hint{
+    /* Hide the hint when overlay is shown via hover */
+    section[data-how="elevate"] .howE__card:hover .howE__hint{
       opacity:0;
     }
 
