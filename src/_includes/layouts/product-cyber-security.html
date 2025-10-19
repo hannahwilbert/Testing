@@ -103,8 +103,8 @@
 
 <style>
   :root{
-    /* Match home wrapper width and comfortable padding */
-    --page-max: min(1360px, 96vw);
+    /* Match Home page wrapper width */
+    --page-max: min(1200px, 94vw);
     --page-pad: clamp(16px, 3vw, 24px);
     /* Match home section vertical rhythm */
     --section-pad-block: clamp(140px, 18vh, 240px);
@@ -187,7 +187,7 @@
           {% endif %}
 
           <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
-            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
@@ -202,7 +202,7 @@
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">{{ step.phase }}</h3>
-                <p class="howE__tagline">{{ tag }}</p>
+                <p class="text-base sm:text-lg font-extralight leading-snug">{{ tag }}</p>
               </div>
             </div>
 
@@ -219,30 +219,33 @@
                 @keydown.escape.prevent="open = false"
               >
                 <img src="{{ img }}" alt="{{ step.phase }} image" class="w-full h-full object-cover">
-                <span class="howE__hint" aria-hidden="true" x-show="!open">
-                  View details
-                  <svg class="howE__hintIcon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
               </button>
 
               <div
-                class="howE__overlay absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none"
+                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                :class="open ? 'translate-y-0' : 'translate-y-full'"
                 :aria-hidden="(!open).toString()"
                 :id="'{{ overlayId }}'"
               >
-                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl howE__overlayBox">
+                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
                   {% if step.description %}
-                  <p class="howE__popupText">{{ step.description }}</p>
+                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">{{ step.description }}</p>
                   {% endif %}
+                </div>
+              </div>
+
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
+                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
+                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
               </div>
             </div>
           </article>
           {% endfor %}
         </div>
-      </div>
+        </div>
 
       <style>
         .frameworkJourney{
@@ -287,30 +290,24 @@
           flex-direction:column;
           border-radius:32px;
           overflow:hidden;
-          background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
-          border:1px solid #1B2D46;
-          box-shadow:none;
+          background:rgba(12,26,48,0.9);
+          box-shadow:0 24px 48px rgba(8,17,33,0.45);
           isolation:isolate;
-          transition:none; /* no hover animation on inner cards */
+          transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
         }
 
         .frameworkJourney .howE__card--open{
-          box-shadow:none;
-          border-color:rgba(20,184,166,0.55);
-          border-width:2px;
+          box-shadow:0 30px 60px rgba(17,94,89,0.45);
+          border-color:rgba(20,184,166,0.45);
         }
-        .frameworkJourney .howE__card:hover{
-          transform:none;
-          border-color:#1B2D46; /* keep base border on hover */
-          box-shadow:none;
-          background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
-        }
+        .frameworkJourney .howE__card:hover{ transform:translateY(-4px); }
         .frameworkJourney .howE__card:focus-within{
           outline:2px solid rgba(102,199,232,.45);
           outline-offset:3px;
         }
         .frameworkJourney .howE__card > div:first-child{ border-bottom:1px solid rgba(148,163,184,0.12); }
-        .frameworkJourney .howE__card button{ transition:none; }
+        .frameworkJourney .howE__card button{ transition:transform .45s cubic-bezier(.4,0,.2,1); }
+        .frameworkJourney .howE__card button:hover{ transform:scale(1.02); }
         .frameworkJourney .howE__card button:focus-visible{ outline:2px solid rgba(20,184,166,.55); outline-offset:4px; }
 
         @media (max-width: 720px){
@@ -318,11 +315,8 @@
         }
 
         @media (prefers-reduced-motion: reduce){
-          .frameworkJourney .howE__card,
-          .frameworkJourney .howE__card button,
-          .frameworkJourney .howE__overlay{
-            transition:none;
-          }
+          .frameworkJourney .howE__card{ transition:none; }
+          .frameworkJourney .howE__card button{ transition:none; }
         }
       </style>
       <script>
@@ -482,6 +476,9 @@
           </article>
           {% endfor %}
         </div>
+        <div class="cyberScrollbar" role="presentation" aria-hidden="true">
+          <div class="cyberScrollbar__track"><div class="cyberThumb" tabindex="-1"></div></div>
+        </div>
         <div class="svcDots" role="tablist" aria-label="Service slides"></div>
         {% else %}
         <div class="cyberServices__grid">
@@ -618,7 +615,8 @@
         .cyberServices__row{
           display:flex;
           gap:clamp(20px,4vw,40px);
-          overflow-x:auto;
+          overflow-x:scroll; /* always show horizontal scrollbar */
+          overflow-y:hidden;
           width:100vw;
           max-width:none;
           box-sizing:border-box;
@@ -633,17 +631,46 @@
           touch-action:auto;
           overscroll-behavior-x:contain;
           overscroll-behavior-y:auto;
-          scrollbar-width:thin;
+          -ms-overflow-style: none; /* IE/Edge: hide native scrollbar */
+          scrollbar-width:none;    /* Firefox: hide native scrollbar */
           scrollbar-color:rgba(102,199,232,.6) rgba(15,32,56,.4);
+          cursor: grab;
         }
+        .cyberServices__row.is-dragging{ cursor: grabbing; }
         .cyberServices__row::before,
         .cyberServices__row::after{ content:none; flex:0 0 0; }
-        .cyberServices__row::-webkit-scrollbar{ height:8px; }
+        .cyberServices__row::-webkit-scrollbar{ width:0; height:0; }
         .cyberServices__row::-webkit-scrollbar-track{ background:rgba(7,15,26,.6); border-radius:999px; }
         .cyberServices__row::-webkit-scrollbar-thumb{
           background:linear-gradient(135deg, rgba(102,199,232,.85), rgba(14,116,144,.85));
           border-radius:999px;
         }
+        /* Faux scrollbar (always visible, styled) */
+        .cyberScrollbar{
+          width:100vw;
+          margin-left:calc(50% - 50vw);
+          margin-right:calc(50% - 50vw);
+          padding: 8px clamp(20px,4vw,40px) 0 calc((100vw - var(--page-max)) / 2 + var(--page-pad));
+          box-sizing:border-box;
+        }
+        .cyberScrollbar__track{
+          position:relative;
+          height:10px;
+          border-radius:999px;
+          background:rgba(7,15,26,.6);
+          box-shadow:inset 0 0 0 1px rgba(102,199,232,.18);
+          overflow:hidden;
+        }
+        .cyberThumb{
+          position:absolute;
+          top:0; left:0; height:100%; width:64px;
+          border-radius:inherit;
+          background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%);
+          box-shadow:0 6px 18px rgba(0,0,0,.35);
+          transition:transform .08s linear, width .08s linear;
+          cursor:grab;
+        }
+        .cyberThumb.is-dragging{ cursor:grabbing; }
         /* Card sizing within row */
         .cyberServices__row .cyberServiceCard{
           display:flex;
@@ -728,6 +755,38 @@
           .cyberServiceCard::after{ transition:none !important; }
         }
       </style>
+      <script>
+        // Restore intuitive scrolling: drag-to-scroll + vertical wheel maps to horizontal
+        (function(){
+          function ready(fn){ if (document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+          ready(function(){
+            var row = document.getElementById('cyberServicesRow');
+            if (!row) return;
+            var isDown = false, startX = 0, startLeft = 0;
+
+            row.addEventListener('pointerdown', function(e){
+              isDown = true;
+              startX = (e.pageX || e.clientX);
+              startLeft = row.scrollLeft;
+              row.classList.add('is-dragging');
+            }, { passive:true });
+            window.addEventListener('pointerup', function(){
+              if (!isDown) return; isDown = false; row.classList.remove('is-dragging');
+            }, { passive:true });
+            row.addEventListener('pointerleave', function(){
+              if (!isDown) return; isDown = false; row.classList.remove('is-dragging');
+            }, { passive:true });
+            row.addEventListener('pointermove', function(e){
+              if (!isDown) return;
+              var x = (e.pageX || e.clientX);
+              var dx = x - startX;
+              row.scrollLeft = startLeft - dx;
+            }, { passive:true });
+
+            // Do not map vertical wheel to horizontal; allow native trackpad horizontal scroll only
+          });
+        })();
+      </script>
     </section>
     {% endif %}
     {% if midCta %}
@@ -897,6 +956,55 @@
           }
         }
       </style>
+      <script>
+        // Faux scrollbar logic: mirrors #cyberServicesRow scroll position and size
+        (function(){
+          function ready(fn){ if (document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+          ready(function(){
+            var row = document.getElementById('cyberServicesRow');
+            var track = document.querySelector('.cyberScrollbar__track');
+            var thumb = track && track.querySelector('.cyberThumb');
+            if (!row || !track || !thumb) return;
+
+            function updateThumb(){
+              var trackW = track.clientWidth || 1;
+              var scrollW = row.scrollWidth || 1;
+              var clientW = row.clientWidth || 1;
+              var ratio = Math.max(0, Math.min(1, clientW / scrollW));
+              var minThumb = 36; // min px width
+              var thumbW = Math.max(minThumb, Math.round(trackW * ratio));
+              var maxLeft = Math.max(0, trackW - thumbW);
+              var left = 0;
+              if (scrollW > clientW){
+                left = (row.scrollLeft / (scrollW - clientW)) * maxLeft;
+              }
+              thumb.style.width = thumbW + 'px';
+              thumb.style.transform = 'translateX(' + (isFinite(left) ? Math.max(0, Math.min(maxLeft, left)) : 0) + 'px)';
+            }
+
+            function scrollToThumbX(x){
+              var rect = track.getBoundingClientRect();
+              var trackW = rect.width || 1;
+              var thumbW = thumb.offsetWidth || 1;
+              var maxLeft = Math.max(0, trackW - thumbW);
+              var left = Math.max(0, Math.min(maxLeft, x - rect.left - thumbW/2));
+              var ratio = maxLeft > 0 ? (left / maxLeft) : 0;
+              var maxScroll = Math.max(0, row.scrollWidth - row.clientWidth);
+              row.scrollLeft = ratio * maxScroll;
+              updateThumb();
+            }
+
+            row.addEventListener('scroll', updateThumb, { passive:true });
+            window.addEventListener('resize', updateThumb);
+            setTimeout(updateThumb, 0);
+
+            var dragging = false;
+            function onMove(e){ if (!dragging) return; scrollToThumbX(e.clientX); }
+            function onUp(){ if (!dragging) return; dragging=false; thumb.classList.remove('is-dragging'); window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', onUp); }
+            track.addEventListener('pointerdown', function(e){ dragging = true; thumb.classList.add('is-dragging'); onMove(e); window.addEventListener('pointermove', onMove, { passive:true }); window.addEventListener('pointerup', onUp, { passive:true }); });
+          });
+        })();
+      </script>
     </section>
     {% endif %}
 
@@ -2496,35 +2604,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 {% include "partials/footer.html" %}
 {% endblock %}
-        /* Hover-to-reveal overlay + typography (match Home) */
-        .frameworkJourney .howE__overlay{ opacity:0; transform:translateY(8px); transition:opacity .28s ease, transform .28s ease; z-index:1; }
-        .frameworkJourney .howE__card:hover .howE__overlay{ opacity:1; transform:translateY(0) !important; }
-        .frameworkJourney .howE__hint{
-          position:absolute; right:12px; bottom:12px; z-index:2;
-          display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
-          font-size:13px; font-weight:600; letter-spacing:.02em;
-          color:#e2e8f0; background:rgba(2,6,23,.75);
-          border:1px solid rgba(102,199,232,.45); border-radius:999px;
-          box-shadow:0 6px 18px rgba(0,0,0,.35); pointer-events:none;
-          transition:background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
-          animation:howEHintPulse 2.4s ease-in-out .6s 3;
-        }
-        .frameworkJourney .howE__hintIcon{ width:18px; height:18px; opacity:.9; }
-        .frameworkJourney .howE__card button:hover .howE__hint,
-        .frameworkJourney .howE__card button:focus-visible .howE__hint{ background:var(--brand); color:#061216; border-color:var(--brand); transform:translateY(-1px); }
-        /* Hide hint when card is hovered (matches Home) */
-        .frameworkJourney .howE__card:hover .howE__hint,
-        .frameworkJourney .howE__card.howE__card--open .howE__hint{ opacity:0; }
-        @keyframes howEHintPulse{ 0%,100%{ transform:translateY(0); box-shadow:0 6px 18px rgba(0,0,0,.35);} 50%{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.45);} }
-
-        /* Tagline and popup text styles */
-        .frameworkJourney .howE__tagline{
-          margin:0; font-size:clamp(16px, 2.4vw, 20px); font-weight:300;
-          line-height:1.65; color:rgba(214,224,236,.9); text-wrap:pretty;
-        }
-        .frameworkJourney .howE__popupText{
-          margin:0; font-size:clamp(15px, 2.2vw, 18px); font-weight:300;
-          line-height:1.65; color:rgba(214,224,236,.92); text-wrap:pretty;
-          text-shadow:0 2px 8px rgba(0,0,0,.6);
-        }
-        .frameworkJourney .howE__overlayBox{ background:transparent !important; box-shadow:none !important; }

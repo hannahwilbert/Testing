@@ -650,8 +650,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 <style>
   :root{
-    /* Match home wrapper width and comfortable padding */
-    --page-max: min(1360px, 96vw);
+    /* Match Home page wrapper width */
+    --page-max: min(1200px, 94vw);
     --page-pad: clamp(16px, 3vw, 24px);
     /* Match home section vertical rhythm */
     --section-pad-block: clamp(140px, 18vh, 240px);
@@ -1153,7 +1153,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           </article>
           
         </div>
-      </div>
+        </div>
 
       <style>
         .frameworkJourney{
@@ -1208,8 +1208,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           box-shadow:0 30px 60px rgba(17,94,89,0.45);
           border-color:rgba(20,184,166,0.45);
         }
-
         .frameworkJourney .howE__card:hover{ transform:translateY(-4px); }
+        .frameworkJourney .howE__card:focus-within{
+          outline:2px solid rgba(102,199,232,.45);
+          outline-offset:3px;
+        }
         .frameworkJourney .howE__card > div:first-child{ border-bottom:1px solid rgba(148,163,184,0.12); }
         .frameworkJourney .howE__card button{ transition:transform .45s cubic-bezier(.4,0,.2,1); }
         .frameworkJourney .howE__card button:hover{ transform:scale(1.02); }
@@ -1535,6 +1538,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           </article>
           
         </div>
+        <div class="cyberScrollbar" role="presentation" aria-hidden="true">
+          <div class="cyberScrollbar__track"><div class="cyberThumb" tabindex="-1"></div></div>
+        </div>
         <div class="svcDots" role="tablist" aria-label="Service slides"></div>
         
       </div>
@@ -1653,7 +1659,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         .cyberServices__row{
           display:flex;
           gap:clamp(20px,4vw,40px);
-          overflow-x:auto;
+          overflow-x:scroll; /* always show horizontal scrollbar */
+          overflow-y:hidden;
           width:100vw;
           max-width:none;
           box-sizing:border-box;
@@ -1668,17 +1675,46 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           touch-action:auto;
           overscroll-behavior-x:contain;
           overscroll-behavior-y:auto;
-          scrollbar-width:thin;
+          -ms-overflow-style: none; /* IE/Edge: hide native scrollbar */
+          scrollbar-width:none;    /* Firefox: hide native scrollbar */
           scrollbar-color:rgba(102,199,232,.6) rgba(15,32,56,.4);
+          cursor: grab;
         }
+        .cyberServices__row.is-dragging{ cursor: grabbing; }
         .cyberServices__row::before,
         .cyberServices__row::after{ content:none; flex:0 0 0; }
-        .cyberServices__row::-webkit-scrollbar{ height:8px; }
+        .cyberServices__row::-webkit-scrollbar{ width:0; height:0; }
         .cyberServices__row::-webkit-scrollbar-track{ background:rgba(7,15,26,.6); border-radius:999px; }
         .cyberServices__row::-webkit-scrollbar-thumb{
           background:linear-gradient(135deg, rgba(102,199,232,.85), rgba(14,116,144,.85));
           border-radius:999px;
         }
+        /* Faux scrollbar (always visible, styled) */
+        .cyberScrollbar{
+          width:100vw;
+          margin-left:calc(50% - 50vw);
+          margin-right:calc(50% - 50vw);
+          padding: 8px clamp(20px,4vw,40px) 0 calc((100vw - var(--page-max)) / 2 + var(--page-pad));
+          box-sizing:border-box;
+        }
+        .cyberScrollbar__track{
+          position:relative;
+          height:10px;
+          border-radius:999px;
+          background:rgba(7,15,26,.6);
+          box-shadow:inset 0 0 0 1px rgba(102,199,232,.18);
+          overflow:hidden;
+        }
+        .cyberThumb{
+          position:absolute;
+          top:0; left:0; height:100%; width:64px;
+          border-radius:inherit;
+          background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%);
+          box-shadow:0 6px 18px rgba(0,0,0,.35);
+          transition:transform .08s linear, width .08s linear;
+          cursor:grab;
+        }
+        .cyberThumb.is-dragging{ cursor:grabbing; }
         /* Card sizing within row */
         .cyberServices__row .cyberServiceCard{
           display:flex;
@@ -1763,6 +1799,38 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           .cyberServiceCard::after{ transition:none !important; }
         }
       </style>
+      <script>
+        // Restore intuitive scrolling: drag-to-scroll + vertical wheel maps to horizontal
+        (function(){
+          function ready(fn){ if (document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+          ready(function(){
+            var row = document.getElementById('cyberServicesRow');
+            if (!row) return;
+            var isDown = false, startX = 0, startLeft = 0;
+
+            row.addEventListener('pointerdown', function(e){
+              isDown = true;
+              startX = (e.pageX || e.clientX);
+              startLeft = row.scrollLeft;
+              row.classList.add('is-dragging');
+            }, { passive:true });
+            window.addEventListener('pointerup', function(){
+              if (!isDown) return; isDown = false; row.classList.remove('is-dragging');
+            }, { passive:true });
+            row.addEventListener('pointerleave', function(){
+              if (!isDown) return; isDown = false; row.classList.remove('is-dragging');
+            }, { passive:true });
+            row.addEventListener('pointermove', function(e){
+              if (!isDown) return;
+              var x = (e.pageX || e.clientX);
+              var dx = x - startX;
+              row.scrollLeft = startLeft - dx;
+            }, { passive:true });
+
+            // Do not map vertical wheel to horizontal; allow native trackpad horizontal scroll only
+          });
+        })();
+      </script>
     </section>
     
     
@@ -1932,6 +2000,55 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           }
         }
       </style>
+      <script>
+        // Faux scrollbar logic: mirrors #cyberServicesRow scroll position and size
+        (function(){
+          function ready(fn){ if (document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+          ready(function(){
+            var row = document.getElementById('cyberServicesRow');
+            var track = document.querySelector('.cyberScrollbar__track');
+            var thumb = track && track.querySelector('.cyberThumb');
+            if (!row || !track || !thumb) return;
+
+            function updateThumb(){
+              var trackW = track.clientWidth || 1;
+              var scrollW = row.scrollWidth || 1;
+              var clientW = row.clientWidth || 1;
+              var ratio = Math.max(0, Math.min(1, clientW / scrollW));
+              var minThumb = 36; // min px width
+              var thumbW = Math.max(minThumb, Math.round(trackW * ratio));
+              var maxLeft = Math.max(0, trackW - thumbW);
+              var left = 0;
+              if (scrollW > clientW){
+                left = (row.scrollLeft / (scrollW - clientW)) * maxLeft;
+              }
+              thumb.style.width = thumbW + 'px';
+              thumb.style.transform = 'translateX(' + (isFinite(left) ? Math.max(0, Math.min(maxLeft, left)) : 0) + 'px)';
+            }
+
+            function scrollToThumbX(x){
+              var rect = track.getBoundingClientRect();
+              var trackW = rect.width || 1;
+              var thumbW = thumb.offsetWidth || 1;
+              var maxLeft = Math.max(0, trackW - thumbW);
+              var left = Math.max(0, Math.min(maxLeft, x - rect.left - thumbW/2));
+              var ratio = maxLeft > 0 ? (left / maxLeft) : 0;
+              var maxScroll = Math.max(0, row.scrollWidth - row.clientWidth);
+              row.scrollLeft = ratio * maxScroll;
+              updateThumb();
+            }
+
+            row.addEventListener('scroll', updateThumb, { passive:true });
+            window.addEventListener('resize', updateThumb);
+            setTimeout(updateThumb, 0);
+
+            var dragging = false;
+            function onMove(e){ if (!dragging) return; scrollToThumbX(e.clientX); }
+            function onUp(){ if (!dragging) return; dragging=false; thumb.classList.remove('is-dragging'); window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerup', onUp); }
+            track.addEventListener('pointerdown', function(e){ dragging = true; thumb.classList.add('is-dragging'); onMove(e); window.addEventListener('pointermove', onMove, { passive:true }); window.addEventListener('pointerup', onUp, { passive:true }); });
+          });
+        })();
+      </script>
     </section>
     
 
@@ -3627,8 +3744,8 @@ document.addEventListener('DOMContentLoaded', () => {
           Cypress, CA 90630
         </address>
         <div class="mt-3 text-base">
-          <a class="hover:underline" href="tel:+18882825353">+1 (888) 282-5353</a><br>
-          <a class="hover:underline" href="mailto:sales@L3Networks.com">sales@L3Networks.com</a>
+          <a class="footerLink hover:underline" href="tel:+18882825353">+1 (888) 282-5353</a><br>
+          <a class="footerLink hover:underline" href="mailto:sales@L3Networks.com">sales@L3Networks.com</a>
         </div>
         <div class="flex items-center gap-2 mt-4">
           <a href="https://www.linkedin.com/company/l3-networks" aria-label="LinkedIn" class="opacity-90 hover:opacity-100"><img class="w-5 h-5" src="/images/home/LinkedIn.svg" alt=""></a>
@@ -3695,8 +3812,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   </section>
   <style>
-    /* Footer link hover matches header brand accent */
-    #siteFooter a.footerLink:hover{ color: var(--brand-cyan, #66C7E8); }
+    /* Footer link hover uses brand teal */
+    #siteFooter a.footerLink:hover{ color: var(--brand, #00BBA7); }
   </style>
 </footer>
 
