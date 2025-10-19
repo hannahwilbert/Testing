@@ -2395,7 +2395,7 @@
             :id="'{{ overlayId }}'"
           >
             <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
-              <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">{{ phase.description }}</p>
+              <p class="howE__popupText">{{ phase.description }}</p>
             </div>
           </div>
 
@@ -2489,6 +2489,16 @@
       font-weight:300;
       line-height:1.65;
       color:rgba(214,224,236,.9);
+      text-wrap:pretty;
+    }
+
+    /* Popup description text in Elevate overlay: align with body text */
+    section[data-how="elevate"] .howE__popupText{
+      margin:0;
+      font-size:clamp(16px, 2.4vw, 20px);
+      font-weight:300;
+      line-height:1.65;
+      color:rgba(214,224,236,.92);
       text-wrap:pretty;
     }
 
