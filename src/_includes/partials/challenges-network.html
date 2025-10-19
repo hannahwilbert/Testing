@@ -104,7 +104,11 @@
     [data-network-pressures] .networkPressures__title{
       margin:0;
       color:#f8fafc;
-      letter-spacing:-.02em;
+      /* Match product section titles (below) */
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      font-size:38px !important;
+      line-height:1.2;
+      letter-spacing:-.01em;
       text-wrap:balance;
     }
 
@@ -173,18 +177,20 @@
     }
     [data-network-pressures] .networkPressures__icon svg{ width:clamp(30px, 3.6vw, 36px); height:clamp(30px, 3.6vw, 36px); display:block; }
 
+    /* Match Cyber Security pressures card typography — fixed 20px Inter */
     [data-network-pressures] .networkPressures__cardTitle{
       margin:0;
-      font-weight:600;
-      font-size:clamp(1rem,1.85vw,1.25rem);
-      color:#f8fafc;
-      letter-spacing:-0.01em;
-      text-wrap:balance;
-      flex:1 1 auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight:100; /* lighter, like body text */
+      font-size:20px !important;
+      line-height:1.65;
+      color:rgba(214,224,236,.9);
+      letter-spacing:0;
+      text-wrap:pretty;
+      display:block; /* natural wrapping */
       text-align:center;
+      white-space:normal;
+      word-break:normal;
       min-height:clamp(52px,7vh,92px);
     }
 
