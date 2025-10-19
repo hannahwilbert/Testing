@@ -3408,13 +3408,14 @@
     .resultsImage{ position:relative; margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:flex; align-items:stretch; }
     .resultsImage img{ width:100%; height:100%; object-fit:cover; display:block; }
     /* Teal gradient overlay over carousel images
-       Direction: from bottom-left, fading to transparent */
+       Direction: from bottom-left (45deg) fading to transparent */
+    .resultsImage{ position:relative; }
     .resultsImage::after{
       content:"";
       position:absolute;
       inset:0;
       pointer-events:none;
-      background:linear-gradient(to top right,
+      background:linear-gradient(45deg,
         rgba(0,187,167,.45) 0%,
         rgba(102,199,232,.28) 35%,
         rgba(102,199,232,0) 80%
