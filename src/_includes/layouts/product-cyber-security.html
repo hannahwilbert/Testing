@@ -187,7 +187,7 @@
           {% endif %}
 
           <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
-            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
@@ -202,7 +202,7 @@
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">{{ step.phase }}</h3>
-                <p class="text-base sm:text-lg font-extralight leading-snug">{{ tag }}</p>
+                <p class="howE__tagline">{{ tag }}</p>
               </div>
             </div>
 
@@ -219,26 +219,23 @@
                 @keydown.escape.prevent="open = false"
               >
                 <img src="{{ img }}" alt="{{ step.phase }} image" class="w-full h-full object-cover">
+                <span class="howE__hint" aria-hidden="true" x-show="!open">
+                  View details
+                  <svg class="howE__hintIcon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
               </button>
 
               <div
-                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
-                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                class="howE__overlay absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none"
                 :aria-hidden="(!open).toString()"
                 :id="'{{ overlayId }}'"
               >
                 <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
                   {% if step.description %}
-                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">{{ step.description }}</p>
+                  <p class="howE__popupText">{{ step.description }}</p>
                   {% endif %}
-                </div>
-              </div>
-
-              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
-                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
-                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
                 </div>
               </div>
             </div>
@@ -290,21 +287,30 @@
           flex-direction:column;
           border-radius:32px;
           overflow:hidden;
-          background:rgba(12,26,48,0.9);
-          box-shadow:0 24px 48px rgba(8,17,33,0.45);
+          background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+          border:1px solid #1B2D46;
+          box-shadow:none;
           isolation:isolate;
-          transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+          transition:none; /* no hover animation on inner cards */
         }
 
         .frameworkJourney .howE__card--open{
-          box-shadow:0 30px 60px rgba(17,94,89,0.45);
-          border-color:rgba(20,184,166,0.45);
+          box-shadow:none;
+          border-color:rgba(20,184,166,0.55);
+          border-width:2px;
         }
-
-        .frameworkJourney .howE__card:hover{ transform:translateY(-4px); }
+        .frameworkJourney .howE__card:hover{
+          transform:none;
+          border-color:#1B2D46; /* keep base border on hover */
+          box-shadow:none;
+          background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+        }
+        .frameworkJourney .howE__card:focus-within{
+          outline:2px solid rgba(102,199,232,.45);
+          outline-offset:3px;
+        }
         .frameworkJourney .howE__card > div:first-child{ border-bottom:1px solid rgba(148,163,184,0.12); }
-        .frameworkJourney .howE__card button{ transition:transform .45s cubic-bezier(.4,0,.2,1); }
-        .frameworkJourney .howE__card button:hover{ transform:scale(1.02); }
+        .frameworkJourney .howE__card button{ transition:none; }
         .frameworkJourney .howE__card button:focus-visible{ outline:2px solid rgba(20,184,166,.55); outline-offset:4px; }
 
         @media (max-width: 720px){
@@ -312,8 +318,11 @@
         }
 
         @media (prefers-reduced-motion: reduce){
-          .frameworkJourney .howE__card{ transition:none; }
-          .frameworkJourney .howE__card button{ transition:none; }
+          .frameworkJourney .howE__card,
+          .frameworkJourney .howE__card button,
+          .frameworkJourney .howE__overlay{
+            transition:none;
+          }
         }
       </style>
       <script>
@@ -2487,3 +2496,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 {% include "partials/footer.html" %}
 {% endblock %}
+        /* Hover-to-reveal overlay + typography (match Home) */
+        .frameworkJourney .howE__overlay{ opacity:0; transform:translateY(8px); transition:opacity .28s ease, transform .28s ease; }
+        .frameworkJourney .howE__card:hover .howE__overlay,
+        .frameworkJourney .howE__card:focus-within .howE__overlay,
+        .frameworkJourney .howE__card.howE__card--open .howE__overlay{ opacity:1; transform:translateY(0) !important; }
+        .frameworkJourney .howE__hint{
+          position:absolute; right:12px; bottom:12px; z-index:2;
+          display:inline-flex; align-items:center; gap:8px; padding:8px 12px;
+          font-size:13px; font-weight:600; letter-spacing:.02em;
+          color:#e2e8f0; background:rgba(2,6,23,.75);
+          border:1px solid rgba(102,199,232,.45); border-radius:999px;
+          box-shadow:0 6px 18px rgba(0,0,0,.35); pointer-events:none;
+          transition:background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+          animation:howEHintPulse 2.4s ease-in-out .6s 3;
+        }
+        .frameworkJourney .howE__hintIcon{ width:18px; height:18px; opacity:.9; }
+        .frameworkJourney .howE__card button:hover .howE__hint,
+        .frameworkJourney .howE__card button:focus-visible .howE__hint{ background:var(--brand); color:#061216; border-color:var(--brand); transform:translateY(-1px); }
+        @keyframes howEHintPulse{ 0%,100%{ transform:translateY(0); box-shadow:0 6px 18px rgba(0,0,0,.35);} 50%{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.45);} }
+
+        /* Tagline and popup text styles */
+        .frameworkJourney .howE__tagline{
+          margin:0; font-size:clamp(16px, 2.4vw, 20px); font-weight:300;
+          line-height:1.65; color:rgba(214,224,236,.9); text-wrap:pretty;
+        }
+        .frameworkJourney .howE__popupText{
+          margin:0; font-size:clamp(15px, 2.2vw, 18px); font-weight:300;
+          line-height:1.65; color:rgba(214,224,236,.92); text-wrap:pretty;
+        }
