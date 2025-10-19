@@ -232,7 +232,7 @@
                 :aria-hidden="(!open).toString()"
                 :id="'{{ overlayId }}'"
               >
-                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
+                <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl howE__overlayBox">
                   {% if step.description %}
                   <p class="howE__popupText">{{ step.description }}</p>
                   {% endif %}
@@ -2527,4 +2527,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .frameworkJourney .howE__popupText{
           margin:0; font-size:clamp(15px, 2.2vw, 18px); font-weight:300;
           line-height:1.65; color:rgba(214,224,236,.92); text-wrap:pretty;
+          text-shadow:0 2px 8px rgba(0,0,0,.6);
         }
+        .frameworkJourney .howE__overlayBox{ background:transparent !important; box-shadow:none !important; }
