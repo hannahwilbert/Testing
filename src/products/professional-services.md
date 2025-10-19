@@ -12,7 +12,8 @@ subtitle: 'Providing ambitious businesses with strategic IT guidance and leaders
 heroDescription: ''
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
 heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
-heroImage: '/images/products/professional-services.webp'
+heroImage: '/images/products/professional-services.png'
+heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
 heroImageAlt: 'Professional services team collaborating on technology strategy'
 
 challengesTitle: 'Top Professional Services Pressures Facing IT Leaders'
