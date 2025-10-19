@@ -371,7 +371,7 @@
       text-align:left;
       overflow:hidden;
       isolation:isolate;
-      transition:border-color .35s ease, box-shadow .35s ease, transform .35s ease;
+      transition:none; /* disable hover animations */
     }
 
     /* Remove per-card image background: all cards share the gradient only */
@@ -382,7 +382,7 @@
       position:absolute;
       inset:0;
       pointer-events:none;
-      transition:opacity .35s ease, transform .35s ease;
+      transition:none; /* disable hover animations */
     }
 
     [data-hero-highlights] .heroHighlight::before{
@@ -402,9 +402,9 @@
     }
 
 [data-hero-highlights] .heroHighlight:is(:hover,:focus-visible){
-      /* Remove hover animations/effects */
-      border-color:inherit;
-      box-shadow:inherit;
+      /* Keep the exact same look on hover/focus (no animation) */
+      border-color:#1b2d46;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       transform:none;
     }
 
@@ -2352,7 +2352,7 @@
       {% for phase in elevateHowItWorks %}
       {% set overlayId = 'elevate-overlay-' ~ loop.index %}
       <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
-        <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+        <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
           <div class="px-6 pt-6">
             <div class="flex items-center justify-between">
               <div class="flex gap-3">
@@ -2387,8 +2387,7 @@
           </button>
 
           <div
-            class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
-            :class="open ? 'translate-y-0' : 'translate-y-full'"
+            class="howE__overlay absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none"
             :aria-hidden="(!open).toString()"
             :id="'{{ overlayId }}'"
           >
@@ -2397,13 +2396,7 @@
             </div>
           </div>
 
-          <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
-            <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
-              <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </div>
+          
         </div>
       </article>
       {% endfor %}
@@ -2541,6 +2534,24 @@
     section[data-how="elevate"] .howE__card button:focus-visible{
       outline:2px solid rgba(20,184,166,.55);
       outline-offset:4px;
+    }
+
+    /* Hover-to-reveal overlay (with keyboard focus fallback) */
+    section[data-how="elevate"] .howE__card .howE__overlay{
+      opacity:0;
+      transform:translateY(8px);
+      transition:opacity .28s ease, transform .28s ease;
+    }
+    section[data-how="elevate"] .howE__card:hover .howE__overlay,
+    section[data-how="elevate"] .howE__card:focus-within .howE__overlay,
+    section[data-how="elevate"] .howE__card.howE__card--open .howE__overlay{
+      opacity:1;
+      transform:translateY(0) !important;
+    }
+    /* Hide the hint when overlay is shown via hover/focus */
+    section[data-how="elevate"] .howE__card:hover .howE__hint,
+    section[data-how="elevate"] .howE__card:focus-within .howE__hint{
+      opacity:0;
     }
 
     @media (max-width: 720px){
