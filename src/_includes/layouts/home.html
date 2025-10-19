@@ -2855,6 +2855,16 @@
     section[data-services] .svcCard--split .svcCard__meta{ margin-top: 0; padding-top: clamp(6px, 1.2vw, 10px); }
     section[data-services] .svcCard--split .svcCard__media{ position:relative; border-radius:14px; overflow:hidden; min-height:160px; }
     section[data-services] .svcCard--split .svcCard__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    /* Teal gradient overlay across all service images */
+    section[data-services] .svcCard__media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(135deg, rgba(20,184,166,.35) 0%, rgba(0,187,167,.25) 40%, rgba(102,199,232,.28) 100%);
+      mix-blend-mode:normal; /* keep straightforward tint */
+    }
     /* Flip image horizontally for Cloud Platforms & Data Protection */
     section[data-services] .svcCard--flip .svcCard__media img{ transform: scaleX(-1); transform-origin:center; }
     
