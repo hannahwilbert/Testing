@@ -98,22 +98,6 @@ caseStudiesLinks:
     stat: 'Rolled out modern endpoint management and hybrid collaboration to 5,000 users with 94% adoption.'
     source: 'Technology Company, 2024'
 
-vendorsTitle: 'Partners We Orchestrate Every Day'
-vendorsBody: |
-  Our advisors manage multi-vendor ecosystems so you get the best mix of security, productivity, and infrastructure expertise.
-vendorsLogos:
-  - src: /images/products/logos/logo-microsoft.svg
-    alt: "Microsoft partner logo"
-  - src: /images/products/logos/logo-cisco.svg
-    alt: "Cisco partner logo"
-  - src: /images/products/logos/logo-fortinet.svg
-    alt: "Fortinet partner logo"
-  - src: /images/products/logos/logo-aws.svg
-    alt: "Amazon Web Services partner logo"
-  - src: /images/products/logos/logo-veeam.svg
-    alt: "Veeam partner logo"
-  - src: /images/products/logos/logo-vmware.svg
-    alt: "VMware modernization logo"
 
 testimonial:
   quote: 'L3 kept our transformation on track—weekly executive dashboards, tight vendor coordination, and a team that felt like our own.'

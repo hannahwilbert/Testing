@@ -12,8 +12,9 @@ subtitle: 'Enabling forward-thinking organizations to embrace the cloud with con
 heroDescription: ''
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
 heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
-heroImage: '/images/products/cloud-and-systems-services.webp'
-heroImageAlt: 'Abstract cloud platforms illustration'
+heroImage: '/images/products/cloud.png'
+heroImageAlt: 'Cloud Solutions hero graphic'
+heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
 
 challengesTitle: 'Top Cloud Pressures Facing Growing Organizations'
 challengesIntro: 'Leaders feel these pains when cloud adoption outpaces planning.'
@@ -110,22 +111,6 @@ caseStudiesLinks:
     stat: 'FinOps program reclaimed $480K annually and funded patient-facing digital initiatives.'
     source: 'Healthcare Network, 2024'
 
-vendorsTitle: 'Trusted By Leading Cloud Innovators'
-vendorsBody: |
-  We integrate the right mix of cloud, productivity, and automation partners so your platform stays resilient and secure.
-vendorsLogos:
-  - src: /images/products/logos/logo-azure.svg
-    alt: "Microsoft Azure cloud services logo"
-  - src: /images/products/logos/logo-aws.svg
-    alt: "Amazon Web Services logo"
-  - src: /images/products/logos/logo-veeam.svg
-    alt: "Veeam backup and recovery logo"
-  - src: /images/products/logos/logo-cisco.svg
-    alt: "Cisco hybrid cloud infrastructure logo"
-  - src: /images/products/logos/logo-fortinet.svg
-    alt: "Fortinet cloud security logo"
-  - src: /images/products/logos/logo-cloudflare.svg
-    alt: "Cloudflare performance and security logo"
 
 testimonial:
   quote: 'L3 helped us rationalize workloads, shut off zombie spend, and build pipelines our developers actually use.'

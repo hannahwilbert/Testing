@@ -1,4 +1,4 @@
-<section class="section-block mt-20" data-network-pressures>
+<section class="section-block" data-network-pressures>
   <div aria-hidden="true" class="networkPressures__bg pointer-events-none absolute inset-0"></div>
   <div class="networkPressures__wrap">
     <header class="networkPressures__heading">
@@ -109,45 +109,53 @@
       [data-network-pressures] .networkPressures__grid{ grid-template-columns:repeat({{ columns }},minmax(0,1fr)); }
     }
 
+    /* Match Cyber Security pressures card surface */
     [data-network-pressures] .networkPressures__card{
       position:relative;
       padding:clamp(26px,4vh,34px);
       border-radius:26px;
       border:1px solid #1b2d46;
-      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+      background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       display:flex;
       flex-direction:column;
       align-items:center;
       text-align:center;
       gap:clamp(14px,2vh,20px);
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      transition:none; /* remove hover animation to match cyber */
       overflow:hidden;
       isolation:isolate;
     }
 
     [data-network-pressures] .networkPressures__card:hover,
     [data-network-pressures] .networkPressures__card:focus-within{
-      transform:translateY(-6px);
-      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-      border-color:rgba(180,210,240,.34);
+      /* No visual change on hover/focus (match cyber) */
+      transform:none;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      border-color:#1b2d46;
     }
 
     [data-network-pressures] .networkPressures__card > *{ position:relative; z-index:1; }
 
     /* removed priority chip */
 
+    /* Icons: teal-tinted like cyber pressures */
     [data-network-pressures] .networkPressures__icon{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:56px; height:56px;
+      width:clamp(60px, 7vw, 72px); height:clamp(60px, 7vw, 72px);
       border-radius:999px;
-      color:#7dd3fc;
-      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(59,130,246,.14));
-      border:1px solid rgba(148,163,184,.22);
+      color:var(--brand);
+      background:linear-gradient(135deg, rgba(20,184,166,.18), rgba(13,148,136,.14));
+      border:1px solid rgba(20,184,166,.28);
     }
-    [data-network-pressures] .networkPressures__icon svg{ width:28px; height:28px; display:block; }
+    [data-network-pressures] .networkPressures__icon svg{ width:clamp(30px, 3.6vw, 36px); height:clamp(30px, 3.6vw, 36px); display:block; }
 
     [data-network-pressures] .networkPressures__cardTitle{
       margin:0;

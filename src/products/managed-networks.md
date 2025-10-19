@@ -11,8 +11,9 @@ mainTitle: 'Optimize Your Network… <span class="text-teal-400">The Backbone of
 subtitle: 'Guiding IT leaders to build networks that are reliable today and ready for tomorrow with the Elevate Framework'
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
 heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
-heroImage: '/images/products/managed-networks.webp'
-heroImageAlt: 'Managed network connectivity illustration'
+heroImage: '/images/products/networks.png'
+heroImageAlt: 'Networks & Connectivity hero graphic'
+heroImageMaxWidth: 'clamp(420px, 50vw, 560px)'
 
 prodtitle: 'Elevate Connectivity From Core to Edge'
 prodbody: |
@@ -107,28 +108,6 @@ caseStudiesLinks:
     stat: 'A SaaS firm increased remote application performance by 48% after adopting Elevate-guided SASE and QoS policies.'
     source: 'SaaS Leader, 2024'
 
-vendorsTitle: 'Trusted by the Best, Built for You'
-vendorsBody: |
-  We partner with industry-leading vendors to deliver cutting-edge network and connectivity solutions.
-vendorsLogos:
-  - src: /images/products/logos/logo-fortinet.svg
-    alt: "Fortinet Network Security logo"
-  - src: /images/products/logos/logo-hpe.svg
-    alt: "Hewlett Packard Enterprise (HPE) logo"
-  - src: /images/products/logos/logo-ruckus.svg
-    alt: "Ruckus Networks Wireless Solutions logo"
-  - src: /images/products/logos/logo-aruba.svg
-    alt: "Aruba Networking Solutions logo"
-  - src: /images/products/logos/logo-ericsson.svg
-    alt: "Ericsson Telecom Infrastructure logo"
-  - src: /images/products/logos/logo-dialpad.svg
-    alt: "Dialpad Business Communications logo"
-  - src: /images/products/logos/logo-ringcentral.svg
-    alt: "RingCentral Cloud Communications logo"
-  - src: /images/products/logos/logo-teams.svg
-    alt: "Microsoft Teams Collaboration Platform logo"
-  - src: /images/products/logos/logo-entra.svg
-    alt: "Microsoft Entra Identity & Access Management logo"
 
 testimonial:
   quote: 'L3 Networks helped us turn our multi-site network into a resilient platform that keeps every location productive.'

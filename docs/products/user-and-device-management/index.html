@@ -585,10 +585,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       </div>
       
         <figure class="relative flex flex-col items-center gap-3 text-center">
-          <img src="/images/products/user-and-device-management.webp" alt="Managed device and user support illustration" class="relative w-full max-w-md h-auto object-contain">
-          
-          <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70">[placeholder image]</figcaption>
-          
+          <img src="/images/products/users.png" alt="Users &amp; Devices hero graphic" class="relative w-full h-auto object-contain" style="max-width: clamp(260px, 32vw, 380px);">
         </figure>
       
     </div>
@@ -701,7 +698,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   
   
   
-    <section class="section-block mt-20" data-network-pressures>
+    <section class="section-block" data-network-pressures>
   <div aria-hidden="true" class="networkPressures__bg pointer-events-none absolute inset-0"></div>
   <div class="networkPressures__wrap">
     <header class="networkPressures__heading">
@@ -834,45 +831,53 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       [data-network-pressures] .networkPressures__grid{ grid-template-columns:repeat(3,minmax(0,1fr)); }
     }
 
+    /* Match Cyber Security pressures card surface */
     [data-network-pressures] .networkPressures__card{
       position:relative;
       padding:clamp(26px,4vh,34px);
       border-radius:26px;
       border:1px solid #1b2d46;
-      background:linear-gradient(210deg,#10223c 0%,#081525 100%);
-      box-shadow:0 20px 48px rgba(8,18,35,.48), inset 0 1px 0 rgba(255,255,255,.05);
+      background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       display:flex;
       flex-direction:column;
       align-items:center;
       text-align:center;
       gap:clamp(14px,2vh,20px);
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      transition:none; /* remove hover animation to match cyber */
       overflow:hidden;
       isolation:isolate;
     }
 
     [data-network-pressures] .networkPressures__card:hover,
     [data-network-pressures] .networkPressures__card:focus-within{
-      transform:translateY(-6px);
-      box-shadow:0 32px 92px rgba(10,26,47,.68), inset 0 1px 0 rgba(255,255,255,.22);
-      border-color:rgba(180,210,240,.34);
+      /* No visual change on hover/focus (match cyber) */
+      transform:none;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      border-color:#1b2d46;
     }
 
     [data-network-pressures] .networkPressures__card > *{ position:relative; z-index:1; }
 
     /* removed priority chip */
 
+    /* Icons: teal-tinted like cyber pressures */
     [data-network-pressures] .networkPressures__icon{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:56px; height:56px;
+      width:clamp(60px, 7vw, 72px); height:clamp(60px, 7vw, 72px);
       border-radius:999px;
-      color:#7dd3fc;
-      background:linear-gradient(135deg, rgba(56,189,248,.18), rgba(59,130,246,.14));
-      border:1px solid rgba(148,163,184,.22);
+      color:var(--brand);
+      background:linear-gradient(135deg, rgba(20,184,166,.18), rgba(13,148,136,.14));
+      border:1px solid rgba(20,184,166,.28);
     }
-    [data-network-pressures] .networkPressures__icon svg{ width:28px; height:28px; display:block; }
+    [data-network-pressures] .networkPressures__icon svg{ width:clamp(30px, 3.6vw, 36px); height:clamp(30px, 3.6vw, 36px); display:block; }
 
     [data-network-pressures] .networkPressures__cardTitle{
       margin:0;
@@ -963,7 +968,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
 
           <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
-            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
@@ -1029,7 +1034,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
 
           <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
-            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
@@ -1095,7 +1100,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           
 
           <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
-            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-neutral-800 text-neutral-100'">
+            <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
                   <div class="flex gap-3">
@@ -1198,8 +1203,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           flex-direction:column;
           border-radius:32px;
           overflow:hidden;
-          background:rgba(12,26,48,0.9);
-          box-shadow:0 24px 48px rgba(8,17,33,0.45);
+          /* Match Top Cybersecurity Pressures card surface */
+          border:1px solid #1b2d46;
+          background:
+            radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+            linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+            linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+            linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+            linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
           isolation:isolate;
           transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
         }
@@ -2556,75 +2568,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     </script>
     
 
-    
-    <section style="background: var(--surface-0, #000000); padding: var(--section-pad-block) clamp(28px,4.6vw,44px) var(--section-pad-block); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
-      <div class="product-shell space-y-8">
-        <div class="max-w-3xl space-y-4">
-          
-          <h2 class="vendors__title heading-xl">Trusted Tools We Manage Every Day</h2>
-          
-        
-          <p class="body-lead">We orchestrate best-of-breed endpoint, identity, and collaboration platforms so employees stay secure and productive.
-</p>
-          
-        </div>
-        <div class="relative w-full mt-8">
-          <div class="swiper vendor-swiper px-12" id="vendorSwiper">
-            <div class="swiper-wrapper items-center">
-              
-              <div class="swiper-slide flex items-center justify-center py-6">
-                <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-                  <img class="block h-12" src="/images/products/logos/logo-intune.svg" alt="Microsoft Intune endpoint management logo">
-                </div>
-              </div>
-              
-              <div class="swiper-slide flex items-center justify-center py-6">
-                <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-                  <img class="block h-12" src="/images/products/logos/logo-o365.svg" alt="Microsoft 365 collaboration logo">
-                </div>
-              </div>
-              
-              <div class="swiper-slide flex items-center justify-center py-6">
-                <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-                  <img class="block h-12" src="/images/products/logos/logo-okta.svg" alt="Okta identity management logo">
-                </div>
-              </div>
-              
-              <div class="swiper-slide flex items-center justify-center py-6">
-                <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-                  <img class="block h-12" src="/images/products/logos/logo-crowdstrike.svg" alt="CrowdStrike endpoint security logo">
-                </div>
-              </div>
-              
-              <div class="swiper-slide flex items-center justify-center py-6">
-                <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-                  <img class="block h-12" src="/images/products/logos/logo-ringcentral.svg" alt="RingCentral unified communications logo">
-                </div>
-              </div>
-              
-              <div class="swiper-slide flex items-center justify-center py-6">
-                <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-                  <img class="block h-12" src="/images/products/logos/logo-ninjaone.svg" alt="NinjaOne endpoint automation logo">
-                </div>
-              </div>
-              
-            </div>
-
-          </div>
-          <style>
-            .vendors__title{
-              margin:0;
-              color:#f8fafc;
-              text-wrap:balance;
-            }
-
-            #vendorSwiper .swiper-wrapper {
-              transition-timing-function: linear !important;
-            }
-          </style>
-        </div>
-      </div>
-    </section>
     
 
     

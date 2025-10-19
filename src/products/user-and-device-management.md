@@ -12,8 +12,9 @@ subtitle: 'Partnering with IT leaders in scaling companies to reduce support bur
 heroDescription: ''
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
 heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
-heroImage: '/images/products/user-and-device-management.webp'
-heroImageAlt: 'Managed device and user support illustration'
+heroImage: '/images/products/users.png'
+heroImageAlt: 'Users & Devices hero graphic'
+heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
 
 challengesTitle: 'Top User & Device Pressures Facing IT Teams'
 challengesIntro: 'Hybrid work and evolving security requirements stretch traditional endpoint practices.'
@@ -90,22 +91,6 @@ caseStudiesLinks:
     stat: 'Raised CSAT from 3.2 to 4.7 and cut average resolution time by 41% with Elevate-aligned processes.'
     source: 'Financial Services Firm, 2024'
 
-vendorsTitle: 'Trusted Tools We Manage Every Day'
-vendorsBody: |
-  We orchestrate best-of-breed endpoint, identity, and collaboration platforms so employees stay secure and productive.
-vendorsLogos:
-  - src: /images/products/logos/logo-intune.svg
-    alt: "Microsoft Intune endpoint management logo"
-  - src: /images/products/logos/logo-o365.svg
-    alt: "Microsoft 365 collaboration logo"
-  - src: /images/products/logos/logo-okta.svg
-    alt: "Okta identity management logo"
-  - src: /images/products/logos/logo-crowdstrike.svg
-    alt: "CrowdStrike endpoint security logo"
-  - src: /images/products/logos/logo-ringcentral.svg
-    alt: "RingCentral unified communications logo"
-  - src: /images/products/logos/logo-ninjaone.svg
-    alt: "NinjaOne endpoint automation logo"
 
 testimonial:
   quote: 'Our onboarding time dropped in half and user satisfaction spiked once L3 standardized provisioning and support.'

@@ -999,8 +999,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       gap:clamp(12px, 2vw, 20px);
       padding:clamp(24px, 3.2vw, 34px);
       border-radius:24px;
-      /* Clean gradient card background (no stock image) */
+      /* Match Top Cybersecurity Pressures card surface */
       background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
         linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
         linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
         linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
@@ -1600,8 +1602,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       align-items:flex-start;
       padding:clamp(18px,2.8vw,24px) clamp(18px,3vw,28px);
       border-radius:16px;
-      /* Match opaque hero-card look */
+      /* Match Top Cybersecurity Pressures card surface */
       background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
         linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
         linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
         linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
@@ -1613,10 +1617,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       position:relative;
     }
 
-    /* Off-state (pre-click) problem cards: match plain blue card style */
+    /* Off-state (pre-click) problem cards: match Top Cybersecurity Pressures surface */
     [data-problem="flat"] .problemFlat__btnOff{
-      /* Match opaque hero highlight card look */
       background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
         linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
         linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
         linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
@@ -2515,9 +2520,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     .kfE__icon img{ width:100%; height:auto; display:block; }
     .kfE__itemTitle{ color:#fff; font-weight:600; font-size:clamp(18px,2.6vw,24px); letter-spacing:-.01em; }
     .kfE__itemCopy{ margin:0; color:rgba(226,232,240,.78); font-size:clamp(14px,1.9vw,16px); line-height:1.65; }
-    /* Off-state for Why L3 cards: match hero highlight/IT gaps card surface */
-    .kfE__btnOff{
+    /* Off-state for Why L3 cards: match hero highlight card surface */
+    [data-kf="elite"] .kfE__btnOff{
       background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
         linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
         linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
         linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
@@ -3356,9 +3363,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       flex-direction:column;
       border-radius:32px;
       overflow:hidden;
-      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
-      border:1px solid #1B2D46;
-      box-shadow:none;
+      /* Match Top Cybersecurity Pressures card surface */
+      border:1px solid #1b2d46;
+      background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       isolation:isolate;
       transition:none; /* no hover animation on inner cards */
     }
@@ -3372,8 +3385,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     section[data-how="elevate"] .howE__card:hover{
       transform:none;
       border-color:#1B2D46; /* keep base border on hover */
-      box-shadow:none;
-      background:linear-gradient(210deg, #0A172A 0%, #10223C 55%, #020617 100%);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
     }
 
     /* Accessible, non-glow focus treatment */
@@ -3395,7 +3413,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       outline-offset:4px;
     }
 
-    /* Hover-to-reveal overlay (hover only) */
+    /* Hover-to-reveal overlay (hover only on desktops) */
     section[data-how="elevate"] .howE__card .howE__overlay{
       opacity:0;
       transform:translateY(8px);
@@ -3408,6 +3426,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     /* Hide the hint when overlay is shown via hover */
     section[data-how="elevate"] .howE__card:hover .howE__hint{
       opacity:0;
+    }
+    /* Touch devices: always show captions (no hover available) */
+    @media (pointer: coarse){
+      section[data-how="elevate"] .howE__card .howE__overlay{ opacity:1; transform:translateY(0) !important; }
+      section[data-how="elevate"] .howE__card .howE__hint{ opacity:0; }
     }
 
     @media (max-width: 720px){
@@ -3730,8 +3753,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       border:1px solid #1b2d46;
       text-decoration:none;
       color:#e2e8f0;
-      /* Match hero highlight card surface */
+      /* Match hero highlight card surface (teal‑tinted layered gradient) */
       background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
         linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
         linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
         linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
@@ -4454,6 +4479,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       pointer-events:auto;
     }
 
+    /* Mobile: avoid absolute positioning so container doesn't collapse */
+    @media (max-width: 860px){
+      .resultsCarousel{ height:auto !important; }
+      .resultsSlide{ position:relative; opacity:1; pointer-events:auto; }
+      /* Show only the first slide on small screens to prevent stacking */
+      .resultsCarousel .resultsSlide:not(:first-child){ display:none; }
+    }
+
     /* Keep layout steady: disable hover lift for carousel cards */
     .resultsCarousel .resultsCard:hover,
     .resultsCarousel .resultsCard:focus-within{ transform:none; box-shadow:0 24px 48px rgba(8,18,35,0.45), inset 0 1px 0 rgba(255,255,255,0.08); }
@@ -4920,15 +4953,29 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       text-wrap:pretty;
       color:#000000 !important;
     }
-    /* Off-state: match card look from IT Gaps */
-    .diff__btnOff{
+    /* Off-state: match Hero highlight card surface exactly */
+    [data-diff="features"] .diff__btnOff{
       background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
         linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
         linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
-        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
-      border:1px solid #1b2d46;
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%) !important;
+      border:1px solid #1b2d46 !important;
       color:#e2e8f0;
-      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06) !important;
+    }
+    /* On-state (open): apply same gradient surface so it’s visible even when active */
+    [data-diff="features"] .diff__btnOn{
+      background:
+        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%) !important;
+      border:1px solid #1b2d46 !important;
+      box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06) !important;
+      color:#e2e8f0;
     }
     .diff__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px,2vh,20px); align-content:start; }
     .diff__media{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:block; position:relative; }
@@ -5071,6 +5118,31 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     /* Make story/video intro line slightly larger */
     section[data-stack="tpv"] .body-lead{
       font-size: clamp(17px, 2.6vw, 22px);
+    }
+
+    /* Ensure the video stays perfectly centered on small screens */
+    @media (max-width: 860px){
+      section[data-stack="tpv"] .tpv__media{ width:100% !important; margin-left:0 !important; margin-right:0 !important; }
+      section[data-stack="tpv"] .tpv__video{ margin-inline:auto; }
+      /* Center the entire section content */
+      section[data-stack="tpv"]{ display:flex !important; flex-direction:column !important; align-items:center !important; overflow:hidden !important; min-height:auto !important; }
+      section[data-stack="tpv"] .tpv__wrap{ margin:0 auto !important; }
+      section[data-stack="tpv"] .tpv__card{ padding:clamp(24px,4vw,40px) !important; }
+      /* Mobile text: left align title and copy */
+      section[data-stack="tpv"] .tpv__stack{ margin:0 auto !important; justify-items:flex-start !important; text-align:left !important; }
+      section[data-stack="tpv"] .tpv__title{ text-align:left !important; }
+      section[data-stack="tpv"] .tpv__text{ text-align:left !important; }
+      /* Make video footprint smaller and centered on mobile */
+      section[data-stack="tpv"] .tpv__video{
+        width: min(560px, 94vw) !important;
+        min-height: clamp(180px, 50vw, 280px) !important;
+        margin-left:auto !important; margin-right:auto !important;
+        display:block !important;
+      }
+      /* Force the video container itself to center within the grid */
+      section[data-stack="tpv"] .tpv__media{ display:flex !important; justify-content:center !important; justify-self:center !important; }
+      /* Shorten top blend to avoid overlap with previous section */
+      .homeBlend[data-stack="tpv"]::before{ top:-10vh; height:10vh; }
     }
   </style>
   <!-- Waves script: EXACT logic, bound to #diffWaves, runs after DOM -->
