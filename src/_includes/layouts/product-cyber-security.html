@@ -2514,6 +2514,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .frameworkJourney .howE__hintIcon{ width:18px; height:18px; opacity:.9; }
         .frameworkJourney .howE__card button:hover .howE__hint,
         .frameworkJourney .howE__card button:focus-visible .howE__hint{ background:var(--brand); color:#061216; border-color:var(--brand); transform:translateY(-1px); }
+        /* Hide hint when card is hovered/focused (matches Home) */
+        .frameworkJourney .howE__card:hover .howE__hint,
+        .frameworkJourney .howE__card:focus-within .howE__hint{ opacity:0; }
         @keyframes howEHintPulse{ 0%,100%{ transform:translateY(0); box-shadow:0 6px 18px rgba(0,0,0,.35);} 50%{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.45);} }
 
         /* Tagline and popup text styles */
