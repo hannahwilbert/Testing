@@ -2370,7 +2370,7 @@
 
           <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
             <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">{{ phase.title }}</h3>
-            <p class="text-base sm:text-lg font-extralight leading-snug">{{ phase.tagline }}</p>
+            <p class="howE__tagline">{{ phase.tagline }}</p>
           </div>
         </div>
 
@@ -2480,6 +2480,16 @@
       color:rgba(226,232,240,.85);
       /* Match larger subhead sizing */
       font-size:clamp(17px, 2.6vw, 22px);
+    }
+
+    /* Match other paragraph sizes (e.g., hero highlight/body text) */
+    section[data-how="elevate"] .howE__tagline{
+      margin:0;
+      font-size:clamp(16px, 2.4vw, 20px);
+      font-weight:300;
+      line-height:1.65;
+      color:rgba(214,224,236,.9);
+      text-wrap:pretty;
     }
 
     .howE__titleGradient{
