@@ -902,14 +902,16 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       color:var(--brand);
       background:linear-gradient(135deg, rgba(20,184,166,.18), rgba(13,148,136,.14));
       border:1px solid rgba(20,184,166,.28);
-    }
+im     }
     [data-network-pressures] .networkPressures__icon svg{ width:clamp(30px, 3.6vw, 36px); height:clamp(30px, 3.6vw, 36px); display:block; }
 
     /* Match Cyber Security pressures card typography — fixed 20px Inter */
     [data-network-pressures] .networkPressures__cardTitle{
       margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-weight:100; /* lighter, like body text */
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      font-weight:300 !important; /* reliable light weight */
+      font-variation-settings: "wght" 300 !important; /* help variable fonts render intended weight */
+      font-synthesis: none !important; /* prevent synthetic bolding */
       font-size:20px !important;
       line-height:1.65;
       color:rgba(214,224,236,.9);
@@ -920,6 +922,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       white-space:normal;
       word-break:normal;
       min-height:clamp(52px,7vh,92px);
+    }
+    /* Extra specificity to defeat any late-loading heading utilities */
+    [data-network-pressures] .networkPressures__card .networkPressures__cardTitle{
+      font-family: inherit !important;
+      font-weight: 300 !important;
+      font-variation-settings: "wght" 300 !important;
+      font-size: 20px !important;
     }
 
     /* per-card description removed */
