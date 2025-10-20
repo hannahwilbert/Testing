@@ -893,7 +893,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   }
   .wl3__section[data-variant="dark"]{ background: var(--surface-0, #000000); }
   .wl3__section[data-variant="light"]{ background: linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); }
-  .wl3__wrap{ width:100%; max-width:var(--page-max); margin:0 auto; padding:0 var(--page-pad); display:grid; gap:clamp(12px,2vh,16px); }
+  /* Global, consistent spacing between section title and content */
+  .wl3__wrap{ width:100%; max-width:var(--page-max); margin:0 auto; padding:0 var(--page-pad); display:grid; gap:clamp(8px,1.2vh,12px); }
   /* Match product (cyber security) section title sizing */
   .wl3__wrap > .heading-xl{
     margin:0;
@@ -1046,7 +1047,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   /* Why Organizations Choose Us — neater layout */
   .wl3__section[data-block="why-choose"] .wl3__grid{ align-items:center; gap:clamp(16px,3vw,32px); }
-  .wl3__section[data-block="why-choose"] .wl3__wrap{ display:grid; gap:clamp(4px,0.6vh,8px); }
+  .wl3__section[data-block="why-choose"] .wl3__wrap{ display:grid; gap:clamp(8px,1.2vh,12px); }
   .wl3__section[data-block="why-choose"] > .wl3__wrap > .heading-xl{ margin:0; }
   .wl3__section[data-block="why-choose"] .heading-xl + .wl3__grid{ margin-top:0; }
   .wl3__section[data-block="why-choose"] .wl3__body{ display:grid; gap:6px; }
