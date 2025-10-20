@@ -73,56 +73,7 @@
     </section>
     {% endif %}
 
-    {# Strategic Partner (cards) #}
-    {% if partner %}
-    <section class="mt-10" style="display:none">
-      <h2 class="mb-3 heading-xl">Strategic Partner</h2>
-      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Clear, proactive guidance that aligns IT with business outcomes.</p>
-      <div class="hScrollCards hScrollCards--partner">
-        {% for item in partner %}
-        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Strategy</span></div>
-          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-          <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {# Dedicated to Service (cards) #}
-    {% if service %}
-    <section class="mt-16" style="display:none">
-      <h2 class="mb-3 heading-xl">Dedicated to Service</h2>
-      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Always‑on coverage and a service model built for consistency.</p>
-      <div class="hScrollCards hScrollCards--service">
-        {% for item in service %}
-        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Service</span></div>
-          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-          <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {# Expert Capability (cards) #}
-    {% if expert %}
-    <section class="mt-16" style="display:none">
-      <h2 class="mb-3 heading-xl">Expert Capability</h2>
-      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Certified teams, proven processes, and enterprise‑grade execution.</p>
-      <div class="hScrollCards hScrollCards--expert">
-        {% for item in expert %}
-        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Expertise</span></div>
-          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-          <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+    {# Sections below consolidated into a grid with tabs to match services pages #}
 
     {# Filtered grid (no scrolling) #}
     <section class="mt-32 md:mt-40" x-data="{ active:'partner' }">
