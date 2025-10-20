@@ -1,14 +1,15 @@
 {% extends "layouts/base.html" %}
 {% block content %}
 
-{# Hero — mirror services product hero with simpler background #}
-<section style="background:#020617;" class="relative w-full px-6 pt-32 text-white overflow-hidden md:px-10 md:pt-16">
-  
+{# Hero — match services product hero background (waves + overlays) #}
+<section style="background:#020617;" class="whyL3Hero relative w-full px-6 pt-32 text-white overflow-hidden md:px-10 md:pt-16">
+
+  <div class="waves absolute inset-0 pointer-events-none"></div>
   <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-950/85 to-slate-900/65"></div>
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.12),_transparent_60%)]"></div>
-  <div class="container relative max-w-screen-xl px-0 pb-20 text-left md:pb-32 md:px-0 md:mx-auto md:py-48">
-    <div class="relative z-10 grid max-w-screen-xl gap-12 px-0 mx-auto items-center md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-      <div class="max-w-3xl">
+  <div class="container relative max-w-screen-xl px-0 pb-20 text-center md:pb-32 md:px-0 md:mx-auto md:py-48">
+    <div class="relative z-10 grid max-w-screen-xl gap-12 px-0 mx-auto items-center justify-items-center">
+      <div class="max-w-3xl mx-auto">
         <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl font-inter">{{ title | safe }}</h1>
         {% if subtitle %}
         <p class="text-lg font-light md:text-2xl text-slate-100/90">{{ subtitle }}</p>
@@ -18,185 +19,216 @@
           <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a 15-Minute Right-Fit Call">
         </a>
       </div>
-      <figure class="relative flex flex-col items-center gap-3 text-center">
-        <img src="/images/about/planet.webp" alt="Abstract planet illustration" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-contain">
-        <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70">[placeholder image]</figcaption>
-      </figure>
     </div>
   </div>
 </section>
 
+<style>
+  /* Ensure hero waves canvas fills the hero like services pages */
+  .waves canvas{ width:100%; height:100%; display:block; }
+  /* Ensure CTA matches Cyber Security hero button color and size */
+  .whyL3Hero a[data-cta="primary"]{
+    background: var(--brand); /* solid teal */
+    font-size: clamp(14px, 2.4vw, 18px);
+  }
+  .whyL3Hero a[data-cta="primary"] img{ height:18px; }
+</style>
+
+<!-- Sections below hero styled like services pages -->
 <main class="bg-[#030a1c] text-white">
-  <article class="container max-w-screen-xl px-6 py-16 mx-auto md:px-10 md:py-24">
+  
+  <!-- Who We Are -->
+  <section class="wl3__section" data-variant="dark">
+    <div class="wl3__wrap">
+      <h2 class="heading-xl">Who We Are</h2>
+      <div class="wl3__grid">
+        <div class="wl3__body">
+          <p>We build long-term operational clarity in IT environments where stability, maturity, and trust matter. For over two decades, we’ve worked alongside business and technology leaders to solve real problems, not just technical issues, but structural challenges that prevent progress.</p>
+          <p>Our role is simple: help organizations strengthen technology foundations, improve performance, and make better decisions with confidence.</p>
+        </div>
+        <figure class="wl3__media">
+          <img src="https://www.idaireland.com/getmedia/141422fd-78f2-4b24-b6d7-ec3eb3ea92d4/Tech.png?width=480&height=auto&maxsidesize=480&ext=.png" alt="Illustrative placeholder" loading="lazy" decoding="async">
+          <figcaption class="sr-only">Placeholder image</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    {# Value props — grid like services pages #}
-    {% if valueProps %}
-    <section class="mb-16 md:mb-24 whyVP">
-      <h2 class="mb-3 heading-xl">Why Partner With L3 Networks?</h2>
-      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">You don’t have to face those challenges alone. With over 20 years of experience and our Elevate IT Maturity Framework, we partner with you to chart a clear IT path.</p>
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-        {% for vp in valueProps %}
-        <div x-data="{ open:false }" class="relative z-10">
-          <button
-            @click="open = !open"
-            class="w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8"
-            :class="open ? 'bg-teal-500 text-black border-1 border-teal-500 ring-1 ring-teal-500 transform shadow-xl' : 'valueProps__btnOff ring-1 ring-[#1b2d46]/60 hover:ring-teal-400/50 hover:shadow-teal-500/10 transform hover:scale-101'"
-            :aria-expanded="open.toString()"
-            :aria-controls="'vp-panel-' + {{ loop.index }}"
-            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
-          >
-            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open ? 'pb-0' : 'pb-4 sm:pb-6'">
-              <div class="flex items-center gap-3 sm:gap-4 min-w-0">
-                {% if vp.icon %}<img class="w-7 h-7" src="{{ vp.icon }}" alt="">{% endif %}
-                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ vp.title }}</h3>
+  <!-- How We Work -->
+  <section class="wl3__section" data-variant="light">
+    <div class="wl3__wrap">
+      <h2 class="heading-xl">How We Work</h2>
+      <div class="wl3__grid">
+        <div class="wl3__body">
+          <p>We don’t believe in complicated language or fuzzy outcomes. We believe in structured execution, clear priorities, consistent progress, and work that produces measurable results. We focus on fundamentals first, then build momentum through disciplined delivery across infrastructure, cybersecurity, cloud, user services, and IT leadership.</p>
+          <p>We operate with transparency and predictability. We communicate clearly. We assign ownership. We document decisions. And we don’t disappear when things get difficult, we lean in.</p>
+        </div>
+        <figure class="wl3__media">
+          <div class="howPanel" role="group" aria-label="How we work overview">
+            <header class="hpHead">
+              <h3 class="hpTitle">Operating Principles</h3>
+              <p class="hpSub">The way we execute, communicate, and prove progress.</p>
+            </header>
+            <div class="pillGrid">
+              <span class="pill" title="Structured Execution">Structured Execution</span>
+              <span class="pill" title="Clear Priorities">Clear Priorities</span>
+              <span class="pill" title="Consistent Progress">Consistent Progress</span>
+              <span class="pill" title="Measurable Results">Measurable Results</span>
+              <span class="pill" title="Transparency">Transparency</span>
+              <span class="pill" title="Ownership & Accountability">Ownership</span>
+              <span class="pill" title="Documented Decisions">Documented Decisions</span>
+              <span class="pill" title="Dedication">Dedication</span>
+            </div>
+            <div class="hpDivider" aria-hidden="true"></div>
+            <div class="hpBlock">
+              <h4 class="hpBlockTitle">Service Areas</h4>
+              <div class="chipRow" role="list">
+                <span class="chip" role="listitem">Infrastructure</span>
+                <span class="chip" role="listitem">Cybersecurity</span>
+                <span class="chip" role="listitem">Cloud</span>
+                <span class="chip" role="listitem">Users</span>
+                <span class="chip" role="listitem">IT Leadership</span>
               </div>
-              <svg class="flex-shrink-0" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
-                <rect y="12.1904" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
-                <rect y="24.3811" width="40" height="8.38092" rx="4.19046" :fill="open ? '#000000' : '#525252'"/>
-              </svg>
             </div>
-            <div
-              :id="'vp-panel-' + {{ loop.index }}"
-              x-show="open"
-              x-transition:enter="transition ease-out duration-500"
-              x-transition:enter-start="opacity-0 transform translate-y-4"
-              x-transition:enter-end="opacity-100 transform translate-y-0"
-              class="bg-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-6 -mx-5 sm:-mx-6 md:-mx-8"
-            >
-              <p class="text-lg sm:text-xl font-light">{{ vp.description }}</p>
-            </div>
-          </button>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {# Strategic Partner (cards) #}
-    {% if partner %}
-    <section class="mt-10" style="display:none">
-      <h2 class="mb-3 heading-xl">Strategic Partner</h2>
-      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Clear, proactive guidance that aligns IT with business outcomes.</p>
-      <div class="hScrollCards hScrollCards--partner">
-        {% for item in partner %}
-        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Strategy</span></div>
-          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-          <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {# Dedicated to Service (cards) #}
-    {% if service %}
-    <section class="mt-16" style="display:none">
-      <h2 class="mb-3 heading-xl">Dedicated to Service</h2>
-      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Always‑on coverage and a service model built for consistency.</p>
-      <div class="hScrollCards hScrollCards--service">
-        {% for item in service %}
-        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Service</span></div>
-          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-          <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {# Expert Capability (cards) #}
-    {% if expert %}
-    <section class="mt-16" style="display:none">
-      <h2 class="mb-3 heading-xl">Expert Capability</h2>
-      <p class="mb-10 text-base font-light text-slate-300 max-w-3xl">Certified teams, proven processes, and enterprise‑grade execution.</p>
-      <div class="hScrollCards hScrollCards--expert">
-        {% for item in expert %}
-        <div class="hScrollCard flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="flex items-center gap-2 -mb-1"><span class="rowChip">Expertise</span></div>
-          <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-          <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {# Filtered grid (no scrolling) #}
-    <section class="mt-32 md:mt-40" x-data="{ active:'partner' }">
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-10">
-        <h2 class="heading-xl m-0">Explore How We Deliver</h2>
-        <div role="tablist" aria-label="Showcase categories" class="whyTabs flex items-center gap-2 rounded-full p-1.5 border border-slate-700/70 bg-slate-900/60">
-          <button role="tab" :aria-selected="(active==='partner').toString()" @click="active='partner'" class="whyTabs__btn px-5 sm:px-6 py-2 rounded-full text-base font-semibold transition-all">Strategy</button>
-          <button role="tab" :aria-selected="(active==='service').toString()" @click="active='service'" class="whyTabs__btn px-5 sm:px-6 py-2 rounded-full text-base font-semibold transition-all">Service</button>
-          <button role="tab" :aria-selected="(active==='expert').toString()" @click="active='expert'" class="whyTabs__btn px-5 sm:px-6 py-2 rounded-full text-base font-semibold transition-all">Expertise</button>
-        </div>
-      </div>
-
-      <div>
-        <!-- Strategy (partner) -->
-        <template x-if="active==='partner'">
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {% for item in partner %}
-            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#00BBA7">Strategy</span></div>
-              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-              <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-            </div>
-            {% endfor %}
           </div>
-        </template>
-
-        <!-- Service -->
-        <template x-if="active==='service'">
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {% for item in service %}
-            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#66C7E8">Service</span></div>
-              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-              <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-            </div>
-            {% endfor %}
-          </div>
-        </template>
-
-        <!-- Expertise -->
-        <template x-if="active==='expert'">
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {% for item in expert %}
-            <div class="flex flex-col gap-3 p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-              <div class="flex items-center gap-2 -mb-1"><span class="rowChip" style="--accent:#5D0EC1">Expertise</span></div>
-              <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">{{ item.title }}</h3>
-              <p class="text-lg sm:text-xl font-light text-slate-300">{{ item.body }}</p>
-            </div>
-            {% endfor %}
-          </div>
-        </template>
+          <figcaption class="sr-only">Our operating principles and the service areas we deliver across.</figcaption>
+        </figure>
       </div>
-    </section>
+    </div>
+  </section>
 
-    
-
-    {# CTA — consistent with services pages #}
-    <section class="mt-20">
-      <hr class="mb-8 border-slate-700">
-      <div class="grid items-center grid-cols-1 gap-6 md:grid-cols-3">
-        <div class="md:col-span-2">
-          <h2 class="mb-2 heading-xl">Ready to Talk?</h2>
-          <p class="text-base font-light text-slate-300">Schedule a quick Right‑Fit Call to assess needs and next steps.</p>
+  <!-- The Value of Structure -->
+  <section class="wl3__section" data-variant="dark">
+    <div class="wl3__wrap">
+      <h2 class="heading-xl">The Value of Structure</h2>
+      <div class="wl3__grid">
+        <div class="wl3__body">
+          <p>IT struggles when there is no framework guiding decision-making. Strategies stall. Budgets drift. Teams get pulled into rework and reactive cycles. We bring structure to IT by aligning technology work with business priorities and improving maturity in deliberate stages. That means fewer surprises, faster direction changes when needed, and better control over complexity.</p>
+          <p>We help remove the noise so that internal IT teams, executives, and vendors are all working from the same plan.</p>
         </div>
-        <div class="md:text-right">
-          <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="inline-flex">
-            Book An Appointment
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
-          </a>
+        <figure class="wl3__media">
+          <img src="https://www.pymnts.com/wp-content/uploads/2019/11/Priority-Technology-company.com-Services-Technology-Application-Cloud-STAC-partnership-payments-news.jpg" alt="Illustrative placeholder" loading="lazy" decoding="async">
+          <figcaption class="sr-only">Placeholder image</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Elevate Connection -->
+  <section class="wl3__section" data-variant="light">
+    <div class="wl3__wrap">
+      <h2 class="heading-xl">The Elevate Connection</h2>
+      <div class="wl3__grid">
+        <div class="wl3__body">
+          <p>To deliver consistency, we built our operating framework: Elevate. It gives every engagement a clear direction by breaking progress into three stages: Stabilize, Optimize, and Transform. Elevate is not a marketing concept; it is the foundation of how we plan, measure, and execute.</p>
+
+          <div class="wl3__listWrap">
+            <p class="wl3__kicker">It ensures:</p>
+            <ul class="wl3__list" role="list">
+              <li>Priorities are ranked based on impact</li>
+              <li>Risk is reduced first before acceleration</li>
+              <li>Improvements are measurable</li>
+              <li>Work is aligned across all service areas</li>
+            </ul>
+          </div>
+
+          <p>Whether we are leading an IT program, securing environments, modernizing cloud platforms, or improving network resilience, Elevate keeps technology connected to business outcomes.</p>
+        </div>
+        <figure class="wl3__media">
+          <div class="elevPanel" role="group" aria-label="Elevate framework overview">
+            <header class="evHead">
+              <h3 class="evTitle">Elevate Framework</h3>
+              <p class="evSub">Stabilize • Optimize • Transform</p>
+            </header>
+
+            <div class="evStages" role="list">
+              <div class="evStage" role="listitem">
+                <div class="evBadge">1</div>
+                <div class="evStageMeta">
+                  <div class="evStageTitle">Stabilize</div>
+                  <div class="evHint">Fix urgent gaps, secure the foundation</div>
+                </div>
+              </div>
+              <div class="evStage" role="listitem">
+                <div class="evBadge">2</div>
+                <div class="evStageMeta">
+                  <div class="evStageTitle">Optimize</div>
+                  <div class="evHint">Improve performance, reduce risk, automate</div>
+                </div>
+              </div>
+              <div class="evStage" role="listitem">
+                <div class="evBadge">3</div>
+                <div class="evStageMeta">
+                  <div class="evStageTitle">Transform</div>
+                  <div class="evHint">Align IT strategy to business outcomes</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="evDivider" aria-hidden="true"></div>
+
+            <div class="evEnsure">
+              <h4 class="evEnsureTitle">It ensures</h4>
+              <ul class="evList">
+                <li><span class="evCheck" aria-hidden="true"></span>Priorities are ranked based on impact</li>
+                <li><span class="evCheck" aria-hidden="true"></span>Risk is reduced first before acceleration</li>
+                <li><span class="evCheck" aria-hidden="true"></span>Improvements are measurable</li>
+                <li><span class="evCheck" aria-hidden="true"></span>Work is aligned across all service areas</li>
+              </ul>
+            </div>
+
+            <div class="evFooter">
+              <p class="evFootCopy">Elevate connects every engagement to outcomes — across Infrastructure, Security, Cloud, Users, and Leadership.</p>
+            </div>
+          </div>
+          <figcaption class="sr-only">Elevate stages and guarantees for consistent execution.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Organizations Choose Us -->
+  <section class="wl3__section" data-variant="dark" data-block="why-choose">
+    <div class="wl3__wrap">
+      <h2 class="heading-xl">Why Organizations Choose Us</h2>
+      <div class="wl3__grid">
+        <div class="wl3__body">
+          <p>Organizations work with us because they want more than activity, they want progress that can be explained, defended, and measured. We help create clarity in environments where technology has become complex and decisions carry real risk.</p>
+        </div>
+        <div class="wl3__sideList">
+          <div class="whyPanel wl3__listWrap">
+            <p class="wl3__kicker">Our partnerships work because we:</p>
+            <ul class="wl3__list" role="list">
+              <li>Tell the truth, even when it’s inconvenient</li>
+              <li>Own the outcome, not just the tasks</li>
+              <li>Operate with discipline and purpose</li>
+              <li>Stay aligned to long-term business goals</li>
+              <li>Respect both strategy and execution</li>
+              <li>Treat people like partners, not tickets</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </article>
+  <!-- Built for Teams That Want to Move Forward -->
+  <section class="wl3__section" data-variant="light">
+    <div class="wl3__wrap">
+      <h2 class="heading-xl">Built for Teams That Want to Move Forward</h2>
+      <div class="wl3__grid">
+        <div class="wl3__body">
+          <p>We work best with organizations that value momentum, teams who want partners who think, solve, build, and lead. We bring strength in both planning and execution, so progress doesn’t get stuck between strategy and delivery.</p>
+          <p>We adapt to each environment but never compromise on fundamentals. Standards matter. Direction matters. Accountability matters. That’s how real progress is made in IT.</p>
+        </div>
+        <figure class="wl3__media">
+          <img src="https://www.idaireland.com/getmedia/141422fd-78f2-4b24-b6d7-ec3eb3ea92d4/Tech.png?width=480&height=auto&maxsidesize=480&ext=.png" alt="Illustrative placeholder" loading="lazy" decoding="async">
+          <figcaption class="sr-only">Placeholder image</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <style>
@@ -309,10 +341,662 @@
     margin-bottom:-1px;
   }
 
+  /* Why L3 basic sections — mirror product sections (full-width, alternating surfaces) */
+  :root{
+    --page-max: min(1200px, 94vw);
+    --page-pad: clamp(16px, 3vw, 24px);
+    --section-pad-block: clamp(140px, 18vh, 240px);
+  }
+  .wl3__section{
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+    padding: var(--section-pad-block) clamp(28px,4.6vw,44px);
+  }
+  .wl3__section[data-variant="dark"]{ background: var(--surface-0, #000000); }
+  .wl3__section[data-variant="light"]{ background: linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); }
+  .wl3__wrap{ width:100%; max-width:var(--page-max); margin:0 auto; padding:0 var(--page-pad); display:grid; gap:clamp(12px,2vh,16px); }
+  /* Match product (cyber security) section title sizing */
+  .wl3__wrap > .heading-xl{
+    margin:0;
+    color:#f8fafc;
+    text-wrap:balance;
+    font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size:38px !important;
+    line-height:1.2;
+    letter-spacing:-.01em;
+  }
+  .wl3__body{ display:grid; gap:clamp(12px,2vh,16px); max-width:80ch; color:#e2e8f0; }
+  .wl3__body p{ margin:0; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; color:rgba(214,224,236,.9); }
+  .wl3__kicker{ margin:0; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:rgba(148,163,184,.9); font-weight:700; }
+  .wl3__list{ display:grid; gap:10px; margin:6px 0 0; padding:0; list-style:none; }
+  .wl3__list li{ position:relative; padding-left:28px; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; color:rgba(214,224,236,.92); }
+  .wl3__list li::before{ content:""; position:absolute; left:0; top:.55em; width:16px; height:16px; border-radius:50%; background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); box-shadow:0 0 0 2px rgba(255,255,255,.06), 0 8px 16px rgba(0,187,167,.25); }
+
+  /* Two-column grid for first section (Who We Are) */
+  .wl3__grid{ display:grid; gap:clamp(16px,3vw,32px); align-items:center; }
+  @media(min-width: 960px){
+    .wl3__grid{ grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); }
+  }
+  .wl3__media{ display:flex; align-items:center; justify-content:center; }
+  .wl3__media img{ width:100%; max-width:520px; height:auto; border-radius:24px; box-shadow:0 25px 60px rgba(15,23,42,0.45); object-fit:cover; }
+  .wl3__media svg{ width:100%; max-width:520px; height:auto; display:block; border-radius:24px; box-shadow:0 25px 60px rgba(15,23,42,0.45); }
+
+  /* Workflow SVG styling */
+  .workflowSVG .stage__rect{ fill:#0b1629; stroke:#1b2d46; stroke-width:2; }
+  .workflowSVG text{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:16px; font-weight:600; fill:#e2e8f0; letter-spacing:.02em; }
+  .workflowSVG .check{ fill:none; stroke:#00BBA7; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; opacity:.85; }
+  .workflowSVG .flowPath{ fill:none; stroke:#66C7E8; stroke-width:4; stroke-linecap:round; stroke-dasharray:14 10; stroke-dashoffset:0; opacity:.9; animation: dashFlow 2.4s linear infinite; }
+
+  .workflowSVG .stage--1 .stage__rect{ animation:pulseGlow 4s ease-in-out infinite; }
+  .workflowSVG .stage--2 .stage__rect{ animation:pulseGlow 4s ease-in-out infinite 1.2s; }
+  .workflowSVG .stage--3 .stage__rect{ animation:pulseGlow 4s ease-in-out infinite 2.4s; }
+
+  @keyframes pulseGlow{
+    0%,100%{ stroke:#1b2d46; filter:none; }
+    50%{ stroke:#00BBA7; filter: drop-shadow(0 0 14px rgba(0,187,167,.35)); }
+  }
+  @keyframes dashFlow{ to{ stroke-dashoffset:-120; } }
+
+  @media (prefers-reduced-motion: reduce){
+    .workflowSVG *{ animation:none !important; }
+  }
+
+  /* How We Work SVG */
+  .howWorkSVG .cardRect{ fill:#0b1629; stroke:#1b2d46; stroke-width:2; }
+  .howWorkSVG .cardTitle{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:14px; font-weight:700; fill:#66C7E8; letter-spacing:.12em; text-transform:uppercase; }
+  .howWorkSVG .rowLabel{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:14px; font-weight:500; fill:#e2e8f0; }
+  .howWorkSVG .box{ fill:#0f213a; stroke:#24506f; }
+  .howWorkSVG .tick{ fill:none; stroke:#00BBA7; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:26 26; stroke-dashoffset:26; animation: tickDraw .9s ease forwards; }
+  .howWorkSVG .checkRow{ animation: rowIn .6s ease both; }
+  .howWorkSVG .checkRow:nth-of-type(2){ animation-delay:.15s; }
+  .howWorkSVG .checkRow:nth-of-type(3){ animation-delay:.3s; }
+  .howWorkSVG .checkRow .tick{ animation-delay:.25s; }
+
+  @keyframes rowIn{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:none; } }
+  @keyframes tickDraw{ to{ stroke-dashoffset:0; } }
+
+  .howWorkSVG .lane line{ stroke:#2a3f5a; stroke-width:3; stroke-linecap:round; }
+  .howWorkSVG .laneLabel{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:12px; fill:#9fb0c3; }
+  .howWorkSVG .dot{ fill:#00BBA7; animation: moveDot 3.8s cubic-bezier(.3,.7,.2,1) forwards; }
+  @keyframes moveDot{ from{ transform:translateX(0); } to{ transform:translateX(200px); } }
+
+  .howWorkSVG .bar{ width:18px; rx:4; fill:url(#barGrad); transform-origin: 0 40px; animation: barGrow 1.2s ease forwards; }
+  .howWorkSVG .bar1{ animation-delay:.1s; }
+  .howWorkSVG .bar2{ animation-delay:.3s; }
+  .howWorkSVG .bar3{ animation-delay:.5s; }
+  .howWorkSVG .bar4{ animation-delay:.7s; }
+  @keyframes barGrow{ from{ height:0; y:40; } to{ height:40; y:0; } }
+
+  .howWorkSVG .report rect{ fill:#0f213a; stroke:#1b2d46; }
+  .howWorkSVG .report polyline{ fill:none; stroke:#66C7E8; stroke-width:2; stroke-linecap:round; }
+
+  .howWorkSVG .ownerAvatar{ fill:#66C7E8; }
+  .howWorkSVG .ownerRing{ fill:none; stroke:#66C7E8; stroke-width:2; opacity:.5; animation: ping 6s ease-out 2; }
+  .howWorkSVG .ownerLabel{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:12px; fill:#e2e8f0; }
+  @keyframes ping{ 0%{ r:10; opacity:.6 } 100%{ r:28; opacity:0 } }
+
+  @media (prefers-reduced-motion: reduce){
+    .howWorkSVG *{ animation:none !important; }
+  }
+
+  /* Arm animation only when in view to avoid jank */
+  .howWorkSVG *{ animation-play-state: paused; }
+  .howWorkSVG.is-armed *{ animation-play-state: running; }
+
+  /* How We Work — three static cards */
+  .howCards{ display:grid; gap:14px; width:100%; max-width:520px; }
+  .howCard{ display:grid; grid-template-columns:auto 1fr; align-items:center; gap:10px 12px; padding:16px 16px; border-radius:18px; border:1px solid #1b2d46; background:linear-gradient(210deg, #0b1220 0%, #0b1a30 55%, #020617 100%); box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
+  .howIcon{ width:36px; height:36px; display:grid; place-items:center; border-radius:12px; background:rgba(102,199,232,.12); border:1px solid rgba(102,199,232,.28); }
+  .howTitle{ margin:0; font-size:16px; font-weight:700; letter-spacing:.02em; color:#e2e8f0; }
+  .howCopy{ grid-column:1 / -1; margin:0; font-size:14px; line-height:1.6; color:rgba(214,224,236,.9); font-family:inherit; }
+
+  /* How We Work — vertical stepper */
+  .howStepper{ position:relative; display:grid; gap:14px; width:100%; max-width:520px; padding-left:6px; }
+  .howRail{ position:absolute; left:14px; top:6px; bottom:6px; width:2px; background:#1b2d46; border-radius:2px; }
+  .howStep{ display:grid; grid-template-columns:28px 1fr; gap:12px; align-items:start; }
+  .howBullet{ width:28px; height:28px; border-radius:999px; display:grid; place-items:center; background:var(--brand); color:#061021; font-weight:800; font-size:13px; letter-spacing:.02em; }
+  .howContent .howTitle{ margin:0; font-size:16px; font-weight:700; color:#e2e8f0; }
+  .howContent .howCopy{ margin:2px 0 0; font-size:14px; line-height:1.6; color:rgba(214,224,236,.9); }
+
+  /* How We Work — Operating Principles panel */
+  .howPanel{ width:100%; max-width:520px; display:grid; gap:14px; padding:18px; border-radius:20px; border:1px solid #1b2d46; background:
+    radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+    linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+    linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+    linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+    linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+    box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .hpHead{ display:grid; gap:4px; }
+  .hpTitle{ margin:0; font-size:16px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); }
+  .hpSub{ margin:0; font-size:13px; color:rgba(214,224,236,.85); }
+  .pillGrid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  @media(min-width:520px){ .pillGrid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  .pill{ display:inline-flex; align-items:center; justify-content:center; padding:8px 10px; border-radius:999px; font-size:13px; font-weight:600; color:#e2e8f0; background:rgba(102,199,232,.12); border:1px solid rgba(102,199,232,.28); text-align:center; }
+  .hpDivider{ height:1px; background:#1b2d46; border-radius:1px; }
+  .hpBlock{ display:grid; gap:8px; }
+  .hpBlockTitle{ margin:0; font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9fb0c3; }
+  .chipRow{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ display:inline-flex; align-items:center; padding:6px 10px; font-size:12px; border-radius:999px; color:#cbd5e1; background:rgba(255,255,255,.04); border:1px solid #1b2d46; }
+
+  /* Elevate Connection panel */
+  .elevPanel{ width:100%; max-width:520px; display:grid; gap:14px; padding:18px; border-radius:20px; border:1px solid #1b2d46; background:
+    radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+    linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+    linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+    linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+    linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+    box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .evHead{ display:grid; gap:4px; }
+  .evTitle{ margin:0; font-size:16px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); }
+  .evSub{ margin:0; font-size:13px; color:rgba(214,224,236,.85); }
+  .evStages{ display:grid; gap:10px; }
+  .evStage{ display:grid; grid-template-columns:28px 1fr; gap:10px; align-items:start; padding:10px; border-radius:14px; border:1px solid #1b2d46; background:rgba(255,255,255,.03); }
+  .evBadge{ width:28px; height:28px; border-radius:999px; display:grid; place-items:center; background:var(--brand); color:#061021; font-weight:800; font-size:13px; letter-spacing:.02em; }
+  .evStageTitle{ font-size:15px; font-weight:700; color:#e2e8f0; margin:0; }
+  .evHint{ font-size:13px; color:rgba(214,224,236,.9); margin:2px 0 0; }
+  .evDivider{ height:1px; background:#1b2d46; border-radius:1px; }
+  .evEnsure{ display:grid; gap:8px; }
+  .evEnsureTitle{ margin:0; font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9fb0c3; }
+  .evList{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+  .evList li{ display:flex; align-items:flex-start; gap:8px; font-size:14px; line-height:1.6; color:rgba(214,224,236,.92); }
+  .evCheck{ width:18px; height:18px; border-radius:6px; display:inline-grid; place-items:center; background:rgba(20,184,166,.12); border:1px solid rgba(20,184,166,.28); position:relative; top:2px; }
+  .evCheck::before{ content:""; width:10px; height:6px; border:2px solid var(--brand); border-top:none; border-right:none; transform:rotate(-45deg); display:block; }
+  .evFooter .evFootCopy{ margin:0; font-size:12px; color:#9fb0c3; }
+
+  /* Why Organizations Choose Us — neater layout */
+  .wl3__section[data-block="why-choose"] .wl3__grid{ align-items:start; gap:clamp(12px,2.2vw,20px); }
+  .wl3__section[data-block="why-choose"] .wl3__wrap{ display:grid; gap:clamp(4px,0.8vh,8px); }
+  .wl3__section[data-block="why-choose"] > .wl3__wrap > .heading-xl{ margin:0; }
+  .wl3__section[data-block="why-choose"] .heading-xl + .wl3__grid{ margin-top:0; }
+  .wl3__section[data-block="why-choose"] .wl3__body{ display:grid; gap:4px; }
+  .wl3__section[data-block="why-choose"] .wl3__body p{ margin:0; text-wrap:pretty; }
+  .wl3__sideList{ align-self:stretch; display:flex; align-items:stretch; }
+  .wl3__sideList .whyPanel{ width:100%; }
+  .whyPanel .wl3__kicker{ color:var(--brand); }
+  /* Override list bullets to checks for this panel */
+  .whyPanel .wl3__list li{ padding-left:26px; font-size:16px; }
+  .whyPanel .wl3__list li::before{ content:""; position:absolute; left:0; top:.55em; width:16px; height:16px; border-radius:6px; background:rgba(20,184,166,.12); border:1px solid rgba(20,184,166,.28); box-shadow:none; }
+  .whyPanel .wl3__list li::after{ content:""; position:absolute; left:3px; top:.62em; width:10px; height:6px; border:2px solid var(--brand); border-top:none; border-right:none; transform:rotate(-45deg); }
+
+  /* Timeline arming */
+  .howWorkTimeline *{ animation-play-state: paused; }
+  .howWorkTimeline.is-armed *{ animation-play-state: running; }
+  .howWorkTimeline .tl-track{ stroke:#2a3f5a; stroke-width:8; stroke-linecap:round; }
+  .howWorkTimeline .tl-fill{ fill: var(--brand); animation: tlGrow 1.6s ease forwards; }
+  .howWorkTimeline .tl-dot{ fill:#0b1629; stroke: var(--brand); stroke-width:3; }
+  .howWorkTimeline .tl-label{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:12px; font-weight:600; fill:#cbd5e1; letter-spacing:.02em; }
+  .howWorkTimeline .tl-icon line{ stroke:#66C7E8; stroke-width:2; stroke-linecap:round; }
+  .howWorkTimeline .tl-icon polyline{ fill:none; stroke:#66C7E8; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .howWorkTimeline .tl-icon rect{ fill:#66C7E8; opacity:.9; }
+  @keyframes tlGrow{ from{ width:0 } to{ width:540px } }
+
   
 </style>
 
-<!-- removed hero particle waves script -->
+<!-- Services hero waves background (same implementation as product pages) -->
+<script>
+// Arm How We Work animation only when in view for smoother feel
+document.addEventListener('DOMContentLoaded', function(){
+  var targets = document.querySelectorAll('.howWorkSVG, .howWorkTimeline');
+  if (!targets.length) return;
+  try{
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-armed');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    targets.forEach(t => io.observe(t));
+  } catch(e){ targets.forEach(t => t.classList.add('is-armed')); }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const holder = document.querySelector('.waves');
+  if (!holder) return;
+
+  if (!window.ShaderProgram) {
+    class ShaderProgram {
+
+      constructor( holder, options = {} ) {
+
+        options = Object.assign( {
+          antialias: false,
+          depthTest: false,
+          mousemove: false,
+          autosize: true,
+          msaa: 0,
+          vertex: `
+            precision highp float;
+
+            attribute vec4 a_position;
+            attribute vec4 a_color;
+
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            uniform vec2 u_mousemove;
+            uniform mat4 u_projection;
+
+            varying vec4 v_color;
+
+            void main() {
+
+              gl_Position = u_projection * a_position;
+              gl_PointSize = (10.0 / gl_Position.w) * 100.0;
+
+              v_color = a_color;
+
+            }`,
+          fragment: `
+            precision highp float;
+
+            uniform sampler2D u_texture;
+            uniform int u_hasTexture;
+
+            varying vec4 v_color;
+
+            void main() {
+
+              if ( u_hasTexture == 1 ) {
+                gl_FragColor = v_color * texture2D(u_texture, gl_PointCoord);
+              } else {
+                gl_FragColor = v_color;
+              }
+
+            }`,
+          uniforms: {},
+          buffers: {},
+          camera: {},
+          texture: null,
+          onUpdate: ( () => {} ),
+          onResize: ( () => {} ),
+        }, options )
+
+        const uniforms = Object.assign( {
+          time: { type: 'float', value: 0 },
+          hasTexture: { type: 'int', value: 0 },
+          resolution: { type: 'vec2', value: [ 0, 0 ] },
+          mousemove: { type: 'vec2', value: [ 0, 0 ] },
+          projection: { type: 'mat4', value: [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ] },
+        }, options.uniforms )
+
+        const buffers = Object.assign( {
+          position: { size: 3, data: [] },
+          color: { size: 4, data: [] },
+        }, options.buffers )
+
+        const camera = Object.assign( {
+          fov: 60,
+          near: 1,
+          far: 10000,
+          aspect: 1,
+          z: 100,
+          perspective: true,
+        }, options.camera )
+
+        const canvas = document.createElement( 'canvas' )
+        const gl = canvas.getContext( 'webgl', { antialias: options.antialias } )
+
+        if ( ! gl ) return false
+
+        this.count = 0
+        this.gl = gl
+        this.canvas = canvas
+        this.camera = camera
+        this.holder = holder
+        this.msaa = options.msaa
+        this.onUpdate = options.onUpdate
+        this.onResize = options.onResize
+        this.data = {}
+
+        holder.appendChild( canvas )
+
+        this.createProgram( options.vertex, options.fragment )
+
+        this.createBuffers( buffers )
+        this.createUniforms( uniforms )
+
+        this.updateBuffers()
+        this.updateUniforms()
+
+        this.createTexture( options.texture )
+
+        gl.enable( gl.BLEND )
+        gl.enable( gl.CULL_FACE )
+        gl.blendFunc( gl.SRC_ALPHA, gl.ONE )
+        gl[ options.depthTest ? 'enable' : 'disable' ]( gl.DEPTH_TEST )
+
+        if ( options.autosize )
+          window.addEventListener( 'resize', e => this.resize( e ), false )
+        if ( options.mousemove )
+          window.addEventListener( 'mousemove', e => this.mousemove( e ), false )
+
+        this.resize()
+
+        this.update = this.update.bind( this )
+        this.time = { start: performance.now(), old: performance.now() }
+        this.update()
+
+      }
+
+      mousemove( e ) {
+
+        let x = e.pageX / this.width * 2 - 1
+        let y = e.pageY / this.height * 2 - 1
+
+        this.uniforms.mousemove = [ x, y ]
+
+      }
+
+      resize( e ) {
+
+        const holder = this.holder
+        const canvas = this.canvas
+        const gl = this.gl
+
+        const width = this.width = holder.offsetWidth
+        const height = this.height = holder.offsetHeight
+        const aspect = this.aspect = width / height
+        const dpi = this.dpi = Math.max( this.msaa ? 2 : 1, devicePixelRatio )
+
+        canvas.width = width * dpi
+        canvas.height = height * dpi
+        canvas.style.width = width + 'px'
+        canvas.style.height = height + 'px'
+
+        gl.viewport( 0, 0, width * dpi, height * dpi )
+        gl.clearColor( 0, 0, 0, 0 )
+
+        this.uniforms.resolution = [ width, height ]
+        this.uniforms.projection = this.setProjection( aspect )
+
+        this.onResize( width, height, dpi )
+
+      }
+
+      setProjection( aspect ) {
+
+        const camera = this.camera
+
+        if ( camera.perspective ) {
+
+          const fov = camera.fov * Math.PI / 180
+          const f = Math.tan( Math.PI * 0.5 - 0.5 * fov )
+          const rangeInv = 1.0 / ( camera.near - camera.far )
+
+          return [
+            f / aspect, 0, 0, 0,
+            0, f, 0, 0,
+            0, 0, ( camera.near + camera.far ) * rangeInv, -1,
+            0, 0, camera.near * camera.far * rangeInv * 2, 0
+          ]
+
+        }
+
+        const near = camera.near
+        const far = camera.far
+
+        return [
+          2 / this.width, 0, 0, 0,
+          0, -2 / this.height, 0, 0,
+          0, 0, 2 / ( near - far ), 0,
+          -1, 1, ( near + far ) / ( near - far ), 1
+        ]
+
+      }
+
+      createProgram( vertex, fragment ) {
+
+        const gl = this.gl
+        const program = this.program = gl.createProgram()
+
+        const vs = this.createShader( vertex, gl.VERTEX_SHADER )
+        const fs = this.createShader( fragment, gl.FRAGMENT_SHADER )
+
+        gl.attachShader( program, vs )
+        gl.attachShader( program, fs )
+        gl.linkProgram( program )
+        gl.useProgram( program )
+
+      }
+
+      createShader( sourceCode, type ) {
+
+        const gl = this.gl
+        const shader = gl.createShader( type )
+
+        gl.shaderSource( shader, sourceCode )
+        gl.compileShader( shader )
+
+        if ( !gl.getShaderParameter( shader, gl.COMPILE_STATUS ) ) {
+          const info = gl.getShaderInfoLog( shader )
+          throw 'Could not compile WebGL program. \n\n' + info
+        }
+
+        return shader
+
+      }
+
+      createUniforms( data ) {
+
+        const gl = this.gl
+        const uniforms = this.data.uniforms = data
+        const values = this.uniforms = {}
+
+        Object.keys( uniforms ).forEach( name => {
+
+          const uniform = uniforms[ name ]
+
+          uniform.location = gl.getUniformLocation( this.program, 'u_' + name )
+
+          Object.defineProperty( values, name, {
+            set: value => {
+
+              uniforms[ name ].value = value
+              this.setUniform( name, value )
+
+            },
+            get: () => uniforms[ name ].value
+          } )
+
+        } )
+
+      }
+
+      setUniform( name, value ) {
+
+        const gl = this.gl
+        const uniform = this.data.uniforms[ name ]
+
+        uniform.value = value
+
+        switch ( uniform.type ) {
+          case 'int': gl.uniform1i( uniform.location, value ); break
+          case 'float': gl.uniform1f( uniform.location, value ); break
+          case 'vec2': gl.uniform2f( uniform.location, ...value ); break
+          case 'vec3': gl.uniform3f( uniform.location, ...value ); break
+          case 'vec4': gl.uniform4f( uniform.location, ...value ); break
+          case 'mat2': gl.uniformMatrix2fv( uniform.location, false, value ); break
+          case 'mat3': gl.uniformMatrix3fv( uniform.location, false, value ); break
+          case 'mat4': gl.uniformMatrix4fv( uniform.location, false, value ); break
+        }
+
+      }
+
+      updateUniforms() {
+        const uniforms = this.data.uniforms
+        Object.keys( uniforms ).forEach( name => {
+          const uniform = uniforms[ name ]
+          this.uniforms[ name ] = uniform.value
+        } )
+      }
+
+      createBuffers( data ) {
+        const buffers = this.data.buffers = data
+        const values = this.buffers = {}
+        Object.keys( buffers ).forEach( name => {
+          const buffer = buffers[ name ]
+          buffer.buffer = this.createBuffer( 'a_' + name, buffer.size )
+          Object.defineProperty( values, name, {
+            set: data => {
+              buffers[ name ].data = data
+              this.setBuffer( name, data )
+              if ( name == 'position' ) this.count = buffers.position.data.length / 3
+            },
+            get: () => buffers[ name ].data
+          } )
+        } )
+      }
+
+      createBuffer( name, size ) {
+        const gl = this.gl
+        const program = this.program
+        const index = gl.getAttribLocation( program, name )
+        const buffer = gl.createBuffer()
+        gl.bindBuffer( gl.ARRAY_BUFFER, buffer )
+        gl.enableVertexAttribArray( index )
+        gl.vertexAttribPointer( index, size, gl.FLOAT, false, 0, 0 )
+        return buffer
+      }
+
+      setBuffer( name, data ) {
+        const gl = this.gl
+        const buffers = this.data.buffers
+        if ( name == null && ! gl.bindBuffer( gl.ARRAY_BUFFER, null ) ) return
+        gl.bindBuffer( gl.ARRAY_BUFFER, buffers[ name ].buffer )
+        gl.bufferData( gl.ARRAY_BUFFER, new Float32Array( data ), gl.STATIC_DRAW )
+      }
+
+      updateBuffers() {
+        Object.keys( this.data.buffers ).forEach( name => {
+          const data = this.data.buffers[ name ].data
+          if ( data && data.length ) this.setBuffer( name, data )
+        } )
+        this.setBuffer( null )
+      }
+
+      createTexture( src ) {
+        const gl = this.gl
+        const texture = gl.createTexture()
+        gl.bindTexture( gl.TEXTURE_2D, texture )
+        gl.texImage2D( gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array( [ 0, 0, 0, 0 ] ) )
+        this.texture = texture
+        if ( src ) {
+          this.uniforms.hasTexture = 1
+          this.loadTexture( src )
+        }
+      }
+
+      loadTexture( src ) {
+        const gl = this.gl
+        const texture = this.texture
+        const textureImage = new Image()
+        textureImage.onload = () => {
+          gl.bindTexture( gl.TEXTURE_2D, texture )
+          gl.texImage2D( gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, textureImage )
+          gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR )
+          gl.texParameteri( gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR )
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
+        }
+        textureImage.src = src
+      }
+
+      update() {
+        const gl = this.gl
+        const now = performance.now()
+        const elapsed = ( now - this.time.start ) / 5000
+        const delta = now - this.time.old
+        this.time.old = now
+        this.uniforms.time = elapsed
+        if ( this.count > 0 ) {
+          gl.clear( gl.COLOR_BUFFER_BIT )
+          gl.drawArrays( gl.POINTS, 0, this.count )
+        }
+        this.onUpdate( delta )
+        requestAnimationFrame( this.update )
+      }
+    }
+    window.ShaderProgram = ShaderProgram
+  }
+
+  const pointSize = 4
+
+  new window.ShaderProgram( holder, {
+    texture: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAb1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8v0wLRAAAAJHRSTlMAC/goGvDhmwcExrVjWzrm29TRqqSKenRXVklANSIUE8mRkGpv+HOfAAABCElEQVQ4y4VT13LDMAwLrUHteO+R9f/fWMfO6dLaPeKVEECRxOULWsEGpS9nULDwia2Y+ALqUNbAWeg775zv+sA4/FFRMxt8U2FZFCVWjR/YrH4/H9sarclSKdPMWKzb8VsEeHB3m0shkhVCyNzeXeAQ9Xl4opEieX2QCGnwGbj6GMyjw9t1K0fK9YZunPXeAGsfJtYjwzxaBnozGGorYz0ypK2HzQSYx1y8DgSRo2ewOiyh2QWOEk1Y9OrQV0a8TiBM1a8eMHWYnRMy7CZ4t1CmyRkhSUvP3gRXyHOCLBxNoC3IJv//ZrJ/kxxUHPUB+6jJZZHrpg6GOjnqaOmzp4NDR48OLxn/H27SRQ08S0ZJAAAAAElFTkSuQmCC',
+    uniforms: {
+      size: { type: 'float', value: pointSize },
+      field: { type: 'vec3', value: [ 0, 0, 0 ] },
+      speed: { type: 'float', value: 2.4 },
+    },
+    vertex: `
+      #define M_PI 3.1415926535897932384626433832795
+
+      precision highp float;
+
+      attribute vec4 a_position;
+      attribute vec4 a_color;
+
+      uniform float u_time;
+      uniform float u_size;
+      uniform float u_speed;
+      uniform vec3 u_field;
+      uniform mat4 u_projection;
+
+      varying vec4 v_color;
+
+      void main() {
+
+        vec3 pos = a_position.xyz;
+
+        pos.y += (
+          cos(pos.x / u_field.x * M_PI * 8.0 + u_time * u_speed) +
+          sin(pos.z / u_field.z * M_PI * 8.0 + u_time * u_speed)
+        ) * u_field.y;
+
+        gl_Position = u_projection * vec4( pos.xyz, a_position.w );
+        gl_PointSize = ( u_size / gl_Position.w ) * 100.0;
+
+        v_color = a_color;
+
+      }`,
+    fragment: `
+      precision highp float;
+
+      uniform sampler2D u_texture;
+
+      varying vec4 v_color;
+
+      void main() {
+
+        gl_FragColor = v_color * texture2D(u_texture, gl_PointCoord);
+
+      }`,
+    onResize( w, h, dpi ) {
+      const position = [], color = []
+      const width = 400 * ( w / h )
+      const depth = 400
+      const height = 3
+      const distance = 5
+      for ( let x = 0; x < width; x += distance ) {
+        for ( let z = 0; z< depth; z+= distance ) {
+          position.push( - width / 2 + x, -30, -depth / 2 + z )
+          color.push( 0, 1 - ( x / width ) * 1, 0.5 + x / width * 0.5, z / depth )
+        }
+      }
+      this.uniforms.field = [ width, height, depth ]
+      this.buffers.position = position
+      this.buffers.color = color
+      this.uniforms.size = ( h / 400) * pointSize * dpi
+    },
+  })
+})
+</script>
 
 <!-- Advanced tech wave lines (multi-layer, reactive, adaptive) -->
 <script>
