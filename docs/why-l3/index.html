@@ -854,10 +854,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <section class="mt-32 md:mt-40" x-data="{ active:'partner' }">
       <div class="flex flex-wrap items-center justify-between gap-3 mb-10">
         <h2 class="heading-xl m-0">Explore How We Deliver</h2>
-        <div role="tablist" aria-label="Showcase categories" class="flex items-center gap-2 bg-slate-800/60 rounded-full p-1 border border-slate-700">
-          <button role="tab" :aria-selected="(active==='partner').toString()" @click="active='partner'" class="px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" :class="active==='partner' ? 'bg-white text-slate-900' : 'text-slate-200 hover:text-white'">Strategy</button>
-          <button role="tab" :aria-selected="(active==='service').toString()" @click="active='service'" class="px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" :class="active==='service' ? 'bg-white text-slate-900' : 'text-slate-200 hover:text-white'">Service</button>
-          <button role="tab" :aria-selected="(active==='expert').toString()" @click="active='expert'" class="px-4 py-1.5 rounded-full text-sm font-semibold transition-colors" :class="active==='expert' ? 'bg-white text-slate-900' : 'text-slate-200 hover:text-white'">Expertise</button>
+        <div role="tablist" aria-label="Showcase categories" class="whyTabs flex items-center gap-2 rounded-full p-1.5 border border-slate-700/70 bg-slate-900/60">
+          <button role="tab" :aria-selected="(active==='partner').toString()" @click="active='partner'" class="whyTabs__btn px-5 sm:px-6 py-2 rounded-full text-base font-semibold transition-all">Strategy</button>
+          <button role="tab" :aria-selected="(active==='service').toString()" @click="active='service'" class="whyTabs__btn px-5 sm:px-6 py-2 rounded-full text-base font-semibold transition-all">Service</button>
+          <button role="tab" :aria-selected="(active==='expert').toString()" @click="active='expert'" class="whyTabs__btn px-5 sm:px-6 py-2 rounded-full text-base font-semibold transition-all">Expertise</button>
         </div>
       </div>
 
@@ -1067,6 +1067,27 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   @supports not (color: color-mix(in oklab, black, white)){
     .rowChip{ box-shadow:none; }
   }
+
+  /* Explore How We Deliver — Tabs (more prominent, brand teal) */
+  .whyTabs{ --brand: var(--brand, #00BBA7); --ink:#0b1324; --off: rgba(226,232,240,.86); }
+  .whyTabs{ box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 12px 32px rgba(2,6,23,.45); backdrop-filter: blur(4px); }
+  .whyTabs__btn{ color: var(--off); border:1px solid rgba(148,163,184,.22); background: linear-gradient(180deg, rgba(15,23,42,.42), rgba(15,23,42,.28)); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
+  .whyTabs__btn:hover{ color:#fff; border-color: rgba(148,163,184,.38); transform: translateY(-1px); }
+  .whyTabs__btn[aria-selected="true"]{
+    color:#06121b;
+    /* Fallback gradient for older browsers */
+    background: linear-gradient(180deg, #12d5c3, #00bba7);
+    /* Preferred gradient with color-mix (broad support in sRGB) */
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--brand, #00BBA7) 92%, #34d399 8%),
+      color-mix(in srgb, var(--brand, #00BBA7) 84%, #10b981 16%)
+    );
+    border-color: color-mix(in srgb, var(--brand, #00BBA7) 82%, #0ea5a6 18%);
+    box-shadow: 0 10px 24px rgba(0,187,167,.35), 0 0 0 3px rgba(20,184,166,.22);
+    transform: translateY(-1px);
+  }
+  .whyTabs__btn:focus-visible{ outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,.2), 0 0 0 6px rgba(20,184,166,.28); }
 
   /* Off-state (pre-click) value prop cards: match home page style */
   .whyVP .valueProps__btnOff{

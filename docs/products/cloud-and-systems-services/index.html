@@ -723,7 +723,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
 
         
-        <h3 class="networkPressures__cardTitle heading-md">Fear of downtime during migration</h3>
+        
+        
+          
+        
+        <h3 class="networkPressures__cardTitle heading-md">Fear of <strong>Downtime</strong> during migration</h3>
         
         
       </article>
@@ -739,7 +743,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
 
         
-        <h3 class="networkPressures__cardTitle heading-md">Unpredictable cloud costs</h3>
+        
+        
+          
+        
+        <h3 class="networkPressures__cardTitle heading-md">Unpredictable <strong>cloud costs</strong></h3>
         
         
       </article>
@@ -755,7 +763,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
 
         
-        <h3 class="networkPressures__cardTitle heading-md">Insufficient backup and disaster recovery strategies</h3>
+        
+        
+          
+        
+        <h3 class="networkPressures__cardTitle heading-md"><strong>Insufficient backup</strong> and <strong>disaster recovery strategies</strong></h3>
         
         
       </article>
@@ -886,7 +898,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       color:var(--brand);
       background:linear-gradient(135deg, rgba(20,184,166,.18), rgba(13,148,136,.14));
       border:1px solid rgba(20,184,166,.28);
-im     }
+    }
     [data-network-pressures] .networkPressures__icon svg{ width:clamp(30px, 3.6vw, 36px); height:clamp(30px, 3.6vw, 36px); display:block; }
 
     /* Match Cyber Security pressures card typography — fixed 20px Inter */
@@ -906,6 +918,12 @@ im     }
       white-space:normal;
       word-break:normal;
       min-height:clamp(52px,7vh,92px);
+    }
+    /* Emphasize key words within Managed Networks pressures titles */
+    [data-network-pressures] .networkPressures__cardTitle strong{
+      font-weight:700 !important;
+      font-variation-settings: "wght" 700 !important;
+      color:#f8fbff;
     }
     /* Extra specificity to defeat any late-loading heading utilities */
     [data-network-pressures] .networkPressures__card .networkPressures__cardTitle{
@@ -1004,7 +1022,7 @@ im     }
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Stabilize</h3>
-                <p class="text-base sm:text-lg font-extralight leading-snug">Fix urgent gaps, secure the foundation.</p>
+                <p class="howE__tag">Fix urgent gaps, secure the foundation.</p>
               </div>
             </div>
 
@@ -1070,7 +1088,7 @@ im     }
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Optimize</h3>
-                <p class="text-base sm:text-lg font-extralight leading-snug">Improve performance, reduce risks, automate.</p>
+                <p class="howE__tag">Improve performance, reduce risks, automate.</p>
               </div>
             </div>
 
@@ -1136,7 +1154,7 @@ im     }
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
                 <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Transform</h3>
-                <p class="text-base sm:text-lg font-extralight leading-snug">Align IT strategy with business growth.</p>
+                <p class="howE__tag">Align IT strategy with business growth.</p>
               </div>
             </div>
 
@@ -1258,6 +1276,16 @@ im     }
         @media (prefers-reduced-motion: reduce){
           .frameworkJourney .howE__card{ transition:none; }
           .frameworkJourney .howE__card button{ transition:none; }
+        }
+      </style>
+      <style>
+        /* Match service card body copy style for Elevate tags under the phase titles */
+        .frameworkJourney .howE__tag{
+          margin:0;
+          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size:clamp(16px, 2.4vw, 20px);
+          line-height:1.65;
+          font-weight:300;
         }
       </style>
       <script>
@@ -2415,8 +2443,12 @@ im     }
 
         .proofCard__subtitle{
           margin:0;
-          color:rgba(209,213,219,.92);
+          /* Match services card body copy */
+          font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size:clamp(16px, 2.4vw, 20px);
           line-height:1.65;
+          font-weight:300;
+          color:rgba(214,224,236,.9);
           overflow-wrap:anywhere;
         }
 
