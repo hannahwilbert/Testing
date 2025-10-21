@@ -146,6 +146,8 @@
     </div>
   </section>
 
+  
+
   <!-- How We Work -->
   <section class="wl3__section" data-variant="light" data-block="how-we-work">
     <div class="wl3__wrap">
@@ -1544,6 +1546,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', size, { passive:true });
   })();
 </script>
+
+  <!-- FAQs CTA -->
+  <section class="wl3__section" data-variant="light" data-block="faq-cta">
+    <div class="wl3__wrap" style="text-align:center;">
+      <h2 class="heading-xl">Have Questions?</h2>
+      <p class="wl3__kicker" style="margin:8px 0 18px; letter-spacing:.14em; text-transform:uppercase; color:rgba(148,163,184,.9); font-weight:700;">Explore our Customer FAQs</p>
+      <p class="body" style="margin:0 auto 18px; max-width:72ch; color:rgba(214,224,236,.9); font-size:clamp(16px, 2.4vw, 20px); line-height:1.65;">
+        Get quick answers about services, onboarding, security practices, and how we work.
+      </p>
+      <div style="display:flex; gap:10px; justify-content:center;">
+        <a href="/your-challenges/" style="display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.2rem; font-weight:600; font-size:clamp(14px,2.2vw,18px); text-decoration:none; color:#fff; background:var(--brand); border-radius:999px; box-shadow:0 10px 28px rgba(0,187,167,.30);">
+          Visit FAQs
+          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Visit FAQs" style="height:18px;">
+        </a>
+      </div>
+    </div>
+  </section>
 
 {% include "partials/footer.html" %}
 {% endblock %}
