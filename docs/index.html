@@ -79,6 +79,8 @@
       --body-text: clamp(16px, 2vw, 18px);
       --body-sm: clamp(14px, 1.8vw, 15px);
     }
+    /* Prevent site-wide horizontal scroll caused by full-bleed 100vw sections */
+    html, body { overflow-x: clip; }
   </style>
 
   <script async="async" src="https://mm-uxrv.com/js/mm_df0b1ba6-f2cc-4c74-90ac-2cf29efd6f33-92730429.js"></script>

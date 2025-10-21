@@ -41,6 +41,8 @@
       --body-text: clamp(16px, 2vw, 18px);
       --body-sm: clamp(14px, 1.8vw, 15px);
     }
+    /* Prevent site-wide horizontal scroll caused by full-bleed 100vw sections */
+    html, body { overflow-x: clip; }
   </style>
 
   {% include "partials/happierleads.html" %}
