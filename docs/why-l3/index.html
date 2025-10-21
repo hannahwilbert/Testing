@@ -1124,11 +1124,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     --section-pad-block: clamp(140px, 18vh, 240px);
   }
   .wl3__section{
-    width:100vw;
+    width:100%;
     margin-left:calc(50% - 50vw);
     margin-right:calc(50% - 50vw);
     padding: var(--section-pad-block) clamp(28px,4.6vw,44px);
   }
+  /* Prevent any accidental horizontal scroll from full-bleed sections */
+  html, body{ overflow-x: clip; }
   
   .wl3__section[data-variant="dark"]{ background: var(--surface-0, #000000); }
   .wl3__section[data-variant="light"]{ background: linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); }
