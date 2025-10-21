@@ -562,32 +562,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a 15-Minute Right‑Fit Call">
         </a>
 
-        <!-- Company Snapshot (moved into hero) -->
-        <div class="mt-8 md:mt-10">
-          <div class="heroStats grid grid-cols-2 gap-4 md:grid-cols-4">
-            
-            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="2000" data-format="raw"  data-final="2000">2000</p>
-              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Year Founded</p>
-            </div>
-            
-            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="8.5" data-format="half"  data-final="8½">8½</p>
-              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Avg. Client Tenure (Years)</p>
-            </div>
-            
-            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="24" data-format="slash" data-suffix="/7" data-final="24/7">24/7</p>
-              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Support Availability</p>
-            </div>
-            
-            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="91" data-format="percent"  data-final="91%">91%</p>
-              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Customer Retention</p>
-            </div>
-            
-          </div>
-        </div>
+        
       </div>
       
     </div>
@@ -636,9 +611,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     color: rgba(226,232,240,.9);
   }
   @media (prefers-reduced-motion: reduce){ .heroStat, .heroStat:hover{ transition:none !important; transform:none !important; } }
-  
-  /* TEMP: Hide all sections below the hero on About Us */
-  .aboutHero ~ section{ display:none !important; }
+  /* Equal spacing under section titles on About Us */
+  h2.heading-xl{
+    margin:0 0 20px !important;
+    font-size:38px !important;
+    line-height:1.2;
+    letter-spacing:-.01em;
+  }
+
 </style>
 
 <!-- Highlights Waves animation (ported from Why L3) -->
@@ -754,6 +734,180 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </script>
 
 
+  <!-- Our Journey & Promise -->
+  <section class="container sectionPad relative max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="journey-heading">
+    <div class="grid grid-cols-1 gap-y-6 gap-x-10 items-start lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-14">
+      <div>
+        <h2 id="journey-heading" class="heading-xl mb-3">Our Journey &amp; Promise</h2>
+        <p class="text-[20px] font-light font-inter text-slate-300 max-w-3xl">
+          Since our founding in 2000, we’ve partnered with organizations to stabilize environments, optimize performance, and guide strategic transformation. Today, our long-term clients confirm what we aim to deliver every day: predictable tech, clear decision-making, and continuity you can trust.
+        </p>
+      </div>
+      <figure class="relative flex flex-col items-center justify-center text-center">
+        <img src="/images/about/leadership.webp" alt="L3 Networks leadership team" class="w-full h-auto max-w-lg rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover">
+        <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70 mt-2">L3 Networks leadership team</figcaption>
+      </figure>
+    </div>
+
+    <!-- Snapshot Stats (moved from hero) -->
+    <div class="mt-10">
+      <div class="heroStats grid grid-cols-2 gap-4 md:grid-cols-4">
+        
+        <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+          <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="2000" data-format="raw"  data-final="2000">2000</p>
+          <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Year Founded</p>
+        </div>
+        
+        <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+          <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="8.5" data-format="half"  data-final="8½">8½</p>
+          <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Avg. Client Tenure (Years)</p>
+        </div>
+        
+        <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+          <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="24" data-format="slash" data-suffix="/7" data-final="24/7">24/7</p>
+          <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Support Availability</p>
+        </div>
+        
+        <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+          <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="91" data-format="percent"  data-final="91%">91%</p>
+          <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Customer Retention</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values in Action -->
+  <section class="valuesLightFull relative text-white" style="background:#030a1c;">
+    <div class="container sectionPad max-w-screen-xl px-6 mx-auto md:px-10 2xl:px-0" aria-labelledby="values-action-heading">
+      <h2 id="values-action-heading" class="heading-xl mb-3">Our Values in Action</h2>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <!-- Expertise Meets Human Connection -->
+      <article class="l3-card p-6">
+        <h3 class="text-xl font-semibold text-slate-100 mb-2">Expertise Meets Human Connection</h3>
+        <p class="body-text text-slate-300">
+          We hire for character and technical skill. You’ll see it in how we listen, respond, and solve.
+        </p>
+      </article>
+
+      <!-- Diversity Drives Innovation -->
+      <article class="l3-card p-6">
+        <h3 class="text-xl font-semibold text-slate-100 mb-2">Diversity Drives Innovation</h3>
+        <p class="body-text text-slate-300">
+          We know better decisions come from different backgrounds, perspectives, and experiences. It’s how we build better teams and results.
+        </p>
+      </article>
+
+      <!-- Ownership Without Ego -->
+      <article class="l3-card p-6">
+        <h3 class="text-xl font-semibold text-slate-100 mb-2">Ownership Without Ego</h3>
+        <p class="body-text text-slate-300">
+          When things get tough, we don’t point fingers. We act. We learn. We improve.
+        </p>
+      </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Who Leads the Way -->
+  <section class="container sectionPad relative max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="leaders-way-heading">
+    <h2 id="leaders-way-heading" class="heading-xl mb-2">Who Leads the Way</h2>
+    <p class="text-[20px] font-light font-inter text-slate-300 max-w-3xl mb-6">We don’t just deliver services; our team becomes an extension of yours. We communicate openly, act deliberately, and stay accountable.</p>
+
+    <div class="leadersGrid">
+      <!-- Kev -->
+      <article class="leaderCard">
+        <div class="leaderHead">
+          <div class="leaderAvatar" aria-hidden="true">KT</div>
+          <div>
+            <h3 class="leaderName">Kev Toumaian</h3>
+            <p class="leaderRole">Co‑Founder • Operations</p>
+          </div>
+        </div>
+        <p class="leaderDesc text-slate-300">
+          Leads operational strategy with a background in transformation across legacy to modern systems.
+        </p>
+        <div class="leaderActions">
+          <a href="#" class="leaderBio" aria-label="Kev Toumaian — Bio">BIO
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
+          </a>
+        </div>
+      </article>
+
+      <!-- Steve -->
+      <article class="leaderCard">
+        <div class="leaderHead">
+          <div class="leaderAvatar" aria-hidden="true">SG</div>
+          <div>
+            <h3 class="leaderName">Steve Griffin</h3>
+            <p class="leaderRole">Co‑Founder • Service Delivery</p>
+          </div>
+        </div>
+        <p class="leaderDesc text-slate-300">
+          Drives service delivery, ensuring every client environment operates with discipline and high standards.
+        </p>
+        <div class="leaderActions">
+          <a href="#" class="leaderBio" aria-label="Steve Griffin — Bio">BIO
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
+          </a>
+        </div>
+      </article>
+
+      <!-- James -->
+      <article class="leaderCard">
+        <div class="leaderHead">
+          <div class="leaderAvatar" aria-hidden="true">JM</div>
+          <div>
+            <h3 class="leaderName">James Mason</h3>
+            <p class="leaderRole">Sales &amp; Marketing Lead</p>
+          </div>
+        </div>
+        <p class="leaderDesc text-slate-300">
+          Bridges strategy and execution—he ensures what we plan is what we deliver.
+        </p>
+        <div class="leaderActions">
+          <a href="#" class="leaderBio" aria-label="James Mason — Bio">BIO
+            <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
+          </a>
+        </div>
+      </article>
+    </div>
+
+    
+
+    <style>
+      .leadersGrid{ display:grid; gap:clamp(14px,2.4vw,20px); align-items:stretch; grid-auto-rows:1fr; grid-template-columns:1fr; }
+      @media (min-width:640px){ .leadersGrid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+      @media (min-width:1024px){ .leadersGrid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+      .leaderCard{ display:flex; flex-direction:column; padding:clamp(16px,2.6vw,22px); border-radius:18px; border:1px solid rgba(148,163,184,.22); background:linear-gradient(180deg, rgba(11,20,34,.72), rgba(11,28,46,.55)); backdrop-filter: blur(6px); box-shadow:0 12px 28px rgba(3,10,28,.35); transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
+      .leaderCard:hover{ transform:translateY(-2px); border-color:rgba(102,199,232,.45); background:linear-gradient(180deg, rgba(11,24,40,.85), rgba(11,28,46,.68)); }
+      .leaderHead{ display:flex; align-items:center; gap:12px; margin:0 0 12px; min-height:64px; }
+      .leaderName{ margin:0; font-size:clamp(16px,2.2vw,18px); font-weight:600; letter-spacing:-.01em; color:#fff; }
+      .leaderRole{ margin:2px 0 0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:rgba(203,213,225,.7); }
+      .leaderDesc{ margin:2px 0 0; line-height:1.65; }
+      @supports (-webkit-line-clamp: 3){ .leaderDesc{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; } }
+      .leaderActions{ margin-top:auto; padding-top:12px; }
+      .leaderAvatar{
+        display:inline-flex; align-items:center; justify-content:center;
+        width:48px; height:48px; border-radius:999px; font-weight:700; color:#07312c;
+        background: linear-gradient(135deg, rgba(102,199,232,.95) 0%, rgba(0,187,167,.95) 100%);
+        box-shadow: inset 0 1px 2px rgba(255,255,255,.35), 0 6px 16px rgba(0,0,0,.25);
+        letter-spacing:.02em;
+      }
+      @media (min-width: 768px){ .leaderAvatar{ width:56px; height:56px; font-size:18px; } }
+      .leaderBio{
+        display:inline-flex; align-items:center; gap:.5rem;
+        padding:.5rem .85rem; border-radius:999px; font-weight:600; font-size:14px;
+        color:#e2e8f0; border:1px solid rgba(102,199,232,.35); background:rgba(11,28,46,.55);
+        transition:border-color .2s ease, background-color .2s ease, transform .2s ease;
+      }
+      .leaderBio:hover{ border-color:#66C7E8; background:rgba(11,28,46,.75); transform:translateY(-1px); }
+      .leaderBio img{ height:16px; }
+    </style>
+  </section>
+
 
   <!-- What We Do -->
 
@@ -762,25 +916,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     .sectionPad{ padding-block: clamp(80px, 14vh, 220px); }
   </style>
 
-<section class="container sectionPad relative max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0">
-
-    
-
-    <section class="mb-24" aria-labelledby="mission-heading">
-      <h2 id="mission-heading" class="heading-xl mb-3">Our Mission</h2>
-      <div class="grid grid-cols-1 gap-y-6 gap-x-10 items-start lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-14">
-        <div>
-          <p class="text-[20px] font-light font-inter text-slate-300">At L3 Networks, our mission is to empower businesses with secure, reliable, and scalable IT solutions that drive growth and innovation. We believe technology should be a catalyst for success—not a barrier—so we provide expert‑managed IT services that eliminate disruptions, enhance security, and align with your strategic goals.</p>
-          <p class="text-[20px] font-light font-inter text-slate-300 mt-4">With over 20 years of experience, we partner with leaders who leverage technology as a competitive advantage. Our commitment is to deliver seamless IT so you can focus on leading your business with confidence.</p>
-        </div>
-        <figure class="relative flex items-center justify-center">
-          <img src="/images/about/leadership.webp" alt="L3 Networks leadership team"
-               class="w-full h-auto max-w-lg rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover">
-        </figure>
-      </div>
-    </section>
-
-  </section>
+<!-- Removed Our Mission section as requested -->
 
 
 
@@ -788,206 +924,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 
-  <!-- Leadership -->
-  <section class="container sectionPad max-w-screen-xl px-6 mx-auto md:px-10 2xl:px-0" aria-labelledby="leadership-heading">
-    <div class="flex items-end justify-between gap-6">
-      <div>
-        <h2 id="leadership-heading" class="heading-xl mb-2 text-white">Leadership</h2>
-        <p class="text-[20px] font-light font-inter text-slate-300">Experienced leaders focused on client outcomes.</p>
-      </div>
-    </div>
+  
 
-    <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch auto-rows-fr">
-      
-
-      
-      <article class="group overflow-hidden p-0 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-all duration-300 flex flex-col h-full">
-        <div class="relative h-56 md:h-60">
-          
-          <div class="absolute inset-0 flex items-center justify-center bg-slate-800/85 text-slate-300 uppercase text-[11px] tracking-[0.28em] font-semibold">
-            headshot placeholder
-          </div>
-          
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <div class="mb-2">
-            <span class="inline-flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-[11px] font-semibold tracking-wide text-teal-300 ring-1 ring-inset ring-teal-400/25">Sales &amp; Marketing</span>
-          </div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">James Mason</h3>
-          <p class="mt-2 text-sm font-light text-slate-300/95">Joined L3 Networks in 2010. Leads Sales and Marketing strategy. 20+ years across Service Delivery and Consulting.</p>
-        </div>
-      </article>
-      
-      <article class="group overflow-hidden p-0 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-all duration-300 flex flex-col h-full">
-        <div class="relative h-56 md:h-60">
-          
-          <div class="absolute inset-0 flex items-center justify-center bg-slate-800/85 text-slate-300 uppercase text-[11px] tracking-[0.28em] font-semibold">
-            headshot placeholder
-          </div>
-          
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <div class="mb-2">
-            <span class="inline-flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-[11px] font-semibold tracking-wide text-teal-300 ring-1 ring-inset ring-teal-400/25">Business Operations</span>
-          </div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">Kev Toumaian</h3>
-          <p class="mt-2 text-sm font-light text-slate-300/95">Co‑founder. Leads Operational strategy. 30+ years across operations and leadership with IBM and Epson.</p>
-        </div>
-      </article>
-      
-      <article class="group overflow-hidden p-0 rounded-lg border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-all duration-300 flex flex-col h-full">
-        <div class="relative h-56 md:h-60">
-          
-          <div class="absolute inset-0 flex items-center justify-center bg-slate-800/85 text-slate-300 uppercase text-[11px] tracking-[0.28em] font-semibold">
-            headshot placeholder
-          </div>
-          
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-          <div class="mb-2">
-            <span class="inline-flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-[11px] font-semibold tracking-wide text-teal-300 ring-1 ring-inset ring-teal-400/25">Technical &amp; Service Delivery</span>
-          </div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">Steve Griffin</h3>
-          <p class="mt-2 text-sm font-light text-slate-300/95">Co‑founder. Leads Service Delivery &amp; Technical strategy. 25+ years in consulting and leadership roles.</p>
-        </div>
-      </article>
-      
-    </div>
-  </section>
-
-  <!-- Culture & Values -->
-  <section class="container sectionPad max-w-screen-xl px-6 mx-auto md:px-10 2xl:px-0" aria-labelledby="values-heading">
-    <h2 id="values-heading" class="sr-only">Culture & Values</h2>
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-
-      <!-- Expertise & Human Connection -->
-      <article class="l3-card p-6">
-        <div class="flex items-start gap-3 mb-3">
-          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-teal-400/10 ring-1 ring-teal-400/30 text-teal-300">
-            <!-- Lightbulb icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
-              <path d="M9 18h6"/>
-              <path d="M10 22h4"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-100">Where Expertise Meets Human Connection</h3>
-        </div>
-        <p class="body-text text-slate-300">
-          Technical skills are just the start. What truly sets us apart is our team’s dedication to solving problems, delivering exceptional customer experiences, and collaborating seamlessly. We invest in our people to ensure they’re not only technically skilled but also deeply committed to your success.
-        </p>
-      </article>
-
-      <!-- Diversity -->
-      <article class="l3-card p-6">
-        <div class="flex items-start gap-3 mb-3">
-          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-teal-400/10 ring-1 ring-teal-400/30 text-teal-300">
-            <!-- Users icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-100">Diversity Drives Innovation</h3>
-        </div>
-        <p class="body-text text-slate-300">
-          We’ve seen firsthand how diverse teams deliver better results. By bringing together unique perspectives, backgrounds, and skills, we create stronger partnerships and more innovative solutions. Diversity isn’t just a value—it’s a cornerstone of how we build teams and serve our clients.
-        </p>
-      </article>
-
-    </div>
-  </section>
+  
 
 
-  <!-- Technologies -->
-  <section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="tech-partners-heading">
 
-    <hr class="mt-4 mb-10 border-slate-700">
-    <h2 id="tech-partners-heading" class="heading-xl mb-2">Trusted Technology Partners</h2>
-    <p class="text-[20px] font-light font-inter mb-10 text-slate-300">We partner with leading platforms to deliver secure, reliable outcomes.</p>
-
-    
-
-    <div class="relative w-full mt-4">
-      <div class="swiper vendor-swiper px-12" id="vendorSwiper">
-        <div class="swiper-wrapper items-center">
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-microsoft.svg" alt="Microsoft">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-aws.svg" alt="AWS">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-azure.svg" alt="Microsoft Azure">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-fortinet.svg" alt="Fortinet">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-hpe.svg" alt="HPE">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-okta.svg" alt="Okta">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-veeam.svg" alt="Veeam">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-vmware.svg" alt="VMware">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-dnsfilter.svg" alt="DNSFilter">
-            </div>
-          </div>
-          
-          <div class="swiper-slide flex items-center justify-center py-6">
-            <div class="flex items-center justify-center w-full max-w-[180px] px-6 py-4 border rounded-2xl border-white/5 bg-white/5 backdrop-blur">
-              <img class="block h-12 invert brightness-0" src="/images/about/logo-ruckus.svg" alt="Ruckus">
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      <style>
-        #vendorSwiper .swiper-wrapper{ transition-timing-function: linear !important; }
-      </style>
-    </div>
-
-  </section>
+  
 
   <!-- Other Locations -->
   
 
+  <section class="locationsFull relative" style="background:#030a1c;">
   <div class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="locations-heading">
-    <hr class="mt-4 mb-10 border-slate-700">
     <h2 id="locations-heading" class="mb-2 heading-xl md:mx-0">Locations</h2>
     <p class="mb-6 text-[20px] font-light font-inter text-slate-300 md:mx-0">We ensure that your business adopts the latest technologies to stay ahead in your industry.</p>
 
@@ -1097,24 +1046,118 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
     </div>
   </div>
+  </section>
 
+  <!-- Technologies -->
+  <section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="tech-partners-heading">
 
+    <h2 id="tech-partners-heading" class="heading-xl mb-2">Trusted Technology Partners</h2>
+    <p class="text-[20px] font-light font-inter mb-10 text-slate-300">We partner with leading platforms to deliver secure, reliable outcomes.</p>
 
-  <!-- CTA — match services/why-l3 pages -->
-  <section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0">
-    <hr class="mb-8 border-slate-700">
-    <div class="grid items-center grid-cols-1 gap-6 md:grid-cols-3">
-      <div class="md:col-span-2">
-        <h2 class="mb-2 heading-xl">Ready to Talk?</h2>
-        <p class="text-base font-light text-slate-300">Schedule a quick Right‑Fit Call to assess needs and next steps.</p>
-      </div>
-      <div class="md:text-right">
-        <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="inline-flex">
-          Book An Appointment
-          <img src="/images/icons/ArrowUpRightWhite.svg" alt="Book An Appointment">
-        </a>
-      </div>
+    
+
+    <div class="relative w-full mt-4">
+      <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 items-center justify-items-center">
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-aws.svg" alt="Amazon Web Services (AWS)">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-aruba.svg" alt="Aruba">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-att.svg" alt="AT&amp;T Business">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-azure.svg" alt="Azure">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-citrix.svg" alt="Citrix">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-dnsfilter.svg" alt="DNSFilter">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-equinix.svg" alt="Equinix">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-fortra.svg" alt="Fortra">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-fortinet.svg" alt="Fortinet">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-hpe.svg" alt="Hewlett Packard Enterprise (HPE)">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-huntress.svg" alt="Huntress">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-kaseya.svg" alt="Kaseya">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-microsoft.svg" alt="Microsoft">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-ninjaone.svg" alt="NinjaOne">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-o365.svg" alt="Office 365">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-okta.svg" alt="Okta">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-onelogin.svg" alt="OneLogin">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-ringcentral.svg" alt="RingCentral">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-ruckus.svg" alt="Ruckus Networks">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-threatlocker.svg" alt="ThreatLocker">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-veeam.svg" alt="Veeam">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-vmware.svg" alt="VMware">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-wasabi.svg" alt="Wasabi">
+        </li>
+        
+        <li class="py-1">
+          <img class="block h-16 sm:h-20 md:h-24 invert max-w-full" src="/images/about/logo-zerto.svg" alt="Zerto">
+        </li>
+        
+      </ul>
     </div>
+
   </section>
 
   
