@@ -544,9 +544,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 <section style="background:#020617;" class="whyL3Hero relative w-full px-6 pt-32 text-white overflow-hidden md:px-10 md:pt-16">
 
-  <div class="waves absolute inset-0 pointer-events-none"></div>
+  
   <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-950/85 to-slate-900/65"></div>
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.12),_transparent_60%)]"></div>
+  <!-- Page-specific hero overlay: neutral sheen (no teal) for Why L3 -->
+  <div class="heroOverlay absolute inset-0 pointer-events-none"></div>
+  <!-- Bring in the highlights wave animation (from home page) behind hero content -->
+  <canvas id="highlightsWaves" aria-hidden="true"
+    style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
+  ></canvas>
   <div class="container relative max-w-screen-xl px-0 pb-20 text-center md:pb-32 md:px-0 md:mx-auto md:py-48">
     <div class="relative z-10 grid max-w-screen-xl gap-12 px-0 mx-auto items-center justify-items-center">
       <div class="max-w-3xl mx-auto">
@@ -564,6 +569,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <style>
   /* Ensure hero waves canvas fills the hero like services pages */
   .waves canvas{ width:100%; height:100%; display:block; }
+  /* Why L3 hero: neutral, modern overlay (no teal) */
+  .whyL3Hero .heroOverlay{
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 42%),
+      linear-gradient(0deg, rgba(0,0,0,.12), rgba(0,0,0,0) 32%);
+  }
   /* Ensure CTA matches Cyber Security hero button color and size */
   .whyL3Hero a[data-cta="primary"]{
     background: var(--brand); /* solid teal */
@@ -571,6 +582,83 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   }
   .whyL3Hero a[data-cta="primary"] img{ height:18px; }
 </style>
+
+<!-- Highlights Waves (same style as home) -->
+<script>
+(function(){
+  var cv = document.getElementById('highlightsWaves');
+  if(!cv) return;
+  var root = cv.parentElement;
+  var reduce = false;
+  try{ reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches }catch(e){}
+  if(reduce) return;
+
+  var ctx = cv.getContext('2d', { alpha:true });
+  if(!ctx) return;
+  if (getComputedStyle(root).position === 'static') { root.style.position = 'relative'; }
+
+  var DPR_CAP = 1.5;
+  var dpr = Math.min(DPR_CAP, Math.max(1, window.devicePixelRatio||1));
+  var W=0, H=0, t=Math.random()*20;
+
+  function size(){
+    var r = root.getBoundingClientRect();
+    var w = Math.max(1, r.width);
+    var h = Math.max(1, r.height);
+    if (!w || !h) return;
+    cv.width = Math.floor(w * dpr);
+    cv.height = Math.floor(h * dpr);
+    cv.style.width = w + 'px';
+    cv.style.height = h + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    W = w; H = h;
+  }
+
+  var C1 = '#FFFFFF', C2 = '#FFFFFF', C3 = '#FFFFFF';
+  function grad(){ var g = ctx.createLinearGradient(0,0,W,0); g.addColorStop(0,C1); g.addColorStop(0.5,C2); g.addColorStop(1,C3); return g; }
+
+  var LINES=100, AMP=35, FREQ=2.0, SPEED=0.3, THICK=1.3, SPREAD=.25, ALPHA=0.08, TWIST=2, CURL=2, WOBBLE=0.30;
+
+  function drawWave(u, baseY){
+    var w = 1 - Math.abs(u);
+    var amp = AMP * (0.65 + 0.55 * w);
+    var freq = FREQ * (1.0 + u * 0.22);
+    var lw = Math.max(0.6, THICK * (0.9 + 0.8 * w));
+    var alpha = ALPHA * (0.6 + 0.5 * w);
+    ctx.lineWidth = lw; ctx.strokeStyle = grad(); ctx.globalAlpha = alpha; ctx.beginPath();
+    var phaseShift = u * 1.25;
+    var step = Math.max(1.4, W/220);
+    for (var x=0; x<=W; x+=step){
+      var nx = x/W;
+      var xTwist = x + (TWIST * u) * Math.sin(t * 0.7 + nx * 2.2);
+      var k = nx * Math.PI * 2 * freq;
+      var phase = t * SPEED + phaseShift + 0.8 * Math.sin(t * 0.45 + nx * 3.0);
+      var y = baseY
+        + Math.sin(k + phase) * amp
+        + Math.sin(k * 0.55 + phase * 0.8 + Math.sin(k * 0.33 + t * 0.5)) * (amp * 0.55 * CURL)
+        + Math.sin(nx * 1.6 + t * 0.25 + u) * (amp * 0.22 * WOBBLE);
+      if (x===0) ctx.moveTo(xTwist,y); else ctx.lineTo(xTwist,y);
+    }
+    ctx.stroke();
+  }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    var center = H * (0.56 + 0.04 * Math.sin(t * 0.6));
+    var spread = H * SPREAD;
+    for (var i=0;i<LINES;i++){
+      var u = (i/(LINES-1))*2 - 1;
+      drawWave(u, center + u * spread);
+    }
+    t += 0.016;
+    requestAnimationFrame(render);
+  }
+
+  function boot(){ size(); render(); }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', boot, { once:true }); } else { boot(); }
+  window.addEventListener('resize', size, { passive:true });
+})();
+</script>
 
 <!-- Sections below hero styled like services pages -->
 <main class="bg-[#030a1c] text-white">
@@ -1419,7 +1507,8 @@ document.addEventListener('DOMContentLoaded', function(){
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const holder = document.querySelector('.waves');
-  if (!holder) return;
+  // If this page provides its own canvas waves, skip the WebGL point field
+  if (!holder || document.getElementById('whyWaves')) return;
 
   if (!window.ShaderProgram) {
     class ShaderProgram {
@@ -1869,7 +1958,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if(reduce) return;
 
     var ctx = cv.getContext('2d');
-    var DPR = Math.max(1, window.devicePixelRatio||1);
+    // Render at 1x to keep things light
+    var DPR = 1;
     var W=0, H=0, t=0;
 
     // Simple hash-based value noise (fast) + smoothing
@@ -1886,13 +1976,17 @@ document.addEventListener('DOMContentLoaded', () => {
       return lerp(lerp(h00,h10,u), lerp(h01,h11,u), v);
     }
 
+    // Non-interactive mesh (keeps motion, no pointer overhead)
+    var INTERACTIVE = false;
     var pointer = {x:0.5, y:0.55, active:false};
-    window.addEventListener('pointermove', function(e){
-      var r = cv.getBoundingClientRect();
-      pointer.x = (e.clientX - r.left)/Math.max(1,r.width);
-      pointer.y = (e.clientY - r.top)/Math.max(1,r.height);
-      pointer.active = true;
-    }, { passive:true });
+    if (INTERACTIVE) {
+      window.addEventListener('pointermove', function(e){
+        var r = cv.getBoundingClientRect();
+        pointer.x = (e.clientX - r.left)/Math.max(1,r.width);
+        pointer.y = (e.clientY - r.top)/Math.max(1,r.height);
+        pointer.active = true;
+      }, { passive:true });
+    }
 
     function size(){
       var r = cv.getBoundingClientRect();
@@ -1904,52 +1998,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function hsl(h,s,l,a){ return 'hsla('+h+','+s+'%,'+l+'%,'+a+')' }
 
-    var LAYERS = [
-      { lines:7, amp:18, freq:1.25, speed:0.55, blur:10, alpha:0.45 },
-      { lines:5, amp:26, freq:0.95, speed:0.35, blur:18, alpha:0.30 },
-      { lines:3, amp:34, freq:0.65, speed:0.20, blur:26, alpha:0.20 }
-    ];
+    // Uniform mesh configuration (tight but efficient)
+    var GRID = { hLines: 28, vLines: 36, amp: 7, ampV: 6, speed: 0.22 };
 
+    var animate = true; // motion on (non-interactive)
+    var fps = 12, frameInterval = 1000 / fps, last = 0;
     function draw(){
       var w = cv.clientWidth, h = cv.clientHeight;
       ctx.clearRect(0,0,w,h);
-      ctx.globalCompositeOperation = 'lighter';
-      var baseHue = 180 + 40*Math.sin(t*0.15);
+      // simpler composite for performance
+      ctx.globalCompositeOperation = 'source-over';
 
-      for(var li=0; li<LAYERS.length; li++){
-        var L = LAYERS[li];
-        ctx.shadowBlur = L.blur; ctx.shadowColor = 'rgba(0,187,167,0.25)';
-        var lines = L.lines, amp = L.amp, freq=L.freq, sp=L.speed;
-        for(var i=0;i<lines;i++){
-          var u = (i/(lines-1))*2 - 1; // -1..1
-          var mid = h * (0.54 + 0.06*u);
-          ctx.beginPath();
-          // color per-line: cycle hue slightly per line + time
-          var hue = baseHue + u*40 + li*22;
-          ctx.lineWidth = 1.5 + li*0.6;
-          ctx.strokeStyle = hsl((hue+360)%360, 85, 60, L.alpha);
-          var step = Math.max(1.2, w/240);
-          for(var x=0; x<=w; x+=step){
-            var nx = x/w;
-            var n = noise2D(nx*3 + i*0.15 + t*sp, u*2 + t*sp*0.7);
-            var y = mid
-              + Math.sin((nx*6 + t*sp*1.4) + u*1.2) * amp
-              + (n-0.5) * amp * 1.4
-              + Math.sin(nx*12 + t*0.3 + li) * amp * 0.15;
-            if(pointer.active){
-              var dx = nx - pointer.x;
-              var dy = (y/h) - pointer.y;
-              var d2 = Math.max(0.0001, dx*dx + dy*dy);
-              y += (0.12/d2) * (amp*0.8) * Math.sin(t*0.9 + i);
-            }
-            if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      // Horizontal mesh lines (evenly spaced across full height)
+      ctx.shadowBlur = 0; ctx.shadowColor = 'rgba(255,255,255,0)';
+      var yStep = h / (GRID.hLines + 1);
+      for(var i=1; i<=GRID.hLines; i++){
+        var y0 = i * yStep;
+        ctx.beginPath();
+        ctx.lineWidth = 0.9;
+        ctx.strokeStyle = 'rgba(255,255,255,0.20)';
+        var stepX = Math.max(2.0, w/140);
+        for(var x=0; x<=w; x+=stepX){
+          var nx = x / w;
+          var n = noise2D(nx*3.0 + i*0.21 + t*GRID.speed, i*0.12 + t*GRID.speed*0.6);
+          var y = y0
+            + Math.sin(nx*8 + t*GRID.speed*1.3 + i*0.2) * GRID.amp
+            + (n-0.5) * GRID.amp * 1.2;
+          if(pointer.active){
+            var dx = nx - pointer.x;
+            var dy = (y/h) - pointer.y;
+            var d2 = Math.max(0.00008, dx*dx + dy*dy);
+            y += (0.06/d2) * (GRID.amp*0.6);
           }
-          ctx.stroke();
+          if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+      }
+
+      // Vertical mesh lines (evenly spaced across full width)
+      ctx.shadowBlur = 0; ctx.shadowColor = 'rgba(255,255,255,0)';
+      var xStep = w / (GRID.vLines + 1);
+      for(var j=1; j<=GRID.vLines; j++){
+        var x0 = j * xStep;
+        ctx.beginPath();
+        ctx.lineWidth = 0.8;
+        ctx.strokeStyle = 'rgba(255,255,255,0.16)';
+        var stepY = Math.max(2.0, h/180);
+        for(var y=0; y<=h; y+=stepY){
+          var ny = y / h;
+          var n2 = noise2D(j*0.18 + t*GRID.speed*0.7, ny*3.2 + t*GRID.speed);
+          var x1 = x0
+            + Math.sin(ny*8 + t*GRID.speed*1.1 + j*0.25) * GRID.ampV
+            + (n2-0.5) * GRID.ampV * 1.1;
+          if(pointer.active){
+            var dx2 = (x1/w) - pointer.x;
+            var dy2 = ny - pointer.y;
+            var d22 = Math.max(0.00008, dx2*dx2 + dy2*dy2);
+            x1 += (0.05/d22) * (GRID.ampV*0.6);
+          }
+          if(y===0) ctx.moveTo(x1,y); else ctx.lineTo(x1,y);
+        }
+        ctx.stroke();
+      }
+
+      ctx.globalCompositeOperation = 'source-over';
+      if (animate){
+        var now = performance.now();
+        if (now - last >= frameInterval){
+          t += frameInterval/1000;
+          last = now;
+          requestAnimationFrame(draw);
+        } else {
+          // skip frame to keep FPS throttled
+          requestAnimationFrame(draw);
         }
       }
-      ctx.globalCompositeOperation = 'source-over';
-      t += 0.016;
-      requestAnimationFrame(draw);
     }
 
     function boot(){ size(); draw(); }
