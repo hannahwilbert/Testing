@@ -879,12 +879,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             <div class="wl3__listWrap">
               <p class="wl3__kicker">Our partnerships work because we:</p>
               <ul class="wl3__list" role="list">
-                <li>Tell the truth, even when it’s inconvenient</li>
-                <li>Own the outcome, not just the tasks</li>
-                <li>Operate with discipline and purpose</li>
-                <li>Stay aligned to long-term business goals</li>
-                <li>Respect both strategy and execution</li>
-                <li>Treat people like partners, not tickets</li>
+                <li><strong>Tell the truth</strong>, even when it’s inconvenient</li>
+                <li><strong>Own the outcome</strong>, not just the tasks</li>
+                <li><strong>Operate with discipline</strong> and purpose</li>
+                <li><strong>Stay aligned</strong> to long-term business goals</li>
+                <li>Respect both <strong>strategy and execution</strong></li>
+                <li><strong>Treat people like partners</strong>, not tickets</li>
               </ul>
             </div>
           </div>
@@ -1039,8 +1039,24 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     margin-right:calc(50% - 50vw);
     padding: var(--section-pad-block) clamp(28px,4.6vw,44px);
   }
+  
   .wl3__section[data-variant="dark"]{ background: var(--surface-0, #000000); }
   .wl3__section[data-variant="light"]{ background: linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%); }
+  /* Light (blue) sections: add a sleek, neutral gradient overlay (no teal) */
+  .wl3__section[data-variant="light"]{ position: relative; }
+  .wl3__section[data-variant="light"]::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      /* soft top lift */
+      linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 24%),
+      /* gentle bottom depth */
+      linear-gradient(0deg, rgba(0,0,0,0.12), rgba(0,0,0,0) 32%);
+    z-index: 0;
+  }
+  .wl3__section[data-variant="light"] .wl3__wrap{ position: relative; z-index: 1; }
   /* Global, consistent spacing between section title and content */
   .wl3__wrap{ width:100%; max-width:var(--page-max); margin:0 auto; padding:0 var(--page-pad); display:grid; gap:0; }
   /* Match product (cyber security) section title sizing */
@@ -1301,6 +1317,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     line-height:1.65;
     font-weight:300;
     color:rgba(214,224,236,.90);
+  }
+  .wl3__section[data-block="why-choose"] .wl3__list li strong{
+    font-weight:800 !important;
+    color:#f8fafc;
   }
   .wl3__section[data-block="why-choose"] .wl3__list li::before{
     content:""; position:absolute; left:0; top:.55em; width:16px; height:16px; border-radius:6px;
