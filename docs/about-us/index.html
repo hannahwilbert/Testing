@@ -545,14 +545,18 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <main tabindex="-1" id="main-content">
 
 <!-- Hero — services-style -->
-<section style="background:#020617;" class="relative w-full px-6 pt-32 text-white overflow-hidden md:px-10 md:pt-16">
+<section style="background:#020617;" class="aboutHero relative w-full px-6 pt-32 text-white overflow-hidden md:px-10 md:pt-16">
   <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-950/85 to-slate-900/65"></div>
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.12),_transparent_60%)]"></div>
-  <div class="container relative max-w-screen-xl px-0 pb-20 text-left md:pb-32 md:px-0 md:mx-auto md:py-48">
-    <div class="relative z-10 grid max-w-screen-xl gap-12 px-0 mx-auto items-center md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-      <div class="max-w-3xl">
-        <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl font-inter">Driving Success Through Technology</h1>
-        <p class="text-lg font-light md:text-2xl text-slate-100/90">Empowering businesses to harness IT for growth, success, and peace of mind.</p>
+  <!-- Highlights Waves (same as Why L3) -->
+  <canvas id="aboutHeroWaves" aria-hidden="true"
+    style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
+  ></canvas>
+  <div class="container relative max-w-screen-xl px-0 pb-20 text-center md:pb-32 md:px-0 md:mx-auto md:py-48">
+    <div class="relative z-10 grid max-w-screen-xl gap-12 px-0 mx-auto items-center justify-items-center">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="heading-xl mb-6 font-semibold tracking-tight">Driving Success Through Technology</h1>
+        <p class="text-[22px] font-light font-inter text-slate-100/90" style="font-size:22px; font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Empowering businesses to harness IT for growth, success, and peace of mind.</p>
         <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="mt-12">
           Schedule a 15-Minute Right‑Fit Call
           <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a 15-Minute Right‑Fit Call">
@@ -560,38 +564,194 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
         <!-- Company Snapshot (moved into hero) -->
         <div class="mt-8 md:mt-10">
-          <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div class="heroStats grid grid-cols-2 gap-4 md:grid-cols-4">
             
-            <div class="rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">2000</p>
-              <p class="mt-1 text-xs md:text-sm font-light text-slate-200/85">Year Founded</p>
+            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="2000" data-format="raw"  data-final="2000">2000</p>
+              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Year Founded</p>
             </div>
             
-            <div class="rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">8½</p>
-              <p class="mt-1 text-xs md:text-sm font-light text-slate-200/85">Avg. Client Tenure (Years)</p>
+            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="8.5" data-format="half"  data-final="8½">8½</p>
+              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Avg. Client Tenure (Years)</p>
             </div>
             
-            <div class="rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">24/7</p>
-              <p class="mt-1 text-xs md:text-sm font-light text-slate-200/85">Support Availability</p>
+            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="24" data-format="slash" data-suffix="/7" data-final="24/7">24/7</p>
+              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Support Availability</p>
             </div>
             
-            <div class="rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-              <p class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">91%</p>
-              <p class="mt-1 text-xs md:text-sm font-light text-slate-200/85">Customer Retention</p>
+            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="91" data-format="percent"  data-final="91%">91%</p>
+              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">Customer Retention</p>
             </div>
             
           </div>
         </div>
       </div>
-      <figure class="relative flex flex-col items-center gap-3 text-center">
-        <img src="/images/about/leadership.webp" alt="L3 Networks leadership team" class="relative w-full max-w-md h-auto rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover">
-        <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70">Our leadership</figcaption>
-      </figure>
+      
     </div>
   </div>
 </section>
+
+<style>
+  /* About Us — Hero CTA: solid teal */
+  .aboutHero a[data-cta="primary"]{
+    background: var(--brand) !important;
+    box-shadow: 0 12px 28px rgba(0,187,167,.45);
+    filter: none;
+  }
+  .aboutHero a[data-cta="primary"]:is(:hover,:focus-visible){
+    filter: brightness(1.04);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(0,187,167,.55);
+  }
+  /* About Us — Hero Stat Cards */
+  .heroStats{ gap:clamp(14px,2.4vw,18px); }
+  .heroStat{
+    position:relative; isolation:isolate;
+    padding:clamp(14px,2.4vw,20px);
+    border-radius:18px;
+    border:1px solid rgba(148,163,184,.22) !important;
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+    backdrop-filter: blur(8px);
+    box-shadow:0 16px 42px rgba(3,10,28,.45);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+  }
+  .heroStat:hover{ transform:translateY(-3px); border-color: rgba(102,199,232,.55) !important; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06)); }
+  .heroStat::after{
+    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    background: radial-gradient(120% 120% at 10% -10%, rgba(102,199,232,.25) 0%, rgba(0,0,0,0) 42%),
+                radial-gradient(120% 120% at 110% 110%, rgba(0,187,167,.18) 0%, rgba(0,0,0,0) 46%);
+    opacity:.9; mix-blend:overlay;
+  }
+  .heroStat .statNum{
+    font-size: clamp(26px, 3.8vw, 36px);
+    letter-spacing: -0.012em;
+    color:#fff;
+  }
+  .heroStat .statLabel{
+    margin-top:.35rem;
+    font-size: clamp(14px, 2vw, 16px);
+    color: rgba(226,232,240,.9);
+  }
+  @media (prefers-reduced-motion: reduce){ .heroStat, .heroStat:hover{ transition:none !important; transform:none !important; } }
+  
+  /* TEMP: Hide all sections below the hero on About Us */
+  .aboutHero ~ section{ display:none !important; }
+</style>
+
+<!-- Highlights Waves animation (ported from Why L3) -->
+<script>
+(function(){
+  var cv = document.getElementById('aboutHeroWaves');
+  if(!cv) return;
+  var root = cv.parentElement;
+  var reduce = false;
+  try{ reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches }catch(e){}
+  if(reduce) return;
+
+  var ctx = cv.getContext('2d', { alpha:true });
+  if(!ctx) return;
+  if (getComputedStyle(root).position === 'static') { root.style.position = 'relative'; }
+
+  var DPR_CAP = 1.5;
+  var dpr = Math.min(DPR_CAP, Math.max(1, window.devicePixelRatio||1));
+  var W=0, H=0, t=Math.random()*20;
+
+  function size(){
+    var r = root.getBoundingClientRect();
+    var w = Math.max(1, r.width);
+    var h = Math.max(1, r.height);
+    if (!w || !h) return;
+    cv.width = Math.floor(w * dpr);
+    cv.height = Math.floor(h * dpr);
+    cv.style.width = w + 'px';
+    cv.style.height = h + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    W = w; H = h;
+  }
+
+  var C1 = '#FFFFFF', C2 = '#FFFFFF', C3 = '#FFFFFF';
+  function grad(){ var g = ctx.createLinearGradient(0,0,W,0); g.addColorStop(0,C1); g.addColorStop(0.5,C2); g.addColorStop(1,C3); return g; }
+
+  var LINES=100, AMP=35, FREQ=2.0, SPEED=0.3, THICK=1.3, SPREAD=.25, ALPHA=0.08, TWIST=2, CURL=2, WOBBLE=0.30;
+
+  function drawWave(u, baseY){
+    var w = 1 - Math.abs(u);
+    var amp = AMP * (0.65 + 0.55 * w);
+    var freq = FREQ * (1.0 + u * 0.22);
+    var lw = Math.max(0.6, THICK * (0.9 + 0.8 * w));
+    var alpha = ALPHA * (0.6 + 0.5 * w);
+    ctx.lineWidth = lw; ctx.strokeStyle = grad(); ctx.globalAlpha = alpha; ctx.beginPath();
+    var phaseShift = u * 1.25;
+    var step = Math.max(1.4, W/220);
+    for (var x=0; x<=W; x+=step){
+      var nx = x/W;
+      var xTwist = x + (TWIST * u) * Math.sin(t * 0.7 + nx * 2.2);
+      var k = nx * Math.PI * 2 * freq;
+      var phase = t * SPEED + phaseShift + 0.8 * Math.sin(t * 0.45 + nx * 3.0);
+      var y = baseY
+        + Math.sin(k + phase) * amp
+        + Math.sin(k * 0.55 + phase * 0.8 + Math.sin(k * 0.33 + t * 0.5)) * (amp * 0.55 * CURL)
+        + Math.sin(nx * 1.6 + t * 0.25 + u) * (amp * 0.22 * WOBBLE);
+      if (x===0) ctx.moveTo(xTwist,y); else ctx.lineTo(xTwist,y);
+    }
+    ctx.stroke();
+  }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    var center = H * (0.56 + 0.04 * Math.sin(t * 0.6));
+    var spread = H * SPREAD;
+    for (var i=0;i<LINES;i++){
+      var u = (i/(LINES-1))*2 - 1;
+      drawWave(u, center + u * spread);
+    }
+    t += 0.016;
+    requestAnimationFrame(render);
+  }
+
+  function boot(){ size(); render(); }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', boot, { once:true }); } else { boot(); }
+  window.addEventListener('resize', size, { passive:true });
+})();
+</script>
+<!-- Count-up animation for hero stats -->
+<script>
+(function(){
+  function prefersReduced(){ try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){ return false; } }
+  function formatHalf(val){ var s = val.toFixed(1); if (s.endsWith('.0')) return s.slice(0,-2); if (s.endsWith('.5')) return s.slice(0,-2) + '½'; return s; }
+  function animate(el, to, opt){
+    var start = 0, started=null; var dur = (opt && opt.duration) || 1200; var fmt = (opt && opt.format) || 'raw'; var suffix = (opt && opt.suffix) || '';
+    function ease(t){ return 1 - Math.pow(1 - t, 3); }
+    function step(ts){
+      if(started===null) started = ts;
+      var p = Math.min(1, (ts - started) / dur);
+      var cur = start + (to - start) * ease(p);
+      var txt;
+      if (fmt === 'percent') txt = Math.round(cur) + '%';
+      else if (fmt === 'slash') txt = Math.round(cur) + suffix;
+      else if (fmt === 'half') txt = formatHalf(cur);
+      else txt = Math.round(cur).toString();
+      el.textContent = txt;
+      if (p < 1) requestAnimationFrame(step); else { var fin = el.dataset.final; if (fin) el.textContent = fin; }
+    }
+    requestAnimationFrame(step);
+  }
+  function boot(){
+    var els = document.querySelectorAll('.heroStat .statNum');
+    if(!els.length) return;
+    if (prefersReduced()) { els.forEach(function(el){ var fin = el.dataset.final; if(fin) el.textContent = fin; }); return; }
+    els.forEach(function(el){
+      var to = parseFloat(el.dataset.countTo);
+      if (!isFinite(to)) return;
+      animate(el, to, { duration: 1300, format: el.dataset.format || 'raw', suffix: el.dataset.suffix || '' });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once:true }); else boot();
+})();
+</script>
 
 
 
@@ -610,8 +770,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <h2 id="mission-heading" class="heading-xl mb-3">Our Mission</h2>
       <div class="grid grid-cols-1 gap-y-6 gap-x-10 items-start lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-14">
         <div>
-          <p class="body-lead text-slate-300">At L3 Networks, our mission is to empower businesses with secure, reliable, and scalable IT solutions that drive growth and innovation. We believe technology should be a catalyst for success—not a barrier—so we provide expert‑managed IT services that eliminate disruptions, enhance security, and align with your strategic goals.</p>
-          <p class="body-lead text-slate-300 mt-4">With over 20 years of experience, we partner with leaders who leverage technology as a competitive advantage. Our commitment is to deliver seamless IT so you can focus on leading your business with confidence.</p>
+          <p class="text-[20px] font-light font-inter text-slate-300">At L3 Networks, our mission is to empower businesses with secure, reliable, and scalable IT solutions that drive growth and innovation. We believe technology should be a catalyst for success—not a barrier—so we provide expert‑managed IT services that eliminate disruptions, enhance security, and align with your strategic goals.</p>
+          <p class="text-[20px] font-light font-inter text-slate-300 mt-4">With over 20 years of experience, we partner with leaders who leverage technology as a competitive advantage. Our commitment is to deliver seamless IT so you can focus on leading your business with confidence.</p>
         </div>
         <figure class="relative flex items-center justify-center">
           <img src="/images/about/leadership.webp" alt="L3 Networks leadership team"
@@ -633,7 +793,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <div class="flex items-end justify-between gap-6">
       <div>
         <h2 id="leadership-heading" class="heading-xl mb-2 text-white">Leadership</h2>
-        <p class="body-lead text-slate-300">Experienced leaders focused on client outcomes.</p>
+        <p class="text-[20px] font-light font-inter text-slate-300">Experienced leaders focused on client outcomes.</p>
       </div>
     </div>
 
@@ -746,7 +906,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
     <hr class="mt-4 mb-10 border-slate-700">
     <h2 id="tech-partners-heading" class="heading-xl mb-2">Trusted Technology Partners</h2>
-    <p class="body-lead mb-10 text-slate-300">We partner with leading platforms to deliver secure, reliable outcomes.</p>
+    <p class="text-[20px] font-light font-inter mb-10 text-slate-300">We partner with leading platforms to deliver secure, reliable outcomes.</p>
 
     
 
@@ -829,7 +989,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <div class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="locations-heading">
     <hr class="mt-4 mb-10 border-slate-700">
     <h2 id="locations-heading" class="mb-2 heading-xl md:mx-0">Locations</h2>
-    <p class="mb-6 body-lead text-slate-300 md:mx-0">We ensure that your business adopts the latest technologies to stay ahead in your industry.</p>
+    <p class="mb-6 text-[20px] font-light font-inter text-slate-300 md:mx-0">We ensure that your business adopts the latest technologies to stay ahead in your industry.</p>
 
     <style>
       .locChip{ display:inline-flex; align-items:center; justify-content:center; padding:.2rem .6rem; font-size:11px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; border-radius:999px; border:1px solid var(--accent); color:var(--accent); background:rgba(148,163,184,.10); }
