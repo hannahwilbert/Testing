@@ -906,6 +906,29 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       .leaderBio:hover{ border-color:#66C7E8; background:rgba(11,28,46,.75); transform:translateY(-1px); }
       .leaderBio img{ height:16px; }
     </style>
+    <style>
+      .mapFrame{ border-radius:18px; }
+      .tabsFrame{ border:1px solid rgba(148,163,184,.22); border-bottom:none; border-top-left-radius:18px; border-top-right-radius:18px; background:rgba(15,23,42,.55); padding:10px 12px; }
+      .mapBox{ position:relative; border:none; border-radius:12px; overflow:hidden; }
+      .mapCard{ border:1px solid rgba(148,163,184,.22); border-radius:18px; background:rgba(15,23,42,.40); padding:clamp(16px, 2.5vw, 28px); }
+      .mapCard .mapInfoRow{ margin-bottom:clamp(8px, 1.5vw, 16px); }
+      .mapCard .mapInfo{ margin-bottom:clamp(12px, 2.2vw, 24px); }
+      .mapCard .locActions{ margin-top:clamp(8px, 1.5vw, 16px); }
+
+      .mapOverlayActions{ position:absolute; left:12px; bottom:12px; display:flex; gap:8px; padding:6px 8px; border-radius:999px; background:rgba(15,23,42,.6); border:1px solid rgba(148,163,184,.22); }
+    </style>
+    <style>
+      .mapTabs{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+      .mapTab{ display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border-radius:999px; border:1px solid rgba(148,163,184,.22); background:rgba(15,23,42,.5); color:#e2e8f0; font-weight:600; transition:border-color .2s, background-color .2s, transform .2s; }
+      .mapTab strong{ font-weight:700; }
+      .mapTab .mapTab__sub{ font-weight:400; color:#94a3b8; }
+      .mapTab:hover{ border-color:#00BBA7; background:rgba(15,23,42,.65); transform:translateY(-1px); }
+      .mapTab.is-active{ border-color:#00BBA7; box-shadow:0 0 0 1px rgba(0,187,167,.2), 0 12px 28px rgba(3,10,28,.35); }
+    </style>
+    <style>
+      .locationsFull .locCard{ cursor:pointer; }
+      .locationsFull .locCard.is-active{ border-color:#00BBA7 !important; box-shadow:0 0 0 1px rgba(0,187,167,.2), 0 12px 28px rgba(3,10,28,.35); }
+    </style>
   </section>
 
 
@@ -937,42 +960,132 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   <section class="locationsFull relative" style="background:#030a1c;">
   <div class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="locations-heading">
-    <h2 id="locations-heading" class="mb-2 heading-xl md:mx-0">Locations</h2>
-    <p class="mb-6 text-[20px] font-light font-inter text-slate-300 md:mx-0">We ensure that your business adopts the latest technologies to stay ahead in your industry.</p>
-
-    <style>
+    <h2 id="locations-heading" class="mb-2 heading-xl md:mx-0">Where We Serve You</h2>
+    <p class="text-[20px] font-light font-inter text-slate-300 md:mx-0 max-w-3xl">While rooted in Southern California, our reach is far broader:</p>
+<style>
       .locChip{ display:inline-flex; align-items:center; justify-content:center; padding:.2rem .6rem; font-size:11px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; border-radius:999px; border:1px solid var(--accent); color:var(--accent); background:rgba(148,163,184,.10); }
       .locActions{ display:flex; flex-wrap:wrap; gap:.5rem; }
       .locActions a{ display:inline-flex; align-items:center; gap:.35rem; padding:.35rem .6rem; font-size:12px; font-weight:600; border-radius:999px; border:1px solid rgba(148,163,184,.22); color:#e2e8f0; background:rgba(148,163,184,.06); transition:border-color .2s ease, color .2s ease; }
       .locActions a:hover{ border-color:var(--accent, #00BBA7); color:#fff; }
       .locActions svg{ width:14px; height:14px; }
       .locAddress{ display:block; margin-top:.5rem; font-size:clamp(14px,1.6vw,16px); line-height:1.55; color:#cbd5e1; text-align:left; font-style:normal; }
+      /* Horizontal info row (title — address — buttons) */
+      .mapInfoRow{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; }
+      .mapInfoRow #locName{ margin:0; }
+      .mapInfoRow #locAddress{ margin:0; display:inline; }
+      .mapInfoRow #locAddress br{ display:none; }
+      .mapInfoRow .locActions{ margin-top:0; }
+      /* Map header row: title — address — buttons */
+      .mapInfoRow{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; }
+      .mapInfoRow #locName{ margin:0; }
+      .mapInfoRow #locAddress{ margin:0; display:inline; }
+      .mapInfoRow #locAddress br{ display:none; }
+      /* Hide legacy card grid below map */
+      .locationsFull .grid.items-stretch{ display:none !important; }
+      /* Two-column layout: map left, tabs right */
+      .locShell{ display:grid; gap:clamp(24px, 6vw, 64px); margin-top:12px; }
+      @media(min-width:1024px){ .locShell{ grid-template-columns:minmax(0,2fr) minmax(0,3fr); align-items:stretch; } }
+      .tabsCol{ display:block; }
+      .leftCol{ display:flex; flex-direction:column; gap:clamp(16px, 2.5vw, 28px); min-height:0; }
+      .rightCol{ min-height:0; }
+      .rightCol .mapCard{ height:100%; display:flex; flex-direction:column; min-height:0; }
+      .locCardList{ display:grid; gap:clamp(12px, 2vw, 20px); }
+      .locCardList{ flex:1 1 auto; overflow:auto; min-height:0; }
+      .rightCol .mapBox{ flex:1 1 auto; min-height:0; }
+      /* Compact left cards */
+      .leftCol .locCard{ padding:10px !important; }
+      .leftCol .locCard h3{ font-size:0.95rem; }
+      .leftCol .locCard .locAddress{ font-size:14px; line-height:1.4; margin-top:4px; }
+      .leftCol .locCard .locActions a{ font-size:12px; padding:4px 8px; }
+      .leftCol .locCard .cardHeader{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+      .leftCol .locCard .cardHeader h3{ margin:0; }
+      .mapTabs.mapTabs--vertical{ display:flex; flex-direction:column; gap:clamp(12px, 1.8vw, 20px); }
+      .mapTabs.mapTabs--vertical .mapTab{ width:100%; text-align:left; }
     </style>
 
-    <!-- Corporate Office with Embedded Map -->
-    <div class="relative p-6 l3-card">
-        <h3 class="text-xl font-semibold tracking-tight text-white">Corporate Office</h3>
+    <!-- Corporate Office Map + Tabs (container simplified) -->
+    <div class="relative">
+        <div class="locShell">
+  <div class="leftCol">
+    <div class="locCardList">
+      <div class="l3-card locCard p-4" data-map-q="11205 Knott Avenue, Suite B, Cypress, CA 90630" role="button" tabindex="0">
+        <div class="cardHeader">
+          <h3 class="text-base font-semibold tracking-tight text-white">Corporate Office: Cypress, CA</h3>
+          <div class="locActions" style="--accent:#00BBA7">
+            <a href="https://maps.google.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Google Maps">Google</a>
+            <a href="https://maps.apple.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Apple Maps">Apple</a>
+          </div>
+        </div>
         <address class="locAddress">11205 Knott Avenue, Suite B<br>Cypress, CA&nbsp;90630</address>
-        <div class="mt-4 overflow-hidden rounded-2xl border border-slate-800">
-          <iframe class="w-full h-64 sm:h-80 md:h-96"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.041924983774!2d-118.039722684789!3d33.86214198065925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2e6d2f5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s11205%20Knott%20Ave%2C%20Cypress%2C%20CA%2090630%2C%20USA!5e0!3m2!1sen!2s!4v1633025000000!5m2!1sen!2s"
-            allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="locActions mt-4" style="--accent:#00BBA7">
-          <a href="https://maps.google.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Google Maps">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            Google
-          </a>
-          <a href="https://maps.apple.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Apple Maps">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 00-7.07 17.07A10 10 0 1012 2zm1 14.5a1 1 0 01-2 0V11a1 1 0 112 0v5.5z"></path></svg>
-            Apple
-          </a>
-        </div>
       </div>
+      
+      <div class="l3-card locCard p-4" data-map-q="1920 E Maple Ave, El Segundo, CA 90245" role="button" tabindex="0">
+        <div class="cardHeader">
+          <h3 class="text-base font-semibold tracking-tight text-white">Los Angeles (LA3) Datacenter</h3>
+          <div class="locActions" style="--accent: #66C7E8">
+            <a href="https://maps.google.com/?q=1920+E+Maple+Ave,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Google Maps">Google</a>
+            <a href="https://maps.apple.com/?q=1920+E+Maple+Ave,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Apple Maps">Apple</a>
+          </div>
+        </div>
+        <address class="locAddress">1920 E Maple Ave<br>El Segundo, CA&nbsp;90245</address>
+      </div>
+      
+      <div class="l3-card locCard p-4" data-map-q="445 N Douglas St, El Segundo, CA 90245" role="button" tabindex="0">
+        <div class="cardHeader">
+          <h3 class="text-base font-semibold tracking-tight text-white">Los Angeles (LA4) Datacenter</h3>
+          <div class="locActions" style="--accent: #66C7E8">
+            <a href="https://maps.google.com/?q=445+N+Douglas+St,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Google Maps">Google</a>
+            <a href="https://maps.apple.com/?q=445+N+Douglas+St,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Apple Maps">Apple</a>
+          </div>
+        </div>
+        <address class="locAddress">445 N Douglas St<br>El Segundo, CA&nbsp;90245</address>
+      </div>
+      
+      <div class="l3-card locCard p-4" data-map-q="1950 North Stemmons Freeway, Suite 2027, Dallas, TX 75207" role="button" tabindex="0">
+        <div class="cardHeader">
+          <h3 class="text-base font-semibold tracking-tight text-white">Strategic Hub</h3>
+          <div class="locActions" style="--accent: #66C7E8">
+            <a href="https://maps.google.com/?q=1950+North+Stemmons+Freeway,+Suite+2027,+Dallas,+TX+75207" target="_blank" aria-label="Open in Google Maps">Google</a>
+            <a href="https://maps.apple.com/?q=1950+North+Stemmons+Freeway,+Suite+2027,+Dallas,+TX+75207" target="_blank" aria-label="Open in Apple Maps">Apple</a>
+          </div>
+        </div>
+        <address class="locAddress">1950 North Stemmons Freeway, Suite 2027<br>Dallas, TX&nbsp;75207</address>
+      </div>
+      
+      <div class="l3-card locCard p-4" data-map-q="A305 6, 1 Abelian St, Yerevan 0038, Armenia" role="button" tabindex="0">
+        <div class="cardHeader">
+          <h3 class="text-base font-semibold tracking-tight text-white">Yerevan, Armenia Office</h3>
+          <div class="locActions" style="--accent: #00BBA7">
+            <a href="https://maps.google.com/?q=A305+6,+1+Abelian+St,+Yerevan+0038,+Armenia" target="_blank" aria-label="Open in Google Maps">Google</a>
+            <a href="https://maps.apple.com/?q=A305+6,+1+Abelian+St,+Yerevan+0038,+Armenia" target="_blank" aria-label="Open in Apple Maps">Apple</a>
+          </div>
+        </div>
+        <address class="locAddress">A305 6, 1 Abelian St<br>Yerevan 0038, Armenia</address>
+      </div>
+      
+    </div>
+  </div>
+<div class="rightCol">
+      <div class="mapCard">
+<div class="mapInfo">
+      <h3 id="locName" class="text-lg font-semibold tracking-tight text-white">Corporate Office</h3>
+      <address id="locAddress" class="locAddress">11205 Knott Avenue, Suite B<br>Cypress, CA&nbsp;90630</address>
+    </div>
+    <div class="mapBox">
+          <iframe id="locMap" class="w-full h-64 sm:h-80 md:h-96"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.041924983774!2d-118.039722684789!3d33.86214198065925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2e6d2f5b5b5b%3A0x5b5b5b5b5b5b5b5b5b!2s11205%20Knott%20Ave%2C%20Cypress%2C%20CA%2090630%2C%20USA!5e0!3m2!1sen!2s!4v1633025000000!5m2!1sen!2s"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+<p class="mt-2 text-[18px] font-light font-inter text-slate-300 max-w-3xl">We deliver across time zones with flexibility, local accountability, and global standards.</p>
+  </div>
+  </div>
+</div>
+      </div>
+    <!-- Other Locations -->      </div>
     <!-- Other Locations -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 items-stretch gap-6 mt-6">
       
-      <div class="relative p-6 l3-card grid grid-rows-[1fr_auto] h-full gap-2">
+      <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="1920 E Maple Ave, El Segundo, CA 90245" role="button" tabindex="0">
         <div>
           <h3 class="text-xl font-semibold tracking-tight text-white">Los Angeles (LA3) Datacenter</h3>
           <address class="locAddress">1920 E Maple Ave<br>El Segundo, CA&nbsp;90245</address>
@@ -990,7 +1103,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
       </div>
       
-      <div class="relative p-6 l3-card grid grid-rows-[1fr_auto] h-full gap-2">
+      <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="445 N Douglas St, El Segundo, CA 90245" role="button" tabindex="0">
         <div>
           <h3 class="text-xl font-semibold tracking-tight text-white">Los Angeles (LA4) Datacenter</h3>
           <address class="locAddress">445 N Douglas St<br>El Segundo, CA&nbsp;90245</address>
@@ -1008,9 +1121,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
       </div>
       
-      <div class="relative p-6 l3-card grid grid-rows-[1fr_auto] h-full gap-2">
+      <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="1950 North Stemmons Freeway, Suite 2027, Dallas, TX 75207" role="button" tabindex="0">
         <div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">Dallas (DA2) Datacenter</h3>
+          <h3 class="text-xl font-semibold tracking-tight text-white">Strategic Hub</h3>
           <address class="locAddress">1950 North Stemmons Freeway, Suite 2027<br>Dallas, TX&nbsp;75207</address>
         </div>
         
@@ -1026,7 +1139,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         </div>
       </div>
       
-      <div class="relative p-6 l3-card grid grid-rows-[1fr_auto] h-full gap-2">
+      <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="A305 6, 1 Abelian St, Yerevan 0038, Armenia" role="button" tabindex="0">
         <div>
           <h3 class="text-xl font-semibold tracking-tight text-white">Yerevan, Armenia Office</h3>
           <address class="locAddress">A305 6, 1 Abelian St<br>Yerevan 0038, Armenia</address>
@@ -1047,6 +1160,63 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     </div>
   </div>
   </section>
+
+  <script>
+  (function(){
+    var sec = document.querySelector('.locationsFull');
+    if(!sec) return;
+    var map = sec.querySelector('#locMap');
+    if(!map) return;
+    var addrEl = sec.querySelector('#locAddress');
+    var nameEl = sec.querySelector('#locName');
+    var gBtn = sec.querySelector('#locGoogle');
+    var aBtn = sec.querySelector('#locApple');
+    function setMap(q){ if(!q) return; map.src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&output=embed'; }
+    function setAddressHTML(html){ if(addrEl && html){ addrEl.innerHTML = html; } }
+    function setName(name){ if(nameEl && name){ nameEl.textContent = name; } }
+    function setLinks(q){
+      if(!q) return;
+      if(gBtn) gBtn.href = 'https://maps.google.com/?q=' + encodeURIComponent(q);
+      if(aBtn) aBtn.href = 'https://maps.apple.com/?q=' + encodeURIComponent(q);
+    }
+    function activateTabs(tab){
+      var q = tab.getAttribute('data-map-q');
+      var name = tab.getAttribute('data-name');
+      var addrHTML = tab.getAttribute('data-address-html');
+      setMap(q); setName(name); setAddressHTML(addrHTML); setLinks(q);
+      sec.querySelectorAll('.mapTab').forEach(function(t){ t.classList.remove('is-active'); });
+      tab.classList.add('is-active');
+    }
+    function activateCards(card){
+      var q = card.getAttribute('data-map-q');
+      var name = (card.querySelector('h3') && card.querySelector('h3').innerText) || '';
+      var addrHTML = (card.querySelector('.locAddress') && card.querySelector('.locAddress').innerHTML) || '';
+      setMap(q); setName(name); setAddressHTML(addrHTML); setLinks(q);
+      sec.querySelectorAll('.locCard').forEach(function(c){ c.classList.remove('is-active'); });
+      card.classList.add('is-active');
+    }
+    sec.addEventListener('click', function(e){
+      var t = e.target.closest('.mapTab'); if(t && sec.contains(t)) { activateTabs(t); return; }
+      var c = e.target.closest('.locCard'); if(c && sec.contains(c)) { activateCards(c); return; }
+      var l = e.target.closest('.locLink');
+      if(l && sec.contains(l)){
+        var q = l.getAttribute('data-map-q');
+        var target = sec.querySelector('.mapTab[data-map-q="'+q.replace(/"/g,'&quot;')+'"]');
+        if(!target){
+          var name = l.getAttribute('data-name');
+          target = Array.from(sec.querySelectorAll('.mapTab')).find(function(tab){ return tab.getAttribute('data-name')===name; });
+        }
+        if(target) activateTabs(target);
+      }
+    });
+    sec.addEventListener('keydown', function(e){
+      if(e.key!=='Enter' && e.key!==' ') return;
+      var t = e.target.closest('.mapTab'); if(t && sec.contains(t)) { e.preventDefault(); activateTabs(t); return; }
+      var c=e.target.closest('.locCard'); if(c&&sec.contains(c)){ e.preventDefault(); activateCards(c); return; } 
+      var l=e.target.closest('.locLink'); if(l&&sec.contains(l)){ e.preventDefault(); var q=l.getAttribute('data-map-q'); var target=sec.querySelector('.mapTab[data-map-q="'+q.replace(/"/g,'&quot;')+'"]')||Array.from(sec.querySelectorAll('.mapTab')).find(function(tab){ return tab.getAttribute('data-name')===l.getAttribute('data-name'); }); if(target) activateTabs(target); }
+    });
+  })();
+  </script>
 
   <!-- Technologies -->
   <section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="tech-partners-heading">
