@@ -1,0 +1,78 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+<!-- Partners — Hero -->
+<section class="partnerHero relative w-full px-6 pt-28 text-white overflow-hidden md:px-10 md:pt-20" style="background:#020617;">
+  <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-950/85 to-slate-900/65"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,_rgba(45,212,191,0.12),_transparent_70%)] pointer-events-none"></div>
+
+  <div class="container relative max-w-screen-xl px-0 pb-20 md:pb-28 md:mx-auto md:py-28">
+    <div class="relative z-10 grid items-start max-w-screen-xl gap-10 mx-auto md:grid-cols-2 md:gap-16">
+      <!-- Left: Big headline -->
+      <div class="text-left">
+        <h1 class="partnerTitle heading-xl">
+          <span class="block">Partner with</span>
+          <span class="block partnerTitle__accent">L3 Networks</span>
+        </h1>
+      </div>
+      <!-- Right: Supporting lines -->
+      <div class="partnerPoints text-slate-100/90 body-lead md:pt-4">
+        <p>Build deeper client relationships.</p>
+        <p>Expand your capabilities.</p>
+        <p>Lead with structure and strategy.</p>
+      </div>
+    </div>
+
+    <!-- Intro panel -->
+    <div class="partnerIntro cardSurface mt-10 md:mt-16">
+      <div class="partnerIntro__inner">
+        <p class="body-text">The L3 Partner Program is built for proven professionals: vCIOs, advisors, and MSPs who want to scale without compromising quality. We invest in a select group of partners who share our standards of execution, maturity, and measurable delivery.</p>
+        <p class="body-text">For more than two decades, L3 Networks has helped organizations stabilize, secure, and modernize their IT environments. Now, we’re extending that same proven capability to our partners, enabling you to deliver enterprise‑grade results without the overhead of building it all yourself.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-8 md:mt-10 text-center">
+      <a href="#partner-apply" data-cta="primary">Become a Partner</a>
+    </div>
+
+    <!-- Down chevron -->
+    <div class="mt-10 md:mt-14 grid place-items-center">
+      <span class="partnerChevron" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" opacity=".22"></circle>
+          <path d="M8 11l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Match global heading scale */
+  .partnerTitle{ margin:0; font-weight:800; letter-spacing:-.02em; line-height:1.06; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:var(--heading-xl); }
+  .partnerTitle__accent{ color:transparent; background:linear-gradient(135deg, var(--brand-cyan, #66C7E8) 0%, var(--brand, #00BBA7) 100%); -webkit-background-clip:text; background-clip:text; }
+  /* Enlarge supporting copy to match reference */
+  .partnerPoints{ font-size:clamp(30px,5.2vw,60px); line-height:1.25; }
+  .partnerPoints p{ margin:.25em 0; }
+
+  .cardSurface{ position:relative; border-radius:22px; border:1px solid rgba(0,187,167,.28); padding:clamp(18px,2.6vw,24px); }
+  .cardSurface::before{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(102,199,232,.18); }
+  .partnerIntro{ background:
+      radial-gradient(220px 140px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+      linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+      linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+      linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+      linear-gradient(210deg, rgba(2,6,23,.66) 0%, rgba(2,6,23,.72) 55%, rgba(2,6,23,.80) 100%);
+    box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .partnerIntro__inner{ max-width:1100px; margin:0 auto; color:rgba(226,232,240,.95); display:grid; gap:1.2rem; }
+  .partnerIntro__inner .body-text{ font-size:clamp(18px,2.2vw,20px); line-height:1.8; }
+  .partnerChevron{ color:#e2e8f0; opacity:.65; }
+  .partnerHero [data-cta="primary"]{ background: var(--brand) !important; }
+  @media (prefers-reduced-motion: reduce){ .partnerChevron{ transition:none !important; } }
+</style>
+
+{% include "partials/footer.html" %}
+
+{% endblock %}
