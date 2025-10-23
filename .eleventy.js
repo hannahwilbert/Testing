@@ -90,10 +90,10 @@ module.exports = (config) => {
   config.addPassthroughCopy({ "css/swiper-bundle.min.css": "css/swiper-bundle.min.css" });
   config.addPassthroughCopy({ "./node_modules/alpinejs/dist/cdn.js": "./js/alpine.js" });
 
-  // BrowserSync
+  // BrowserSync — bind to localhost to avoid EADDRNOTAVAIL on other machines
   config.setBrowserSyncConfig({
-    host: "192.168.86.90",
-    port: 3000,
+    host: process.env.BROWSERSYNC_HOST || "localhost", // use 0.0.0.0 to expose on LAN
+    port: Number(process.env.BROWSERSYNC_PORT || 3000),
     open: true,
     notify: false,
     files: [

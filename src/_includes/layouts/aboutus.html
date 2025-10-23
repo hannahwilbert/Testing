@@ -44,27 +44,29 @@
     position:relative; isolation:isolate;
     padding:clamp(14px,2.4vw,20px);
     border-radius:18px;
-    border:1px solid rgba(148,163,184,.22) !important;
-    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
-    backdrop-filter: blur(8px);
-    box-shadow:0 16px 42px rgba(3,10,28,.45);
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+    border:1px solid #1b2d46 !important;
+    /* Match home highlight card surface */
+    background:
+      radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+      linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+      linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+      linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+      linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+    background-size: cover; background-position:center; background-repeat:no-repeat;
+    box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
   }
-  .heroStat:hover{ transform:translateY(-3px); border-color: rgba(102,199,232,.55) !important; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06)); }
-  .heroStat::after{
-    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-    background: radial-gradient(120% 120% at 10% -10%, rgba(102,199,232,.25) 0%, rgba(0,0,0,0) 42%),
-                radial-gradient(120% 120% at 110% 110%, rgba(0,187,167,.18) 0%, rgba(0,0,0,0) 46%);
-    opacity:.9; mix-blend:overlay;
-  }
+  .heroStat:hover{ transform:translateY(-3px); border-color: rgba(180,210,240,.34) !important; box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
   .heroStat .statNum{
     font-size: clamp(26px, 3.8vw, 36px);
     letter-spacing: -0.012em;
     color:#fff;
+    line-height: 1; /* tighter vertical rhythm */
   }
   .heroStat .statLabel{
-    margin-top:.35rem;
+    margin-top:.32rem; /* tiny bit more space under the number */
     font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.15; /* tighter line height for label */
     color: rgba(226,232,240,.9);
   }
   @media (prefers-reduced-motion: reduce){ .heroStat, .heroStat:hover{ transition:none !important; transform:none !important; } }
@@ -193,45 +195,44 @@
 
   <!-- Our Journey & Promise -->
   <section class="container sectionPad relative max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="journey-heading">
-    <div class="grid grid-cols-1 gap-y-6 gap-x-10 items-start lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-14">
-      <div>
+    <div class="grid grid-cols-1 gap-y-6 gap-x-10 items-start lg:items-stretch lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-14">
+      <div class="h-full flex flex-col">
         <h2 id="journey-heading" class="heading-xl mb-3">Our Journey &amp; Promise</h2>
         <p class="text-[20px] font-light font-inter text-slate-300 max-w-3xl">
           Since our founding in 2000, we’ve partnered with organizations to stabilize environments, optimize performance, and guide strategic transformation. Today, our long-term clients confirm what we aim to deliver every day: predictable tech, clear decision-making, and continuity you can trust.
         </p>
+        <!-- Snapshot Stats (moved under copy) -->
+        <div class="mt-6">
+          <div class="heroStats grid grid-cols-2 gap-4 md:grid-cols-4">
+            {% for s in [
+              {n:'2000', l:'Year Founded', to:2000, format:'raw'},
+              {n:'8½', l:'Avg. Client Tenure (Years)', to:8.5, format:'half'},
+              {n:'24/7', l:'Support Availability', to:24, format:'slash', suffix:'/7'},
+              {n:'91%', l:'Customer Retention', to:91, format:'percent'}
+            ] %}
+            <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
+              <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="{{ s.to }}" data-format="{{ s.format }}" {% if s.suffix %}data-suffix="{{ s.suffix }}"{% endif %} data-final="{{ s.n }}">{{ s.n }}</p>
+              <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">{{ s.l }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
       </div>
-      <figure class="relative flex flex-col items-center justify-center text-center">
-        <img src="/images/about/leadership.webp" alt="L3 Networks leadership team" class="w-full h-auto max-w-lg rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover">
-        <figcaption class="text-xs tracking-[0.24em] uppercase text-slate-300/70 mt-2">L3 Networks leadership team</figcaption>
+      <figure class="relative flex flex-col items-center justify-start text-center lg:mt-3 h-full">
+        <img src="/images/about/leadership.webp" alt="L3 Networks leadership team" class="w-full lg:max-w-none h-full rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover">
       </figure>
     </div>
 
-    <!-- Snapshot Stats (moved from hero) -->
-    <div class="mt-10">
-      <div class="heroStats grid grid-cols-2 gap-4 md:grid-cols-4">
-        {% for s in [
-          {n:'2000', l:'Year Founded', to:2000, format:'raw'},
-          {n:'8½', l:'Avg. Client Tenure (Years)', to:8.5, format:'half'},
-          {n:'24/7', l:'Support Availability', to:24, format:'slash', suffix:'/7'},
-          {n:'91%', l:'Customer Retention', to:91, format:'percent'}
-        ] %}
-        <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
-          <p class="statNum text-2xl md:text-3xl font-extrabold tracking-tight text-white" data-count-to="{{ s.to }}" data-format="{{ s.format }}" {% if s.suffix %}data-suffix="{{ s.suffix }}"{% endif %} data-final="{{ s.n }}">{{ s.n }}</p>
-          <p class="statLabel mt-1 text-xs md:text-sm font-light text-slate-200/85">{{ s.l }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
   </section>
 
   <!-- Our Values in Action -->
-  <section class="valuesLightFull relative text-white" style="background:#030a1c;">
+  <section class="valuesLightFull relative text-white" style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%);">
     <div class="container sectionPad max-w-screen-xl px-6 mx-auto md:px-10 2xl:px-0" aria-labelledby="values-action-heading">
       <h2 id="values-action-heading" class="heading-xl mb-3">Our Values in Action</h2>
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3 valuesGrid">
       <!-- Expertise Meets Human Connection -->
-      <article class="l3-card p-6">
+      <article class="l3-card p-6 valuesCard">
         <h3 class="text-xl font-semibold text-slate-100 mb-2">Expertise Meets Human Connection</h3>
         <p class="body-text text-slate-300">
           We hire for character and technical skill. You’ll see it in how we listen, respond, and solve.
@@ -239,7 +240,7 @@
       </article>
 
       <!-- Diversity Drives Innovation -->
-      <article class="l3-card p-6">
+      <article class="l3-card p-6 valuesCard">
         <h3 class="text-xl font-semibold text-slate-100 mb-2">Diversity Drives Innovation</h3>
         <p class="body-text text-slate-300">
           We know better decisions come from different backgrounds, perspectives, and experiences. It’s how we build better teams and results.
@@ -247,7 +248,7 @@
       </article>
 
       <!-- Ownership Without Ego -->
-      <article class="l3-card p-6">
+      <article class="l3-card p-6 valuesCard">
         <h3 class="text-xl font-semibold text-slate-100 mb-2">Ownership Without Ego</h3>
         <p class="body-text text-slate-300">
           When things get tough, we don’t point fingers. We act. We learn. We improve.
@@ -276,11 +277,7 @@
         <p class="leaderDesc text-slate-300">
           Leads operational strategy with a background in transformation across legacy to modern systems.
         </p>
-        <div class="leaderActions">
-          <a href="#" class="leaderBio" aria-label="Kev Toumaian — Bio">BIO
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
-          </a>
-        </div>
+        
       </article>
 
       <!-- Steve -->
@@ -295,11 +292,7 @@
         <p class="leaderDesc text-slate-300">
           Drives service delivery, ensuring every client environment operates with discipline and high standards.
         </p>
-        <div class="leaderActions">
-          <a href="#" class="leaderBio" aria-label="Steve Griffin — Bio">BIO
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
-          </a>
-        </div>
+        
       </article>
 
       <!-- James -->
@@ -314,11 +307,7 @@
         <p class="leaderDesc text-slate-300">
           Bridges strategy and execution—he ensures what we plan is what we deliver.
         </p>
-        <div class="leaderActions">
-          <a href="#" class="leaderBio" aria-label="James Mason — Bio">BIO
-            <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
-          </a>
-        </div>
+        
       </article>
     </div>
 
@@ -328,8 +317,16 @@
       .leadersGrid{ display:grid; gap:clamp(14px,2.4vw,20px); align-items:stretch; grid-auto-rows:1fr; grid-template-columns:1fr; }
       @media (min-width:640px){ .leadersGrid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
       @media (min-width:1024px){ .leadersGrid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
-      .leaderCard{ display:flex; flex-direction:column; padding:clamp(16px,2.6vw,22px); border-radius:18px; border:1px solid rgba(148,163,184,.22); background:linear-gradient(180deg, rgba(11,20,34,.72), rgba(11,28,46,.55)); backdrop-filter: blur(6px); box-shadow:0 12px 28px rgba(3,10,28,.35); transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
-      .leaderCard:hover{ transform:translateY(-2px); border-color:rgba(102,199,232,.45); background:linear-gradient(180deg, rgba(11,24,40,.85), rgba(11,28,46,.68)); }
+      .leaderCard{ display:flex; flex-direction:column; padding:clamp(16px,2.6vw,22px); border-radius:24px; border:1px solid #1b2d46; 
+        background:
+          radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+          linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+          linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+          linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+          linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+        box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+      .leaderCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
       .leaderHead{ display:flex; align-items:center; gap:12px; margin:0 0 12px; min-height:64px; }
       .leaderName{ margin:0; font-size:clamp(16px,2.2vw,18px); font-weight:600; letter-spacing:-.01em; color:#fff; }
       .leaderRole{ margin:2px 0 0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:rgba(203,213,225,.7); }
@@ -346,18 +343,53 @@
       @media (min-width: 768px){ .leaderAvatar{ width:56px; height:56px; font-size:18px; } }
       .leaderBio{
         display:inline-flex; align-items:center; gap:.5rem;
-        padding:.5rem .85rem; border-radius:999px; font-weight:600; font-size:14px;
-        color:#e2e8f0; border:1px solid rgba(102,199,232,.35); background:rgba(11,28,46,.55);
-        transition:border-color .2s ease, background-color .2s ease, transform .2s ease;
+        padding:.55rem .95rem; border-radius:999px; font-weight:700; font-size:14px; letter-spacing:.02em;
+        color:#061021; background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%);
+        box-shadow:0 10px 24px rgba(0,187,167,.28), inset 0 1px 0 rgba(255,255,255,.25);
+        border:1px solid rgba(255,255,255,.18);
+        transition:transform .18s ease, filter .18s ease, box-shadow .18s ease;
+        text-decoration:none;
       }
-      .leaderBio:hover{ border-color:#66C7E8; background:rgba(11,28,46,.75); transform:translateY(-1px); }
-      .leaderBio img{ height:16px; }
+      .leaderBio:hover, .leaderBio:focus-visible{
+        transform:translateY(-1px) scale(1.02);
+        filter:brightness(1.05);
+        box-shadow:0 14px 34px rgba(0,187,167,.38), inset 0 1px 0 rgba(255,255,255,.3);
+        outline:2px solid rgba(102,199,232,.55); outline-offset:3px;
+      }
+      .leaderBio img{ height:16px; transition:transform .18s ease; }
+      .leaderBio:hover img, .leaderBio:focus-visible img{ transform:translateX(2px); }
+    </style>
+    <style>
+      /* Values cards — match home highlight card surface */
+      .valuesGrid .valuesCard{
+        position:relative;
+        border-radius:24px;
+        border:1px solid #1b2d46;
+        background:
+          radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+          linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+          linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+          linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+          linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+        box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+        color:#e2e8f0;
+        transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      }
+      .valuesGrid .valuesCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
     </style>
     <style>
       .mapFrame{ border-radius:18px; }
       .tabsFrame{ border:1px solid rgba(148,163,184,.22); border-bottom:none; border-top-left-radius:18px; border-top-right-radius:18px; background:rgba(15,23,42,.55); padding:10px 12px; }
       .mapBox{ position:relative; border:none; border-radius:12px; overflow:hidden; }
-      .mapCard{ border:1px solid rgba(148,163,184,.22); border-radius:18px; background:rgba(15,23,42,.40); padding:clamp(16px, 2.5vw, 28px); }
+      .mapCard{ border:1px solid #1b2d46; border-radius:24px; padding:clamp(16px, 2.5vw, 28px);
+        background:
+          radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+          linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+          linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+          linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+          linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+        box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+      }
       .mapCard .mapInfoRow{ margin-bottom:clamp(8px, 1.5vw, 16px); }
       .mapCard .mapInfo{ margin-bottom:clamp(12px, 2.2vw, 24px); }
       .mapCard .locActions{ margin-top:clamp(8px, 1.5vw, 16px); }
@@ -373,8 +405,16 @@
       .mapTab.is-active{ border-color:#00BBA7; box-shadow:0 0 0 1px rgba(0,187,167,.2), 0 12px 28px rgba(3,10,28,.35); }
     </style>
     <style>
-      .locationsFull .locCard{ cursor:pointer; }
-      .locationsFull .locCard.is-active{ border-color:#00BBA7 !important; box-shadow:0 0 0 1px rgba(0,187,167,.2), 0 12px 28px rgba(3,10,28,.35); }
+      .locationsFull .locCard{ cursor:pointer; border-radius:24px; border:1px solid #1b2d46; 
+        background:
+          radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+          linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+          linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+          linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+          linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+        box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+      .locationsFull .locCard:hover, .locationsFull .locCard.is-active{ transform:translateY(-2px); border-color:rgba(180,210,240,.34) !important; box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
     </style>
   </section>
 
@@ -404,17 +444,17 @@
 
   <!-- Other Locations -->
   {% set locations = [
-  { "name": "Los Angeles (LA3) Datacenter", "type":"Datacenter", "address": "1920 E Maple Ave, El Segundo, CA 90245", "google": "https://maps.google.com/?q=1920+E+Maple+Ave,+El+Segundo,+CA+90245", "apple":
+  { "name": "Datacenter (LA3): Los Angeles, CA", "type":"Datacenter", "address": "1920 E Maple Ave, El Segundo, CA 90245", "google": "https://maps.google.com/?q=1920+E+Maple+Ave,+El+Segundo,+CA+90245", "apple":
   "https://maps.apple.com/?q=1920+E+Maple+Ave,+El+Segundo,+CA+90245" },
-  { "name": "Los Angeles (LA4) Datacenter", "type":"Datacenter", "address": "445 N Douglas St, El Segundo, CA 90245", "google": "https://maps.google.com/?q=445+N+Douglas+St,+El+Segundo,+CA+90245", "apple":
+  { "name": "Datacenter (LA4): Los Angeles, CA", "type":"Datacenter", "address": "445 N Douglas St, El Segundo, CA 90245", "google": "https://maps.google.com/?q=445+N+Douglas+St,+El+Segundo,+CA+90245", "apple":
   "https://maps.apple.com/?q=445+N+Douglas+St,+El+Segundo,+CA+90245" },
-  { "name": "Strategic Hub", "type":"Datacenter", "address": "1950 North Stemmons Freeway, Suite 2027, Dallas, TX 75207", "google":
+  { "name": "Strategic Hub: Dallas, TX", "type":"Datacenter", "address": "1950 North Stemmons Freeway, Suite 2027, Dallas, TX 75207", "google":
   "https://maps.google.com/?q=1950+North+Stemmons+Freeway,+Suite+2027,+Dallas,+TX+75207", "apple": "https://maps.apple.com/?q=1950+North+Stemmons+Freeway,+Suite+2027,+Dallas,+TX+75207" },
-  { "name": "Yerevan, Armenia Office", "type":"Office", "address": "A305 6, 1 Abelian St, Yerevan 0038, Armenia", "google": "https://maps.google.com/?q=A305+6,+1+Abelian+St,+Yerevan+0038,+Armenia", "apple":
+  { "name": "Global Team Support: Yerevan, Armenia", "type":"Office", "address": "A305 6, 1 Abelian St, Yerevan 0038, Armenia", "google": "https://maps.google.com/?q=A305+6,+1+Abelian+St,+Yerevan+0038,+Armenia", "apple":
   "https://maps.apple.com/?q=A305+6,+1+Abelian+St,+Yerevan+0038,+Armenia" }
   ] %}
 
-  <section class="locationsFull relative" style="background:#030a1c;">
+  <section class="locationsFull relative" style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%);">
   <div class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="locations-heading">
     <h2 id="locations-heading" class="mb-2 heading-xl md:mx-0">Where We Serve You</h2>
     <p class="text-[20px] font-light font-inter text-slate-300 md:mx-0 max-w-3xl">While rooted in Southern California, our reach is far broader:</p>
@@ -466,7 +506,7 @@
     <div class="locCardList">
       <div class="l3-card locCard p-4" data-map-q="11205 Knott Avenue, Suite B, Cypress, CA 90630" role="button" tabindex="0">
         <div class="cardHeader">
-          <h3 class="text-base font-semibold tracking-tight text-white">Corporate Office: Cypress, CA</h3>
+          <h3 class="text-base font-semibold tracking-tight text-white">Corporate Office: Cypress CA</h3>
           <div class="locActions" style="--accent:#00BBA7">
             <a href="https://maps.google.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Google Maps">Google</a>
             <a href="https://maps.apple.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Apple Maps">Apple</a>
