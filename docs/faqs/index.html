@@ -548,7 +548,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <div class="relative z-10 grid max-w-screen-xl gap-8 px-0 mx-auto items-center justify-items-center">
       <div class="max-w-3xl mx-auto">
         <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl">Frequently Asked Questions</h1>
-        <p class="text-lg font-light md:text-2xl text-slate-100/90" style="max-width:64ch">Answers about engagement, onboarding, responsiveness, security, and how we work with internal IT teams.</p>
+        <p class="faqHeroSub text-slate-100/90" style="max-width:64ch">Answers about engagement, onboarding, responsiveness, security, and how we work with internal IT teams.</p>
       </div>
     </div>
   </div>
@@ -569,6 +569,14 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     letter-spacing:-.02em !important;
     line-height:1.08 !important;
     font-size:clamp(34px, 4.8vw, 64px) !important;
+  }
+  /* Hero subcopy: match About/Why L3 subcopy and center */
+  .whyL3Hero .faqHeroSub{
+    margin:12px auto 0; text-align:center; max-width:64ch;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-weight:300 !important;
+    font-size: clamp(18px, 3vw, 24px) !important;
+    line-height: 1.65 !important;
   }
   .faqToc{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:clamp(20px, 3vh, 36px) auto clamp(28px, 4vh, 44px); }
   .faqToc a{
