@@ -64,9 +64,11 @@
   }
   details.faqItem+details.faqItem{ margin-top:14px; }
   details.faqItem:hover{ transform:translateY(-2px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
+  /* Question titles: match card/toggle title sizing from Why L3/About */
   details.faqItem summary{
     padding-right:6px; display:flex; align-items:center; justify-content:space-between; gap:12px;
-    font-weight:800; letter-spacing:-.01em; color:#f8fbff; font-size:clamp(18px, 2.2vw, 22px); line-height:1.15;
+    font-weight:800; letter-spacing:-.02em; color:#f8fbff; font-size:clamp(17px, 2.6vw, 22px); line-height:1.15;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   details.faqItem summary:focus-visible{ outline:2px solid rgba(102,199,232,.55); outline-offset:4px; border-radius:12px; }
   details.faqItem summary::after{
@@ -74,9 +76,19 @@
     transform:rotate(-45deg); transition:transform .2s ease; margin-left:8px;
   }
   details.faqItem[open] summary::after{ transform:rotate(45deg); }
-  .faqAnswer{ padding-top:10px; }
+  /* Answer copy: match section body text sizing from Why L3/About */
+  .faqAnswer{ padding-top:10px; margin: 0; color: rgba(214,224,236,.9); font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; }
   details.faqItem summary{ cursor:pointer; list-style:none; }
   details.faqItem summary::-webkit-details-marker{ display:none; }
+
+  /* Section titles: align to About/Why L3 h2 sizing */
+  .faqGroup.heading-xl{
+    margin:0 0 8px !important;
+    font-size:38px !important;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
 </style>
 
 <script>
