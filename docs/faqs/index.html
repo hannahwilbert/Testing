@@ -628,12 +628,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  /* Layout: show two FAQ sections per row on larger screens */
-  .faqSections{ display:grid; gap:clamp(18px, 3vw, 28px); }
-  .faqSection{ display:grid; align-content:start; gap:clamp(10px, 2vw, 14px); }
-  @media (min-width: 980px){
-    .faqSections{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap:clamp(20px, 3vw, 32px); }
-  }
+  /* Layout: stack sections full width */
+  .faqSections{ display:block; }
+  .faqSection{ display:block; }
 </style>
 
 <script>
