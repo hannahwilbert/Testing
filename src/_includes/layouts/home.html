@@ -59,7 +59,7 @@
         <span id="t2a"></span><span id="t2b" style="color:var(--brand);"></span><span id="t2c"></span>
       </h1>
 
-      <p style="margin:12px auto 28px; font-weight:300; font-size:clamp(17px, 2.6vw, 22px); color:var(--muted); max-width:64ch;">
+      <p style="margin:12px auto 28px; font-weight:300; font-size:clamp(17px, 2.6vw, 22px); color:#ffffff; max-width:64ch;">
         Partner with L3 Networks for secure, reliable IT services—24/7.
       </p>
 
@@ -413,7 +413,8 @@
     [data-hero-highlights] .heroHighlight__title{
       position:relative;
       margin:0;
-      font-size: var(--heading-md);
+      /* Match Industry Expertise card title size */
+      font-size: clamp(18px, 2.6vw, 24px);
       font-weight:600; /* match accordion font-semibold */
       letter-spacing:-.02em; /* tracking-tighter */
       color:#f8fbff;
@@ -910,7 +911,11 @@
       display:grid; grid-template-columns:1fr auto; column-gap:clamp(12px,2vw,18px); align-items:center;
     }
     [data-problem="flat"] .problemFlat__list button > div > div:first-child{ min-width:0; }
-    [data-problem="flat"] .problemFlat__list h3{ display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+    [data-problem="flat"] .problemFlat__list h3{
+      display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+      /* Match Industry Expertise title sizing */
+      font-size: clamp(18px, 2.6vw, 24px) !important;
+    }
     /* Standard arrow icon size/position (applies to all accordions) */
     .accIcon{ display:inline-block; width:36px !important; height:36px !important; transform:translateY(-3px) scale(1.18) !important; transform-origin:center; }
     /* Triangle icon styles (reuse across all accordions) */
@@ -1705,53 +1710,67 @@
           </div>
         </li>
         <li class="kfE__missionItem">
-          <figure class="kfE__missionCard" aria-label="Customer mission image 1" tabindex="0">
+          <a href="/expertise/" class="kfE__missionLink" aria-label="Explore Industry Expertise: Finance">
+          <figure class="kfE__missionCard" aria-label="Customer mission image 1" tabindex="-1">
             <img src="https://t3.ftcdn.net/jpg/03/54/00/74/360_F_354007466_mm4QilA3n92YWPseqs82gbWxbb06R1i4.jpg" alt="Customer mission image" loading="lazy" decoding="async" />
             <figcaption class="kfE__missionCaption">Finance</figcaption>
             <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Finance</h4><p>We support financial institutions that demand integrity, uptime, and adherence to FINRA and SOC 2 standards. Our teams design resilient systems that protect data, satisfy regulators, and ensure operations never pause.</p></div></div>
           </figure>
+          </a>
         </li>
         <li class="kfE__missionItem">
-          <figure class="kfE__missionCard" aria-label="Customer mission image 2" tabindex="0">
+          <a href="/expertise/" class="kfE__missionLink" aria-label="Explore Industry Expertise: Architecture and Engineering">
+          <figure class="kfE__missionCard" aria-label="Customer mission image 2" tabindex="-1">
             <img src="https://t3.ftcdn.net/jpg/07/81/42/52/360_F_781425260_Ny6VDXm77klzoat2UXM9KSpKfyIPURCF.jpg" alt="Customer mission image 2" loading="lazy" decoding="async" />
             <figcaption class="kfE__missionCaption">Architecture &amp; Engineering</figcaption>
             <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Architecture &amp; Engineering</h4><p>We enable firms to work without friction through large file sharing, remote collaboration, and cloud workflows that perform reliably no matter where teams are located. Governance and change control are built into every engagement to support secure project delivery.</p></div></div>
           </figure>
+          </a>
         </li>
         <li class="kfE__missionItem">
-          <figure class="kfE__missionCard" aria-label="Customer mission image 3" tabindex="0">
+          <a href="/expertise/" class="kfE__missionLink" aria-label="Explore Industry Expertise: Legal">
+          <figure class="kfE__missionCard" aria-label="Customer mission image 3" tabindex="-1">
             <img src="https://t4.ftcdn.net/jpg/06/00/51/59/360_F_600515973_kSPxoO9hndDHBm7HZzDGkgIqpQvqdp1x.jpg" alt="Customer mission image 3" loading="lazy" decoding="async" />
             <figcaption class="kfE__missionCaption">Legal</figcaption>
             <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Legal</h4><p>We help law firms protect privileged data, maintain confidentiality, and comply with SOC 2 and client-driven governance requirements through documented controls and consistent auditing practices.</p></div></div>
           </figure>
+          </a>
         </li>
         <li class="kfE__missionItem">
-          <figure class="kfE__missionCard" aria-label="Customer mission image 4" tabindex="0">
+          <a href="/expertise/" class="kfE__missionLink" aria-label="Explore Industry Expertise: Healthcare">
+          <figure class="kfE__missionCard" aria-label="Customer mission image 4" tabindex="-1">
             <img src="https://news.mit.edu/sites/default/files/images/202207/MIT-Healthcare-Technology-01.jpg" alt="Customer mission image 4" loading="lazy" decoding="async" />
             <figcaption class="kfE__missionCaption">Healthcare</figcaption>
             <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Healthcare</h4><p>We build IT environments where compliance, security, and performance coexist. Our solutions align with HIPAA and HITRUST, supporting clinical productivity and patient data protection around the clock.</p></div></div>
           </figure>
+          </a>
         </li>
         <li class="kfE__missionItem">
-          <figure class="kfE__missionCard" aria-label="Customer mission image 5" tabindex="0">
+          <a href="/expertise/" class="kfE__missionLink" aria-label="Explore Industry Expertise: Manufacturing">
+          <figure class="kfE__missionCard" aria-label="Customer mission image 5" tabindex="-1">
             <img src="https://www.shutterstock.com/image-photo/factory-digitalization-two-industrial-engineers-600nw-2248569293.jpg" alt="Customer mission image 5" loading="lazy" decoding="async" />
             <figcaption class="kfE__missionCaption">Manufacturing</figcaption>
             <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Manufacturing</h4><p>We secure production networks and intellectual property while maintaining continuity and alignment with ISO 27001 and NIST 800-171 frameworks that govern operational technology and supply-chain resilience.</p></div></div>
           </figure>
+          </a>
         </li>
         <li class="kfE__missionItem">
-          <figure class="kfE__missionCard" aria-label="Customer mission image 6" tabindex="0">
+          <a href="/expertise/" class="kfE__missionLink" aria-label="Explore Industry Expertise: Transportation and Logistics">
+          <figure class="kfE__missionCard" aria-label="Customer mission image 6" tabindex="-1">
             <img src="https://www.alliedmarketresearch.com/blog/Blog_image/LQgZzA2QxO.jpeg" alt="Customer mission image 6" loading="lazy" decoding="async" />
             <figcaption class="kfE__missionCaption">Transportation &amp; Logistics</figcaption>
             <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Transportation &amp; Logistics</h4><p>We connect fleets, facilities, and field teams through reliable networks and managed mobility while supporting C-TPAT, ISO 28000, and NIST Cybersecurity Framework requirements for supply-chain security and data protection.</p></div></div>
           </figure>
+          </a>
         </li>
         <li class="kfE__missionItem">
-          <figure class="kfE__missionCard" aria-label="Customer mission image 7" tabindex="0">
+          <a href="/expertise/" class="kfE__missionLink" aria-label="Explore Industry Expertise: Media and Creative">
+          <figure class="kfE__missionCard" aria-label="Customer mission image 7" tabindex="-1">
             <img src="https://omdia.tech.informa.com/-/media/tech/omdia/omdia-website-enhancement-oct-2023/streaming-concept-screens-of-content.jpg" alt="Customer mission image 7" loading="lazy" decoding="async" />
             <figcaption class="kfE__missionCaption">Media &amp; Creative</figcaption>
             <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Media &amp; Creative</h4><p>We support fast-moving creative environments with scalable infrastructure, high-speed data access, and secure collaboration. Our data-protection controls align with GDPR and content-security best practices.</p></div></div>
           </figure>
+          </a>
         </li>
         
       </ul>
@@ -1837,6 +1856,8 @@
       font-weight:inherit;
     }
     .kfE__head{ }
+    /* Why L3 is Different: match Industry Expertise title sizing on the left accordion */
+    [data-kf="elite"] .kfE__twoCol button h3{ font-size: clamp(18px, 2.6vw, 24px) !important; }
 
     /* Mission gallery (2 rows of 4) */
     /* Extra spacing above the mission grid for clearer separation */
@@ -1871,6 +1892,10 @@
       font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; color:rgba(214,224,236,.9);
     }
     [data-kf="elite"] .kfE__missionItem{ display:block; }
+    /* Make mission cards clickable via full-tile anchor */
+    [data-kf="elite"] .kfE__missionLink{ display:block; border-radius:18px; text-decoration:none; color:inherit; }
+    [data-kf="elite"] .kfE__missionLink:focus-visible{ outline:2px solid var(--brand); outline-offset:4px; border-radius:18px; }
+    [data-kf="elite"] .kfE__missionLink:is(:hover,:focus-visible) .kfE__missionCard::before{ opacity:1; }
     [data-kf="elite"] .kfE__missionCard{
       margin:0; padding:0; border-radius:18px; overflow:hidden; position:relative;
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
@@ -1969,7 +1994,7 @@
       font-size:clamp(16px, 2.4vw, 20px) !important;
       font-weight:300 !important;
       line-height:1.65 !important;
-      color:#000000 !important;
+      color:#ffffff !important;
       text-wrap:pretty;
     }
 
@@ -3073,6 +3098,8 @@
       margin:0; /* tighten spacing, gap handles vertical rhythm */
       min-width:0;
       line-height:1.2;
+      /* Match Industry Expertise title sizing */
+      font-size: clamp(18px, 2.6vw, 24px);
     }
 
     /* Split layout for Services cards */
@@ -4018,6 +4045,8 @@
       overflow-wrap:anywhere;
       word-break:break-word;
       color:#ffffff;
+      /* Match Industry Expertise title size */
+      font-size: clamp(18px, 2.6vw, 24px) !important;
       display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
     }
     /* Reserve space for right icon so headings never overlap: grid with fixed icon column */
@@ -4039,7 +4068,7 @@
       overflow-wrap:anywhere;
       word-break:break-word;
       text-wrap:pretty;
-      color:#000000 !important;
+      
     }
     /* Off-state: match Hero highlight card surface exactly */
     [data-diff="features"] .diff__btnOff{

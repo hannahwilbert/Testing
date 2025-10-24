@@ -459,7 +459,17 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
     .certMeta{ display:grid; gap:4px; text-align:center; }
     .certDesc{ display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp: 2; overflow:hidden; text-overflow:ellipsis; }
     .certName{ margin:0; font-weight:700; font-size:clamp(14px, 1.8vw, 18px); color:#f8fbff; }
-    .certDesc{ margin:0; font-size:clamp(13px, 1.6vw, 16px); color:rgba(214,224,236,.9); }
+    .certDesc{
+      margin:0;
+      font-size:clamp(13px, 1.6vw, 16px);
+      color:rgba(214,224,236,.9);
+      transition: color .18s ease, transform .18s ease;
+    }
+    /* Pop the description for the hovered/focused card only */
+    .certCard:is(:hover,:focus-within) .certDesc{
+      color:#ffffff;
+      transform: translateY(-1px);
+    }
     </style>
     <script>
     (function(){

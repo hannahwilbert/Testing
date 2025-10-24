@@ -1062,6 +1062,25 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
         transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
       .locationsFull .locCard:hover, .locationsFull .locCard.is-active{ transform:translateY(-2px); border-color:rgba(180,210,240,.34) !important; box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
+      /* Active state: turn the card teal */
+      .locationsFull .locCard.is-active{
+        background: var(--brand, #00BBA7) !important;
+        border-color: var(--brand, #00BBA7) !important;
+      }
+      .locationsFull .locCard.is-active h3,
+      .locationsFull .locCard.is-active .locTitleRest,
+      .locationsFull .locCard.is-active .locAddress{ color:#ffffff !important; }
+      /* Keep map action buttons dark even when card is active */
+      .locationsFull .locCard.is-active .locActions a{
+        background: rgba(15,23,42,.60) !important; /* slate-900-ish */
+        border-color: rgba(148,163,184,.22) !important;
+        color:#e2e8f0 !important;
+      }
+      .locationsFull .locCard.is-active .locActions a:hover{
+        background: rgba(15,23,42,.70) !important;
+        border-color: rgba(148,163,184,.28) !important;
+        color:#ffffff !important;
+      }
     </style>
   </section>
 
@@ -1212,6 +1231,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <address id="locAddress" class="locAddress">11205 Knott Avenue, Suite B<br>Cypress, CA&nbsp;90630</address>
     </div>
     <div class="mapBox">
+          <div id="locMapCanvas" class="w-full h-64 sm:h-80 md:h-96" hidden></div>
           <iframe id="locMap" class="w-full h-64 sm:h-80 md:h-96"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.041924983774!2d-118.039722684789!3d33.86214198065925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd2e6d2f5b5b5b%3A0x5b5b5b5b5b5b5b5b5b!2s11205%20Knott%20Ave%2C%20Cypress%2C%20CA%2090630%2C%20USA!5e0!3m2!1sen!2s!4v1633025000000!5m2!1sen!2s"
               allowfullscreen loading="lazy"></iframe>
@@ -1305,13 +1325,82 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   (function(){
     var sec = document.querySelector('.locationsFull');
     if(!sec) return;
-    var map = sec.querySelector('#locMap');
-    if(!map) return;
+    var mapIframe = sec.querySelector('#locMap');
+    var mapCanvas = sec.querySelector('#locMapCanvas');
+    if(!mapIframe && !mapCanvas) return;
     var addrEl = sec.querySelector('#locAddress');
     var nameEl = sec.querySelector('#locName');
     var gBtn = sec.querySelector('#locGoogle');
     var aBtn = sec.querySelector('#locApple');
-    function setMap(q){ if(!q) return; map.src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&output=embed'; }
+    // Optional: Styled Google Map via JS API (uses key if provided in window.L3_MAPS_API_KEY)
+    var styledMap = null, geocoder = null;
+    var MAP_STYLES = [
+      { "featureType": "administrative.land_parcel", "elementType": "labels", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "poi", "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "poi.business", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "road", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "road.arterial", "elementType": "labels", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "road.highway", "elementType": "labels", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "road.local", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "road.local", "elementType": "labels", "stylers": [ { "visibility": "off" } ] },
+      { "featureType": "transit", "stylers": [ { "visibility": "off" } ] }
+    ];
+
+    function ensureGoogle(){ return (typeof window.google !== 'undefined' && window.google && window.google.maps); }
+    function loadGoogle(cb){
+      if (ensureGoogle()) return cb && cb();
+      var key = window.L3_MAPS_API_KEY; // set this global to enable styled maps
+      if (!key) return; // no key: skip
+      var s = document.createElement('script');
+      s.src = 'https://maps.googleapis.com/maps/api/js?key=' + encodeURIComponent(key);
+      s.async = true; s.defer = true;
+      s.onload = function(){ try{ cb && cb(); }catch(_){} };
+      document.head.appendChild(s);
+    }
+
+    function initStyled(){
+      if (styledMap || !mapCanvas) return styledMap;
+      if (!ensureGoogle()) return null;
+      try{
+        geocoder = new google.maps.Geocoder();
+        styledMap = new google.maps.Map(mapCanvas, {
+          zoom: 13,
+          center: { lat: 34.0522, lng: -118.2437 },
+          styles: MAP_STYLES,
+          disableDefaultUI: true,
+          gestureHandling: 'greedy'
+        });
+      }catch(_){ styledMap = null; }
+      return styledMap;
+    }
+
+    function setStyledMap(address){
+      if (!address) return false;
+      if (!ensureGoogle()) return false;
+      if (!initStyled()) return false;
+      try{
+        geocoder.geocode({ address: address }, function(results, status){
+          if (status === 'OK' && results && results[0]){
+            styledMap.setCenter(results[0].geometry.location);
+            new google.maps.Marker({ map: styledMap, position: results[0].geometry.location });
+          }
+        });
+        if (mapCanvas) mapCanvas.hidden = false;
+        if (mapIframe) mapIframe.hidden = true;
+        return true;
+      }catch(_){ return false; }
+    }
+
+    function setMap(q){
+      if(!q) return;
+      // Try styled map first; if unavailable, fallback to iframe embed
+      if (ensureGoogle() && setStyledMap(q)) return;
+      loadGoogle(function(){ if (!setStyledMap(q)) { if (mapIframe) { mapIframe.src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&output=embed'; mapIframe.hidden = false; } if (mapCanvas) mapCanvas.hidden = true; } });
+      if (!ensureGoogle()){
+        if (mapIframe) { mapIframe.src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&output=embed'; mapIframe.hidden = false; }
+        if (mapCanvas) mapCanvas.hidden = true;
+      }
+    }
     function setAddressHTML(html){ if(addrEl && html){ addrEl.innerHTML = html; } }
     function setName(name){ if(nameEl && name){ nameEl.textContent = name; } }
     function setLinks(q){
@@ -1519,7 +1608,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         <ul class="space-y-2">
           <li><a href="/why-l3/" class="footerLink">Why L3?</a></li>
           <li><a href="/about-us/" class="footerLink">About Us</a></li>
-          <li><a href="/partners/" class="footerLink">Partners</a></li>
+          <li><a href="file:///Users/Hannah/Downloads/Partners.pdf" class="footerLink">Partners</a></li>
           <li><button type="button" aria-disabled="true" class="text-white cursor-default">Resources</button></li>
           <li><a href="https://support.l3networks.com/" class="footerLink">Support</a></li>
         </ul>
