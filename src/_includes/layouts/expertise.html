@@ -45,6 +45,15 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
     color: rgba(214,224,236,.9) !important;
     max-width: 72ch;
   }
+  /* Ensure the paragraph after subcopy (Team Expertise second paragraph) matches size */
+  .kfE__mission > p + p{
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: clamp(16px, 2.4vw, 20px) !important;
+    line-height: 1.65 !important;
+    color: rgba(214,224,236,.9) !important;
+    max-width: 72ch;
+    margin-top: 0 !important; /* tightened further */
+  }
   /* Expertise hero CTA — solid teal (no gradient) */
   .whyL3Hero a[data-cta="primary"]{
     background: var(--brand) !important;
@@ -219,10 +228,11 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
 </section>
 
 <!-- CAPABILITIES (grid, as before) -->
-<section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="caps-title" style="padding-top:clamp(60px,10vh,120px); padding-bottom:clamp(80px,12vh,140px);">
-  <h2 id="caps-title" class="heading-xl mb-4">Capabilities</h2>
-  <p class="text-slate-300 mb-6" style="max-width:72ch">L3 Networks delivers the depth of an enterprise IT department with the precision of a dedicated partner. Every engagement follows our Elevate framework, providing measurable progress and predictable results.</p>
-  <div class="capsRow" role="list" id="capsGrid">
+<section class="sectionPad w-full text-white" aria-labelledby="caps-title" style="padding-top:clamp(60px,10vh,120px); padding-bottom:clamp(80px,12vh,140px); background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%);">
+  <div class="container max-w-screen-xl px-6 mx-auto md:px-10 2xl:px-0">
+    <h2 id="caps-title" class="heading-xl mb-4">Capabilities</h2>
+    <p class="text-slate-300 mb-6" style="max-width:72ch">L3 Networks delivers the depth of an enterprise IT department with the precision of a dedicated partner. Every engagement follows our Elevate framework, providing measurable progress and predictable results.</p>
+    <div class="capsRow" role="list" id="capsGrid">
     {% for c in [
       {t:'Cybersecurity & Risk Management', d:'Threat prevention, detection, and incident response built on layered Zero Trust principles.'},
       {t:'Network Infrastructure & Connectivity', d:'Secure architecture and 24/7 monitoring for distributed, high‑performance environments.'},
@@ -247,8 +257,8 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       </div>
     </article>
     {% endfor %}
-  </div>
-  <style>
+    </div>
+    <style>
     .capsRow{ position:relative; display:grid; gap:clamp(16px,2.4vw,22px); grid-template-columns:repeat(3, minmax(0,1fr)); }
     @media(max-width:1024px){ .capsRow{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
     @media(max-width:640px){ .capsRow{ grid-template-columns:1fr; } }
@@ -290,8 +300,8 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       padding:clamp(18px,2.2vw,22px); border-bottom-left-radius:18px; border-bottom-right-radius:18px; border-top-left-radius:0; border-top-right-radius:0;
       border:1px solid var(--brand); border-top:none; background:var(--brand); color:#ffffff; box-shadow:0 24px 56px rgba(8,18,35,.52);
     }
-  </style>
-  <script>
+    </style>
+    <script>
     (function(){
       var grid = document.getElementById('capsGrid'); if(!grid) return; grid.setAttribute('data-dropdown','on');
       var cards = Array.prototype.slice.call(grid.querySelectorAll('.capCard.is-collapsible'));
@@ -299,15 +309,16 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       function expand(card){ var body=card.querySelector('.capBodyWrap'); var btn=card.querySelector('.capToggle'); if(!body||!btn) return; body.hidden=false; btn.setAttribute('aria-expanded','true'); card.classList.remove('is-collapsed'); card.classList.add('is-expanded'); }
       cards.forEach(function(card){ var btn=card.querySelector('.capToggle'); var body=card.querySelector('.capBodyWrap'); if(!btn||!body) return; collapse(card); btn.addEventListener('click', function(e){ e.preventDefault(); var open = btn.getAttribute('aria-expanded')==='true'; if(open){ collapse(card); } else { cards.forEach(function(o){ if(o!==card) collapse(o); }); expand(card); } }); });
     })();
-  </script>
+    </script>
+  </div>
 </section>
 
 <!-- Expertise2 SECTION -->
 <section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" data-kf="elite" aria-label="Client snapshots" style="padding-top:clamp(60px,10vh,120px); padding-bottom:clamp(60px,10vh,120px);">
   <div class="kfE__mission">
     <h2 class="kfE__missionHeading heading-xl mb-2">Team Expertise</h2>
-    <p class="text-slate-300 mb-3" style="max-width:72ch">Behind every L3 Networks engagement is a team of experienced engineers, architects, and consultants who combine deep technical expertise with disciplined operations. We operate with the precision of an enterprise IT department and the responsiveness of a dedicated partner.</p>
-    <p class="text-slate-300 mb-8" style="max-width:72ch">Our service model is built on collaboration, communication, and accountability. From design to deployment to support, every member of the L3 team is focused on measurable progress and lasting impact.</p>
+    <p class="text-slate-300 mb-1" style="max-width:72ch">Behind every L3 Networks engagement is a team of experienced engineers, architects, and consultants who combine deep technical expertise with disciplined operations. We operate with the precision of an enterprise IT department and the responsiveness of a dedicated partner.</p>
+    <p class="text-slate-300 mb-8" style="max-width:72ch; margin-top:0;">Our service model is built on collaboration, communication, and accountability. From design to deployment to support, every member of the L3 team is focused on measurable progress and lasting impact.</p>
     <ul class="kfE__missionGrid mt-2" role="list">
       <!-- Engineering & Architecture -->
       <li class="kfE__missionItem">
@@ -365,9 +376,10 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
 </section>
 
 <!-- CERTIFICATIONS & PARTNERSHIPS -->
-<section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="certs-title" style="padding-top:clamp(60px,10vh,120px); padding-bottom:clamp(80px,12vh,140px);">
-  <h2 id="certs-title" class="heading-xl mb-2">Certifications &amp; Partnerships</h2>
-  <p class="text-slate-300 mb-6" style="max-width:72ch">L3 Networks partners with industry leaders to deliver secure, scalable, and high-performing solutions across cloud, cybersecurity, networking, and data protection. These relationships extend our reach and strengthen every layer of the environments we design and support.</p>
+<section class="sectionPad w-full text-white" aria-labelledby="certs-title" style="padding-top:clamp(60px,10vh,120px); padding-bottom:clamp(80px,12vh,140px); background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%);">
+  <div class="container max-w-screen-xl px-6 mx-auto md:px-10 2xl:px-0">
+    <h2 id="certs-title" class="heading-xl mb-2">Certifications &amp; Partnerships</h2>
+    <p class="text-slate-300 mb-6" style="max-width:72ch">L3 Networks partners with industry leaders to deliver secure, scalable, and high-performing solutions across cloud, cybersecurity, networking, and data protection. These relationships extend our reach and strengthen every layer of the environments we design and support.</p>
 
   {% set partners = [
     {n:'Microsoft', logo:'/images/about/logo-microsoft.svg', d:'Microsoft Partner'},
@@ -392,7 +404,7 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
     {n:'Wasabi', logo:'/images/about/logo-wasabi.svg', d:'Wasabi Partner (Cloud Backup and Archival Storage)'}
   ] %}
 
-  <ul class="certGrid" role="list">
+    <ul class="certGrid" role="list">
     {% for p in partners %}
     <li class="certCard" role="listitem">
       <figure class="certLogo" aria-label="{{ p.n }}" data-name="{{ p.n }}">
@@ -405,9 +417,9 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       </div>
     </li>
     {% endfor %}
-  </ul>
+    </ul>
 
-  <style>
+    <style>
     .certGroupTitle{ margin:clamp(12px,2vh,18px) 0 6px; font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:rgba(226,232,240,.75); }
     .certGrid{ display:grid; gap:clamp(14px,2.4vw,20px); grid-template-columns:repeat(4,minmax(0,1fr)); align-items:stretch; justify-items:stretch; }
     @media(max-width:1024px){ .certGrid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
@@ -448,8 +460,8 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
     .certDesc{ display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp: 2; overflow:hidden; text-overflow:ellipsis; }
     .certName{ margin:0; font-weight:700; font-size:clamp(14px, 1.8vw, 18px); color:#f8fbff; }
     .certDesc{ margin:0; font-size:clamp(13px, 1.6vw, 16px); color:rgba(214,224,236,.9); }
-  </style>
-  <script>
+    </style>
+    <script>
     (function(){
       function ready(fn){ if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
       ready(function(){
@@ -464,7 +476,8 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
         });
       });
     })();
-  </script>
+    </script>
+  </div>
 </section>
 
 {% include "partials/footer.html" %}
