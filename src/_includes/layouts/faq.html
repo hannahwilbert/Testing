@@ -215,4 +215,37 @@
   </div>
 </section>
 
+<script>
+  // Center the clicked FAQ section within the viewport when a filter button is clicked
+  (function(){
+    function ready(fn){ if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+    ready(function(){
+      var links = document.querySelectorAll('.faqToc a[href^="#"]');
+      if(!links.length) return;
+      var nav = document.querySelector('[role="navigation"]');
+      function navH(){ return nav ? (nav.getBoundingClientRect().height || nav.offsetHeight || 0) : 0; }
+      links.forEach(function(a){
+        a.addEventListener('click', function(e){
+          try{
+            var id = (this.getAttribute('href') || '').slice(1);
+            if(!id) return;
+            var head = document.getElementById(id);
+            if(!head) return;
+            e.preventDefault();
+            var section = head.closest('.faqSection') || head;
+            var rect = section.getBoundingClientRect();
+            var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+            var target = (rect.top + (window.pageYOffset || window.scrollY || 0)) - ((vh - rect.height) / 2) - (navH() / 2);
+            window.scrollTo({ top: Math.max(0, Math.round(target)), behavior: 'smooth' });
+            // update URL hash without jumping
+            history.pushState(null, '', '#' + id);
+          }catch(_){}
+        }, { passive:false });
+      });
+    });
+  })();
+  </script>
+
+{% include "partials/footer.html" %}
+
 {% endblock %}
