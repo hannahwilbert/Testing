@@ -555,6 +555,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 </section>
 
 <style>
+  /* Disable CSS-level smooth-scrolling on this page to avoid native hash jumps */
+  html { scroll-behavior: auto; }
   .whyL3Hero .heroOverlay{
     background:
       linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 42%),
@@ -777,7 +779,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             if(!id) return;
             var head = document.getElementById(id);
             if(!head) return;
-            e.preventDefault();
+            e.preventDefault(); e.stopPropagation(); if (e.stopImmediatePropagation) e.stopImmediatePropagation();
             var section = head.closest('.faqSection') || head;
             var rect = section.getBoundingClientRect();
             var y = window.pageYOffset || window.scrollY || 0;
@@ -791,9 +793,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             }
             var top = Math.max(0, Math.min(maxScroll(), Math.round(topCandidate)));
             window.scrollTo({ top: top, behavior: 'smooth' });
-            // update URL hash without triggering native anchor scroll
-            try { history.replaceState(null, '', '#' + id); } catch(_){}
-            // avoid any residual native jump
+            // Do not modify the URL hash to avoid any native anchor jumps in some browsers
             this.blur();
           }catch(_){}
         }, { passive:false });
