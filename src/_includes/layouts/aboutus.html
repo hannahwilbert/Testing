@@ -203,6 +203,15 @@
     }
     requestAnimationFrame(step);
   }
+  function initZeros(){
+    var els = document.querySelectorAll('.heroStat .statNum');
+    els.forEach(function(el){
+      var fmt = el.dataset.format || 'raw';
+      if (fmt === 'percent') el.textContent = '0%';
+      else if (fmt === 'slash') el.textContent = '0' + (el.dataset.suffix || '');
+      else el.textContent = '0';
+    });
+  }
   function boot(){
     var els = document.querySelectorAll('.heroStat .statNum');
     if(!els.length) return;
@@ -213,7 +222,22 @@
       animate(el, to, { duration: 1300, format: el.dataset.format || 'raw', suffix: el.dataset.suffix || '' });
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once:true }); else boot();
+  // Trigger count-up when stats enter viewport
+  function arm(){
+    var wrap = document.querySelector('.heroStats');
+    if(!wrap){ if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once:true }); else boot(); return; }
+    if ('IntersectionObserver' in window && !prefersReduced()){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){ if(entry.isIntersecting){ boot(); io.disconnect(); } });
+      }, { threshold: 0.6, rootMargin: '0px 0px -20% 0px' });
+      // initialize to zeros before observing so the change is visible
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initZeros, { once:true }); else initZeros();
+      io.observe(wrap);
+    } else {
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once:true }); else boot();
+    }
+  }
+  arm();
 })();
 </script>
 
