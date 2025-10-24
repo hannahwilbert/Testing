@@ -644,6 +644,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   .faqSection + .faqSection::before{
     content:""; position:absolute; left:0; right:0; top:0; height:1px;
     background:linear-gradient(90deg, rgba(148,163,184,.08), rgba(148,163,184,.22), rgba(148,163,184,.08));
+    pointer-events:none; /* avoid intercepting clicks on first cards */
   }
 </style>
 
@@ -762,6 +763,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       if(!links.length) return;
       var nav = document.querySelector('[role="navigation"]');
       function navH(){ return nav ? (nav.getBoundingClientRect().height || nav.offsetHeight || 0) : 0; }
+      function maxScroll(){
+        var doc = document.documentElement;
+        var body = document.body;
+        var h = Math.max(doc.scrollHeight, doc.offsetHeight, body ? body.scrollHeight : 0, body ? body.offsetHeight : 0);
+        var vh = window.innerHeight || doc.clientHeight || 0;
+        return Math.max(0, h - vh);
+      }
       links.forEach(function(a){
         a.addEventListener('click', function(e){
           try{
@@ -772,11 +780,20 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
             e.preventDefault();
             var section = head.closest('.faqSection') || head;
             var rect = section.getBoundingClientRect();
+            var y = window.pageYOffset || window.scrollY || 0;
             var vh = window.innerHeight || document.documentElement.clientHeight || 0;
-            var target = (rect.top + (window.pageYOffset || window.scrollY || 0)) - ((vh - rect.height) / 2) - (navH() / 2);
-            window.scrollTo({ top: Math.max(0, Math.round(target)), behavior: 'smooth' });
-            // update URL hash without jumping
+            var topCandidate;
+            // If section fits in viewport, center it; otherwise align the heading below the nav
+            if (rect.height <= (vh - navH())) {
+              topCandidate = y + rect.top - ((vh - rect.height) / 2);
+            } else {
+              topCandidate = y + rect.top - (navH() + 16);
+            }
+            var top = Math.max(0, Math.min(maxScroll(), Math.round(topCandidate)));
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            // update URL hash without jumping and move focus to heading for a11y
             history.pushState(null, '', '#' + id);
+            try { head.setAttribute('tabindex','-1'); head.focus({ preventScroll: true }); } catch(_){}
           }catch(_){}
         }, { passive:false });
       });
