@@ -59,9 +59,10 @@
     outline:2px solid rgba(102,199,232,.45); outline-offset:3px; /* keep accessible focus ring */
   }
   .faqGroup{ margin-top:clamp(56px,9vh,84px); margin-bottom:clamp(18px,3vh,28px); }
-  /* FAQ item styling: match home highlight surface */
+  /* FAQ item styling updated to match Home "Why L3 is Different" cards */
   details.faqItem{
-    border:1px solid #1b2d46; border-radius:24px; padding:clamp(14px,2vw,18px);
+    position:relative;
+    border:1px solid #1b2d46; border-radius:24px; padding:0; overflow:hidden;
     background:
       radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
       linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
@@ -69,26 +70,50 @@
       linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
       linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
     box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
   }
-  details.faqItem+details.faqItem{ margin-top:14px; }
-  details.faqItem:hover{ transform:translateY(-2px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
-  /* Question titles: match card/toggle title sizing from Why L3/About */
+  details.faqItem+details.faqItem{ margin-top:0; }
+  details.faqItem:hover{ transform:translateY(-2px); border-color:rgba(20,184,166,.45); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
+
+  /* Trigger area styled like the Home accordion button */
   details.faqItem summary{
-    padding-right:6px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:clamp(16px,2.8vw,24px) clamp(18px,3.2vw,26px);
     font-weight:800; letter-spacing:-.02em; color:#f8fbff; font-size:clamp(17px, 2.6vw, 22px); line-height:1.15;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
-  details.faqItem summary:focus-visible{ outline:2px solid rgba(102,199,232,.55); outline-offset:4px; border-radius:12px; }
-  details.faqItem summary::after{
-    content:""; width:18px; height:18px; border-right:2px solid rgba(226,232,240,.9); border-bottom:2px solid rgba(226,232,240,.9);
-    transform:rotate(-45deg); transition:transform .2s ease; margin-left:8px;
-  }
-  details.faqItem[open] summary::after{ transform:rotate(45deg); }
-  /* Answer copy: match section body text sizing from Why L3/About */
-  .faqAnswer{ padding-top:10px; margin: 0; color: rgba(214,224,236,.9); font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; }
-  details.faqItem summary{ cursor:pointer; list-style:none; }
   details.faqItem summary::-webkit-details-marker{ display:none; }
+  details.faqItem summary:focus-visible{ outline:2px solid rgba(102,199,232,.55); outline-offset:4px; border-radius:12px; }
+
+  /* Triangle icon (right when closed, down when open) */
+  details.faqItem summary::after{
+    content:"";
+    flex:0 0 auto; margin-left:8px;
+    width:0; height:0; display:inline-block;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 12px solid rgba(255,255,255,.92);
+    opacity:.9; transform: translateY(0) rotate(0deg);
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  details.faqItem[open] summary{ color:#061021; }
+  details.faqItem[open] summary::after{
+    transform: rotate(90deg);
+    border-left-color:#061021; /* dark icon on teal background */
+  }
+  /* Answer area: attached panel similar to Home open state */
+  .faqAnswer{ margin:0; padding: clamp(12px,2.4vw,18px) clamp(16px,3.2vw,22px) clamp(16px,3.2vw,22px);
+    color: rgba(255,255,255,.95); font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; }
+  details.faqItem[open] .faqAnswer{
+    background: color-mix(in oklab, var(--brand, #00BBA7) 86%, #0b1325 14%);
+  }
+
+  /* Open state background and border like Home */
+  details.faqItem[open]{
+    background: var(--brand, #00BBA7);
+    border-color: var(--brand, #00BBA7);
+    box-shadow:0 28px 72px rgba(0,187,167,.30), inset 0 1px 0 rgba(255,255,255,.06);
+  }
 
   /* Section titles: align to About/Why L3 h2 sizing */
   .faqGroup.heading-xl{
@@ -103,7 +128,7 @@
   /* Layout: stack sections full width with clear separation */
   .faqSections{ display:block; }
   .faqSection{ position:relative; display:block; padding-top:clamp(24px, 5vh, 56px); padding-bottom:clamp(12px, 3vh, 24px); }
-  .faqSection > .grid{ gap: clamp(12px, 2.4vh, 20px) !important; }
+  .faqSection > .grid{ gap: clamp(6px, 1.4vh, 12px) !important; }
   .faqSection + .faqSection{ margin-top:clamp(28px, 6vh, 64px); }
   .faqSection + .faqSection::before{
     content:""; position:absolute; left:0; right:0; top:0; height:1px;
