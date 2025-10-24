@@ -253,9 +253,10 @@
             }
             var top = Math.max(0, Math.min(maxScroll(), Math.round(topCandidate)));
             window.scrollTo({ top: top, behavior: 'smooth' });
-            // update URL hash without jumping and move focus to heading for a11y
-            history.pushState(null, '', '#' + id);
-            try { head.setAttribute('tabindex','-1'); head.focus({ preventScroll: true }); } catch(_){}
+            // update URL hash without triggering native anchor scroll
+            try { history.replaceState(null, '', '#' + id); } catch(_){}
+            // avoid any residual native jump
+            this.blur();
           }catch(_){}
         }, { passive:false });
       });
