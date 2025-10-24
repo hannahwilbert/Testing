@@ -665,7 +665,21 @@
   .wl3__grid > .wl3__col{ width:100%; align-self:stretch; }
   .wl3__col--left{ }
   .wl3__col--right{ }
-  .wl3__media{ display:flex; align-items:center; justify-content:center; width:min(100%, 560px); height:clamp(260px, 34vw, 420px); margin:0 auto; overflow:hidden; border-radius:24px; }
+  .wl3__media{ position:relative; display:flex; align-items:center; justify-content:center; width:min(100%, 560px); height:clamp(260px, 34vw, 420px); margin:0 auto; overflow:hidden; border-radius:24px; }
+  /* Apply the same teal gradient overlay used on Home images (IT Gaps/Results) */
+  .wl3__media:has(img)::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background: linear-gradient(315deg,
+      rgba(0,187,167,.45) 0%,
+      rgba(102,199,232,.28) 35%,
+      rgba(102,199,232,0) 80%
+    );
+    mix-blend-mode: normal;
+    z-index:1;
+  }
   /* Make images fill the column height and crop gracefully */
   .wl3__media img{ width:100%; height:100%; max-width:none; border-radius:24px; box-shadow:0 25px 60px rgba(15,23,42,0.45); object-fit:cover; object-position:center; }
   .wl3__media video{ width:100%; height:100%; max-width:none; border-radius:24px; box-shadow:0 25px 60px rgba(15,23,42,0.45); object-fit:cover; object-position:center; display:block; }
