@@ -7,19 +7,19 @@
   <div class="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,_rgba(45,212,191,0.12),_transparent_70%)] pointer-events-none"></div>
 
   <div class="container relative max-w-screen-xl px-0 pb-20 md:pb-28 md:mx-auto md:py-28">
-    <div class="relative z-10 grid items-start max-w-screen-xl gap-10 mx-auto md:grid-cols-2 md:gap-16">
+    <div class="hero-grid relative z-10">
       <!-- Left: Big headline -->
       <div class="text-left">
-        <h1 class="partnerTitle heading-xl">
-          <span class="block">Partner with</span>
-          <span class="block partnerTitle__accent">L3 Networks</span>
+        <h1 class="partnerTitle title">
+          <span class="small">Partner with</span>
+          <span class="big brand">L3 Networks</span>
         </h1>
       </div>
       <!-- Right: Supporting lines -->
-      <div class="partnerPoints text-slate-100/90 body-lead md:pt-4">
-        <p>Build deeper client relationships.</p>
-        <p>Expand your capabilities.</p>
-        <p>Lead with structure and strategy.</p>
+      <div class="partnerPoints md:pt-4">
+        <p class="lede">Build deeper client relationships.</p>
+        <p class="lede">Expand your capabilities.</p>
+        <p class="lede">Lead with structure and strategy.</p>
       </div>
     </div>
 
@@ -49,12 +49,20 @@
 </section>
 
 <style>
-  /* Match global heading scale */
-  .partnerTitle{ margin:0; font-weight:800; letter-spacing:-.02em; line-height:1.06; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:var(--heading-xl); }
-  .partnerTitle__accent{ color:transparent; background:linear-gradient(135deg, var(--brand-cyan, #66C7E8) 0%, var(--brand, #00BBA7) 100%); -webkit-background-clip:text; background-clip:text; }
-  /* Enlarge supporting copy to match reference */
-  .partnerPoints{ font-size:clamp(30px,5.2vw,60px); line-height:1.25; }
-  .partnerPoints p{ margin:.25em 0; }
+  /* HERO — matches screenshot layout */
+  .partnerHero{ padding:120px 40px 80px; background:radial-gradient(1200px 500px at 50% -200px, rgba(0,187,167,.10), transparent 60%), linear-gradient(180deg,#030B16 0%, #071326 100%) !important; }
+  .partnerHero .hero-grid{ display:grid; grid-template-columns:minmax(520px,1fr) 520px; gap:clamp(8px,1vw,12px); align-items:end; max-width:1200px; margin:0 auto; }
+  /* Use the same heading font/weight as Home hero (Montserrat, 700) */
+  .partnerHero .title{ font-weight:700; line-height:1.03; margin:0; letter-spacing:-.02em; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  /* Match Home hero title sizing */
+  .partnerHero .title .small,
+  .partnerHero .title .big{ display:block; font-size:clamp(36px, 6.5vw, 84px); line-height:1.03; }
+  .partnerHero .brand{ background:linear-gradient(180deg,#6FE9D4 0%, #00BBA7 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+
+  .partnerPoints{ color:#E7EEF6; padding-top:0 !important; margin:0; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .partnerPoints .lede{ font-size:clamp(18px, 3vw, 24px); line-height:1.65; margin:0; font-weight:300; }
+  .partnerPoints .lede{ font-size:28px; line-height:1.35; margin:0; }
+  .partnerPoints .lede + .lede{ margin-top:6px; }
 
   .cardSurface{ position:relative; border-radius:22px; border:1px solid rgba(0,187,167,.28); padding:clamp(18px,2.6vw,24px); }
   .cardSurface::before{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(102,199,232,.18); }
@@ -66,11 +74,440 @@
       linear-gradient(210deg, rgba(2,6,23,.66) 0%, rgba(2,6,23,.72) 55%, rgba(2,6,23,.80) 100%);
     box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
   }
-  .partnerIntro__inner{ max-width:1100px; margin:0 auto; color:rgba(226,232,240,.95); display:grid; gap:1.2rem; }
-  .partnerIntro__inner .body-text{ font-size:clamp(18px,2.2vw,20px); line-height:1.8; }
+  .partnerIntro__inner{ max-width:1100px; margin:0 auto; color:rgba(226,232,240,.95); display:grid; gap:1.2rem; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  /* Match body copy used on Why L3 & About Us */
+  .partnerIntro__inner .body-text{ font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; color:rgba(214,224,236,.9); }
   .partnerChevron{ color:#e2e8f0; opacity:.65; }
   .partnerHero [data-cta="primary"]{ background: var(--brand) !important; }
   @media (prefers-reduced-motion: reduce){ .partnerChevron{ transition:none !important; } }
+  @media (max-width:1200px){
+    .partnerHero .hero-grid{ grid-template-columns:1fr; text-align:left; }
+    .partnerHero .title{ margin-bottom:12px; }
+  }
+  @media (max-width:700px){
+    .partnerHero .title .small{ font-size:56px; }
+    .partnerHero .title .big{ font-size:68px; }
+  }
+</style>
+
+
+<!-- Why Partner section -->
+<section class="partnerWhy text-white" aria-labelledby="why-title" style="background:transparent;">
+  <div class="container max-w-screen-xl mx-auto px-6 md:px-10 2xl:px-0 py-14 md:py-20">
+    <header class="mb-6 md:mb-8">
+      <h2 id="why-title" class="pwTitle">
+        Why Partner With <span class="pwBrand">L3 Networks</span><span class="pwQ">?</span>
+      </h2>
+      <p class="pwLede">When you join the L3 Partner Program, you gain more than a portfolio of IT services.<br/>You gain a strategic ally committed to helping you deliver measurable business outcomes and sustained client success.</p>
+    </header>
+
+    <div class="pwGrid">
+      <!-- Bullet points -->
+      <ul class="pwList" role="list">
+        <li>Proven expertise across cybersecurity, cloud, infrastructure, and helpdesk operations</li>
+        <li>Trusted reputation with both SMB and enterprise clients</li>
+        <li>Turnkey operations and defined processes that integrate easily with your team</li>
+        <li>Flexible engagement models: white‑label, co‑branded, or referral‑based</li>
+        <li>Access to proprietary tools, automation, and reporting frameworks that elevate delivery quality</li>
+      </ul>
+
+      <!-- Testimonial card -->
+      <aside class="pwQuote" aria-label="Partner testimonial">
+        <h3>Credibility with Strategic IT Leadership</h3>
+        <p>With L3’s co‑managed services, we scaled faster and improved client experience without adding staff. Their engineers operate like an extension of our own team.</p>
+        <p class="pwAttr">Channel Partner, West Coast</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pwTitle{ margin:0 0 8px; font-weight:800; letter-spacing:-.02em; font-size:38px; line-height:1.1; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pwTitle{ font-weight:700; letter-spacing:-.01em; line-height:1.2; }
+  .pwBrand{ color:transparent; background:linear-gradient(180deg,#6FE9D4 0%, #00BBA7 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .pwQ{ color:var(--brand, #00BBA7); }
+  .pwLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  /* Place card under the bullet list, aligned to the right */
+  .pwGrid{ display:grid; grid-template-columns: 1fr; gap:clamp(16px,3vw,28px); align-items:start; margin-top:clamp(18px,3vw,26px); }
+  .pwList{ list-style:disc; padding-left:24px; margin:0; display:grid; gap:14px; font-size:clamp(16px, 2.4vw, 20px); line-height:1.75; color:rgba(214,224,236,.9); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pwQuote{ align-self:start; justify-self:end; max-width:640px; border-radius:20px; border:1px solid rgba(0,187,167,.28); padding:20px 22px; background:rgba(4,18,28,.35); box-shadow:0 1px 0 rgba(255,255,255,.05), inset 0 0 0 1px rgba(0,0,0,.25); }
+  .pwQuote h3{ margin:0 0 8px; font-size:20px; font-weight:800; }
+  .pwQuote p{ margin:0 0 8px; color:#E2E8F0; }
+  .pwQuote .pwAttr{ margin:8px 0 0; color:#6FE9D4; font-style:italic; }
+  @media(max-width: 1024px){ .pwGrid{ grid-template-columns:1fr; } .pwQuote{ justify-self:end; } }
+</style>
+
+<!-- Who We Partner With (accordion like Why L3 is Different) -->
+<section class="partnerWho text-white" aria-labelledby="who-title" style="background:transparent;">
+  <div class="container max-w-screen-xl mx-auto px-6 md:px-10 2xl:px-0 py-14 md:py-20">
+    <header class="mb-6 md:mb-8">
+      <h2 id="who-title" class="pwTitle">Who We Partner With</h2>
+      <p class="pwLede">Our channel program is built for experienced professionals who already manage active client relationships and want to deliver more value through structure, maturity, and scale.</p>
+    </header>
+
+    <div class="whoGrid">
+      <div class="whoList" x-data="{ open: 0 }">
+      <!-- Item 1 -->
+      <article class="whoItem">
+        <h3 class="sr-only">vCIOs and Technology Advisors</h3>
+        <button class="whoToggle" type="button" :aria-expanded="open===1" @click="open = open===1 ? 0 : 1">
+          <span class="whoLabel">vCIOs and Technology Advisors</span>
+          <svg class="whoIcon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polygon points="8,5 18,12 8,19"></polygon></svg>
+        </button>
+        <div class="whoBody" x-show="open===1">
+          <p>Deepen your client engagements and earn commissions for services delivered through L3. Gain access to our Elevate framework, standardized reporting, and enterprise‑class engineering resources.</p>
+        </div>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="whoItem">
+        <h3 class="sr-only">MSPs and MSSPs</h3>
+        <button class="whoToggle" type="button" :aria-expanded="open===2" @click="open = open===2 ? 0 : 2">
+          <span class="whoLabel">MSPs and MSSPs</span>
+          <svg class="whoIcon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polygon points="8,5 18,12 8,19"></polygon></svg>
+        </button>
+        <div class="whoBody" x-show="open===2">
+          <p>Extend your bench with L3’s co‑managed services. We bring 24/7 operations, standardized delivery, and senior engineering depth that integrate cleanly with your model.</p>
+        </div>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="whoItem">
+        <h3 class="sr-only">Technology Providers and Agents</h3>
+        <button class="whoToggle" type="button" :aria-expanded="open===3" @click="open = open===3 ? 0 : 3">
+          <span class="whoLabel">Technology Providers and Agents</span>
+          <svg class="whoIcon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polygon points="8,5 18,12 8,19"></polygon></svg>
+        </button>
+        <div class="whoBody" x-show="open===3">
+          <p>Deliver complete outcomes by pairing your core solutions with L3’s managed services. Co‑branded or referral‑based options let you create consistent, measurable results for clients.</p>
+        </div>
+      </article>
+      </div>
+      <div class="whoSpacer" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Stack all accordion cards vertically (single column on all viewports) */
+  .whoGrid{ display:grid; grid-template-columns:1fr; gap:clamp(16px,2vw,24px); }
+  .whoList{ display:grid; gap:16px; grid-template-columns:1fr; grid-column:1; }
+  .whoSpacer{ display:none; }
+  @media(min-width:980px){
+    .whoGrid{ grid-template-columns:1fr 1fr; }
+    .whoSpacer{ display:block; grid-column:2; }
+  }
+  .whoItem{ border-radius:22px; overflow:hidden; }
+  .whoToggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:14px;
+    text-align:left; padding:18px 22px; border:0; cursor:pointer; color:#f8fafc; font-weight:700; letter-spacing:-.01em;
+    background:
+      linear-gradient(180deg,#0B1220 0%, #0A1628 100%);
+    border-radius:22px; border:1px solid #0f213a;
+  }
+  .whoLabel{ font-size:clamp(18px, 2.6vw, 22px); }
+  .whoIcon{ width:20px; height:20px; fill:#cbd5e1; opacity:.9; transition: transform .2s ease; }
+  [aria-expanded="true"] .whoIcon{ transform: rotate(90deg); }
+  .whoBody{ padding:16px 22px 18px; margin-top:6px; border-radius:18px; border:1px solid rgba(0,187,167,.28); background:rgba(4,18,28,.35); color:#E2E8F0; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .whoBody p{ margin:0; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; }
+  /* No breakpoint change: always single column */
+</style>
+
+<!-- Partnership Model cards section -->
+<section class="partnerModel text-white" aria-labelledby="model-title" style="background:transparent;">
+  <div class="container max-w-screen-xl mx-auto px-6 md:px-10 2xl:px-0 py-14 md:py-20">
+    <header class="mb-6 md:mb-8">
+      <h2 id="model-title" class="pmTitle">A Purpose‑Built Partnership Model</h2>
+      <p class="pmLede">Our partner program isn’t about volume, it’s about alignment. We work with partners who are already successful and want to expand responsibly, supported by structure, predictability, and proven execution.</p>
+    </header>
+
+    <div class="pmGrid">
+      <!-- Card 1 -->
+      <article class="pmCard">
+        <div class="pmCard__head">
+          <h3>Strategic Partnership Models</h3>
+        </div>
+        <img class="pmArrowImg" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+        <p>Choose from referral, co‑managed, or strategic alliance models that fit your business model and client ownership goals.</p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="pmCard">
+        <div class="pmCard__head">
+          <h3>Shared Growth, Not Volume</h3>
+        </div>
+        <img class="pmArrowImg" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+        <p>Access high‑margin, recurring services and joint go‑to‑market opportunities designed for long‑term value, not short‑term quotas.</p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="pmCard">
+        <div class="pmCard__head">
+          <h3>Dedicated Enablement &amp; Support</h3>
+        </div>
+        <img class="pmArrowImg" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+        <p>Every partner receives guidance from a dedicated Channel Success Manager along with access to technical and marketing resources that accelerate sales and delivery.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pmTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pmLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .pmGrid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.2vw,24px); }
+  @media(max-width:1100px){ .pmGrid{ grid-template-columns:1fr; } }
+  .pmCard{
+    position:relative; border-radius:24px; padding:clamp(26px,3vw,34px); color:#E2E8F0;
+    background:
+      linear-gradient(180deg,#0B1220 0%, #0A1628 100%);
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+  }
+  /* Leave space on the right so the big arrow does not overlap the title */
+  .pmCard__head{ display:flex; align-items:center; justify-content:flex-start; gap:14px; margin-bottom:12px; padding-right:clamp(56px,6vw,92px); }
+  .pmCard h3{ margin:0; color:#ffffff; font-size:clamp(20px, 2.6vw, 28px); font-weight:800; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pmCard p{ margin:0; font-size:clamp(16px, 2.2vw, 18px); line-height:1.7; color:#AAB4C2; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pmArrowImg{ position:absolute; top:16px; right:16px; width:clamp(34px, 3.6vw, 56px); height:auto; opacity:.95; pointer-events:none; }
+</style>
+
+<!-- Partner Journey section -->
+<section class="partnerJourney text-white" aria-labelledby="journey-title" style="background:transparent;">
+  <div class="container max-w-screen-xl mx-auto px-6 md:px-10 2xl:px-0 py-14 md:py-20">
+    <header class="mb-6 md:mb-8">
+      <h2 id="journey-title" class="pjTitle">The Partner Journey</h2>
+      <p class="pjLede">Our onboarding process is simple, transparent, and structured to help you scale quickly and confidently.</p>
+    </header>
+
+    <ol class="pjList" role="list">
+      <li class="pjItem">
+        <div class="pjCard">
+          <span class="pjNum">.01</span>
+          <div class="pjCopy">
+            <h3>Apply &amp; Onboard</h3>
+            <p>Complete the partner application and meet our channel leadership team.</p>
+          </div>
+        </div>
+      </li>
+      <li class="pjItem">
+        <div class="pjCard">
+          <span class="pjNum">.02</span>
+          <div class="pjCopy">
+            <h3>Enablement &amp; Training</h3>
+            <p>Access partner kits, solution guides, and training sessions tailored to your market.</p>
+          </div>
+        </div>
+      </li>
+      <li class="pjItem">
+        <div class="pjCard">
+          <span class="pjNum">.03</span>
+          <div class="pjCopy">
+            <h3>Register &amp; Sell</h3>
+            <p>Use the partner portal to register opportunities, quote services, and track progress.</p>
+          </div>
+        </div>
+      </li>
+      <li class="pjItem">
+        <div class="pjCard">
+          <span class="pjNum">.04</span>
+          <div class="pjCopy">
+            <h3>Deliver Together</h3>
+            <p>Our engineers and support staff work alongside your team to ensure seamless execution.</p>
+          </div>
+        </div>
+      </li>
+      <li class="pjItem">
+        <div class="pjCard">
+          <span class="pjNum">.05</span>
+          <div class="pjCopy">
+            <h3>Grow &amp; Scale</h3>
+            <p>Gain access to joint marketing initiatives, co‑branded campaigns, and performance analytics.</p>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style>
+  .pjTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pjLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .pjList{ display:grid; gap:clamp(14px,2vw,18px); margin:0; padding:0; list-style:none; }
+  .pjCard{
+    display:flex; align-items:center; gap:20px;
+    border-radius:24px; padding:22px 24px; border:1px solid rgba(255,255,255,.10);
+    background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%);
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+  }
+  .pjNum{ display:inline-block; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight:800; color:var(--brand, #00BBA7); font-size:clamp(28px, 3vw, 40px); letter-spacing:.02em; }
+  .pjCopy h3{ margin:0 0 4px; color:#ffffff; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pjCopy p{ margin:0; color:#C8D3E0; font-size:clamp(16px, 2.2vw, 18px); line-height:1.7; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+</style>
+
+<!-- Benefits section -->
+<section class="partnerBenefits text-white" aria-labelledby="benefits-title" style="background:transparent;">
+  <div class="container max-w-screen-xl mx-auto px-6 md:px-10 2xl:px-0 py-14 md:py-20">
+    <header class="mb-6 md:mb-8">
+      <h2 id="benefits-title" class="pbTitle">Benefits of Partnering With L3</h2>
+      <p class="pbLede">When you partner with L3 Networks, you gain the tools, systems, and leadership to strengthen your client base and grow recurring revenue with confidence.</p>
+    </header>
+
+    <div class="pbGrid">
+      <ul class="pbList" role="list">
+        <li>Recurring revenue from managed IT, cybersecurity, and cloud services</li>
+        <li>High margins and flexible pricing models tailored to your market</li>
+        <li>Portfolio expansion without hiring or training new staff</li>
+        <li>Access to enterprise engineering, design, and implementation teams</li>
+        <li>Co‑branded marketing materials, webinars, and collateral</li>
+        <li>Partner portal for deal registration, quoting, and project tracking</li>
+        <li>Customer ownership retention. You remain the face of the relationship</li>
+        <li>Dedicated Channel Success Manager for ongoing enablement</li>
+        <li>AI Enhanced Helpdesk and automation platforms to reduce support workload</li>
+      </ul>
+
+      <aside class="pbNote">
+        <h3>No Quotas or Commitments</h3>
+        <p>Partners are free to engage at their own pace. We invest in quality relationships, not sign‑ups.</p>
+        <img class="pbArrow" src="/images/icons/ArrowUpRightWhite.svg" alt="">
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pbTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pbLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .pbGrid{ display:grid; grid-template-columns: minmax(0,1.6fr) minmax(0,.9fr); gap:clamp(18px,3vw,26px); align-items:start; }
+  @media(max-width: 1100px){ .pbGrid{ grid-template-columns:1fr; } .pbNote{ justify-self:start; } }
+  .pbList{ list-style:none; padding:0; margin:0; display:grid; gap:18px; }
+  .pbList li{ position:relative; padding-left:28px; font-size:clamp(16px, 2.4vw, 20px); color:rgba(214,224,236,.9); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pbList li::before{ content:""; position:absolute; left:0; top:6px; width:16px; height:16px; border-radius:4px; border:2px solid var(--brand, #00BBA7); box-shadow:inset 0 0 0 2px rgba(0,187,167,.25); }
+  .pbNote{ position:relative; align-self:start; justify-self:end; max-width:520px; border-radius:24px; padding:24px 28px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); }
+  .pbNote h3{ margin:0 0 8px; color:#ffffff; font-size:clamp(22px, 2.8vw, 32px); font-weight:800; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pbNote p{ margin:0; color:#E2E8F0; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pbArrow{ position:absolute; top:16px; right:16px; width:clamp(34px, 3.6vw, 56px); height:auto; opacity:.95; }
+</style>
+
+<!-- Solutions You Can Offer -->
+<section class="partnerSolutions text-white" aria-labelledby="solutions-title" style="background:transparent;">
+  <div class="container max-w-screen-xl mx-auto px-6 md:px-10 2xl:px-0 py-14 md:py-20">
+    <header class="mb-6 md:mb-8">
+      <h2 id="solutions-title" class="psTitle">Solutions You Can Offer</h2>
+      <p class="psLede">Deliver enterprise‑level IT maturity to your clients through L3’s proven Elevate framework and service portfolio.</p>
+    </header>
+
+    <div class="psGrid">
+      <article class="psCard">
+        <img src="/images/home/icons/teal/ShieldCheckered.svg" alt="Security icon" class="psIcon">
+        <h3>Cybersecurity &amp; Risk Management</h3>
+        <p>Zero Trust, MDR, compliance, and risk mitigation services.</p>
+      </article>
+      <article class="psCard">
+        <img src="/images/home/icons/teal/Network.svg" alt="Network icon" class="psIcon">
+        <h3>Network &amp; Connectivity</h3>
+        <p>Scalable, high‑availability network design and management.</p>
+      </article>
+      <article class="psCard">
+        <img src="/images/home/icons/teal/CloudCheck.svg" alt="Cloud icon" class="psIcon">
+        <h3>Cloud Platforms &amp; Data Protection</h3>
+        <p>Hybrid and multi‑cloud environments built for performance and control.</p>
+      </article>
+      <article class="psCard">
+        <img src="/images/home/icons/teal/Devices.svg" alt="Helpdesk icon" class="psIcon">
+        <h3>AI‑Enhanced Helpdesk</h3>
+        <p>24/7 support, combining automation and expert human response.</p>
+      </article>
+      <article class="psCard">
+        <img src="/images/home/icons/teal/TrendUp.svg" alt="Leadership icon" class="psIcon">
+        <h3>Strategic IT Leadership</h3>
+        <p>Structured technology governance and roadmap execution.</p>
+      </article>
+      <article class="psCard">
+        <img src="/images/home/icons/teal/simplify-operations.svg" alt="Infrastructure icon" class="psIcon">
+        <h3>Infrastructure as Code</h3>
+        <p>Codified, compliant, and repeatable cloud deployments that deliver consistency.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .psTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .psLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .psGrid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2vw,22px); }
+  @media(max-width:1100px){ .psGrid{ grid-template-columns:1fr; } }
+  .psCard{ border-radius:24px; padding:24px 26px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); }
+  .psIcon{ width:42px; height:auto; margin-bottom:12px; filter:drop-shadow(0 12px 30px rgba(0,187,167,.28)); }
+  .psCard h3{ margin:0 0 6px; color:#ffffff; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .psCard p{ margin:0; color:#C8D3E0; font-size:clamp(16px, 2.2vw, 18px); line-height:1.7; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+</style>
+
+<!-- Partner Success Stories -->
+<section class="partnerStories text-white" aria-labelledby="stories-title" style="background:transparent;">
+  <div class="container max-w-screen-xl mx-auto px-6 md:px-10 2xl:px-0 py-14 md:py-20">
+    <header class="mb-6 md:mb-8">
+      <h2 id="stories-title" class="pssTitle">Partner Success Stories</h2>
+    </header>
+
+    <div class="pssGrid">
+      <!-- Testimonial 1 -->
+      <article class="tsCard">
+        <img class="tsAvatar" src="https://images.unsplash.com/photo-1529336953124-596a09ba0a0f?q=80&w=400&auto=format&fit=crop" alt="Team hands together">
+        <div class="tsStars" aria-hidden="true">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <h3>Flawless Expertise</h3>
+        <p>L3’s IaC and cloud architecture expertise allowed us to take on a client we previously couldn’t support. Their engineers handled it flawlessly.</p>
+        <p class="tsAttr">Co‑Managed MSP, Pacific Northwest</p>
+      </article>
+
+      <!-- Testimonial 2 -->
+      <article class="tsCard">
+        <img class="tsAvatar" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=400&auto=format&fit=crop" alt="Handshake">
+        <div class="tsStars" aria-hidden="true">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <h3>Credibility with Strategic IT Leadership</h3>
+        <p>The vCIO partnership gave our advisory team new credibility. L3’s Elevate framework brought structure to every client conversation.</p>
+        <p class="tsAttr">Technology Advisor Partner</p>
+      </article>
+    </div>
+
+    <!-- CTA panel -->
+    <div class="pssCta">
+      <div class="pssCtaLeft">
+        <h3>Ready to Join a Select Network of Strategic Partners?</h3>
+      </div>
+      <div class="pssCtaRight">
+        <p>We’re not building a channel of volume, we’re building a network of excellence. If you’re an experienced MSP, advisor, or vCIO ready to scale through partnership, let’s talk.</p>
+        <p>Join us and deliver enterprise‑grade IT, cybersecurity, and cloud maturity programs that help your clients advance through every stage of their journey.</p>
+        <div class="pssBtns">
+          <a href="#partner-apply" class="pssBtn">Become a Partner</a>
+          <a href="#contact" class="pssBtnGhost">Contact Our Channel Team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pssTitle{ margin:0; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pssGrid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2.4vw,22px); }
+  @media(max-width:1100px){ .pssGrid{ grid-template-columns:1fr; } }
+  .tsCard{ position:relative; border-radius:24px; padding:26px 26px 22px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); }
+  .tsAvatar{ position:absolute; left:24px; top:-46px; width:110px; height:110px; object-fit:cover; border-radius:50%; border:6px solid #0A1628; box-shadow:0 10px 30px rgba(0,0,0,.45); }
+  .tsStars{ margin-top:72px; color:#fbbf24; font-size:24px; letter-spacing:4px; }
+  .tsCard h3{ margin:6px 0 8px; color:#ffffff; font-size:clamp(18px,2.6vw,22px); font-weight:700; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .tsCard p{ margin:0 0 6px; color:#C8D3E0; font-size:clamp(16px,2.2vw,18px); line-height:1.7; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .tsAttr{ color:#6FE9D4; font-style:italic; margin-top:6px; }
+
+  .pssCta{ margin-top:clamp(24px,4vw,36px); border-radius:20px; border:1px solid rgba(0,187,167,.28); background:rgba(4,18,28,.35); box-shadow:0 1px 0 rgba(255,255,255,.05), inset 0 0 0 1px rgba(0,0,0,.25); padding:clamp(22px,3vw,28px); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:clamp(16px,2vw,22px); align-items:start; }
+  @media(max-width:1100px){ .pssCta{ grid-template-columns:1fr; } }
+  .pssCtaLeft h3{ margin:0; font-size:clamp(22px,2.8vw,32px); font-weight:800; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pssCtaRight p{ margin:0 0 10px; color:#C8D3E0; font-size:clamp(16px,2.2vw,18px); line-height:1.7; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pssBtns{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+  .pssBtn{ display:inline-flex; align-items:center; gap:10px; padding:12px 20px; border-radius:999px; background:var(--brand, #00BBA7); color:#061021; font-weight:700; text-decoration:none; box-shadow:0 6px 22px rgba(0,187,167,.25); }
+  .pssBtnGhost{ display:inline-flex; align-items:center; gap:10px; padding:12px 20px; border-radius:999px; background:transparent; color:#6FE9D4; text-decoration:none; border:1px solid rgba(0,187,167,.35); }
 </style>
 
 {% include "partials/footer.html" %}
