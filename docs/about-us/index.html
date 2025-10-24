@@ -1004,7 +1004,20 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         color:#e2e8f0;
         transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       }
-      .valuesGrid .valuesCard .valuesImg{ margin:0 0 12px; height:140px; border-radius:16px; overflow:hidden; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.04); }
+      .valuesGrid .valuesCard .valuesImg{ position:relative; margin:0 0 12px; height:140px; border-radius:16px; overflow:hidden; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.04); }
+      /* Apply the Home teal image gradient overlay to Values images */
+      .valuesGrid .valuesCard .valuesImg::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        background: linear-gradient(315deg,
+          rgba(0,187,167,.45) 0%,
+          rgba(102,199,232,.28) 35%,
+          rgba(102,199,232,0) 80%
+        );
+        mix-blend-mode: normal;
+      }
       .valuesGrid .valuesCard .valuesImg img{ width:100%; height:100%; object-fit:cover; display:block; }
       .valuesGrid .valuesCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
       /* Add a bit more room under card titles */
