@@ -5671,7 +5671,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     [data-howworks] .howW__iconRow{display:flex; flex-wrap:wrap; gap:clamp(10px,1.6vw,16px);}
     [data-howworks] .howW__body{display:grid; gap:clamp(6px,1vw,10px);}
     [data-howworks] .howW__itemTitle{margin:0 0 clamp(4px,.8vh,8px); color:#f8fafc;}
-    [data-howworks] .howW__itemCopy{margin:0; color:rgba(203,213,225,.88); line-height:1.6; max-width:52ch;}
+    /* Match Technology That Works for You card subcopy size */
+    [data-howworks] .howW__itemCopy{
+      margin:0;
+      color:rgba(203,213,225,.88);
+      line-height:1.6;
+      max-width:52ch;
+      font-size: clamp(16px, 2.4vw, 20px);
+      font-weight:300;
+    }
     [data-howworks] .howW__cta{margin-top:clamp(20px,3vw,28px);}
     [data-howworks] .howW__ctaButton{display:inline-flex; align-items:center; gap:12px; padding:clamp(12px,1.6vw,14px) clamp(24px,2.8vw,30px); border-radius:999px; background:linear-gradient(135deg,#66C7E8 0%, var(--brand) 100%); color:#061021; font-weight:700; letter-spacing:.04em; text-transform:uppercase; text-decoration:none; box-shadow:0 18px 48px rgba(0,187,167,.32); transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;}
     [data-howworks] .howW__iconRow svg path,
