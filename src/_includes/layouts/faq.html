@@ -89,6 +89,12 @@
     letter-spacing:-.01em;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
+
+  /* Two FAQ titles per row on larger screens */
+  @media (min-width: 900px){
+    .faqGroup + .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .faqGroup + .grid details.faqItem + details.faqItem{ margin-top:0; }
+  }
 </style>
 
 <script>
