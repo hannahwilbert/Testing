@@ -615,10 +615,19 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   @media (prefers-reduced-motion: reduce){ .heroStat, .heroStat:hover{ transition:none !important; transform:none !important; } }
   /* Equal spacing under section titles on About Us */
   h2.heading-xl{
-    margin:0 0 20px !important;
+    margin:0 0 8px !important; /* closer to subcopy */
     font-size:38px !important;
     line-height:1.2;
     letter-spacing:-.01em;
+  }
+  /* Add extra space specifically under Our Values in Action */
+  #values-action-heading.heading-xl{
+    margin-bottom:28px !important;
+  }
+  /* First paragraph under a section title: tighter above, extra space below */
+  h2.heading-xl + p{
+    margin-top:4px !important;
+    margin-bottom:clamp(28px,5vw,44px) !important;
   }
   .aboutHeroTeal{ color: var(--brand); }
   /* About hero title — match Why L3 hero sizing/font */
@@ -832,8 +841,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   <!-- Who Leads the Way -->
   <section class="container sectionPad relative max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="leaders-way-heading">
-    <h2 id="leaders-way-heading" class="heading-xl mb-2">Who Leads the Way</h2>
-    <p class="text-[20px] font-light font-inter text-slate-300 max-w-3xl mb-6">We don’t just deliver services; our team becomes an extension of yours. We communicate openly, act deliberately, and stay accountable.</p>
+    <h2 id="leaders-way-heading" class="heading-xl mb-4">Who Leads the Way</h2>
+    <p class="text-[20px] font-light font-inter text-slate-300 max-w-3xl mb-8">We don’t just deliver services; our team becomes an extension of yours. We communicate openly, act deliberately, and stay accountable.</p>
 
     <div class="leadersGrid">
       <!-- Kev -->
@@ -883,21 +892,30 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     </div>
 
     <!-- Leadership CTA -->
-    <div class="mt-6 flex justify-center">
-      <a href="/leadership/"
-         class="inline-flex items-center gap-2 rounded-full px-5 py-2 font-semibold text-white"
-         style="background:var(--brand); box-shadow:0 10px 28px rgba(0,187,167,.35); font-size:clamp(14px,2.2vw,18px); text-decoration:none;">
+    <div class="mt-10 flex justify-center">
+      <a href="/leadership/" data-cta="primary">
         Meet the Leadership Team
-        <img src="/images/icons/ArrowUpRightWhite.svg" alt="Meet the Leadership Team" style="height:18px;"/>
+        <img src="/images/icons/ArrowUpRightWhite.svg" alt="Meet the Leadership Team" />
       </a>
     </div>
 
 
     <style>
-      .leadersGrid{ display:grid; gap:clamp(14px,2.4vw,20px); align-items:stretch; grid-auto-rows:1fr; grid-template-columns:1fr; }
+      /* Leadership CTA — solid teal (no gradient) */
+      section[aria-labelledby="leaders-way-heading"] a[data-cta="primary"]{
+        background: var(--brand) !important;
+        box-shadow: 0 12px 28px rgba(0,187,167,.45);
+        filter: none;
+      }
+      section[aria-labelledby="leaders-way-heading"] a[data-cta="primary"]:is(:hover,:focus-visible){
+        filter: brightness(1.04);
+        transform: translateY(-1px) scale(1.02);
+        box-shadow: 0 16px 36px rgba(0,187,167,.55);
+      }
+      .leadersGrid{ display:grid; gap:clamp(20px,3.2vw,28px); align-items:stretch; grid-auto-rows:1fr; grid-template-columns:1fr; }
       @media (min-width:640px){ .leadersGrid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
       @media (min-width:1024px){ .leadersGrid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
-      .leaderCard{ display:flex; flex-direction:column; padding:clamp(16px,2.6vw,22px); border-radius:24px; border:1px solid #1b2d46; text-decoration:none; cursor:pointer;
+      .leaderCard{ display:flex; flex-direction:column; gap:clamp(10px,1.6vw,14px); padding:clamp(20px,3vw,26px); border-radius:24px; border:1px solid #1b2d46; text-decoration:none; cursor:pointer;
         background:
           radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
           linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
@@ -907,10 +925,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
         transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
       .leaderCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
-      .leaderHead{ display:flex; align-items:center; gap:12px; margin:0 0 12px; min-height:64px; }
+      .leaderHead{ display:flex; align-items:center; gap:14px; margin:0 0 14px; min-height:72px; }
       .leaderName{ margin:0; font-size:clamp(16px,2.2vw,18px); font-weight:600; letter-spacing:-.01em; color:#fff; }
       .leaderRole{ margin:2px 0 0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:rgba(203,213,225,.7); }
-      .leaderDesc{ margin:2px 0 0; line-height:1.65; }
+      .leaderDesc{ margin:4px 0 0; line-height:1.75; max-width:60ch; }
       @supports (-webkit-line-clamp: 3){ .leaderDesc{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; } }
       .leaderActions{ margin-top:auto; padding-top:12px; }
       .leaderAvatar{
@@ -958,6 +976,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       .valuesGrid .valuesCard .valuesImg{ margin:0 0 12px; height:140px; border-radius:16px; overflow:hidden; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.04); }
       .valuesGrid .valuesCard .valuesImg img{ width:100%; height:100%; object-fit:cover; display:block; }
       .valuesGrid .valuesCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
+      /* Add a bit more room under card titles */
+      .valuesGrid .valuesCard h3{ margin-bottom:12px !important; }
     </style>
     <style>
       .mapFrame{ border-radius:18px; }
