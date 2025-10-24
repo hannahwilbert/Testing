@@ -556,7 +556,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <div class="relative z-10 grid max-w-screen-xl gap-12 px-0 mx-auto items-center justify-items-center">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="heading-xl mb-6 font-semibold tracking-tight">Driving <span class="aboutHeroTeal">Success Through Technology</span></h1>
-        <p class="text-[22px] font-light font-inter text-slate-100/90" style="font-size:22px; font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Empowering businesses to harness IT for growth, success, and peace of mind.</p>
+        <p class="body-lead font-light font-inter text-slate-100/90">Empowering businesses to harness IT for growth, success, and peace of mind.</p>
         <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="mt-12">
           Schedule a 15-Minute Right‑Fit Call
           <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a 15-Minute Right‑Fit Call">
@@ -580,6 +580,11 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     filter: brightness(1.04);
     transform: translateY(-1px) scale(1.02);
     box-shadow: 0 16px 36px rgba(0,187,167,.55);
+  }
+  /* About Us — Hero subcopy: increase size to match Why L3 feel */
+  .aboutHero .body-lead{
+    font-size: clamp(18px, 3vw, 24px) !important;
+    line-height: 1.65;
   }
   /* About Us — Hero Stat Cards */
   .heroStats{ gap:clamp(14px,2.4vw,18px); }
@@ -628,6 +633,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   h2.heading-xl + p{
     margin-top:4px !important;
     margin-bottom:clamp(28px,5vw,44px) !important;
+    font-size:clamp(16px, 2.4vw, 20px) !important;
+    line-height:1.65 !important;
   }
   .aboutHeroTeal{ color: var(--brand); }
   /* About hero title — match Why L3 hero sizing/font */
@@ -842,7 +849,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <!-- Who Leads the Way -->
   <section class="container sectionPad relative max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="leaders-way-heading">
     <h2 id="leaders-way-heading" class="heading-xl mb-4">Who Leads the Way</h2>
-    <p class="text-[20px] font-light font-inter text-slate-300 max-w-3xl mb-8">We don’t just deliver services; our team becomes an extension of yours. We communicate openly, act deliberately, and stay accountable.</p>
+    <p class="body-lead font-light font-inter text-slate-300 max-w-3xl mb-8">We don’t just deliver services; our team becomes an extension of yours. We communicate openly, act deliberately, and stay accountable.</p>
 
     <div class="leadersGrid">
       <!-- Kev -->
@@ -926,9 +933,9 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
       .leaderCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
       .leaderHead{ display:flex; align-items:center; gap:14px; margin:0 0 14px; min-height:72px; }
-      .leaderName{ margin:0; font-size:clamp(16px,2.2vw,18px); font-weight:600; letter-spacing:-.01em; color:#fff; }
+      .leaderName{ margin:0; font-size:clamp(18px,2.6vw,22px); font-weight:700; letter-spacing:-.01em; color:#fff; }
       .leaderRole{ margin:2px 0 0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:rgba(203,213,225,.7); }
-      .leaderDesc{ margin:4px 0 0; line-height:1.75; max-width:60ch; }
+      .leaderDesc{ margin:4px 0 0; line-height:1.6; max-width:60ch; font-size:clamp(15px, 2vw, 18px); font-weight:300; color:rgba(214,224,236,.88); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
       @supports (-webkit-line-clamp: 3){ .leaderDesc{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; } }
       .leaderActions{ margin-top:auto; padding-top:12px; }
       .leaderAvatar{
@@ -977,7 +984,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       .valuesGrid .valuesCard .valuesImg img{ width:100%; height:100%; object-fit:cover; display:block; }
       .valuesGrid .valuesCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
       /* Add a bit more room under card titles */
-      .valuesGrid .valuesCard h3{ margin-bottom:12px !important; }
+      .valuesGrid .valuesCard h3{ margin-bottom:12px !important; font-size:clamp(18px,2.6vw,22px); letter-spacing:-.01em; color:#f8fafc; }
+      .valuesGrid .valuesCard p{ font-size:clamp(15px, 2vw, 18px); line-height:1.6; font-weight:300; color:rgba(214,224,236,.88); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
     </style>
     <style>
       .mapFrame{ border-radius:18px; }
@@ -1050,7 +1058,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <section class="locationsFull relative" style="background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%);">
   <div class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="locations-heading">
     <h2 id="locations-heading" class="mb-2 heading-xl md:mx-0">Where We Serve You</h2>
-    <p class="text-[20px] font-light font-inter text-slate-300 md:mx-0 max-w-3xl">While rooted in Southern California, our reach is far broader:</p>
+    <p class="body-lead font-light font-inter text-slate-300 md:mx-0 max-w-3xl">While rooted in Southern California, our reach is far broader:</p>
 <style>
       .locChip{ display:inline-flex; align-items:center; justify-content:center; padding:.2rem .6rem; font-size:11px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; border-radius:999px; border:1px solid var(--accent); color:var(--accent); background:rgba(148,163,184,.10); }
       .locActions{ display:flex; flex-wrap:wrap; gap:.5rem; }
@@ -1060,31 +1068,37 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       .locAddress{ display:block; margin-top:.5rem; font-size:clamp(14px,1.6vw,16px); line-height:1.55; color:#cbd5e1; text-align:left; font-style:normal; }
       /* Horizontal info row (title — address — buttons) */
       .mapInfoRow{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; }
-      .mapInfoRow #locName{ margin:0; }
-      .mapInfoRow #locAddress{ margin:0; display:inline; }
+      .mapInfoRow #locName{ margin:0; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; letter-spacing:-.01em; }
+      .mapInfoRow #locAddress{ margin:0; display:inline; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; color:rgba(214,224,236,.92); }
       .mapInfoRow #locAddress br{ display:none; }
       .mapInfoRow .locActions{ margin-top:0; }
       /* Map header row: title — address — buttons */
       .mapInfoRow{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; }
-      .mapInfoRow #locName{ margin:0; }
-      .mapInfoRow #locAddress{ margin:0; display:inline; }
+      .mapInfoRow #locName{ margin:0; font-size:clamp(18px, 2.6vw, 22px); font-weight:700; letter-spacing:-.01em; }
+      .mapInfoRow #locAddress{ margin:0; display:inline; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; color:rgba(214,224,236,.92); }
       .mapInfoRow #locAddress br{ display:none; }
       /* Hide legacy card grid below map */
       .locationsFull .grid.items-stretch{ display:none !important; }
       /* Two-column layout: map left, tabs right */
-      .locShell{ display:grid; gap:clamp(24px, 6vw, 64px); margin-top:12px; }
-      @media(min-width:1024px){ .locShell{ grid-template-columns:minmax(0,2fr) minmax(0,3fr); align-items:stretch; } }
+      .locShell{ display:grid; gap:clamp(24px, 6vw, 64px); margin-top:clamp(16px,3vw,24px); }
+      @media(min-width:1024px){ .locShell{ grid-template-columns:minmax(0,2.5fr) minmax(0,2fr); align-items:stretch; } }
       .tabsCol{ display:block; }
       .leftCol{ display:flex; flex-direction:column; gap:clamp(16px, 2.5vw, 28px); min-height:0; }
       .rightCol{ min-height:0; }
       .rightCol .mapCard{ height:100%; display:flex; flex-direction:column; min-height:0; }
-      .locCardList{ display:grid; gap:clamp(12px, 2vw, 20px); }
+      .locCardList{ display:grid; gap:clamp(16px, 2.4vw, 24px); padding-top:6px; }
       .locCardList{ flex:1 1 auto; overflow:auto; min-height:0; }
+      .locCardList .locCard:first-child{ margin-top:2px; }
       .rightCol .mapBox{ flex:1 1 auto; min-height:0; }
       /* Compact left cards */
       .leftCol .locCard{ padding:10px !important; }
-      .leftCol .locCard h3{ font-size:0.95rem; }
-      .leftCol .locCard .locAddress{ font-size:14px; line-height:1.4; margin-top:4px; }
+      /* Unify card typography across the whole section */
+      .locationsFull .locCard h3{ font-size:clamp(16px, 2.2vw, 18px); font-weight:600; letter-spacing:-.01em; }
+      .locationsFull .locCard .locAddress{ font-size:clamp(15px, 2vw, 18px); line-height:1.6; margin-top:4px; color:rgba(214,224,236,.88); font-weight:300; }
+      .locationsFull .locCard .locTitleRest{ font-weight:300; color:rgba(214,224,236,.9); }
+      /* Keep left column consistent as well (explicit override not strictly needed, but retained for clarity) */
+      .leftCol .locCard h3{ font-size:clamp(16px, 2.2vw, 18px); font-weight:600; letter-spacing:-.01em; }
+      .leftCol .locCard .locAddress{ font-size:clamp(15px, 2vw, 18px); line-height:1.6; margin-top:4px; color:rgba(214,224,236,.88); font-weight:300; }
       .leftCol .locCard .locActions a{ font-size:12px; padding:4px 8px; }
       .leftCol .locCard .cardHeader{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
       .leftCol .locCard .cardHeader h3{ margin:0; }
@@ -1099,7 +1113,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     <div class="locCardList">
       <div class="l3-card locCard p-4" data-map-q="11205 Knott Avenue, Suite B, Cypress, CA 90630" role="button" tabindex="0">
         <div class="cardHeader">
-          <h3 class="text-base font-semibold tracking-tight text-white">Corporate Office: Cypress CA</h3>
+          <h3 class="text-base font-semibold tracking-tight text-white"><span class="locTitleMain">Corporate Office:</span><span class="locTitleRest"> Cypress CA</span></h3>
           <div class="locActions" style="--accent:#00BBA7">
             <a href="https://maps.google.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Google Maps">Google</a>
             <a href="https://maps.apple.com/?q=11205+Knott+Avenue,+Suite+B+Cypress,+CA+90630" target="_blank" aria-label="Open in Apple Maps">Apple</a>
@@ -1110,7 +1124,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="l3-card locCard p-4" data-map-q="1920 E Maple Ave, El Segundo, CA 90245" role="button" tabindex="0">
         <div class="cardHeader">
-          <h3 class="text-base font-semibold tracking-tight text-white">Datacenter (LA3): Los Angeles, CA</h3>
+          <h3 class="text-base font-semibold tracking-tight text-white"><span class="locTitleMain">Datacenter (LA3):</span><span class="locTitleRest"> Los Angeles, CA</span></h3>
           <div class="locActions" style="--accent: #66C7E8">
             <a href="https://maps.google.com/?q=1920+E+Maple+Ave,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Google Maps">Google</a>
             <a href="https://maps.apple.com/?q=1920+E+Maple+Ave,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Apple Maps">Apple</a>
@@ -1121,7 +1135,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="l3-card locCard p-4" data-map-q="445 N Douglas St, El Segundo, CA 90245" role="button" tabindex="0">
         <div class="cardHeader">
-          <h3 class="text-base font-semibold tracking-tight text-white">Datacenter (LA4): Los Angeles, CA</h3>
+          <h3 class="text-base font-semibold tracking-tight text-white"><span class="locTitleMain">Datacenter (LA4):</span><span class="locTitleRest"> Los Angeles, CA</span></h3>
           <div class="locActions" style="--accent: #66C7E8">
             <a href="https://maps.google.com/?q=445+N+Douglas+St,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Google Maps">Google</a>
             <a href="https://maps.apple.com/?q=445+N+Douglas+St,+El+Segundo,+CA+90245" target="_blank" aria-label="Open in Apple Maps">Apple</a>
@@ -1132,7 +1146,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="l3-card locCard p-4" data-map-q="1950 North Stemmons Freeway, Suite 2027, Dallas, TX 75207" role="button" tabindex="0">
         <div class="cardHeader">
-          <h3 class="text-base font-semibold tracking-tight text-white">Strategic Hub: Dallas, TX</h3>
+          <h3 class="text-base font-semibold tracking-tight text-white"><span class="locTitleMain">Strategic Hub:</span><span class="locTitleRest"> Dallas, TX</span></h3>
           <div class="locActions" style="--accent: #66C7E8">
             <a href="https://maps.google.com/?q=1950+North+Stemmons+Freeway,+Suite+2027,+Dallas,+TX+75207" target="_blank" aria-label="Open in Google Maps">Google</a>
             <a href="https://maps.apple.com/?q=1950+North+Stemmons+Freeway,+Suite+2027,+Dallas,+TX+75207" target="_blank" aria-label="Open in Apple Maps">Apple</a>
@@ -1143,7 +1157,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="l3-card locCard p-4" data-map-q="A305 6, 1 Abelian St, Yerevan 0038, Armenia" role="button" tabindex="0">
         <div class="cardHeader">
-          <h3 class="text-base font-semibold tracking-tight text-white">Global Team Support: Yerevan, Armenia</h3>
+          <h3 class="text-base font-semibold tracking-tight text-white"><span class="locTitleMain">Global Team Support:</span><span class="locTitleRest"> Yerevan, Armenia</span></h3>
           <div class="locActions" style="--accent: #00BBA7">
             <a href="https://maps.google.com/?q=A305+6,+1+Abelian+St,+Yerevan+0038,+Armenia" target="_blank" aria-label="Open in Google Maps">Google</a>
             <a href="https://maps.apple.com/?q=A305+6,+1+Abelian+St,+Yerevan+0038,+Armenia" target="_blank" aria-label="Open in Apple Maps">Apple</a>
@@ -1176,7 +1190,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="1920 E Maple Ave, El Segundo, CA 90245" role="button" tabindex="0">
         <div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">Datacenter (LA3): Los Angeles, CA</h3>
+          <h3 class="text-xl font-semibold tracking-tight text-white"><span class="locTitleMain">Datacenter (LA3):</span><span class="locTitleRest"> Los Angeles, CA</span></h3>
           <address class="locAddress">1920 E Maple Ave<br>El Segundo, CA&nbsp;90245</address>
         </div>
         
@@ -1194,7 +1208,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="445 N Douglas St, El Segundo, CA 90245" role="button" tabindex="0">
         <div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">Datacenter (LA4): Los Angeles, CA</h3>
+          <h3 class="text-xl font-semibold tracking-tight text-white"><span class="locTitleMain">Datacenter (LA4):</span><span class="locTitleRest"> Los Angeles, CA</span></h3>
           <address class="locAddress">445 N Douglas St<br>El Segundo, CA&nbsp;90245</address>
         </div>
         
@@ -1212,7 +1226,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="1950 North Stemmons Freeway, Suite 2027, Dallas, TX 75207" role="button" tabindex="0">
         <div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">Strategic Hub: Dallas, TX</h3>
+          <h3 class="text-xl font-semibold tracking-tight text-white"><span class="locTitleMain">Strategic Hub:</span><span class="locTitleRest"> Dallas, TX</span></h3>
           <address class="locAddress">1950 North Stemmons Freeway, Suite 2027<br>Dallas, TX&nbsp;75207</address>
         </div>
         
@@ -1230,7 +1244,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       
       <div class="relative p-6 l3-card locCard grid grid-rows-[1fr_auto] h-full gap-2" data-map-q="A305 6, 1 Abelian St, Yerevan 0038, Armenia" role="button" tabindex="0">
         <div>
-          <h3 class="text-xl font-semibold tracking-tight text-white">Global Team Support: Yerevan, Armenia</h3>
+          <h3 class="text-xl font-semibold tracking-tight text-white"><span class="locTitleMain">Global Team Support:</span><span class="locTitleRest"> Yerevan, Armenia</span></h3>
           <address class="locAddress">A305 6, 1 Abelian St<br>Yerevan 0038, Armenia</address>
         </div>
         
@@ -1311,7 +1325,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   <section class="container sectionPad max-w-screen-xl px-6 mx-auto text-white md:px-10 2xl:px-0" aria-labelledby="tech-partners-heading">
 
     <h2 id="tech-partners-heading" class="heading-xl mb-2">Trusted Technology Partners</h2>
-    <p class="text-[20px] font-light font-inter mb-10 text-slate-300">We partner with leading platforms to deliver secure, reliable outcomes.</p>
+    <p class="body-lead font-light font-inter mb-10 text-slate-300">We partner with leading platforms to deliver secure, reliable outcomes.</p>
 
     
 
