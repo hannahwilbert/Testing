@@ -568,7 +568,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     line-height:1.08 !important;
     font-size:clamp(34px, 4.8vw, 64px) !important;
   }
-  .faqToc{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:16px auto 28px; }
+  .faqToc{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:16px auto clamp(28px, 4vh, 44px); }
   .faqToc a{
     display:inline-flex; align-items:center; gap:.5rem; padding:.6rem 1rem; border-radius:999px; font-weight:800; font-size:14px; letter-spacing:.02em;
     color:#e2e8f0; border:1px solid #1b2d46;
@@ -621,16 +621,23 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
   /* Section titles: align to About/Why L3 h2 sizing */
   .faqGroup.heading-xl{
-    margin:0 0 8px !important;
+    margin:0 0 clamp(12px, 2vh, 20px) !important;
     font-size:38px !important;
     line-height:1.2;
     letter-spacing:-.01em;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-margin-top: 96px; /* account for fixed nav when jumping via TOC */
   }
 
-  /* Layout: stack sections full width */
+  /* Layout: stack sections full width with clear separation */
   .faqSections{ display:block; }
-  .faqSection{ display:block; }
+  .faqSection{ position:relative; display:block; padding-top:clamp(24px, 5vh, 56px); padding-bottom:clamp(12px, 3vh, 24px); }
+  .faqSection > .grid{ gap: clamp(12px, 2.4vh, 20px) !important; }
+  .faqSection + .faqSection{ margin-top:clamp(28px, 6vh, 64px); }
+  .faqSection + .faqSection::before{
+    content:""; position:absolute; left:0; right:0; top:0; height:1px;
+    background:linear-gradient(90deg, rgba(148,163,184,.08), rgba(148,163,184,.22), rgba(148,163,184,.08));
+  }
 </style>
 
 <script>
