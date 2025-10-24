@@ -144,6 +144,8 @@
     background:linear-gradient(90deg, rgba(148,163,184,.08), rgba(148,163,184,.22), rgba(148,163,184,.08));
     pointer-events:none; /* avoid intercepting clicks on first cards */
   }
+  /* Extra space above footer on this page */
+  .faqFooterGap{ height: clamp(40px, 8vh, 120px); }
 </style>
 
 <script>
@@ -298,6 +300,7 @@
   })();
   </script>
 
+<div class="faqFooterGap" aria-hidden="true"></div>
 {% include "partials/footer.html" %}
 
 {% endblock %}
