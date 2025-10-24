@@ -10,7 +10,7 @@
     <div class="relative z-10 grid max-w-screen-xl gap-8 px-6 md:px-0 mx-auto items-center md:grid-cols-2 md:gap-12">
       <div class="max-w-3xl md:mx-0 text-left">
         <h1 class="mb-6 text-3xl font-semibold tracking-tight md:text-6xl">Leadership</h1>
-        <p class="text-lg font-light md:text-2xl text-slate-100/90" style="max-width:64ch">Meet the people guiding L3 Networks—combining deep engineering experience with structured, outcomes‑driven delivery.</p>
+        <p class="body-lead font-light text-slate-100/90" style="max-width:64ch">Meet the people guiding L3 Networks—combining deep engineering experience with structured, outcomes‑driven delivery.</p>
       </div>
       <div class="heroImgWrap relative w-full max-w-xl md:max-w-2xl mx-auto md:mx-0">
         <img src="/images/about/leadership.webp" alt="L3 Networks leadership team" class="w-full h-full rounded-3xl shadow-[0_25px_60px_rgba(15,23,42,0.45)] object-cover" style="aspect-ratio: 16/10; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.04)">
@@ -22,8 +22,13 @@
 <style>
   .whyL3Hero .heroOverlay{
     background:
-      linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 42%),
-      linear-gradient(0deg, rgba(0,0,0,.12), rgba(0,0,0,0) 32%);
+      linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0) 42%),
+      linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,0) 32%);
+  }
+  /* Leadership hero subcopy: match other hero body size */
+  .whyL3Hero .body-lead{
+    font-size: clamp(18px, 3vw, 24px);
+    line-height: 1.65;
   }
   /* Keep outer list as a single-column stack; inner layout handled per card */
   .leadGrid{ display:grid; gap:clamp(36px,5vw,64px); grid-template-columns:1fr; }
@@ -56,14 +61,14 @@
   .leadBody + .leadBody{ margin-top:1.1rem; }
   .leadCard + .leadCard{ margin-top:clamp(44px,7vh,72px); }
   /* Chip/links to jump between leaders */
-  .leadToc{ display:flex; flex-wrap:wrap; gap:clamp(14px,2.6vw,28px); justify-content:center; margin:clamp(24px,3vh,32px) auto clamp(44px,7vh,64px); }
+  .leadToc{ display:flex; flex-wrap:wrap; gap:clamp(10px,2vw,20px); justify-content:center; margin:clamp(20px,2.6vh,28px) auto clamp(36px,6vh,48px); }
   .leadToc a{
-    display:inline-flex; align-items:center; gap:.5rem; padding:0; border-radius:0;
-    font-weight:800; font-size:clamp(16px,2.1vw,22px); letter-spacing:.03em; line-height:1.2;
+    display:inline-flex; align-items:center; gap:.4rem; padding:0; border-radius:0;
+    font-weight:800; font-size:clamp(14px,1.6vw,18px); letter-spacing:.02em; line-height:1.15;
     color:#ffffff;
     text-decoration:underline;
-    text-underline-offset:4px;
-    text-decoration-thickness:3px;
+    text-underline-offset:3px;
+    text-decoration-thickness:2px;
     text-decoration-color:rgba(255,255,255,.85);
     background:transparent; border:none; box-shadow:none;
     transition: color .18s ease, text-decoration-color .18s ease;
@@ -83,7 +88,7 @@
   if(!cv) return; var root=cv.parentElement; var reduce=false; try{ reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches }catch(e){}
   if(reduce) return; var ctx=cv.getContext('2d',{alpha:true}); if(!ctx) return;
   var DPR=1; function size(){ var r=root.getBoundingClientRect(); var dpr=Math.min(1.5, Math.max(1, window.devicePixelRatio||1)); DPR=dpr; cv.width=Math.max(1, Math.floor(r.width*dpr)); cv.height=Math.max(1, Math.floor(r.height*dpr)); cv.style.width=r.width+'px'; cv.style.height=r.height+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); }
-  var t=Math.random()*10; function render(){ var W=cv.width/DPR, H=cv.height/DPR; ctx.clearRect(0,0,W,H); var L=90, AMP=28, TH=1.2, SP=.25; for(var i=0;i<L;i++){ var u=i/(L-1)*2-1; var w=1-Math.abs(u); ctx.globalAlpha=.06*(.6+.5*w); ctx.lineWidth=Math.max(.6, TH*(.9+.8*w)); ctx.strokeStyle='#FFFFFF'; ctx.beginPath(); var base=H*(.56+u*SP); for(var x=0;x<=W;x+=Math.max(1.4, W/220)){ var nx=x/W; var y= base + Math.sin(nx*10 + t*.6 + u)*AMP*(.65+.55*w); if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);} ctx.stroke(); } t+=.016; requestAnimationFrame(render); }
+  var t=Math.random()*10; function render(){ var W=cv.width/DPR, H=cv.height/DPR; ctx.clearRect(0,0,W,H); var L=100, AMP=30, TH=1.3, SP=.25; for(var i=0;i<L;i++){ var u=i/(L-1)*2-1; var w=1-Math.abs(u); ctx.globalAlpha=.08*(.6+.5*w); ctx.lineWidth=Math.max(.7, TH*(.9+.8*w)); ctx.strokeStyle='#66C7E8'; ctx.shadowBlur=3; ctx.shadowColor='rgba(102,199,232,.25)'; ctx.beginPath(); var base=H*(.56+u*SP); for(var x=0;x<=W;x+=Math.max(1.3, W/230)){ var nx=x/W; var y= base + Math.sin(nx*10 + t*.6 + u)*AMP*(.65+.55*w); if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);} ctx.stroke(); } t+=.016; requestAnimationFrame(render); }
   function boot(){ size(); render(); } if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', boot, { once:true }); } else { boot(); } window.addEventListener('resize', size, { passive:true });
 })();
 </script>
