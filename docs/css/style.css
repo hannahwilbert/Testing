@@ -3893,11 +3893,6 @@
       margin-top: calc(var(--spacing) * 12);
     }
   }
-  .md\:mt-14 {
-    @media (width >= 48rem) {
-      margin-top: calc(var(--spacing) * 14);
-    }
-  }
   .md\:mt-16 {
     @media (width >= 48rem) {
       margin-top: calc(var(--spacing) * 16);
@@ -4213,11 +4208,6 @@
       gap: calc(var(--spacing) * 12);
     }
   }
-  .md\:gap-16 {
-    @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 16);
-    }
-  }
   .md\:space-y-0 {
     @media (width >= 48rem) {
       :where(& > :not(:last-child)) {
@@ -4364,11 +4354,6 @@
       padding-block: calc(var(--spacing) * 24);
     }
   }
-  .md\:py-28 {
-    @media (width >= 48rem) {
-      padding-block: calc(var(--spacing) * 28);
-    }
-  }
   .md\:py-32 {
     @media (width >= 48rem) {
       padding-block: calc(var(--spacing) * 32);
@@ -4442,11 +4427,6 @@
   .md\:pb-1 {
     @media (width >= 48rem) {
       padding-bottom: calc(var(--spacing) * 1);
-    }
-  }
-  .md\:pb-12 {
-    @media (width >= 48rem) {
-      padding-bottom: calc(var(--spacing) * 12);
     }
   }
   .md\:pb-16 {

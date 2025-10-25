@@ -50,7 +50,7 @@
 
 <style>
   /* HERO — matches screenshot layout */
-  .partnerHero{ padding:120px 40px 40px; background:radial-gradient(1200px 500px at 50% -200px, rgba(0,187,167,.10), transparent 60%), linear-gradient(180deg,#030B16 0%, #071326 100%) !important; }
+  .partnerHero{ margin-top:clamp(8px, 1.2vw, 16px); padding:120px 40px 40px; background:radial-gradient(1200px 500px at 50% -200px, rgba(0,187,167,.10), transparent 60%), linear-gradient(180deg,#030B16 0%, #071326 100%) !important; }
   .partnerHero .hero-grid{ display:grid; grid-template-columns:minmax(520px,1fr) 520px; gap:clamp(8px,1vw,12px); align-items:end; max-width:1200px; margin:0 auto; }
   /* Use the same heading font/weight as Home hero (Montserrat, 700) */
   .partnerHero .title{ font-weight:700; line-height:1.03; margin:0; letter-spacing:-.02em; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -495,10 +495,10 @@
   .pssTitle{ margin:0 0 clamp(16px, 3vw, 28px); font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
   .pssGrid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2.4vw,22px); }
   @media(max-width:1100px){ .pssGrid{ grid-template-columns:1fr; } }
-  .tsCard{ position:relative; border-radius:24px; padding:26px 26px 22px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); margin-top:clamp(60px, 8vw, 90px); }
+  .tsCard{ position:relative; border-radius:24px; padding:26px 26px 22px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); margin-top:clamp(80px, 10vw, 120px); --tsAvatarSize: clamp(120px, 12vw, 160px); }
   /* Center avatar and star row */
-  .tsAvatar{ position:absolute; left:50%; transform:translateX(-50%); top:-46px; width:110px; height:110px; object-fit:cover; border-radius:50%; border:6px solid #0A1628; box-shadow:0 10px 30px rgba(0,0,0,.45); }
-  .tsStars{ margin-top:72px; color:#fbbf24; letter-spacing:4px; text-align:center; }
+  .tsAvatar{ position:absolute; left:50%; transform:translateX(-50%); top:calc(var(--tsAvatarSize) * -0.42); width:var(--tsAvatarSize); height:var(--tsAvatarSize); object-fit:cover; border-radius:50%; border:6px solid #0A1628; box-shadow:0 10px 30px rgba(0,0,0,.45); }
+  .tsStars{ margin-top:calc(var(--tsAvatarSize) * 0.66); color:#fbbf24; letter-spacing:4px; text-align:center; }
   .tsStars span{ display:inline-block; font-size:24px; line-height:1; }
   .tsStars span:nth-child(3){ font-size:32px; }
   .tsCard h3{ margin:6px 0 8px; color:#ffffff; font-size:clamp(18px,2.6vw,22px); font-weight:700; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -512,6 +512,104 @@
   .pssBtns{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
   .pssBtn{ display:inline-flex; align-items:center; gap:10px; padding:12px 20px; border-radius:999px; background:var(--brand, #00BBA7); color:#061021; font-weight:700; text-decoration:none; box-shadow:0 6px 22px rgba(0,187,167,.25); }
   .pssBtnGhost{ display:inline-flex; align-items:center; gap:10px; padding:12px 20px; border-radius:999px; background:transparent; color:#6FE9D4; text-decoration:none; border:1px solid rgba(0,187,167,.35); }
+</style>
+
+<!-- Unify card styling with Home page cards -->
+<style>
+  /* Shared card surface matching Home `.svcCard` look */
+  .homeCardSurface,
+  .pmCard,
+  .pjCard,
+  .psCard,
+  .tsCard,
+  .pbNote,
+  .pwQuote,
+  .whoItem,
+  .cardSurface,
+  .pssCta{
+    border-radius:16px !important;
+    border:1px solid #1b2d46 !important;
+    color:#e2e8f0;
+    background:
+      radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+      linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+      linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+      linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+      linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%) !important;
+    box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06) !important;
+    transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+  }
+
+  /* Remove extra inner stroke from older surface helper */
+  .cardSurface::before{ content:none !important; }
+
+  /* Hover/focus accents like Home cards */
+  .pmCard:hover, .pmCard:focus-visible,
+  .pjCard:hover, .pjCard:focus-visible,
+  .psCard:hover, .psCard:focus-visible,
+  .tsCard:hover, .tsCard:focus-visible,
+  .pbNote:hover, .pbNote:focus-visible,
+  .pwQuote:hover, .pwQuote:focus-visible,
+  .whoItem:hover, .whoItem:focus-within,
+  .cardSurface:hover, .cardSurface:focus-visible,
+  .pssCta:hover, .pssCta:focus-visible{
+    box-shadow:0 20px 52px rgba(5,12,22,.54) !important;
+    transform:translate3d(0,-3px,0);
+    border-color:#66C7E8 !important;
+  }
+
+  /* Preserve specific paddings where needed after radius unification */
+  .pmCard{ padding:clamp(26px,3vw,34px); }
+  .pjCard{ padding:22px 24px; }
+  .psCard{ padding:24px 26px; }
+  .tsCard{ padding:26px 26px 22px; }
+  .pbNote{ padding:24px 28px; }
+  .pwQuote{ padding:20px 22px; }
+  .whoToggle{ padding:18px 22px; }
+  .whoBody{ padding:16px 22px 18px; }
+
+  /* Who We Partner With: move surface to container, make inner parts neutral */
+  .whoItem{ overflow:visible !important; position:relative; }
+  .whoToggle{ background:transparent !important; border:none !important; border-radius:0 !important; box-shadow:none !important; }
+  .whoBody{ background:transparent !important; border:none !important; border-radius:0 !important; margin-top:0 !important; box-shadow:none !important; border-top:1px solid rgba(148,163,184,.12) !important; }
+
+  /* Keep arrow/icon visibility as before for partners cards */
+  .pmArrowImg{ opacity:.95; }
+
+  /* Fading teal dividers scoped to containers */
+  section[class^="partner"] > .container{ position:relative; }
+
+  /* Top fade divider between partner sections */
+  section[class^="partner"] + section[class^="partner"] > .container::before{
+    content:""; position:absolute; left:0; right:0; top:0; height:1px;
+    background:linear-gradient(90deg,
+      rgba(0,187,167,0) 0%, rgba(0,187,167,.55) 12%, rgba(0,187,167,.55) 88%, rgba(0,187,167,0) 100%);
+  }
+
+  /* Bottom fade dividers for key sections */
+  .partnerWhy > .container::after,
+  .partnerWho > .container::after,
+  .partnerJourney > .container::after,
+  .partnerModel > .container::after,
+  .partnerBenefits > .container::after,
+  .partnerSolutions > .container::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
+    background:linear-gradient(90deg,
+      rgba(0,187,167,0) 0%, rgba(0,187,167,.55) 12%, rgba(0,187,167,.55) 88%, rgba(0,187,167,0) 100%);
+  }
+
+  /* Avoid double lines at seams: hide the next section's top divider */
+  section.partnerWhy + section[class^="partner"] > .container::before,
+  section.partnerWho + section[class^="partner"] > .container::before,
+  section.partnerJourney + section[class^="partner"] > .container::before,
+  section.partnerModel + section[class^="partner"] > .container::before,
+  section.partnerBenefits + section[class^="partner"] > .container::before,
+  section.partnerSolutions + section[class^="partner"] > .container::before{
+    content:none;
+  }
+
+  /* Also prefer bottom divider on Who over its top when preceded by any partner */
+  section[class^="partner"] + section.partnerWho > .container::before{ content:none; }
 </style>
 
 {% include "partials/footer.html" %}
