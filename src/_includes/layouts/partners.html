@@ -6,7 +6,7 @@
   <div class="absolute inset-0 bg-gradient-to-br from-black via-slate-950/85 to-slate-900/65"></div>
   <div class="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_0%,_rgba(45,212,191,0.12),_transparent_70%)] pointer-events-none"></div>
 
-  <div class="container relative max-w-screen-xl px-0 pb-20 md:pb-28 md:mx-auto md:py-28">
+  <div class="container relative max-w-screen-xl px-0 md:mx-auto">
     <div class="hero-grid relative z-10">
       <!-- Left: Big headline -->
       <div class="text-left">
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Down chevron -->
-    <div class="mt-10 md:mt-14 grid place-items-center">
+    <div class="mt-6 md:mt-8 grid place-items-center">
       <span class="partnerChevron" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10" opacity=".22"></circle>
@@ -50,7 +50,7 @@
 
 <style>
   /* HERO — matches screenshot layout */
-  .partnerHero{ padding:120px 40px 80px; background:radial-gradient(1200px 500px at 50% -200px, rgba(0,187,167,.10), transparent 60%), linear-gradient(180deg,#030B16 0%, #071326 100%) !important; }
+  .partnerHero{ padding:120px 40px 40px; background:radial-gradient(1200px 500px at 50% -200px, rgba(0,187,167,.10), transparent 60%), linear-gradient(180deg,#030B16 0%, #071326 100%) !important; }
   .partnerHero .hero-grid{ display:grid; grid-template-columns:minmax(520px,1fr) 520px; gap:clamp(8px,1vw,12px); align-items:end; max-width:1200px; margin:0 auto; }
   /* Use the same heading font/weight as Home hero (Montserrat, 700) */
   .partnerHero .title{ font-weight:700; line-height:1.03; margin:0; letter-spacing:-.02em; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -381,7 +381,8 @@
   @media(max-width: 1100px){ .pbGrid{ grid-template-columns:1fr; } .pbNote{ justify-self:start; } }
   .pbList{ list-style:none; padding:0; margin:0; display:grid; gap:18px; }
   .pbList li{ position:relative; padding-left:28px; font-size:clamp(16px, 2.4vw, 20px); color:rgba(214,224,236,.9); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .pbList li::before{ content:""; position:absolute; left:0; top:6px; width:16px; height:16px; border-radius:4px; border:2px solid var(--brand, #00BBA7); box-shadow:inset 0 0 0 2px rgba(0,187,167,.25); }
+  .pbList li::before{ content:""; position:absolute; left:0; top:.5em; width:16px; height:16px; border-radius:4px; border:2px solid var(--brand, #00BBA7); box-shadow:inset 0 0 0 2px rgba(0,187,167,.25); background:rgba(20,184,166,.08); }
+  .pbList li::after{ content:""; position:absolute; left:4px; top:.74em; width:10px; height:6px; border:2px solid var(--brand, #00BBA7); border-top:none; border-right:none; transform:rotate(-45deg); }
   .pbNote{ position:relative; align-self:start; justify-self:end; max-width:520px; border-radius:24px; padding:24px 28px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); }
   .pbNote h3{ margin:0 0 8px; color:#ffffff; font-size:clamp(22px, 2.8vw, 32px); font-weight:800; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
   .pbNote p{ margin:0; color:#E2E8F0; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -452,7 +453,7 @@
     <div class="pssGrid">
       <!-- Testimonial 1 -->
       <article class="tsCard">
-        <img class="tsAvatar" src="https://images.unsplash.com/photo-1529336953124-596a09ba0a0f?q=80&w=400&auto=format&fit=crop" alt="Team hands together">
+        <img class="tsAvatar" src="https://t4.ftcdn.net/jpg/03/16/87/77/360_F_316877700_FFoXaAcUEYsPNmaYli3BrSRZo3xMCyqI.jpg" alt="Team hands together">
         <div class="tsStars" aria-hidden="true">
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
@@ -491,12 +492,15 @@
 </section>
 
 <style>
-  .pssTitle{ margin:0; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .pssTitle{ margin:0 0 clamp(16px, 3vw, 28px); font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
   .pssGrid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2.4vw,22px); }
   @media(max-width:1100px){ .pssGrid{ grid-template-columns:1fr; } }
-  .tsCard{ position:relative; border-radius:24px; padding:26px 26px 22px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); }
-  .tsAvatar{ position:absolute; left:24px; top:-46px; width:110px; height:110px; object-fit:cover; border-radius:50%; border:6px solid #0A1628; box-shadow:0 10px 30px rgba(0,0,0,.45); }
-  .tsStars{ margin-top:72px; color:#fbbf24; font-size:24px; letter-spacing:4px; }
+  .tsCard{ position:relative; border-radius:24px; padding:26px 26px 22px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); margin-top:clamp(60px, 8vw, 90px); }
+  /* Center avatar and star row */
+  .tsAvatar{ position:absolute; left:50%; transform:translateX(-50%); top:-46px; width:110px; height:110px; object-fit:cover; border-radius:50%; border:6px solid #0A1628; box-shadow:0 10px 30px rgba(0,0,0,.45); }
+  .tsStars{ margin-top:72px; color:#fbbf24; letter-spacing:4px; text-align:center; }
+  .tsStars span{ display:inline-block; font-size:24px; line-height:1; }
+  .tsStars span:nth-child(3){ font-size:32px; }
   .tsCard h3{ margin:6px 0 8px; color:#ffffff; font-size:clamp(18px,2.6vw,22px); font-weight:700; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
   .tsCard p{ margin:0 0 6px; color:#C8D3E0; font-size:clamp(16px,2.2vw,18px); line-height:1.7; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
   .tsAttr{ color:#6FE9D4; font-style:italic; margin-top:6px; }
