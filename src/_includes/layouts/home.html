@@ -811,7 +811,7 @@
       <!-- RIGHT: supporting stock photo (desktop) -->
       <aside class="problemFlat__aside">
         <figure class="problemFlat__media">
-          <img loading="lazy" src="https://media.licdn.com/dms/image/v2/D5612AQHXspWvuFkPXw/article-cover_image-shrink_720_1280/B56ZjNBDwmHcAI-/0/1755786265302?e=2147483647&amp;v=beta&amp;t=IdX5IHhO8HqEx6mNEsA802CJ3MhwsSo_-O7Sy1tZ82c" alt="Home office scene with laptop and tablet showing analytics and warning indicators" />
+          <img loading="lazy" src="/images/home/tech-errors.png" alt="Home office scene with laptop and tablet showing analytics and warning indicators" />
           <figcaption class="sr-only">Home office scene with analytics and warning indicators</figcaption>
         </figure>
         <div class="problemFlat__ctas" style="margin-top:clamp(12px, 2vh, 20px);">
@@ -2100,6 +2100,8 @@
       max-width:none;
       object-fit:cover;
       object-position:50% 50%;
+      /* Add layered drop shadows for depth */
+      filter: drop-shadow(0 18px 40px rgba(12,26,48,.55)) drop-shadow(0 30px 72px rgba(0,187,167,.18));
     }
     /* Teal overlay tint */
     .kfE__media::after{
@@ -2236,7 +2238,7 @@
       /* Right column: fixed content width so it aligns neatly with carousel center */
       .kfE__right{ display:grid; grid-template-rows:auto auto 1fr; gap:clamp(12px,2vh,20px); align-content:start; width:100%; max-width:var(--kf-right-max); }
       .kfE__media{ display:block; }
-      .kfE__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; }
+      .kfE__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; filter: drop-shadow(0 14px 32px rgba(12,26,48,.55)) drop-shadow(0 24px 54px rgba(0,187,167,.18)); }
       /* Left-align CTA under the image for consistent alignment */
       .kfE__rightCtaWrap{ display:flex; justify-content:flex-start; }
       .kfE__rightCta img{ height:18px; }
