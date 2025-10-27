@@ -4148,11 +4148,6 @@
       grid-template-columns: repeat(12, minmax(0, 1fr));
     }
   }
-  .md\:grid-cols-\[minmax\(0\,5fr\)_minmax\(0\,7fr\)\] {
-    @media (width >= 48rem) {
-      grid-template-columns: minmax(0,5fr) minmax(0,7fr);
-    }
-  }
   .md\:grid-cols-\[minmax\(0\,7fr\)_minmax\(0\,5fr\)\] {
     @media (width >= 48rem) {
       grid-template-columns: minmax(0,7fr) minmax(0,5fr);
