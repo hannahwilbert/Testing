@@ -3146,13 +3146,6 @@
       }
     }
   }
-  .hover\:text-teal-600 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-teal-600);
-      }
-    }
-  }
   .hover\:text-white {
     &:hover {
       @media (hover: hover) {
@@ -3514,11 +3507,6 @@
   .sm\:h-80 {
     @media (width >= 40rem) {
       height: calc(var(--spacing) * 80);
-    }
-  }
-  .sm\:h-\[36px\] {
-    @media (width >= 40rem) {
-      height: 36px;
     }
   }
   .sm\:w-5 {
@@ -3901,11 +3889,6 @@
   .md\:mt-20 {
     @media (width >= 48rem) {
       margin-top: calc(var(--spacing) * 20);
-    }
-  }
-  .md\:mt-24 {
-    @media (width >= 48rem) {
-      margin-top: calc(var(--spacing) * 24);
     }
   }
   .md\:mt-32 {
