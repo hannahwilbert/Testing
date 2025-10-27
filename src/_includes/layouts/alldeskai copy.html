@@ -27,9 +27,23 @@
           <img src="/images/icons/ArrowUpRightWhite.svg" alt="Schedule a Demo">
         </a>
       </div>
-      <!-- Right: Image -->
+      <!-- Right: Animation -->
       <figure class="relative flex flex-col items-center gap-3 text-center">
-        <img src="/images/products/alldeskai.png" alt="AllDesk Ai" class="relative w-full h-auto object-contain" style="max-width:28rem;">
+        <div class="alldeskStage" aria-hidden="true">
+          <svg id="alldeskSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+            <defs>
+              <linearGradient id="adAiGrad" x1="513.98" y1="290" x2="479.72" y2="320" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#00BBA7" stop-opacity="0" />
+                <stop offset=".25" stop-color="#00BBA7" />
+                <stop offset=".55" stop-color="#1E2C4B" />
+                <stop offset=".75" stop-color="#00BBA7" />
+                <stop offset="1" stop-color="#00BBA7" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <g id="adEllGroup"></g>
+            <path id="adAi" opacity="0" d="m417.17,323.85h-34.34c-3.69,0-6.67-2.99-6.67-6.67v-34.34c0-3.69,2.99-6.67,6.67-6.67h34.34c3.69,0,6.67,2.99,6.67,6.67v34.34c0,3.69-2.99,6.67-6.67,6.67Z" stroke="url(#adAiGrad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+          </svg>
+        </div>
       </figure>
     </div>
   </div>
@@ -39,7 +53,60 @@
   /* Match solution hero helper styles */
   .waves canvas{ width:100%; height:100%; display:block; }
   .product-hero .body-lead{ font-size:clamp(17px, 2.6vw, 22px); line-height:1.65; }
+  /* Animation stage */
+  .alldeskStage{ width:100%; max-width:28rem; aspect-ratio:16/9; border-radius:16px; overflow:visible; position:relative; background:transparent; }
+  .alldeskStage svg{ width:100%; height:100%; visibility:hidden; display:block; }
+  .ad-ell, #adAi{ fill:none; }
 </style>
+
+<!-- GSAP animation for AllDesk hero (lightweight, self-contained) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/CustomEase.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return; 
+  function ready(fn){ if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', fn, { once:true }); } else { fn(); } }
+  ready(function(){
+    try{
+      var svg = document.getElementById('alldeskSVG');
+      if(!svg || typeof gsap === 'undefined') return;
+      var group = document.getElementById('adEllGroup');
+      for (var i=0; i<28; i++){
+        var e = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
+        e.setAttribute('cx', 400);
+        e.setAttribute('cy', 300);
+        e.setAttribute('rx', 80);
+        e.setAttribute('ry', 80);
+        e.setAttribute('class', 'ad-ell');
+        group.appendChild(e);
+      }
+
+      var ells = gsap.utils.toArray('.ad-ell');
+      var easeInOut = CustomEase.create('custom', 'M0,0 C0.2,0 0.432,0.147 0.507,0.374 0.59,0.629 0.822,1 1,1 ');
+      var easeIn    = CustomEase.create('custom', 'M0,0 C0.266,0.412 0.297,0.582 0.453,0.775 0.53,0.87 0.78,1 1,1 ');
+      var easeOut   = CustomEase.create('custom', 'M0,0 C0.594,0.062 0.79,0.698 1,1 ');
+      var colorLerp = gsap.utils.interpolate(['#00BBA7', '#1E2C4B']);
+
+      gsap.set(svg, { visibility: 'visible' });
+
+      function animateEllipse(el, idx){
+        var tl = gsap.timeline({ defaults:{ ease:easeInOut }, repeat:-1 });
+        gsap.set(el, { opacity: 1 - idx/28, stroke: colorLerp(idx/28) });
+        tl
+          .to(el, { attr:{ ry: '-=' + (idx*2.3), rx: '+=' + (idx*1.4) }, ease:easeOut })
+          .to(el, { attr:{ ry: '+=' + (idx*2.3), rx: '-=' + (idx*1.4) }, ease:easeIn })
+          .to(el, { duration:1, rotation:-180, transformOrigin:'50% 50%' }, 0)
+          .timeScale(0.5);
+      }
+
+      ells.forEach(function(el, i){ gsap.delayedCall(i/(ells.length-1), animateEllipse, [el, i+1]); });
+      gsap.to('#adAiGrad', { duration:4, delay:0.75, attr:{ x1:'-=300', x2:'-=300' }, repeat:-1, ease:'none' });
+      gsap.to('#adAi', { duration:1, scale:1.1, transformOrigin:'50% 50%', repeat:-1, yoyo:true, ease:easeInOut });
+    }catch(e){ /* swallow */ }
+  });
+})();
+</script>
 
 
 
