@@ -1660,6 +1660,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           overflow:visible; /* allow expanded body to overlap neighbors */
           transition:none; /* remove hover animation */
           isolation:isolate;
+          cursor:pointer; /* whole card is clickable */
         }
         /* Decorative sheens like hero highlight cards */
         .cyberServiceCard::before,
@@ -1804,6 +1805,15 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
           btn.setAttribute('aria-controls', id);
           // collapse all by default once enhanced
           collapseCard(card);
+          // Make entire card clickable (not just the title button)
+          card.addEventListener('click', function(e){
+            // Ignore clicks on the explicit toggle button (already handled)
+            if (e.target.closest('.cyberServiceCard__toggle')) return;
+            // Ignore clicks on interactive elements inside the card
+            if (e.target.closest('a,button,input,textarea,select,label')) return;
+            e.preventDefault();
+            btn.click();
+          });
           btn.addEventListener('click', function(e){
             e.preventDefault();
             var isOpen = btn.getAttribute('aria-expanded') === 'true';
