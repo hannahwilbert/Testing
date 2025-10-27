@@ -577,7 +577,7 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
       <!-- Right: Animation -->
       <figure class="relative flex flex-col items-center gap-3 text-center">
         <div class="alldeskStage" aria-hidden="true">
-          <svg id="alldeskSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 75 800 450">
+          <svg id="alldeskSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
             <defs>
               <linearGradient id="adAiGrad" x1="513.98" y1="290" x2="479.72" y2="320" gradientUnits="userSpaceOnUse">
                 <stop offset="0" stop-color="#00BBA7" stop-opacity="0" />
@@ -623,8 +623,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         var e = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
         e.setAttribute('cx', 400);
         e.setAttribute('cy', 300);
-        e.setAttribute('rx', 80);
-        e.setAttribute('ry', 80);
+        e.setAttribute('rx', 120);
+        e.setAttribute('ry', 120);
         e.setAttribute('class', 'ad-ell');
         group.appendChild(e);
       }
@@ -641,8 +641,8 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
         var tl = gsap.timeline({ defaults:{ ease:easeInOut }, repeat:-1 });
         gsap.set(el, { opacity: 1 - idx/28, stroke: colorLerp(idx/28) });
         tl
-          .to(el, { attr:{ ry: '-=' + (idx*2.3), rx: '+=' + (idx*1.4) }, ease:easeOut })
-          .to(el, { attr:{ ry: '+=' + (idx*2.3), rx: '-=' + (idx*1.4) }, ease:easeIn })
+          .to(el, { attr:{ ry: '-=' + (idx*3.0), rx: '+=' + (idx*1.8) }, ease:easeOut })
+          .to(el, { attr:{ ry: '+=' + (idx*3.0), rx: '-=' + (idx*1.8) }, ease:easeIn })
           .to(el, { duration:1, rotation:-180, transformOrigin:'50% 50%' }, 0)
           .timeScale(0.5);
       }
