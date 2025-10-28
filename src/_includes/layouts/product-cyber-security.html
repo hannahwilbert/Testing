@@ -173,13 +173,13 @@
         <div class="howE__grid" role="list">
           {% for step in frameworkSteps %}
           {% set overlayId = 'elevate-overlay-product-' ~ loop.index %}
-          {% set img = '/images/elevate/stabilize.png' %}
+          {% set img = '/images/elevate/stabilize2.png' %}
           {% set tag = 'Fix urgent gaps, secure the foundation.' %}
           {% if step.phase and step.phase | lower == 'optimize' %}
-            {% set img = '/images/elevate/optimize.png' %}
+            {% set img = '/images/elevate/optimize2.png' %}
             {% set tag = 'Improve performance, reduce risks, automate.' %}
           {% elseif step.phase and step.phase | lower == 'transform' %}
-            {% set img = '/images/elevate/transform.png' %}
+            {% set img = '/images/elevate/transform2.png' %}
             {% set tag = 'Align IT strategy with business growth.' %}
           {% endif %}
 

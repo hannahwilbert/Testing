@@ -2598,21 +2598,21 @@
     title: 'Stabilize',
     tagline: 'Fix urgent gaps, secure the foundation.',
     description: 'Move from reactive to proactive. Reduce risk, eliminate recurring issues, and build confidence in your IT foundation.',
-    image: '/images/elevate/stabilize.png'
+    image: '/images/elevate/stabilize2.png'
   },
   {
     stage: 'Stage 2',
     title: 'Optimize',
     tagline: 'Improve performance, reduce risks, automate.',
     description: 'Achieve peak performance. Strengthen compliance, improve user experience, and unlock measurable efficiency gains.',
-    image: '/images/elevate/optimize.png'
+    image: '/images/elevate/optimize2.png'
   },
   {
     stage: 'Stage 3',
     title: 'Transform',
     tagline: 'Align IT strategy with business growth.',
     description: 'Align IT with long-term strategy. Enable growth, resilience, and innovation through vCIO guidance, hybrid cloud, and M&A readiness.',
-    image: '/images/elevate/transform.png'
+    image: '/images/elevate/transform2.png'
   }
 ] %}
 {% endif %}
@@ -2665,7 +2665,7 @@
             @keydown.space.prevent="open = !open"
             @keydown.escape.prevent="open = false"
           >
-            <img src="{{ phase.image }}" alt="{{ phase.title }} image" class="w-full h-full object-cover">
+            <img src="{{ phase.image }}" alt="{{ phase.title }} image" class="w-full h-full object-cover"{% if phase.title == 'Stabilize' %} style="object-position: 80% 85%;"{% endif %}>
           </button>
 
           <div
