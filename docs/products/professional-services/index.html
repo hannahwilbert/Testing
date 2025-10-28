@@ -2505,6 +2505,28 @@
           margin-left:6px;
         }
 
+        
+        /* Professional Services: shrink first proof card (Market Growth for Strategic Guidance) */
+        .l3-kpi-cards .card:nth-child(1){
+          min-height: clamp(200px, 26vh, 280px);
+          padding: clamp(14px, 2vw, 20px);
+        }
+        .l3-kpi-cards .card:nth-child(1) .card-visual{
+          min-height: clamp(80px, 11vh, 120px);
+          gap: 6px;
+        }
+        .l3-kpi-cards .card:nth-child(1) .proof-metrics{
+          margin-top: 4px;
+          gap: 8px;
+        }
+        .l3-kpi-cards .card:nth-child(1) .proof-metric__track{
+          height: 8px;
+        }
+        .l3-kpi-cards .card:nth-child(1) .proof-metric__value{
+          font-size: clamp(12px, 1.4vw, 16px);
+        }
+        
+
         .l3-kpi-cards .bar-wrap{ margin-top:2px; }
 
         .l3-kpi-cards .bar,
