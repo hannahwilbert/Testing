@@ -215,7 +215,7 @@
                 @keydown.space.prevent="open = !open"
                 @keydown.escape.prevent="open = false"
               >
-                <img src="{{ img }}" alt="{{ step.phase }} image" class="w-full h-full object-cover">
+                <img src="{{ img }}" alt="{{ step.phase }} image" class="w-full h-full object-cover"{% if step.phase and step.phase | lower == 'stabilize' %} style="object-position: 80% 85%;"{% endif %}>
               </button>
 
               <div

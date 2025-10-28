@@ -268,7 +268,7 @@
           <img
             src="{{ c.bgImage }}"
             alt="{{ c.title }} image"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover"{% if c.title == 'Stabilize' %} style="object-position: 80% 85%;"{% endif %}
           />
         </button>
 
