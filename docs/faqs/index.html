@@ -531,6 +531,8 @@
 </section>
 
 <style>
+  /* Load Montserrat for section titles */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
   /* Disable CSS-level smooth-scrolling on this page to avoid native hash jumps */
   html { scroll-behavior: auto; }
   .whyL3Hero .heroOverlay{
@@ -602,7 +604,7 @@
   details.faqItem summary{
     list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px;
     padding:clamp(16px,2.8vw,24px) clamp(18px,3.2vw,26px);
-    font-weight:800; letter-spacing:-.02em; color:#f8fbff; font-size:clamp(17px, 2.6vw, 22px); line-height:1.15;
+    font-weight:800; letter-spacing:-.02em; color:#f8fbff; font-size:20px !important; line-height:1.2;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   details.faqItem summary::-webkit-details-marker{ display:none; }
@@ -626,7 +628,7 @@
   }
   /* Answer area: attached panel similar to Home open state */
   .faqAnswer{ margin:0; padding: clamp(12px,2.4vw,18px) clamp(16px,3.2vw,22px) clamp(16px,3.2vw,22px);
-    color: rgba(255,255,255,.95); font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; }
+    color: rgba(255,255,255,.95); font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:18px !important; line-height:1.65; font-weight:300; }
   details.faqItem[open] .faqAnswer{
     background: color-mix(in oklab, var(--brand, #00BBA7) 86%, #0b1325 14%);
   }
@@ -644,7 +646,7 @@
     font-size:38px !important;
     line-height:1.2;
     letter-spacing:-.01em;
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
     scroll-margin-top: 96px; /* account for fixed nav when jumping via TOC */
   }
 
