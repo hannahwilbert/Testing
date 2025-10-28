@@ -323,51 +323,46 @@
     <p class="body-lead font-light font-inter text-slate-300 max-w-3xl mb-8">We don’t just deliver services; our team becomes an extension of yours. We communicate openly, act deliberately, and stay accountable.</p>
 
     <div class="leadersGrid">
-      <!-- Kev -->
+      <!-- Kev (photo-forward with initials fallback) -->
       <a class="leaderCard" href="/leadership/#leader-kev" aria-label="View Kev Toumaian bio">
-        <div class="leaderHead">
-          <div class="leaderAvatar" aria-hidden="true">KT</div>
-          <div>
-            <h3 class="leaderName">Kev Toumaian</h3>
-            <p class="leaderRole">Co‑Founder • Operations</p>
-          </div>
+        <figure class="leaderImg" aria-hidden="true">
+          <div class="leaderInitials">KT</div>
+        </figure>
+        <div class="leaderInfo">
+          <h3 class="leaderName">Kev Toumaian</h3>
+          <p class="leaderRole">Co‑Founder • Operations</p>
         </div>
         <p class="leaderDesc text-slate-300">
           Leads operational strategy with a background in transformation across legacy to modern systems.
         </p>
-        
       </a>
 
-      <!-- Steve -->
+      <!-- Steve (with headshot) -->
       <a class="leaderCard" href="/leadership/#leader-steve" aria-label="View Steve Griffin bio">
-        <div class="leaderHead">
-          <figure class="leaderPhoto" aria-hidden="true">
-            <img src="https://media.licdn.com/dms/image/v2/D5603AQEQO4rVqHE9dw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718221142180?e=1762992000&v=beta&t=l9NLCHdBGjl9R6dB2rIUgnr3tKbLtod_evJS-sj6NPo" alt="Headshot of Steve Griffin" loading="lazy" decoding="async">
-          </figure>
-          <div>
-            <h3 class="leaderName">Steve Griffin</h3>
-            <p class="leaderRole">Co‑Founder • Service Delivery</p>
-          </div>
+        <figure class="leaderImg" aria-hidden="true">
+          <img src="https://media.licdn.com/dms/image/v2/D5603AQEQO4rVqHE9dw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718221142180?e=1762992000&v=beta&t=l9NLCHdBGjl9R6dB2rIUgnr3tKbLtod_evJS-sj6NPo" alt="Headshot of Steve Griffin" loading="lazy" decoding="async">
+        </figure>
+        <div class="leaderInfo">
+          <h3 class="leaderName">Steve Griffin</h3>
+          <p class="leaderRole">Co‑Founder • Service Delivery</p>
         </div>
         <p class="leaderDesc text-slate-300">
           Drives service delivery, ensuring every client environment operates with discipline and high standards.
         </p>
-        
       </a>
 
-      <!-- James -->
+      <!-- James (initials fallback) -->
       <a class="leaderCard" href="/leadership/#leader-james" aria-label="View James Mason bio">
-        <div class="leaderHead">
-          <div class="leaderAvatar" aria-hidden="true">JM</div>
-          <div>
-            <h3 class="leaderName">James Mason</h3>
-            <p class="leaderRole">Sales &amp; Marketing Lead</p>
-          </div>
+        <figure class="leaderImg" aria-hidden="true">
+          <div class="leaderInitials">JM</div>
+        </figure>
+        <div class="leaderInfo">
+          <h3 class="leaderName">James Mason</h3>
+          <p class="leaderRole">Sales &amp; Marketing Lead</p>
         </div>
         <p class="leaderDesc text-slate-300">
           Bridges strategy and execution—he ensures what we plan is what we deliver.
         </p>
-        
       </a>
     </div>
 
@@ -406,6 +401,11 @@
         transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
       .leaderCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
       .leaderHead{ display:flex; align-items:center; gap:14px; margin:0 0 14px; min-height:72px; }
+      /* New photo-forward leader cards */
+      .leaderImg{ position:relative; margin:0 0 12px; height:200px; border-radius:16px; overflow:hidden; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.04); }
+      .leaderImg img{ width:100%; height:100%; object-fit:cover; display:block; }
+      .leaderInitials{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:clamp(28px,4vw,36px); letter-spacing:.02em; color:#07312c; background:linear-gradient(135deg, rgba(102,199,232,.85) 0%, rgba(0,187,167,.85) 100%); text-shadow:0 2px 6px rgba(0,0,0,.35); }
+      .leaderInfo{ display:block; }
       .leaderName{ margin:0; font-size:clamp(18px,2.6vw,22px); font-weight:700; letter-spacing:-.01em; color:#fff; }
       .leaderRole{ margin:2px 0 0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:rgba(203,213,225,.7); }
       .leaderDesc{ margin:4px 0 0; line-height:1.6; max-width:60ch; font-size:clamp(15px, 2vw, 18px); font-weight:300; color:rgba(214,224,236,.88); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -419,9 +419,9 @@
         letter-spacing:.02em;
       }
       @media (min-width: 768px){ .leaderAvatar{ width:56px; height:56px; font-size:18px; } }
-      .leaderPhoto{ display:inline-block; width:56px; height:56px; border-radius:999px; overflow:hidden; border:1px solid rgba(148,163,184,.25); background:rgba(255,255,255,.05); box-shadow:0 8px 20px rgba(0,0,0,.35); }
+      .leaderPhoto{ display:inline-block; width:72px; height:72px; border-radius:999px; overflow:hidden; border:1px solid rgba(148,163,184,.25); background:rgba(255,255,255,.05); box-shadow:0 8px 20px rgba(0,0,0,.35); }
       .leaderPhoto img{ width:100%; height:100%; object-fit:cover; display:block; }
-      @media (min-width: 768px){ .leaderPhoto{ width:64px; height:64px; } }
+      @media (min-width: 768px){ .leaderPhoto{ width:88px; height:88px; } .leaderHead{ min-height:88px; } }
       .leaderBio{
         display:inline-flex; align-items:center; gap:.5rem;
         padding:.55rem .95rem; border-radius:999px; font-weight:700; font-size:14px; letter-spacing:.02em;
