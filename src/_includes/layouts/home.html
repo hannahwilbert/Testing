@@ -2874,8 +2874,13 @@
       {% for s in services %}
       {# Compute per-card image once to avoid nested ifs in attributes #}
       {% set img = svcBg[loop.index0 % (svcBg|length)] %}
-      {% if loop.index0 == 0 %}{% set img = "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt0016a533ecd959e5/664e6e5ebc1e340f04afb4bb/Cybersecurity(1800)_Skorzewiak_Alamy.jpg?width=1280&auto=webp&quality=80&disable=upscale" %}{% elif loop.index0 == 1 %}{% set img = "https://programminginsider.com/wp-content/uploads/2024/09/Network.jpg" %}{% elif loop.index0 == 2 %}{% set img = "https://t4.ftcdn.net/jpg/02/66/18/03/360_F_266180394_lFKeZa8xgxcXDYYaHtUZnv5qnvUUjnLL.jpg" %}{% elif loop.last %}{% set img = "https://tealtech.com/wp-content/uploads/2025/09/AdobeStock_1405552456-scaled.jpeg" %}{% endif %}
+      {% if loop.index0 == 0 %}{% set img = "/images/home/cybersecurity2.png" %}{% elif loop.index0 == 1 %}{% set img = "https://programminginsider.com/wp-content/uploads/2024/09/Network.jpg" %}{% elif loop.index0 == 2 %}{% set img = "https://t4.ftcdn.net/jpg/02/66/18/03/360_F_266180394_lFKeZa8xgxcXDYYaHtUZnv5qnvUUjnLL.jpg" %}{% elif loop.last %}{% set img = "https://tealtech.com/wp-content/uploads/2025/09/AdobeStock_1405552456-scaled.jpeg" %}{% endif %}
       {% if s.title == 'Cloud Platforms & Data Protection' or s.title == 'Cloud Solutions' %}{% set img = "https://www.harpercollege.edu/academics/business/info-systems/images/cybersecurity-support-specialist1550x490.jpg" %}{% endif %}
+      {% if s.title == 'Cybersecurity' %}{% set img = "/images/home/cybersecurity2.png" %}{% endif %}
+      {% if s.title == 'Networks & Connectivity' %}{% set img = "/images/home/networks2.png" %}{% endif %}
+      {% if s.title == 'Users & Devices' %}{% set img = "/images/home/users2.png" %}{% endif %}
+      {% if s.title == 'Cloud Solutions' %}{% set img = "/images/home/cloud2.png" %}{% endif %}
+      {% if s.title == 'Professional Services' %}{% set img = "/images/home/professional.png" %}{% endif %}
       {% set mediaFirst = (s.title == 'Network Infrastructure & Connectivity') or (s.title == 'Cloud Platforms & Data Protection') %}
       <a href="{{ s.link }}" class="svcCard svcCard--split{% if s.title == 'Cloud Platforms & Data Protection' %} svcCard--flip{% endif %}{% if mediaFirst %} svcCard--mediaFirst{% endif %}{% if s.title == 'Cybersecurity' %} svcCard--noTint{% endif %}" style="--svcBg: url('{{ img }}');">
         {% if mediaFirst %}
