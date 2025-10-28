@@ -32,7 +32,7 @@
     line-height: 1.65;
   }
   /* Keep outer list as a single-column stack; inner layout handled per card */
-  .leadGrid{ display:grid; gap:clamp(36px,5vw,64px); grid-template-columns:1fr; }
+  .leadGrid{ display:grid; gap:clamp(64px,8vw,120px); grid-template-columns:1fr; }
   .leadCard{ position:relative; border-radius:24px; border:1px solid #1b2d46;
     background:
       radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
@@ -41,33 +41,35 @@
       linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
       linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
     box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
-    padding:clamp(28px,3.6vw,36px);
+    padding:clamp(36px,4.6vw,52px);
     /* Ensure hash navigation leaves room for the TOC chips above */
     scroll-margin-top:clamp(90px,14vh,180px);
   }
   .leadCard::after{ content:""; position:absolute; right:-18px; top:-18px; width:160px; height:160px; border-radius:24px; background:radial-gradient(closest-side, rgba(102,199,232,.18), rgba(0,0,0,0)); filter:blur(10px); opacity:.55; pointer-events:none; }
   .leadImgWrap{ border-radius:18px; overflow:hidden; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.04); }
   .leadImgWrap img{ display:block; width:100%; height:100%; object-fit:cover; aspect-ratio:4/4; }
-  .leadCopy{ max-width:92ch; margin:0 auto; padding-top:clamp(10px,2vh,18px); padding-bottom:clamp(12px,2vh,22px); }
+  .leadCopy{ max-width:75ch; margin:0 auto; padding-top:clamp(18px,4vh,28px); padding-bottom:clamp(22px,4vh,36px); }
   .leadName{ margin:0 0 .25rem; font-weight:800; letter-spacing:-.015em; color:#fff; font-size:clamp(26px,3.2vw,36px); line-height:1.1; }
   /* Role as subtle subcopy under the name */
-  .leadRole{ display:block; margin:.1rem 0 .8rem; padding:0; border-radius:0;
+  .leadRole{ display:block; margin:.25rem 0 1.1rem; padding:0; border-radius:0;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-weight:600; font-size:18px !important; letter-spacing:.01em; text-transform:none; color:rgba(203,213,225,.9);
     background:transparent; box-shadow:none; border:none; }
   .leadBody{
     margin:0;
     color:rgba(226,232,240,.92);
-    line-height:1.95;
+    line-height:1.8;
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size:18px !important;
     hyphens:auto;
     overflow-wrap:anywhere;
   }
-  .leadBody + .leadBody{ margin-top:1.1rem; }
-.leadCard + .leadCard{ margin-top:clamp(44px,7vh,72px); }
+  .leadBody + .leadBody{ margin-top:1.4rem; }
+  /* Add a little space before the first paragraph under the head */
+  .leadCopy .leadHead + .leadBody{ margin-top:.6rem; }
+.leadCard + .leadCard{ margin-top:clamp(72px,11vh,140px); }
   /* Compact head with round avatar */
-  .leadHead{ display:flex; align-items:center; gap:18px; margin:0 0 16px; }
+  .leadHead{ display:flex; align-items:center; gap:22px; margin:0 0 24px; }
   .leadAvatar{ width:clamp(104px, 24vw, 160px); height:clamp(104px, 24vw, 160px); border-radius:999px; overflow:hidden; flex:0 0 auto; border:4px solid #0A1628; background:#0A1628; box-shadow:0 10px 20px rgba(0,0,0,.35); }
   .leadAvatar img{ width:100%; height:100%; object-fit:cover; display:block; }
   /* Nudge Kev's avatar crop up a bit */
@@ -75,7 +77,7 @@
   /* Slight zoom for Steve's avatar to crop in a bit */
   #leader-steve .leadAvatar img{ transform:scale(1.20); transform-origin:center; object-position:center 12%; }
   /* Chip/links to jump between leaders */
-  .leadToc{ display:flex; flex-wrap:wrap; gap:clamp(10px,2vw,20px); justify-content:center; margin:clamp(20px,2.6vh,28px) auto clamp(36px,6vh,48px); }
+  .leadToc{ display:flex; flex-wrap:wrap; gap:clamp(14px,2.8vw,24px); justify-content:center; margin:clamp(36px,8vh,72px) auto clamp(56px,10vh,96px); }
   .leadToc a{
     display:inline-flex; align-items:center; gap:.4rem; padding:0; border-radius:0;
     font-weight:800; font-size:clamp(14px,1.6vw,18px); letter-spacing:.02em; line-height:1.15;
@@ -112,6 +114,13 @@
   .leadGrid[data-mode="tabbed"] .leadCard.is-active{ display:block; margin-top:0; }
   /* Active chip state */
   .leadToc a.is-active{ transform:translateY(-1px); filter:brightness(1.05); }
+  /* Section container: add a bit more vertical air */
+  section[aria-label="Leadership biographies"]{
+    padding-top:clamp(48px,10vh,120px) !important;
+    padding-bottom:clamp(160px,24vh,340px) !important;
+  }
+  /* Actions row: add breathing room above buttons */
+  .leadActions{ margin-top:clamp(16px,2.4vh,22px); }
 </style>
 
 <script>

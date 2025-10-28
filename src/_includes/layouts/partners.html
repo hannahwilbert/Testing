@@ -76,7 +76,9 @@
   }
   .partnerIntro__inner{ max-width:1100px; margin:0 auto; color:rgba(226,232,240,.95); display:grid; gap:1.2rem; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
   /* Match body copy used on Why L3 & About Us */
-  .partnerIntro__inner .body-text{ font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; color:rgba(214,224,236,.9); }
+  .partnerIntro__inner .body-text{ font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; color:rgba(214,224,236,.9); max-width:75ch; }
+  /* Extra spacing before each major paragraph block in intro */
+  .partnerIntro__inner .body-text + .body-text{ margin-top:1.1rem; }
   .partnerChevron{ color:#e2e8f0; opacity:.65; }
   .partnerHero [data-cta="primary"]{ background: var(--brand) !important; }
   @media (prefers-reduced-motion: reduce){ .partnerChevron{ transition:none !important; } }
@@ -102,14 +104,34 @@
     </header>
 
     <div class="pwGrid">
-      <!-- Bullet points -->
-      <ul class="pwList" role="list">
-        <li>Proven expertise across cybersecurity, cloud, infrastructure, and helpdesk operations</li>
-        <li>Trusted reputation with both SMB and enterprise clients</li>
-        <li>Turnkey operations and defined processes that integrate easily with your team</li>
-        <li>Flexible engagement models: co‑managed, or referral‑based</li>
-        <li>Access to proprietary tools, automation, and reporting frameworks that elevate delivery quality</li>
-      </ul>
+      <!-- Feature grid -->
+      <div class="pwFeatureGrid" role="list">
+        <article class="pwFeat" role="listitem">
+          <img class="pwFeatIcon" src="/images/home/icons/teal/CloudCheck.svg" alt="Cloud and systems icon" />
+          <h3 class="pwFeatTitle">Broad Technical Mastery</h3>
+          <p class="pwFeatCopy">Proven expertise across cybersecurity, cloud, infrastructure, and helpdesk operations.</p>
+        </article>
+        <article class="pwFeat" role="listitem">
+          <img class="pwFeatIcon" src="/images/home/icons/teal/ThumbsUp.svg" alt="Trusted reputation icon" />
+          <h3 class="pwFeatTitle">Trusted Market Reputation</h3>
+          <p class="pwFeatCopy">A respected track record serving both SMB and enterprise clients.</p>
+        </article>
+        <article class="pwFeat" role="listitem">
+          <img class="pwFeatIcon" src="/images/home/icons/teal/simplify-operations.svg" alt="Integration icon" />
+          <h3 class="pwFeatTitle">Seamless Integration</h3>
+          <p class="pwFeatCopy">Turnkey operations and defined processes that align effortlessly with your team.</p>
+        </article>
+        <article class="pwFeat" role="listitem">
+          <img class="pwFeatIcon" src="/images/home/icons/teal/proactive-support.svg" alt="Flexible models icon" />
+          <h3 class="pwFeatTitle">Flexible Partnership Models</h3>
+          <p class="pwFeatCopy">Choose from co‑managed or referral‑based engagements to fit your business strategy.</p>
+        </article>
+        <article class="pwFeat" role="listitem">
+          <img class="pwFeatIcon" src="/images/home/icons/teal/scale-without-limits.svg" alt="Tools and automation icon" />
+          <h3 class="pwFeatTitle">Tools That Empower Delivery</h3>
+          <p class="pwFeatCopy">Access to proprietary automation, monitoring, and reporting frameworks that enhance service quality.</p>
+        </article>
+      </div>
 
       <!-- Testimonial card -->
       <aside class="pwQuote" aria-label="Partner testimonial">
@@ -126,10 +148,17 @@
   .pwTitle{ font-weight:700; letter-spacing:-.01em; line-height:1.2; }
   .pwBrand{ color:transparent; background:linear-gradient(180deg,#6FE9D4 0%, #00BBA7 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
   .pwQ{ color:var(--brand, #00BBA7); }
-  .pwLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .pwLede{ margin:0; color:#E7EEF6; font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:22px !important; line-height:1.65; font-weight:300; max-width:75ch; margin-top:1rem; }
   /* Place card under the bullet list, aligned to the right */
   .pwGrid{ display:grid; grid-template-columns: 1fr; gap:clamp(16px,3vw,28px); align-items:start; margin-top:clamp(18px,3vw,26px); }
-  .pwList{ list-style:disc; padding-left:24px; margin:0; display:grid; gap:14px; font-size:clamp(16px, 2.4vw, 20px); line-height:1.75; color:rgba(214,224,236,.9); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  /* Feature grid (icon + title + copy) */
+  .pwFeatureGrid{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:clamp(16px,2.2vw,22px); }
+  @media(max-width:1200px){ .pwFeatureGrid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  @media(max-width:720px){ .pwFeatureGrid{ grid-template-columns:repeat(1,minmax(0,1fr)); } }
+  .pwFeat{ display:grid; justify-items:center; gap:8px; padding:16px 0; text-align:center; }
+  .pwFeatIcon{ width:clamp(52px, 6vw, 72px); height:auto; filter:drop-shadow(0 12px 26px rgba(0,187,167,.32)); }
+  .pwFeatTitle{ margin:0; color:#e6edf6; font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:800; letter-spacing:-.01em; font-size:18px; text-align:center; }
+  .pwFeatCopy{ margin:0; color:rgba(214,224,236,.9); font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:300; line-height:1.65; font-size:18px; text-align:center; }
   .pwQuote{ align-self:start; justify-self:end; max-width:640px; border-radius:20px; border:1px solid rgba(0,187,167,.28); padding:20px 22px; background:rgba(4,18,28,.35); box-shadow:0 1px 0 rgba(255,255,255,.05), inset 0 0 0 1px rgba(0,0,0,.25); }
   .pwQuote h3{ margin:0 0 8px; font-size:20px; font-weight:800; }
   .pwQuote p{ margin:0 0 8px; color:#E2E8F0; }
@@ -149,7 +178,7 @@
       <div class="whoList" x-data="{ open: 0 }">
       <!-- Item 1 -->
       <article class="whoItem">
-        <div class="relative z-40 mb-4">
+        <div class="relative z-40 mb-0">
           <button
             @click="open = open===1 ? 0 : 1"
             :aria-expanded="open===1"
@@ -185,7 +214,7 @@
 
       <!-- Item 2 -->
       <article class="whoItem">
-        <div class="relative z-40 mb-4">
+        <div class="relative z-40 mb-0">
           <button
             @click="open = open===2 ? 0 : 2"
             :aria-expanded="open===2"
@@ -219,7 +248,7 @@
 
       <!-- Item 3 -->
       <article class="whoItem">
-        <div class="relative z-40 mb-4">
+        <div class="relative z-40 mb-0">
           <button
             @click="open = open===3 ? 0 : 3"
             :aria-expanded="open===3"
@@ -258,8 +287,8 @@
 
 <style>
   /* Stack all accordion cards vertically (single column on all viewports) */
-  .whoGrid{ display:grid; grid-template-columns:1fr; gap:clamp(16px,2vw,24px); }
-  .whoList{ display:grid; gap:16px; grid-template-columns:1fr; grid-column:1; }
+  .whoGrid{ display:grid; grid-template-columns:1fr; gap:clamp(6px,.8vw,12px); }
+  .whoList{ display:grid; gap:8px; grid-template-columns:1fr; grid-column:1; }
   .whoSpacer{ display:none; }
   @media(min-width:980px){
     .whoGrid{ grid-template-columns:1fr 1fr; }
@@ -335,7 +364,7 @@
 
 <style>
   .pmTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .pmLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .pmLede{ margin:0; color:#E7EEF6; font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:22px !important; line-height:1.65; font-weight:300; max-width:75ch; margin-top:1rem; }
   .pmGrid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.2vw,24px); }
   @media(max-width:1100px){ .pmGrid{ grid-template-columns:1fr; } }
   .pmCard{
@@ -412,7 +441,7 @@
 
 <style>
   .pjTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .pjLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .pjLede{ margin:0; color:#E7EEF6; font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:22px !important; line-height:1.65; font-weight:300; }
   .pjList{ display:grid; gap:clamp(14px,2vw,18px); margin:0; padding:0; list-style:none; }
   .pjCard{
     display:flex; align-items:center; gap:20px;
@@ -458,7 +487,7 @@
 
 <style>
   .pbTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .pbLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .pbLede{ margin:0; color:#E7EEF6; font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:22px !important; line-height:1.65; font-weight:300; max-width:75ch; margin-top:1rem; }
   .pbGrid{ display:grid; grid-template-columns: minmax(0,1.6fr) minmax(0,.9fr); gap:clamp(18px,3vw,26px); align-items:start; }
   @media(max-width: 1100px){ .pbGrid{ grid-template-columns:1fr; } .pbNote{ justify-self:start; } }
   .pbList{ list-style:none; padding:0; margin:0; display:grid; gap:18px; }
@@ -516,7 +545,7 @@
 
 <style>
   .psTitle{ margin:0 0 8px; font-weight:700; letter-spacing:-.01em; font-size:38px; line-height:1.2; font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .psLede{ margin:0; color:#E7EEF6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(18px, 3vw, 24px); line-height:1.65; font-weight:300; }
+  .psLede{ margin:0; color:#E7EEF6; font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:22px !important; line-height:1.65; font-weight:300; }
   .psGrid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2vw,22px); }
   @media(max-width:1100px){ .psGrid{ grid-template-columns:1fr; } }
   .psCard{ border-radius:24px; padding:24px 26px; background:linear-gradient(180deg,#0B1220 0%, #0A1628 100%); border:1px solid rgba(255,255,255,.10); box-shadow:0 10px 30px rgba(0,0,0,.4); }
