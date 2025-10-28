@@ -138,4 +138,5 @@ bottomCta:
   body: 'Schedule a 15-minute Right-Fit Call to explore smarter approaches to cloud and data resilience.'
   button: 'Schedule a Right-Fit Call'
   link: 'https://l3networks.timezest.com/sales/meeting-15'
+hideCaseStudies: true
 ---
