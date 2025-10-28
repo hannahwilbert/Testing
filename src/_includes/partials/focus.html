@@ -216,7 +216,8 @@
   }
 </style>
 
-<!-- Sticky CTA: AI Helpdesk (hidden until past hero) -->
+<!-- Sticky CTA: AI Helpdesk (temporarily disabled) -->
+{#
 <div class="sticky-cta" id="stickyCta" role="region" aria-label="AI Helpdesk">
   <div class="sticky-cta-inner">
     <span class="ctaIcon" aria-hidden="true">
@@ -233,6 +234,7 @@
     <button aria-label="Dismiss" id="ctaDismiss" style="background:none;border:0;cursor:pointer;color:#5b6b8c;padding:.4rem .6rem">✕</button>
   </div>
 </div>
+#}
 
 <script>
   (function(){
@@ -270,14 +272,8 @@
     els.forEach(function(el){ io.observe(el); });
   })();
 
-  // Sticky CTA: show only after passing the hero, with dismiss + session memory
-  (function(){
-    var cta = document.getElementById('stickyCta');
-    if (!cta) return;
-
-    var dismissBtn = document.getElementById('ctaDismiss');
-    var hero = document.getElementById('home') || document.querySelector('header.hero');
-    var supportsIO = 'IntersectionObserver' in window;
+  // Sticky CTA disabled
+  (function(){ return; })();
     var dismissed = false;
 
     try {

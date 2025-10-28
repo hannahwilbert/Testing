@@ -264,7 +264,7 @@
   </a>
 </header>
 
-<section id="after-hero" class="section-block section-block--tight" data-hero-highlights
+<section id="after-hero" class="section-block section-block--tight" data-hero-highlights hidden
   style="position:relative; background:var(--surface-0, #000000); overflow:visible; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
   <canvas id="highlightsWaves" aria-hidden="true"
     style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; z-index:0;"
@@ -413,8 +413,9 @@
     [data-hero-highlights] .heroHighlight__title{
       position:relative;
       margin:0;
-      /* Match Industry Expertise card title size */
-      font-size: clamp(18px, 2.6vw, 24px);
+      /* Use fixed Montserrat 24px as requested */
+      font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size:24px;
       font-weight:600; /* match accordion font-semibold */
       letter-spacing:-.02em; /* tracking-tighter */
       color:#f8fbff;
@@ -434,7 +435,8 @@
 
     [data-hero-highlights] .heroHighlight__body{
       margin:0;
-      font-size:clamp(16px,2.4vw,20px); /* ~text-lg → text-xl */
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size:18px;
       font-weight:300; /* font-light */
       line-height:1.65;
       color:rgba(214,224,236,.9);
@@ -661,7 +663,7 @@
 
 
 <!-- PROBLEM (flat layout • matches key features aesthetic) -->
-<section class="section-block homeBlend" data-alt="dark" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(24px,5vh,64px); background:linear-gradient(180deg, var(--surface-0, #020617) 0%, var(--surface-0, #020617) 100%)">
+<section class="section-block homeBlend" data-alt="dark" data-problem="flat" style="position:relative; overflow:hidden; padding-top:clamp(60px,10vh,120px); background:linear-gradient(180deg, var(--surface-0, #020617) 0%, var(--surface-0, #020617) 100%)">
   <div class="section-shell problemFlat__wrap" style="position:relative; z-index:1;">
     <h2 class="heading-xl mb-md" style="color:var(--ink);">
       Are IT Gaps Costing You <span style="white-space:nowrap; color:var(--brand);">Time, Money &amp; Trust?</span>
@@ -1903,7 +1905,7 @@
     .kfE__introCopy{
       margin:0; max-width: 72ch;
       font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; color:rgba(214,224,236,.9);
+      font-size:22px; line-height:1.65; color:rgba(214,224,236,.9);
     }
     [data-kf="elite"] .kfE__missionItem{ display:block; }
     /* Make mission cards clickable via full-tile anchor */
