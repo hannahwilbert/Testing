@@ -126,4 +126,5 @@ bottomCta:
   body: 'Schedule a 15-minute Right-Fit Call with one of our advisors to explore how leadership support can move you forward.'
   button: 'Schedule a Right-Fit Call'
   link: 'https://l3networks.timezest.com/sales/meeting-15'
+hideCaseStudies: true
 ---
