@@ -137,4 +137,5 @@ bottomCta:
   body: 'Schedule a 15-minute Right-Fit Call to see how your organization measures up on the Elevate path.'
   button: 'Schedule a Right-Fit Call'
   link: 'https://l3networks.timezest.com/sales/meeting-15'
+hideCaseStudies: true
 ---
