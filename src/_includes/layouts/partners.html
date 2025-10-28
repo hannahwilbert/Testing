@@ -149,37 +149,105 @@
       <div class="whoList" x-data="{ open: 0 }">
       <!-- Item 1 -->
       <article class="whoItem">
-        <h3 class="sr-only">vCIOs and Technology Advisors</h3>
-        <button class="whoToggle" type="button" :aria-expanded="open===1" @click="open = open===1 ? 0 : 1">
-          <span class="whoLabel">vCIOs and Technology Advisors</span>
-          <svg class="whoIcon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polygon points="8,5 18,12 8,19"></polygon></svg>
-        </button>
-        <div class="whoBody" x-show="open===1">
-          <p>Deepen your client engagements and earn commissions for services delivered through L3. Gain access to our Elevate framework, standardized reporting, and enterprise-class engineering resources.</p>
+        <div class="relative z-40 mb-4">
+          <button
+            @click="open = open===1 ? 0 : 1"
+            :aria-expanded="open===1"
+            class="whoBtn w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8 ring-1 ring-[#1b2d46]/60"
+            :class="open===1 ? 'whoBtn--open bg-teal-500 text-white ring-1 ring-teal-500 shadow-xl' : 'whoBtnOff hover:shadow-teal-500/10'"
+          >
+            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open===1 ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+              <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
+                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">vCIOs and Technology Advisors</h3>
+              </div>
+              <!-- Triangle when open (down) -->
+              <svg x-show="open===1" class="flex-shrink-0 accIcon accIcon--triDown" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="8,5 18,12 8,19"></polygon>
+              </svg>
+              <!-- Triangle when closed (right) -->
+              <svg x-show="open!==1" class="flex-shrink-0 accIcon accIcon--triRight" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="8,5 18,12 8,19"></polygon>
+              </svg>
+            </div>
+
+            <div
+              x-show="open===1"
+              x-transition:enter="transition ease-out duration-500"
+              x-transition:enter-start="opacity-0 transform translate-y-4"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              class="whoPanel bg-teal-600 rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
+            >
+              <p>Deepen your client engagements and earn commissions for services delivered through L3. Gain access to our Elevate framework, standardized reporting, and enterprise-class engineering resources.</p>
+            </div>
+          </button>
         </div>
       </article>
 
       <!-- Item 2 -->
       <article class="whoItem">
-        <h3 class="sr-only">MSPs and MSSPs</h3>
-        <button class="whoToggle" type="button" :aria-expanded="open===2" @click="open = open===2 ? 0 : 2">
-          <span class="whoLabel">MSPs and MSSPs</span>
-          <svg class="whoIcon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polygon points="8,5 18,12 8,19"></polygon></svg>
-        </button>
-        <div class="whoBody" x-show="open===2">
-          <p>Collaborate on co-managed opportunities that extend your capabilities across advanced cybersecurity, Infrastructure as Code, or enterprise network operations.</p>
+        <div class="relative z-40 mb-4">
+          <button
+            @click="open = open===2 ? 0 : 2"
+            :aria-expanded="open===2"
+            class="whoBtn w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8 ring-1 ring-[#1b2d46]/60"
+            :class="open===2 ? 'whoBtn--open bg-teal-500 text-white ring-1 ring-teal-500 shadow-xl' : 'whoBtnOff hover:shadow-teal-500/10'"
+          >
+            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open===2 ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+              <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
+                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">MSPs and MSSPs</h3>
+              </div>
+              <svg x-show="open===2" class="flex-shrink-0 accIcon accIcon--triDown" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="8,5 18,12 8,19"></polygon>
+              </svg>
+              <svg x-show="open!==2" class="flex-shrink-0 accIcon accIcon--triRight" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="8,5 18,12 8,19"></polygon>
+              </svg>
+            </div>
+
+            <div
+              x-show="open===2"
+              x-transition:enter="transition ease-out duration-500"
+              x-transition:enter-start="opacity-0 transform translate-y-4"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              class="whoPanel bg-teal-600 rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
+            >
+              <p>Collaborate on co-managed opportunities that extend your capabilities across advanced cybersecurity, Infrastructure as Code, or enterprise network operations.</p>
+            </div>
+          </button>
         </div>
       </article>
 
       <!-- Item 3 -->
       <article class="whoItem">
-        <h3 class="sr-only">Technology Providers and Agents</h3>
-        <button class="whoToggle" type="button" :aria-expanded="open===3" @click="open = open===3 ? 0 : 3">
-          <span class="whoLabel">Technology Providers and Agents</span>
-          <svg class="whoIcon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polygon points="8,5 18,12 8,19"></polygon></svg>
-        </button>
-        <div class="whoBody" x-show="open===3">
-          <p>Move beyond carrier-only portfolios by offering managed IT and cloud services built on measurable outcomes.</p>
+        <div class="relative z-40 mb-4">
+          <button
+            @click="open = open===3 ? 0 : 3"
+            :aria-expanded="open===3"
+            class="whoBtn w-full text-left transition-all duration-300 ease-out rounded-3xl shadow-lg px-5 sm:px-6 md:px-8 ring-1 ring-[#1b2d46]/60"
+            :class="open===3 ? 'whoBtn--open bg-teal-500 text-white ring-1 ring-teal-500 shadow-xl' : 'whoBtnOff hover:shadow-teal-500/10'"
+          >
+            <div class="flex items-center justify-between pt-4 sm:pt-6" :class="open===3 ? 'pb-2 sm:pb-3' : 'pb-4 sm:pb-6'">
+              <div class="flex items-center flex-1 min-w-0 pr-6 sm:pr-8">
+                <h3 class="text-xl sm:text-2xl md:text-3xl tracking-tighter font-semibold">Technology Providers and Agents</h3>
+              </div>
+              <svg x-show="open===3" class="flex-shrink-0 accIcon accIcon--triDown" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="8,5 18,12 8,19"></polygon>
+              </svg>
+              <svg x-show="open!==3" class="flex-shrink-0 accIcon accIcon--triRight" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="8,5 18,12 8,19"></polygon>
+              </svg>
+            </div>
+
+            <div
+              x-show="open===3"
+              x-transition:enter="transition ease-out duration-500"
+              x-transition:enter-start="opacity-0 transform translate-y-4"
+              x-transition:enter-end="opacity-100 transform translate-y-0"
+              class="whoPanel bg-teal-600 rounded-2xl sm:rounded-3xl p-3 sm:p-4 -mx-5 sm:-mx-6 md:-mx-8 mt-2 sm:mt-3"
+            >
+              <p>Move beyond carrier-only portfolios by offering managed IT and cloud services built on measurable outcomes.</p>
+            </div>
+          </button>
         </div>
       </article>
       </div>
@@ -197,19 +265,32 @@
     .whoGrid{ grid-template-columns:1fr 1fr; }
     .whoSpacer{ display:block; grid-column:2; }
   }
-  .whoItem{ border-radius:22px; overflow:hidden; }
-  .whoToggle{
-    width:100%; display:flex; align-items:center; justify-content:space-between; gap:14px;
-    text-align:left; padding:18px 22px; border:0; cursor:pointer; color:#f8fafc; font-weight:700; letter-spacing:-.01em;
+  .whoItem{ margin:0; padding:0; }
+  /* Accordion trigger/button and panel styles (match Home dropdown cards) */
+  .whoBtn{ cursor:pointer; }
+  .whoBtnOff{
     background:
-      linear-gradient(180deg,#0B1220 0%, #0A1628 100%);
-    border-radius:22px; border:1px solid #0f213a;
+      radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+      linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+      linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+      linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+      linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+    border:1px solid #1b2d46;
+    color:#e2e8f0;
+    box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
   }
-  .whoLabel{ font-size:clamp(18px, 2.6vw, 22px); }
-  .whoIcon{ width:20px; height:20px; fill:#cbd5e1; opacity:.9; transition: transform .2s ease; }
-  [aria-expanded="true"] .whoIcon{ transform: rotate(90deg); }
-  .whoBody{ padding:16px 22px 18px; margin-top:6px; border-radius:18px; border:1px solid rgba(0,187,167,.28); background:rgba(4,18,28,.35); color:#E2E8F0; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .whoBody p{ margin:0; font-size:clamp(16px, 2.4vw, 20px); line-height:1.65; font-weight:300; }
+  .whoBtn--open{ box-shadow:0 30px 60px rgba(17,94,89,0.45) !important; border-color:rgba(20,184,166,0.45) !important; }
+  /* Match card typography used below (Inter for headings and body) */
+  .whoBtn h3{ margin:0; color:#e6edf6; font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight:700; letter-spacing:-.01em; font-size:clamp(18px, 2.6vw, 22px); }
+  .whoPanel p{ margin:0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size:clamp(16px, 2.2vw, 18px); font-weight:300; line-height:1.65; color:#ffffff; }
+  /* Triangle icon styles (match Home) */
+  .accIcon{ display:inline-block; width:36px !important; height:36px !important; transform:translateY(-3px) scale(1.18) !important; transform-origin:center; }
+  .accIcon.accIcon--triRight polygon,
+  .accIcon.accIcon--triDown polygon{ fill:#ffffff !important; }
+  .accIcon.accIcon--triRight,
+  .accIcon.accIcon--triDown{ width:30px !important; height:30px !important; opacity:.82; }
+  .accIcon.accIcon--triRight{ transform:translateY(-2px) scale(1.06) !important; }
+  .accIcon.accIcon--triDown{ transform:translateY(-2px) scale(1.06) rotate(90deg) !important; }
   /* No breakpoint change: always single column */
 </style>
 
@@ -526,7 +607,6 @@
   .tsCard,
   .pbNote,
   .pwQuote,
-  .whoItem,
   .cardSurface,
   .pssCta{
     border-radius:16px !important;
@@ -539,7 +619,7 @@
       linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
       linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%) !important;
     box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06) !important;
-    transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+    transition:border-color .3s ease, box-shadow .3s ease;
   }
 
   /* Remove extra inner stroke from older surface helper */
@@ -549,10 +629,9 @@
   a[data-cta]:hover, a[data-cta]:focus-visible,
   .pssBtn:hover, .pssBtn:focus-visible,
   .pssBtnGhost:hover, .pssBtnGhost:focus-visible,
-  .whoToggle:hover, .whoToggle:focus-visible{
+  .whoBtn:hover, .whoBtn:focus-visible{
     box-shadow:0 20px 52px rgba(5,12,22,.54) !important;
     transform:translate3d(0,-1px,0);
-    border-color:#66C7E8 !important;
   }
 
   /* Preserve specific paddings where needed after radius unification */
@@ -562,13 +641,10 @@
   .tsCard{ padding:26px 26px 22px; }
   .pbNote{ padding:24px 28px; }
   .pwQuote{ padding:20px 22px; }
-  .whoToggle{ padding:18px 22px; }
-  .whoBody{ padding:16px 22px 18px; }
+  /* removed old whoToggle/whoBody paddings */
 
-  /* Who We Partner With: move surface to container, make inner parts neutral */
+  /* Who We Partner With: simplified container (button holds surface) */
   .whoItem{ overflow:visible !important; position:relative; }
-  .whoToggle{ background:transparent !important; border:none !important; border-radius:0 !important; box-shadow:none !important; }
-  .whoBody{ background:transparent !important; border:none !important; border-radius:0 !important; margin-top:0 !important; box-shadow:none !important; border-top:1px solid rgba(148,163,184,.12) !important; }
 
   /* Keep arrow/icon visibility as before for partners cards */
   .pmArrowImg{ opacity:.95; }
