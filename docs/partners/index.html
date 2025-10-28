@@ -1083,18 +1083,13 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
   /* Remove extra inner stroke from older surface helper */
   .cardSurface::before{ content:none !important; }
 
-  /* Hover/focus accents like Home cards */
-  .pmCard:hover, .pmCard:focus-visible,
-  .pjCard:hover, .pjCard:focus-visible,
-  .psCard:hover, .psCard:focus-visible,
-  .tsCard:hover, .tsCard:focus-visible,
-  .pbNote:hover, .pbNote:focus-visible,
-  .pwQuote:hover, .pwQuote:focus-visible,
-  .whoItem:hover, .whoItem:focus-within,
-  .cardSurface:hover, .cardSurface:focus-visible,
-  .pssCta:hover, .pssCta:focus-visible{
+  /* Hover accents only on clickable controls (not static cards) */
+  a[data-cta]:hover, a[data-cta]:focus-visible,
+  .pssBtn:hover, .pssBtn:focus-visible,
+  .pssBtnGhost:hover, .pssBtnGhost:focus-visible,
+  .whoToggle:hover, .whoToggle:focus-visible{
     box-shadow:0 20px 52px rgba(5,12,22,.54) !important;
-    transform:translate3d(0,-3px,0);
+    transform:translate3d(0,-1px,0);
     border-color:#66C7E8 !important;
   }
 
