@@ -2633,7 +2633,7 @@
       <div class="howE__grid" role="list">
       {% for phase in elevateHowItWorks %}
       {% set overlayId = 'elevate-overlay-' ~ loop.index %}
-      <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+      <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem" @click="open = !open">
         <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
           <div class="px-6 pt-6">
             <div class="flex items-center justify-between">
@@ -2643,12 +2643,13 @@
                 </span>
               </div>
               <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-              <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+              <!-- Keep icon white when open -->
+              <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
             </div>
           </div>
 
           <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
-            <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">{{ phase.title }}</h3>
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter text-white">{{ phase.title }}</h3>
             <p class="howE__tagline">{{ phase.tagline }}</p>
           </div>
         </div>
@@ -2660,7 +2661,7 @@
             :aria-expanded="open.toString()"
             :aria-controls="'{{ overlayId }}'"
             :aria-label="(open ? 'Hide' : 'Show') + ' details for {{ phase.title | safe }}'"
-            @click="open = !open"
+            @click.stop="open = !open"
             @keydown.enter.prevent="open = !open"
             @keydown.space.prevent="open = !open"
             @keydown.escape.prevent="open = false"
@@ -2765,7 +2766,7 @@
     section[data-how="elevate"] .howE__tagline{
       margin:0;
       font-size:clamp(16px, 2.4vw, 20px);
-      font-weight:300;
+      font-weight:500; /* increased weight for better emphasis */
       line-height:1.65;
       color:rgba(214,224,236,.9);
       text-wrap:pretty;
@@ -2816,7 +2817,8 @@
     section[data-how="elevate"] .howE__card--open{
       box-shadow:none;
       border-color:rgba(20,184,166,0.55);
-      border-width:2px;
+      /* keep border width constant to eliminate height jump */
+      border-width:1px;
     }
 
     section[data-how="elevate"] .howE__card:hover{
@@ -2856,7 +2858,8 @@
       transform:translateY(8px);
       transition:opacity .28s ease, transform .28s ease;
     }
-    section[data-how="elevate"] .howE__card:hover .howE__overlay{
+    section[data-how="elevate"] .howE__card:hover .howE__overlay,
+    section[data-how="elevate"] .howE__card--open .howE__overlay{
       opacity:1;
       transform:translateY(0) !important;
     }

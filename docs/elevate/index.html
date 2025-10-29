@@ -580,7 +580,7 @@
     
     
     <!-- Card -->
-    <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''">
+    <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" @click="open = !open">
       <!-- Content area with background -->
       <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
         <!-- Header with badges and arrow -->
@@ -590,13 +590,14 @@
               <span class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">Stage 1</span>
             </div>
             <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-            <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+            <!-- Keep icon white when open -->
+            <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
           </div>
         </div>
 
         <!-- Content -->
         <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12">
-          <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Stabilize</h3>
+          <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-titter text-white">Stabilize</h3>
           <p class="howE__tagline">Shift from Reactive to Proactive Operations</p>
         </div>
       </div>
@@ -609,7 +610,7 @@
           :aria-expanded="open.toString()"
           :aria-controls="'elevate-overlay-1'"
           :aria-label="(open ? 'Hide' : 'Show') + ' details for Stabilize'"
-          @click="open = !open"
+          @click.stop="open = !open"
           @keydown.enter.prevent="open = !open"
           @keydown.space.prevent="open = !open"
           @keydown.escape.prevent="open = false"
@@ -635,7 +636,7 @@
     
     
     <!-- Card -->
-    <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''">
+    <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" @click="open = !open">
       <!-- Content area with background -->
       <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
         <!-- Header with badges and arrow -->
@@ -645,13 +646,14 @@
               <span class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">Stage 2</span>
             </div>
             <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-            <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+            <!-- Keep icon white when open -->
+            <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
           </div>
         </div>
 
         <!-- Content -->
         <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12">
-          <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Optimize</h3>
+          <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-titter text-white">Optimize</h3>
           <p class="howE__tagline">Gain Visibility and Achieve Peak Performance</p>
         </div>
       </div>
@@ -664,7 +666,7 @@
           :aria-expanded="open.toString()"
           :aria-controls="'elevate-overlay-2'"
           :aria-label="(open ? 'Hide' : 'Show') + ' details for Optimize'"
-          @click="open = !open"
+          @click.stop="open = !open"
           @keydown.enter.prevent="open = !open"
           @keydown.space.prevent="open = !open"
           @keydown.escape.prevent="open = false"
@@ -690,7 +692,7 @@
     
     
     <!-- Card -->
-    <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''">
+    <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" @click="open = !open">
       <!-- Content area with background -->
       <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
         <!-- Header with badges and arrow -->
@@ -700,13 +702,14 @@
               <span class="px-3 py-1 text-xs rounded-full" :class="open ? 'bg-teal-600 text-neutral-900' : 'bg-neutral-600 text-neutral-100'">Stage 3</span>
             </div>
             <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-            <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+            <!-- Keep icon white when open -->
+            <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
           </div>
         </div>
 
         <!-- Content -->
         <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12">
-          <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Transform</h3>
+          <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-titter text-white">Transform</h3>
           <p class="howE__tagline">Enable Strategic Growth and Business Resilience</p>
         </div>
       </div>
@@ -719,7 +722,7 @@
           :aria-expanded="open.toString()"
           :aria-controls="'elevate-overlay-3'"
           :aria-label="(open ? 'Hide' : 'Show') + ' details for Transform'"
-          @click="open = !open"
+          @click.stop="open = !open"
           @keydown.enter.prevent="open = !open"
           @keydown.space.prevent="open = !open"
           @keydown.escape.prevent="open = false"
@@ -807,7 +810,12 @@
     transition:none;
     cursor:pointer;
   }
-  .elevateCards .howE__card--open{ box-shadow:none; border-color:rgba(20,184,166,0.55); border-width:2px; }
+  .elevateCards .howE__card--open{
+    box-shadow:none;
+    border-color:rgba(20,184,166,0.55);
+    /* keep border width constant to prevent height shift */
+    border-width:1px;
+  }
   .elevateCards .howE__card:hover{
     transform:none;
     border-color:#1B2D46;
@@ -825,7 +833,8 @@
 
   /* Hover overlay behavior to match Home */
   .elevateCards .howE__card .howE__overlay{ opacity:0; transform:translateY(8px); transition:opacity .28s ease, transform .28s ease; }
-  .elevateCards .howE__card:hover .howE__overlay{ opacity:1; transform:translateY(0); }
+  .elevateCards .howE__card:hover .howE__overlay,
+  .elevateCards .howE__card--open .howE__overlay{ opacity:1; transform:translateY(0); }
 
   /* Tagline + overlay text styles to match Home */
   .elevateCards .howE__tagline{
@@ -833,7 +842,7 @@
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size:clamp(16px, 2.4vw, 20px);
     line-height:1.65;
-    font-weight:300;
+    font-weight:500; /* increased weight for better emphasis */
     color:rgba(214,224,236,.9);
     text-wrap:pretty;
   }
