@@ -95,6 +95,7 @@
     --text-7xl--line-height: 1;
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
+    --font-weight-thin: 100;
     --font-weight-extralight: 200;
     --font-weight-light: 300;
     --font-weight-normal: 400;
@@ -465,9 +466,6 @@
       max-width: 96rem;
     }
   }
-  .-mx-4 {
-    margin-inline: calc(var(--spacing) * -4);
-  }
   .-mx-5 {
     margin-inline: calc(var(--spacing) * -5);
   }
@@ -678,6 +676,10 @@
   .size-32 {
     width: calc(var(--spacing) * 32);
     height: calc(var(--spacing) * 32);
+  }
+  .size-40 {
+    width: calc(var(--spacing) * 40);
+    height: calc(var(--spacing) * 40);
   }
   .size-200 {
     width: calc(var(--spacing) * 200);
@@ -1375,6 +1377,9 @@
   }
   .border-gray-700 {
     border-color: var(--color-gray-700);
+  }
+  .border-neutral-600 {
+    border-color: var(--color-neutral-600);
   }
   .border-neutral-700 {
     border-color: var(--color-neutral-700);
@@ -2265,6 +2270,10 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .font-thin {
+    --tw-font-weight: var(--font-weight-thin);
+    font-weight: var(--font-weight-thin);
+  }
   .tracking-\[\.14em\] {
     --tw-tracking: .14em;
     letter-spacing: .14em;
@@ -2339,6 +2348,9 @@
   }
   .text-neutral-500 {
     color: var(--color-neutral-500);
+  }
+  .text-neutral-600 {
+    color: var(--color-neutral-600);
   }
   .text-neutral-900 {
     color: var(--color-neutral-900);
@@ -3348,11 +3360,6 @@
       grid-column: span 2 / span 2;
     }
   }
-  .sm\:-mx-5 {
-    @media (width >= 40rem) {
-      margin-inline: calc(var(--spacing) * -5);
-    }
-  }
   .sm\:-mx-6 {
     @media (width >= 40rem) {
       margin-inline: calc(var(--spacing) * -6);
@@ -3639,11 +3646,6 @@
       padding-inline: calc(var(--spacing) * 3);
     }
   }
-  .sm\:px-4 {
-    @media (width >= 40rem) {
-      padding-inline: calc(var(--spacing) * 4);
-    }
-  }
   .sm\:px-5 {
     @media (width >= 40rem) {
       padding-inline: calc(var(--spacing) * 5);
@@ -3812,11 +3814,6 @@
   .md\:m-0 {
     @media (width >= 48rem) {
       margin: calc(var(--spacing) * 0);
-    }
-  }
-  .md\:-mx-6 {
-    @media (width >= 48rem) {
-      margin-inline: calc(var(--spacing) * -6);
     }
   }
   .md\:-mx-8 {

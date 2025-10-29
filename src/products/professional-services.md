@@ -16,7 +16,7 @@ heroImage: '/images/products/professional-services.png'
 heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
 heroImageAlt: 'Professional services team collaborating on technology strategy'
 
-challengesTitle: 'Top Professional Services Pressures Facing IT Leaders'
+challengesTitle: 'Top Pressures Facing IT Leaders'
 challengesIntro: 'Complex initiatives stall when teams are stretched thin or direction is unclear.'
 challengesColumns: 2
 challenges:

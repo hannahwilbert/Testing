@@ -4098,8 +4098,16 @@
       position:absolute;
       inset:0;
       pointer-events:none;
+      /* Start at bottom-right and fade diagonally up to transparent
+         Switch to a cleaner blue tint to avoid muddiness */
       background:
-        linear-gradient(135deg, rgba(20,184,166,.35) 0%, rgba(0,187,167,.25) 40%, rgba(102,199,232,.28) 100%);
+        linear-gradient(to top left,
+          rgba(37, 99, 235, .42) 0%,   /* blue-600 */
+          rgba(59,130,246, .34) 24%,   /* blue-500 */
+          rgba(14,165,233, .22) 52%,   /* sky-500 */
+          rgba(14,165,233, .08) 78%,
+          rgba(14,165,233, 0) 92%
+        );
       mix-blend-mode:normal; /* keep straightforward tint */
     }
 
