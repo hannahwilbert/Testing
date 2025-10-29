@@ -16,7 +16,7 @@ heroImage: '/images/products/professional-services.png'
 heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
 heroImageAlt: 'Professional services team collaborating on technology strategy'
 
-challengesTitle: 'Top Professional Services Pressures Facing IT Leaders'
+challengesTitle: 'Top Pressures Facing IT Leaders'
 challengesIntro: 'Complex initiatives stall when teams are stretched thin or direction is unclear.'
 challengesColumns: 2
 challenges:
@@ -58,17 +58,13 @@ proofTitle: 'Proof That Elevate Professional Services Deliver Results'
 proofIntro: 'Outcomes from organizations that paired clear strategy with disciplined execution.'
 proofPoints:
   - title: 'Market Growth for Strategic Guidance'
-    stat: 'The Global Virtual CIO (vCIO) services market is projected to reach an estimated value of <strong>$11.8&nbsp;billion by 2025</strong>, growing at a CAGR of approximately <strong>18%</strong>.'
+    stat: 'The Global Virtual CIO (vCIO) services market is projected to reach an estimated value of <strong>$11.8&nbsp;billion by 2025</strong>.'
     source: 'Data Insights Market, 2025–2033 Analysis'
     metrics:
       - label: 'Market value (2025)'
         value: 11.8
         max: 15
         suffix: 'B'
-      - label: 'CAGR'
-        value: 18
-        max: 25
-        suffix: '%'
   - title: 'SME Needs'
     stat: 'SMEs often <strong>lack the resources for a full-time, high-level IT leader</strong>, yet remain a major driver of vCIO demand.'
     source: 'Data Insights Market, 2025–2033 Analysis'
@@ -126,4 +122,5 @@ bottomCta:
   body: 'Schedule a 15-minute Right-Fit Call with one of our advisors to explore how leadership support can move you forward.'
   button: 'Schedule a Right-Fit Call'
   link: 'https://l3networks.timezest.com/sales/meeting-15'
+hideCaseStudies: true
 ---

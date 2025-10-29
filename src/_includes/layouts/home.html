@@ -2633,7 +2633,7 @@
       <div class="howE__grid" role="list">
       {% for phase in elevateHowItWorks %}
       {% set overlayId = 'elevate-overlay-' ~ loop.index %}
-      <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+      <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem" @click="open = !open">
         <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
           <div class="px-6 pt-6">
             <div class="flex items-center justify-between">
@@ -2643,12 +2643,13 @@
                 </span>
               </div>
               <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-              <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+              <!-- Keep icon white when open -->
+              <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
             </div>
           </div>
 
           <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
-            <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">{{ phase.title }}</h3>
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter text-white">{{ phase.title }}</h3>
             <p class="howE__tagline">{{ phase.tagline }}</p>
           </div>
         </div>
@@ -2660,7 +2661,7 @@
             :aria-expanded="open.toString()"
             :aria-controls="'{{ overlayId }}'"
             :aria-label="(open ? 'Hide' : 'Show') + ' details for {{ phase.title | safe }}'"
-            @click="open = !open"
+            @click.stop="open = !open"
             @keydown.enter.prevent="open = !open"
             @keydown.space.prevent="open = !open"
             @keydown.escape.prevent="open = false"
@@ -2763,11 +2764,11 @@
 
     /* Match other paragraph sizes (e.g., hero highlight/body text) */
     section[data-how="elevate"] .howE__tagline{
-      margin:0;
+      margin:.6rem 0 0;
       font-size:clamp(16px, 2.4vw, 20px);
-      font-weight:300;
-      line-height:1.65;
-      color:rgba(214,224,236,.9);
+      font-weight:500; /* increased weight for better emphasis */
+      line-height:1.4;
+      color:#ffffff;
       text-wrap:pretty;
     }
 
@@ -2815,8 +2816,10 @@
 
     section[data-how="elevate"] .howE__card--open{
       box-shadow:none;
-      border-color:rgba(20,184,166,0.55);
-      border-width:2px;
+      /* keep the same border color as base to avoid teal outline when opened */
+      border-color:#1B2D46;
+      /* keep border width constant to eliminate height jump */
+      border-width:1px;
     }
 
     section[data-how="elevate"] .howE__card:hover{
@@ -2850,20 +2853,19 @@
       outline-offset:4px;
     }
 
-    /* Hover-to-reveal overlay (hover only on desktops) */
+    /* Show overlay only when card is opened; avoid hover-driven sticky state */
     section[data-how="elevate"] .howE__card .howE__overlay{
       opacity:0;
       transform:translateY(8px);
       transition:opacity .28s ease, transform .28s ease;
     }
-    section[data-how="elevate"] .howE__card:hover .howE__overlay{
+    section[data-how="elevate"] .howE__card--open .howE__overlay{
       opacity:1;
       transform:translateY(0) !important;
     }
-    /* Hide the hint when overlay is shown via hover */
-    section[data-how="elevate"] .howE__card:hover .howE__hint{
-      opacity:0;
-    }
+    /* Hide the hint only when opened */
+    section[data-how="elevate"] .howE__card .howE__hint{ opacity:1; transition:opacity .28s ease; }
+    section[data-how="elevate"] .howE__card--open .howE__hint{ opacity:0; }
     /* Touch devices: always show captions (no hover available) */
     @media (pointer: coarse){
       section[data-how="elevate"] .howE__card .howE__overlay{ opacity:1; transform:translateY(0) !important; }
@@ -3116,14 +3118,9 @@
       border-radius:16px;
       border:1px solid #1b2d46;
       text-decoration:none;
-      color:#e2e8f0;
-      /* Match hero highlight card surface (teal‑tinted layered gradient) */
-      background:
-        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
-        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
-        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
-        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
-        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      color:#ffffff;
+      /* Remove teal gradient overlay; use a clean solid surface */
+      background: linear-gradient(180deg, var(--surface-1, #0B1629) 0%, var(--surface-1, #0B1629) 100%);
       box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       overflow:hidden;
       isolation:isolate;
@@ -3184,16 +3181,8 @@
     section[data-services] .svcCard--split .svcCard__meta{ margin-top: 0; padding-top: clamp(6px, 1.2vw, 10px); }
     section[data-services] .svcCard--split .svcCard__media{ position:relative; border-radius:14px; overflow:hidden; min-height:160px; }
     section[data-services] .svcCard--split .svcCard__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-    /* Teal gradient overlay across all service images */
-    section[data-services] .svcCard__media::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:
-        linear-gradient(135deg, rgba(20,184,166,.35) 0%, rgba(0,187,167,.25) 40%, rgba(102,199,232,.28) 100%);
-      mix-blend-mode:normal; /* keep straightforward tint */
-    }
+    /* Remove gradient overlay from service images */
+    section[data-services] .svcCard__media::after{ content:none; }
 
     /* Remove gradient overlay for Cybersecurity card only */
     section[data-services] .svcCard--noTint .svcCard__media::after{ content:none; }
@@ -3306,7 +3295,7 @@
       </div>
     </div>
 
-    <p class="body-lead measure mb-md">
+    <p class="body-lead measure mb-md" style="color:#ffffff;">
       Technology challenges can be frustrating—we deliver tailored solutions and 24/7 support to reduce downtime and secure your systems.
     </p>
 
@@ -3332,9 +3321,10 @@
                 <span class="resultsCard__role">C Level – Exodus Recovery</span>
               </div>
             </footer>
+            <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
-            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+            <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
           </figure>
         </div>
       </article>
@@ -3359,9 +3349,10 @@
                 <span class="resultsCard__role">IT Director – DG Architects</span>
               </div>
             </footer>
+            <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
-            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+            <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
           </figure>
         </div>
       </article>
@@ -3386,15 +3377,16 @@
                 <span class="resultsCard__role">C Level – American Textile Maintenance</span>
               </div>
             </footer>
+            <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
-            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+            <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
           </figure>
         </div>
       </article>
 
     </div>
-    <!-- radio dots hidden/omitted for now -->
+    
 
     <!-- Brands -->
     <div class="kfE__partnersBlock">
@@ -3724,7 +3716,7 @@
       margin-top:clamp(24px,3vw,32px);
       overflow:hidden;
       min-height:0; /* JS sets height to prevent layout jumps */
-      transition:height .28s ease;
+      transition:height .45s cubic-bezier(.4,0,.2,1);
     }
 
     /* Two-column layout: narrower card + wider image */
@@ -3757,7 +3749,8 @@
       position:absolute;
       left:0; right:0; top:0;
       opacity:0;
-      transition:opacity .35s ease;
+      /* Fade only, no vertical movement to avoid bounce */
+      transition:opacity .5s cubic-bezier(.4,0,.2,1);
       pointer-events:none;
       will-change:opacity;
     }
@@ -3775,12 +3768,29 @@
       .resultsCarousel .resultsSlide:not(:first-child){ display:none; }
     }
 
-    /* Keep layout steady: disable hover lift for carousel cards */
+    /* Keep layout steady: disable hover lift and animations for carousel cards */
+    .resultsCarousel .resultsCard{ transition:none; }
     .resultsCarousel .resultsCard:hover,
-    .resultsCarousel .resultsCard:focus-within{ transform:none; box-shadow:0 24px 48px rgba(8,18,35,0.45), inset 0 1px 0 rgba(255,255,255,0.08); }
+    .resultsCarousel .resultsCard:focus-within{
+      transform:none;
+      border-color:#1b2d46; /* keep base border color */
+      box-shadow:0 24px 56px rgba(8,18,35,0.52), inset 0 1px 0 rgba(255,255,255,0.06); /* keep base shadow */
+    }
 
-    .resultsDots{ display:flex; justify-content:center; align-items:center; gap:10px; padding-top:16px; margin-top:6px; }
-    .resultsDot{ width:10px; height:10px; border-radius:999px; border:1px solid rgba(148,163,184,.45); background:rgba(148,163,184,.28); transition:transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .resultsDots{ display:flex; justify-content:center; align-items:center; gap:10px; padding-top:0; margin-top:0; }
+    /* Place dots inside the testimonial card bottom, centered */
+    .resultsCard{ position:relative; }
+    .resultsCard .resultsDots{ position:absolute; left:50%; transform:translateX(-50%); bottom:12px; }
+    .resultsDot{
+      width:10px; height:10px; border-radius:999px;
+      border:1px solid rgba(148,163,184,.45); background:rgba(148,163,184,.28);
+      transition:none;
+      cursor:pointer; /* show click hand */
+      touch-action:manipulation; /* improve responsiveness on touch */
+      -webkit-tap-highlight-color: transparent; /* remove tap flash on iOS */
+    }
+    .resultsDot:focus-visible{ outline:2px solid rgba(148,163,184,.6); outline-offset:3px; }
+    @media (pointer: coarse){ .resultsDot{ width:14px; height:14px; } }
     .resultsDot.is-active{ background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); border-color:rgba(102,199,232,.8); box-shadow:0 0 0 3px rgba(102,199,232,.18); transform:translateY(-1px); }
 
     .resultsCard{
@@ -3913,7 +3923,7 @@
       ready(function(){
         var wrap = document.getElementById('resultsCarousel'); if (!wrap) return;
         var slides = Array.prototype.slice.call(wrap.querySelectorAll('.resultsSlide'));
-        var dotsWrap = wrap.parentElement.querySelector('.resultsDots');
+        var dotsWraps = Array.prototype.slice.call(wrap.querySelectorAll('.resultsDots'));
         var current = 0;
         var timer = null;
         var interval = 6000;
@@ -3961,27 +3971,31 @@
           setHeights();
         }
         function updateDots(){
-          if (!dotsWrap) return;
-          var dots = dotsWrap.querySelectorAll('.resultsDot');
-          for (var i=0;i<dots.length;i++){
-            var on = i === current;
-            dots[i].classList.toggle('is-active', on);
-            dots[i].setAttribute('aria-selected', on?'true':'false');
-            dots[i].setAttribute('tabindex', on?'0':'-1');
-          }
+          if (!dotsWraps.length) return;
+          dotsWraps.forEach(function(dw){
+            var dots = dw.querySelectorAll('.resultsDot');
+            for (var i=0;i<dots.length;i++){
+              var on = i === current;
+              dots[i].classList.toggle('is-active', on);
+              dots[i].setAttribute('aria-selected', on?'true':'false');
+              dots[i].setAttribute('tabindex', on?'0':'-1');
+            }
+          });
         }
-        function buildDots(){ if (!dotsWrap) return; dotsWrap.innerHTML=''; slides.forEach(function(_,i){ var b=document.createElement('button'); b.type='button'; b.className='resultsDot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Show testimonial '+(i+1)); b.addEventListener('click', function(){ pause(); setActive(i); resume(); }); dotsWrap.appendChild(b); }); }
+        function buildDots(){
+          if (!dotsWraps.length) return;
+          dotsWraps.forEach(function(dw){
+            dw.innerHTML='';
+            slides.forEach(function(_,i){ var b=document.createElement('button'); b.type='button'; b.className='resultsDot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Show testimonial '+(i+1)); b.addEventListener('click', function(){ pause(); setActive(i); resume(); }); dw.appendChild(b); });
+          });
+        }
         function next(){ setActive(current+1 >= slides.length ? 0 : current+1); }
         function pause(){ if (timer) { clearInterval(timer); timer = null; } }
         function resume(){ pause(); timer = setInterval(next, interval); }
 
         // Initialize
         setActive(0);
-        if (slides.length <= 1) {
-          // Single testimonial: no dots, no autoplay needed
-          if (dotsWrap) { dotsWrap.style.display = 'none'; dotsWrap.innerHTML=''; }
-          return;
-        }
+        if (slides.length <= 1) { dotsWraps.forEach(function(dw){ dw.style.display='none'; dw.innerHTML=''; }); return; }
         buildDots();
         wrap.setAttribute('tabindex','0');
         wrap.addEventListener('keydown', function(e){ if (e.key==='ArrowRight' || e.key==='Right'){ e.preventDefault(); pause(); next(); resume(); } else if (e.key==='ArrowLeft' || e.key==='Left'){ e.preventDefault(); pause(); setActive(current-1<0?slides.length-1:current-1); resume(); } });
@@ -4047,8 +4061,8 @@
       <!-- Right: supporting image + CTA stacked -->
       <aside class="diff__aside">
         <figure class="diff__media">
-          <img src="https://t4.ftcdn.net/jpg/15/65/73/21/360_F_1565732179_iKDCmWx1xQCWlyiZLNbubrqKV6t4nzVg.jpg" alt="Why L3 Networks illustrative image" loading="lazy" />
-          <figcaption class="sr-only">Illustrative image for Why L3 Networks is Different</figcaption>
+          <img src="/images/home/whyteams.png" alt="Why Growing IT Teams Choose L3 Networks" loading="lazy" />
+          <figcaption class="sr-only">Illustrative image for Why Growing IT Teams Choose L3 Networks</figcaption>
         </figure>
         <div class="diff__ctaWrap">
           <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="diff__cta">
@@ -4169,7 +4183,7 @@
     }
     .diff__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px,2vh,20px); align-content:start; }
     .diff__media{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:block; position:relative; }
-    .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; display:block; filter:saturate(1.04) contrast(1.02); }
+    .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:20% 50%; display:block; filter:saturate(1.04) contrast(1.02); transform:scale(1.36); transform-origin:20% 50%; }
     .diff__ctaWrap{ display:flex; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:14px; margin-top:clamp(12px,2vh,20px); }
     .diff__cta{
       display:inline-flex;
@@ -4207,7 +4221,7 @@
     @media (min-width: 981px){
       .diff__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px,2vh,20px); align-content:start; }
       .diff__media{ height:auto; display:block; margin:0; width:100%; }
-      .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:50% 50%; }
+      .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:20% 50%; }
     }
 
     /* legacy diffCard styles no longer used after accordion conversion */

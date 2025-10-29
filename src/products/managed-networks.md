@@ -135,4 +135,5 @@ bottomCta:
   body: 'Schedule a 15-minute Right-Fit Call to identify improvements that keep your business connected.'
   button: 'Schedule a Right-Fit Call'
   link: 'https://l3networks.timezest.com/sales/meeting-15'
+hideCaseStudies: true
 ---

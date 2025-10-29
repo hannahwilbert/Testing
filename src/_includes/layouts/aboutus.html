@@ -27,6 +27,8 @@
 </section>
 
 <style>
+  /* Load Montserrat for section titles */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
   /* About Us — Hero CTA: solid teal */
   .aboutHero a[data-cta="primary"]{
     background: var(--brand) !important;
@@ -78,6 +80,7 @@
   /* Equal spacing under section titles on About Us */
   h2.heading-xl{
     margin:0 0 8px !important; /* closer to subcopy */
+    font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
     font-size:38px !important;
     line-height:1.2;
     letter-spacing:-.01em;
@@ -256,7 +259,7 @@
             {% for s in [
               {n:'2000', l:'Year Founded', to:2000, format:'raw'},
               {n:'8½', l:'Avg. Client Tenure (Years)', to:8.5, format:'half'},
-              {n:'24/7', l:'Support Availability', to:24, format:'slash', suffix:'/7'},
+              {n:'24/7', l:'Live Support Availability', to:24, format:'slash', suffix:'/7'},
               {n:'91%', l:'Customer Retention', to:91, format:'percent'}
             ] %}
             <div class="heroStat rounded-2xl p-4 text-center border border-white/10 bg-white/5 backdrop-blur-[2px] shadow-[0_10px_28px_rgba(2,6,23,.35)]">
@@ -323,50 +326,65 @@
     <p class="body-lead font-light font-inter text-slate-300 max-w-3xl mb-8">We don’t just deliver services; our team becomes an extension of yours. We communicate openly, act deliberately, and stay accountable.</p>
 
     <div class="leadersGrid">
-      <!-- Kev -->
-      <a class="leaderCard" href="/leadership/#leader-kev" aria-label="View Kev Toumaian bio">
-        <div class="leaderHead">
-          <div class="leaderAvatar" aria-hidden="true">KT</div>
-          <div>
-            <h3 class="leaderName">Kev Toumaian</h3>
-            <p class="leaderRole">Co‑Founder • Operations</p>
-          </div>
+      <!-- Kev (centered overlapping avatar like Partners) -->
+      <article class="leaderCard" aria-label="Kev Toumaian card">
+        <span class="leaderCircle" aria-hidden="true">
+          <img src="/images/about/kevheadshot.png" alt="Headshot of Kev Toumaian" loading="lazy" decoding="async">
+        </span>
+        <div class="leaderInfo leaderInfo--center">
+          <h3 class="leaderName"><a class="leaderNameLink" href="/leadership/#leader-kev">Kev Toumaian</a></h3>
+          <p class="leaderRole">Co‑Founder • Operations</p>
         </div>
         <p class="leaderDesc text-slate-300">
           Leads operational strategy with a background in transformation across legacy to modern systems.
         </p>
-        
-      </a>
+        <div class="leaderActions">
+          <a class="leaderBioBtn" href="/leadership/#leader-kev" aria-label="Read Kev's bio">Read more</a>
+          <a class="leaderLinkedIn" href="https://www.linkedin.com/in/kevtoumaian/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Kev on LinkedIn">
+            <img src="/images/home/LinkedIn.svg" alt=""> Connect on LinkedIn
+          </a>
+        </div>
+      </article>
 
-      <!-- Steve -->
-      <a class="leaderCard" href="/leadership/#leader-steve" aria-label="View Steve Griffin bio">
-        <div class="leaderHead">
-          <div class="leaderAvatar" aria-hidden="true">SG</div>
-          <div>
-            <h3 class="leaderName">Steve Griffin</h3>
-            <p class="leaderRole">Co‑Founder • Service Delivery</p>
-          </div>
+      <!-- Steve (centered overlapping avatar) -->
+      <article class="leaderCard" aria-label="Steve Griffin card">
+        <span class="leaderCircle" aria-hidden="true">
+          <img src="https://media.licdn.com/dms/image/v2/D5603AQEQO4rVqHE9dw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718221142180?e=1762992000&v=beta&t=l9NLCHdBGjl9R6dB2rIUgnr3tKbLtod_evJS-sj6NPo" alt="Headshot of Steve Griffin" loading="lazy" decoding="async">
+        </span>
+        <div class="leaderInfo leaderInfo--center">
+          <h3 class="leaderName"><a class="leaderNameLink" href="/leadership/#leader-steve">Steve Griffin</a></h3>
+          <p class="leaderRole">Co‑Founder • Service Delivery</p>
         </div>
         <p class="leaderDesc text-slate-300">
           Drives service delivery, ensuring every client environment operates with discipline and high standards.
         </p>
-        
-      </a>
+        <div class="leaderActions">
+          <a class="leaderBioBtn" href="/leadership/#leader-steve" aria-label="Read Steve's bio">Read more</a>
+          <a class="leaderLinkedIn" href="https://www.linkedin.com/in/steven-griffin/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Steve on LinkedIn">
+            <img src="/images/home/LinkedIn.svg" alt=""> Connect on LinkedIn
+          </a>
+        </div>
+      </article>
 
-      <!-- James -->
-      <a class="leaderCard" href="/leadership/#leader-james" aria-label="View James Mason bio">
-        <div class="leaderHead">
-          <div class="leaderAvatar" aria-hidden="true">JM</div>
-          <div>
-            <h3 class="leaderName">James Mason</h3>
-            <p class="leaderRole">Sales &amp; Marketing Lead</p>
-          </div>
+      <!-- James (centered overlapping avatar) -->
+      <article class="leaderCard" aria-label="James Mason card">
+        <span class="leaderCircle" aria-hidden="true">
+          <img src="/images/about/jamesheadshot.png" alt="Headshot of James Mason" loading="lazy" decoding="async">
+        </span>
+        <div class="leaderInfo leaderInfo--center">
+          <h3 class="leaderName"><a class="leaderNameLink" href="/leadership/#leader-james">James Mason</a></h3>
+          <p class="leaderRole">Sales &amp; Marketing Lead</p>
         </div>
         <p class="leaderDesc text-slate-300">
           Bridges strategy and execution—he ensures what we plan is what we deliver.
         </p>
-        
-      </a>
+        <div class="leaderActions">
+          <a class="leaderBioBtn" href="/leadership/#leader-james" aria-label="Read James's bio">Read more</a>
+          <a class="leaderLinkedIn" href="https://www.linkedin.com/in/james-mason-a2a3575/" target="_blank" rel="noopener noreferrer" aria-label="Connect with James on LinkedIn">
+            <img src="/images/home/LinkedIn.svg" alt=""> Connect on LinkedIn
+          </a>
+        </div>
+      </article>
     </div>
 
     <!-- Leadership CTA -->
@@ -402,8 +420,29 @@
           linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
         box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
         transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-      .leaderCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
-      .leaderHead{ display:flex; align-items:center; gap:14px; margin:0 0 14px; min-height:72px; }
+      .leaderCard:hover{ transform:translateY(-3px); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
+      /* Centered overlapping avatar like Partners */
+      .leaderCard{ position:relative; text-align:center; margin-top:clamp(72px, 9vw, 120px); padding-top:calc(var(--leadAvatarSize, 120px) * 0.8); }
+      .leaderInfo--center{ text-align:center; }
+      .leaderCircle{
+        --leadAvatarSize: clamp(96px, 12vw, 128px);
+        position:absolute; left:50%; transform:translateX(-50%); top:calc(var(--leadAvatarSize) * -0.42);
+        width:var(--leadAvatarSize); height:var(--leadAvatarSize);
+        border-radius:50%; overflow:hidden; display:block;
+        border:6px solid #0A1628; background:#0A1628; box-shadow:0 10px 30px rgba(0,0,0,.45);
+      }
+      .leaderCircle img{ width:100%; height:100%; object-fit:cover; display:block; }
+      /* Slight zoom for Steve's circle so the face fills more */
+      .leaderCard[aria-label="Steve Griffin card"] .leaderCircle img{ transform:scale(1.20); transform-origin:center; object-position:center 12%; }
+      /* Nudge Kev's crop up to show more top of head */
+      .leaderCard[aria-label="Kev Toumaian card"] .leaderCircle img{
+        object-position:center 20%;
+        filter: saturate(.95) contrast(.97) blur(.2px);
+      }
+      .leaderCircle--initials{ display:grid; place-items:center; font-weight:800; letter-spacing:.02em; color:#07312c; background:linear-gradient(135deg, rgba(102,199,232,.95) 0%, rgba(0,187,167,.95) 100%); }
+      /* Hide previous large banner image style in this section */
+      .leaderImg{ display:none; }
+      .leaderInfo{ display:block; }
       .leaderName{ margin:0; font-size:clamp(18px,2.6vw,22px); font-weight:700; letter-spacing:-.01em; color:#fff; }
       .leaderRole{ margin:2px 0 0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:rgba(203,213,225,.7); }
       .leaderDesc{ margin:4px 0 0; line-height:1.6; max-width:60ch; font-size:clamp(15px, 2vw, 18px); font-weight:300; color:rgba(214,224,236,.88); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -417,6 +456,9 @@
         letter-spacing:.02em;
       }
       @media (min-width: 768px){ .leaderAvatar{ width:56px; height:56px; font-size:18px; } }
+      .leaderPhoto{ display:inline-block; width:72px; height:72px; border-radius:999px; overflow:hidden; border:1px solid rgba(148,163,184,.25); background:rgba(255,255,255,.05); box-shadow:0 8px 20px rgba(0,0,0,.35); }
+      .leaderPhoto img{ width:100%; height:100%; object-fit:cover; display:block; }
+      @media (min-width: 768px){ .leaderPhoto{ width:88px; height:88px; } .leaderHead{ min-height:88px; } }
       .leaderBio{
         display:inline-flex; align-items:center; gap:.5rem;
         padding:.55rem .95rem; border-radius:999px; font-weight:700; font-size:14px; letter-spacing:.02em;
@@ -434,6 +476,31 @@
       }
       .leaderBio img{ height:16px; transition:transform .18s ease; }
       .leaderBio:hover img, .leaderBio:focus-visible img{ transform:translateX(2px); }
+      /* Actions layout under leader cards */
+      .leaderActions{ display:flex; justify-content:center; align-items:center; gap:.6rem; padding-top:10px; flex-wrap:wrap; }
+      /* Subtle ghost button for Bio */
+      .leaderBioBtn{
+        display:inline-flex; align-items:center; gap:.35rem;
+        padding:.36rem .7rem; border-radius:999px;
+        background:rgba(255,255,255,.04); color:#e6edf6; font-weight:600; font-size:12.5px; letter-spacing:.01em;
+        border:1px solid rgba(255,255,255,.12); text-decoration:none;
+        transition: background-color .18s ease, transform .18s ease;
+      }
+      .leaderBioBtn:hover, .leaderBioBtn:focus-visible{ background:rgba(255,255,255,.08); transform:translateY(-1px); }
+      /* LinkedIn button on cards — subtle/ghost style */
+      .leaderLinkedIn{
+        display:inline-flex; align-items:center; gap:.4rem;
+        padding:.38rem .7rem; border-radius:999px;
+        background:rgba(255,255,255,.05); color:#e6edf6; font-weight:600; font-size:12.5px; letter-spacing:.01em;
+        border:1px solid rgba(255,255,255,.14);
+        text-decoration:none; box-shadow:none;
+        transition: background-color .18s ease, transform .18s ease;
+      }
+      .leaderLinkedIn:hover, .leaderLinkedIn:focus-visible{
+        background:rgba(255,255,255,.08);
+        transform:translateY(-1px);
+      }
+      .leaderLinkedIn img{ height:16px; width:16px; display:block; opacity:.95; }
     </style>
     <style>
       /* Values cards — match home highlight card surface */
@@ -466,7 +533,7 @@
         mix-blend-mode: normal;
       }
       .valuesGrid .valuesCard .valuesImg img{ width:100%; height:100%; object-fit:cover; display:block; }
-      .valuesGrid .valuesCard:hover{ transform:translateY(-3px); border-color:rgba(180,210,240,.34); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
+      .valuesGrid .valuesCard:hover{ transform:translateY(-3px); box-shadow:0 28px 72px rgba(10,26,47,.6), inset 0 1px 0 rgba(255,255,255,.06); }
       /* Add a bit more room under card titles */
       .valuesGrid .valuesCard h3{ margin-bottom:12px !important; font-size:clamp(18px,2.6vw,22px); letter-spacing:-.01em; color:#f8fafc; }
       .valuesGrid .valuesCard p{ font-size:clamp(15px, 2vw, 18px); line-height:1.6; font-weight:300; color:rgba(214,224,236,.88); font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }

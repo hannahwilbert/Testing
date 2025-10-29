@@ -149,7 +149,7 @@
         <li class="px-2 lg:px-3 py-1.5">
           <button
             @click="activeAccordion = activeAccordion === 'solutions' ? null : 'solutions'"
-            class="inline-flex items-center whitespace-nowrap rounded-full px-3 py-1.5 transition-colors"
+            class="inline-flex items-center whitespace-nowrap rounded-full px-3 py-1.5 transition-colors cursor-pointer"
             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'"
             type="button"
             aria-expanded="false"
@@ -221,14 +221,23 @@
     aria-label="Solutions menu"
   >
     <style>
-      /* Make the Explore Elevate button fully teal inside the header menu */
+      /* Explore Elevate button: full-width teal fill with white text (rounded-xl) */
       #mega-solutions a[data-cta="primary"]{
+        display:inline-flex; align-items:center; justify-content:center;
+        width:100%;
         background: var(--brand) !important;
-        color:#fff !important;
-        border:none;
+        color: #ffffff !important;
+        border: 2px solid var(--brand) !important;
+        border-radius: 12px; /* rounded-xl */
+        box-shadow:none;
+        padding: 1rem; /* match rounded-xl item height (p-4) */
       }
       #mega-solutions a[data-cta="primary"] img{ height:18px; filter:none; }
-      #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){ filter:brightness(1.03); }
+      #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){
+        background: var(--brand) !important; /* keep teal fill */
+        color:#ffffff !important; /* keep white text */
+        filter:brightness(1.05);
+      }
 
       /* Animated gradient border (reused from sticky CTA) */
       @property --border-angle-1 { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
@@ -289,7 +298,7 @@
 
     <!-- Full-width Elevate CTA above grid -->
     <div class="px-4 lg:px-6 pt-4 lg:pt-6">
-      <a href="/elevate/" data-cta="primary" class="w-full justify-center rounded-full text-base">
+      <a href="/elevate/" data-cta="primary" class="w-full justify-center rounded-xl text-lg lg:text-xl font-bold p-4">
         <span>Explore Elevate</span>
         <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
       </a>
@@ -600,10 +609,33 @@
 
 <!-- Solutions pages: slightly smaller heading scale than home -->
 <style>
+  /* Load Montserrat for section titles */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
   :root{
     --heading-xl: clamp(28px, 5.6vw, 52px);
     --heading-lg: clamp(22px, 4.6vw, 38px);
     --heading-md: clamp(18px, 3.8vw, 28px);
+  }
+</style>
+
+<!-- Section title overrides: 38px Montserrat (cyber page only) -->
+<style>
+  .product-shell .heading-xl,
+  .section-shell .heading-xl{
+    font-family: 'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 38px !important;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+  }
+  /* Copy immediately under section titles: 22px Montserrat */
+  .product-shell .heading-xl + .body-lead,
+  .section-shell .heading-xl + .body-lead,
+  .cyberServices__head .heading-xl + .body-lead,
+  .product-shell .heading-xl + .body-lead.proofIntro{
+    font-family: 'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 22px !important;
+    line-height: 1.6;
+    letter-spacing: -.01em;
   }
 </style>
 
@@ -655,10 +687,10 @@
     .product-shell .max-w-3xl,
     .cyberServices__head{ max-width:none !important; width:100%; }
   }
-  /* Section titles: fixed 38px Inter */
-  .product-shell .heading-xl{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; font-size:38px !important; line-height:1.2; letter-spacing:-.01em; }
+  /* Section titles: fixed 38px Montserrat */
+  .product-shell .heading-xl{ font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; font-size:38px !important; line-height:1.2; letter-spacing:-.01em; }
   /* Also apply to the Cyber Pressures title included from partial */
-  [data-security-pressures] .securityPressures__title{ font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important; font-size:38px !important; line-height:1.2; letter-spacing:-.01em; }
+  [data-security-pressures] .securityPressures__title{ font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; font-size:38px !important; line-height:1.2; letter-spacing:-.01em; }
   /* Teal accent for Elevate word in approach title */
   .howTitleTeal{ color: var(--brand); }
   /* Hero subhead under the main title */
@@ -681,7 +713,7 @@
   <div class="networkPressures__wrap">
     <header class="networkPressures__heading">
       
-      <h2 class="networkPressures__title heading-xl">Top Professional Services Pressures Facing IT Leaders</h2>
+      <h2 class="networkPressures__title heading-xl">Top Pressures Facing IT Leaders</h2>
       
       
       <p class="networkPressures__intro body-text">Complex initiatives stall when teams are stretched thin or direction is unclear.</p>
@@ -1007,7 +1039,7 @@
           
           
 
-          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem" @click="open = !open">
             <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
@@ -1017,24 +1049,25 @@
                     </span>
                   </div>
                   <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-                  <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+                  <!-- Keep icon white when open -->
+                  <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
                 </div>
               </div>
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
-                <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Stabilize</h3>
-                <p class="howE__tag">Fix urgent gaps, secure the foundation.</p>
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-titter text-white">Stabilize</h3>
+                <p class="howE__tagline">Fix urgent gaps, secure the foundation.</p>
               </div>
             </div>
 
             <div class="relative">
               <button
                 type="button"
-                class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                class="block w-full h-40 sm:h-48 md:h-56 lg:h-60 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
                 :aria-expanded="open.toString()"
                 :aria-controls="'elevate-overlay-product-1'"
                 :aria-label="(open ? 'Hide' : 'Show') + ' details for Stabilize'"
-                @click="open = !open"
+                @click.stop="open = !open"
                 @keydown.enter.prevent="open = !open"
                 @keydown.space.prevent="open = !open"
                 @keydown.escape.prevent="open = false"
@@ -1043,25 +1076,18 @@
               </button>
 
               <div
-                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
-                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                class="howE__overlay absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none"
                 :aria-hidden="(!open).toString()"
                 :id="'elevate-overlay-product-1'"
               >
                 <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
                   
-                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">Assess current IT maturity and risks.</p>
+                  <p class="howE__popupText">Assess current IT maturity and risks.</p>
                   
                 </div>
               </div>
 
-              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
-                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
-                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-              </div>
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1"></div>
             </div>
           </article>
           
@@ -1073,7 +1099,7 @@
             
           
 
-          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem" @click="open = !open">
             <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
@@ -1083,24 +1109,25 @@
                     </span>
                   </div>
                   <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-                  <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+                  <!-- Keep icon white when open -->
+                  <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
                 </div>
               </div>
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
-                <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Optimize</h3>
-                <p class="howE__tag">Improve performance, reduce risks, automate.</p>
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-titter text-white">Optimize</h3>
+                <p class="howE__tagline">Improve performance, reduce risks, automate.</p>
               </div>
             </div>
 
             <div class="relative">
               <button
                 type="button"
-                class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                class="block w-full h-40 sm:h-48 md:h-56 lg:h-60 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
                 :aria-expanded="open.toString()"
                 :aria-controls="'elevate-overlay-product-2'"
                 :aria-label="(open ? 'Hide' : 'Show') + ' details for Optimize'"
-                @click="open = !open"
+                @click.stop="open = !open"
                 @keydown.enter.prevent="open = !open"
                 @keydown.space.prevent="open = !open"
                 @keydown.escape.prevent="open = false"
@@ -1109,25 +1136,18 @@
               </button>
 
               <div
-                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
-                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                class="howE__overlay absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none"
                 :aria-hidden="(!open).toString()"
                 :id="'elevate-overlay-product-2'"
               >
                 <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
                   
-                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">Build a tailored roadmap through vCIO guidance and project management.</p>
+                  <p class="howE__popupText">Build a tailored roadmap through vCIO guidance and project management.</p>
                   
                 </div>
               </div>
 
-              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
-                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
-                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-              </div>
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1"></div>
             </div>
           </article>
           
@@ -1139,7 +1159,7 @@
             
           
 
-          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem">
+          <article x-data="{ open:false }" class="howE__card overflow-hidden rounded-4xl flex flex-col" :class="open ? 'howE__card--open' : ''" role="listitem" @click="open = !open">
             <div class="transition-colors rounded-t-4xl flex-1" :class="open ? 'bg-teal-500 text-neutral-900' : 'bg-transparent text-neutral-100'">
               <div class="px-6 pt-6">
                 <div class="flex items-center justify-between">
@@ -1149,24 +1169,25 @@
                     </span>
                   </div>
                   <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="!open">
-                  <img src="/images/icons/elevateArrorwRoundBlack.svg" alt="" class="w-8 h-8" x-show="open">
+                  <!-- Keep icon white when open -->
+                  <img src="/images/icons/elevateArrorwRound.svg" alt="" class="w-8 h-8" x-show="open">
                 </div>
               </div>
 
               <div class="px-4 sm:px-6 pb-4 sm:pb-6 mt-8 sm:mt-12 space-y-2">
-                <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tighter">Transform</h3>
-                <p class="howE__tag">Align IT strategy with business growth.</p>
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-titter text-white">Transform</h3>
+                <p class="howE__tagline">Align IT strategy with business growth.</p>
               </div>
             </div>
 
             <div class="relative">
               <button
                 type="button"
-                class="block w-full h-48 sm:h-56 md:h-64 lg:h-72 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
+                class="block w-full h-40 sm:h-48 md:h-56 lg:h-60 rounded-b-2xl sm:rounded-b-3xl md:rounded-b-4xl overflow-hidden cursor-pointer motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
                 :aria-expanded="open.toString()"
                 :aria-controls="'elevate-overlay-product-3'"
                 :aria-label="(open ? 'Hide' : 'Show') + ' details for Transform'"
-                @click="open = !open"
+                @click.stop="open = !open"
                 @keydown.enter.prevent="open = !open"
                 @keydown.space.prevent="open = !open"
                 @keydown.escape.prevent="open = false"
@@ -1175,25 +1196,18 @@
               </button>
 
               <div
-                class="absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
-                :class="open ? 'translate-y-0' : 'translate-y-full'"
+                class="howE__overlay absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none"
                 :aria-hidden="(!open).toString()"
                 :id="'elevate-overlay-product-3'"
               >
                 <div class="w-full max-w-xs sm:max-w-sm p-4 sm:p-6 bg-black/90 rounded-xl sm:rounded-2xl backdrop-blur-sm">
                   
-                  <p class="text-sm sm:text-lg font-light text-neutral-300 leading-snug">Align IT strategy with business innovation and growth.</p>
+                  <p class="howE__popupText">Align IT strategy with business innovation and growth.</p>
                   
                 </div>
               </div>
 
-              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1">
-                <div class="flex items-center justify-center w-16 h-8 rounded-t-full shadow-lg transition-colors duration-300" :class="open ? 'bg-transparent text-teal-400' : 'bg-black/80 text-neutral-200'">
-                  <svg class="w-5 h-5 transition-transform duration-300" :class="open ? 'rotate-180' : ''" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-              </div>
+              <div class="absolute -translate-x-1/2 pointer-events-none left-1/2 -bottom-1"></div>
             </div>
           </article>
           
@@ -1229,7 +1243,7 @@
           text-wrap:balance;
         }
 
-        /* Match home 'The Elevate Path' card styles */
+        /* Match Home 'The Elevate Path' card styles exactly */
         .frameworkJourney .howE__grid{
           display:grid;
           gap:clamp(20px,3vw,28px);
@@ -1243,7 +1257,6 @@
           flex-direction:column;
           border-radius:32px;
           overflow:hidden;
-          /* Match Top Cybersecurity Pressures card surface */
           border:1px solid #1b2d46;
           background:
             radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
@@ -1253,22 +1266,40 @@
             linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
           box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
           isolation:isolate;
-          transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+          transition:none;
+          cursor:pointer;
         }
 
         .frameworkJourney .howE__card--open{
-          box-shadow:0 30px 60px rgba(17,94,89,0.45);
-          border-color:rgba(20,184,166,0.45);
+          box-shadow:none;
+          /* keep the same border color as base to avoid teal outline when opened */
+          border-color:#1b2d46;
+          /* keep border width constant to eliminate height jump */
+          border-width:1px;
         }
-        .frameworkJourney .howE__card:hover{ transform:translateY(-4px); }
+        .frameworkJourney .howE__card:hover{
+          transform:none;
+          border-color:#1B2D46;
+          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
+          background:
+            radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
+            linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
+            linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
+            linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
+            linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+        }
         .frameworkJourney .howE__card:focus-within{
-          outline:2px solid rgba(102,199,232,.45);
-          outline-offset:3px;
+          /* remove teal focus ring on card */
+          outline:none;
+          outline-offset:0;
         }
         .frameworkJourney .howE__card > div:first-child{ border-bottom:1px solid rgba(148,163,184,0.12); }
-        .frameworkJourney .howE__card button{ transition:transform .45s cubic-bezier(.4,0,.2,1); }
-        .frameworkJourney .howE__card button:hover{ transform:scale(1.02); }
-        .frameworkJourney .howE__card button:focus-visible{ outline:2px solid rgba(20,184,166,.55); outline-offset:4px; }
+        .frameworkJourney .howE__card button{ transition:none; }
+        .frameworkJourney .howE__card button:focus-visible{
+          /* neutralize teal outline on image button to avoid teal border look */
+          outline:2px solid rgba(27,45,70,0.35);
+          outline-offset:4px;
+        }
 
         @media (max-width: 720px){
           .frameworkJourney .howE__grid{ grid-template-columns:1fr; }
@@ -1277,6 +1308,31 @@
         @media (prefers-reduced-motion: reduce){
           .frameworkJourney .howE__card{ transition:none; }
           .frameworkJourney .howE__card button{ transition:none; }
+        }
+
+        /* Hover overlay to match Home behavior */
+        .frameworkJourney .howE__card .howE__overlay{ opacity:0; transform:translateY(8px); transition:opacity .28s ease, transform .28s ease; }
+        .frameworkJourney .howE__card:hover .howE__overlay,
+        .frameworkJourney .howE__card--open .howE__overlay{ opacity:1; transform:translateY(0); }
+      </style>
+      <style>
+        /* Match service card body copy style from Home */
+        .frameworkJourney .howE__tagline{
+          margin:.6rem 0 0;
+          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          font-size:clamp(16px, 2.4vw, 20px);
+          line-height:1.4;
+          font-weight:500; /* increased weight for better emphasis */
+          color:#ffffff;
+          text-wrap:pretty;
+        }
+        .frameworkJourney .howE__popupText{
+          margin:0;
+          font-size:clamp(15px, 2.2vw, 18px);
+          font-weight:300;
+          line-height:1.65;
+          color:rgba(214,224,236,.92);
+          text-wrap:pretty;
         }
       </style>
       <style>
@@ -1552,6 +1608,9 @@
           /* Solid dark background (no gradient) */
           background: var(--surface-0, #000000);
           background-color: var(--surface-0, #000000);
+          /* Ensure expanded dropdown overlays next sections smoothly */
+          position:relative;
+          z-index:2;
         }
 
         .cyberServices{
@@ -1671,14 +1730,23 @@
           z-index:1;
           display:grid;
           gap:clamp(10px,1.8vh,16px);
+          will-change: opacity, transform;
         }
 
         .cyberServiceCard__title{ margin:0; }
+        /* Card titles: 20px Inter */
+        [data-cyber-services] .cyberServiceCard__title,
+        [data-cyber-services] .cyberServiceCard__toggle,
+        [data-cyber-services] .cyberServiceCard__label{
+          font-family:"Inter", system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+          font-size:20px !important;
+          line-height:1.2;
+          letter-spacing:-.01em;
+        }
         .cyberServiceCard__toggle{
           display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%;
           background:transparent; border:0; padding:0; color:#f8fbff; letter-spacing:-.02em; line-height:1.15; font-weight:600; text-align:left; cursor:pointer;
-          /* Match size of mid-CTA body copy */
-          font-size: clamp(17px, 2.6vw, 22px);
+          /* overridden above to fixed 24px Montserrat */
           min-height: 44px; /* consistent header height for alignment */
         }
         .cyberServiceCard__label{ flex:1 1 auto; }
@@ -1690,17 +1758,17 @@
         .cyberServiceCard__text{
           margin:0; /* align with hero highlight body */
           color:rgba(214,224,236,.9);
-          font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-          font-size:clamp(16px, 2.4vw, 20px);
+          font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+          font-size:18px !important;
           line-height:1.65;
           font-weight:300;
           text-wrap:pretty;
           /* Default (no-JS) shows full copy */
         }
 
-        /* In grid layout, keep clamping but shrink font so most fit */
+        /* In grid layout, keep fixed 18px for dropdown copy */
         .cyberServices__grid .cyberServiceCard__text{
-          font-size:clamp(14px, 1.9vw, 18px);
+          font-size:18px !important;
         }
 
         /* When dropdown is enhanced, hide all bodies by default and only show expanded */
@@ -1723,7 +1791,9 @@
           background:var(--brand);
           color:#ffffff;
           box-shadow:0 24px 56px rgba(8,18,35,.52);
+          pointer-events:auto;
         }
+        .cyberServices__grid[data-dropdown="on"] .cyberServiceCard.is-collapsed .cyberServiceCard__body{ pointer-events:none; }
         /* Collapsed state explicit rule (redundant but clarifies intent) */
         .cyberServices__grid[data-dropdown="on"] .cyberServiceCard.is-collapsed .cyberServiceCard__body{ display:none; }
         .cyberServices__grid[data-dropdown="on"] .cyberServiceCard.is-expanded .cyberServiceCard__text{
@@ -1752,26 +1822,79 @@
         grid.setAttribute('data-dropdown','on');
         var cards = Array.prototype.slice.call(grid.querySelectorAll('.cyberServiceCard.is-collapsible'));
 
-        function collapseCard(c){
-          var b = c.querySelector('.cyberServiceCard__body');
-          var t = c.querySelector('.cyberServiceCard__toggle');
-          if(!b || !t) return;
-          b.hidden = true;
-          t.setAttribute('aria-expanded','false');
-          c.classList.add('is-collapsed');
-          c.classList.remove('is-expanded');
+        function prefersReduced(){
+          try { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(_) { return false; }
         }
 
-        function expandCard(c){
+        function collapseCard(c, instant, done){
           var b = c.querySelector('.cyberServiceCard__body');
           var t = c.querySelector('.cyberServiceCard__toggle');
-          if(!b || !t) return;
-          b.hidden = false;
-          t.setAttribute('aria-expanded','true');
+          if(!b || !t){ if(typeof done==='function') done(); return; }
+          t.setAttribute('aria-expanded','false');
+          // Smooth hide
+          if (instant || prefersReduced() || !('animate' in b)) {
+            b.style.display = 'none';
+            b.style.opacity = '0';
+            b.style.transform = 'translateY(-6px)';
+            // finalize state after hide
+            c.classList.remove('is-expanded');
+            c.classList.add('is-collapsed');
+            if(typeof done==='function') done();
+            return;
+          }
+          try {
+            var anim = b.animate(
+              { opacity: [1, 0], transform: ['translateY(0)', 'translateY(-6px)'] },
+              { duration: 220, easing: 'ease-in', fill: 'forwards' }
+            );
+            anim.addEventListener('finish', function(){
+              b.style.display = 'none';
+              // finalize state after animation completes
+              c.classList.remove('is-expanded');
+              c.classList.add('is-collapsed');
+              if(typeof done==='function') done();
+            });
+          } catch(_) {
+            b.style.display = 'none';
+            b.style.opacity = '0';
+            b.style.transform = 'translateY(-6px)';
+            c.classList.remove('is-expanded');
+            c.classList.add('is-collapsed');
+            if(typeof done==='function') done();
+          }
+        }
+
+        function expandCard(c, done){
+          var b = c.querySelector('.cyberServiceCard__body');
+          var t = c.querySelector('.cyberServiceCard__toggle');
+          if(!b || !t){ if(typeof done==='function') done(); return; }
           c.classList.remove('is-collapsed');
           c.classList.add('is-expanded');
+          t.setAttribute('aria-expanded','true');
+          // Smooth show
+          b.style.display = 'block';
+          if (prefersReduced() || !('animate' in b)) {
+            b.style.opacity = '1';
+            b.style.transform = 'translateY(0)';
+            if(typeof done==='function') done();
+            return;
+          }
+          try {
+            b.style.opacity = '0';
+            b.style.transform = 'translateY(-6px)';
+            var anim = b.animate(
+              { opacity: [0, 1], transform: ['translateY(-6px)', 'translateY(0)'] },
+              { duration: 240, easing: 'ease-out', fill: 'forwards' }
+            );
+            anim.addEventListener('finish', function(){ if(typeof done==='function') done(); });
+          } catch(_) {
+            b.style.opacity = '1';
+            b.style.transform = 'translateY(0)';
+            if(typeof done==='function') done();
+          }
         }
 
+        var busy = false;
         cards.forEach(function(card, idx){
           var btn = card.querySelector('.cyberServiceCard__toggle');
           var body = card.querySelector('.cyberServiceCard__body');
@@ -1780,28 +1903,30 @@
           body.id = id;
           btn.setAttribute('aria-controls', id);
           // collapse all by default once enhanced
-          collapseCard(card);
-          // Make entire card clickable (not just the title button)
-          card.addEventListener('click', function(e){
-            // Ignore clicks on the explicit toggle button (already handled)
-            if (e.target.closest('.cyberServiceCard__toggle')) return;
-            // Ignore clicks on interactive elements inside the card
-            if (e.target.closest('a,button,input,textarea,select,label')) return;
-            e.preventDefault();
-            btn.click();
-          });
-          btn.addEventListener('click', function(e){
-            e.preventDefault();
-            var isOpen = btn.getAttribute('aria-expanded') === 'true';
-            if(isOpen){
-              // close current
-              collapseCard(card);
-            } else {
-              // close others, open this one
-              cards.forEach(function(other){ if(other !== card) collapseCard(other); });
-              expandCard(card);
-            }
-          });
+          collapseCard(card, true);
+        // Disable card-wide toggling to avoid accidental reopen on close
+        card.addEventListener('click', function(e){
+          if (e.target.closest('.cyberServiceCard__toggle')) return;
+          if (e.target.closest('a,button,input,textarea,select,label')) return;
+          e.stopPropagation();
+        });
+        // Prevent clicks within the dropdown body from bubbling
+        body.addEventListener('click', function(e){ e.stopPropagation(); });
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          if (busy) return;
+          var isOpen = btn.getAttribute('aria-expanded') === 'true';
+          busy = true;
+          if(isOpen){
+            // close current
+            collapseCard(card, false, function(){ busy = false; });
+          } else {
+            // close others instantly, then open this one
+            cards.forEach(function(other){ if(other !== card) collapseCard(other, true); });
+            expandCard(card, function(){ busy = false; });
+          }
+        });
         });
       })();
       </script>
@@ -2088,7 +2213,7 @@
             <h4 class="proofCard__title heading-md">Market Growth for Strategic Guidance</h4>
             
             
-            <p class="proofCard__subtitle body-text">The Global Virtual CIO (vCIO) services market is projected to reach an estimated value of <strong>$11.8&nbsp;billion by 2025</strong>, growing at a CAGR of approximately <strong>18%</strong>.</p>
+            <p class="proofCard__subtitle body-text">The Global Virtual CIO (vCIO) services market is projected to reach an estimated value of <strong>$11.8&nbsp;billion by 2025</strong>.</p>
             
 
             
@@ -2108,22 +2233,6 @@
                   <span class="proof-metric__fill" style="width:78.66666666666667%;"></span>
                 </div>
                 <div class="proof-metric__value">11.8B</div>
-              </div>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <div class="proof-metric" role="listitem">
-                <div class="proof-metric__label">CAGR</div>
-                <div class="proof-metric__track" aria-hidden="true">
-                  <span class="proof-metric__fill" style="width:72%;"></span>
-                </div>
-                <div class="proof-metric__value">18%</div>
               </div>
               
             </div>
@@ -2368,13 +2477,17 @@
           letter-spacing:-.01em;
           overflow-wrap:anywhere;
           text-wrap:balance;
+          font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+          font-size:22px !important;
+          line-height:1.35;
+          font-weight:700;
         }
 
         .proofCard__subtitle{
           margin:0;
           /* Match services card body copy */
           font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-          font-size:clamp(16px, 2.4vw, 20px);
+          font-size:20px !important;
           line-height:1.65;
           font-weight:300;
           color:rgba(214,224,236,.9);
@@ -2395,6 +2508,28 @@
           letter-spacing:0.12em;
           margin-left:6px;
         }
+
+        
+        /* Professional Services: shrink first proof card (Market Growth for Strategic Guidance) */
+        .l3-kpi-cards .card:nth-child(1){
+          min-height: clamp(200px, 26vh, 280px);
+          padding: clamp(14px, 2vw, 20px);
+        }
+        .l3-kpi-cards .card:nth-child(1) .card-visual{
+          min-height: clamp(80px, 11vh, 120px);
+          gap: 6px;
+        }
+        .l3-kpi-cards .card:nth-child(1) .proof-metrics{
+          margin-top: 4px;
+          gap: 8px;
+        }
+        .l3-kpi-cards .card:nth-child(1) .proof-metric__track{
+          height: 8px;
+        }
+        .l3-kpi-cards .card:nth-child(1) .proof-metric__value{
+          font-size: clamp(12px, 1.4vw, 16px);
+        }
+        
 
         .l3-kpi-cards .bar-wrap{ margin-top:2px; }
 
@@ -2526,161 +2661,6 @@
     </section>
     
     
-    
-    
-      
-    
-      
-    
-      
-    
-    <section style="background: var(--surface-1, #061021); padding: var(--section-pad-block) clamp(28px,4.6vw,44px); width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); margin-top:-2px; margin-bottom:-2px;">
-      <div class="product-shell space-y-8">
-        <div class="max-w-3xl space-y-4">
-          
-          <h2 class="caseStudies__title heading-xl">Explore Professional Services Wins</h2>
-          
-          
-          <p class="body-lead csIntro">Examples of how L3 Networks keeps high-impact initiatives moving.</p>
-          
-        </div>
-
-        
-        <div class="caseStudiesCardGrid">
-          
-          
-          <div class="caseStudiesCard">
-          
-            <span class="caseStudiesCard__eyebrow">Case Studies</span>
-            <h3 class="caseStudiesCard__title">Lorem ipsum dolor sit amet</h3>
-            <p class="caseStudiesCard__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <span class="caseStudiesCard__source">Lorem ipsum</span>
-          
-          </div>
-          
-          
-          
-          <div class="caseStudiesCard">
-          
-            <span class="caseStudiesCard__eyebrow">Case Studies</span>
-            <h3 class="caseStudiesCard__title">Lorem ipsum dolor sit amet</h3>
-            <p class="caseStudiesCard__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <span class="caseStudiesCard__source">Lorem ipsum</span>
-          
-          </div>
-          
-          
-          
-          <div class="caseStudiesCard">
-          
-            <span class="caseStudiesCard__eyebrow">Case Studies</span>
-            <h3 class="caseStudiesCard__title">Lorem ipsum dolor sit amet</h3>
-            <p class="caseStudiesCard__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <span class="caseStudiesCard__source">Lorem ipsum</span>
-          
-          </div>
-          
-          
-        </div>
-        
-      </div>
-      <style>
-        /* Proof intro typography */
-        .proofIntro{
-          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-          font-size: clamp(17px, 2.6vw, 22px);
-          line-height: 1.65;
-          color:#ffffff;
-        }
-
-        /* Case studies intro: match home subhead typography */
-        .csIntro{
-          margin:clamp(6px,1.2vh,10px) 0 0; /* small space below title */
-          font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-          font-size: clamp(17px, 2.6vw, 22px);
-          line-height: 1.65;
-          color:#e6edf6;
-        }
-
-        .caseStudies__title{
-          margin:0;
-          color:#f8fafc;
-          text-wrap:balance;
-        }
-
-        .caseGraphs{display:grid;gap:clamp(18px,3vw,28px);}
-        @media(min-width:980px){.caseGraphs{grid-template-columns:repeat(3,minmax(0,1fr));}}
-        .caseGraph{position:relative;display:grid;gap:clamp(10px,1.6vh,16px);padding:clamp(22px,3vw,28px);border-radius:24px;border:1px solid rgba(148,204,255,0.18);background:linear-gradient(150deg,rgba(12,22,38,0.88),rgba(3,10,24,0.94));box-shadow:0 26px 56px rgba(0,0,0,0.45);overflow:hidden;}
-        .caseGraph__head{display:flex;align-items:flex-start;gap:clamp(8px,1vw,12px);}
-        .caseGraph__title{margin:0;font-size:clamp(18px,2vw,22px);font-weight:700;color:#f8fafc;}
-        .caseGraph__footer{margin-top:auto;display:flex;justify-content:flex-end;}
-        .caseGraph__source{display:inline-flex;align-items:center;padding:.25rem .65rem;border-radius:999px;background:rgba(102,199,232,.08);border:1px solid rgba(102,199,232,.24);font-size:12px;color:rgba(148,163,184,0.8);text-transform:uppercase;letter-spacing:0.16em;}
-        .caseGraph__stat{margin:0;color:rgba(226,232,240,0.86);line-height:1.6;font-size:14px;}
-        .caseGraph__metrics{display:grid;gap:clamp(12px,1.8vh,16px);}
-        .caseGraph__metric{display:grid;gap:6px;}
-        .caseGraph__metricLabel{font-size:12px;color:rgba(148,204,255,0.72);letter-spacing:0.08em;text-transform:uppercase;}
-        .caseGraph__bar{position:relative;height:12px;border-radius:999px;background:rgba(148,204,255,0.16);overflow:hidden;}
-        .caseGraph__fill{position:absolute;inset:0;width:0;background:linear-gradient(90deg,#3ba59c,#158f84);box-shadow:0 0 18px rgba(59,165,156,0.3);transition:width 1.1s cubic-bezier(0.33,1,0.68,1);}
-        .caseGraph__value{font-weight:700;color:#3ba59c;font-size:clamp(14px,1.8vw,16px);}
-        .caseStudiesCardGrid{display:grid;gap:clamp(16px,2.6vw,24px);}
-        @media(min-width:900px){.caseStudiesCardGrid{grid-template-columns:repeat(3,minmax(0,1fr));}}
-        .caseStudiesCard{display:flex;flex-direction:column;gap:clamp(16px,2vw,20px);padding:clamp(24px,3vw,30px);border-radius:24px;border:1px solid #1b2d46;background:
-          radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
-          linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
-          linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
-          linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
-          linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
-          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;text-decoration:none;}
-        /* Remove glow/lift on hover for success stories cards */
-        .caseStudiesCard:hover,
-        .caseStudiesCard:focus-within{
-          transform:none;
-          border-color:#1b2d46;
-          box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
-        }
-        .caseStudiesCard__eyebrow{font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;font-weight:600;color:rgba(94,234,212,0.85);}
-        .caseStudiesCard__title{font-size:clamp(20px,2.2vw,24px);font-weight:600;line-height:1.35;color:#f8fafc;}
-        .caseStudiesCard__description{font-size:clamp(14px,1.9vw,16px);line-height:1.65;color:rgba(226,232,240,0.85);font-weight:300;}
-        .caseStudiesCard__source{margin-top:auto;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;color:rgba(148,163,184,0.85);}
-        @media (max-width: 768px){.caseStudiesCard{padding:clamp(20px,4vw,26px);}}
-      </style>
-    </section>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var bars = document.querySelectorAll('[data-graph-fill]');
-        if (!bars.length) return;
-        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        function activate(bar){
-          if (bar.dataset.graphReady === 'true') return;
-          var value = parseFloat(bar.dataset.graphValue);
-          var max = parseFloat(bar.dataset.graphMax) || 100;
-          if (!isFinite(value) || !isFinite(max) || max <= 0) return;
-          var pct = Math.max(0, Math.min(100, (value / max) * 100));
-          var fill = bar.querySelector('.caseGraph__fill');
-          if (!fill) return;
-          if (reduceMotion) {
-            fill.style.width = pct + '%';
-          } else {
-            requestAnimationFrame(function(){ fill.style.width = pct + '%'; });
-          }
-          bar.dataset.graphReady = 'true';
-        }
-        if (typeof IntersectionObserver === 'function' && !reduceMotion) {
-          var observer = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){
-              if (entry.isIntersecting) {
-                activate(entry.target);
-                observer.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.35 });
-          bars.forEach(function(bar){ observer.observe(bar); });
-        } else {
-          bars.forEach(activate);
-        }
-      });
-    </script>
-    
 
     
 
@@ -2688,7 +2668,7 @@
     <!-- PROVEN RESULTS (home carousel version) -->
     <article class="section-block" style="
       position:relative; overflow:hidden; isolation:isolate;
-      background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important;
+      background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important;
       padding: var(--section-pad-block) 0; min-height:92svh; display:flex; align-items:center;
       width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
       margin-top:-1px; margin-bottom:-1px;
@@ -2702,7 +2682,7 @@
           </div>
         </div>
 
-        <p class="body-lead measure mb-md">
+        <p class="body-lead measure mb-md" style="color:#ffffff; font-family:'Montserrat', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:22px;">
           Technology challenges can be frustrating—we deliver tailored solutions and 24/7 support to reduce downtime and secure your systems.
         </p>
 
@@ -2861,7 +2841,7 @@
     
 
 
-    <section class="section-block" data-resources="insights" style="padding:clamp(80px,14vh,220px) 0; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-1, #061021) 0%, var(--surface-1, #061021) 100%) !important; min-height:92svh; display:flex; align-items:center; color:#e2e8f0; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
+    <section class="section-block" data-resources="insights" style="padding:clamp(80px,14vh,220px) 0; position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-0, #000000) 0%, var(--surface-0, #000000) 100%) !important; min-height:92svh; display:flex; align-items:center; color:#e2e8f0; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);">
       <div class="product-shell" style="text-align:left; position:relative; z-index:1;">
         <h2 class="heading-xl" style="margin:0 0 clamp(32px,4vw,44px); color:var(--ink);">Latest Insights to <span style="color:var(--brand);">Keep You Secure</span></h2>
 

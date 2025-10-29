@@ -118,4 +118,5 @@ bottomCta:
   body: 'Schedule a 15-minute Right-Fit Call to discover how to improve support and device management.'
   button: 'Schedule a Right-Fit Call'
   link: 'https://l3networks.timezest.com/sales/meeting-15'
+hideCaseStudies: true
 ---

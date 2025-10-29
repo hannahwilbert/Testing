@@ -27,11 +27,12 @@
   }
   /* Leadership hero subcopy: match other hero body size */
   .whyL3Hero .body-lead{
-    font-size: clamp(18px, 3vw, 24px);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px !important;
     line-height: 1.65;
   }
   /* Keep outer list as a single-column stack; inner layout handled per card */
-  .leadGrid{ display:grid; gap:clamp(36px,5vw,64px); grid-template-columns:1fr; }
+  .leadGrid{ display:grid; gap:clamp(64px,8vw,120px); grid-template-columns:1fr; }
   .leadCard{ position:relative; border-radius:24px; border:1px solid #1b2d46;
     background:
       radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
@@ -40,28 +41,43 @@
       linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
       linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
     box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
-    padding:clamp(28px,3.6vw,36px);
+    padding:clamp(36px,4.6vw,52px);
     /* Ensure hash navigation leaves room for the TOC chips above */
     scroll-margin-top:clamp(90px,14vh,180px);
   }
   .leadCard::after{ content:""; position:absolute; right:-18px; top:-18px; width:160px; height:160px; border-radius:24px; background:radial-gradient(closest-side, rgba(102,199,232,.18), rgba(0,0,0,0)); filter:blur(10px); opacity:.55; pointer-events:none; }
   .leadImgWrap{ border-radius:18px; overflow:hidden; border:1px solid rgba(148,163,184,.22); background:rgba(255,255,255,.04); }
   .leadImgWrap img{ display:block; width:100%; height:100%; object-fit:cover; aspect-ratio:4/4; }
-  .leadCopy{ max-width:92ch; margin:0 auto; padding-top:clamp(10px,2vh,18px); padding-bottom:clamp(12px,2vh,22px); }
-  .leadName{ margin:0 0 .9rem; font-weight:800; letter-spacing:-.015em; color:#fff; font-size:clamp(26px,3.2vw,36px); line-height:1.1; }
-  .leadRole{ display:inline-flex; align-items:center; gap:.35rem; margin:.7rem 0 1.6rem; padding:.35rem .6rem; border-radius:999px; font-weight:800; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#061021;
-    background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); box-shadow:0 8px 18px rgba(0,187,167,.28), inset 0 1px 0 rgba(255,255,255,.25); border:1px solid rgba(255,255,255,.18); }
-  /* Override pill color for Steve's card */
-  #leader-steve .leadRole{ background:#0026FF !important; color:#ffffff !important; box-shadow:0 8px 18px rgba(0,38,255,.28), inset 0 1px 0 rgba(255,255,255,.25); border:none !important; }
-  /* Override pill color for Kev's card */
-  #leader-kev .leadRole{ background:#7A3EFF !important; color:#ffffff !important; box-shadow:0 8px 18px rgba(122,62,255,.28), inset 0 1px 0 rgba(255,255,255,.25); border:none !important; }
-  /* Override pill color for James's card */
-  #leader-james .leadRole{ background:#00E083 !important; color:#061021 !important; box-shadow:0 8px 18px rgba(0,224,131,.28), inset 0 1px 0 rgba(255,255,255,.25); border:none !important; }
-  .leadBody{ margin:0; color:rgba(226,232,240,.92); line-height:1.95; font-size:clamp(16px,2.1vw,18px); hyphens:auto; overflow-wrap:anywhere; }
-  .leadBody + .leadBody{ margin-top:1.1rem; }
-  .leadCard + .leadCard{ margin-top:clamp(44px,7vh,72px); }
+  .leadCopy{ max-width:75ch; margin:0 auto; padding-top:clamp(18px,4vh,28px); padding-bottom:clamp(22px,4vh,36px); }
+  .leadName{ margin:0 0 .25rem; font-weight:800; letter-spacing:-.015em; color:#fff; font-size:clamp(26px,3.2vw,36px); line-height:1.1; }
+  /* Role as subtle subcopy under the name */
+  .leadRole{ display:block; margin:.25rem 0 1.1rem; padding:0; border-radius:0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight:600; font-size:18px !important; letter-spacing:.01em; text-transform:none; color:rgba(203,213,225,.9);
+    background:transparent; box-shadow:none; border:none; }
+  .leadBody{
+    margin:0;
+    color:rgba(226,232,240,.92);
+    line-height:1.8;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:18px !important;
+    hyphens:auto;
+    overflow-wrap:anywhere;
+  }
+  .leadBody + .leadBody{ margin-top:1.4rem; }
+  /* Add a little space before the first paragraph under the head */
+  .leadCopy .leadHead + .leadBody{ margin-top:.6rem; }
+.leadCard + .leadCard{ margin-top:clamp(72px,11vh,140px); }
+  /* Compact head with round avatar */
+  .leadHead{ display:flex; align-items:center; gap:22px; margin:0 0 24px; }
+  .leadAvatar{ width:clamp(104px, 24vw, 160px); height:clamp(104px, 24vw, 160px); border-radius:999px; overflow:hidden; flex:0 0 auto; border:4px solid #0A1628; background:#0A1628; box-shadow:0 10px 20px rgba(0,0,0,.35); }
+  .leadAvatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+  /* Nudge Kev's avatar crop up a bit */
+  #leader-kev .leadAvatar img{ object-position:center 20%; filter:saturate(.95) contrast(.97) blur(.2px); }
+  /* Slight zoom for Steve's avatar to crop in a bit */
+  #leader-steve .leadAvatar img{ transform:scale(1.20); transform-origin:center; object-position:center 12%; }
   /* Chip/links to jump between leaders */
-  .leadToc{ display:flex; flex-wrap:wrap; gap:clamp(10px,2vw,20px); justify-content:center; margin:clamp(20px,2.6vh,28px) auto clamp(36px,6vh,48px); }
+  .leadToc{ display:flex; flex-wrap:wrap; gap:clamp(14px,2.8vw,24px); justify-content:center; margin:clamp(36px,8vh,72px) auto clamp(56px,10vh,96px); }
   .leadToc a{
     display:inline-flex; align-items:center; gap:.4rem; padding:0; border-radius:0;
     font-weight:800; font-size:clamp(14px,1.6vw,18px); letter-spacing:.02em; line-height:1.15;
@@ -75,11 +91,36 @@
   }
   .leadToc a:is(:hover,:focus-visible){ color:var(--brand); text-decoration-color:var(--brand); outline:none; }
   .leadToc a.is-active{ transform:none; filter:none; color:var(--brand); text-decoration-color:var(--brand); }
+  /* Actions row + LinkedIn button */
+  .leadActions{ display:flex; align-items:center; gap:.6rem; margin-top:clamp(12px, 2vh, 16px); flex-wrap:wrap; }
+  .leadLinkedIn{
+    display:inline-flex; align-items:center; gap:.45rem; white-space:nowrap;
+    padding:.46rem .85rem; border-radius:999px;
+    background:rgba(10,102,194,.10); color:#e6edf6;
+    font-weight:600; font-size:13px; letter-spacing:.01em;
+    border:1px solid rgba(10,102,194,.28);
+    text-decoration:none; box-shadow:none;
+    transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+  }
+  .leadLinkedIn:hover, .leadLinkedIn:focus-visible{
+    background:rgba(10,102,194,.16);
+    transform:translateY(-1px);
+    box-shadow:0 10px 22px rgba(10,102,194,.22);
+    outline:2px solid rgba(10,102,194,.25); outline-offset:3px;
+  }
+  .leadLinkedIn img{ height:16px; width:16px; display:block; opacity:.98; }
   /* Show one card at a time when enhanced */
   .leadGrid[data-mode="tabbed"] .leadCard{ display:none; margin-top:0; }
   .leadGrid[data-mode="tabbed"] .leadCard.is-active{ display:block; margin-top:0; }
   /* Active chip state */
   .leadToc a.is-active{ transform:translateY(-1px); filter:brightness(1.05); }
+  /* Section container: add a bit more vertical air */
+  section[aria-label="Leadership biographies"]{
+    padding-top:clamp(48px,10vh,120px) !important;
+    padding-bottom:clamp(160px,24vh,340px) !important;
+  }
+  /* Actions row: add breathing room above buttons */
+  .leadActions{ margin-top:clamp(16px,2.4vh,22px); }
 </style>
 
 <script>
@@ -105,38 +146,68 @@
     <!-- Leader 1 -->
     <article class="leadCard" id="leader-kev">
       <div class="leadCopy">
-          <h2 class="leadName">Kev Toumaian</h2>
-          <div class="leadRole">Business Operations</div>
+          <div class="leadHead">
+            <span class="leadAvatar" aria-hidden="true">
+              <img src="/images/about/kevheadshot.png" alt="Headshot of Kev Toumaian" loading="lazy" decoding="async">
+            </span>
+            <div>
+              <h2 class="leadName">Kev Toumaian</h2>
+              <div class="leadRole">Business Operations</div>
+            </div>
+          </div>
           <p class="leadBody">Kev Toumaian is a co‑founder of L3 Networks and leads Business Operations, where he drives efficiency, innovation, and strategic execution across the organization. Known for his calm, solutions‑oriented leadership style, Kev blends operational discipline with creativity—turning ideas into systems that make technology and teams work smarter together.</p>
           <p class="leadBody" style="margin-top:.8rem">Before launching L3 Networks in 2000, Kev built a distinguished career in enterprise operations. He began at IBM, where he served as an Operations Manager from 1981 to 1987, establishing a foundation in process control and large‑scale systems management. He then joined Epson America as Vice President of Operations, overseeing North American production, logistics, and process optimization for more than a decade. His experience in both global manufacturing and corporate IT operations gave him a unique ability to connect structure with strategy, skills that would later shape L3’s approach to managed services.</p>
           <p class="leadBody" style="margin-top:.8rem">At L3 Networks, Kev’s leadership centers on clarity and continuous improvement. He plays a hands‑on role in streamlining internal workflows, implementing automation, and developing proprietary software that increases efficiency and reduces administrative overhead. His influence extends beyond operations: he is a key contributor to L3’s Elevate framework, ensuring that every engagement follows measurable, repeatable processes that drive maturity and business value.</p>
           <p class="leadBody" style="margin-top:.8rem">Kev’s colleagues often describe him as an exceptional communicator and a steady presence under pressure. He believes great operations are built on thoughtful systems, consistent execution, and people who feel empowered to improve them. His combination of strategic insight, composure, and technical depth continues to guide L3 Networks as it helps clients build stronger, more predictable technology environments.</p>
+          <div class="leadActions">
+            <a class="leadLinkedIn" href="https://www.linkedin.com/in/kevtoumaian/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Kev on LinkedIn"><img src="/images/home/LinkedIn.svg" alt=""> Connect on LinkedIn</a>
+          </div>
       </div>
     </article>
 
     <!-- Leader 2 -->
     <article class="leadCard" id="leader-steve">
       <div class="leadCopy">
-          <h2 class="leadName">Steve Griffin</h2>
-          <div class="leadRole">Technical and Service Delivery</div>
+          <div class="leadHead">
+            <span class="leadAvatar" aria-hidden="true">
+              <img src="https://media.licdn.com/dms/image/v2/D5603AQEQO4rVqHE9dw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718221142180?e=1762992000&v=beta&t=l9NLCHdBGjl9R6dB2rIUgnr3tKbLtod_evJS-sj6NPo" alt="Headshot of Steve Griffin" loading="lazy" decoding="async">
+            </span>
+            <div>
+              <h2 class="leadName">Steve Griffin</h2>
+              <div class="leadRole">Technical and Service Delivery</div>
+            </div>
+          </div>
           <p class="leadBody">Steve Griffin is the co‑founder of L3 Networks and the architect behind its technical and service delivery model. With more than twenty‑five years in the managed services industry, Steve combines deep engineering expertise with a relentless commitment to improvement. He has shaped L3’s standards for client delivery, solution architecture, and operational maturity, setting a benchmark for consistency and accountability across every engagement.</p>
           <p class="leadBody" style="margin-top:.8rem">Before founding L3 Networks, Steve spent years building and leading technical teams within another managed service provider, gaining firsthand insight into what works and what fails in complex IT environments. That experience gave him the foundation to create an MSP that would operate differently: one grounded in structure, communication, and measurable execution.</p>
           <p class="leadBody" style="margin-top:.8rem">Steve’s leadership style is defined by discipline and example. He never asks anyone to do what he wouldn’t do himself, and he brings the same level of energy to a late‑night escalation as he does to strategic planning. His dual focus on strategic oversight and hands‑on involvement ensures that technology decisions at L3 are both visionary and practical.</p>
           <p class="leadBody" style="margin-top:.8rem">Every major success at L3 Networks carries Steve’s imprint. He designed the technical framework that evolved into Elevate, the company’s model for stabilizing, optimizing, and transforming IT environments, and continues to refine it as client needs and technologies evolve. Whether he is guiding engineering teams, shaping long‑term roadmaps, or solving mission‑critical challenges in real time, Steve embodies the precision, resilience, and dedication that define L3’s reputation.</p>
           <p class="leadBody" style="margin-top:.8rem">His leadership keeps L3 Networks moving forward: steady, focused, and continually improving.</p>
+          <div class="leadActions">
+            <a class="leadLinkedIn" href="https://www.linkedin.com/in/steven-griffin/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Steve on LinkedIn"><img src="/images/home/LinkedIn.svg" alt=""> Connect on LinkedIn</a>
+          </div>
       </div>
     </article>
 
     <!-- Leader 3 -->
     <article class="leadCard" id="leader-james">
       <div class="leadCopy">
-          <h2 class="leadName">James Mason</h2>
-          <div class="leadRole">Sales &amp; Marketing</div>
+          <div class="leadHead">
+            <span class="leadAvatar" aria-hidden="true">
+              <img src="/images/about/jamesheadshot.png" alt="Headshot of James Mason" loading="lazy" decoding="async">
+            </span>
+            <div>
+              <h2 class="leadName">James Mason</h2>
+              <div class="leadRole">Sales &amp; Marketing</div>
+            </div>
+          </div>
           <p class="leadBody">James Mason brings a rare combination of technical depth and creative insight to his role in Sales &amp; Marketing at L3 Networks. With a career that spans engineering, professional services, and strategic marketing, he understands how to bridge the gap between technical complexity and business clarity.</p>
           <p class="leadBody" style="margin-top:.8rem">James began his career as a Project Engineer, where he gained a strong foundation in network infrastructure and service delivery. He went on to lead Professional Services at Matrix Communications, guiding large‑scale client deployments and learning how effective communication turns technology into results. From there, he transitioned into network sales, applying his technical expertise to help organizations design and implement solutions that drive measurable business outcomes.</p>
           <p class="leadBody" style="margin-top:.8rem">Since joining L3 Networks in 2010, James has led the company’s sales organization, overseeing enterprise and direct client engagements. He oversees brand strategy, demand generation, and ABM initiatives, ensuring that every engagement reflects L3’s structured, outcome‑driven approach. His leadership combines analytical precision with an ability to understand and articulate client challenges in clear, meaningful terms.</p>
           <p class="leadBody" style="margin-top:.8rem">James is recognized for his ability to connect technical credibility with strategic storytelling. He brings focus, empathy, and consistency to every client relationship, helping align solutions with business objectives while maintaining L3’s reputation for clarity and accountability.</p>
           <p class="leadBody" style="margin-top:.8rem">Under his guidance, L3 Networks continues to evolve its identity, modernize messaging, and align marketing with the Elevate framework, fulfilling his mission to make L3’s story as structured and impactful as the solutions it delivers.</p>
+          <div class="leadActions">
+            <a class="leadLinkedIn" href="https://www.linkedin.com/in/james-mason-a2a3575/" target="_blank" rel="noopener noreferrer" aria-label="Connect with James on LinkedIn"><img src="/images/home/LinkedIn.svg" alt=""> Connect on LinkedIn</a>
+          </div>
       </div>
     </article>
   </div>
