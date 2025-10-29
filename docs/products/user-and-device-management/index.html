@@ -221,14 +221,23 @@
     aria-label="Solutions menu"
   >
     <style>
-      /* Make the Explore Elevate button fully teal inside the header menu */
+      /* Explore Elevate button: full-width teal fill with white text (rounded-xl) */
       #mega-solutions a[data-cta="primary"]{
+        display:inline-flex; align-items:center; justify-content:center;
+        width:100%;
         background: var(--brand) !important;
-        color:#fff !important;
-        border:none;
+        color: #ffffff !important;
+        border: 2px solid var(--brand) !important;
+        border-radius: 12px; /* rounded-xl */
+        box-shadow:none;
+        padding: 1rem; /* match rounded-xl item height (p-4) */
       }
       #mega-solutions a[data-cta="primary"] img{ height:18px; filter:none; }
-      #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){ filter:brightness(1.03); }
+      #mega-solutions a[data-cta="primary"]:is(:hover,:focus-visible){
+        background: var(--brand) !important; /* keep teal fill */
+        color:#ffffff !important; /* keep white text */
+        filter:brightness(1.05);
+      }
 
       /* Animated gradient border (reused from sticky CTA) */
       @property --border-angle-1 { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
@@ -289,7 +298,7 @@
 
     <!-- Full-width Elevate CTA above grid -->
     <div class="px-4 lg:px-6 pt-4 lg:pt-6">
-      <a href="/elevate/" data-cta="primary" class="w-full justify-center rounded-full text-base">
+      <a href="/elevate/" data-cta="primary" class="w-full justify-center rounded-xl text-lg lg:text-xl font-bold p-4">
         <span>Explore Elevate</span>
         <img src="/images/icons/ArrowUpRightWhite.svg" alt="">
       </a>
