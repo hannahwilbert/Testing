@@ -2764,11 +2764,11 @@
 
     /* Match other paragraph sizes (e.g., hero highlight/body text) */
     section[data-how="elevate"] .howE__tagline{
-      margin:0;
+      margin:.6rem 0 0;
       font-size:clamp(16px, 2.4vw, 20px);
       font-weight:500; /* increased weight for better emphasis */
-      line-height:1.65;
-      color:rgba(214,224,236,.9);
+      line-height:1.4;
+      color:#ffffff;
       text-wrap:pretty;
     }
 
@@ -2816,7 +2816,8 @@
 
     section[data-how="elevate"] .howE__card--open{
       box-shadow:none;
-      border-color:rgba(20,184,166,0.55);
+      /* keep the same border color as base to avoid teal outline when opened */
+      border-color:#1B2D46;
       /* keep border width constant to eliminate height jump */
       border-width:1px;
     }
@@ -3119,7 +3120,7 @@
       border-radius:16px;
       border:1px solid #1b2d46;
       text-decoration:none;
-      color:#e2e8f0;
+      color:#ffffff;
       /* Match hero highlight card surface (teal‑tinted layered gradient) */
       background:
         radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),

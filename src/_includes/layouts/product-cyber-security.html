@@ -319,7 +319,8 @@
 
         .frameworkJourney .howE__card--open{
           box-shadow:none;
-          border-color:rgba(20,184,166,0.55);
+          /* keep the same border color as base to avoid teal outline when opened */
+          border-color:#1b2d46;
           /* keep border width constant to eliminate height jump */
           border-width:1px;
         }
@@ -335,12 +336,17 @@
             linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
         }
         .frameworkJourney .howE__card:focus-within{
-          outline:2px solid rgba(102,199,232,.45);
-          outline-offset:3px;
+          /* remove teal focus ring on card */
+          outline:none;
+          outline-offset:0;
         }
         .frameworkJourney .howE__card > div:first-child{ border-bottom:1px solid rgba(148,163,184,0.12); }
         .frameworkJourney .howE__card button{ transition:none; }
-        .frameworkJourney .howE__card button:focus-visible{ outline:2px solid rgba(20,184,166,.55); outline-offset:4px; }
+        .frameworkJourney .howE__card button:focus-visible{
+          /* neutralize teal outline on image button to avoid teal border look */
+          outline:2px solid rgba(27,45,70,0.35);
+          outline-offset:4px;
+        }
 
         @media (max-width: 720px){
           .frameworkJourney .howE__grid{ grid-template-columns:1fr; }
@@ -359,12 +365,12 @@
       <style>
         /* Match service card body copy style from Home */
         .frameworkJourney .howE__tagline{
-          margin:0;
+          margin:.6rem 0 0;
           font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
           font-size:clamp(16px, 2.4vw, 20px);
-          line-height:1.65;
+          line-height:1.4;
           font-weight:500; /* increased weight for better emphasis */
-          color:rgba(214,224,236,.9);
+          color:#ffffff;
           text-wrap:pretty;
         }
         .frameworkJourney .howE__popupText{
