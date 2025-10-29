@@ -3119,13 +3119,8 @@
       border:1px solid #1b2d46;
       text-decoration:none;
       color:#ffffff;
-      /* Match hero highlight card surface (teal‑tinted layered gradient) */
-      background:
-        radial-gradient(280px 160px at 85% 0%, rgba(102,199,232,.12), rgba(102,199,232,0) 70%),
-        linear-gradient(150deg, rgba(102,199,232,.06), rgba(102,199,232,0) 60%),
-        linear-gradient(135deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0.06) 40%),
-        linear-gradient(315deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0.04) 44%),
-        linear-gradient(210deg, rgba(2,6,23,.60) 0%, rgba(2,6,23,.66) 55%, rgba(2,6,23,.75) 100%);
+      /* Remove teal gradient overlay; use a clean solid surface */
+      background: linear-gradient(180deg, var(--surface-1, #0B1629) 0%, var(--surface-1, #0B1629) 100%);
       box-shadow:0 24px 56px rgba(8,18,35,.52), inset 0 1px 0 rgba(255,255,255,.06);
       overflow:hidden;
       isolation:isolate;
@@ -3186,24 +3181,8 @@
     section[data-services] .svcCard--split .svcCard__meta{ margin-top: 0; padding-top: clamp(6px, 1.2vw, 10px); }
     section[data-services] .svcCard--split .svcCard__media{ position:relative; border-radius:14px; overflow:hidden; min-height:160px; }
     section[data-services] .svcCard--split .svcCard__media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-    /* Teal gradient overlay across all service images */
-    section[data-services] .svcCard__media::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      /* Start at bottom-right and fade diagonally up to transparent
-         Switch to a cleaner blue tint to avoid muddiness */
-      background:
-        linear-gradient(to top left,
-          rgba(37, 99, 235, .42) 0%,   /* blue-600 */
-          rgba(59,130,246, .34) 24%,   /* blue-500 */
-          rgba(14,165,233, .22) 52%,   /* sky-500 */
-          rgba(14,165,233, .08) 78%,
-          rgba(14,165,233, 0) 92%
-        );
-      mix-blend-mode:normal; /* keep straightforward tint */
-    }
+    /* Remove gradient overlay from service images */
+    section[data-services] .svcCard__media::after{ content:none; }
 
     /* Remove gradient overlay for Cybersecurity card only */
     section[data-services] .svcCard--noTint .svcCard__media::after{ content:none; }
@@ -3345,7 +3324,7 @@
             <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
-            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+            <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
           </figure>
         </div>
       </article>
@@ -3373,7 +3352,7 @@
             <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
-            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+            <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
           </figure>
         </div>
       </article>
@@ -3401,7 +3380,7 @@
             <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
-            <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
+            <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
           </figure>
         </div>
       </article>
@@ -4082,8 +4061,8 @@
       <!-- Right: supporting image + CTA stacked -->
       <aside class="diff__aside">
         <figure class="diff__media">
-          <img src="https://t4.ftcdn.net/jpg/15/65/73/21/360_F_1565732179_iKDCmWx1xQCWlyiZLNbubrqKV6t4nzVg.jpg" alt="Why L3 Networks illustrative image" loading="lazy" />
-          <figcaption class="sr-only">Illustrative image for Why L3 Networks is Different</figcaption>
+          <img src="/images/home/whyteams.png" alt="Why Growing IT Teams Choose L3 Networks" loading="lazy" />
+          <figcaption class="sr-only">Illustrative image for Why Growing IT Teams Choose L3 Networks</figcaption>
         </figure>
         <div class="diff__ctaWrap">
           <a href="https://l3networks.timezest.com/sales/meeting-15" data-cta="primary" class="diff__cta">
@@ -4204,7 +4183,7 @@
     }
     .diff__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px,2vh,20px); align-content:start; }
     .diff__media{ margin:0; border-radius:20px; overflow:hidden; background:#0b1629; display:block; position:relative; }
-    .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; display:block; filter:saturate(1.04) contrast(1.02); }
+    .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:20% 50%; display:block; filter:saturate(1.04) contrast(1.02); transform:scale(1.36); transform-origin:20% 50%; }
     .diff__ctaWrap{ display:flex; flex-wrap:wrap; justify-content:flex-start; align-items:center; gap:14px; margin-top:clamp(12px,2vh,20px); }
     .diff__cta{
       display:inline-flex;
@@ -4242,7 +4221,7 @@
     @media (min-width: 981px){
       .diff__aside{ display:grid; grid-template-rows:auto auto; gap:clamp(12px,2vh,20px); align-content:start; }
       .diff__media{ height:auto; display:block; margin:0; width:100%; }
-      .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:50% 50%; }
+      .diff__media img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:20% 50%; }
     }
 
     /* legacy diffCard styles no longer used after accordion conversion */
