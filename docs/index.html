@@ -152,7 +152,7 @@
         <li class="px-2 lg:px-3 py-1.5">
           <button
             @click="activeAccordion = activeAccordion === 'solutions' ? null : 'solutions'"
-            class="inline-flex items-center whitespace-nowrap rounded-full px-3 py-1.5 transition-colors"
+            class="inline-flex items-center whitespace-nowrap rounded-full px-3 py-1.5 transition-colors cursor-pointer"
             :class="pastHero ? 'text-slate-100 hover:text-teal-300' : 'text-white hover:text-teal-300'"
             type="button"
             aria-expanded="false"
@@ -4254,6 +4254,7 @@
                 <span class="resultsCard__role">C Level – Exodus Recovery</span>
               </div>
             </footer>
+            <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
             <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
@@ -4281,6 +4282,7 @@
                 <span class="resultsCard__role">IT Director – DG Architects</span>
               </div>
             </footer>
+            <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
             <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
@@ -4308,6 +4310,7 @@
                 <span class="resultsCard__role">C Level – American Textile Maintenance</span>
               </div>
             </footer>
+            <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
           <figure class="resultsImage" aria-hidden="true">
             <img src="https://alumniventures.imgix.net/2022/03/shutterstock_2101931002.jpg?auto=format&fit=max&w=3840&q=40" alt="" />
@@ -4316,7 +4319,7 @@
       </article>
 
     </div>
-    <!-- radio dots hidden/omitted for now -->
+    
 
     <!-- Brands -->
     <div class="kfE__partnersBlock">
@@ -4729,7 +4732,7 @@
       margin-top:clamp(24px,3vw,32px);
       overflow:hidden;
       min-height:0; /* JS sets height to prevent layout jumps */
-      transition:height .28s ease;
+      transition:height .45s cubic-bezier(.4,0,.2,1);
     }
 
     /* Two-column layout: narrower card + wider image */
@@ -4762,7 +4765,8 @@
       position:absolute;
       left:0; right:0; top:0;
       opacity:0;
-      transition:opacity .35s ease;
+      /* Fade only, no vertical movement to avoid bounce */
+      transition:opacity .5s cubic-bezier(.4,0,.2,1);
       pointer-events:none;
       will-change:opacity;
     }
@@ -4780,12 +4784,29 @@
       .resultsCarousel .resultsSlide:not(:first-child){ display:none; }
     }
 
-    /* Keep layout steady: disable hover lift for carousel cards */
+    /* Keep layout steady: disable hover lift and animations for carousel cards */
+    .resultsCarousel .resultsCard{ transition:none; }
     .resultsCarousel .resultsCard:hover,
-    .resultsCarousel .resultsCard:focus-within{ transform:none; box-shadow:0 24px 48px rgba(8,18,35,0.45), inset 0 1px 0 rgba(255,255,255,0.08); }
+    .resultsCarousel .resultsCard:focus-within{
+      transform:none;
+      border-color:#1b2d46; /* keep base border color */
+      box-shadow:0 24px 56px rgba(8,18,35,0.52), inset 0 1px 0 rgba(255,255,255,0.06); /* keep base shadow */
+    }
 
-    .resultsDots{ display:flex; justify-content:center; align-items:center; gap:10px; padding-top:16px; margin-top:6px; }
-    .resultsDot{ width:10px; height:10px; border-radius:999px; border:1px solid rgba(148,163,184,.45); background:rgba(148,163,184,.28); transition:transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .resultsDots{ display:flex; justify-content:center; align-items:center; gap:10px; padding-top:0; margin-top:0; }
+    /* Place dots inside the testimonial card bottom, centered */
+    .resultsCard{ position:relative; }
+    .resultsCard .resultsDots{ position:absolute; left:50%; transform:translateX(-50%); bottom:12px; }
+    .resultsDot{
+      width:10px; height:10px; border-radius:999px;
+      border:1px solid rgba(148,163,184,.45); background:rgba(148,163,184,.28);
+      transition:none;
+      cursor:pointer; /* show click hand */
+      touch-action:manipulation; /* improve responsiveness on touch */
+      -webkit-tap-highlight-color: transparent; /* remove tap flash on iOS */
+    }
+    .resultsDot:focus-visible{ outline:2px solid rgba(148,163,184,.6); outline-offset:3px; }
+    @media (pointer: coarse){ .resultsDot{ width:14px; height:14px; } }
     .resultsDot.is-active{ background:linear-gradient(135deg,#66C7E8 0%, #00BBA7 100%); border-color:rgba(102,199,232,.8); box-shadow:0 0 0 3px rgba(102,199,232,.18); transform:translateY(-1px); }
 
     .resultsCard{
@@ -4918,7 +4939,7 @@
       ready(function(){
         var wrap = document.getElementById('resultsCarousel'); if (!wrap) return;
         var slides = Array.prototype.slice.call(wrap.querySelectorAll('.resultsSlide'));
-        var dotsWrap = wrap.parentElement.querySelector('.resultsDots');
+        var dotsWraps = Array.prototype.slice.call(wrap.querySelectorAll('.resultsDots'));
         var current = 0;
         var timer = null;
         var interval = 6000;
@@ -4966,27 +4987,31 @@
           setHeights();
         }
         function updateDots(){
-          if (!dotsWrap) return;
-          var dots = dotsWrap.querySelectorAll('.resultsDot');
-          for (var i=0;i<dots.length;i++){
-            var on = i === current;
-            dots[i].classList.toggle('is-active', on);
-            dots[i].setAttribute('aria-selected', on?'true':'false');
-            dots[i].setAttribute('tabindex', on?'0':'-1');
-          }
+          if (!dotsWraps.length) return;
+          dotsWraps.forEach(function(dw){
+            var dots = dw.querySelectorAll('.resultsDot');
+            for (var i=0;i<dots.length;i++){
+              var on = i === current;
+              dots[i].classList.toggle('is-active', on);
+              dots[i].setAttribute('aria-selected', on?'true':'false');
+              dots[i].setAttribute('tabindex', on?'0':'-1');
+            }
+          });
         }
-        function buildDots(){ if (!dotsWrap) return; dotsWrap.innerHTML=''; slides.forEach(function(_,i){ var b=document.createElement('button'); b.type='button'; b.className='resultsDot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Show testimonial '+(i+1)); b.addEventListener('click', function(){ pause(); setActive(i); resume(); }); dotsWrap.appendChild(b); }); }
+        function buildDots(){
+          if (!dotsWraps.length) return;
+          dotsWraps.forEach(function(dw){
+            dw.innerHTML='';
+            slides.forEach(function(_,i){ var b=document.createElement('button'); b.type='button'; b.className='resultsDot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Show testimonial '+(i+1)); b.addEventListener('click', function(){ pause(); setActive(i); resume(); }); dw.appendChild(b); });
+          });
+        }
         function next(){ setActive(current+1 >= slides.length ? 0 : current+1); }
         function pause(){ if (timer) { clearInterval(timer); timer = null; } }
         function resume(){ pause(); timer = setInterval(next, interval); }
 
         // Initialize
         setActive(0);
-        if (slides.length <= 1) {
-          // Single testimonial: no dots, no autoplay needed
-          if (dotsWrap) { dotsWrap.style.display = 'none'; dotsWrap.innerHTML=''; }
-          return;
-        }
+        if (slides.length <= 1) { dotsWraps.forEach(function(dw){ dw.style.display='none'; dw.innerHTML=''; }); return; }
         buildDots();
         wrap.setAttribute('tabindex','0');
         wrap.addEventListener('keydown', function(e){ if (e.key==='ArrowRight' || e.key==='Right'){ e.preventDefault(); pause(); next(); resume(); } else if (e.key==='ArrowLeft' || e.key==='Left'){ e.preventDefault(); pause(); setActive(current-1<0?slides.length-1:current-1); resume(); } });
