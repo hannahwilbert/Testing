@@ -2853,21 +2853,19 @@
       outline-offset:4px;
     }
 
-    /* Hover-to-reveal overlay (hover only on desktops) */
+    /* Show overlay only when card is opened; avoid hover-driven sticky state */
     section[data-how="elevate"] .howE__card .howE__overlay{
       opacity:0;
       transform:translateY(8px);
       transition:opacity .28s ease, transform .28s ease;
     }
-    section[data-how="elevate"] .howE__card:hover .howE__overlay,
     section[data-how="elevate"] .howE__card--open .howE__overlay{
       opacity:1;
       transform:translateY(0) !important;
     }
-    /* Hide the hint when overlay is shown via hover */
-    section[data-how="elevate"] .howE__card:hover .howE__hint{
-      opacity:0;
-    }
+    /* Hide the hint only when opened */
+    section[data-how="elevate"] .howE__card .howE__hint{ opacity:1; transition:opacity .28s ease; }
+    section[data-how="elevate"] .howE__card--open .howE__hint{ opacity:0; }
     /* Touch devices: always show captions (no hover available) */
     @media (pointer: coarse){
       section[data-how="elevate"] .howE__card .howE__overlay{ opacity:1; transform:translateY(0) !important; }
