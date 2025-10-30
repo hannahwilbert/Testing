@@ -10,7 +10,7 @@ heroEyebrow: 'Managed Networks'
 mainTitle: 'Optimize Your Network… <span class="text-teal-400">The Backbone of Your Business Growth</span>'
 subtitle: 'Guiding IT leaders to build networks that are reliable today and ready for tomorrow with the Elevate Framework'
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
-heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
+heroCtaLink: '/book-appointment/'
 heroImage: '/images/products/networks.png'
 heroImageAlt: 'Networks & Connectivity hero graphic'
 heroImageMaxWidth: 'clamp(420px, 50vw, 560px)'
@@ -59,7 +59,7 @@ midCta:
   title: 'Frustrated with outages or carrier headaches?'
   body: 'Schedule a Right-Fit Call to review your network maturity and explore quick wins.'
   button: 'Schedule a Right-Fit Call'
-  link: 'https://l3networks.timezest.com/sales/meeting-15'
+  link: '/book-appointment/'
   glow: true
 
 
@@ -134,6 +134,6 @@ bottomCta:
   title: 'Elevate Your Network Maturity'
   body: 'Schedule a 15-minute Right-Fit Call to identify improvements that keep your business connected.'
   button: 'Schedule a Right-Fit Call'
-  link: 'https://l3networks.timezest.com/sales/meeting-15'
+  link: '/book-appointment/'
 hideCaseStudies: true
 ---

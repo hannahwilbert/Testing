@@ -11,7 +11,7 @@ mainTitle: 'Strategic IT Leadership on Demand <span class="text-teal-400">Drive 
 subtitle: 'Providing ambitious businesses with strategic IT guidance and leadership that aligns technology with growth through Elevate.'
 heroDescription: ''
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
-heroCtaLink: 'https://l3networks.timezest.com/sales/meeting-15'
+heroCtaLink: '/book-appointment/'
 heroImage: '/images/products/professional-services.png'
 heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
 heroImageAlt: 'Professional services team collaborating on technology strategy'
@@ -51,7 +51,7 @@ midCta:
   title: 'Need independent guidance on an upcoming project?'
   body: 'Need a roadmap that aligns IT with business goals? Book a 15-minute Right-Fit Call to see how Elevate provides structure and clarity.'
   button: 'Schedule a Right-Fit Call'
-  link: 'https://l3networks.timezest.com/sales/meeting-15'
+  link: '/book-appointment/'
   glow: true
 
 proofTitle: 'Proof That Elevate Professional Services Deliver Results'
@@ -121,6 +121,6 @@ bottomCta:
   title: 'Elevate Your IT Strategy.'
   body: 'Schedule a 15-minute Right-Fit Call with one of our advisors to explore how leadership support can move you forward.'
   button: 'Schedule a Right-Fit Call'
-  link: 'https://l3networks.timezest.com/sales/meeting-15'
+  link: '/book-appointment/'
 hideCaseStudies: true
 ---
