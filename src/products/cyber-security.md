@@ -135,7 +135,7 @@ relatedContent:
 bottomCta:
   title: 'Elevate your security posture.'
   body: 'Schedule a 15-minute Right-Fit Call to see how your organization measures up on the Elevate path.'
-  button: 'Schedule a Right-Fit Call'
-  link: ''
+  button: 'Book an Appointment'
+  link: 'https://sandbox.l3networks.com/marketing/cta1.html'
 hideCaseStudies: true
 ---
