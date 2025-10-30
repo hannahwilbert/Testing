@@ -31,13 +31,13 @@
 
         {% if kitUid %}
           <script async data-uid="{{ kitUid }}" src="https://l3networks.kit.com/{{ kitUid }}/index.js"></script>
-          <p class="pt-3 text-sm text-center text-slate-400">Wanna skip the guide? <a href="/book-appointment/" class="underline hover:text-teal-500">Book an appointment</a></p>
+          <p class="pt-3 text-sm text-center text-slate-400">Wanna skip the guide? <a href="https://sandbox.l3networks.com/marketing/cta1.html" class="underline hover:text-teal-500">Book an appointment</a></p>
         {% else %}
           {% if hubspotMeetingsUrl %}
             <div class="meetings-iframe-container" data-src="{{ hubspotMeetingsUrl }}"></div>
             <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
           {% else %}
-            <a href="/book-appointment/" class="block w-full px-6 py-3 mt-4 text-center text-white transition-all bg-teal-500 rounded-full hover:bg-teal-400">Book an Appointment</a>
+            <a href="https://sandbox.l3networks.com/marketing/cta1.html" class="block w-full px-6 py-3 mt-4 text-center text-white transition-all bg-teal-500 rounded-full hover:bg-teal-400">Book an Appointment</a>
             <p class="pt-3 text-sm text-center text-slate-400">Prefer to talk later? We’ll send a quick follow‑up if you don’t pick a time.</p>
           {% endif %}
         {% endif %}

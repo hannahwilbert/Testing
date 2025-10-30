@@ -11,7 +11,7 @@ mainTitle: 'Unleash the Cloud’s Potential Without Compromising on <span class=
 subtitle: 'Enabling forward-thinking organizations to embrace the cloud with confidence while protecting critical data through Elevate’s structured approach.'
 heroDescription: ''
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
-heroCtaLink: '/book-appointment/'
+heroCtaLink: 'https://sandbox.l3networks.com/marketing/cta1.html'
 heroImage: '/images/products/cloud.png'
 heroImageAlt: 'Cloud Solutions hero graphic'
 heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
@@ -63,7 +63,7 @@ midCta:
   title: 'Worried about downtime or runaway cloud costs?'
   body: 'Schedule a Right-Fit Call and get clarity on your best next steps.'
   button: 'Schedule a Right-Fit Call'
-  link: '/book-appointment/'
+  link: 'https://sandbox.l3networks.com/marketing/cta1.html'
   glow: true
 
 proofTitle: 'Proof That Elevate Keeps Cloud Programs On Track'
@@ -137,6 +137,6 @@ bottomCta:
   title: 'Elevate Your Cloud Strategy.'
   body: 'Schedule a 15-minute Right-Fit Call to explore smarter approaches to cloud and data resilience.'
   button: 'Schedule a Right-Fit Call'
-  link: '/book-appointment/'
+  link: 'https://sandbox.l3networks.com/marketing/cta1.html'
 hideCaseStudies: true
 ---

@@ -11,7 +11,7 @@ subtitle: 'Helping IT leaders in growing organizations stabilize, optimize, and 
 heroEyebrow: 'Cybersecurity & Risk Management'
 heroDescription: ''
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
-heroCtaLink: '/book-appointment/'
+heroCtaLink: 'https://sandbox.l3networks.com/marketing/cta1.html'
 heroImage: '/images/products/cybersecurity.png'
 heroImageAlt: 'Security analyst monitoring live cyber defense dashboards'
 prodtitle: 'Move from Firefighting to Proactive Security Leadership'
@@ -66,7 +66,7 @@ midCta:
   title: 'Want a quick check on your risk exposure?'
   body: 'Book a 15-minute Right-Fit Call and get practical insights into your security gaps.'
   button: 'Book a Right-Fit Call'
-  link: '/book-appointment/'
+  link: 'https://sandbox.l3networks.com/marketing/cta1.html'
 proofTitle: 'Proof That Elevate Strengthens Security Outcomes'
 proofIntro: 'We pair measurable results with transparent reporting so you can show progress to leadership and auditors.'
 proofPoints:
@@ -136,6 +136,6 @@ bottomCta:
   title: 'Elevate your security posture.'
   body: 'Schedule a 15-minute Right-Fit Call to see how your organization measures up on the Elevate path.'
   button: 'Schedule a Right-Fit Call'
-  link: '/book-appointment/'
+  link: 'https://sandbox.l3networks.com/marketing/cta1.html'
 hideCaseStudies: true
 ---
