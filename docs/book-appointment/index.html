@@ -242,8 +242,9 @@
         </div>
       </div>
       <style>
-      .meetings-iframe-container { min-height: 640px; border-radius: 6px; overflow: hidden; }
-      .meetings-iframe-container iframe { width: 100% !important; height: 100% !important; min-height: 640px; }
+      /* Wider + no internal scrollbars: let HubSpot manage height */
+      .meetings-iframe-container { min-height: 720px; border-radius: 6px; overflow: hidden; }
+      .meetings-iframe-container iframe { width: 100% !important; }
       </style>
     </section>
     <section class="w-full md:bg-gradient-to-b bg-gradient-to-t from-black to-slate-900">
@@ -264,7 +265,7 @@
                 </div>
               </div>
             </div>
-            <div class="w-[400px]">
+            <div class="w-[480px]">
               <div class="rounded-sm">
                 <div class="meetings-iframe-container h-full" data-src="https://meetings-na2.hubspot.com/brandon-williams/right-fit-intro?embed=true&embedType=inline&hideEventTypeDetails=false&hideGdprBanner=true"></div>
                 <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>

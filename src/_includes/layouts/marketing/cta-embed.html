@@ -13,8 +13,9 @@
     </div>
   </div>
   <style>
-    .meetings-iframe-container { min-height: 640px; border-radius: 6px; overflow: hidden; }
-    .meetings-iframe-container iframe { width: 100% !important; height: 100% !important; min-height: 640px; }
+    /* Give the embed a bit more room and let HubSpot auto-size height */
+    .meetings-iframe-container { min-height: 720px; border-radius: 6px; overflow: hidden; }
+    .meetings-iframe-container iframe { width: 100% !important; }
   </style>
  </section>
 
@@ -38,7 +39,7 @@
           </div>
         </div>
 
-        <div class="w-full order-1 md:order-2 md:w-[400px]">
+        <div class="w-full order-1 md:order-2 md:w-[480px]">
           <div class="rounded-sm">
             {% if hubspotMeetingsUrl %}
               <div class="meetings-iframe-container h-full" data-src="{{ hubspotMeetingsUrl }}"></div>

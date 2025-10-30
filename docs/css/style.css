@@ -883,6 +883,9 @@
   .w-\[400px\] {
     width: 400px;
   }
+  .w-\[480px\] {
+    width: 480px;
+  }
   .w-auto {
     width: auto;
   }
@@ -4259,6 +4262,11 @@
   .md\:w-\[400px\] {
     @media (width >= 48rem) {
       width: 400px;
+    }
+  }
+  .md\:w-\[480px\] {
+    @media (width >= 48rem) {
+      width: 480px;
     }
   }
   .md\:w-\[600px\] {
