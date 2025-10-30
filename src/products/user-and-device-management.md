@@ -11,7 +11,7 @@ mainTitle: 'Empower Your People with <span class="text-teal-400">Hassle-Free IT 
 subtitle: 'Partnering with IT leaders in scaling companies to reduce support burdens and deliver seamless employee experiences as part of the Elevate journey.'
 heroDescription: ''
 heroCtaText: 'Schedule a 15-Minute Right-Fit Call'
-heroCtaLink: 'https://sandbox.l3networks.com/marketing/cta1.html'
+heroCtaLink: ''
 heroImage: '/images/products/users.png'
 heroImageAlt: 'Users & Devices hero graphic'
 heroImageMaxWidth: 'clamp(260px, 32vw, 380px)'
@@ -49,7 +49,7 @@ midCta:
   title: 'Reduce Tickets and Elevate the Employee IT Experience'
   body: 'Schedule your Right-Fit Call today.'
   button: 'Schedule a Right-Fit Call'
-  link: 'https://sandbox.l3networks.com/marketing/cta1.html'
+  link: ''
   glow: true
 
 proofTitle: 'Proof That Elevate Improves Workforce Experience'
@@ -117,6 +117,6 @@ bottomCta:
   title: 'Elevate the Employee IT Experience.'
   body: 'Schedule a 15-minute Right-Fit Call to discover how to improve support and device management.'
   button: 'Schedule a Right-Fit Call'
-  link: 'https://sandbox.l3networks.com/marketing/cta1.html'
+  link: ''
 hideCaseStudies: true
 ---
