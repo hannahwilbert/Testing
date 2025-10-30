@@ -577,12 +577,17 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
     max-width: 72ch;
     margin-top: 0 !important; /* tightened further */
   }
-  /* Expertise hero CTA — solid teal (no gradient) */
+  /* Expertise hero CTA — match sandbox button style */
   .whyL3Hero a[data-cta="primary"]{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.75rem 1.25rem; border-radius:9999px;
+    font-weight:600; font-size:clamp(16px,2vw,18px);
+    color:#fff; text-decoration:none; border:none;
     background: var(--brand) !important;
     box-shadow: 0 12px 28px rgba(0,187,167,.45);
     filter: none;
   }
+  .whyL3Hero a[data-cta="primary"] img{ height:18px; width:auto; }
   .whyL3Hero a[data-cta="primary"]:is(:hover,:focus-visible){
     filter: brightness(1.04);
     transform: translateY(-1px) scale(1.02);
@@ -960,15 +965,15 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       <!-- Engineering & Architecture -->
       <li class="kfE__missionItem">
         <figure class="kfE__missionCard" tabindex="0">
-          <img src="https://t3.ftcdn.net/jpg/07/81/42/52/360_F_781425260_Ny6VDXm77klzoat2UXM9KSpKfyIPURCF.jpg" alt="Engineering &amp; Architecture" loading="lazy" decoding="async" />
-          <figcaption class="kfE__missionCaption">Engineering &amp; Architecture</figcaption>
-          <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Engineering &amp; Architecture</h4><p>Our engineers and solution architects bring decades of combined experience across cybersecurity, cloud, and network disciplines. They design secure, high-performing environments that are scalable, compliant, and tailored to each client’s needs.</p></div></div>
+          <img src="/images/home/architecture.png" alt="Architecture &amp; Engineering" loading="lazy" decoding="async" />
+          <figcaption class="kfE__missionCaption">Architecture and Engineering</figcaption>
+          <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Architecture and Engineering</h4><p>Our engineers and solution architects bring decades of combined experience across cybersecurity, cloud, and network disciplines. They design secure, high-performing environments that are scalable, compliant, and tailored to each client’s needs.</p></div></div>
         </figure>
       </li>
       <!-- Helpdesk & Operations -->
       <li class="kfE__missionItem">
         <figure class="kfE__missionCard" tabindex="0">
-          <img src="https://media.istockphoto.com/id/1388642146/photo/call-center-workers.jpg?s=612x612&w=0&k=20&c=OQ-BhHBcXxYxK2zz4JUQXR6SJ1NucnaVjHWu8ylksNI=" alt="Helpdesk &amp; Operations" loading="lazy" decoding="async" />
+          <img src="/images/home/helpdesk.png" alt="Helpdesk &amp; Operations" loading="lazy" decoding="async" />
           <figcaption class="kfE__missionCaption">Helpdesk &amp; Operations</figcaption>
           <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Helpdesk &amp; Operations</h4><p>Our U.S.-based 24/7 helpdesk delivers rapid response and resolution through defined SLAs, structured escalation, and proactive issue prevention. We invest heavily in training, process automation, and AI-driven tools to ensure consistent quality and transparency.</p></div></div>
         </figure>
@@ -976,7 +981,7 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       <!-- Consulting & Strategic Guidance -->
       <li class="kfE__missionItem">
         <figure class="kfE__missionCard" tabindex="0">
-          <img src="https://media.istockphoto.com/id/1384411573/photo/asia-stock-trader-agent-or-sale-tax-loan-broker-advice-brief-and-point-hand-to-graph-report.jpg?s=612x612&w=0&k=20&c=WimpF5FYzcha02s4FxZIOKcomnT0G0YQQ0G0GTB7PFE=" alt="Consulting &amp; Strategic Guidance" loading="lazy" decoding="async" />
+          <img src="/images/home/clients/consulting.png" alt="Consulting &amp; Strategic Guidance" loading="lazy" decoding="async" />
           <figcaption class="kfE__missionCaption">Consulting &amp; Strategic Guidance</figcaption>
           <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Consulting &amp; Strategic Guidance</h4><p>Our consultants provide the structured leadership needed to align technology, risk, and compliance with business objectives. They guide clients through framework adoption, governance planning, and measurable maturity improvement.</p></div></div>
         </figure>
@@ -984,7 +989,7 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       <!-- Infrastructure as Code -->
       <li class="kfE__missionItem">
         <figure class="kfE__missionCard" tabindex="0">
-          <img src="https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt6889e2d770d23d1a/64f175ec5ff33202caa6367c/servers-iac-monsitj-AdobeStock.jpeg" alt="Infrastructure as Code (IaC)" loading="lazy" decoding="async" />
+          <img src="/images/home/clients/infrastructure.png" alt="Infrastructure as Code (IaC)" loading="lazy" decoding="async" />
           <figcaption class="kfE__missionCaption">Infrastructure as Code (IaC)</figcaption>
           <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Infrastructure as Code (IaC)</h4><p>Our cloud specialists build infrastructure that is codified, repeatable, and secure. Using tools such as Terraform and CloudFormation, we deliver environments that are auditable, compliant, and deployable at scale.</p></div></div>
         </figure>
@@ -992,7 +997,7 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       <!-- Reporting & Dashboards -->
       <li class="kfE__missionItem">
         <figure class="kfE__missionCard" tabindex="0">
-          <img src="https://static.vecteezy.com/system/resources/previews/003/669/905/large_2x/stock-chart-image-displayed-on-computer-screen-free-photo.jpg" alt="Reporting &amp; Dashboards" loading="lazy" decoding="async" />
+          <img src="/images/home/clients/reportingdashboards.png" alt="Reporting &amp; Dashboards" loading="lazy" decoding="async" />
           <figcaption class="kfE__missionCaption">Reporting &amp; Dashboards</figcaption>
           <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Reporting &amp; Dashboards</h4><p>Our reporting team transforms technical data into business intelligence through ClickData-powered dashboards. These provide real-time visibility into performance, risk, and progress, giving leaders confidence in every decision.</p></div></div>
         </figure>
@@ -1000,7 +1005,7 @@ is <span class="whyHeroTeal">Our Mission</span></h1>
       <!-- Compliance Expertise -->
       <li class="kfE__missionItem">
         <figure class="kfE__missionCard" tabindex="0">
-          <img src="https://www.shutterstock.com/image-photo/ai-technology-regulation-law-legal-600nw-2580143903.jpg" alt="Compliance Expertise" loading="lazy" decoding="async" />
+          <img src="/images/home/legal.png" alt="Compliance Expertise" loading="lazy" decoding="async" />
           <figcaption class="kfE__missionCaption">Compliance Expertise</figcaption>
           <div class="kfE__missionHover" aria-hidden="true"><div class="kfE__missionCopy"><h4>Compliance Expertise</h4><p>Compliance is built into every layer of our service delivery. Our dedicated professionals maintain knowledge of frameworks such as SOC 2, HIPAA, ISO 27001, NIST 800-171, and CMMC to ensure that environments we manage remain aligned with evolving regulations and client requirements.</p></div></div>
         </figure>

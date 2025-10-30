@@ -78,6 +78,24 @@
 
   <!-- Helpers / Styles -->
   <style>
+    /* Branded media treatments (duotone + grid + inner border) */
+    .brand-media{ position:relative; border-radius:20px; overflow:hidden; }
+    .brand-media img{ filter:saturate(1.03) contrast(1.02); }
+    .brand-media::after{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(2,6,23,.10), rgba(2,6,23,0)),
+        radial-gradient(100% 70% at 100% 0%, rgba(0,187,167,.18), rgba(0,187,167,0) 60%);
+      mix-blend-mode:multiply;
+    }
+    .brand-media--grid::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:
+        repeating-linear-gradient(0deg, rgba(148,163,184,.06) 0 1px, transparent 1px 22px),
+        repeating-linear-gradient(90deg, rgba(148,163,184,.05) 0 1px, transparent 1px 22px);
+      mix-blend-mode:soft-light; opacity:.9;
+    }
+    .brand-inner{ position:absolute; inset:0; border-radius:inherit; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(148,163,184,.22); }
     /* Alternating section backgrounds with top blend to previous */
     .homeBlend{ position:relative; }
     .homeBlend > .section-shell{ position:relative; z-index:1; }
@@ -3323,8 +3341,9 @@
             </footer>
             <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
-          <figure class="resultsImage" aria-hidden="true">
+          <figure class="resultsImage brand-media brand-media--grid" aria-hidden="true">
             <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
+            <span class="brand-inner" aria-hidden="true"></span>
           </figure>
         </div>
       </article>
@@ -3351,8 +3370,9 @@
             </footer>
             <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
-          <figure class="resultsImage" aria-hidden="true">
+          <figure class="resultsImage brand-media brand-media--grid" aria-hidden="true">
             <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
+            <span class="brand-inner" aria-hidden="true"></span>
           </figure>
         </div>
       </article>
@@ -3379,8 +3399,9 @@
             </footer>
             <div class="resultsDots" role="tablist" aria-label="Testimonial slides"></div>
           </div>
-          <figure class="resultsImage" aria-hidden="true">
+          <figure class="resultsImage brand-media brand-media--grid" aria-hidden="true">
             <img src="/images/home/provenresults.png" alt="Proven results collage" loading="lazy" decoding="async" />
+            <span class="brand-inner" aria-hidden="true"></span>
           </figure>
         </div>
       </article>

@@ -24,14 +24,18 @@
      
 
       <div class="col-span-6 px-8 py-12 border-2 border-blue-700 bg-black/50 rounded-xl">
-        <h1 class="mb-4 text-3xl font-extrabold tracking-tight font-inter">Eliminate Threats Before They Happen with <span class="text-blue-600">Zero Trust Security</span></h1>
-        <h2 class="mb-6 text-xl font-light">Zero Trust Security for Modern Businesses</h2>
+        <h1 class="mb-4 text-3xl font-extrabold tracking-tight font-inter">{{ mainTitle or 'Eliminate Threats Before They Happen with ' }}<span class="text-blue-600">{{ mainTitleAccent or '' }}</span></h1>
+        <h2 class="mb-6 text-xl font-light">{{ subtitle or 'Zero Trust Security for Modern Businesses' }}</h2>
 
         <img src="/images/marketing/zt-bookcover.png" alt="" class="md:hidden">
 
-        <script async data-uid="cb769622c6" src="https://l3networks.kit.com/cb769622c6/index.js"></script>
-        
-        <p class="pt-3 text-sm text-center text-slate-400">Wanna skip the guide? <a href="https://l3networks.timezest.com/sales/meeting-15" class="underline hover:text-teal-500">Book an appointment</a></p>
+        {% if kitUid %}
+          <script async data-uid="{{ kitUid }}" src="https://l3networks.kit.com/{{ kitUid }}/index.js"></script>
+          <p class="pt-3 text-sm text-center text-slate-400">Wanna skip the guide? <a href="https://l3networks.timezest.com/sales/meeting-15" class="underline hover:text-teal-500">Book an appointment</a></p>
+        {% else %}
+          <a href="https://l3networks.timezest.com/sales/meeting-15" class="block w-full px-6 py-3 mt-4 text-center text-white transition-all bg-teal-500 rounded-full hover:bg-teal-400">Book an Appointment</a>
+          <p class="pt-3 text-sm text-center text-slate-400">Prefer to talk later? We’ll send a quick follow‑up if you don’t pick a time.</p>
+        {% endif %}
 
       </div>
 
